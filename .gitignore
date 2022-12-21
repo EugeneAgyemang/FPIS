@@ -1,5 +1,5 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
+﻿# Ignore the following directories and files not part of source code
 
 /FPIS/.vs
+/FPIS/bin
+/FPIS/obj
