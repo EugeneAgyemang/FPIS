@@ -9,7 +9,7 @@ namespace FPIS
         public Login()
         {
             InitializeComponent();
-            Theme.Instance = this;
+            Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
         }
     }

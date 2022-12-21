@@ -6,12 +6,12 @@ namespace FPIS.Views
 {
     internal class Theme
     {
-        public static MaterialForm Instance { get; set; }
+        public static MaterialForm FormInstance { get; set; }
         public static ColorScheme Set(Themes preferredTheme)
         {
             MaterialSkinManager skinManager = MaterialSkinManager.Instance;
             Color childControlsColor = Color.FromArgb(33, 33, 33);
-            skinManager.AddFormToManage(Instance);
+            skinManager.AddFormToManage(FormInstance);
             switch (preferredTheme)
             {
                 case Themes.LIGHT:
@@ -24,7 +24,7 @@ namespace FPIS.Views
                     break;
             }
             skinManager.Theme = preferredTheme;
-            SetChildren(Instance, childControlsColor);
+            SetChildren(FormInstance, childControlsColor);
             return skinManager.ColorScheme;
         }
 
