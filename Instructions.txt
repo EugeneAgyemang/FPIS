@@ -1,0 +1,6 @@
+create a database named FPIS in PostgresSQL
+
+
+Tools - NuGet Package Manager - Package Manager Console
+entityframeworkcore\add-migration <<Name>>
+entityframework\update-database
