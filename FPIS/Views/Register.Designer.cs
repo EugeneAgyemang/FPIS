@@ -144,6 +144,7 @@
             this.btnRegister.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnRegister.UseAccentColor = true;
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click_1);
             // 
             // materialTextBoxConfirmedPassword
             // 

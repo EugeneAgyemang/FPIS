@@ -11,7 +11,7 @@ namespace FPIS
         bool _isDataValid = true;
 
         // 3 characters or more, no numbers and special characters
-        readonly string nameRegexPattern = "^[a-zA-Z ]{3,}$";
+        readonly string nameRegexPattern = "^[a-zA-Z]{3,}$";
         readonly string passwordRegexPattern = "^.{6,}$"; // very minimal password enforcement
 
         public Register()
@@ -188,7 +188,7 @@ namespace FPIS
             }
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnRegister_Click_1(object sender, EventArgs e)
         {
             _isDataValid = true;
 
@@ -207,7 +207,7 @@ namespace FPIS
             }
 
             RegisterUser();
-            Close();
+            // Close();
         }
     }
 }
