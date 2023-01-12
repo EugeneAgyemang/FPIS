@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -5,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace FPIS.Models
 {
@@ -30,5 +32,10 @@ namespace FPIS.Models
         public List<MaterialProcurement> MaterialProcurements { get; set; }
         public List<SampleResultDetail> SampleResultDetails { get; set; }
         public List<AnalysisRemark> AnalysisRemarks { get; set; }
+      
+      public override string ToString()
+        {
+            return $"EmployeeID: {EmpID}";
+        }
     }
 }

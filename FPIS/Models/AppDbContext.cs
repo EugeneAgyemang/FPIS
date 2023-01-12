@@ -1,21 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FPIS.Models
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
+        public DbSet<User> Users { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password=eugene");
         }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+        
+        modelBuilder.Entity<User>().HasIndex(user => user.EmpID).IsUnique();
+        
             modelBuilder.Entity<SampleDetail>()
                 .HasOne(s => s.Sample)
                 .WithMany(sd => sd.SampleDetails)
