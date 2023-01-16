@@ -42,7 +42,8 @@ namespace FPIS
             }
         }
 
-        internal LoginAuth TestAuthenticateUser(string employeeId, string password) => AuthenticateUser(employeeId, password);
+        //TODO: Delete this test code
+        public LoginAuth TestAuthenticateUser(string employeeId, string password) => AuthenticateUser(employeeId, password);
 
         private LoginAuth AuthenticateUser(string employeeId, string password)
         {
@@ -62,6 +63,7 @@ namespace FPIS
             return LoginAuth.AUTH_PASS;
         }
 
+        //TODO: Delete this test code
         public bool TestUserProvidedData(string userInput) => UserProvidedData(userInput);
 
         private bool UserProvidedData(string userInput)
