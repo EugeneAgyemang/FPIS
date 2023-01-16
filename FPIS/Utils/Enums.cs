@@ -1,7 +1,11 @@
 ﻿namespace FPIS.Utils
 {
     // NOTE: This Enums source code file can be used to store all the flags we will use in this codebase
-    internal enum LoginAuthenticationFlags
+    
+    /// <summary>
+    /// Custom enum to indicate the different states during login authentication
+    /// </summary>
+    public enum LoginAuth
     {
         /// <summary>
         /// User didn't provide a username
