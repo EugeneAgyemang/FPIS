@@ -18,10 +18,10 @@
         /// <summary>
         /// User's login credentials not found
         /// </summary>
-        AUTH_FAIL,
+        AUTHFAIL,
         /// <summary>
         /// User successfully connected to the system
         /// </summary>
-        AUTH_PASS
+        AUTHPASS
     }
 }

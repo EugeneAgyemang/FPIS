@@ -31,19 +31,16 @@ namespace FPIS
                     MaterialMessageBox.Show("Kindly provide your password", "Login Failed");
                     txtPassword.Focus();
                     break;
-                case LoginAuth.AUTH_FAIL:
+                case LoginAuth.AUTHFAIL:
                     MaterialMessageBox.Show("Invalid login credentials", "Login Failed");
                     // The called function currently only clears the password
                     ResetFields();
                     break;
-                case LoginAuth.AUTH_PASS:
+                case LoginAuth.AUTHPASS:
                     MaterialMessageBox.Show("Welcome", "Login Passed");
                     break;
             }
         }
-
-        //TODO: Delete this test code
-        public LoginAuth TestAuthenticateUser(string employeeId, string password) => AuthenticateUser(employeeId, password);
 
         private LoginAuth AuthenticateUser(string employeeId, string password)
         {
@@ -59,12 +56,9 @@ namespace FPIS
             // Search for user using their employee id and their password
             var resultSet = db.Users.Where(user => (user.EmpID == employeeId) && (user.Password == password));
             if (resultSet.Count() == 0)
-                return LoginAuth.AUTH_FAIL;
-            return LoginAuth.AUTH_PASS;
+                return LoginAuth.AUTHFAIL;
+            return LoginAuth.AUTHPASS;
         }
-
-        //TODO: Delete this test code
-        public bool TestUserProvidedData(string userInput) => UserProvidedData(userInput);
 
         private bool UserProvidedData(string userInput)
         {
