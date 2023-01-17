@@ -6,7 +6,7 @@ namespace FPIS.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password=pa$$w0rd");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password=eugene");
         }
 
 
