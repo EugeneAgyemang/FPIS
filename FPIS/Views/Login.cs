@@ -46,17 +46,23 @@ namespace FPIS
         {
             // Seperately check the username and passwords to show different error messages
             bool dataProvided = UserProvidedData(employeeId);
-            if (!(dataProvided))
+            if (!dataProvided)
+            {
                 return LoginAuth.NOUSERNAME;
+            }
             dataProvided = UserProvidedData(password);
-            if (!(dataProvided))
+            if (!dataProvided)
+            {
                 return LoginAuth.NOPASSWORD;
+            }
 
             var db = new AppDbContext();
             // Search for user using their employee id and their password
             var resultSet = db.Users.Where(user => (user.EmpID == employeeId) && (user.Password == password));
             if (resultSet.Count() == 0)
+            {
                 return LoginAuth.AUTHFAIL;
+            }
             return LoginAuth.AUTHPASS;
         }
 

@@ -10,18 +10,18 @@
         /// <summary>
         /// User didn't provide a username
         /// </summary>
-        NOUSERNAME,
+        NO_USERNAME,
         /// <summary>
         /// User didn't provide any password
         /// </summary>
-        NOPASSWORD,
+        NO_PASSWORD,
         /// <summary>
         /// User's login credentials not found
         /// </summary>
-        AUTHFAIL,
+        AUTH_FAIL,
         /// <summary>
         /// User successfully connected to the system
         /// </summary>
-        AUTHPASS
+        AUTH_PASS
     }
 }
