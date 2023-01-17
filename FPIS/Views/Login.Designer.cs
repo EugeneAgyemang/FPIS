@@ -28,107 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtEmpId = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
-            // materialTextBox1
+            // txtEmpId
             // 
-            this.materialTextBox1.AnimateReadOnly = false;
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.Hint = "Username";
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(25, 125);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.materialTextBox1.Size = new System.Drawing.Size(400, 50);
-            this.materialTextBox1.TabIndex = 0;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
+            this.txtEmpId.AnimateReadOnly = false;
+            this.txtEmpId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmpId.Depth = 0;
+            this.txtEmpId.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtEmpId.Hint = "Employee ID";
+            this.txtEmpId.LeadingIcon = null;
+            this.txtEmpId.Location = new System.Drawing.Point(25, 125);
+            this.txtEmpId.MaxLength = 50;
+            this.txtEmpId.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtEmpId.Multiline = false;
+            this.txtEmpId.Name = "txtEmpId";
+            this.txtEmpId.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtEmpId.Size = new System.Drawing.Size(400, 50);
+            this.txtEmpId.TabIndex = 0;
+            this.txtEmpId.Text = "";
+            this.txtEmpId.TrailingIcon = null;
             // 
-            // materialTextBox2
+            // txtPassword
             // 
-            this.materialTextBox2.AnimateReadOnly = false;
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox2.Hint = "Password";
-            this.materialTextBox2.LeadingIcon = null;
-            this.materialTextBox2.Location = new System.Drawing.Point(24, 214);
-            this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox2.Multiline = false;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.Password = true;
-            this.materialTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.materialTextBox2.Size = new System.Drawing.Size(401, 50);
-            this.materialTextBox2.TabIndex = 1;
-            this.materialTextBox2.Text = "";
-            this.materialTextBox2.TrailingIcon = global::FPIS.Properties.Resources.show_password;
+            this.txtPassword.AnimateReadOnly = false;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Depth = 0;
+            this.txtPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPassword.Hint = "Password";
+            this.txtPassword.LeadingIcon = null;
+            this.txtPassword.Location = new System.Drawing.Point(24, 214);
+            this.txtPassword.MaxLength = 50;
+            this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtPassword.Multiline = false;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Password = true;
+            this.txtPassword.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtPassword.Size = new System.Drawing.Size(401, 50);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.Text = "";
+            this.txtPassword.TrailingIcon = global::FPIS.Properties.Resources.show_password;
             // 
-            // materialDivider1
+            // btnLogin
             // 
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(-3, 349);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(485, 125);
-            this.materialDivider1.TabIndex = 2;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
-            // materialButton1
-            // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(193, 384);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(64, 36);
-            this.materialButton1.TabIndex = 3;
-            this.materialButton1.Text = "Login";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = true;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.materialLabel1.Location = new System.Drawing.Point(155, 295);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(140, 17);
-            this.materialLabel1.TabIndex = 5;
-            this.materialLabel1.Text = "Don\'t have an account";
+            this.btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogin.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.btnLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnLogin.Depth = 0;
+            this.btnLogin.HighEmphasis = true;
+            this.btnLogin.Icon = null;
+            this.btnLogin.Location = new System.Drawing.Point(193, 332);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnLogin.Size = new System.Drawing.Size(64, 36);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnLogin.UseAccentColor = true;
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 450);
-            this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.materialButton1);
-            this.Controls.Add(this.materialDivider1);
-            this.Controls.Add(this.materialTextBox2);
-            this.Controls.Add(this.materialTextBox1);
+            this.ClientSize = new System.Drawing.Size(450, 400);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtEmpId);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_56;
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 3);
@@ -141,10 +113,8 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialTextBox txtEmpId;
+        private MaterialSkin.Controls.MaterialTextBox txtPassword;
+        private MaterialSkin.Controls.MaterialButton btnLogin;
     }
 }

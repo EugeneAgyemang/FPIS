@@ -157,7 +157,7 @@ namespace FPIS
                 FirstName = materialTextBoxFirstName.Text,
                 LastName = materialTextBoxLastName.Text,
                 MiddleName = materialTextBoxMiddleName.Text,
-                Password = Utils.HashPassword(materialTextBoxConfirmedPassword.Text),
+                Password = Utils.Utils.HashPassword(materialTextBoxConfirmedPassword.Text),
             };
 
             try

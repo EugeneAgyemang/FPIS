@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FPIS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230112112656_OneToManyRelationships")]
-    partial class OneToManyRelationships
+    [Migration("20230116025716_AddInitialModels")]
+    partial class AddInitialModels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,39 @@ namespace FPIS.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("AnalysisProducts");
+                });
+
+            modelBuilder.Entity("FPIS.Models.AnalysisRemark", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Remark")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("SampleDetailId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SampleResultDetailId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SampleDetailId");
+
+                    b.HasIndex("SampleResultDetailId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AnalysisRemarks");
                 });
 
             modelBuilder.Entity("FPIS.Models.AnalysisWater", b =>
@@ -246,6 +279,55 @@ namespace FPIS.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("MaterialProcurements");
+                });
+
+            modelBuilder.Entity("FPIS.Models.ProcurementAttribute", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("MaterialAttributeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProcurementId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MaterialAttributeId");
+
+                    b.HasIndex("ProcurementId");
+
+                    b.ToTable("ProcurementAttributes");
+                });
+
+            modelBuilder.Entity("FPIS.Models.ProcurementParameter", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProcurementId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProductParameterId")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("Value")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProcurementId");
+
+                    b.HasIndex("ProductParameterId");
+
+                    b.ToTable("ProcurementParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.Product", b =>
@@ -456,6 +538,27 @@ namespace FPIS.Migrations
                     b.ToTable("Samples");
                 });
 
+            modelBuilder.Entity("FPIS.Models.SampleDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AnalysisItemId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SampleId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnalysisItemId");
+
+                    b.HasIndex("SampleId");
+
+                    b.ToTable("SampleDetails");
+                });
+
             modelBuilder.Entity("FPIS.Models.SampleResult", b =>
                 {
                     b.Property<Guid>("Id")
@@ -479,6 +582,56 @@ namespace FPIS.Migrations
                     b.HasIndex("SampleId");
 
                     b.ToTable("SampleResults");
+                });
+
+            modelBuilder.Entity("FPIS.Models.SampleResultDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SampleResultId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SampleResultId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SampleResultDetails");
+                });
+
+            modelBuilder.Entity("FPIS.Models.SampleResultsDetailsWithParameter", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AnalysisParameterId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SampleDetailId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SampleResultDetailId")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("Value")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnalysisParameterId");
+
+                    b.HasIndex("SampleDetailId");
+
+                    b.HasIndex("SampleResultDetailId");
+
+                    b.ToTable("SampleResultsDetailsWithParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.StockItem", b =>
@@ -536,6 +689,9 @@ namespace FPIS.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DesignationId");
+
+                    b.HasIndex("EmpID")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -617,6 +773,33 @@ namespace FPIS.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("FPIS.Models.AnalysisRemark", b =>
+                {
+                    b.HasOne("FPIS.Models.SampleDetail", "SampleDetail")
+                        .WithMany("AnalysisRemarks")
+                        .HasForeignKey("SampleDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.SampleResultDetail", "SampleResultDetail")
+                        .WithMany("AnalysisRemarks")
+                        .HasForeignKey("SampleResultDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.User", "User")
+                        .WithMany("AnalysisRemarks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SampleDetail");
+
+                    b.Navigation("SampleResultDetail");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("FPIS.Models.AnalysisWater", b =>
                 {
                     b.HasOne("FPIS.Models.AnalysisItem", "AnalysisItem")
@@ -686,6 +869,44 @@ namespace FPIS.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("FPIS.Models.ProcurementAttribute", b =>
+                {
+                    b.HasOne("FPIS.Models.MaterialAttribute", "MaterialAttribute")
+                        .WithMany("ProcurementAttributes")
+                        .HasForeignKey("MaterialAttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.MaterialProcurement", "MaterialProcurement")
+                        .WithMany("ProcurementAttributes")
+                        .HasForeignKey("ProcurementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MaterialAttribute");
+
+                    b.Navigation("MaterialProcurement");
+                });
+
+            modelBuilder.Entity("FPIS.Models.ProcurementParameter", b =>
+                {
+                    b.HasOne("FPIS.Models.MaterialProcurement", "MaterialProcurement")
+                        .WithMany("ProcurementParameters")
+                        .HasForeignKey("ProcurementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.ProductParameter", "ProductParameter")
+                        .WithMany("ProcurementParameters")
+                        .HasForeignKey("ProductParameterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MaterialProcurement");
+
+                    b.Navigation("ProductParameter");
                 });
 
             modelBuilder.Entity("FPIS.Models.ProductAnalysisParameter", b =>
@@ -762,6 +983,25 @@ namespace FPIS.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("FPIS.Models.SampleDetail", b =>
+                {
+                    b.HasOne("FPIS.Models.AnalysisItem", "AnalysisItem")
+                        .WithMany("SampleDetails")
+                        .HasForeignKey("AnalysisItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.Sample", "Sample")
+                        .WithMany("SampleDetails")
+                        .HasForeignKey("SampleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AnalysisItem");
+
+                    b.Navigation("Sample");
+                });
+
             modelBuilder.Entity("FPIS.Models.SampleResult", b =>
                 {
                     b.HasOne("FPIS.Models.Sample", "Sample")
@@ -771,6 +1011,52 @@ namespace FPIS.Migrations
                         .IsRequired();
 
                     b.Navigation("Sample");
+                });
+
+            modelBuilder.Entity("FPIS.Models.SampleResultDetail", b =>
+                {
+                    b.HasOne("FPIS.Models.SampleResult", "SampleResult")
+                        .WithMany("SampleResultDetails")
+                        .HasForeignKey("SampleResultId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.User", "User")
+                        .WithMany("SampleResultDetails")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SampleResult");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("FPIS.Models.SampleResultsDetailsWithParameter", b =>
+                {
+                    b.HasOne("FPIS.Models.AnalysisParameter", "AnalysisParameter")
+                        .WithMany("sampleResultsDetailsWithParameters")
+                        .HasForeignKey("AnalysisParameterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.SampleDetail", "SampleDetail")
+                        .WithMany("sampleResultsDetailsWithParameters")
+                        .HasForeignKey("SampleDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FPIS.Models.SampleResultDetail", "SampleResultDetail")
+                        .WithMany("sampleResultsDetailsWithParameters")
+                        .HasForeignKey("SampleResultDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AnalysisParameter");
+
+                    b.Navigation("SampleDetail");
+
+                    b.Navigation("SampleResultDetail");
                 });
 
             modelBuilder.Entity("FPIS.Models.User", b =>
@@ -808,6 +1094,8 @@ namespace FPIS.Migrations
                     b.Navigation("AnalysisProducts");
 
                     b.Navigation("AnalysisWaters");
+
+                    b.Navigation("SampleDetails");
                 });
 
             modelBuilder.Entity("FPIS.Models.AnalysisParameter", b =>
@@ -815,6 +1103,8 @@ namespace FPIS.Migrations
                     b.Navigation("ProductAnalysisParameters");
 
                     b.Navigation("WaterAnalysisParameters");
+
+                    b.Navigation("sampleResultsDetailsWithParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.Department", b =>
@@ -827,8 +1117,17 @@ namespace FPIS.Migrations
                     b.Navigation("Users");
                 });
 
+            modelBuilder.Entity("FPIS.Models.MaterialAttribute", b =>
+                {
+                    b.Navigation("ProcurementAttributes");
+                });
+
             modelBuilder.Entity("FPIS.Models.MaterialProcurement", b =>
                 {
+                    b.Navigation("ProcurementAttributes");
+
+                    b.Navigation("ProcurementParameters");
+
                     b.Navigation("Receivings");
 
                     b.Navigation("Releasings");
@@ -843,17 +1142,37 @@ namespace FPIS.Migrations
 
             modelBuilder.Entity("FPIS.Models.ProductParameter", b =>
                 {
+                    b.Navigation("ProcurementParameters");
+
                     b.Navigation("ProductAnalysisParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.Sample", b =>
                 {
+                    b.Navigation("SampleDetails");
+
                     b.Navigation("SampleResults");
+                });
+
+            modelBuilder.Entity("FPIS.Models.SampleDetail", b =>
+                {
+                    b.Navigation("AnalysisRemarks");
+
+                    b.Navigation("sampleResultsDetailsWithParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.SampleResult", b =>
                 {
                     b.Navigation("FinishedProducts");
+
+                    b.Navigation("SampleResultDetails");
+                });
+
+            modelBuilder.Entity("FPIS.Models.SampleResultDetail", b =>
+                {
+                    b.Navigation("AnalysisRemarks");
+
+                    b.Navigation("sampleResultsDetailsWithParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.StockItem", b =>
@@ -865,9 +1184,13 @@ namespace FPIS.Migrations
 
             modelBuilder.Entity("FPIS.Models.User", b =>
                 {
+                    b.Navigation("AnalysisRemarks");
+
                     b.Navigation("MaterialProcurements");
 
                     b.Navigation("ProductionDailyReports");
+
+                    b.Navigation("SampleResultDetails");
 
                     b.Navigation("Samples");
                 });
