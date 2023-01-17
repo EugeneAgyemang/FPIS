@@ -23,20 +23,20 @@ namespace FPIS
             LoginAuth authToken = AuthenticateUser(employeeId, password);
             switch (authToken)
             {
-                case LoginAuth.NOUSERNAME:
+                case LoginAuth.NO_USERNAME:
                     MaterialMessageBox.Show("Kindly provide your Employee ID", "Login Failed");
                     txtEmpId.Focus();
                     break;
-                case LoginAuth.NOPASSWORD:
+                case LoginAuth.NO_PASSWORD:
                     MaterialMessageBox.Show("Kindly provide your password", "Login Failed");
                     txtPassword.Focus();
                     break;
-                case LoginAuth.AUTHFAIL:
+                case LoginAuth.AUTH_FAIL:
                     MaterialMessageBox.Show("Invalid login credentials", "Login Failed");
                     // The called function currently only clears the password
                     ResetFields();
                     break;
-                case LoginAuth.AUTHPASS:
+                case LoginAuth.AUTH_PASS:
                     MaterialMessageBox.Show("Welcome", "Login Passed");
                     break;
             }
@@ -48,12 +48,12 @@ namespace FPIS
             bool dataProvided = UserProvidedData(employeeId);
             if (!dataProvided)
             {
-                return LoginAuth.NOUSERNAME;
+                return LoginAuth.NO_USERNAME;
             }
             dataProvided = UserProvidedData(password);
             if (!dataProvided)
             {
-                return LoginAuth.NOPASSWORD;
+                return LoginAuth.NO_PASSWORD;
             }
 
             var db = new AppDbContext();
@@ -61,9 +61,9 @@ namespace FPIS
             var resultSet = db.Users.Where(user => (user.EmpID == employeeId) && (user.Password == password));
             if (resultSet.Count() == 0)
             {
-                return LoginAuth.AUTHFAIL;
+                return LoginAuth.AUTH_FAIL;
             }
-            return LoginAuth.AUTHPASS;
+            return LoginAuth.AUTH_PASS;
         }
 
         private bool UserProvidedData(string userInput)
