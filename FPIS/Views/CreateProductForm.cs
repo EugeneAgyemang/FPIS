@@ -17,7 +17,12 @@ namespace FPIS.Views
             Theme.Set(Themes.LIGHT);
         }
 
-        private void ValidateProductName(string productName)
+        public void ClearFormFields()
+        {
+            materialTextBoxProductName.Text = "";
+        }
+
+        public void ValidateProductName(string productName)
         {
             if (productName.Length == 0)
             {
@@ -66,7 +71,7 @@ namespace FPIS.Views
 
                 dbContext.SaveChanges();
 
-                MessageBox.Show(
+                MaterialMessageBox.Show(
                     $"\"{productName}\" is successfully created.",
                     "Success",
                     MessageBoxButtons.OK,
@@ -75,7 +80,7 @@ namespace FPIS.Views
             }
             catch
             {
-                MessageBox.Show(
+                MaterialMessageBox.Show(
                     "Unable to create product. Please try again.",
                     "Error",
                     MessageBoxButtons.OK,
@@ -86,16 +91,14 @@ namespace FPIS.Views
 
         private void materialButtonCreateProduct_Click(object sender, EventArgs e)
         {
-            materialButtonCreateProduct.Enabled = false;
-            materialLabelProductNameError.Text = "";
-
             string productName = materialTextBoxProductName.Text.Trim();
+            materialLabelProductNameError.Text = "";
 
             ValidateProductName(productName);
 
             if (!_isDataValid)
             {
-                MessageBox.Show(
+                MaterialMessageBox.Show(
                     "You have some invalid inputs.",
                     "Invalid Input",
                     MessageBoxButtons.OK,
@@ -103,28 +106,42 @@ namespace FPIS.Views
                 );
 
                 materialButtonCreateProduct.Enabled = true;
+                _isDataValid = true; // reset this else it can no longer be true.
                 return;
             }
 
-            AppDbContext dbContext = new();
+            DialogResult dialogResult = MaterialMessageBox.Show(
+                $"Do you want to create \"{productName}\" as a new product?",
+                "Confirm",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
 
-            if (DoesProductExists(productName, dbContext))
+            if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show(
-                    $"\"{productName}\" already exists, please change it.",
-                    "Product Already Exists",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation
-                    );
+                materialButtonCreateProduct.Enabled = false;
 
+                AppDbContext dbContext = new();
+
+                if (DoesProductExists(productName, dbContext))
+                {
+                    MaterialMessageBox.Show(
+                        $"\"{productName}\" already exists, please change it.",
+                        "Product Already Exists",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation
+                        );
+
+                    materialButtonCreateProduct.Enabled = true;
+                    return;
+                }
+
+                CreateProduct(productName, dbContext);
+
+                dbContext.Dispose();
+                ClearFormFields();
                 materialButtonCreateProduct.Enabled = true;
-                return;
             }
-
-            CreateProduct(productName, dbContext);
-
-            dbContext.Dispose();
-            materialButtonCreateProduct.Enabled = true;
         }
     }
 }
