@@ -209,5 +209,10 @@ namespace FPIS
             RegisterUser();
             // Close();
         }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -52,7 +52,7 @@
             this.labelConfirmPassword.ForeColor = System.Drawing.Color.Red;
             this.labelConfirmPassword.Location = new System.Drawing.Point(28, 682);
             this.labelConfirmPassword.Name = "labelConfirmPassword";
-            this.labelConfirmPassword.Size = new System.Drawing.Size(0, 21);
+            this.labelConfirmPassword.Size = new System.Drawing.Size(0, 19);
             this.labelConfirmPassword.TabIndex = 34;
             // 
             // labelPassword
@@ -62,7 +62,7 @@
             this.labelPassword.ForeColor = System.Drawing.Color.Red;
             this.labelPassword.Location = new System.Drawing.Point(28, 580);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(0, 21);
+            this.labelPassword.Size = new System.Drawing.Size(0, 19);
             this.labelPassword.TabIndex = 33;
             // 
             // labelLastName
@@ -72,7 +72,7 @@
             this.labelLastName.ForeColor = System.Drawing.Color.Red;
             this.labelLastName.Location = new System.Drawing.Point(28, 463);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(0, 21);
+            this.labelLastName.Size = new System.Drawing.Size(0, 19);
             this.labelLastName.TabIndex = 32;
             // 
             // labelMiddleName
@@ -82,7 +82,7 @@
             this.labelMiddleName.ForeColor = System.Drawing.Color.Red;
             this.labelMiddleName.Location = new System.Drawing.Point(28, 355);
             this.labelMiddleName.Name = "labelMiddleName";
-            this.labelMiddleName.Size = new System.Drawing.Size(0, 21);
+            this.labelMiddleName.Size = new System.Drawing.Size(0, 19);
             this.labelMiddleName.TabIndex = 31;
             // 
             // labelFirstName
@@ -92,7 +92,7 @@
             this.labelFirstName.ForeColor = System.Drawing.Color.Red;
             this.labelFirstName.Location = new System.Drawing.Point(28, 252);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(0, 21);
+            this.labelFirstName.Size = new System.Drawing.Size(0, 19);
             this.labelFirstName.TabIndex = 30;
             // 
             // labelEmployeeId
@@ -102,7 +102,7 @@
             this.labelEmployeeId.ForeColor = System.Drawing.Color.Red;
             this.labelEmployeeId.Location = new System.Drawing.Point(28, 143);
             this.labelEmployeeId.Name = "labelEmployeeId";
-            this.labelEmployeeId.Size = new System.Drawing.Size(0, 21);
+            this.labelEmployeeId.Size = new System.Drawing.Size(0, 19);
             this.labelEmployeeId.TabIndex = 20;
             // 
             // materialTextBoxMiddleName
@@ -290,6 +290,7 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
+            this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

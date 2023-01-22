@@ -98,7 +98,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -2093,6 +2093,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "MaterialSkin.2": "2.3.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.1"
         },
         "compile": {
@@ -2333,17 +2334,17 @@
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {
-      "sha512": "4A4NFkPFoRMdry24Hjdb5/sOH3tU3hzFePTGnSg8P+VBrFp/EO8kcA4L0hBzwbXj2HGNL8I/quYyS5GVtb4EOg==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.2": {
+      "sha512": "75dDCNXzoQFM86Mk/iY7lQ+XHb2DbpAh53hbAJUlxkL3XUVoCq6rWgO4y1EX7DdyKMF61dsdEKlF4/bmpi4urA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.1",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.7.0.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -7093,19 +7094,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\OMLC\\.nuget\\packages\\": {}
+    "C:\\Users\\I.T.S. GH\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+      "projectUniqueName": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
       "projectName": "FPIS_TEST",
-      "projectPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
-      "packagesPath": "C:\\Users\\OMLC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\obj\\",
+      "projectPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+      "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
+      "outputPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\OMLC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7119,8 +7120,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj": {
-              "projectPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj"
+            "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+              "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj"
             }
           }
         }
@@ -7163,20 +7164,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.12, 6.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.12, 6.0.12]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.12, 6.0.12]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

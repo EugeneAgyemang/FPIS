@@ -14,7 +14,9 @@ namespace FPIS.Models
         {
         
         modelBuilder.Entity<User>().HasIndex(user => user.EmpID).IsUnique();
-        
+        modelBuilder.Entity<Department>().HasIndex(department => department.DepartmentName).IsUnique();
+        modelBuilder.Entity<Designation>().HasIndex(designation => designation.DesignationName).IsUnique();
+
             modelBuilder.Entity<SampleDetail>()
                 .HasOne(s => s.Sample)
                 .WithMany(sd => sd.SampleDetails)

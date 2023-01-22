@@ -9,6 +9,7 @@
       "FPIS/1.0.0": {
         "dependencies": {
           "MaterialSkin.2": "2.3.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.2",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.1",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.1"
         },
@@ -35,7 +36,7 @@
       "Microsoft.EntityFrameworkCore/7.0.1": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Abstractions": "7.0.1",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.2",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -55,7 +56,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {},
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.2": {},
       "Microsoft.EntityFrameworkCore.Design/7.0.1": {
         "dependencies": {
           "Humanizer.Core": "2.14.1",
@@ -306,12 +307,12 @@
       "path": "microsoft.entityframeworkcore.abstractions/7.0.1",
       "hashPath": "microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.1": {
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4A4NFkPFoRMdry24Hjdb5/sOH3tU3hzFePTGnSg8P+VBrFp/EO8kcA4L0hBzwbXj2HGNL8I/quYyS5GVtb4EOg==",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.1",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.1.nupkg.sha512"
+      "sha512": "sha512-75dDCNXzoQFM86Mk/iY7lQ+XHb2DbpAh53hbAJUlxkL3XUVoCq6rWgO4y1EX7DdyKMF61dsdEKlF4/bmpi4urA==",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.2",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Design/7.0.1": {
       "type": "package",
