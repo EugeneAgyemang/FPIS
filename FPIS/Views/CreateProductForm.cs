@@ -1,25 +1,32 @@
 ﻿using FPIS.Models;
-using FPIS.Views;
+using FPIS.Services;
 using MaterialSkin.Controls;
-using System.Text.RegularExpressions;
 using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
     public partial class CreateProductForm : MaterialForm
     {
-        bool _isDataValid = true;
+        public bool _isDataValid = true;
 
         public CreateProductForm()
         {
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
+
+            // set color to red in the #hexadecimal format
+            materialLabelProductNameError.ForeColor = ColorTranslator.FromHtml("#FF0000");
         }
 
         public void ClearFormFields()
         {
             materialTextBoxProductName.Text = "";
+        }
+
+        public void ClearErrorLabels()
+        {
+            materialLabelProductNameError.Text = "";
         }
 
         public void ValidateProductName(string productName)
@@ -31,68 +38,11 @@ namespace FPIS.Views
             }
         }
 
-        public static bool DoesProductExists(string productName, AppDbContext dbContext)
-        {
-            var product = dbContext.Products.FirstOrDefault(p => p.ProductName.ToLower() == productName.ToLower());
-
-            if (product != null)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private void CreateProduct(string productName, AppDbContext dbContext)
-        {
-            try
-            {
-                var analysisItem = dbContext.AnalysisItems.Add(
-                        new()
-                        {
-                            ItemType = "Product"
-                        }
-                    ).Entity;
-
-                var newProduct = dbContext.Products.Add(
-                    new()
-                    {
-                        ProductName = productName
-                    }
-                 ).Entity;
-
-                dbContext.AnalysisProducts.Add(
-                        new()
-                        {
-                            ProductId = newProduct.Id,
-                            AnalysisItemId = analysisItem.Id
-                        }
-                    );
-
-                dbContext.SaveChanges();
-
-                MaterialMessageBox.Show(
-                    $"\"{productName}\" is successfully created.",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                    );
-            }
-            catch
-            {
-                MaterialMessageBox.Show(
-                    "Unable to create product. Please try again.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                    );
-            }
-        }
-
         private void materialButtonCreateProduct_Click(object sender, EventArgs e)
         {
+
             string productName = materialTextBoxProductName.Text.Trim();
-            materialLabelProductNameError.Text = "";
+            ClearErrorLabels();
 
             ValidateProductName(productName);
 
@@ -120,27 +70,48 @@ namespace FPIS.Views
             if (dialogResult == DialogResult.Yes)
             {
                 materialButtonCreateProduct.Enabled = false;
-
                 AppDbContext dbContext = new();
 
-                if (DoesProductExists(productName, dbContext))
+                try
+                {
+                    ProductService productService = new(dbContext);
+
+                    if (productService.DoesProductExists(productName))
+                    {
+                        MaterialMessageBox.Show(
+                            $"\"{productName}\" already exists, please change it.",
+                            "Product Already Exists",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation
+                            );
+
+                        materialButtonCreateProduct.Enabled = true;
+                        return;
+                    }
+
+                    productService.CreateProduct(productName);
+                    MaterialMessageBox.Show(
+                        $"\"{productName}\" is successfully created.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                        );
+                    ClearFormFields();
+                }
+                catch
                 {
                     MaterialMessageBox.Show(
-                        $"\"{productName}\" already exists, please change it.",
-                        "Product Already Exists",
+                        "Unable to create product. Please try again.",
+                        "Error",
                         MessageBoxButtons.OK,
-                        MessageBoxIcon.Exclamation
+                        MessageBoxIcon.Error
                         );
-
-                    materialButtonCreateProduct.Enabled = true;
-                    return;
                 }
-
-                CreateProduct(productName, dbContext);
-
-                dbContext.Dispose();
-                ClearFormFields();
-                materialButtonCreateProduct.Enabled = true;
+                finally
+                {
+                    dbContext.Dispose();
+                    materialButtonCreateProduct.Enabled = true;
+                }
             }
         }
     }

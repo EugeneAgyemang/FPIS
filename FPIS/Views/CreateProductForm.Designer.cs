@@ -111,8 +111,8 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTextBox2 materialTextBoxProductName;
+        public MaterialSkin.Controls.MaterialTextBox2 materialTextBoxProductName;
         private MaterialSkin.Controls.MaterialButton materialButtonCreateProduct;
-        private MaterialSkin.Controls.MaterialLabel materialLabelProductNameError;
+        public MaterialSkin.Controls.MaterialLabel materialLabelProductNameError;
     }
 }
