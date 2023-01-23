@@ -1,5 +1,6 @@
 ﻿using FPIS.Models;
 using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,6 @@ namespace FPIS.Views
     {
         bool _isDataValid = true;
 
-        // 3 characters or more, no numbers and special characters
-        readonly string nameRegexPattern = "^[ a-zA-Z]{3,}$";
-      
-
         public AddDepartment()
         {
             InitializeComponent();
@@ -38,6 +35,10 @@ namespace FPIS.Views
 
         private void ValidateDepartmentName()
         {
+
+            // 3 characters or more, no numbers and special characters
+            string nameRegexPattern = "^[ a-zA-Z]{3,}$";
+
             string departmentName = materialTextBoxDepartmentName.Text.Trim();
 
             if (departmentName.Length == 0)
@@ -85,10 +86,10 @@ namespace FPIS.Views
             {
                 DepartmentName = materialTextBoxDepartmentName.Text, 
             };
-
+            AppDbContext dbContext = new();
             try
             {
-                AppDbContext dbContext = new();
+                
                 dbContext.Departments.Add(department);
                 dbContext.SaveChanges();
 
@@ -98,8 +99,8 @@ namespace FPIS.Views
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
-                materialTextBoxDepartmentName.Text = "";
-                dbContext.Dispose();
+                
+                
 
                 Console.WriteLine($"Create department {department}");
             }
@@ -111,6 +112,8 @@ namespace FPIS.Views
             finally
             {
                 btnAddDepartment.Enabled = true;
+                materialTextBoxDepartmentName.Text = "";
+                dbContext.Dispose();
             }
         }
 

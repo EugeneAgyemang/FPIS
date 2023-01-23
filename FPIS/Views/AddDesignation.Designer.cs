@@ -57,7 +57,6 @@
             this.materialComboBoxDepartmentName.Size = new System.Drawing.Size(397, 49);
             this.materialComboBoxDepartmentName.StartIndex = 0;
             this.materialComboBoxDepartmentName.TabIndex = 0;
-
             // 
             // materialTextBoxDesignationName
             // 
@@ -67,7 +66,7 @@
             this.materialTextBoxDesignationName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxDesignationName.Hint = "Designation";
             this.materialTextBoxDesignationName.LeadingIcon = null;
-            this.materialTextBoxDesignationName.Location = new System.Drawing.Point(24, 191);
+            this.materialTextBoxDesignationName.Location = new System.Drawing.Point(24, 209);
             this.materialTextBoxDesignationName.MaxLength = 50;
             this.materialTextBoxDesignationName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxDesignationName.Multiline = false;
@@ -85,7 +84,7 @@
             this.btnAddDesignation.Depth = 0;
             this.btnAddDesignation.HighEmphasis = true;
             this.btnAddDesignation.Icon = null;
-            this.btnAddDesignation.Location = new System.Drawing.Point(131, 296);
+            this.btnAddDesignation.Location = new System.Drawing.Point(131, 327);
             this.btnAddDesignation.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddDesignation.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddDesignation.Name = "btnAddDesignation";
@@ -101,24 +100,26 @@
             // labelDepartmentName
             // 
             this.labelDepartmentName.AutoSize = true;
-            this.labelDepartmentName.Location = new System.Drawing.Point(26, 150);
+            this.labelDepartmentName.Location = new System.Drawing.Point(26, 156);
             this.labelDepartmentName.Name = "labelDepartmentName";
-            this.labelDepartmentName.Size = new System.Drawing.Size(0, 20);
+            this.labelDepartmentName.Size = new System.Drawing.Size(162, 20);
             this.labelDepartmentName.TabIndex = 3;
+            this.labelDepartmentName.Text = "labelDepartmentName";
             // 
             // labelDesignation
             // 
             this.labelDesignation.AutoSize = true;
-            this.labelDesignation.Location = new System.Drawing.Point(24, 244);
+            this.labelDesignation.Location = new System.Drawing.Point(24, 268);
             this.labelDesignation.Name = "labelDesignation";
-            this.labelDesignation.Size = new System.Drawing.Size(0, 20);
+            this.labelDesignation.Size = new System.Drawing.Size(122, 20);
             this.labelDesignation.TabIndex = 4;
+            this.labelDesignation.Text = "labelDesignation";
             // 
             // AddDesignation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 365);
+            this.ClientSize = new System.Drawing.Size(450, 396);
             this.Controls.Add(this.labelDesignation);
             this.Controls.Add(this.labelDepartmentName);
             this.Controls.Add(this.btnAddDesignation);

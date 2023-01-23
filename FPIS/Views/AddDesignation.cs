@@ -21,13 +21,14 @@ namespace FPIS.Views
         bool _isDataValid = true;
         
 
-        // 3 characters or more, no numbers and special characters
-        readonly string nameRegexPattern = "^[ a-zA-Z]{3,}$";
+        
         public AddDesignation()
         {
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
+            labelDepartmentName.Text = "";
+            labelDesignation.Text = "";
        
         }
 
@@ -38,31 +39,12 @@ namespace FPIS.Views
 
         }
 
-        private void ValidateDepartmentName()
-        {
-            string departmentName = materialComboBoxDepartmentName.Text.Trim();
-
-            if (departmentName.Length == 0)
-            {
-                labelDepartmentName.ForeColor = System.Drawing.Color.Red;
-                labelDepartmentName.Text = "Department name is required!";
-                _isDataValid = false;
-                return;
-            }
-
-            Regex regex = new(nameRegexPattern);
-
-            if (!regex.IsMatch(departmentName))
-            {
-                labelDesignation.ForeColor = System.Drawing.Color.Red;
-                labelDesignation.Text = "Department name cannot have numbers.";
-                _isDataValid = false;
-                return;
-            }
-        }
 
         private void ValidateDesignationName()
         {
+            // 3 characters or more, no numbers and special characters
+            string nameRegexPattern = "^[ a-zA-Z]{3,}$";
+
             string designationName = materialTextBoxDesignationName.Text.Trim();
 
             if (designationName.Length == 0)
@@ -98,7 +80,6 @@ namespace FPIS.Views
 
         private void ValidateInputs()
         {
-            ValidateDepartmentName();
             ValidateDesignationName();
 
         }
@@ -132,8 +113,8 @@ namespace FPIS.Views
         {
             btnAddDesignation.Enabled = false;
             AppDbContext dbContext = new();
-            var departmentName = dbContext.Departments.Where(dpt => dpt.DepartmentName == materialComboBoxDepartmentName.Text).Single();
-            var department = dbContext.Departments.Single(dept => dept.Id == departmentName.Id);
+            var department = dbContext.Departments.Where(dpt => dpt.DepartmentName == materialComboBoxDepartmentName.Text).Single();
+            //var department = dbContext.Departments.Single(dept => dept.Id == departmentName.Id);
             
             Designation designation = new()
             {
@@ -155,9 +136,7 @@ namespace FPIS.Views
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
-                materialComboBoxDepartmentName.Text = "";
-                materialTextBoxDesignationName.Text = "";
-                dbContext.Dispose();
+                
 
                 Console.WriteLine($"Create designation {designation}");
             }
@@ -169,6 +148,9 @@ namespace FPIS.Views
             finally
             {
                 btnAddDesignation.Enabled = true;
+                //materialComboBoxDepartmentName.Text = "";
+                materialTextBoxDesignationName.Text = "";
+                dbContext.Dispose();
             }
         }
 

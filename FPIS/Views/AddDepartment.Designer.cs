@@ -41,7 +41,7 @@
             this.btnAddDepartment.Depth = 0;
             this.btnAddDepartment.HighEmphasis = true;
             this.btnAddDepartment.Icon = null;
-            this.btnAddDepartment.Location = new System.Drawing.Point(137, 187);
+            this.btnAddDepartment.Location = new System.Drawing.Point(137, 210);
             this.btnAddDepartment.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddDepartment.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddDepartment.Name = "btnAddDepartment";
@@ -75,7 +75,7 @@
             // labelDepartmentName
             // 
             this.labelDepartmentName.AutoSize = true;
-            this.labelDepartmentName.Location = new System.Drawing.Point(22, 150);
+            this.labelDepartmentName.Location = new System.Drawing.Point(22, 157);
             this.labelDepartmentName.Name = "labelDepartmentName";
             this.labelDepartmentName.Size = new System.Drawing.Size(162, 20);
             this.labelDepartmentName.TabIndex = 33;
@@ -85,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 255);
+            this.ClientSize = new System.Drawing.Size(450, 274);
             this.Controls.Add(this.labelDepartmentName);
             this.Controls.Add(this.materialTextBoxDepartmentName);
             this.Controls.Add(this.btnAddDepartment);
