@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
+    "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
   },
   "projects": {
-    "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj": {
+    "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj",
+        "projectUniqueName": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj",
         "projectName": "FPIS",
-        "projectPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj",
-        "packagesPath": "C:\\Users\\OMLC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\obj\\",
+        "projectPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj",
+        "packagesPath": "C:\\Users\\Surge\\.nuget\\packages\\",
+        "outputPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\OMLC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Surge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,24 +66,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -96,17 +78,17 @@
         }
       }
     },
-    "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
+    "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "projectUniqueName": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
         "projectName": "FPIS_TEST",
-        "projectPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
-        "packagesPath": "C:\\Users\\OMLC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\test\\FPIS_TEST\\obj\\",
+        "projectPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "packagesPath": "C:\\Users\\Surge\\.nuget\\packages\\",
+        "outputPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\OMLC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Surge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,8 +102,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj": {
-                "projectPath": "C:\\Users\\OMLC\\Documents\\Visual Studio 2022\\Projects\\FPIS\\FPIS\\FPIS.csproj"
+              "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+                "projectPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj"
               }
             }
           }
@@ -164,20 +146,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

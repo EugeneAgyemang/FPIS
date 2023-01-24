@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FPIS_TEST
-build_property.ProjectDir = C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\test\FPIS_TEST\
+build_property.ProjectDir = C:\custom-files\.work\NEW_FPIS\FPIS\test\FPIS_TEST\
