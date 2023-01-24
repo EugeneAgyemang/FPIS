@@ -15,7 +15,7 @@ namespace FPIS_TEST
         }
 
         [TestMethod]
-        public void TestTestUserProvidedData()
+        public void TestUserProvidedData()
         {
             string userInput = "";
 
