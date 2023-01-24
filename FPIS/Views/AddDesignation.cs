@@ -18,10 +18,7 @@ namespace FPIS.Views
     public partial class AddDesignation : MaterialForm
     {
 
-        bool _isDataValid = true;
-        
-
-        
+        bool _isDataValid = true;   
         public AddDesignation()
         {
             InitializeComponent();
@@ -31,15 +28,12 @@ namespace FPIS.Views
             labelDesignation.Text = "";
        
         }
-
         private void ClearErrorLabels()
         {
             labelDepartmentName.Text = "";
             labelDesignation.Text = "";
 
         }
-
-
         private void ValidateDesignationName()
         {
             // 3 characters or more, no numbers and special characters
@@ -77,13 +71,11 @@ namespace FPIS.Views
                 return;
             }
         }
-
         private void ValidateInputs()
         {
             ValidateDesignationName();
 
         }
-
         private void LoadDeparments()
         {
             try
@@ -106,15 +98,12 @@ namespace FPIS.Views
         private void AddDesignation_Load(object sender, EventArgs e)
         {
            LoadDeparments();
-        }
-
-       
+        }   
         private void CreateDesignation()
         {
             btnAddDesignation.Enabled = false;
             AppDbContext dbContext = new();
             var department = dbContext.Departments.Where(dpt => dpt.DepartmentName == materialComboBoxDepartmentName.Text).Single();
-            //var department = dbContext.Departments.Single(dept => dept.Id == departmentName.Id);
             
             Designation designation = new()
             {
@@ -123,7 +112,6 @@ namespace FPIS.Views
                 DepartmentId = department.Id,
 
             };
-
             try
             {
                 //AppDbContext dbContext = new();
@@ -136,7 +124,6 @@ namespace FPIS.Views
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
-                
 
                 Console.WriteLine($"Create designation {designation}");
             }
@@ -173,7 +160,6 @@ namespace FPIS.Views
             }
             CreateDesignation();
         }
-
       
     }
 }

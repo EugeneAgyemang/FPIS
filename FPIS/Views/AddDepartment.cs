@@ -18,7 +18,6 @@ namespace FPIS.Views
     public partial class AddDepartment : MaterialForm
     {
         bool _isDataValid = true;
-
         public AddDepartment()
         {
             InitializeComponent();
@@ -26,13 +25,11 @@ namespace FPIS.Views
             Theme.Set(Themes.LIGHT);
             labelDepartmentName.Text = "";
         }
-
         private void ClearErrorLabels()
         {
             labelDepartmentName.Text = "";
             
         }
-
         private void ValidateDepartmentName()
         {
 
@@ -71,7 +68,6 @@ namespace FPIS.Views
                 return;
             }
         }
-
         private void ValidateInputs()
         {
             ValidateDepartmentName();
@@ -100,8 +96,6 @@ namespace FPIS.Views
                     MessageBoxIcon.Information
                 );
                 
-                
-
                 Console.WriteLine($"Create department {department}");
             }
             catch (Exception ex)
@@ -116,15 +110,6 @@ namespace FPIS.Views
                 dbContext.Dispose();
             }
         }
-
-
-
-
-        private void AddDepartment_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddDepartment_Click(object sender, EventArgs e)
         {
             _isDataValid = true;

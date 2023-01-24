@@ -92,7 +92,6 @@
             this.Name = "AddDepartment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add New Department";
-            this.Load += new System.EventHandler(this.AddDepartment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
