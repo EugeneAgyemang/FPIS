@@ -42,7 +42,7 @@ namespace FPIS
             }
         }
 
-        private LoginAuth AuthenticateUser(string employeeId, string password)
+        public LoginAuth AuthenticateUser(string employeeId, string password)
         {
             // Seperately check the username and passwords to show different error messages
             bool dataProvided = UserProvidedData(employeeId);
@@ -66,14 +66,14 @@ namespace FPIS
             return LoginAuth.AUTH_PASS;
         }
 
-        private bool UserProvidedData(string userInput)
+        public bool UserProvidedData(string userInput)
         {
             string userInputTrimmed = userInput.Trim();
             // Check whether there's no content in the input field
-            bool dataProvided = (!(userInputTrimmed == string.Empty));
-            return dataProvided;
+            bool isDataProvided = (!(userInputTrimmed == string.Empty));
+            return isDataProvided;
         }
-        private void ResetFields()
+        public void ResetFields()
         {
             txtPassword.Text = string.Empty;
         }
