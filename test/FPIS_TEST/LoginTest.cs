@@ -25,17 +25,6 @@ namespace FPIS_TEST
         }
 
         [TestMethod]
-        public void TestAuthenticateUser()
-        {
-            // Awesomeness is coming here soon
-            // (Arrange)
-
-            // Act
-
-            // Assert
-        }
-
-        [TestMethod]
         public void TestResetFields()
         {
             login.txtPassword.Text = "Clear me";
