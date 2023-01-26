@@ -154,10 +154,6 @@ namespace FPIS.Views
             {
                 CreateDesignation();
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                materialTextBoxDesignationName.Text = "";
-            }
         }
 
         private void btnAddDesignation_Click(object sender, EventArgs e)

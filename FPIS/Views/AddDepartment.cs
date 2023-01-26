@@ -126,10 +126,7 @@ namespace FPIS.Views
             {
                 CreateDepartment();
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                materialTextBoxDepartmentName.Text = "";
-            }
+           
         }
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
