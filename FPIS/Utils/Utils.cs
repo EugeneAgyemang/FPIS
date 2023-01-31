@@ -1,5 +1,6 @@
 ﻿
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace FPIS.Utils;
 
@@ -37,5 +38,15 @@ public class Utils
         )
     {
         return MessageBox.Show(message, title, buttons, icon);
+    }
+
+    /// <summary>
+    /// Test if a name matches our name regular expression
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns>boolean</returns>
+    public static bool TestNameRegex(string name)
+    {
+        return new Regex("^[a-zA-Z ]{3,}$").IsMatch(name);
     }
 }

@@ -1,8 +1,6 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
-using FPIS.Utils;
 using MaterialSkin.Controls;
-using System.Diagnostics.Metrics;
 
 namespace FPIS.Views
 {
@@ -10,10 +8,16 @@ namespace FPIS.Views
     {
         private bool _isDataValid = true;
 
+        public bool IsDataValid
+        {
+            get => _isDataValid;
+            set => _isDataValid = value;
+        }
+
         public CreateWaterForm()
         {
             InitializeComponent();
-            materialLabelWaterNameError.ForeColor = System.Drawing.Color.Red;
+            materialLabelWaterNameError.ForeColor = Color.Red;
         }
         public void ClearFormFields()
         {
@@ -31,8 +35,19 @@ namespace FPIS.Views
 
             if (waterName.Length == 0)
             {
-                this._isDataValid = false;
+                IsDataValid = false;
                 materialLabelWaterNameError.Text = "Water name is required!";
+
+                return;
+            }
+
+            if (!Utils.Utils.TestNameRegex(waterName))
+            {
+                IsDataValid = false;
+                materialLabelWaterNameError.Text =
+                    "Name can be only letters (no numbers or special characters)!";
+
+                return;
             }
         }
 
@@ -44,12 +59,12 @@ namespace FPIS.Views
         private void materialButtonCreateWater_Click(object sender, EventArgs e)
         {
             string waterName = materialTextBoxWaterName.Text.Trim();
-            _isDataValid = true; // reset this, else the windows will need restart to reset it.
+            IsDataValid = true; // reset this, else the windows will need restart to reset it.
 
             ClearErrorLabels();
             ValidateInputs(); // validate all form inputs
 
-            if (!_isDataValid)
+            if (!IsDataValid)
             {
                 return;
             }
