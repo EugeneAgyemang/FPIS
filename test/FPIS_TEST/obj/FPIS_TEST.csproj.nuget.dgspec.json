@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
+    "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
   },
   "projects": {
-    "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+    "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj",
+        "projectUniqueName": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj",
         "projectName": "FPIS",
-        "projectPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj",
-        "packagesPath": "C:\\Users\\Surge\\.nuget\\packages\\",
-        "outputPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\obj\\",
+        "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj",
+        "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
+        "outputPath": "D:\\FPIS\\FPIS\\FPIS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Surge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,17 +78,17 @@
         }
       }
     },
-    "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
+    "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "projectUniqueName": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
         "projectName": "FPIS_TEST",
-        "projectPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
-        "packagesPath": "C:\\Users\\Surge\\.nuget\\packages\\",
-        "outputPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
+        "projectPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
+        "outputPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Surge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,8 +102,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj": {
-                "projectPath": "C:\\custom-files\\.work\\NEW_FPIS\\FPIS\\FPIS\\FPIS.csproj"
+              "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+                "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj"
               }
             }
           }
