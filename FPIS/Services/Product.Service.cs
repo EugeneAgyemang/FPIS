@@ -24,6 +24,24 @@ namespace FPIS.Services
         }
 
         /// <summary>
+        /// Returns a single product by the name
+        /// </summary>
+        /// <returns>Product?</returns>
+        public Product? GetProductByName(string productName)
+        {
+            return _dbContext.Products.FirstOrDefault(p => p.ProductName == productName);
+        }
+
+        /// <summary>
+        /// Returns all products
+        /// </summary>
+        /// <returns>List<Product></returns>
+        public List<Product> GetAllProducts()
+        {
+            return _dbContext.Products.ToList();
+        }
+
+        /// <summary>
         /// Checks if a product name exists already.
         /// </summary>
         /// <param name="productName"></param>

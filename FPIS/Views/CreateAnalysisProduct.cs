@@ -2,11 +2,10 @@
 using FPIS.Services;
 using FPIS.Models;
 using MaterialSkin.Controls;
-using FPIS.Utils;
 
 namespace FPIS.Views
 {
-    public partial class CreateAnalysisProduct : Form
+    public partial class CreateAnalysisProduct : MaterialForm
     {
         private readonly ProductService _productService;
         private readonly AnalysisItemService _analysisItemService;
@@ -37,6 +36,11 @@ namespace FPIS.Views
 
                 if (product == null)
                 {
+                    Utils.Utils.ShowMessageBox(
+                        $"\"{productName}\" does not exist in our database. Add it and try again.",
+                        "Product Does Not Exist",
+                        icon: MessageBoxIcon.Exclamation
+                        );
                     return;
                 }
 
@@ -51,12 +55,27 @@ namespace FPIS.Views
                     return;
                 }
 
-                _analysisItemService.CreateAnalysisProduct(product);
-                MessageBox.Show(
-                    $"\"{productName}\" is successfully added as Analysis Item",
-                    "Success", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                DialogResult dialogResult = Utils.Utils.ShowMessageBox(
+                    $"Do you want to add \"{productName}\" as a new analysis product?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
                     );
+
+                if (dialogResult != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                _analysisItemService.CreateAnalysisProduct(product);
+
+                Utils.Utils.ShowMessageBox(
+                    $"\"{productName}\" is successfully added as Analysis Item",
+                    "Success",
+                    icon: MessageBoxIcon.Information
+                    );
+
+                Close();
             }
             catch (Exception ex)
             {

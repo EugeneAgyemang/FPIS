@@ -15,6 +15,11 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Checks if the provided product is already an AnalysisProduct
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns>bool</returns>
         public bool IsProductAnalysisProduct(Product product)
         {
             AnalysisProduct? analysisProduct = _dbContext.AnalysisProducts.FirstOrDefault(

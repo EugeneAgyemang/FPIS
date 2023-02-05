@@ -31,7 +31,6 @@
             this.materialComboBoxProducts = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonAddProduct = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // materialComboBoxProducts
@@ -65,7 +64,7 @@
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(103, 19);
-            this.materialLabel1.TabIndex = 1;
+            this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Select Product";
             // 
             // materialButtonAddProduct
@@ -75,37 +74,24 @@
             this.materialButtonAddProduct.Depth = 0;
             this.materialButtonAddProduct.HighEmphasis = true;
             this.materialButtonAddProduct.Icon = null;
-            this.materialButtonAddProduct.Location = new System.Drawing.Point(159, 221);
+            this.materialButtonAddProduct.Location = new System.Drawing.Point(120, 219);
             this.materialButtonAddProduct.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonAddProduct.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonAddProduct.Name = "materialButtonAddProduct";
             this.materialButtonAddProduct.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButtonAddProduct.Size = new System.Drawing.Size(121, 36);
-            this.materialButtonAddProduct.TabIndex = 2;
-            this.materialButtonAddProduct.Text = "Add Product";
+            this.materialButtonAddProduct.Size = new System.Drawing.Size(193, 36);
+            this.materialButtonAddProduct.TabIndex = 1;
+            this.materialButtonAddProduct.Text = "Add Analysis Product";
             this.materialButtonAddProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButtonAddProduct.UseAccentColor = false;
             this.materialButtonAddProduct.UseVisualStyleBackColor = true;
             this.materialButtonAddProduct.Click += new System.EventHandler(this.materialButtonAddProduct_Click);
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(12, 23);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(208, 19);
-            this.materialLabel2.TabIndex = 3;
-            this.materialLabel2.Text = "Add Product as Analysis Item";
             // 
             // CreateAnalysisProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 319);
-            this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialButtonAddProduct);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialComboBoxProducts);
@@ -121,6 +107,5 @@
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxProducts;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialButton materialButtonAddProduct;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }
