@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 namespace FPIS.Models
 {
@@ -7,20 +6,15 @@ namespace FPIS.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string? password = ConfigurationManager.AppSettings["database_password"];
-            optionsBuilder.UseNpgsql($"Host=localhost;" +
-                $"Port=5432;" +
-                $"Database=FPIS;" +
-                $"Username=postgres;" +
-                $"Password={password?? "eugene"}");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password=eugene");
         }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            modelBuilder.Entity<User>().HasIndex(user => user.EmpID).IsUnique();
-
+        
+        modelBuilder.Entity<User>().HasIndex(user => user.EmpID).IsUnique();
+        
             modelBuilder.Entity<SampleDetail>()
                 .HasOne(s => s.Sample)
                 .WithMany(sd => sd.SampleDetails)
@@ -101,18 +95,18 @@ namespace FPIS.Models
         public DbSet<MaterialAttribute> MaterialAttributes { get; set; }
         public DbSet<StockItem> StockItems { get; set; }
         public DbSet<Designation> Designations { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<AnalysisItem> AnalysisItems { get; set; }
         public DbSet<Sample> Samples { get; set; }
         public DbSet<SampleResult> SampleResults { get; set; }
         public DbSet<AnalysisParameter> AnalysisParameters { get; set; }
-        public DbSet<ProductionDailyReport> ProductionDailyReports { get; set; }
-        public DbSet<MaterialProcurement> MaterialProcurements { get; set; }
+        public DbSet<ProductionDailyReport> ProductionDailyReports { get; set;}
+        public DbSet<MaterialProcurement> MaterialProcurements { get; set;}
         public DbSet<Receiving> Receivings { get; set; }
         public DbSet<Releasing> Releasings { get; set; }
         public DbSet<FinishedProduct> FinishedProducts { get; set; }
         public DbSet<ReceivedStock> ReceivedStocks { get; set; }
-        public DbSet<IssuedStock> IssuedStocks { get; set; }
+        public DbSet<IssuedStock> IssuedStocks { get; set;}
         public DbSet<AnalysisProduct> AnalysisProducts { get; set; }
         public DbSet<AnalysisWater> AnalysisWaters { get; set; }
         public DbSet<ProductAnalysisParameter> ProductAnalysisParameters { get; set; }

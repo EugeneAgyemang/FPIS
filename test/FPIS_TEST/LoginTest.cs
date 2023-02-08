@@ -7,34 +7,26 @@ namespace FPIS_TEST
     [TestClass]
     public class LoginTest
     {
-        Login login;
-        [TestInitialize]
-        public void InitializeTest()
+        Login obj;
+        public LoginTest()
         {
-            login = new Login();
+            obj = new Login();
+        }
+        [TestMethod]
+        public void TestTestUserProvidedData()
+        {
+            string userInput = "Kofi";
+            bool testResultIsTrue = obj.TestUserProvidedData(userInput);
+            Assert.IsTrue(testResultIsTrue);
         }
 
         [TestMethod]
-        public void TestUserProvidedData()
+        public void TestAuthenticateUser()
         {
-            string userInput = "";
-
-            bool expected = login.UserProvidedData(userInput);
-
-            Assert.AreEqual(expected, false);
-        }
-
-        [TestMethod]
-        public void TestResetFields()
-        {
-            login.txtPassword.Text = "Clear me";
-
-            login.ResetFields();
-            string expectedValue = login.txtPassword.Text;
-
-            Assert.AreEqual(expectedValue, string.Empty);
-
-
+            string employeeId = "1";
+            string password = Utils.HashPassword("savage");
+            LoginAuth authToken = obj.TestAuthenticateUser(employeeId, password);
+            Assert.AreEqual(authToken, LoginAuth.AUTH_PASS);
         }
     }
 }
