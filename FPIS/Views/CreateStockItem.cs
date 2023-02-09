@@ -19,8 +19,6 @@ namespace FPIS.Views
     {
         public bool _isDataValid = true;
 
-        // 3 characters or more, no numbers and special characters
-         string nameRegexPattern = "^[ a-zA-Z]{3,}$";
         public CreateStockItem()
         {
             InitializeComponent();
@@ -29,6 +27,7 @@ namespace FPIS.Views
 
             labelStockItemName.ForeColor = System.Drawing.Color.Red;
             labelUnitOfMeasurement.ForeColor = System.Drawing.Color.Red;
+            labelStockItemType.ForeColor = System.Drawing.Color.Red;
 
             labelStockItemName.Text = "";
             labelUnitOfMeasurement.Text = "";
@@ -38,8 +37,8 @@ namespace FPIS.Views
         public void ClearFormFields()
         {
             materialTextBoxStockItemName.Text = "";
-            materialTextBoxUnitOfMeasurement.Text = "";
-            materialComboBoxStockItemType.Text = "";
+            materialComboBoxUnitOfMeasurement.SelectedIndex = -1;
+            materialComboBoxStockItemType.SelectedIndex = -1;
         }
 
         public void ClearErrorLabels()
@@ -54,17 +53,7 @@ namespace FPIS.Views
             if (stockItemName.Length == 0)
             {
                 
-                labelStockItemName.ForeColor = System.Drawing.Color.Red;
                 labelStockItemName.Text = "Stock Item Name is required!";
-                _isDataValid = false;
-                return;
-            }
-
-            Regex regex = new(nameRegexPattern);
-
-            if (!regex.IsMatch(stockItemName))
-            {
-                labelStockItemName.Text = "Stock Item name cannot have numbers.";
                 _isDataValid = false;
                 return;
             }
@@ -78,13 +67,14 @@ namespace FPIS.Views
                 labelUnitOfMeasurement.Text = "Unit of Measurement is required!";
                 return;
             }
+        }
 
-            Regex regex = new(nameRegexPattern);
-
-            if (!regex.IsMatch(unitOfMeasurement))
+        public void ValidateItemType(string itemType)
+        {
+            if (itemType.Length == 0)
             {
-                labelUnitOfMeasurement.Text = "Unit of measurement cannot have numbers.";
                 _isDataValid = false;
+                labelStockItemType.Text = "Item Type is required!";
                 return;
             }
         }
@@ -92,13 +82,14 @@ namespace FPIS.Views
         private void btnCreateStockItem_Click(object sender, EventArgs e)
         {
             string stockItemName = materialTextBoxStockItemName.Text.Trim();
-            string unitOfMeasurement = materialTextBoxUnitOfMeasurement.Text.Trim();
+            string unitOfMeasurement = materialComboBoxUnitOfMeasurement.Text.Trim();
             string itemType = materialComboBoxStockItemType.Text.Trim();
 
             ClearErrorLabels();
 
             ValidateStockItemName(stockItemName);
             ValidateUnitOfMeasurement(unitOfMeasurement);
+            ValidateItemType(itemType);
 
             if (!_isDataValid)
             {
@@ -168,6 +159,12 @@ namespace FPIS.Views
                 }
             }
 
+        }
+
+        private void CreateStockItem_Load(object sender, EventArgs e)
+        {
+            materialComboBoxUnitOfMeasurement.SelectedIndex = -1;
+            materialComboBoxStockItemType.SelectedIndex = -1;
         }
     }
 }

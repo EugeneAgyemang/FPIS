@@ -39,7 +39,7 @@ namespace FPIS_TEST
             form.ValidateStockItemName("");
 
             Assert.IsFalse(form._isDataValid);
-            Assert.AreEqual("Name is required!", form.labelStockItemName.Text);
+            Assert.AreEqual("Stock Item Name is required!", form.labelStockItemName.Text);
         }
 
 

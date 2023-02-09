@@ -13,12 +13,12 @@ namespace FPIS_TEST.Services
         {
             var stockItems = new List<StockItem>
             {
-                new StockItem() { StockItemName = "St-000-1" },
-                new StockItem() { StockItemName = "St-000-2" }
+                new StockItem() { StockItemName = "st-000-1", Unit = "some unit", StockItemType = "some type"},
+                new StockItem() { StockItemName = "st-000-2", Unit = "some unit", StockItemType = "some type"}
             }.AsQueryable();
 
             var stockItemsMockSet = new Mock<DbSet<StockItem>>();
-            stockItemsMockSet.As<IQueryable<StockItem>>().Setup(m => m.Provider).Returns(stockItems.Provider);
+            stockItemsMockSet.As<IQueryable<StockItem>>().Setup(si => si.Provider).Returns(stockItems.Provider);
             stockItemsMockSet.As<IQueryable<StockItem>>().Setup(m => m.Expression).Returns(stockItems.Expression);
             stockItemsMockSet.As<IQueryable<StockItem>>().Setup(m => m.ElementType).Returns(stockItems.ElementType);
             stockItemsMockSet.As<IQueryable<StockItem>>().Setup(m => m.GetEnumerator()).Returns(() => stockItems.GetEnumerator());
@@ -27,7 +27,7 @@ namespace FPIS_TEST.Services
             mockContext.Setup(m => m.StockItems).Returns(stockItemsMockSet.Object);
             var service = new FPIS.Services.StockItemService(mockContext.Object);
 
-            bool result = service.DoesStockItemExists("St-000-1");
+            bool result = service.DoesStockItemExists("st-000-1");
 
             Assert.IsTrue(result);
         }
@@ -37,8 +37,8 @@ namespace FPIS_TEST.Services
         {
             var stockItems = new List<StockItem>
             {
-                new StockItem() { StockItemName = "St-000-1" },
-                new StockItem() { StockItemName = "St-000-2" }
+                new StockItem() { StockItemName = "st-000-1",Unit = "some unit", StockItemType = "some type"},
+                new StockItem() { StockItemName = "st-000-2" ,Unit = "some unit", StockItemType = "some type"}
             }.AsQueryable();
 
             var stockItemsMockSet = new Mock<DbSet<StockItem>>();
