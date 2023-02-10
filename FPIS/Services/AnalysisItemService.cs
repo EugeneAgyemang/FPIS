@@ -39,7 +39,7 @@ namespace FPIS.Services
         /// </summary>
         /// <param name="water"></param>
         /// <returns>bool</returns>
-        public bool IsWaterAnAnalysisWater(Water water)
+        public bool IsWaterAnAnalysisItem(Water water)
         {
             AnalysisWater? analysisWater = _dbContext.AnalysisWaters.FirstOrDefault(
                 analysisWater => analysisWater.WaterId == water.Id

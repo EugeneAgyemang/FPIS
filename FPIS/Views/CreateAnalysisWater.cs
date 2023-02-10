@@ -44,7 +44,7 @@ namespace FPIS.Views
                     return;
                 }
 
-                if (_analysisItemService.IsWaterAnAnalysisWater(water))
+                if (_analysisItemService.IsWaterAnAnalysisItem(water))
                 {
                     MessageBox.Show(
                         $"\"{waterName}\" is already an analysis item",

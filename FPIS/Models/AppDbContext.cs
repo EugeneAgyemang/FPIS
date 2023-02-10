@@ -108,7 +108,7 @@ namespace FPIS.Models
         public DbSet<ReceivedStock> ReceivedStocks { get; set; }
         public DbSet<IssuedStock> IssuedStocks { get; set;}
         public virtual DbSet<AnalysisProduct> AnalysisProducts { get; set; }
-        public DbSet<AnalysisWater> AnalysisWaters { get; set; }
+        public virtual DbSet<AnalysisWater> AnalysisWaters { get; set; }
         public DbSet<ProductAnalysisParameter> ProductAnalysisParameters { get; set; }
         public DbSet<WaterAnalysisParameter> WaterAnalysisParameters { get; set; }
         public DbSet<SampleDetail> SampleDetails { get; set; }
