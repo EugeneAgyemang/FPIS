@@ -113,8 +113,8 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTextBox txtEmpId;
-        private MaterialSkin.Controls.MaterialTextBox txtPassword;
+        public MaterialSkin.Controls.MaterialTextBox txtEmpId;
+        public MaterialSkin.Controls.MaterialTextBox txtPassword;
         private MaterialSkin.Controls.MaterialButton btnLogin;
     }
 }
