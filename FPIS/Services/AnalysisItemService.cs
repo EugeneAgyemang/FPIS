@@ -34,6 +34,26 @@ namespace FPIS.Services
             return true;
         }
 
+        /// <summary>
+        /// Checks if the provided water is already an AnalysisWater
+        /// </summary>
+        /// <param name="water"></param>
+        /// <returns>bool</returns>
+        public bool IsWaterAnAnalysisWater(Water water)
+        {
+            AnalysisWater? analysisWater = _dbContext.AnalysisWaters.FirstOrDefault(
+                analysisWater => analysisWater.WaterId == water.Id
+                );
+
+            if (analysisWater == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
         public AnalysisProduct CreateAnalysisProduct(Product product)
         {
             var analysisItem = _dbContext.AnalysisItems.Add(new AnalysisItem() { ItemType = "Product" }).Entity;
@@ -45,6 +65,20 @@ namespace FPIS.Services
 
             _dbContext.SaveChanges();
             return analysisProduct;
+        }
+
+
+        public AnalysisWater CreateAnalysisWater(Water water)
+        {
+            var analysisItem = _dbContext.AnalysisItems.Add(new AnalysisItem() { ItemType = "Water" }).Entity;
+            var analysisWater = _dbContext.AnalysisWaters.Add(new AnalysisWater()
+            {
+                WaterId = water.Id,
+                AnalysisItemId = analysisItem.Id
+            }).Entity;
+
+            _dbContext.SaveChanges();
+            return analysisWater;
         }
     }
 }
