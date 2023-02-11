@@ -7,7 +7,16 @@
     <Compile Update="Views\AddDesignation.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\CreateAnalysisProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateStockItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateWaterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Main.cs">

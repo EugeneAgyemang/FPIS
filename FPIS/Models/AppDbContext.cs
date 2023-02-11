@@ -99,7 +99,7 @@ namespace FPIS.Models
         public virtual DbSet<Water> Waters { get; set; }
         public DbSet<WaterParameter> WaterParameters { get; set; }
         public DbSet<MaterialAttribute> MaterialAttributes { get; set; }
-        public DbSet<StockItem> StockItems { get; set; }
+        public virtual DbSet<StockItem> StockItems { get; set; }
         public DbSet<Designation> Designations { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public DbSet<AnalysisItem> AnalysisItems { get; set; }
