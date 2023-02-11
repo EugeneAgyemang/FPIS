@@ -95,7 +95,7 @@ namespace FPIS.Models
         public DbSet<MaterialAttribute> MaterialAttributes { get; set; }
         public DbSet<StockItem> StockItems { get; set; }
         public DbSet<Designation> Designations { get; set; }
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public DbSet<AnalysisItem> AnalysisItems { get; set; }
         public DbSet<Sample> Samples { get; set; }
         public DbSet<SampleResult> SampleResults { get; set; }
