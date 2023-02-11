@@ -12,9 +12,13 @@ namespace FPIS_TEST
             
 
             form.materialTextBoxStockItemName.Text = "Some Stock Item";
+            form.materialComboBoxUnitOfMeasurement.Text = "Fake Unit";
+            form.materialComboBoxStockItemType.Text = "Some Type";
             form.ClearFormFields();
 
             Assert.AreEqual("", form.materialTextBoxStockItemName.Text);
+            Assert.AreEqual("", form.materialComboBoxUnitOfMeasurement.Text);
+            Assert.AreEqual("", form.materialComboBoxStockItemType.Text);
         }
 
         [TestMethod]
@@ -23,9 +27,13 @@ namespace FPIS_TEST
             CreateStockItem form = new();
 
             form.labelStockItemName.Text = "Error :)";
+            form.labelUnitOfMeasurement.Text = "Error :";
+            form.labelStockItemType.Text = "Error :";
             form.ClearErrorLabels();
 
             Assert.AreEqual("", form.labelStockItemName.Text);
+            Assert.AreEqual("", form.labelUnitOfMeasurement.Text);
+            Assert.AreEqual("", form.labelStockItemType.Text);
         }
 
         [TestMethod]
