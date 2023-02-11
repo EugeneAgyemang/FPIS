@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace FPIS.Models
 {
@@ -107,7 +107,7 @@ namespace FPIS.Models
         public DbSet<FinishedProduct> FinishedProducts { get; set; }
         public DbSet<ReceivedStock> ReceivedStocks { get; set; }
         public DbSet<IssuedStock> IssuedStocks { get; set;}
-        public DbSet<AnalysisProduct> AnalysisProducts { get; set; }
+        public virtual DbSet<AnalysisProduct> AnalysisProducts { get; set; }
         public DbSet<AnalysisWater> AnalysisWaters { get; set; }
         public DbSet<ProductAnalysisParameter> ProductAnalysisParameters { get; set; }
         public DbSet<WaterAnalysisParameter> WaterAnalysisParameters { get; set; }
@@ -117,10 +117,5 @@ namespace FPIS.Models
         public DbSet<AnalysisRemark> AnalysisRemarks { get; set; }
         public DbSet<ProcurementParameter> ProcurementParameters { get; set; }
         public DbSet<ProcurementAttribute> ProcurementAttributes { get; set; }
-
-
-
-
-
     }
 }
