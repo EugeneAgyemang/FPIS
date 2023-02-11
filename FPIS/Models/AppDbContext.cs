@@ -96,7 +96,7 @@ namespace FPIS.Models
         public DbSet<Department> Departments { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public DbSet<ProductParameter> ProductParameters { get; set; }
-        public DbSet<Water> Waters { get; set; }
+        public virtual DbSet<Water> Waters { get; set; }
         public DbSet<WaterParameter> WaterParameters { get; set; }
         public DbSet<MaterialAttribute> MaterialAttributes { get; set; }
         public DbSet<StockItem> StockItems { get; set; }
@@ -112,8 +112,8 @@ namespace FPIS.Models
         public DbSet<Releasing> Releasings { get; set; }
         public DbSet<FinishedProduct> FinishedProducts { get; set; }
         public DbSet<ReceivedStock> ReceivedStocks { get; set; }
-        public DbSet<IssuedStock> IssuedStocks { get; set; }
-        public DbSet<AnalysisProduct> AnalysisProducts { get; set; }
+        public DbSet<IssuedStock> IssuedStocks { get; set;}
+        public virtual DbSet<AnalysisProduct> AnalysisProducts { get; set; }
         public DbSet<AnalysisWater> AnalysisWaters { get; set; }
         public DbSet<ProductAnalysisParameter> ProductAnalysisParameters { get; set; }
         public DbSet<WaterAnalysisParameter> WaterAnalysisParameters { get; set; }
@@ -123,10 +123,5 @@ namespace FPIS.Models
         public DbSet<AnalysisRemark> AnalysisRemarks { get; set; }
         public DbSet<ProcurementParameter> ProcurementParameters { get; set; }
         public DbSet<ProcurementAttribute> ProcurementAttributes { get; set; }
-
-
-
-
-
     }
 }

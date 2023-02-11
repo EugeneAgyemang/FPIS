@@ -43,7 +43,8 @@
             this.materialTextBoxProductName.HideSelection = true;
             this.materialTextBoxProductName.Hint = "Name";
             this.materialTextBoxProductName.LeadingIcon = null;
-            this.materialTextBoxProductName.Location = new System.Drawing.Point(18, 110);
+            this.materialTextBoxProductName.Location = new System.Drawing.Point(20, 208);
+            this.materialTextBoxProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.materialTextBoxProductName.MaxLength = 32767;
             this.materialTextBoxProductName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxProductName.Name = "materialTextBoxProductName";
@@ -55,7 +56,7 @@
             this.materialTextBoxProductName.SelectionLength = 0;
             this.materialTextBoxProductName.SelectionStart = 0;
             this.materialTextBoxProductName.ShortcutsEnabled = true;
-            this.materialTextBoxProductName.Size = new System.Drawing.Size(325, 48);
+            this.materialTextBoxProductName.Size = new System.Drawing.Size(475, 48);
             this.materialTextBoxProductName.TabIndex = 0;
             this.materialTextBoxProductName.TabStop = false;
             this.materialTextBoxProductName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -69,8 +70,8 @@
             this.materialButtonCreateProduct.Depth = 0;
             this.materialButtonCreateProduct.HighEmphasis = true;
             this.materialButtonCreateProduct.Icon = null;
-            this.materialButtonCreateProduct.Location = new System.Drawing.Point(142, 202);
-            this.materialButtonCreateProduct.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonCreateProduct.Location = new System.Drawing.Point(174, 323);
+            this.materialButtonCreateProduct.Margin = new System.Windows.Forms.Padding(6, 10, 6, 10);
             this.materialButtonCreateProduct.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCreateProduct.Name = "materialButtonCreateProduct";
             this.materialButtonCreateProduct.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -88,7 +89,8 @@
             this.materialLabelProductNameError.Depth = 0;
             this.materialLabelProductNameError.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabelProductNameError.ForeColor = System.Drawing.Color.Red;
-            this.materialLabelProductNameError.Location = new System.Drawing.Point(18, 161);
+            this.materialLabelProductNameError.Location = new System.Drawing.Point(20, 277);
+            this.materialLabelProductNameError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabelProductNameError.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelProductNameError.Name = "materialLabelProductNameError";
             this.materialLabelProductNameError.Size = new System.Drawing.Size(1, 0);
@@ -96,13 +98,15 @@
             // 
             // CreateProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 267);
+            this.ClientSize = new System.Drawing.Size(513, 421);
             this.Controls.Add(this.materialLabelProductNameError);
             this.Controls.Add(this.materialButtonCreateProduct);
             this.Controls.Add(this.materialTextBoxProductName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CreateProductForm";
+            this.Padding = new System.Windows.Forms.Padding(4, 107, 4, 5);
             this.Text = "Create Product";
             this.ResumeLayout(false);
             this.PerformLayout();
