@@ -17,11 +17,11 @@ namespace FPIS_TEST
         [TestMethod]
         public void TestUserProvidedData()
         {
-            string userInput = "";
+            string userInput = "Some data";
 
             bool expected = login.UserProvidedData(userInput);
 
-            Assert.AreEqual(expected, false);
+            Assert.IsTrue(expected);
         }
 
         [TestMethod]
