@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
@@ -21,6 +21,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\CreateWaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateWaterParameter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Login.cs">
