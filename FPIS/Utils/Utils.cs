@@ -49,4 +49,19 @@ public class Utils
     {
         return new Regex("^[a-zA-Z ]{3,}$").IsMatch(name);
     }
+
+    /// <summary>
+    /// Prevent users from entering some characters. Only digits, period and backspace keys are allowed
+    /// </summary>
+    /// <param name="characterPressed">The character the user pressed</param>
+    /// <returns>A value indicating whether the key accepted is not handled by us or otherwise. In which case the caller would have to handle the character by displaying to an output stream</returns>
+    public static bool IsCharacterPressedHandled(char characterPressed)
+    {
+        bool isKeyHandled = true;
+        if (characterPressed >= '0' && characterPressed <= '9' || characterPressed == '\b' || characterPressed == '.')
+        {
+            isKeyHandled = false;
+        }
+        return isKeyHandled;
+    }
 }
