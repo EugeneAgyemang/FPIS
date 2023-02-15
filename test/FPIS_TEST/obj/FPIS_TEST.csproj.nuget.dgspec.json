@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
+    "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
   },
   "projects": {
-    "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+    "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj",
+        "projectUniqueName": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj",
         "projectName": "FPIS",
-        "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj",
+        "projectPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj",
         "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
-        "outputPath": "D:\\FPIS\\FPIS\\FPIS\\obj\\",
+        "outputPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[7.0.1, )"
             },
+            "Moq.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0.2, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.1, )"
@@ -78,14 +82,14 @@
         }
       }
     },
-    "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
+    "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "projectUniqueName": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
         "projectName": "FPIS_TEST",
-        "projectPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "projectPath": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
         "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
-        "outputPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
+        "outputPath": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -102,8 +106,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
-                "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj"
+              "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj": {
+                "projectPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj"
               }
             }
           }
@@ -129,6 +133,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
+            },
+            "Moq.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0.2, )"
             },
             "coverlet.collector": {
               "target": "Package",
