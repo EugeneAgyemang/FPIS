@@ -65,5 +65,65 @@ namespace FPIS_TEST.Services
             Assert.IsFalse(result);
         }
 
+        [TestMethod]
+        public void IsWaterAnAnalysisWater_True_Test()
+        {
+            Water fakeWater = new()
+            {
+                WaterName = "new-water-1",
+                Id = new Guid("fa235a48-c005-417b-9599-74f338d8f2b2")
+            };
+
+            var fakeAnalysisWaters = new List<AnalysisWater>
+            {
+                new AnalysisWater() { WaterId = fakeWater.Id }
+            }.AsQueryable();
+
+            var analysisWaterMockSet = new Mock<DbSet<AnalysisWater>>();
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.Provider).Returns(fakeAnalysisWaters.Provider);
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.Expression).Returns(fakeAnalysisWaters.Expression);
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.ElementType).Returns(fakeAnalysisWaters.ElementType);
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.GetEnumerator()).Returns(() => fakeAnalysisWaters.GetEnumerator());
+
+            var mockContext = new Mock<AppDbContext>();
+            mockContext.Setup(m => m.AnalysisWaters).Returns(analysisWaterMockSet.Object);
+
+            var service = new AnalysisItemService(mockContext.Object);
+
+            bool result = service.IsWaterAnAnalysisItem(fakeWater);
+
+            Assert.IsTrue(result);
+        }
+
+
+        [TestMethod]
+        public void IsWaterAnAnalysisWater_False_Test()
+        {
+            Water fakeWater = new()
+            {
+                WaterName = "new-water-1",
+                Id = new Guid("fa235a48-c005-417b-9599-74f338d8f2b2")
+            };
+
+            var fakeAnalysisWaters = new List<AnalysisWater>
+            {
+                new AnalysisWater() { }
+            }.AsQueryable();
+
+            var analysisWaterMockSet = new Mock<DbSet<AnalysisWater>>();
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.Provider).Returns(fakeAnalysisWaters.Provider);
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.Expression).Returns(fakeAnalysisWaters.Expression);
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.ElementType).Returns(fakeAnalysisWaters.ElementType);
+            analysisWaterMockSet.As<IQueryable<AnalysisWater>>().Setup(m => m.GetEnumerator()).Returns(() => fakeAnalysisWaters.GetEnumerator());
+
+            var mockContext = new Mock<AppDbContext>();
+            mockContext.Setup(m => m.AnalysisWaters).Returns(analysisWaterMockSet.Object);
+
+            var service = new AnalysisItemService(mockContext.Object);
+
+            bool result = service.IsWaterAnAnalysisItem(fakeWater);
+
+            Assert.IsFalse(result);
+        }
     }
 }
