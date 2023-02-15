@@ -1,5 +1,4 @@
-﻿using FPIS.Contracts;
-using FPIS.Models;
+﻿using FPIS.Models;
 using FPIS.Utils;
 using MaterialSkin.Controls;
 using System;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FPIS.Services
 {
-    public class LoginService : ILogin
+    public class LoginService
     {
         AppDbContext appDbContext;
         public LoginService(AppDbContext appDbContext)
