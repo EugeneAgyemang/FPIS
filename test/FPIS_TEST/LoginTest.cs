@@ -2,12 +2,14 @@
 using FPIS.Models;
 using FPIS.Utils;
 
+
 namespace FPIS_TEST
 {
     [TestClass]
     public class LoginTest
     {
         Login login;
+
         [TestInitialize]
         public void InitializeTest()
         {
@@ -33,8 +35,7 @@ namespace FPIS_TEST
             string expectedValue = login.txtPassword.Text;
 
             Assert.AreEqual(expectedValue, string.Empty);
-
-
         }
     }
 }
+

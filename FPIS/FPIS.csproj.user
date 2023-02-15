@@ -1,8 +1,41 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\AddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AddDesignation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateAnalysisProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateProductParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateStockItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateWaterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateWaterParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -40,9 +40,28 @@ namespace FPIS.Services
         }
 
         /// <summary>
+        /// Returns a single water by the name
+        /// </summary>
+        /// <returns>Water?</returns>
+        public Water? GetWaterByName(string waterName)
+        {
+            return _dbContext.Waters.FirstOrDefault(w => w.WaterName == waterName);
+        }
+
+        /// <summary>
+        /// Returns all waters
+        /// </summary>
+        /// <returns>List<Water></returns>
+        public List<Water> GetAllWater()
+        {
+            return _dbContext.Waters.ToList();
+        }
+
+        /// <summary>
         /// Creates a new `Water` with the provided name
         /// </summary>
         /// <param name="name"></param>
+        /// <returns>Water</returns>
         public Water CreateWater(string name)
         {
             var water = _dbContext.Waters.Add(
