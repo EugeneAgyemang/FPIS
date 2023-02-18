@@ -15,12 +15,12 @@ namespace FPIS.Views
             switch (preferredTheme)
             {
                 case Themes.LIGHT:
-                    skinManager.ColorScheme = new ColorScheme(Primary.DeepPurple900, Primary.DeepPurple900, Primary.DeepPurple900, Accent.DeepPurple700, TextShade.WHITE);
-                    childControlsColor = Color.FromArgb(49, 27, 146);
+                    skinManager.ColorScheme = new ColorScheme(Color.FromArgb(63, 97, 46), Color.FromArgb(63, 97, 46), Color.FromArgb(63, 97, 46), Color.FromArgb(63, 97, 46), TextShade.WHITE);
+                    childControlsColor = Color.FromArgb(63, 97, 46);
                     break;
                 case Themes.DARK:
-                    skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey900, Primary.BlueGrey900, Primary.BlueGrey900, Accent.Green700, TextShade.WHITE);
-                    childControlsColor = Color.FromArgb(38, 50, 56);
+                    skinManager.ColorScheme = new ColorScheme(Color.FromArgb(0, 125, 197), Color.FromArgb(0, 125, 197), Color.FromArgb(0, 125, 197), Color.FromArgb(0, 125, 197), TextShade.WHITE);
+                    childControlsColor = Color.FromArgb(0, 125, 197);
                     break;
             }
             skinManager.Theme = preferredTheme;
