@@ -41,6 +41,7 @@
             this.materialTextBoxLastName = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBoxFirstName = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBoxEmployeeId = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialComboBoxDesignation = new MaterialSkin.Controls.MaterialComboBox();
             this.SuspendLayout();
             // 
             // labelConfirmPassword
@@ -48,7 +49,7 @@
             this.labelConfirmPassword.AutoSize = true;
             this.labelConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelConfirmPassword.ForeColor = System.Drawing.Color.Red;
-            this.labelConfirmPassword.Location = new System.Drawing.Point(28, 623);
+            this.labelConfirmPassword.Location = new System.Drawing.Point(28, 508);
             this.labelConfirmPassword.Name = "labelConfirmPassword";
             this.labelConfirmPassword.Size = new System.Drawing.Size(0, 13);
             this.labelConfirmPassword.TabIndex = 34;
@@ -58,7 +59,7 @@
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelPassword.ForeColor = System.Drawing.Color.Red;
-            this.labelPassword.Location = new System.Drawing.Point(28, 534);
+            this.labelPassword.Location = new System.Drawing.Point(27, 442);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(0, 13);
             this.labelPassword.TabIndex = 33;
@@ -68,7 +69,7 @@
             this.labelLastName.AutoSize = true;
             this.labelLastName.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelLastName.ForeColor = System.Drawing.Color.Red;
-            this.labelLastName.Location = new System.Drawing.Point(28, 445);
+            this.labelLastName.Location = new System.Drawing.Point(28, 376);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(0, 13);
             this.labelLastName.TabIndex = 32;
@@ -78,7 +79,7 @@
             this.labelMiddleName.AutoSize = true;
             this.labelMiddleName.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelMiddleName.ForeColor = System.Drawing.Color.Red;
-            this.labelMiddleName.Location = new System.Drawing.Point(28, 355);
+            this.labelMiddleName.Location = new System.Drawing.Point(27, 307);
             this.labelMiddleName.Name = "labelMiddleName";
             this.labelMiddleName.Size = new System.Drawing.Size(0, 13);
             this.labelMiddleName.TabIndex = 31;
@@ -88,7 +89,7 @@
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelFirstName.ForeColor = System.Drawing.Color.Red;
-            this.labelFirstName.Location = new System.Drawing.Point(28, 267);
+            this.labelFirstName.Location = new System.Drawing.Point(28, 244);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(0, 13);
             this.labelFirstName.TabIndex = 30;
@@ -111,7 +112,7 @@
             this.materialTextBoxMiddleName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxMiddleName.Hint = "Middle Name (Optional)";
             this.materialTextBoxMiddleName.LeadingIcon = null;
-            this.materialTextBoxMiddleName.Location = new System.Drawing.Point(27, 303);
+            this.materialTextBoxMiddleName.Location = new System.Drawing.Point(28, 257);
             this.materialTextBoxMiddleName.MaxLength = 50;
             this.materialTextBoxMiddleName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxMiddleName.Multiline = false;
@@ -132,7 +133,7 @@
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRegister.HighEmphasis = true;
             this.btnRegister.Icon = null;
-            this.btnRegister.Location = new System.Drawing.Point(181, 688);
+            this.btnRegister.Location = new System.Drawing.Point(181, 600);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRegister.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRegister.Name = "btnRegister";
@@ -153,7 +154,7 @@
             this.materialTextBoxConfirmedPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxConfirmedPassword.Hint = "Confirm Password";
             this.materialTextBoxConfirmedPassword.LeadingIcon = null;
-            this.materialTextBoxConfirmedPassword.Location = new System.Drawing.Point(27, 570);
+            this.materialTextBoxConfirmedPassword.Location = new System.Drawing.Point(27, 455);
             this.materialTextBoxConfirmedPassword.MaxLength = 50;
             this.materialTextBoxConfirmedPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxConfirmedPassword.Multiline = false;
@@ -173,7 +174,7 @@
             this.materialTextBoxPassword.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxPassword.Hint = "Password";
             this.materialTextBoxPassword.LeadingIcon = null;
-            this.materialTextBoxPassword.Location = new System.Drawing.Point(27, 481);
+            this.materialTextBoxPassword.Location = new System.Drawing.Point(27, 389);
             this.materialTextBoxPassword.MaxLength = 50;
             this.materialTextBoxPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxPassword.Multiline = false;
@@ -193,7 +194,7 @@
             this.materialTextBoxLastName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxLastName.Hint = "Last name";
             this.materialTextBoxLastName.LeadingIcon = null;
-            this.materialTextBoxLastName.Location = new System.Drawing.Point(27, 392);
+            this.materialTextBoxLastName.Location = new System.Drawing.Point(28, 323);
             this.materialTextBoxLastName.MaxLength = 50;
             this.materialTextBoxLastName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxLastName.Multiline = false;
@@ -212,7 +213,7 @@
             this.materialTextBoxFirstName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxFirstName.Hint = "First name";
             this.materialTextBoxFirstName.LeadingIcon = null;
-            this.materialTextBoxFirstName.Location = new System.Drawing.Point(27, 214);
+            this.materialTextBoxFirstName.Location = new System.Drawing.Point(28, 191);
             this.materialTextBoxFirstName.MaxLength = 50;
             this.materialTextBoxFirstName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxFirstName.Multiline = false;
@@ -243,10 +244,33 @@
             this.materialTextBoxEmployeeId.Text = "";
             this.materialTextBoxEmployeeId.TrailingIcon = null;
             // 
+            // materialComboBoxDesignation
+            // 
+            this.materialComboBoxDesignation.AutoResize = false;
+            this.materialComboBoxDesignation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxDesignation.Depth = 0;
+            this.materialComboBoxDesignation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxDesignation.DropDownHeight = 174;
+            this.materialComboBoxDesignation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxDesignation.DropDownWidth = 121;
+            this.materialComboBoxDesignation.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBoxDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxDesignation.FormattingEnabled = true;
+            this.materialComboBoxDesignation.IntegralHeight = false;
+            this.materialComboBoxDesignation.ItemHeight = 43;
+            this.materialComboBoxDesignation.Location = new System.Drawing.Point(28, 521);
+            this.materialComboBoxDesignation.MaxDropDownItems = 4;
+            this.materialComboBoxDesignation.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxDesignation.Name = "materialComboBoxDesignation";
+            this.materialComboBoxDesignation.Size = new System.Drawing.Size(399, 49);
+            this.materialComboBoxDesignation.StartIndex = 0;
+            this.materialComboBoxDesignation.TabIndex = 35;
+            // 
             // Register
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(450, 760);
+            this.ClientSize = new System.Drawing.Size(450, 650);
+            this.Controls.Add(this.materialComboBoxDesignation);
             this.Controls.Add(this.labelConfirmPassword);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLastName);
@@ -285,5 +309,6 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxLastName;
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxFirstName;
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxEmployeeId;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBoxDesignation;
     }
 }
