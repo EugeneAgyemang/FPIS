@@ -2,6 +2,7 @@
 using FPIS.Services;
 using FPIS.Models;
 using MaterialSkin.Controls;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
@@ -13,6 +14,8 @@ namespace FPIS.Views
         public CreateAnalysisProduct()
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
 
             AppDbContext dbContext = new();
             _productService = new(dbContext);

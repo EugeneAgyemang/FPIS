@@ -1,6 +1,7 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
 using MaterialSkin.Controls;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
@@ -17,6 +18,8 @@ namespace FPIS.Views
         public CreateWaterForm()
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
             materialLabelWaterNameError.ForeColor = Color.Red;
         }
         public void ClearFormFields()

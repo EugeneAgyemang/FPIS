@@ -19,6 +19,11 @@ namespace FPIS
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
+            labelEmployeeId.ForeColor = Color.Red;
+            labelFirstName.ForeColor = Color.Red;
+            labelLastName.ForeColor = Color.Red;
+            labelPassword.ForeColor = Color.Red;
+            labelConfirmPassword.ForeColor = Color.Red;
         }
 
         private void ClearErrorLabels()
