@@ -39,14 +39,10 @@
             this.NavigationDrawerControl = new System.Windows.Forms.Panel();
             this.SettingsSectionControl = new System.Windows.Forms.Panel();
             this.OpenSettingsControl = new System.Windows.Forms.Button();
-            this.ReportsSectionControl = new System.Windows.Forms.Panel();
-            this.ReportsSection_OpenProductsControl = new System.Windows.Forms.Button();
-            this.ReportsSection_OpenWaterAnalysisControl = new System.Windows.Forms.Button();
-            this.ReportsSection_OpenStockReportControl = new System.Windows.Forms.Button();
-            this.ReportsSection_OpenAnalyticalResultsControl = new System.Windows.Forms.Button();
-            this.ReportsSection_OpenSampleReportControl = new System.Windows.Forms.Button();
-            this.ReportsSectionCaptionControl = new System.Windows.Forms.Button();
             this.QualityControlSectionControl = new System.Windows.Forms.Panel();
+            this.QualityControl_CreateAnalysisWaterControl = new System.Windows.Forms.Button();
+            this.QualityControl_AddWaterParameterControl = new System.Windows.Forms.Button();
+            this.QualityControl_AddWaterControl = new System.Windows.Forms.Button();
             this.QualityControl_OpenAnalysisCalculatorControl = new System.Windows.Forms.Button();
             this.QualityControl_ViewWaterAnalysisControl = new System.Windows.Forms.Button();
             this.QualityControl_AddWaterAnalysisControl = new System.Windows.Forms.Button();
@@ -54,17 +50,13 @@
             this.QualityControl_ViewSampleResultsControl = new System.Windows.Forms.Button();
             this.QualityControl_AddSampleResultControl = new System.Windows.Forms.Button();
             this.QualityControlCaptionControl = new System.Windows.Forms.Button();
-            this.ProductionSectionControl = new System.Windows.Forms.Panel();
-            this.ProductionSection_ViewProductionRemarkControl = new System.Windows.Forms.Button();
-            this.ProductionSection_AddProductionRemarkControl = new System.Windows.Forms.Button();
-            this.ProductionSection_CheckAnalyticalResultsControl = new System.Windows.Forms.Button();
-            this.ProductionSection_ViewSampleControl = new System.Windows.Forms.Button();
-            this.ProductionSection_AddSampleControl = new System.Windows.Forms.Button();
-            this.ProductionSection_ViewProductsControl = new System.Windows.Forms.Button();
-            this.ProductionSection_AddProductControl = new System.Windows.Forms.Button();
-            this.ProductionSectionCaptionControl = new System.Windows.Forms.Button();
-            this.DashboardSectionControl = new System.Windows.Forms.Panel();
-            this.DashboardControl = new System.Windows.Forms.Button();
+            this.ReportsSectionControl = new System.Windows.Forms.Panel();
+            this.ReportsSection_OpenProductsControl = new System.Windows.Forms.Button();
+            this.ReportsSection_OpenWaterAnalysisControl = new System.Windows.Forms.Button();
+            this.ReportsSection_OpenStockReportControl = new System.Windows.Forms.Button();
+            this.ReportsSection_OpenAnalyticalResultsControl = new System.Windows.Forms.Button();
+            this.ReportsSection_OpenSampleReportControl = new System.Windows.Forms.Button();
+            this.ReportsSectionCaptionControl = new System.Windows.Forms.Button();
             this.FinishedProductsSectionControl = new System.Windows.Forms.Panel();
             this.FinishedProducts_ViewCertificateOfAnalysisControl = new System.Windows.Forms.Button();
             this.FinishedProducts_AddFinishedProductControl = new System.Windows.Forms.Button();
@@ -77,6 +69,19 @@
             this.ConsumbalesSection_ViewStockItemControl = new System.Windows.Forms.Button();
             this.ConsumbalesSection_AddStockItemControl = new System.Windows.Forms.Button();
             this.ConsumbalesSectionCaptionControl = new System.Windows.Forms.Button();
+            this.ProductionSectionControl = new System.Windows.Forms.Panel();
+            this.ProductionSection_CreateAnalysisProductControl = new System.Windows.Forms.Button();
+            this.ProductionSection_ViewProductionRemarkControl = new System.Windows.Forms.Button();
+            this.ProductionSection_CreateProductParameterControl = new System.Windows.Forms.Button();
+            this.ProductionSection_AddProductionRemarkControl = new System.Windows.Forms.Button();
+            this.ProductionSection_CheckAnalyticalResultsControl = new System.Windows.Forms.Button();
+            this.ProductionSection_ViewSampleControl = new System.Windows.Forms.Button();
+            this.ProductionSection_AddSampleControl = new System.Windows.Forms.Button();
+            this.ProductionSection_ViewProductsControl = new System.Windows.Forms.Button();
+            this.ProductionSection_AddProductControl = new System.Windows.Forms.Button();
+            this.ProductionSectionCaptionControl = new System.Windows.Forms.Button();
+            this.DashboardSectionControl = new System.Windows.Forms.Panel();
+            this.DashboardControl = new System.Windows.Forms.Button();
             this.MainContainerControl = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TitleBarControl.SuspendLayout();
@@ -85,12 +90,12 @@
             this.LogoHolderControl.SuspendLayout();
             this.NavigationDrawerControl.SuspendLayout();
             this.SettingsSectionControl.SuspendLayout();
-            this.ReportsSectionControl.SuspendLayout();
             this.QualityControlSectionControl.SuspendLayout();
-            this.ProductionSectionControl.SuspendLayout();
-            this.DashboardSectionControl.SuspendLayout();
+            this.ReportsSectionControl.SuspendLayout();
             this.FinishedProductsSectionControl.SuspendLayout();
             this.ConsumablesSectionControl.SuspendLayout();
+            this.ProductionSectionControl.SuspendLayout();
+            this.DashboardSectionControl.SuspendLayout();
             this.MainContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -196,12 +201,12 @@
             // 
             this.NavigationDrawerControl.AutoScroll = true;
             this.NavigationDrawerControl.Controls.Add(this.SettingsSectionControl);
-            this.NavigationDrawerControl.Controls.Add(this.ReportsSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.QualityControlSectionControl);
-            this.NavigationDrawerControl.Controls.Add(this.ProductionSectionControl);
-            this.NavigationDrawerControl.Controls.Add(this.DashboardSectionControl);
+            this.NavigationDrawerControl.Controls.Add(this.ReportsSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.FinishedProductsSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.ConsumablesSectionControl);
+            this.NavigationDrawerControl.Controls.Add(this.ProductionSectionControl);
+            this.NavigationDrawerControl.Controls.Add(this.DashboardSectionControl);
             this.NavigationDrawerControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.NavigationDrawerControl.Location = new System.Drawing.Point(0, 100);
             this.NavigationDrawerControl.Name = "NavigationDrawerControl";
@@ -211,9 +216,9 @@
             // SettingsSectionControl
             // 
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 1610);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 1859);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
-            this.SettingsSectionControl.Size = new System.Drawing.Size(190, 60);
+            this.SettingsSectionControl.Size = new System.Drawing.Size(190, 76);
             this.SettingsSectionControl.TabIndex = 6;
             // 
             // OpenSettingsControl
@@ -234,119 +239,11 @@
             this.OpenSettingsControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.OpenSettingsControl.UseVisualStyleBackColor = false;
             // 
-            // ReportsSectionControl
-            // 
-            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenProductsControl);
-            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenWaterAnalysisControl);
-            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenStockReportControl);
-            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
-            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
-            this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
-            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1310);
-            this.ReportsSectionControl.Name = "ReportsSectionControl";
-            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
-            this.ReportsSectionControl.TabIndex = 4;
-            // 
-            // ReportsSection_OpenProductsControl
-            // 
-            this.ReportsSection_OpenProductsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ReportsSection_OpenProductsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSection_OpenProductsControl.Enabled = false;
-            this.ReportsSection_OpenProductsControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSection_OpenProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenProductsControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSection_OpenProductsControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenProductsControl.Location = new System.Drawing.Point(5, 250);
-            this.ReportsSection_OpenProductsControl.Name = "ReportsSection_OpenProductsControl";
-            this.ReportsSection_OpenProductsControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSection_OpenProductsControl.TabIndex = 5;
-            this.ReportsSection_OpenProductsControl.Text = "Products";
-            this.ReportsSection_OpenProductsControl.UseVisualStyleBackColor = false;
-            // 
-            // ReportsSection_OpenWaterAnalysisControl
-            // 
-            this.ReportsSection_OpenWaterAnalysisControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ReportsSection_OpenWaterAnalysisControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSection_OpenWaterAnalysisControl.Enabled = false;
-            this.ReportsSection_OpenWaterAnalysisControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSection_OpenWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSection_OpenWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenWaterAnalysisControl.Location = new System.Drawing.Point(5, 200);
-            this.ReportsSection_OpenWaterAnalysisControl.Name = "ReportsSection_OpenWaterAnalysisControl";
-            this.ReportsSection_OpenWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSection_OpenWaterAnalysisControl.TabIndex = 4;
-            this.ReportsSection_OpenWaterAnalysisControl.Text = "Water Analysis";
-            this.ReportsSection_OpenWaterAnalysisControl.UseVisualStyleBackColor = false;
-            // 
-            // ReportsSection_OpenStockReportControl
-            // 
-            this.ReportsSection_OpenStockReportControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ReportsSection_OpenStockReportControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSection_OpenStockReportControl.Enabled = false;
-            this.ReportsSection_OpenStockReportControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSection_OpenStockReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenStockReportControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSection_OpenStockReportControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenStockReportControl.Location = new System.Drawing.Point(5, 150);
-            this.ReportsSection_OpenStockReportControl.Name = "ReportsSection_OpenStockReportControl";
-            this.ReportsSection_OpenStockReportControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSection_OpenStockReportControl.TabIndex = 3;
-            this.ReportsSection_OpenStockReportControl.Text = "Stock Report";
-            this.ReportsSection_OpenStockReportControl.UseVisualStyleBackColor = false;
-            // 
-            // ReportsSection_OpenAnalyticalResultsControl
-            // 
-            this.ReportsSection_OpenAnalyticalResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ReportsSection_OpenAnalyticalResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSection_OpenAnalyticalResultsControl.Enabled = false;
-            this.ReportsSection_OpenAnalyticalResultsControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSection_OpenAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenAnalyticalResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSection_OpenAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenAnalyticalResultsControl.Location = new System.Drawing.Point(5, 100);
-            this.ReportsSection_OpenAnalyticalResultsControl.Name = "ReportsSection_OpenAnalyticalResultsControl";
-            this.ReportsSection_OpenAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSection_OpenAnalyticalResultsControl.TabIndex = 2;
-            this.ReportsSection_OpenAnalyticalResultsControl.Text = "Analytical Results";
-            this.ReportsSection_OpenAnalyticalResultsControl.UseVisualStyleBackColor = false;
-            // 
-            // ReportsSection_OpenSampleReportControl
-            // 
-            this.ReportsSection_OpenSampleReportControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ReportsSection_OpenSampleReportControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSection_OpenSampleReportControl.Enabled = false;
-            this.ReportsSection_OpenSampleReportControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSection_OpenSampleReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenSampleReportControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSection_OpenSampleReportControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenSampleReportControl.Location = new System.Drawing.Point(5, 50);
-            this.ReportsSection_OpenSampleReportControl.Name = "ReportsSection_OpenSampleReportControl";
-            this.ReportsSection_OpenSampleReportControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSection_OpenSampleReportControl.TabIndex = 1;
-            this.ReportsSection_OpenSampleReportControl.Text = "Sample Report";
-            this.ReportsSection_OpenSampleReportControl.UseVisualStyleBackColor = false;
-            // 
-            // ReportsSectionCaptionControl
-            // 
-            this.ReportsSectionCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
-            this.ReportsSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSectionCaptionControl.Enabled = false;
-            this.ReportsSectionCaptionControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSectionCaptionControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSectionCaptionControl.Image = global::FPIS.Properties.Resources.report_white;
-            this.ReportsSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
-            this.ReportsSectionCaptionControl.Name = "ReportsSectionCaptionControl";
-            this.ReportsSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSectionCaptionControl.TabIndex = 0;
-            this.ReportsSectionCaptionControl.Text = "  Reports";
-            this.ReportsSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ReportsSectionCaptionControl.UseVisualStyleBackColor = false;
-            // 
             // QualityControlSectionControl
             // 
+            this.QualityControlSectionControl.Controls.Add(this.QualityControl_CreateAnalysisWaterControl);
+            this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddWaterParameterControl);
+            this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddWaterControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_OpenAnalysisCalculatorControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_ViewWaterAnalysisControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddWaterAnalysisControl);
@@ -354,10 +251,58 @@
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_ViewSampleResultsControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddSampleResultControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControlCaptionControl);
-            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 455);
+            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 555);
             this.QualityControlSectionControl.Name = "QualityControlSectionControl";
-            this.QualityControlSectionControl.Size = new System.Drawing.Size(190, 351);
+            this.QualityControlSectionControl.Size = new System.Drawing.Size(190, 501);
             this.QualityControlSectionControl.TabIndex = 3;
+            // 
+            // QualityControl_CreateAnalysisWaterControl
+            // 
+            this.QualityControl_CreateAnalysisWaterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.QualityControl_CreateAnalysisWaterControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QualityControl_CreateAnalysisWaterControl.Enabled = false;
+            this.QualityControl_CreateAnalysisWaterControl.FlatAppearance.BorderSize = 0;
+            this.QualityControl_CreateAnalysisWaterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QualityControl_CreateAnalysisWaterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_CreateAnalysisWaterControl.ForeColor = System.Drawing.Color.White;
+            this.QualityControl_CreateAnalysisWaterControl.Location = new System.Drawing.Point(5, 300);
+            this.QualityControl_CreateAnalysisWaterControl.Name = "QualityControl_CreateAnalysisWaterControl";
+            this.QualityControl_CreateAnalysisWaterControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_CreateAnalysisWaterControl.TabIndex = 7;
+            this.QualityControl_CreateAnalysisWaterControl.Text = "Create Analysis Water";
+            this.QualityControl_CreateAnalysisWaterControl.UseVisualStyleBackColor = false;
+            // 
+            // QualityControl_AddWaterParameterControl
+            // 
+            this.QualityControl_AddWaterParameterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.QualityControl_AddWaterParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QualityControl_AddWaterParameterControl.Enabled = false;
+            this.QualityControl_AddWaterParameterControl.FlatAppearance.BorderSize = 0;
+            this.QualityControl_AddWaterParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QualityControl_AddWaterParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_AddWaterParameterControl.ForeColor = System.Drawing.Color.White;
+            this.QualityControl_AddWaterParameterControl.Location = new System.Drawing.Point(5, 250);
+            this.QualityControl_AddWaterParameterControl.Name = "QualityControl_AddWaterParameterControl";
+            this.QualityControl_AddWaterParameterControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_AddWaterParameterControl.TabIndex = 6;
+            this.QualityControl_AddWaterParameterControl.Text = "Add Water Parameter";
+            this.QualityControl_AddWaterParameterControl.UseVisualStyleBackColor = false;
+            // 
+            // QualityControl_AddWaterControl
+            // 
+            this.QualityControl_AddWaterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.QualityControl_AddWaterControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QualityControl_AddWaterControl.Enabled = false;
+            this.QualityControl_AddWaterControl.FlatAppearance.BorderSize = 0;
+            this.QualityControl_AddWaterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QualityControl_AddWaterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_AddWaterControl.ForeColor = System.Drawing.Color.White;
+            this.QualityControl_AddWaterControl.Location = new System.Drawing.Point(5, 200);
+            this.QualityControl_AddWaterControl.Name = "QualityControl_AddWaterControl";
+            this.QualityControl_AddWaterControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_AddWaterControl.TabIndex = 5;
+            this.QualityControl_AddWaterControl.Text = "Add Water";
+            this.QualityControl_AddWaterControl.UseVisualStyleBackColor = false;
             // 
             // QualityControl_OpenAnalysisCalculatorControl
             // 
@@ -368,7 +313,7 @@
             this.QualityControl_OpenAnalysisCalculatorControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_OpenAnalysisCalculatorControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_OpenAnalysisCalculatorControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_OpenAnalysisCalculatorControl.Location = new System.Drawing.Point(5, 300);
+            this.QualityControl_OpenAnalysisCalculatorControl.Location = new System.Drawing.Point(5, 450);
             this.QualityControl_OpenAnalysisCalculatorControl.Name = "QualityControl_OpenAnalysisCalculatorControl";
             this.QualityControl_OpenAnalysisCalculatorControl.Size = new System.Drawing.Size(180, 50);
             this.QualityControl_OpenAnalysisCalculatorControl.TabIndex = 6;
@@ -384,7 +329,7 @@
             this.QualityControl_ViewWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_ViewWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_ViewWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_ViewWaterAnalysisControl.Location = new System.Drawing.Point(5, 250);
+            this.QualityControl_ViewWaterAnalysisControl.Location = new System.Drawing.Point(5, 400);
             this.QualityControl_ViewWaterAnalysisControl.Name = "QualityControl_ViewWaterAnalysisControl";
             this.QualityControl_ViewWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
             this.QualityControl_ViewWaterAnalysisControl.TabIndex = 5;
@@ -400,7 +345,7 @@
             this.QualityControl_AddWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_AddWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_AddWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_AddWaterAnalysisControl.Location = new System.Drawing.Point(5, 200);
+            this.QualityControl_AddWaterAnalysisControl.Location = new System.Drawing.Point(5, 350);
             this.QualityControl_AddWaterAnalysisControl.Name = "QualityControl_AddWaterAnalysisControl";
             this.QualityControl_AddWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
             this.QualityControl_AddWaterAnalysisControl.TabIndex = 4;
@@ -473,9 +418,310 @@
             this.QualityControlCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.QualityControlCaptionControl.UseVisualStyleBackColor = false;
             // 
+            // ReportsSectionControl
+            // 
+            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenProductsControl);
+            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenWaterAnalysisControl);
+            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenStockReportControl);
+            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
+            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
+            this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
+            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1559);
+            this.ReportsSectionControl.Name = "ReportsSectionControl";
+            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
+            this.ReportsSectionControl.TabIndex = 4;
+            // 
+            // ReportsSection_OpenProductsControl
+            // 
+            this.ReportsSection_OpenProductsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ReportsSection_OpenProductsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSection_OpenProductsControl.Enabled = false;
+            this.ReportsSection_OpenProductsControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSection_OpenProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSection_OpenProductsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenProductsControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSection_OpenProductsControl.Location = new System.Drawing.Point(5, 250);
+            this.ReportsSection_OpenProductsControl.Name = "ReportsSection_OpenProductsControl";
+            this.ReportsSection_OpenProductsControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenProductsControl.TabIndex = 5;
+            this.ReportsSection_OpenProductsControl.Text = "Products";
+            this.ReportsSection_OpenProductsControl.UseVisualStyleBackColor = false;
+            // 
+            // ReportsSection_OpenWaterAnalysisControl
+            // 
+            this.ReportsSection_OpenWaterAnalysisControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ReportsSection_OpenWaterAnalysisControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSection_OpenWaterAnalysisControl.Enabled = false;
+            this.ReportsSection_OpenWaterAnalysisControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSection_OpenWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSection_OpenWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSection_OpenWaterAnalysisControl.Location = new System.Drawing.Point(5, 200);
+            this.ReportsSection_OpenWaterAnalysisControl.Name = "ReportsSection_OpenWaterAnalysisControl";
+            this.ReportsSection_OpenWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenWaterAnalysisControl.TabIndex = 4;
+            this.ReportsSection_OpenWaterAnalysisControl.Text = "Water Analysis";
+            this.ReportsSection_OpenWaterAnalysisControl.UseVisualStyleBackColor = false;
+            // 
+            // ReportsSection_OpenStockReportControl
+            // 
+            this.ReportsSection_OpenStockReportControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ReportsSection_OpenStockReportControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSection_OpenStockReportControl.Enabled = false;
+            this.ReportsSection_OpenStockReportControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSection_OpenStockReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSection_OpenStockReportControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenStockReportControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSection_OpenStockReportControl.Location = new System.Drawing.Point(5, 150);
+            this.ReportsSection_OpenStockReportControl.Name = "ReportsSection_OpenStockReportControl";
+            this.ReportsSection_OpenStockReportControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenStockReportControl.TabIndex = 3;
+            this.ReportsSection_OpenStockReportControl.Text = "Stock Report";
+            this.ReportsSection_OpenStockReportControl.UseVisualStyleBackColor = false;
+            // 
+            // ReportsSection_OpenAnalyticalResultsControl
+            // 
+            this.ReportsSection_OpenAnalyticalResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ReportsSection_OpenAnalyticalResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSection_OpenAnalyticalResultsControl.Enabled = false;
+            this.ReportsSection_OpenAnalyticalResultsControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSection_OpenAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSection_OpenAnalyticalResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSection_OpenAnalyticalResultsControl.Location = new System.Drawing.Point(5, 100);
+            this.ReportsSection_OpenAnalyticalResultsControl.Name = "ReportsSection_OpenAnalyticalResultsControl";
+            this.ReportsSection_OpenAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenAnalyticalResultsControl.TabIndex = 2;
+            this.ReportsSection_OpenAnalyticalResultsControl.Text = "Analytical Results";
+            this.ReportsSection_OpenAnalyticalResultsControl.UseVisualStyleBackColor = false;
+            // 
+            // ReportsSection_OpenSampleReportControl
+            // 
+            this.ReportsSection_OpenSampleReportControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ReportsSection_OpenSampleReportControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSection_OpenSampleReportControl.Enabled = false;
+            this.ReportsSection_OpenSampleReportControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSection_OpenSampleReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSection_OpenSampleReportControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenSampleReportControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSection_OpenSampleReportControl.Location = new System.Drawing.Point(5, 50);
+            this.ReportsSection_OpenSampleReportControl.Name = "ReportsSection_OpenSampleReportControl";
+            this.ReportsSection_OpenSampleReportControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenSampleReportControl.TabIndex = 1;
+            this.ReportsSection_OpenSampleReportControl.Text = "Sample Report";
+            this.ReportsSection_OpenSampleReportControl.UseVisualStyleBackColor = false;
+            // 
+            // ReportsSectionCaptionControl
+            // 
+            this.ReportsSectionCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
+            this.ReportsSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSectionCaptionControl.Enabled = false;
+            this.ReportsSectionCaptionControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSectionCaptionControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSectionCaptionControl.Image = global::FPIS.Properties.Resources.report_white;
+            this.ReportsSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.ReportsSectionCaptionControl.Name = "ReportsSectionCaptionControl";
+            this.ReportsSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSectionCaptionControl.TabIndex = 0;
+            this.ReportsSectionCaptionControl.Text = "  Reports";
+            this.ReportsSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReportsSectionCaptionControl.UseVisualStyleBackColor = false;
+            // 
+            // FinishedProductsSectionControl
+            // 
+            this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_ViewCertificateOfAnalysisControl);
+            this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_AddFinishedProductControl);
+            this.FinishedProductsSectionControl.Controls.Add(this.FinishedProductsCaptionControl);
+            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 1056);
+            this.FinishedProductsSectionControl.Name = "FinishedProductsSectionControl";
+            this.FinishedProductsSectionControl.Size = new System.Drawing.Size(190, 150);
+            this.FinishedProductsSectionControl.TabIndex = 7;
+            // 
+            // FinishedProducts_ViewCertificateOfAnalysisControl
+            // 
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Enabled = false;
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.FlatAppearance.BorderSize = 0;
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.ForeColor = System.Drawing.Color.White;
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Location = new System.Drawing.Point(5, 100);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Name = "FinishedProducts_ViewCertificateOfAnalysisControl";
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Size = new System.Drawing.Size(180, 50);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.TabIndex = 2;
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Text = "View Certificate of Analysis";
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.UseVisualStyleBackColor = false;
+            // 
+            // FinishedProducts_AddFinishedProductControl
+            // 
+            this.FinishedProducts_AddFinishedProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.FinishedProducts_AddFinishedProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FinishedProducts_AddFinishedProductControl.Enabled = false;
+            this.FinishedProducts_AddFinishedProductControl.FlatAppearance.BorderSize = 0;
+            this.FinishedProducts_AddFinishedProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FinishedProducts_AddFinishedProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FinishedProducts_AddFinishedProductControl.ForeColor = System.Drawing.Color.White;
+            this.FinishedProducts_AddFinishedProductControl.Location = new System.Drawing.Point(5, 50);
+            this.FinishedProducts_AddFinishedProductControl.Name = "FinishedProducts_AddFinishedProductControl";
+            this.FinishedProducts_AddFinishedProductControl.Size = new System.Drawing.Size(180, 50);
+            this.FinishedProducts_AddFinishedProductControl.TabIndex = 1;
+            this.FinishedProducts_AddFinishedProductControl.Text = "Add Finished Product";
+            this.FinishedProducts_AddFinishedProductControl.UseVisualStyleBackColor = false;
+            // 
+            // FinishedProductsCaptionControl
+            // 
+            this.FinishedProductsCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
+            this.FinishedProductsCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FinishedProductsCaptionControl.Enabled = false;
+            this.FinishedProductsCaptionControl.FlatAppearance.BorderSize = 0;
+            this.FinishedProductsCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FinishedProductsCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FinishedProductsCaptionControl.ForeColor = System.Drawing.Color.White;
+            this.FinishedProductsCaptionControl.Image = global::FPIS.Properties.Resources.finish_white;
+            this.FinishedProductsCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.FinishedProductsCaptionControl.Name = "FinishedProductsCaptionControl";
+            this.FinishedProductsCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.FinishedProductsCaptionControl.TabIndex = 0;
+            this.FinishedProductsCaptionControl.Text = "  Finished Products";
+            this.FinishedProductsCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.FinishedProductsCaptionControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumablesSectionControl
+            // 
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewIssuedStockControl);
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddIssuedStockControl);
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewReceivedStockControl);
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ReceiveNewStockControl);
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewStockItemControl);
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddStockItemControl);
+            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSectionCaptionControl);
+            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 1207);
+            this.ConsumablesSectionControl.Name = "ConsumablesSectionControl";
+            this.ConsumablesSectionControl.Size = new System.Drawing.Size(190, 351);
+            this.ConsumablesSectionControl.TabIndex = 3;
+            // 
+            // ConsumbalesSection_ViewIssuedStockControl
+            // 
+            this.ConsumbalesSection_ViewIssuedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ConsumbalesSection_ViewIssuedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_ViewIssuedStockControl.Enabled = false;
+            this.ConsumbalesSection_ViewIssuedStockControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSection_ViewIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSection_ViewIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ViewIssuedStockControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSection_ViewIssuedStockControl.Location = new System.Drawing.Point(5, 300);
+            this.ConsumbalesSection_ViewIssuedStockControl.Name = "ConsumbalesSection_ViewIssuedStockControl";
+            this.ConsumbalesSection_ViewIssuedStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ViewIssuedStockControl.TabIndex = 6;
+            this.ConsumbalesSection_ViewIssuedStockControl.Text = "View Issued Stock";
+            this.ConsumbalesSection_ViewIssuedStockControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumbalesSection_AddIssuedStockControl
+            // 
+            this.ConsumbalesSection_AddIssuedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ConsumbalesSection_AddIssuedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_AddIssuedStockControl.Enabled = false;
+            this.ConsumbalesSection_AddIssuedStockControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSection_AddIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSection_AddIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_AddIssuedStockControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSection_AddIssuedStockControl.Location = new System.Drawing.Point(5, 250);
+            this.ConsumbalesSection_AddIssuedStockControl.Name = "ConsumbalesSection_AddIssuedStockControl";
+            this.ConsumbalesSection_AddIssuedStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_AddIssuedStockControl.TabIndex = 5;
+            this.ConsumbalesSection_AddIssuedStockControl.Text = "Issue Stock";
+            this.ConsumbalesSection_AddIssuedStockControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumbalesSection_ViewReceivedStockControl
+            // 
+            this.ConsumbalesSection_ViewReceivedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ConsumbalesSection_ViewReceivedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_ViewReceivedStockControl.Enabled = false;
+            this.ConsumbalesSection_ViewReceivedStockControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSection_ViewReceivedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSection_ViewReceivedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ViewReceivedStockControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSection_ViewReceivedStockControl.Location = new System.Drawing.Point(5, 200);
+            this.ConsumbalesSection_ViewReceivedStockControl.Name = "ConsumbalesSection_ViewReceivedStockControl";
+            this.ConsumbalesSection_ViewReceivedStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ViewReceivedStockControl.TabIndex = 4;
+            this.ConsumbalesSection_ViewReceivedStockControl.Text = "View Received Stock";
+            this.ConsumbalesSection_ViewReceivedStockControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumbalesSection_ReceiveNewStockControl
+            // 
+            this.ConsumbalesSection_ReceiveNewStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ConsumbalesSection_ReceiveNewStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_ReceiveNewStockControl.Enabled = false;
+            this.ConsumbalesSection_ReceiveNewStockControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSection_ReceiveNewStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSection_ReceiveNewStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ReceiveNewStockControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSection_ReceiveNewStockControl.Location = new System.Drawing.Point(5, 150);
+            this.ConsumbalesSection_ReceiveNewStockControl.Name = "ConsumbalesSection_ReceiveNewStockControl";
+            this.ConsumbalesSection_ReceiveNewStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ReceiveNewStockControl.TabIndex = 3;
+            this.ConsumbalesSection_ReceiveNewStockControl.Text = "Receive New Stock";
+            this.ConsumbalesSection_ReceiveNewStockControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumbalesSection_ViewStockItemControl
+            // 
+            this.ConsumbalesSection_ViewStockItemControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ConsumbalesSection_ViewStockItemControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_ViewStockItemControl.Enabled = false;
+            this.ConsumbalesSection_ViewStockItemControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSection_ViewStockItemControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSection_ViewStockItemControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ViewStockItemControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSection_ViewStockItemControl.Location = new System.Drawing.Point(5, 100);
+            this.ConsumbalesSection_ViewStockItemControl.Name = "ConsumbalesSection_ViewStockItemControl";
+            this.ConsumbalesSection_ViewStockItemControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ViewStockItemControl.TabIndex = 2;
+            this.ConsumbalesSection_ViewStockItemControl.Text = "View Stock Item";
+            this.ConsumbalesSection_ViewStockItemControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumbalesSection_AddStockItemControl
+            // 
+            this.ConsumbalesSection_AddStockItemControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ConsumbalesSection_AddStockItemControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_AddStockItemControl.Enabled = false;
+            this.ConsumbalesSection_AddStockItemControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSection_AddStockItemControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSection_AddStockItemControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_AddStockItemControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSection_AddStockItemControl.Location = new System.Drawing.Point(5, 50);
+            this.ConsumbalesSection_AddStockItemControl.Name = "ConsumbalesSection_AddStockItemControl";
+            this.ConsumbalesSection_AddStockItemControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_AddStockItemControl.TabIndex = 1;
+            this.ConsumbalesSection_AddStockItemControl.Text = "Add Stock Item";
+            this.ConsumbalesSection_AddStockItemControl.UseVisualStyleBackColor = false;
+            // 
+            // ConsumbalesSectionCaptionControl
+            // 
+            this.ConsumbalesSectionCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
+            this.ConsumbalesSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSectionCaptionControl.Enabled = false;
+            this.ConsumbalesSectionCaptionControl.FlatAppearance.BorderSize = 0;
+            this.ConsumbalesSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConsumbalesSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSectionCaptionControl.ForeColor = System.Drawing.Color.White;
+            this.ConsumbalesSectionCaptionControl.Image = global::FPIS.Properties.Resources.consume_white;
+            this.ConsumbalesSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.ConsumbalesSectionCaptionControl.Name = "ConsumbalesSectionCaptionControl";
+            this.ConsumbalesSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSectionCaptionControl.TabIndex = 0;
+            this.ConsumbalesSectionCaptionControl.Text = "  Consumables";
+            this.ConsumbalesSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ConsumbalesSectionCaptionControl.UseVisualStyleBackColor = false;
+            // 
             // ProductionSectionControl
             // 
+            this.ProductionSectionControl.Controls.Add(this.ProductionSection_CreateAnalysisProductControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_ViewProductionRemarkControl);
+            this.ProductionSectionControl.Controls.Add(this.ProductionSection_CreateProductParameterControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_AddProductionRemarkControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_CheckAnalyticalResultsControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_ViewSampleControl);
@@ -485,8 +731,24 @@
             this.ProductionSectionControl.Controls.Add(this.ProductionSectionCaptionControl);
             this.ProductionSectionControl.Location = new System.Drawing.Point(6, 54);
             this.ProductionSectionControl.Name = "ProductionSectionControl";
-            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 402);
+            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 502);
             this.ProductionSectionControl.TabIndex = 2;
+            // 
+            // ProductionSection_CreateAnalysisProductControl
+            // 
+            this.ProductionSection_CreateAnalysisProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProductionSection_CreateAnalysisProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProductionSection_CreateAnalysisProductControl.Enabled = false;
+            this.ProductionSection_CreateAnalysisProductControl.FlatAppearance.BorderSize = 0;
+            this.ProductionSection_CreateAnalysisProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductionSection_CreateAnalysisProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_CreateAnalysisProductControl.ForeColor = System.Drawing.Color.White;
+            this.ProductionSection_CreateAnalysisProductControl.Location = new System.Drawing.Point(5, 150);
+            this.ProductionSection_CreateAnalysisProductControl.Name = "ProductionSection_CreateAnalysisProductControl";
+            this.ProductionSection_CreateAnalysisProductControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_CreateAnalysisProductControl.TabIndex = 4;
+            this.ProductionSection_CreateAnalysisProductControl.Text = "Create Analysis Product";
+            this.ProductionSection_CreateAnalysisProductControl.UseVisualStyleBackColor = false;
             // 
             // ProductionSection_ViewProductionRemarkControl
             // 
@@ -495,14 +757,30 @@
             this.ProductionSection_ViewProductionRemarkControl.Enabled = false;
             this.ProductionSection_ViewProductionRemarkControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 350);
+            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 450);
             this.ProductionSection_ViewProductionRemarkControl.Name = "ProductionSection_ViewProductionRemarkControl";
             this.ProductionSection_ViewProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewProductionRemarkControl.TabIndex = 7;
             this.ProductionSection_ViewProductionRemarkControl.Text = "View Production Remark";
             this.ProductionSection_ViewProductionRemarkControl.UseVisualStyleBackColor = false;
+            // 
+            // ProductionSection_CreateProductParameterControl
+            // 
+            this.ProductionSection_CreateProductParameterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProductionSection_CreateProductParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProductionSection_CreateProductParameterControl.Enabled = false;
+            this.ProductionSection_CreateProductParameterControl.FlatAppearance.BorderSize = 0;
+            this.ProductionSection_CreateProductParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductionSection_CreateProductParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_CreateProductParameterControl.ForeColor = System.Drawing.Color.White;
+            this.ProductionSection_CreateProductParameterControl.Location = new System.Drawing.Point(5, 100);
+            this.ProductionSection_CreateProductParameterControl.Name = "ProductionSection_CreateProductParameterControl";
+            this.ProductionSection_CreateProductParameterControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_CreateProductParameterControl.TabIndex = 3;
+            this.ProductionSection_CreateProductParameterControl.Text = "Create Product Parameter";
+            this.ProductionSection_CreateProductParameterControl.UseVisualStyleBackColor = false;
             // 
             // ProductionSection_AddProductionRemarkControl
             // 
@@ -511,9 +789,9 @@
             this.ProductionSection_AddProductionRemarkControl.Enabled = false;
             this.ProductionSection_AddProductionRemarkControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_AddProductionRemarkControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_AddProductionRemarkControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 300);
+            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 400);
             this.ProductionSection_AddProductionRemarkControl.Name = "ProductionSection_AddProductionRemarkControl";
             this.ProductionSection_AddProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_AddProductionRemarkControl.TabIndex = 6;
@@ -527,9 +805,9 @@
             this.ProductionSection_CheckAnalyticalResultsControl.Enabled = false;
             this.ProductionSection_CheckAnalyticalResultsControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CheckAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_CheckAnalyticalResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_CheckAnalyticalResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CheckAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 250);
+            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 350);
             this.ProductionSection_CheckAnalyticalResultsControl.Name = "ProductionSection_CheckAnalyticalResultsControl";
             this.ProductionSection_CheckAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_CheckAnalyticalResultsControl.TabIndex = 5;
@@ -543,9 +821,9 @@
             this.ProductionSection_ViewSampleControl.Enabled = false;
             this.ProductionSection_ViewSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewSampleControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewSampleControl.Location = new System.Drawing.Point(5, 200);
+            this.ProductionSection_ViewSampleControl.Location = new System.Drawing.Point(5, 300);
             this.ProductionSection_ViewSampleControl.Name = "ProductionSection_ViewSampleControl";
             this.ProductionSection_ViewSampleControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewSampleControl.TabIndex = 4;
@@ -559,9 +837,9 @@
             this.ProductionSection_AddSampleControl.Enabled = false;
             this.ProductionSection_AddSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_AddSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_AddSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddSampleControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddSampleControl.Location = new System.Drawing.Point(5, 150);
+            this.ProductionSection_AddSampleControl.Location = new System.Drawing.Point(5, 250);
             this.ProductionSection_AddSampleControl.Name = "ProductionSection_AddSampleControl";
             this.ProductionSection_AddSampleControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_AddSampleControl.TabIndex = 3;
@@ -575,9 +853,9 @@
             this.ProductionSection_ViewProductsControl.Enabled = false;
             this.ProductionSection_ViewProductsControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_ViewProductsControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ViewProductsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductsControl.Location = new System.Drawing.Point(5, 100);
+            this.ProductionSection_ViewProductsControl.Location = new System.Drawing.Point(5, 200);
             this.ProductionSection_ViewProductsControl.Name = "ProductionSection_ViewProductsControl";
             this.ProductionSection_ViewProductsControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewProductsControl.TabIndex = 2;
@@ -591,7 +869,7 @@
             this.ProductionSection_AddProductControl.Enabled = false;
             this.ProductionSection_AddProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_AddProductControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_AddProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddProductControl.ForeColor = System.Drawing.Color.White;
             this.ProductionSection_AddProductControl.Location = new System.Drawing.Point(5, 50);
             this.ProductionSection_AddProductControl.Name = "ProductionSection_AddProductControl";
@@ -646,194 +924,6 @@
             this.DashboardControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DashboardControl.UseVisualStyleBackColor = false;
             // 
-            // FinishedProductsSectionControl
-            // 
-            this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_ViewCertificateOfAnalysisControl);
-            this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_AddFinishedProductControl);
-            this.FinishedProductsSectionControl.Controls.Add(this.FinishedProductsCaptionControl);
-            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 807);
-            this.FinishedProductsSectionControl.Name = "FinishedProductsSectionControl";
-            this.FinishedProductsSectionControl.Size = new System.Drawing.Size(190, 152);
-            this.FinishedProductsSectionControl.TabIndex = 7;
-            // 
-            // FinishedProducts_ViewCertificateOfAnalysisControl
-            // 
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Enabled = false;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.FlatAppearance.BorderSize = 0;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Location = new System.Drawing.Point(5, 100);
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Name = "FinishedProducts_ViewCertificateOfAnalysisControl";
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Size = new System.Drawing.Size(180, 50);
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.TabIndex = 2;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Text = "View Certificate of Analysis";
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.UseVisualStyleBackColor = false;
-            // 
-            // FinishedProducts_AddFinishedProductControl
-            // 
-            this.FinishedProducts_AddFinishedProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.FinishedProducts_AddFinishedProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FinishedProducts_AddFinishedProductControl.Enabled = false;
-            this.FinishedProducts_AddFinishedProductControl.FlatAppearance.BorderSize = 0;
-            this.FinishedProducts_AddFinishedProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FinishedProducts_AddFinishedProductControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FinishedProducts_AddFinishedProductControl.ForeColor = System.Drawing.Color.White;
-            this.FinishedProducts_AddFinishedProductControl.Location = new System.Drawing.Point(5, 50);
-            this.FinishedProducts_AddFinishedProductControl.Name = "FinishedProducts_AddFinishedProductControl";
-            this.FinishedProducts_AddFinishedProductControl.Size = new System.Drawing.Size(180, 50);
-            this.FinishedProducts_AddFinishedProductControl.TabIndex = 1;
-            this.FinishedProducts_AddFinishedProductControl.Text = "Add Finished Product";
-            this.FinishedProducts_AddFinishedProductControl.UseVisualStyleBackColor = false;
-            // 
-            // FinishedProductsCaptionControl
-            // 
-            this.FinishedProductsCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
-            this.FinishedProductsCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FinishedProductsCaptionControl.Enabled = false;
-            this.FinishedProductsCaptionControl.FlatAppearance.BorderSize = 0;
-            this.FinishedProductsCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FinishedProductsCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FinishedProductsCaptionControl.ForeColor = System.Drawing.Color.White;
-            this.FinishedProductsCaptionControl.Image = global::FPIS.Properties.Resources.finish_white;
-            this.FinishedProductsCaptionControl.Location = new System.Drawing.Point(5, 0);
-            this.FinishedProductsCaptionControl.Name = "FinishedProductsCaptionControl";
-            this.FinishedProductsCaptionControl.Size = new System.Drawing.Size(180, 50);
-            this.FinishedProductsCaptionControl.TabIndex = 0;
-            this.FinishedProductsCaptionControl.Text = "  Finished Products";
-            this.FinishedProductsCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.FinishedProductsCaptionControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumablesSectionControl
-            // 
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewIssuedStockControl);
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddIssuedStockControl);
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewReceivedStockControl);
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ReceiveNewStockControl);
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewStockItemControl);
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddStockItemControl);
-            this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSectionCaptionControl);
-            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 958);
-            this.ConsumablesSectionControl.Name = "ConsumablesSectionControl";
-            this.ConsumablesSectionControl.Size = new System.Drawing.Size(190, 351);
-            this.ConsumablesSectionControl.TabIndex = 3;
-            // 
-            // ConsumbalesSection_ViewIssuedStockControl
-            // 
-            this.ConsumbalesSection_ViewIssuedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ConsumbalesSection_ViewIssuedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSection_ViewIssuedStockControl.Enabled = false;
-            this.ConsumbalesSection_ViewIssuedStockControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSection_ViewIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ViewIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSection_ViewIssuedStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ViewIssuedStockControl.Location = new System.Drawing.Point(5, 300);
-            this.ConsumbalesSection_ViewIssuedStockControl.Name = "ConsumbalesSection_ViewIssuedStockControl";
-            this.ConsumbalesSection_ViewIssuedStockControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSection_ViewIssuedStockControl.TabIndex = 6;
-            this.ConsumbalesSection_ViewIssuedStockControl.Text = "View Issued Stock";
-            this.ConsumbalesSection_ViewIssuedStockControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumbalesSection_AddIssuedStockControl
-            // 
-            this.ConsumbalesSection_AddIssuedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ConsumbalesSection_AddIssuedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSection_AddIssuedStockControl.Enabled = false;
-            this.ConsumbalesSection_AddIssuedStockControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSection_AddIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_AddIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSection_AddIssuedStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_AddIssuedStockControl.Location = new System.Drawing.Point(5, 250);
-            this.ConsumbalesSection_AddIssuedStockControl.Name = "ConsumbalesSection_AddIssuedStockControl";
-            this.ConsumbalesSection_AddIssuedStockControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSection_AddIssuedStockControl.TabIndex = 5;
-            this.ConsumbalesSection_AddIssuedStockControl.Text = "Issue Stock";
-            this.ConsumbalesSection_AddIssuedStockControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumbalesSection_ViewReceivedStockControl
-            // 
-            this.ConsumbalesSection_ViewReceivedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ConsumbalesSection_ViewReceivedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSection_ViewReceivedStockControl.Enabled = false;
-            this.ConsumbalesSection_ViewReceivedStockControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSection_ViewReceivedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ViewReceivedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSection_ViewReceivedStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ViewReceivedStockControl.Location = new System.Drawing.Point(5, 200);
-            this.ConsumbalesSection_ViewReceivedStockControl.Name = "ConsumbalesSection_ViewReceivedStockControl";
-            this.ConsumbalesSection_ViewReceivedStockControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSection_ViewReceivedStockControl.TabIndex = 4;
-            this.ConsumbalesSection_ViewReceivedStockControl.Text = "View Received Stock";
-            this.ConsumbalesSection_ViewReceivedStockControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumbalesSection_ReceiveNewStockControl
-            // 
-            this.ConsumbalesSection_ReceiveNewStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ConsumbalesSection_ReceiveNewStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSection_ReceiveNewStockControl.Enabled = false;
-            this.ConsumbalesSection_ReceiveNewStockControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSection_ReceiveNewStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ReceiveNewStockControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSection_ReceiveNewStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ReceiveNewStockControl.Location = new System.Drawing.Point(5, 150);
-            this.ConsumbalesSection_ReceiveNewStockControl.Name = "ConsumbalesSection_ReceiveNewStockControl";
-            this.ConsumbalesSection_ReceiveNewStockControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSection_ReceiveNewStockControl.TabIndex = 3;
-            this.ConsumbalesSection_ReceiveNewStockControl.Text = "Receive New Stock";
-            this.ConsumbalesSection_ReceiveNewStockControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumbalesSection_ViewStockItemControl
-            // 
-            this.ConsumbalesSection_ViewStockItemControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ConsumbalesSection_ViewStockItemControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSection_ViewStockItemControl.Enabled = false;
-            this.ConsumbalesSection_ViewStockItemControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSection_ViewStockItemControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ViewStockItemControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSection_ViewStockItemControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ViewStockItemControl.Location = new System.Drawing.Point(5, 100);
-            this.ConsumbalesSection_ViewStockItemControl.Name = "ConsumbalesSection_ViewStockItemControl";
-            this.ConsumbalesSection_ViewStockItemControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSection_ViewStockItemControl.TabIndex = 2;
-            this.ConsumbalesSection_ViewStockItemControl.Text = "View Stock Item";
-            this.ConsumbalesSection_ViewStockItemControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumbalesSection_AddStockItemControl
-            // 
-            this.ConsumbalesSection_AddStockItemControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ConsumbalesSection_AddStockItemControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSection_AddStockItemControl.Enabled = false;
-            this.ConsumbalesSection_AddStockItemControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSection_AddStockItemControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_AddStockItemControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSection_AddStockItemControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_AddStockItemControl.Location = new System.Drawing.Point(5, 50);
-            this.ConsumbalesSection_AddStockItemControl.Name = "ConsumbalesSection_AddStockItemControl";
-            this.ConsumbalesSection_AddStockItemControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSection_AddStockItemControl.TabIndex = 1;
-            this.ConsumbalesSection_AddStockItemControl.Text = "Add Stock Item";
-            this.ConsumbalesSection_AddStockItemControl.UseVisualStyleBackColor = false;
-            // 
-            // ConsumbalesSectionCaptionControl
-            // 
-            this.ConsumbalesSectionCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
-            this.ConsumbalesSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConsumbalesSectionCaptionControl.Enabled = false;
-            this.ConsumbalesSectionCaptionControl.FlatAppearance.BorderSize = 0;
-            this.ConsumbalesSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ConsumbalesSectionCaptionControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSectionCaptionControl.Image = global::FPIS.Properties.Resources.consume_white;
-            this.ConsumbalesSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
-            this.ConsumbalesSectionCaptionControl.Name = "ConsumbalesSectionCaptionControl";
-            this.ConsumbalesSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
-            this.ConsumbalesSectionCaptionControl.TabIndex = 0;
-            this.ConsumbalesSectionCaptionControl.Text = "  Consumables";
-            this.ConsumbalesSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ConsumbalesSectionCaptionControl.UseVisualStyleBackColor = false;
-            // 
             // MainContainerControl
             // 
             this.MainContainerControl.Controls.Add(this.pictureBox1);
@@ -846,9 +936,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FPIS.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(274, 217);
+            this.pictureBox1.Location = new System.Drawing.Point(339, 245);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(514, 254);
+            this.pictureBox1.Size = new System.Drawing.Size(385, 199);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -874,12 +964,12 @@
             this.LogoHolderControl.PerformLayout();
             this.NavigationDrawerControl.ResumeLayout(false);
             this.SettingsSectionControl.ResumeLayout(false);
-            this.ReportsSectionControl.ResumeLayout(false);
             this.QualityControlSectionControl.ResumeLayout(false);
-            this.ProductionSectionControl.ResumeLayout(false);
-            this.DashboardSectionControl.ResumeLayout(false);
+            this.ReportsSectionControl.ResumeLayout(false);
             this.FinishedProductsSectionControl.ResumeLayout(false);
             this.ConsumablesSectionControl.ResumeLayout(false);
+            this.ProductionSectionControl.ResumeLayout(false);
+            this.DashboardSectionControl.ResumeLayout(false);
             this.MainContainerControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -938,5 +1028,10 @@
         private Panel WindowStateHandlerControl;
         private Panel MainContainerControl;
         private PictureBox pictureBox1;
+        private Button QualityControl_CreateAnalysisWaterControl;
+        private Button QualityControl_AddWaterParameterControl;
+        private Button QualityControl_AddWaterControl;
+        private Button ProductionSection_CreateAnalysisProductControl;
+        private Button ProductionSection_CreateProductParameterControl;
     }
 }
