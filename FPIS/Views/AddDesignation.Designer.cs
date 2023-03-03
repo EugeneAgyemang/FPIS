@@ -50,11 +50,12 @@
             this.materialComboBoxDepartmentName.Hint = "Select Department";
             this.materialComboBoxDepartmentName.IntegralHeight = false;
             this.materialComboBoxDepartmentName.ItemHeight = 43;
-            this.materialComboBoxDepartmentName.Location = new System.Drawing.Point(24, 99);
+            this.materialComboBoxDepartmentName.Location = new System.Drawing.Point(25, 124);
+            this.materialComboBoxDepartmentName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxDepartmentName.MaxDropDownItems = 4;
             this.materialComboBoxDepartmentName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxDepartmentName.Name = "materialComboBoxDepartmentName";
-            this.materialComboBoxDepartmentName.Size = new System.Drawing.Size(397, 49);
+            this.materialComboBoxDepartmentName.Size = new System.Drawing.Size(400, 49);
             this.materialComboBoxDepartmentName.StartIndex = 0;
             this.materialComboBoxDepartmentName.TabIndex = 0;
             // 
@@ -66,12 +67,13 @@
             this.materialTextBoxDesignationName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxDesignationName.Hint = "Designation";
             this.materialTextBoxDesignationName.LeadingIcon = null;
-            this.materialTextBoxDesignationName.Location = new System.Drawing.Point(24, 209);
+            this.materialTextBoxDesignationName.Location = new System.Drawing.Point(25, 210);
+            this.materialTextBoxDesignationName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialTextBoxDesignationName.MaxLength = 50;
             this.materialTextBoxDesignationName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxDesignationName.Multiline = false;
             this.materialTextBoxDesignationName.Name = "materialTextBoxDesignationName";
-            this.materialTextBoxDesignationName.Size = new System.Drawing.Size(397, 50);
+            this.materialTextBoxDesignationName.Size = new System.Drawing.Size(400, 50);
             this.materialTextBoxDesignationName.TabIndex = 1;
             this.materialTextBoxDesignationName.Text = "";
             this.materialTextBoxDesignationName.TrailingIcon = null;
@@ -80,12 +82,13 @@
             // 
             this.btnAddDesignation.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAddDesignation.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.btnAddDesignation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddDesignation.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnAddDesignation.Depth = 0;
             this.btnAddDesignation.HighEmphasis = true;
             this.btnAddDesignation.Icon = null;
-            this.btnAddDesignation.Location = new System.Drawing.Point(131, 327);
-            this.btnAddDesignation.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAddDesignation.Location = new System.Drawing.Point(151, 325);
+            this.btnAddDesignation.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddDesignation.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddDesignation.Name = "btnAddDesignation";
             this.btnAddDesignation.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -93,39 +96,41 @@
             this.btnAddDesignation.TabIndex = 2;
             this.btnAddDesignation.Text = "Add Designation";
             this.btnAddDesignation.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAddDesignation.UseAccentColor = false;
+            this.btnAddDesignation.UseAccentColor = true;
             this.btnAddDesignation.UseVisualStyleBackColor = true;
             this.btnAddDesignation.Click += new System.EventHandler(this.btnAddDesignation_Click);
             // 
             // labelDepartmentName
             // 
             this.labelDepartmentName.AutoSize = true;
-            this.labelDepartmentName.Location = new System.Drawing.Point(26, 156);
+            this.labelDepartmentName.Location = new System.Drawing.Point(25, 175);
             this.labelDepartmentName.Name = "labelDepartmentName";
-            this.labelDepartmentName.Size = new System.Drawing.Size(162, 20);
+            this.labelDepartmentName.Size = new System.Drawing.Size(127, 15);
             this.labelDepartmentName.TabIndex = 3;
             this.labelDepartmentName.Text = "labelDepartmentName";
             // 
             // labelDesignation
             // 
             this.labelDesignation.AutoSize = true;
-            this.labelDesignation.Location = new System.Drawing.Point(24, 268);
+            this.labelDesignation.Location = new System.Drawing.Point(25, 262);
             this.labelDesignation.Name = "labelDesignation";
-            this.labelDesignation.Size = new System.Drawing.Size(122, 20);
+            this.labelDesignation.Size = new System.Drawing.Size(95, 15);
             this.labelDesignation.TabIndex = 4;
             this.labelDesignation.Text = "labelDesignation";
             // 
             // AddDesignation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 396);
+            this.ClientSize = new System.Drawing.Size(450, 400);
             this.Controls.Add(this.labelDesignation);
             this.Controls.Add(this.labelDepartmentName);
             this.Controls.Add(this.btnAddDesignation);
             this.Controls.Add(this.materialTextBoxDesignationName);
             this.Controls.Add(this.materialComboBoxDepartmentName);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddDesignation";
+            this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Designation";
             this.Load += new System.EventHandler(this.AddDesignation_Load);

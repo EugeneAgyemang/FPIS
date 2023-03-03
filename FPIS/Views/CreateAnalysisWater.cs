@@ -2,6 +2,7 @@
 using FPIS.Services;
 using MaterialSkin.Controls;
 using Microsoft.EntityFrameworkCore;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
@@ -13,6 +14,8 @@ namespace FPIS.Views
         public CreateAnalysisWater()
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
 
             AppDbContext dbContext = new();
             _waterService = new(dbContext);

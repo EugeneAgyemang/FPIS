@@ -39,8 +39,7 @@
             this.materialLabelWaterNameError.Depth = 0;
             this.materialLabelWaterNameError.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabelWaterNameError.ForeColor = System.Drawing.Color.Red;
-            this.materialLabelWaterNameError.Location = new System.Drawing.Point(21, 150);
-            this.materialLabelWaterNameError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabelWaterNameError.Location = new System.Drawing.Point(15, 90);
             this.materialLabelWaterNameError.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabelWaterNameError.Name = "materialLabelWaterNameError";
             this.materialLabelWaterNameError.Size = new System.Drawing.Size(1, 0);
@@ -49,20 +48,22 @@
             // materialButtonCreateWater
             // 
             this.materialButtonCreateWater.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonCreateWater.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonCreateWater.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonCreateWater.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonCreateWater.Depth = 0;
             this.materialButtonCreateWater.HighEmphasis = true;
             this.materialButtonCreateWater.Icon = null;
-            this.materialButtonCreateWater.Location = new System.Drawing.Point(175, 212);
-            this.materialButtonCreateWater.Margin = new System.Windows.Forms.Padding(6, 10, 6, 10);
+            this.materialButtonCreateWater.Location = new System.Drawing.Point(161, 241);
+            this.materialButtonCreateWater.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonCreateWater.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCreateWater.Name = "materialButtonCreateWater";
             this.materialButtonCreateWater.NoAccentTextColor = System.Drawing.Color.Empty;
             this.materialButtonCreateWater.Size = new System.Drawing.Size(128, 36);
-            this.materialButtonCreateWater.TabIndex = 4;
+            this.materialButtonCreateWater.TabIndex = 1;
             this.materialButtonCreateWater.Text = "Create Water";
             this.materialButtonCreateWater.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonCreateWater.UseAccentColor = false;
+            this.materialButtonCreateWater.UseAccentColor = true;
             this.materialButtonCreateWater.UseVisualStyleBackColor = true;
             this.materialButtonCreateWater.Click += new System.EventHandler(this.materialButtonCreateWater_Click);
             // 
@@ -76,8 +77,7 @@
             this.materialTextBoxWaterName.HideSelection = true;
             this.materialTextBoxWaterName.Hint = "Name";
             this.materialTextBoxWaterName.LeadingIcon = null;
-            this.materialTextBoxWaterName.Location = new System.Drawing.Point(21, 97);
-            this.materialTextBoxWaterName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.materialTextBoxWaterName.Location = new System.Drawing.Point(25, 125);
             this.materialTextBoxWaterName.MaxLength = 32767;
             this.materialTextBoxWaterName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxWaterName.Name = "materialTextBoxWaterName";
@@ -89,8 +89,8 @@
             this.materialTextBoxWaterName.SelectionLength = 0;
             this.materialTextBoxWaterName.SelectionStart = 0;
             this.materialTextBoxWaterName.ShortcutsEnabled = true;
-            this.materialTextBoxWaterName.Size = new System.Drawing.Size(449, 48);
-            this.materialTextBoxWaterName.TabIndex = 3;
+            this.materialTextBoxWaterName.Size = new System.Drawing.Size(400, 48);
+            this.materialTextBoxWaterName.TabIndex = 0;
             this.materialTextBoxWaterName.TabStop = false;
             this.materialTextBoxWaterName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.materialTextBoxWaterName.TrailingIcon = null;
@@ -99,13 +99,16 @@
             // CreateWaterForm
             // 
             this.AcceptButton = this.materialButtonCreateWater;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 292);
+            this.ClientSize = new System.Drawing.Size(450, 320);
             this.Controls.Add(this.materialLabelWaterNameError);
             this.Controls.Add(this.materialButtonCreateWater);
             this.Controls.Add(this.materialTextBoxWaterName);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CreateWaterForm";
+            this.Padding = new System.Windows.Forms.Padding(2, 38, 2, 2);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create New Water";
             this.ResumeLayout(false);
             this.PerformLayout();

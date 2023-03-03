@@ -47,7 +47,7 @@
             this.ParameterNameControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterNameControl.Hint = "Parameter name";
             this.ParameterNameControl.LeadingIcon = null;
-            this.ParameterNameControl.Location = new System.Drawing.Point(50, 130);
+            this.ParameterNameControl.Location = new System.Drawing.Point(25, 125);
             this.ParameterNameControl.MaxLength = 50;
             this.ParameterNameControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ParameterNameControl.Multiline = false;
@@ -65,13 +65,13 @@
             this.ParameterMethodControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterMethodControl.Hint = "Method";
             this.ParameterMethodControl.LeadingIcon = null;
-            this.ParameterMethodControl.Location = new System.Drawing.Point(50, 200);
+            this.ParameterMethodControl.Location = new System.Drawing.Point(25, 214);
             this.ParameterMethodControl.MaxLength = 50;
             this.ParameterMethodControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ParameterMethodControl.Multiline = false;
             this.ParameterMethodControl.Name = "ParameterMethodControl";
             this.ParameterMethodControl.Size = new System.Drawing.Size(400, 50);
-            this.ParameterMethodControl.TabIndex = 2;
+            this.ParameterMethodControl.TabIndex = 1;
             this.ParameterMethodControl.Text = "";
             this.ParameterMethodControl.TrailingIcon = null;
             // 
@@ -95,13 +95,13 @@
             "cm",
             "m",
             "inch"});
-            this.ParameterUnitControl.Location = new System.Drawing.Point(50, 270);
+            this.ParameterUnitControl.Location = new System.Drawing.Point(25, 303);
             this.ParameterUnitControl.MaxDropDownItems = 4;
             this.ParameterUnitControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ParameterUnitControl.Name = "ParameterUnitControl";
             this.ParameterUnitControl.Size = new System.Drawing.Size(400, 49);
             this.ParameterUnitControl.StartIndex = -1;
-            this.ParameterUnitControl.TabIndex = 4;
+            this.ParameterUnitControl.TabIndex = 2;
             // 
             // ParameterSpecificationControl
             // 
@@ -111,13 +111,13 @@
             this.ParameterSpecificationControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterSpecificationControl.Hint = "Specification";
             this.ParameterSpecificationControl.LeadingIcon = null;
-            this.ParameterSpecificationControl.Location = new System.Drawing.Point(50, 339);
+            this.ParameterSpecificationControl.Location = new System.Drawing.Point(25, 391);
             this.ParameterSpecificationControl.MaxLength = 50;
             this.ParameterSpecificationControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ParameterSpecificationControl.Multiline = false;
             this.ParameterSpecificationControl.Name = "ParameterSpecificationControl";
             this.ParameterSpecificationControl.Size = new System.Drawing.Size(400, 50);
-            this.ParameterSpecificationControl.TabIndex = 5;
+            this.ParameterSpecificationControl.TabIndex = 3;
             this.ParameterSpecificationControl.Text = "";
             this.ParameterSpecificationControl.TrailingIcon = null;
             this.ParameterSpecificationControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ParameterSpecificationControl_KeyPress);
@@ -131,13 +131,13 @@
             this.SaveParameterControl.Depth = 0;
             this.SaveParameterControl.HighEmphasis = true;
             this.SaveParameterControl.Icon = null;
-            this.SaveParameterControl.Location = new System.Drawing.Point(212, 426);
+            this.SaveParameterControl.Location = new System.Drawing.Point(193, 509);
             this.SaveParameterControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveParameterControl.Name = "SaveParameterControl";
             this.SaveParameterControl.NoAccentTextColor = System.Drawing.Color.Empty;
             this.SaveParameterControl.Size = new System.Drawing.Size(64, 36);
-            this.SaveParameterControl.TabIndex = 9;
+            this.SaveParameterControl.TabIndex = 4;
             this.SaveParameterControl.Text = "Save";
             this.SaveParameterControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.SaveParameterControl.UseAccentColor = true;
@@ -149,7 +149,7 @@
             this.ParameterNameErrorCaption.AutoSize = true;
             this.ParameterNameErrorCaption.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterNameErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterNameErrorCaption.Location = new System.Drawing.Point(50, 183);
+            this.ParameterNameErrorCaption.Location = new System.Drawing.Point(25, 178);
             this.ParameterNameErrorCaption.Name = "ParameterNameErrorCaption";
             this.ParameterNameErrorCaption.Size = new System.Drawing.Size(0, 14);
             this.ParameterNameErrorCaption.TabIndex = 19;
@@ -159,7 +159,7 @@
             this.ParameterMethodErrorCaption.AutoSize = true;
             this.ParameterMethodErrorCaption.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterMethodErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterMethodErrorCaption.Location = new System.Drawing.Point(50, 253);
+            this.ParameterMethodErrorCaption.Location = new System.Drawing.Point(25, 267);
             this.ParameterMethodErrorCaption.Name = "ParameterMethodErrorCaption";
             this.ParameterMethodErrorCaption.Size = new System.Drawing.Size(0, 14);
             this.ParameterMethodErrorCaption.TabIndex = 20;
@@ -169,7 +169,7 @@
             this.ParameterUnitErrorCaption.AutoSize = true;
             this.ParameterUnitErrorCaption.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterUnitErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterUnitErrorCaption.Location = new System.Drawing.Point(50, 322);
+            this.ParameterUnitErrorCaption.Location = new System.Drawing.Point(25, 355);
             this.ParameterUnitErrorCaption.Name = "ParameterUnitErrorCaption";
             this.ParameterUnitErrorCaption.Size = new System.Drawing.Size(0, 14);
             this.ParameterUnitErrorCaption.TabIndex = 21;
@@ -179,7 +179,7 @@
             this.ParameterSpecificationErrorCaption.AutoSize = true;
             this.ParameterSpecificationErrorCaption.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterSpecificationErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterSpecificationErrorCaption.Location = new System.Drawing.Point(50, 392);
+            this.ParameterSpecificationErrorCaption.Location = new System.Drawing.Point(25, 444);
             this.ParameterSpecificationErrorCaption.Name = "ParameterSpecificationErrorCaption";
             this.ParameterSpecificationErrorCaption.Size = new System.Drawing.Size(0, 14);
             this.ParameterSpecificationErrorCaption.TabIndex = 22;
@@ -187,7 +187,7 @@
             // CreateProductParameter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(500, 500);
+            this.ClientSize = new System.Drawing.Size(450, 590);
             this.Controls.Add(this.ParameterSpecificationErrorCaption);
             this.Controls.Add(this.ParameterUnitErrorCaption);
             this.Controls.Add(this.ParameterMethodErrorCaption);
