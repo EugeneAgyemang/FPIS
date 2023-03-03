@@ -1,6 +1,7 @@
 ﻿using FPIS.Models;
 using FPIS.Views;
 using MaterialSkin.Controls;
+using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using static MaterialSkin.MaterialSkinManager;
 
@@ -24,6 +25,7 @@ namespace FPIS
             labelLastName.ForeColor = Color.Red;
             labelPassword.ForeColor = Color.Red;
             labelConfirmPassword.ForeColor = Color.Red;
+            LoadDesignations();
         }
 
         private void ClearErrorLabels()
@@ -155,7 +157,8 @@ namespace FPIS
         private void RegisterUser()
         {
             btnRegister.Enabled = false;
-
+            var designation = new AppDbContext().Designations.Where(design => 
+            design.DesignationName == materialComboBoxDesignation.Text).Single();
             User user = new()
             {
                 EmpID = materialTextBoxEmployeeId.Text,
@@ -163,7 +166,8 @@ namespace FPIS
                 LastName = materialTextBoxLastName.Text,
                 MiddleName = materialTextBoxMiddleName.Text,
                 Password = Utils.Utils.HashPassword(materialTextBoxConfirmedPassword.Text),
-            };
+                DesignationId = designation.Id
+        };
 
             try
             {
@@ -213,6 +217,23 @@ namespace FPIS
 
             RegisterUser();
             // Close();
+        }
+        public void LoadDesignations()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var designationName = from Designation in dbContext.Designations
+                                     select Designation;
+                materialComboBoxDesignation.DataSource = designationName.ToList();
+                materialComboBoxDesignation.DisplayMember = "DesignationName";
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Designations: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
         }
     }
 }
