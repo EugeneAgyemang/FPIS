@@ -12,6 +12,7 @@ namespace FPIS.Views
 {
     public partial class Main : Form
     {
+        const int PERFECTSIZEFORHIDINGNAVIGATION = 130;
         bool isNavigationOpen = true;
         StringBuilder navigationButtonsContents = new StringBuilder();
         int[] panelHeights = new int[7];
@@ -24,18 +25,19 @@ namespace FPIS.Views
         }
         private void HamburgerControl_Click(object sender, EventArgs e)
         {
+            CollapseNavigationDrawer();
             ToggleNavigation();
         }
         public void ToggleNavigation()
         {
-            int perfectSizeForHidingNavigation = 130;
             if (isNavigationOpen)
             {
-                HideNavigation(perfectSizeForHidingNavigation);
+                indexOfNavigationButtonClicked = -1;
+                HideNavigation(PERFECTSIZEFORHIDINGNAVIGATION);
                 isNavigationOpen = false;
                 return;
             }
-            ShowNavigation(perfectSizeForHidingNavigation);
+            ShowNavigation(PERFECTSIZEFORHIDINGNAVIGATION);
             isNavigationOpen = true;
         }
         public void HideNavigation(int perfectSizeForHidingNavigation)
@@ -65,6 +67,8 @@ namespace FPIS.Views
             string[] contents = navigationButtonsContents.ToString().Split(",");
             foreach (Panel section in NavigationDrawerControl.Controls)
             {
+                if (section.Tag == "-1")
+                    continue;
                 foreach (Control item in section.Controls)
                 {
                     Button navigationButton = (Button)item;
@@ -108,7 +112,9 @@ namespace FPIS.Views
         {
             // Don't expand when the navigation is hidden
             if (!isNavigationOpen)
-                return;
+            {
+                ToggleNavigation();
+            }
             CollapseNavigationDrawer();
             Button navigationButton = (Button)sender;
             // Obtain the parent's position using the tag# of the parent panel
@@ -161,6 +167,10 @@ namespace FPIS.Views
         {
             int yAxis = (navigationMenuClicked * 50) + 11;
             NavigationIndicatorControl.Location = new Point(3, yAxis);
+        }
+        private void ResetNavigationIndicator()
+        {
+            NavigationIndicatorControl.Location = new Point(-10, 11);
         }
         private void CachePanelState()
         {
