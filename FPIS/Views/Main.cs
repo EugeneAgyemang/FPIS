@@ -82,16 +82,22 @@ namespace FPIS.Views
         }
         private void CollapseNavigationDrawer()
         {
-            foreach (Panel panel in NavigationDrawerControl.Controls)
+            foreach (Control panel in NavigationDrawerControl.Controls)
             {
-                // Hide sub menu buttons
-                panel.Height = 50;
+                if (!(panel is Panel))
+                    continue;
                 // Find the initial panel's start position
                 int top = 1;
                 // Find the position for the panel. Every panel's position is stored as it's tag#: 0, 1 and so on
-                int tag = int.Parse((string)panel.Tag);
+                int tag = GetTag(panel);
+                if(tag == -1)
+                {
+                    continue;
+                }
+                // Hide sub menu buttons
+                panel.Height = 50;
                 // Add extra line of spacing between panels
-                top = top * tag + 1;
+                top = (top * tag) + 1;
                 // Find y-axis for the panel. Tag # is simply it's position away from the top. Ergo Tag#0 -> 1, Tag#1 -> 51
                 int panelYAxis = (tag * panel.Height) + top;
                 panel.Location = new Point(6, panelYAxis);
@@ -107,6 +113,9 @@ namespace FPIS.Views
             Button navigationButton = (Button)sender;
             // Obtain the parent's position using the tag# of the parent panel
             int tag = int.Parse((string)navigationButton.Parent.Tag);
+            RepositionNavigationIndicator(tag);
+            if (tag == 0)
+                return;
             if (indexOfNavigationButtonClicked == tag)
             {
                 indexOfNavigationButtonClicked = -1;
@@ -114,9 +123,11 @@ namespace FPIS.Views
             }
 
             indexOfNavigationButtonClicked = tag;
-            foreach (Panel panel in NavigationDrawerControl.Controls)
+            foreach (Control panel in NavigationDrawerControl.Controls)
             {
-                int currentPanelTag = int.Parse((string)panel.Tag);
+                if (!(panel is Panel))
+                    continue;
+                int currentPanelTag = GetTag(panel);
                 if (tag == currentPanelTag)
                 {
                     panel.Height = panelHeights[tag];
@@ -127,26 +138,41 @@ namespace FPIS.Views
         }
         private void RepositionNavigation(int previousTag)
         {
-            foreach (Panel panel in NavigationDrawerControl.Controls)
+            foreach (Control panel in NavigationDrawerControl.Controls)
             {
+                if (!(panel is Panel))
+                    continue;
                 int currentTag = int.Parse((string)panel.Tag);
                 if (currentTag <= previousTag)
                     continue;
 
                 int top = panelHeights[previousTag];
-                int tag = int.Parse((string)panel.Tag) - 1;
-                //if (tag > 0)
+                int tag = GetTag(panel) - 1;
+                if(tag == -1)
+                {
+                    continue;
+                }
                 top = (50 * tag + top) + 1;
                 int panelYAxis = top;
                 panel.Location = new Point(6, panelYAxis);
             }
         }
+        private void RepositionNavigationIndicator(int navigationMenuClicked)
+        {
+            int yAxis = (navigationMenuClicked * 50) + 11;
+            NavigationIndicatorControl.Location = new Point(3, yAxis);
+        }
         private void CachePanelState()
         {
-            foreach (Panel panel in NavigationDrawerControl.Controls)
+            foreach (Control panel in NavigationDrawerControl.Controls)
             {
-                // The index for each panel
-                int tag = int.Parse((string)panel.Tag);
+                if (!(panel is Panel))
+                    continue;
+                int tag = GetTag(panel);
+                if (tag == -1)
+                {
+                    continue;
+                }
                 panelHeights[tag] = panel.Height;
             }
         }
@@ -161,6 +187,17 @@ namespace FPIS.Views
             {
                 Application.Exit();
             }
+        }
+        /// <summary>
+        /// Retrieve meta data for a panel via it's tag attribute.
+        /// </summary>
+        /// <param name="panel">The specified panel whose meta data needs to be retrieved</param>
+        /// <returns>The tag number for the specified panel</returns>
+        private int GetTag(Control panel)
+        {
+            // The index for each panel
+            int tag = int.Parse((string)panel.Tag);
+            return tag;
         }
 
         private void MinimizeWindowControl_Click(object sender, EventArgs e)

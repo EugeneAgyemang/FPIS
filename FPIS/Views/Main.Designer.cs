@@ -36,6 +36,7 @@
             this.LogoHolderControl = new System.Windows.Forms.Panel();
             this.HamburgerControl = new System.Windows.Forms.Button();
             this.TitleBarCaptionControl = new System.Windows.Forms.Label();
+            this.NavigationIndicatorControl = new System.Windows.Forms.Panel();
             this.NavigationDrawerControl = new System.Windows.Forms.Panel();
             this.SettingsSectionControl = new System.Windows.Forms.Panel();
             this.OpenSettingsControl = new System.Windows.Forms.Button();
@@ -199,9 +200,19 @@
             this.TitleBarCaptionControl.TabIndex = 0;
             this.TitleBarCaptionControl.Text = "Welcome";
             // 
+            // NavigationIndicatorControl
+            // 
+            this.NavigationIndicatorControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.NavigationIndicatorControl.Location = new System.Drawing.Point(-10, 11);
+            this.NavigationIndicatorControl.Name = "NavigationIndicatorControl";
+            this.NavigationIndicatorControl.Size = new System.Drawing.Size(3, 30);
+            this.NavigationIndicatorControl.TabIndex = 1;
+            this.NavigationIndicatorControl.Tag = "-1";
+            // 
             // NavigationDrawerControl
             // 
             this.NavigationDrawerControl.AutoScroll = true;
+            this.NavigationDrawerControl.Controls.Add(this.NavigationIndicatorControl);
             this.NavigationDrawerControl.Controls.Add(this.SettingsSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.QualityControlSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.ReportsSectionControl);
@@ -930,6 +941,7 @@
             this.DashboardControl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.DashboardControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DashboardControl.UseVisualStyleBackColor = false;
+            this.DashboardControl.Click += new System.EventHandler(this.ShowNavigationSubmenu);
             // 
             // MainContainerControl
             // 
@@ -1051,5 +1063,6 @@
         private Button ProductionSection_CreateAnalysisProductControl;
         private Button ProductionSection_CreateProductParameterControl;
         private Panel DividerControl;
+        private Panel NavigationIndicatorControl;
     }
 }
