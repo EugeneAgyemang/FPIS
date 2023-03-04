@@ -11,6 +11,9 @@
     <Compile Update="Views\CreateAnalysisProduct.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\CreateAnalysisWater.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
