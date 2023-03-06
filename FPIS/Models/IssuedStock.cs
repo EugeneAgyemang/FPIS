@@ -14,7 +14,7 @@ namespace FPIS.Models
         [Key]
         public Guid Id { get; set; }
         public int QuantityIssued { get; set; }
-        public DateTime IssuedDate { get; set; }
+        public DateOnly IssuedDate { get; set; }
 
         // Navigation Properties
         public Guid StockItemId { get; set; }
