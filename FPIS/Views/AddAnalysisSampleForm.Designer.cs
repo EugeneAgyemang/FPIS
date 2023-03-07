@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +49,17 @@
             this.nameDataGridViewTextBoxColumn,
             this.selectedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.analysisSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-2, 95);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 64);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 355);
+            this.dataGridView1.Size = new System.Drawing.Size(794, 383);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // analysisSampleBindingItemBindingSource
+            // 
+            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -64,7 +68,6 @@
             this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
             this.idDataGridViewTextBoxColumn.Width = 150;
             // 
             // nameDataGridViewTextBoxColumn
@@ -74,22 +77,16 @@
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 150;
+            this.nameDataGridViewTextBoxColumn.Width = 430;
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
             this.selectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
-            this.selectedDataGridViewCheckBoxColumn.FalseValue = "";
-            this.selectedDataGridViewCheckBoxColumn.HeaderText = "Select Item";
+            this.selectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
             this.selectedDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
             this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.selectedDataGridViewCheckBoxColumn.TrueValue = "";
             this.selectedDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // analysisSampleBindingItemBindingSource
-            // 
-            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // AddAnalysisSampleForm
             // 
@@ -100,7 +97,7 @@
             this.MaximizeBox = false;
             this.Name = "AddAnalysisSampleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select Analysis Sample";
+            this.Text = "Select Analysis Samples";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -8,13 +8,10 @@ namespace FPIS.Views
 {
     public partial class CreateAnalysisRequestForm : Form
     {
-        private Guid employee1Id;
-        private Guid employee2Id;
-        private UserService _userService;
-        private AnalysisService _analysisService;
+        private readonly UserService _userService;
+        private readonly AnalysisService _analysisService;
 
         public static string analysisType = "";
-        public static string selecteds = "";
         public static BindingList<AnalysisSampleBindingItem> analysisItemList = new();
 
         private class UserForDropDown
@@ -34,11 +31,12 @@ namespace FPIS.Views
                 SelectAnalysisTypeForm selectAnalysisTypeForm = new();
                 DialogResult result = selectAnalysisTypeForm.ShowDialog();
 
-                if (result == DialogResult.Cancel)
+                if (analysisType.Equals(""))
                 {
-                    // this.Close();
+                    Close();
                 }
-                this.Text = $"New {analysisType} Analysis";
+
+                Text = $"New {analysisType} Analysis";
             }
 
             AppDbContext context = new();
@@ -47,29 +45,42 @@ namespace FPIS.Views
             _analysisService = new(context);
             _userService = new(context);
 
-            LoadEmployee1();
+            LoadProductionEngineer1();
             LoadEmployee2();
         }
 
-        private void LoadEmployee1() 
+        private void LoadProductionEngineer1()
         {
-            materialComboBoxEmployee1.DataSource = _userService.GetAllUsers()
-                .Select(u => new UserForDropDown() {
-                    Id = u.Id, Name = $"{u.FirstName} {u.MiddleName} {u.LastName}"
-                })
-                .ToList();
-            materialComboBoxEmployee1.DisplayMember = "Name";
+            User? user = _userService.GetUserById(Main.LOGGED_USER_ID);
+
+            if (user != null)
+            {
+                UserForDropDown userForDropDown = new()
+                {
+                    Id = user.Id,
+                    EmpID = user.EmpID,
+                    Name = $"{user.FirstName} {user.MiddleName} {user.LastName}"
+                };
+
+                List<UserForDropDown> engineerOne = new();
+                engineerOne.Add(userForDropDown);
+
+                materialComboBoxEmployee1.DataSource = engineerOne;
+                materialComboBoxEmployee1.DisplayMember = "Name";
+            }
         }
 
         private void LoadEmployee2()
         {
-            materialComboBoxEmployee2.DataSource = _userService.GetAllUsers()
+            materialComboBoxEmployee2.DataSource = _userService.GetAllUsersWithoutId(new Guid(Main.LOGGED_USER_ID))
                 .Select(u => new UserForDropDown()
                 {
                     Id = u.Id,
+                    EmpID = u.EmpID,
                     Name = $"{u.FirstName} {u.MiddleName} {u.LastName}"
                 })
                 .ToList();
+
             materialComboBoxEmployee2.DisplayMember = "Name";
         }
 
@@ -79,29 +90,69 @@ namespace FPIS.Views
             {
                 AnalysisType = analysisType
             };
-            addAnalysisSampleForm.Show();
+            addAnalysisSampleForm.ShowDialog();
         }
 
         private void materialButtonRequestAnalysis_Click(object sender, EventArgs e)
         {
             try
             {
-                UserForDropDown employee1 = materialComboBoxEmployee1.SelectedItem as UserForDropDown;
-                UserForDropDown employee2 = materialComboBoxEmployee2.SelectedItem as UserForDropDown;
+                UserForDropDown? employee1 = materialComboBoxEmployee1.SelectedItem as UserForDropDown;
+                UserForDropDown? employee2 = materialComboBoxEmployee2.SelectedItem as UserForDropDown;
+
+                if (employee1 == null || employee2 == null)
+                {
+                    Utils.Utils.ShowMessageBox(
+                        $"Please ensure that Employee 1 and Employee 2 are selected before you continue.",
+                        "Select Employees",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+
+                    return;
+                }
 
                 if (employee1.Id.Equals(employee2.Id))
                 {
                     Utils.Utils.ShowMessageBox(
-                        "Employee 1 and Employee2 cannot be the same person!",
+                        $"Employee 1 and Employee 2 cannot be the same person ({employee1.Name})!",
+                        "Equal Employees",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+
+                    return;
+                }
+
+                if (analysisItemList.Count == 0)
+                {
+                    Utils.Utils.ShowMessageBox(
+                        $"Please add a sample for the analysis.",
                         "Invalid Data",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                         );
+
                     return;
                 }
 
+                DialogResult confirmDialogResult = Utils.Utils.ShowMessageBox(
+                    "Are you sure you want to create this analysis request?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (confirmDialogResult != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                materialButtonAddSample.Enabled = false;
+                materialButtonRequestAnalysis.Enabled = false;
+
                 _analysisService.CreateSample(
-                    new Guid("c6cfd03d-b708-434a-aa01-b9089bd0d027"),
+                    new Guid(Main.LOGGED_USER_ID),
                     employee1.EmpID,
                     employee2.EmpID,
                     DateOnly.FromDateTime(DateTime.UtcNow.Date),
@@ -110,10 +161,32 @@ namespace FPIS.Views
                     analysisItemList.ToList()
                 );
 
-                Utils.Utils.ShowMessageBox("Successfully created a sample", "Success");
+                DialogResult dialogResult = Utils.Utils.ShowMessageBox(
+                    "Successfully sent analysis request. Do you want to send a new request?",
+                    "Success",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information
+                );
+
+                if (dialogResult != DialogResult.Yes)
+                {
+                    Close();
+                }
+
+                analysisItemList.Clear();
+                materialComboBoxEmployee1.SelectedItem = null;
+                materialComboBoxEmployee2.SelectedItem = null;
+
+                materialButtonAddSample.Enabled = true;
+                materialButtonRequestAnalysis.Enabled = true;
             } catch (Exception ex)
             {
-                Utils.Utils.ShowMessageBox(ex.ToString(), "Error");
+                Utils.Utils.ShowMessageBox(
+                    $"We were unable to create the Analysis Request. Please try again.{ex}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
     }

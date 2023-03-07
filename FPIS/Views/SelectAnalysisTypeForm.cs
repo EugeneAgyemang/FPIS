@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FPIS.Views
+﻿namespace FPIS.Views
 {
     public partial class SelectAnalysisTypeForm : Form
     {
         public SelectAnalysisTypeForm()
         {
             InitializeComponent();
+            materialComboBoxAnalysisType.DataSource =
+                new string[] { "Production", "Water" };
         }
 
         private void materialButtonProductionAnalysis_Click(object sender, EventArgs e)
@@ -26,6 +18,14 @@ namespace FPIS.Views
         private void materialButtonWaterAnalysis_Click(object sender, EventArgs e)
         {
             CreateAnalysisRequestForm.analysisType = "Water";
+            Close();
+        }
+
+        private void materialButtonContinue_Click(object sender, EventArgs e)
+        {
+            CreateAnalysisRequestForm.analysisType =
+                materialComboBoxAnalysisType.SelectedItem.ToString();
+
             Close();
         }
     }

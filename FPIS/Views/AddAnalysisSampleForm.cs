@@ -1,21 +1,16 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
-using Microsoft.Extensions.Logging;
-using System;
+using MaterialSkin.Controls;
+using Moq;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FPIS.Views
 {
-    public partial class AddAnalysisSampleForm : Form
+    public partial class AddAnalysisSampleForm : MaterialForm
     {
         private readonly AnalysisItemService _analysisItemService;
         private readonly BindingList<AnalysisSampleBindingItem> itemList = new();
+
         public string AnalysisType { get; set; }
 
         public AddAnalysisSampleForm()
@@ -23,8 +18,7 @@ namespace FPIS.Views
             InitializeComponent();
             dataGridView1.DataSource = itemList;
 
-            AppDbContext context = new();
-            _analysisItemService = new(context);
+            _analysisItemService = new(new AppDbContext());
 
             if (CreateAnalysisRequestForm.analysisType == "Production")
             {
@@ -41,23 +35,14 @@ namespace FPIS.Views
 
             foreach (AnalysisProduct ap in analysisProducts)
             {
-                var existingItem = CreateAnalysisRequestForm.analysisItemList.FirstOrDefault(it => it.Id == ap.Id);
+                var existingItem = CreateAnalysisRequestForm.analysisItemList.FirstOrDefault(it => it.Id == ap.AnalysisItemId);
 
                 AnalysisSampleBindingItem newItem = new()
                 {
                     Id = ap.AnalysisItemId,
-                    Selected = existingItem != null,
-                    Name = ap.Product.ProductName
+                    Name = ap.Product.ProductName,
+                    Selected = existingItem != null
                 };
-                /*
-                var existingItem = CreateAnalysisForm.analysisItemList.FirstOrDefault(it => it.Id == new Guid());
-
-                if (existingItem != null)
-                {
-                    newItem.Selected = true;
-                    MessageBox.Show("matched");
-                }
-                */
 
                 itemList.Add(newItem);
             }
@@ -67,28 +52,19 @@ namespace FPIS.Views
         {
             List<AnalysisWater> analysisWaters = _analysisItemService.FetchAnalysisWater();
 
-            foreach (AnalysisWater analysisWater in analysisWaters)
+            foreach (AnalysisWater aw in analysisWaters)
             {
+                var existingItem = CreateAnalysisRequestForm.analysisItemList.FirstOrDefault(it => it.Id == aw.AnalysisItemId);
+
                 AnalysisSampleBindingItem newItem = new()
                 {
-                    Id = analysisWater.AnalysisItemId,
-                    Name = analysisWater.Water.WaterName
+                    Id = aw.AnalysisItemId,
+                    Name = aw.Water.WaterName,
+                    Selected = existingItem != null
                 };
-
-                var existingItem = CreateAnalysisRequestForm.analysisItemList.FirstOrDefault(it => it.Id == new Guid());
-
-                if (existingItem != null)
-                {
-                    newItem.Selected = true;
-                }
 
                 itemList.Add(newItem);
             }
-        }
-
-        private void analysisProductBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -109,19 +85,23 @@ namespace FPIS.Views
                 return;
             }
 
+            // this is because it shows false before it turns to true
+            // and vice-versa
             if (selectItemColumnValue.Equals("True"))
             {
                 item.Selected = false;
-                var it = itemList.First(it => it.Id.ToString() == itemId);
+                AnalysisSampleBindingItem it = itemList.First(it => it.Name == item.Name);
                 CreateAnalysisRequestForm.analysisItemList.Remove(it);
+                MessageBox.Show($"Hi item {item.Name}, it {it.Name}");
             }
             else
             {
                 item.Selected = true;
-                AnalysisSampleBindingItem analysisITem = itemList
+                AnalysisSampleBindingItem it = itemList
                     .First(aI => aI.Id.ToString() == itemId);
 
-                CreateAnalysisRequestForm.analysisItemList.Add(analysisITem);
+                CreateAnalysisRequestForm.analysisItemList.Add(it);
+                MessageBox.Show($"Hello  item {item.Name}, it {it.Name}");
             }
         }
     }

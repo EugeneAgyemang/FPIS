@@ -17,6 +17,9 @@ namespace FPIS.Views
         StringBuilder navigationButtonsContents = new StringBuilder();
         int[] panelHeights = new int[7];
         int indexOfNavigationButtonClicked = -1;
+
+        public static string LOGGED_USER_ID = "c6cfd03d-b708-434a-aa01-b9089bd0d027";
+
         public Main()
         {
             InitializeComponent();
