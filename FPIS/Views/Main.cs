@@ -15,7 +15,7 @@ namespace FPIS.Views
         const int PERFECTSIZEFORHIDINGNAVIGATION = 130;
         bool isNavigationOpen = true;
         StringBuilder navigationButtonsContents = new StringBuilder();
-        int[] panelHeights = new int[7];
+        int[] panelHeights = new int[8];
         int indexOfNavigationButtonClicked = -1;
         public Main()
         {
