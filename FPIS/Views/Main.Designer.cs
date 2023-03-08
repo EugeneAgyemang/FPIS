@@ -283,7 +283,7 @@
             this.ProcurementSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProcurementSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSectionCaptionControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSectionCaptionControl.Image = global::FPIS.Properties.Resources.report_white;
+            this.ProcurementSectionCaptionControl.Image = global::FPIS.Properties.Resources.procurement;
             this.ProcurementSectionCaptionControl.Location = new System.Drawing.Point(5, 1);
             this.ProcurementSectionCaptionControl.Name = "ProcurementSectionCaptionControl";
             this.ProcurementSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
