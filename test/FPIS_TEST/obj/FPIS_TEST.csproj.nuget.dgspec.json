@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
+    "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {}
   },
   "projects": {
-    "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj": {
+    "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj",
+        "projectUniqueName": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj",
         "projectName": "FPIS",
-        "projectPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj",
+        "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj",
         "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
-        "outputPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\obj\\",
+        "outputPath": "D:\\FPIS\\FPIS\\FPIS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,14 +82,14 @@
         }
       }
     },
-    "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
+    "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "projectUniqueName": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
         "projectName": "FPIS_TEST",
-        "projectPath": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+        "projectPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
         "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
-        "outputPath": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\obj\\",
+        "outputPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -106,8 +106,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj": {
-                "projectPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj"
+              "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+                "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj"
               }
             }
           }
@@ -134,9 +134,9 @@
               "target": "Package",
               "version": "[17.1.0, )"
             },
-            "Moq.EntityFrameworkCore": {
+            "Moq": {
               "target": "Package",
-              "version": "[7.0.0.2, )"
+              "version": "[4.18.4, )"
             },
             "coverlet.collector": {
               "target": "Package",

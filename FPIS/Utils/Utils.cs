@@ -64,4 +64,14 @@ public class Utils
         }
         return isKeyHandled;
     }
+
+    /// <summary>
+    /// Test if quantity received matches our name regular expression
+    /// </summary>
+    /// <param quantity="quantity"></param>
+    /// <returns>boolean</returns>
+    public static bool TestQuantityRegex(string quantity)
+    {
+        return new Regex("^[0-9]").IsMatch(quantity);
+    }
 }

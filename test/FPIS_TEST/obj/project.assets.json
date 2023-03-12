@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Castle.Core/5.0.0": {
+      "Castle.Core/5.1.1": {
         "type": "package",
         "dependencies": {
           "System.Diagnostics.EventLog": "6.0.0"
@@ -614,11 +614,10 @@
           }
         }
       },
-      "Moq/4.18.1": {
+      "Moq/4.18.4": {
         "type": "package",
         "dependencies": {
-          "Castle.Core": "5.0.0",
-          "System.Threading.Tasks.Extensions": "4.5.4"
+          "Castle.Core": "5.1.1"
         },
         "compile": {
           "lib/net6.0/Moq.dll": {
@@ -2076,13 +2075,22 @@
           }
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.4": {
+      "System.Threading.Tasks.Extensions/4.3.0": {
         "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
         "compile": {
-          "ref/netcoreapp2.1/_._": {}
+          "lib/netstandard1.0/_._": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp2.1/_._": {}
+          "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Threading.Timer/4.3.0": {
@@ -2172,10 +2180,10 @@
     }
   },
   "libraries": {
-    "Castle.Core/5.0.0": {
-      "sha512": "edc8jjyXqzzy8jFdhs36FZdwmlDDTgqPb2Zy1Q5F/f2uAc88bu/VS/0Tpvgupmpl9zJOvOo5ZizVANb0ltN1NQ==",
+    "Castle.Core/5.1.1": {
+      "sha512": "rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
       "type": "package",
-      "path": "castle.core/5.0.0",
+      "path": "castle.core/5.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2183,7 +2191,7 @@
         "CHANGELOG.md",
         "LICENSE",
         "castle-logo.png",
-        "castle.core.5.0.0.nupkg.sha512",
+        "castle.core.5.1.1.nupkg.sha512",
         "castle.core.nuspec",
         "lib/net462/Castle.Core.dll",
         "lib/net462/Castle.Core.xml",
@@ -3311,10 +3319,10 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "Moq/4.18.1": {
-      "sha512": "MmZIKNyvn8VrivSaqA8tqy5DmwUievC9zsuNTrcb00oY4IeGq6fXT5BQK329lZ05/tyi5vp30AWe9fl0d2PZQg==",
+    "Moq/4.18.4": {
+      "sha512": "IOo+W51+7Afnb0noltJrKxPBSfsgMzTKCw+Re5AMx8l/vBbAbMDOynLik4+lBYIWDJSO0uV7Zdqt7cNb6RZZ+A==",
       "type": "package",
-      "path": "moq/4.18.1",
+      "path": "moq/4.18.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3326,7 +3334,7 @@
         "lib/netstandard2.0/Moq.xml",
         "lib/netstandard2.1/Moq.dll",
         "lib/netstandard2.1/Moq.xml",
-        "moq.4.18.1.nupkg.sha512",
+        "moq.4.18.4.nupkg.sha512",
         "moq.nuspec",
         "moq.png"
       ]
@@ -7015,41 +7023,21 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "System.Threading.Tasks.Extensions/4.5.4": {
-      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+    "System.Threading.Tasks.Extensions/4.3.0": {
+      "sha512": "npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
       "type": "package",
-      "path": "system.threading.tasks.extensions/4.5.4",
+      "path": "system.threading.tasks.extensions/4.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Threading.Tasks.Extensions.dll",
-        "lib/net461/System.Threading.Tasks.Extensions.xml",
-        "lib/netcoreapp2.1/_._",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
         "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
-        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
-        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/netcoreapp2.1/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-        "system.threading.tasks.extensions.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "system.threading.tasks.extensions.4.3.0.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec"
       ]
     },
     "System.Threading.Timer/4.3.0": {
@@ -7261,7 +7249,7 @@
       "MSTest.TestAdapter >= 2.2.8",
       "MSTest.TestFramework >= 2.2.8",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
-      "Moq.EntityFrameworkCore >= 7.0.0.2",
+      "Moq >= 4.18.4",
       "coverlet.collector >= 3.1.2"
     ]
   },
@@ -7271,11 +7259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+      "projectUniqueName": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
       "projectName": "FPIS_TEST",
-      "projectPath": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
+      "projectPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\FPIS_TEST.csproj",
       "packagesPath": "C:\\Users\\I.T.S. GH\\.nuget\\packages\\",
-      "outputPath": "D:\\FPIS-Reviews\\FPIS\\test\\FPIS_TEST\\obj\\",
+      "outputPath": "D:\\FPIS\\FPIS\\test\\FPIS_TEST\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\I.T.S. GH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7292,8 +7280,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj": {
-              "projectPath": "D:\\FPIS-Reviews\\FPIS\\FPIS\\FPIS.csproj"
+            "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj": {
+              "projectPath": "D:\\FPIS\\FPIS\\FPIS\\FPIS.csproj"
             }
           }
         }
@@ -7320,9 +7308,9 @@
             "target": "Package",
             "version": "[17.1.0, )"
           },
-          "Moq.EntityFrameworkCore": {
+          "Moq": {
             "target": "Package",
-            "version": "[7.0.0.2, )"
+            "version": "[4.18.4, )"
           },
           "coverlet.collector": {
             "target": "Package",
