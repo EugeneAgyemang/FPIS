@@ -1,12 +1,11 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 
 namespace FPIS.Views
 {
-    public partial class CreateAnalysisRequestForm : Form
+    public partial class CreateAnalysisRequestFormUserControl : UserControl
     {
         private readonly UserService _userService;
         private readonly AnalysisService _analysisService;
@@ -22,26 +21,15 @@ namespace FPIS.Views
             public string EmpID { get; set; }
         }
 
-        public CreateAnalysisRequestForm()
+        public CreateAnalysisRequestFormUserControl()
         {
             InitializeComponent();
 
-            if (String.IsNullOrEmpty(analysisType))
-            {
-                SelectAnalysisTypeForm selectAnalysisTypeForm = new();
-                DialogResult result = selectAnalysisTypeForm.ShowDialog();
-
-                if (analysisType.Equals(""))
-                {
-                    Close();
-                }
-
-                Text = $"New {analysisType} Analysis";
-            }
-
-            AppDbContext context = new();
+            labelAnalysisRequestTitle.Text = $"New {analysisType} Analysis Request";
 
             dataGridView1.DataSource = analysisItemList;
+
+            AppDbContext context = new();
             _analysisService = new(context);
             _userService = new(context);
 
@@ -161,28 +149,22 @@ namespace FPIS.Views
                     analysisItemList.ToList()
                 );
 
-                DialogResult dialogResult = Utils.Utils.ShowMessageBox(
-                    "Successfully sent analysis request. Do you want to send a new request?",
-                    "Success",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Information
-                );
-
-                if (dialogResult != DialogResult.Yes)
-                {
-                    Close();
-                }
-
                 analysisItemList.Clear();
-                materialComboBoxEmployee1.SelectedItem = null;
-                materialComboBoxEmployee2.SelectedItem = null;
 
                 materialButtonAddSample.Enabled = true;
                 materialButtonRequestAnalysis.Enabled = true;
-            } catch (Exception ex)
+
+                Utils.Utils.ShowMessageBox(
+                    "Successfully sent analysis request. You can send a new request if you want?",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch
             {
                 Utils.Utils.ShowMessageBox(
-                    $"We were unable to create the Analysis Request. Please try again.{ex}",
+                    $"We were unable to create the Analysis Request. Please try again.",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

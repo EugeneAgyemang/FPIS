@@ -60,6 +60,7 @@
             this.materialButtonContinue.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButtonContinue.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonContinue.Depth = 0;
+            this.materialButtonContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.materialButtonContinue.HighEmphasis = true;
             this.materialButtonContinue.Icon = null;
             this.materialButtonContinue.Location = new System.Drawing.Point(493, 117);

@@ -217,5 +217,18 @@ namespace FPIS.Views
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void ProductionSection_AddSampleControl_Click(object sender, EventArgs e)
+        {
+            SelectAnalysisTypeForm selectAnalysisTypeForm = new();
+            DialogResult dialogResult = selectAnalysisTypeForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                CreateAnalysisRequestFormUserControl requestForAnalysis = new();
+                MainContainerControl.Controls.Clear();
+                MainContainerControl.Controls.Add(requestForAnalysis);
+            }
+        }
     }
 }

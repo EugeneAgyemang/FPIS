@@ -11,19 +11,19 @@
 
         private void materialButtonProductionAnalysis_Click(object sender, EventArgs e)
         {
-            CreateAnalysisRequestForm.analysisType = "Production";
+            CreateAnalysisRequestFormUserControl.analysisType = "Production";
             Close();
         }
 
         private void materialButtonWaterAnalysis_Click(object sender, EventArgs e)
         {
-            CreateAnalysisRequestForm.analysisType = "Water";
+            CreateAnalysisRequestFormUserControl.analysisType = "Water";
             Close();
         }
 
         private void materialButtonContinue_Click(object sender, EventArgs e)
         {
-            CreateAnalysisRequestForm.analysisType =
+            CreateAnalysisRequestFormUserControl.analysisType =
                 materialComboBoxAnalysisType.SelectedItem.ToString();
 
             Close();

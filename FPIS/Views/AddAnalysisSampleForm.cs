@@ -3,11 +3,13 @@ using FPIS.Services;
 using MaterialSkin.Controls;
 using Moq;
 using System.ComponentModel;
+using System.Linq;
 
 namespace FPIS.Views
 {
     public partial class AddAnalysisSampleForm : MaterialForm
     {
+        private readonly AnalysisSampleBindingItem[] selectedSamples;
         private readonly AnalysisItemService _analysisItemService;
         private readonly BindingList<AnalysisSampleBindingItem> itemList = new();
 
@@ -18,12 +20,21 @@ namespace FPIS.Views
             InitializeComponent();
             dataGridView1.DataSource = itemList;
 
+            /*
+             * Copy the analysisItems to selectedSamples as an array and clear
+             * the analysisItems because for some weird reason, the analysisItems
+             * become different in the dataGridView when this Form is started.
+             */
+            selectedSamples = CreateAnalysisRequestFormUserControl.analysisItemList.ToArray();
+            CreateAnalysisRequestFormUserControl.analysisItemList.Clear();
+
+
             _analysisItemService = new(new AppDbContext());
 
-            if (CreateAnalysisRequestForm.analysisType == "Production")
+            if (CreateAnalysisRequestFormUserControl.analysisType == "Production")
             {
                 LoadAnalysisProducts();
-            } else if (CreateAnalysisRequestForm.analysisType == "Water")
+            } else if (CreateAnalysisRequestFormUserControl.analysisType == "Water")
             {
                 LoadAnalysisWaters();
             }
@@ -35,7 +46,7 @@ namespace FPIS.Views
 
             foreach (AnalysisProduct ap in analysisProducts)
             {
-                var existingItem = CreateAnalysisRequestForm.analysisItemList.FirstOrDefault(it => it.Id == ap.AnalysisItemId);
+                var existingItem = selectedSamples.FirstOrDefault(it => it.Id == ap.AnalysisItemId);
 
                 AnalysisSampleBindingItem newItem = new()
                 {
@@ -45,6 +56,11 @@ namespace FPIS.Views
                 };
 
                 itemList.Add(newItem);
+
+                if (existingItem != null)
+                {
+                    CreateAnalysisRequestFormUserControl.analysisItemList.Add(newItem);
+                }
             }
         }
 
@@ -54,7 +70,7 @@ namespace FPIS.Views
 
             foreach (AnalysisWater aw in analysisWaters)
             {
-                var existingItem = CreateAnalysisRequestForm.analysisItemList.FirstOrDefault(it => it.Id == aw.AnalysisItemId);
+                var existingItem = selectedSamples.FirstOrDefault(it => it.Id == aw.AnalysisItemId);
 
                 AnalysisSampleBindingItem newItem = new()
                 {
@@ -64,6 +80,11 @@ namespace FPIS.Views
                 };
 
                 itemList.Add(newItem);
+
+                if (existingItem != null)
+                {
+                    CreateAnalysisRequestFormUserControl.analysisItemList.Add(newItem);
+                }
             }
         }
 
@@ -91,17 +112,13 @@ namespace FPIS.Views
             {
                 item.Selected = false;
                 AnalysisSampleBindingItem it = itemList.First(it => it.Name == item.Name);
-                CreateAnalysisRequestForm.analysisItemList.Remove(it);
-                MessageBox.Show($"Hi item {item.Name}, it {it.Name}");
+                CreateAnalysisRequestFormUserControl.analysisItemList.Remove(it);
             }
             else
             {
                 item.Selected = true;
-                AnalysisSampleBindingItem it = itemList
-                    .First(aI => aI.Id.ToString() == itemId);
-
-                CreateAnalysisRequestForm.analysisItemList.Add(it);
-                MessageBox.Show($"Hello  item {item.Name}, it {it.Name}");
+                AnalysisSampleBindingItem it = itemList.First(aI => aI.Id.ToString() == itemId);
+                CreateAnalysisRequestFormUserControl.analysisItemList.Add(it);
             }
         }
     }
