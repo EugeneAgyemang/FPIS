@@ -116,17 +116,19 @@
             this.TitleBarControl.Controls.Add(this.TitleBarCaptionControl);
             this.TitleBarControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleBarControl.Location = new System.Drawing.Point(0, 0);
+            this.TitleBarControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TitleBarControl.Name = "TitleBarControl";
-            this.TitleBarControl.Size = new System.Drawing.Size(1283, 100);
+            this.TitleBarControl.Size = new System.Drawing.Size(1833, 167);
             this.TitleBarControl.TabIndex = 2;
             // 
             // FujiOilLogoSmallControl
             // 
             this.FujiOilLogoSmallControl.BackColor = System.Drawing.Color.Transparent;
             this.FujiOilLogoSmallControl.Image = global::FPIS.Properties.Resources.logo;
-            this.FujiOilLogoSmallControl.Location = new System.Drawing.Point(2, 3);
+            this.FujiOilLogoSmallControl.Location = new System.Drawing.Point(3, 5);
+            this.FujiOilLogoSmallControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FujiOilLogoSmallControl.Name = "FujiOilLogoSmallControl";
-            this.FujiOilLogoSmallControl.Size = new System.Drawing.Size(261, 50);
+            this.FujiOilLogoSmallControl.Size = new System.Drawing.Size(373, 83);
             this.FujiOilLogoSmallControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.FujiOilLogoSmallControl.TabIndex = 0;
             this.FujiOilLogoSmallControl.TabStop = false;
@@ -136,9 +138,10 @@
             this.WindowStateHandlerControl.Controls.Add(this.MinimizeWindowControl);
             this.WindowStateHandlerControl.Controls.Add(this.CloseWindowControl);
             this.WindowStateHandlerControl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.WindowStateHandlerControl.Location = new System.Drawing.Point(1183, 0);
+            this.WindowStateHandlerControl.Location = new System.Drawing.Point(1690, 0);
+            this.WindowStateHandlerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.WindowStateHandlerControl.Name = "WindowStateHandlerControl";
-            this.WindowStateHandlerControl.Size = new System.Drawing.Size(100, 100);
+            this.WindowStateHandlerControl.Size = new System.Drawing.Size(143, 167);
             this.WindowStateHandlerControl.TabIndex = 3;
             // 
             // MinimizeWindowControl
@@ -149,9 +152,10 @@
             this.MinimizeWindowControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinimizeWindowControl.Image = global::FPIS.Properties.Resources.minimize_white;
             this.MinimizeWindowControl.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.MinimizeWindowControl.Location = new System.Drawing.Point(3, 5);
+            this.MinimizeWindowControl.Location = new System.Drawing.Point(4, 8);
+            this.MinimizeWindowControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeWindowControl.Name = "MinimizeWindowControl";
-            this.MinimizeWindowControl.Size = new System.Drawing.Size(40, 40);
+            this.MinimizeWindowControl.Size = new System.Drawing.Size(57, 67);
             this.MinimizeWindowControl.TabIndex = 3;
             this.MinimizeWindowControl.UseVisualStyleBackColor = false;
             this.MinimizeWindowControl.Click += new System.EventHandler(this.MinimizeWindowControl_Click);
@@ -164,9 +168,10 @@
             this.CloseWindowControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseWindowControl.Image = global::FPIS.Properties.Resources.close_white;
             this.CloseWindowControl.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.CloseWindowControl.Location = new System.Drawing.Point(49, 5);
+            this.CloseWindowControl.Location = new System.Drawing.Point(70, 8);
+            this.CloseWindowControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CloseWindowControl.Name = "CloseWindowControl";
-            this.CloseWindowControl.Size = new System.Drawing.Size(40, 40);
+            this.CloseWindowControl.Size = new System.Drawing.Size(57, 67);
             this.CloseWindowControl.TabIndex = 4;
             this.CloseWindowControl.UseVisualStyleBackColor = false;
             this.CloseWindowControl.Click += new System.EventHandler(this.CloseWindowControl_Click);
@@ -175,8 +180,9 @@
             // 
             this.LogoHolderControl.Controls.Add(this.HamburgerControl);
             this.LogoHolderControl.Location = new System.Drawing.Point(0, 0);
+            this.LogoHolderControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LogoHolderControl.Name = "LogoHolderControl";
-            this.LogoHolderControl.Size = new System.Drawing.Size(150, 100);
+            this.LogoHolderControl.Size = new System.Drawing.Size(214, 167);
             this.LogoHolderControl.TabIndex = 3;
             // 
             // HamburgerControl
@@ -187,9 +193,10 @@
             this.HamburgerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HamburgerControl.ForeColor = System.Drawing.Color.White;
             this.HamburgerControl.Image = global::FPIS.Properties.Resources.menu_white;
-            this.HamburgerControl.Location = new System.Drawing.Point(14, 59);
+            this.HamburgerControl.Location = new System.Drawing.Point(20, 98);
+            this.HamburgerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HamburgerControl.Name = "HamburgerControl";
-            this.HamburgerControl.Size = new System.Drawing.Size(30, 30);
+            this.HamburgerControl.Size = new System.Drawing.Size(43, 50);
             this.HamburgerControl.TabIndex = 3;
             this.HamburgerControl.UseVisualStyleBackColor = true;
             this.HamburgerControl.Click += new System.EventHandler(this.HamburgerControl_Click);
@@ -197,20 +204,22 @@
             // TitleBarCaptionControl
             // 
             this.TitleBarCaptionControl.AutoSize = true;
-            this.TitleBarCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TitleBarCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TitleBarCaptionControl.ForeColor = System.Drawing.Color.White;
-            this.TitleBarCaptionControl.Location = new System.Drawing.Point(156, 66);
+            this.TitleBarCaptionControl.Location = new System.Drawing.Point(223, 110);
+            this.TitleBarCaptionControl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TitleBarCaptionControl.Name = "TitleBarCaptionControl";
-            this.TitleBarCaptionControl.Size = new System.Drawing.Size(90, 23);
+            this.TitleBarCaptionControl.Size = new System.Drawing.Size(132, 32);
             this.TitleBarCaptionControl.TabIndex = 0;
             this.TitleBarCaptionControl.Text = "Welcome";
             // 
             // NavigationIndicatorControl
             // 
             this.NavigationIndicatorControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.NavigationIndicatorControl.Location = new System.Drawing.Point(-10, 11);
+            this.NavigationIndicatorControl.Location = new System.Drawing.Point(-14, 18);
+            this.NavigationIndicatorControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NavigationIndicatorControl.Name = "NavigationIndicatorControl";
-            this.NavigationIndicatorControl.Size = new System.Drawing.Size(3, 30);
+            this.NavigationIndicatorControl.Size = new System.Drawing.Size(4, 50);
             this.NavigationIndicatorControl.TabIndex = 1;
             this.NavigationIndicatorControl.Tag = "-1";
             // 
@@ -227,9 +236,10 @@
             this.NavigationDrawerControl.Controls.Add(this.ProductionSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.DashboardSectionControl);
             this.NavigationDrawerControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NavigationDrawerControl.Location = new System.Drawing.Point(0, 100);
+            this.NavigationDrawerControl.Location = new System.Drawing.Point(0, 167);
+            this.NavigationDrawerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NavigationDrawerControl.Name = "NavigationDrawerControl";
-            this.NavigationDrawerControl.Size = new System.Drawing.Size(220, 688);
+            this.NavigationDrawerControl.Size = new System.Drawing.Size(314, 939);
             this.NavigationDrawerControl.TabIndex = 0;
             // 
             // ProcurementSectionControl
@@ -237,9 +247,10 @@
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_IssueMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
-            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1857);
+            this.ProcurementSectionControl.Location = new System.Drawing.Point(9, 3095);
+            this.ProcurementSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
-            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 153);
+            this.ProcurementSectionControl.Size = new System.Drawing.Size(271, 255);
             this.ProcurementSectionControl.TabIndex = 8;
             this.ProcurementSectionControl.Tag = "6";
             // 
@@ -250,11 +261,12 @@
             this.ProcurementSection_IssueMaterialsControl.Enabled = false;
             this.ProcurementSection_IssueMaterialsControl.FlatAppearance.BorderSize = 0;
             this.ProcurementSection_IssueMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProcurementSection_IssueMaterialsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProcurementSection_IssueMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSection_IssueMaterialsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_IssueMaterialsControl.Location = new System.Drawing.Point(5, 101);
+            this.ProcurementSection_IssueMaterialsControl.Location = new System.Drawing.Point(7, 168);
+            this.ProcurementSection_IssueMaterialsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProcurementSection_IssueMaterialsControl.Name = "ProcurementSection_IssueMaterialsControl";
-            this.ProcurementSection_IssueMaterialsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProcurementSection_IssueMaterialsControl.Size = new System.Drawing.Size(257, 83);
             this.ProcurementSection_IssueMaterialsControl.TabIndex = 3;
             this.ProcurementSection_IssueMaterialsControl.Text = "Issue Materials";
             this.ProcurementSection_IssueMaterialsControl.UseVisualStyleBackColor = false;
@@ -266,11 +278,12 @@
             this.ProcurementSection_ReceiveMaterialsControl.Enabled = false;
             this.ProcurementSection_ReceiveMaterialsControl.FlatAppearance.BorderSize = 0;
             this.ProcurementSection_ReceiveMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProcurementSection_ReceiveMaterialsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProcurementSection_ReceiveMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSection_ReceiveMaterialsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_ReceiveMaterialsControl.Location = new System.Drawing.Point(5, 51);
+            this.ProcurementSection_ReceiveMaterialsControl.Location = new System.Drawing.Point(7, 85);
+            this.ProcurementSection_ReceiveMaterialsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProcurementSection_ReceiveMaterialsControl.Name = "ProcurementSection_ReceiveMaterialsControl";
-            this.ProcurementSection_ReceiveMaterialsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProcurementSection_ReceiveMaterialsControl.Size = new System.Drawing.Size(257, 83);
             this.ProcurementSection_ReceiveMaterialsControl.TabIndex = 2;
             this.ProcurementSection_ReceiveMaterialsControl.Text = "Receive Materials";
             this.ProcurementSection_ReceiveMaterialsControl.UseVisualStyleBackColor = false;
@@ -281,12 +294,13 @@
             this.ProcurementSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProcurementSectionCaptionControl.FlatAppearance.BorderSize = 0;
             this.ProcurementSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProcurementSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProcurementSectionCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSectionCaptionControl.ForeColor = System.Drawing.Color.White;
             this.ProcurementSectionCaptionControl.Image = global::FPIS.Properties.Resources.procurement;
-            this.ProcurementSectionCaptionControl.Location = new System.Drawing.Point(5, 1);
+            this.ProcurementSectionCaptionControl.Location = new System.Drawing.Point(7, 2);
+            this.ProcurementSectionCaptionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProcurementSectionCaptionControl.Name = "ProcurementSectionCaptionControl";
-            this.ProcurementSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.ProcurementSectionCaptionControl.Size = new System.Drawing.Size(257, 83);
             this.ProcurementSectionCaptionControl.TabIndex = 1;
             this.ProcurementSectionCaptionControl.Text = "Procurement";
             this.ProcurementSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -296,9 +310,10 @@
             // SettingsSectionControl
             // 
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2010);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(9, 3350);
+            this.SettingsSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
-            this.SettingsSectionControl.Size = new System.Drawing.Size(190, 76);
+            this.SettingsSectionControl.Size = new System.Drawing.Size(271, 127);
             this.SettingsSectionControl.TabIndex = 7;
             this.SettingsSectionControl.Tag = "7";
             // 
@@ -308,12 +323,13 @@
             this.OpenSettingsControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenSettingsControl.FlatAppearance.BorderSize = 0;
             this.OpenSettingsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenSettingsControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OpenSettingsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OpenSettingsControl.ForeColor = System.Drawing.Color.Black;
             this.OpenSettingsControl.Image = global::FPIS.Properties.Resources.settings_black;
-            this.OpenSettingsControl.Location = new System.Drawing.Point(5, 0);
+            this.OpenSettingsControl.Location = new System.Drawing.Point(7, 0);
+            this.OpenSettingsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OpenSettingsControl.Name = "OpenSettingsControl";
-            this.OpenSettingsControl.Size = new System.Drawing.Size(180, 50);
+            this.OpenSettingsControl.Size = new System.Drawing.Size(257, 83);
             this.OpenSettingsControl.TabIndex = 0;
             this.OpenSettingsControl.Text = "  Settings";
             this.OpenSettingsControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -331,9 +347,10 @@
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_ViewSampleResultsControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddSampleResultControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControlCaptionControl);
-            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 553);
+            this.QualityControlSectionControl.Location = new System.Drawing.Point(9, 922);
+            this.QualityControlSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControlSectionControl.Name = "QualityControlSectionControl";
-            this.QualityControlSectionControl.Size = new System.Drawing.Size(190, 501);
+            this.QualityControlSectionControl.Size = new System.Drawing.Size(271, 835);
             this.QualityControlSectionControl.TabIndex = 3;
             this.QualityControlSectionControl.Tag = "2";
             // 
@@ -344,11 +361,12 @@
             this.QualityControl_CreateAnalysisWaterControl.Enabled = false;
             this.QualityControl_CreateAnalysisWaterControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_CreateAnalysisWaterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_CreateAnalysisWaterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_CreateAnalysisWaterControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_CreateAnalysisWaterControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_CreateAnalysisWaterControl.Location = new System.Drawing.Point(5, 300);
+            this.QualityControl_CreateAnalysisWaterControl.Location = new System.Drawing.Point(7, 500);
+            this.QualityControl_CreateAnalysisWaterControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_CreateAnalysisWaterControl.Name = "QualityControl_CreateAnalysisWaterControl";
-            this.QualityControl_CreateAnalysisWaterControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_CreateAnalysisWaterControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_CreateAnalysisWaterControl.TabIndex = 7;
             this.QualityControl_CreateAnalysisWaterControl.Text = "Create Analysis Water";
             this.QualityControl_CreateAnalysisWaterControl.UseVisualStyleBackColor = false;
@@ -360,11 +378,12 @@
             this.QualityControl_AddWaterParameterControl.Enabled = false;
             this.QualityControl_AddWaterParameterControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddWaterParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_AddWaterParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_AddWaterParameterControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_AddWaterParameterControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_AddWaterParameterControl.Location = new System.Drawing.Point(5, 250);
+            this.QualityControl_AddWaterParameterControl.Location = new System.Drawing.Point(7, 417);
+            this.QualityControl_AddWaterParameterControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_AddWaterParameterControl.Name = "QualityControl_AddWaterParameterControl";
-            this.QualityControl_AddWaterParameterControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_AddWaterParameterControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_AddWaterParameterControl.TabIndex = 6;
             this.QualityControl_AddWaterParameterControl.Text = "Add Water Parameter";
             this.QualityControl_AddWaterParameterControl.UseVisualStyleBackColor = false;
@@ -376,11 +395,12 @@
             this.QualityControl_AddWaterControl.Enabled = false;
             this.QualityControl_AddWaterControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddWaterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_AddWaterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_AddWaterControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_AddWaterControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_AddWaterControl.Location = new System.Drawing.Point(5, 200);
+            this.QualityControl_AddWaterControl.Location = new System.Drawing.Point(7, 333);
+            this.QualityControl_AddWaterControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_AddWaterControl.Name = "QualityControl_AddWaterControl";
-            this.QualityControl_AddWaterControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_AddWaterControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_AddWaterControl.TabIndex = 5;
             this.QualityControl_AddWaterControl.Text = "Add Water";
             this.QualityControl_AddWaterControl.UseVisualStyleBackColor = false;
@@ -392,11 +412,12 @@
             this.QualityControl_OpenAnalysisCalculatorControl.Enabled = false;
             this.QualityControl_OpenAnalysisCalculatorControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_OpenAnalysisCalculatorControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_OpenAnalysisCalculatorControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_OpenAnalysisCalculatorControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_OpenAnalysisCalculatorControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_OpenAnalysisCalculatorControl.Location = new System.Drawing.Point(5, 450);
+            this.QualityControl_OpenAnalysisCalculatorControl.Location = new System.Drawing.Point(7, 750);
+            this.QualityControl_OpenAnalysisCalculatorControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_OpenAnalysisCalculatorControl.Name = "QualityControl_OpenAnalysisCalculatorControl";
-            this.QualityControl_OpenAnalysisCalculatorControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_OpenAnalysisCalculatorControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_OpenAnalysisCalculatorControl.TabIndex = 6;
             this.QualityControl_OpenAnalysisCalculatorControl.Text = "Analysis Calculator";
             this.QualityControl_OpenAnalysisCalculatorControl.UseVisualStyleBackColor = false;
@@ -408,11 +429,12 @@
             this.QualityControl_ViewWaterAnalysisControl.Enabled = false;
             this.QualityControl_ViewWaterAnalysisControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_ViewWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_ViewWaterAnalysisControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_ViewWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_ViewWaterAnalysisControl.Location = new System.Drawing.Point(5, 400);
+            this.QualityControl_ViewWaterAnalysisControl.Location = new System.Drawing.Point(7, 667);
+            this.QualityControl_ViewWaterAnalysisControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_ViewWaterAnalysisControl.Name = "QualityControl_ViewWaterAnalysisControl";
-            this.QualityControl_ViewWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_ViewWaterAnalysisControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_ViewWaterAnalysisControl.TabIndex = 5;
             this.QualityControl_ViewWaterAnalysisControl.Text = "View Water Analysis";
             this.QualityControl_ViewWaterAnalysisControl.UseVisualStyleBackColor = false;
@@ -424,11 +446,12 @@
             this.QualityControl_AddWaterAnalysisControl.Enabled = false;
             this.QualityControl_AddWaterAnalysisControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_AddWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_AddWaterAnalysisControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_AddWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_AddWaterAnalysisControl.Location = new System.Drawing.Point(5, 350);
+            this.QualityControl_AddWaterAnalysisControl.Location = new System.Drawing.Point(7, 583);
+            this.QualityControl_AddWaterAnalysisControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_AddWaterAnalysisControl.Name = "QualityControl_AddWaterAnalysisControl";
-            this.QualityControl_AddWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_AddWaterAnalysisControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_AddWaterAnalysisControl.TabIndex = 4;
             this.QualityControl_AddWaterAnalysisControl.Text = "Add Water Analysis";
             this.QualityControl_AddWaterAnalysisControl.UseVisualStyleBackColor = false;
@@ -440,11 +463,12 @@
             this.QualityControl_ViewProductionRemarksControl.Enabled = false;
             this.QualityControl_ViewProductionRemarksControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewProductionRemarksControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_ViewProductionRemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_ViewProductionRemarksControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_ViewProductionRemarksControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_ViewProductionRemarksControl.Location = new System.Drawing.Point(5, 150);
+            this.QualityControl_ViewProductionRemarksControl.Location = new System.Drawing.Point(7, 250);
+            this.QualityControl_ViewProductionRemarksControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_ViewProductionRemarksControl.Name = "QualityControl_ViewProductionRemarksControl";
-            this.QualityControl_ViewProductionRemarksControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_ViewProductionRemarksControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_ViewProductionRemarksControl.TabIndex = 3;
             this.QualityControl_ViewProductionRemarksControl.Text = "View Production Remarks";
             this.QualityControl_ViewProductionRemarksControl.UseVisualStyleBackColor = false;
@@ -456,11 +480,12 @@
             this.QualityControl_ViewSampleResultsControl.Enabled = false;
             this.QualityControl_ViewSampleResultsControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_ViewSampleResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_ViewSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_ViewSampleResultsControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_ViewSampleResultsControl.Location = new System.Drawing.Point(5, 100);
+            this.QualityControl_ViewSampleResultsControl.Location = new System.Drawing.Point(7, 167);
+            this.QualityControl_ViewSampleResultsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_ViewSampleResultsControl.Name = "QualityControl_ViewSampleResultsControl";
-            this.QualityControl_ViewSampleResultsControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_ViewSampleResultsControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_ViewSampleResultsControl.TabIndex = 2;
             this.QualityControl_ViewSampleResultsControl.Text = "View Sample Results";
             this.QualityControl_ViewSampleResultsControl.UseVisualStyleBackColor = false;
@@ -472,11 +497,12 @@
             this.QualityControl_AddSampleResultControl.Enabled = false;
             this.QualityControl_AddSampleResultControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddSampleResultControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_AddSampleResultControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_AddSampleResultControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControl_AddSampleResultControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_AddSampleResultControl.Location = new System.Drawing.Point(5, 50);
+            this.QualityControl_AddSampleResultControl.Location = new System.Drawing.Point(7, 83);
+            this.QualityControl_AddSampleResultControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControl_AddSampleResultControl.Name = "QualityControl_AddSampleResultControl";
-            this.QualityControl_AddSampleResultControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_AddSampleResultControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControl_AddSampleResultControl.TabIndex = 1;
             this.QualityControl_AddSampleResultControl.Text = "Add Sample Result";
             this.QualityControl_AddSampleResultControl.UseVisualStyleBackColor = false;
@@ -487,12 +513,13 @@
             this.QualityControlCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.QualityControlCaptionControl.FlatAppearance.BorderSize = 0;
             this.QualityControlCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControlCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControlCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QualityControlCaptionControl.ForeColor = System.Drawing.Color.White;
             this.QualityControlCaptionControl.Image = global::FPIS.Properties.Resources.quality_white;
-            this.QualityControlCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.QualityControlCaptionControl.Location = new System.Drawing.Point(7, 0);
+            this.QualityControlCaptionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.QualityControlCaptionControl.Name = "QualityControlCaptionControl";
-            this.QualityControlCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControlCaptionControl.Size = new System.Drawing.Size(257, 83);
             this.QualityControlCaptionControl.TabIndex = 0;
             this.QualityControlCaptionControl.Text = "  Quality Control";
             this.QualityControlCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -507,9 +534,10 @@
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
-            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1557);
+            this.ReportsSectionControl.Location = new System.Drawing.Point(9, 2595);
+            this.ReportsSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSectionControl.Name = "ReportsSectionControl";
-            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
+            this.ReportsSectionControl.Size = new System.Drawing.Size(271, 498);
             this.ReportsSectionControl.TabIndex = 6;
             this.ReportsSectionControl.Tag = "5";
             // 
@@ -520,11 +548,12 @@
             this.ReportsSection_OpenProductsControl.Enabled = false;
             this.ReportsSection_OpenProductsControl.FlatAppearance.BorderSize = 0;
             this.ReportsSection_OpenProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenProductsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenProductsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_OpenProductsControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenProductsControl.Location = new System.Drawing.Point(5, 250);
+            this.ReportsSection_OpenProductsControl.Location = new System.Drawing.Point(7, 417);
+            this.ReportsSection_OpenProductsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSection_OpenProductsControl.Name = "ReportsSection_OpenProductsControl";
-            this.ReportsSection_OpenProductsControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenProductsControl.Size = new System.Drawing.Size(257, 83);
             this.ReportsSection_OpenProductsControl.TabIndex = 5;
             this.ReportsSection_OpenProductsControl.Text = "Products";
             this.ReportsSection_OpenProductsControl.UseVisualStyleBackColor = false;
@@ -536,11 +565,12 @@
             this.ReportsSection_OpenWaterAnalysisControl.Enabled = false;
             this.ReportsSection_OpenWaterAnalysisControl.FlatAppearance.BorderSize = 0;
             this.ReportsSection_OpenWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenWaterAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenWaterAnalysisControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_OpenWaterAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenWaterAnalysisControl.Location = new System.Drawing.Point(5, 200);
+            this.ReportsSection_OpenWaterAnalysisControl.Location = new System.Drawing.Point(7, 333);
+            this.ReportsSection_OpenWaterAnalysisControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSection_OpenWaterAnalysisControl.Name = "ReportsSection_OpenWaterAnalysisControl";
-            this.ReportsSection_OpenWaterAnalysisControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenWaterAnalysisControl.Size = new System.Drawing.Size(257, 83);
             this.ReportsSection_OpenWaterAnalysisControl.TabIndex = 4;
             this.ReportsSection_OpenWaterAnalysisControl.Text = "Water Analysis";
             this.ReportsSection_OpenWaterAnalysisControl.UseVisualStyleBackColor = false;
@@ -552,11 +582,12 @@
             this.ReportsSection_OpenStockReportControl.Enabled = false;
             this.ReportsSection_OpenStockReportControl.FlatAppearance.BorderSize = 0;
             this.ReportsSection_OpenStockReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenStockReportControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenStockReportControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_OpenStockReportControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenStockReportControl.Location = new System.Drawing.Point(5, 150);
+            this.ReportsSection_OpenStockReportControl.Location = new System.Drawing.Point(7, 250);
+            this.ReportsSection_OpenStockReportControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSection_OpenStockReportControl.Name = "ReportsSection_OpenStockReportControl";
-            this.ReportsSection_OpenStockReportControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenStockReportControl.Size = new System.Drawing.Size(257, 83);
             this.ReportsSection_OpenStockReportControl.TabIndex = 3;
             this.ReportsSection_OpenStockReportControl.Text = "Stock Report";
             this.ReportsSection_OpenStockReportControl.UseVisualStyleBackColor = false;
@@ -568,11 +599,12 @@
             this.ReportsSection_OpenAnalyticalResultsControl.Enabled = false;
             this.ReportsSection_OpenAnalyticalResultsControl.FlatAppearance.BorderSize = 0;
             this.ReportsSection_OpenAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenAnalyticalResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenAnalyticalResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_OpenAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenAnalyticalResultsControl.Location = new System.Drawing.Point(5, 100);
+            this.ReportsSection_OpenAnalyticalResultsControl.Location = new System.Drawing.Point(7, 167);
+            this.ReportsSection_OpenAnalyticalResultsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSection_OpenAnalyticalResultsControl.Name = "ReportsSection_OpenAnalyticalResultsControl";
-            this.ReportsSection_OpenAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenAnalyticalResultsControl.Size = new System.Drawing.Size(257, 83);
             this.ReportsSection_OpenAnalyticalResultsControl.TabIndex = 2;
             this.ReportsSection_OpenAnalyticalResultsControl.Text = "Analytical Results";
             this.ReportsSection_OpenAnalyticalResultsControl.UseVisualStyleBackColor = false;
@@ -584,11 +616,12 @@
             this.ReportsSection_OpenSampleReportControl.Enabled = false;
             this.ReportsSection_OpenSampleReportControl.FlatAppearance.BorderSize = 0;
             this.ReportsSection_OpenSampleReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenSampleReportControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_OpenSampleReportControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_OpenSampleReportControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenSampleReportControl.Location = new System.Drawing.Point(5, 50);
+            this.ReportsSection_OpenSampleReportControl.Location = new System.Drawing.Point(7, 83);
+            this.ReportsSection_OpenSampleReportControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSection_OpenSampleReportControl.Name = "ReportsSection_OpenSampleReportControl";
-            this.ReportsSection_OpenSampleReportControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_OpenSampleReportControl.Size = new System.Drawing.Size(257, 83);
             this.ReportsSection_OpenSampleReportControl.TabIndex = 1;
             this.ReportsSection_OpenSampleReportControl.Text = "Sample Report";
             this.ReportsSection_OpenSampleReportControl.UseVisualStyleBackColor = false;
@@ -599,12 +632,13 @@
             this.ReportsSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReportsSectionCaptionControl.FlatAppearance.BorderSize = 0;
             this.ReportsSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSectionCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSectionCaptionControl.ForeColor = System.Drawing.Color.White;
             this.ReportsSectionCaptionControl.Image = global::FPIS.Properties.Resources.report_white;
-            this.ReportsSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.ReportsSectionCaptionControl.Location = new System.Drawing.Point(7, 0);
+            this.ReportsSectionCaptionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ReportsSectionCaptionControl.Name = "ReportsSectionCaptionControl";
-            this.ReportsSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSectionCaptionControl.Size = new System.Drawing.Size(257, 83);
             this.ReportsSectionCaptionControl.TabIndex = 0;
             this.ReportsSectionCaptionControl.Text = "  Reports";
             this.ReportsSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -616,9 +650,10 @@
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_ViewCertificateOfAnalysisControl);
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_AddFinishedProductControl);
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProductsCaptionControl);
-            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 1054);
+            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(9, 1757);
+            this.FinishedProductsSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FinishedProductsSectionControl.Name = "FinishedProductsSectionControl";
-            this.FinishedProductsSectionControl.Size = new System.Drawing.Size(190, 150);
+            this.FinishedProductsSectionControl.Size = new System.Drawing.Size(271, 250);
             this.FinishedProductsSectionControl.TabIndex = 4;
             this.FinishedProductsSectionControl.Tag = "3";
             // 
@@ -629,11 +664,12 @@
             this.FinishedProducts_ViewCertificateOfAnalysisControl.Enabled = false;
             this.FinishedProducts_ViewCertificateOfAnalysisControl.FlatAppearance.BorderSize = 0;
             this.FinishedProducts_ViewCertificateOfAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FinishedProducts_ViewCertificateOfAnalysisControl.ForeColor = System.Drawing.Color.White;
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Location = new System.Drawing.Point(5, 100);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Location = new System.Drawing.Point(7, 167);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FinishedProducts_ViewCertificateOfAnalysisControl.Name = "FinishedProducts_ViewCertificateOfAnalysisControl";
-            this.FinishedProducts_ViewCertificateOfAnalysisControl.Size = new System.Drawing.Size(180, 50);
+            this.FinishedProducts_ViewCertificateOfAnalysisControl.Size = new System.Drawing.Size(257, 83);
             this.FinishedProducts_ViewCertificateOfAnalysisControl.TabIndex = 2;
             this.FinishedProducts_ViewCertificateOfAnalysisControl.Text = "View Certificate of Analysis";
             this.FinishedProducts_ViewCertificateOfAnalysisControl.UseVisualStyleBackColor = false;
@@ -645,11 +681,12 @@
             this.FinishedProducts_AddFinishedProductControl.Enabled = false;
             this.FinishedProducts_AddFinishedProductControl.FlatAppearance.BorderSize = 0;
             this.FinishedProducts_AddFinishedProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FinishedProducts_AddFinishedProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FinishedProducts_AddFinishedProductControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FinishedProducts_AddFinishedProductControl.ForeColor = System.Drawing.Color.White;
-            this.FinishedProducts_AddFinishedProductControl.Location = new System.Drawing.Point(5, 50);
+            this.FinishedProducts_AddFinishedProductControl.Location = new System.Drawing.Point(7, 83);
+            this.FinishedProducts_AddFinishedProductControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FinishedProducts_AddFinishedProductControl.Name = "FinishedProducts_AddFinishedProductControl";
-            this.FinishedProducts_AddFinishedProductControl.Size = new System.Drawing.Size(180, 50);
+            this.FinishedProducts_AddFinishedProductControl.Size = new System.Drawing.Size(257, 83);
             this.FinishedProducts_AddFinishedProductControl.TabIndex = 1;
             this.FinishedProducts_AddFinishedProductControl.Text = "Add Finished Product";
             this.FinishedProducts_AddFinishedProductControl.UseVisualStyleBackColor = false;
@@ -660,12 +697,13 @@
             this.FinishedProductsCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FinishedProductsCaptionControl.FlatAppearance.BorderSize = 0;
             this.FinishedProductsCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FinishedProductsCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FinishedProductsCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FinishedProductsCaptionControl.ForeColor = System.Drawing.Color.White;
             this.FinishedProductsCaptionControl.Image = global::FPIS.Properties.Resources.finish_white;
-            this.FinishedProductsCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.FinishedProductsCaptionControl.Location = new System.Drawing.Point(7, 0);
+            this.FinishedProductsCaptionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.FinishedProductsCaptionControl.Name = "FinishedProductsCaptionControl";
-            this.FinishedProductsCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.FinishedProductsCaptionControl.Size = new System.Drawing.Size(257, 83);
             this.FinishedProductsCaptionControl.TabIndex = 0;
             this.FinishedProductsCaptionControl.Text = "  Finished Products";
             this.FinishedProductsCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -681,9 +719,10 @@
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewStockItemControl);
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddStockItemControl);
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSectionCaptionControl);
-            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 1205);
+            this.ConsumablesSectionControl.Location = new System.Drawing.Point(9, 2008);
+            this.ConsumablesSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumablesSectionControl.Name = "ConsumablesSectionControl";
-            this.ConsumablesSectionControl.Size = new System.Drawing.Size(190, 351);
+            this.ConsumablesSectionControl.Size = new System.Drawing.Size(271, 585);
             this.ConsumablesSectionControl.TabIndex = 5;
             this.ConsumablesSectionControl.Tag = "4";
             // 
@@ -694,11 +733,12 @@
             this.ConsumbalesSection_ViewIssuedStockControl.Enabled = false;
             this.ConsumbalesSection_ViewIssuedStockControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_ViewIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ViewIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ViewIssuedStockControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSection_ViewIssuedStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ViewIssuedStockControl.Location = new System.Drawing.Point(5, 300);
+            this.ConsumbalesSection_ViewIssuedStockControl.Location = new System.Drawing.Point(7, 500);
+            this.ConsumbalesSection_ViewIssuedStockControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSection_ViewIssuedStockControl.Name = "ConsumbalesSection_ViewIssuedStockControl";
-            this.ConsumbalesSection_ViewIssuedStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ViewIssuedStockControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSection_ViewIssuedStockControl.TabIndex = 6;
             this.ConsumbalesSection_ViewIssuedStockControl.Text = "View Issued Stock";
             this.ConsumbalesSection_ViewIssuedStockControl.UseVisualStyleBackColor = false;
@@ -710,11 +750,12 @@
             this.ConsumbalesSection_AddIssuedStockControl.Enabled = false;
             this.ConsumbalesSection_AddIssuedStockControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_AddIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_AddIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_AddIssuedStockControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSection_AddIssuedStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_AddIssuedStockControl.Location = new System.Drawing.Point(5, 250);
+            this.ConsumbalesSection_AddIssuedStockControl.Location = new System.Drawing.Point(7, 417);
+            this.ConsumbalesSection_AddIssuedStockControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSection_AddIssuedStockControl.Name = "ConsumbalesSection_AddIssuedStockControl";
-            this.ConsumbalesSection_AddIssuedStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_AddIssuedStockControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSection_AddIssuedStockControl.TabIndex = 5;
             this.ConsumbalesSection_AddIssuedStockControl.Text = "Issue Stock";
             this.ConsumbalesSection_AddIssuedStockControl.UseVisualStyleBackColor = false;
@@ -726,11 +767,12 @@
             this.ConsumbalesSection_ViewReceivedStockControl.Enabled = false;
             this.ConsumbalesSection_ViewReceivedStockControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_ViewReceivedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ViewReceivedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ViewReceivedStockControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSection_ViewReceivedStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ViewReceivedStockControl.Location = new System.Drawing.Point(5, 200);
+            this.ConsumbalesSection_ViewReceivedStockControl.Location = new System.Drawing.Point(7, 333);
+            this.ConsumbalesSection_ViewReceivedStockControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSection_ViewReceivedStockControl.Name = "ConsumbalesSection_ViewReceivedStockControl";
-            this.ConsumbalesSection_ViewReceivedStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ViewReceivedStockControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSection_ViewReceivedStockControl.TabIndex = 4;
             this.ConsumbalesSection_ViewReceivedStockControl.Text = "View Received Stock";
             this.ConsumbalesSection_ViewReceivedStockControl.UseVisualStyleBackColor = false;
@@ -742,11 +784,12 @@
             this.ConsumbalesSection_ReceiveNewStockControl.Enabled = false;
             this.ConsumbalesSection_ReceiveNewStockControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_ReceiveNewStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ReceiveNewStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ReceiveNewStockControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSection_ReceiveNewStockControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ReceiveNewStockControl.Location = new System.Drawing.Point(5, 150);
+            this.ConsumbalesSection_ReceiveNewStockControl.Location = new System.Drawing.Point(7, 250);
+            this.ConsumbalesSection_ReceiveNewStockControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSection_ReceiveNewStockControl.Name = "ConsumbalesSection_ReceiveNewStockControl";
-            this.ConsumbalesSection_ReceiveNewStockControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ReceiveNewStockControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSection_ReceiveNewStockControl.TabIndex = 3;
             this.ConsumbalesSection_ReceiveNewStockControl.Text = "Receive New Stock";
             this.ConsumbalesSection_ReceiveNewStockControl.UseVisualStyleBackColor = false;
@@ -758,11 +801,12 @@
             this.ConsumbalesSection_ViewStockItemControl.Enabled = false;
             this.ConsumbalesSection_ViewStockItemControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_ViewStockItemControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_ViewStockItemControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_ViewStockItemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSection_ViewStockItemControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_ViewStockItemControl.Location = new System.Drawing.Point(5, 100);
+            this.ConsumbalesSection_ViewStockItemControl.Location = new System.Drawing.Point(7, 167);
+            this.ConsumbalesSection_ViewStockItemControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSection_ViewStockItemControl.Name = "ConsumbalesSection_ViewStockItemControl";
-            this.ConsumbalesSection_ViewStockItemControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_ViewStockItemControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSection_ViewStockItemControl.TabIndex = 2;
             this.ConsumbalesSection_ViewStockItemControl.Text = "View Stock Item";
             this.ConsumbalesSection_ViewStockItemControl.UseVisualStyleBackColor = false;
@@ -774,11 +818,12 @@
             this.ConsumbalesSection_AddStockItemControl.Enabled = false;
             this.ConsumbalesSection_AddStockItemControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_AddStockItemControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSection_AddStockItemControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSection_AddStockItemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSection_AddStockItemControl.ForeColor = System.Drawing.Color.White;
-            this.ConsumbalesSection_AddStockItemControl.Location = new System.Drawing.Point(5, 50);
+            this.ConsumbalesSection_AddStockItemControl.Location = new System.Drawing.Point(7, 83);
+            this.ConsumbalesSection_AddStockItemControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSection_AddStockItemControl.Name = "ConsumbalesSection_AddStockItemControl";
-            this.ConsumbalesSection_AddStockItemControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSection_AddStockItemControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSection_AddStockItemControl.TabIndex = 1;
             this.ConsumbalesSection_AddStockItemControl.Text = "Add Stock Item";
             this.ConsumbalesSection_AddStockItemControl.UseVisualStyleBackColor = false;
@@ -789,12 +834,13 @@
             this.ConsumbalesSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ConsumbalesSectionCaptionControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConsumbalesSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ConsumbalesSectionCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ConsumbalesSectionCaptionControl.ForeColor = System.Drawing.Color.White;
             this.ConsumbalesSectionCaptionControl.Image = global::FPIS.Properties.Resources.consume_white;
-            this.ConsumbalesSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.ConsumbalesSectionCaptionControl.Location = new System.Drawing.Point(7, 0);
+            this.ConsumbalesSectionCaptionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ConsumbalesSectionCaptionControl.Name = "ConsumbalesSectionCaptionControl";
-            this.ConsumbalesSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.ConsumbalesSectionCaptionControl.Size = new System.Drawing.Size(257, 83);
             this.ConsumbalesSectionCaptionControl.TabIndex = 0;
             this.ConsumbalesSectionCaptionControl.Text = "  Consumables";
             this.ConsumbalesSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -813,9 +859,10 @@
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_ViewProductsControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_AddProductControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSectionCaptionControl);
-            this.ProductionSectionControl.Location = new System.Drawing.Point(6, 52);
+            this.ProductionSectionControl.Location = new System.Drawing.Point(9, 87);
+            this.ProductionSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSectionControl.Name = "ProductionSectionControl";
-            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 502);
+            this.ProductionSectionControl.Size = new System.Drawing.Size(271, 837);
             this.ProductionSectionControl.TabIndex = 2;
             this.ProductionSectionControl.Tag = "1";
             // 
@@ -826,11 +873,12 @@
             this.ProductionSection_CreateAnalysisProductControl.Enabled = false;
             this.ProductionSection_CreateAnalysisProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CreateAnalysisProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_CreateAnalysisProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_CreateAnalysisProductControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CreateAnalysisProductControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CreateAnalysisProductControl.Location = new System.Drawing.Point(5, 150);
+            this.ProductionSection_CreateAnalysisProductControl.Location = new System.Drawing.Point(7, 250);
+            this.ProductionSection_CreateAnalysisProductControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_CreateAnalysisProductControl.Name = "ProductionSection_CreateAnalysisProductControl";
-            this.ProductionSection_CreateAnalysisProductControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_CreateAnalysisProductControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_CreateAnalysisProductControl.TabIndex = 4;
             this.ProductionSection_CreateAnalysisProductControl.Text = "Create Analysis Product";
             this.ProductionSection_CreateAnalysisProductControl.UseVisualStyleBackColor = false;
@@ -842,11 +890,12 @@
             this.ProductionSection_ViewProductionRemarkControl.Enabled = false;
             this.ProductionSection_ViewProductionRemarkControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 450);
+            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(7, 750);
+            this.ProductionSection_ViewProductionRemarkControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_ViewProductionRemarkControl.Name = "ProductionSection_ViewProductionRemarkControl";
-            this.ProductionSection_ViewProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_ViewProductionRemarkControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_ViewProductionRemarkControl.TabIndex = 7;
             this.ProductionSection_ViewProductionRemarkControl.Text = "View Production Remark";
             this.ProductionSection_ViewProductionRemarkControl.UseVisualStyleBackColor = false;
@@ -858,11 +907,12 @@
             this.ProductionSection_CreateProductParameterControl.Enabled = false;
             this.ProductionSection_CreateProductParameterControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CreateProductParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_CreateProductParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_CreateProductParameterControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CreateProductParameterControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CreateProductParameterControl.Location = new System.Drawing.Point(5, 100);
+            this.ProductionSection_CreateProductParameterControl.Location = new System.Drawing.Point(7, 167);
+            this.ProductionSection_CreateProductParameterControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_CreateProductParameterControl.Name = "ProductionSection_CreateProductParameterControl";
-            this.ProductionSection_CreateProductParameterControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_CreateProductParameterControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_CreateProductParameterControl.TabIndex = 3;
             this.ProductionSection_CreateProductParameterControl.Text = "Create Product Parameter";
             this.ProductionSection_CreateProductParameterControl.UseVisualStyleBackColor = false;
@@ -874,11 +924,12 @@
             this.ProductionSection_AddProductionRemarkControl.Enabled = false;
             this.ProductionSection_AddProductionRemarkControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_AddProductionRemarkControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_AddProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 400);
+            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(7, 667);
+            this.ProductionSection_AddProductionRemarkControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_AddProductionRemarkControl.Name = "ProductionSection_AddProductionRemarkControl";
-            this.ProductionSection_AddProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_AddProductionRemarkControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_AddProductionRemarkControl.TabIndex = 6;
             this.ProductionSection_AddProductionRemarkControl.Text = "Add Production Remark";
             this.ProductionSection_AddProductionRemarkControl.UseVisualStyleBackColor = false;
@@ -890,11 +941,12 @@
             this.ProductionSection_CheckAnalyticalResultsControl.Enabled = false;
             this.ProductionSection_CheckAnalyticalResultsControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CheckAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_CheckAnalyticalResultsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_CheckAnalyticalResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CheckAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 350);
+            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(7, 583);
+            this.ProductionSection_CheckAnalyticalResultsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_CheckAnalyticalResultsControl.Name = "ProductionSection_CheckAnalyticalResultsControl";
-            this.ProductionSection_CheckAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_CheckAnalyticalResultsControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_CheckAnalyticalResultsControl.TabIndex = 5;
             this.ProductionSection_CheckAnalyticalResultsControl.Text = "Check Analytical Results";
             this.ProductionSection_CheckAnalyticalResultsControl.UseVisualStyleBackColor = false;
@@ -906,11 +958,12 @@
             this.ProductionSection_ViewSampleControl.Enabled = false;
             this.ProductionSection_ViewSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewSampleControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewSampleControl.Location = new System.Drawing.Point(5, 300);
+            this.ProductionSection_ViewSampleControl.Location = new System.Drawing.Point(7, 500);
+            this.ProductionSection_ViewSampleControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_ViewSampleControl.Name = "ProductionSection_ViewSampleControl";
-            this.ProductionSection_ViewSampleControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_ViewSampleControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_ViewSampleControl.TabIndex = 4;
             this.ProductionSection_ViewSampleControl.Text = "View Sample";
             this.ProductionSection_ViewSampleControl.UseVisualStyleBackColor = false;
@@ -919,17 +972,18 @@
             // 
             this.ProductionSection_AddSampleControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_AddSampleControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_AddSampleControl.Enabled = false;
             this.ProductionSection_AddSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_AddSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_AddSampleControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddSampleControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddSampleControl.Location = new System.Drawing.Point(5, 250);
+            this.ProductionSection_AddSampleControl.Location = new System.Drawing.Point(7, 417);
+            this.ProductionSection_AddSampleControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_AddSampleControl.Name = "ProductionSection_AddSampleControl";
-            this.ProductionSection_AddSampleControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_AddSampleControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_AddSampleControl.TabIndex = 3;
             this.ProductionSection_AddSampleControl.Text = "Add Sample";
             this.ProductionSection_AddSampleControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_AddSampleControl.Click += new System.EventHandler(this.ProductionSection_AddSampleControl_Click);
             // 
             // ProductionSection_ViewProductsControl
             // 
@@ -938,11 +992,12 @@
             this.ProductionSection_ViewProductsControl.Enabled = false;
             this.ProductionSection_ViewProductsControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_ViewProductsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ViewProductsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductsControl.Location = new System.Drawing.Point(5, 200);
+            this.ProductionSection_ViewProductsControl.Location = new System.Drawing.Point(7, 333);
+            this.ProductionSection_ViewProductsControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_ViewProductsControl.Name = "ProductionSection_ViewProductsControl";
-            this.ProductionSection_ViewProductsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_ViewProductsControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_ViewProductsControl.TabIndex = 2;
             this.ProductionSection_ViewProductsControl.Text = "View Products";
             this.ProductionSection_ViewProductsControl.UseVisualStyleBackColor = false;
@@ -954,11 +1009,12 @@
             this.ProductionSection_AddProductControl.Enabled = false;
             this.ProductionSection_AddProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSection_AddProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_AddProductControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddProductControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddProductControl.Location = new System.Drawing.Point(5, 50);
+            this.ProductionSection_AddProductControl.Location = new System.Drawing.Point(7, 83);
+            this.ProductionSection_AddProductControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSection_AddProductControl.Name = "ProductionSection_AddProductControl";
-            this.ProductionSection_AddProductControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_AddProductControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSection_AddProductControl.TabIndex = 1;
             this.ProductionSection_AddProductControl.Text = "Add Product";
             this.ProductionSection_AddProductControl.UseVisualStyleBackColor = false;
@@ -969,12 +1025,13 @@
             this.ProductionSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductionSectionCaptionControl.FlatAppearance.BorderSize = 0;
             this.ProductionSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductionSectionCaptionControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSectionCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSectionCaptionControl.ForeColor = System.Drawing.Color.White;
             this.ProductionSectionCaptionControl.Image = global::FPIS.Properties.Resources.prod_white;
-            this.ProductionSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.ProductionSectionCaptionControl.Location = new System.Drawing.Point(7, 0);
+            this.ProductionSectionCaptionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ProductionSectionCaptionControl.Name = "ProductionSectionCaptionControl";
-            this.ProductionSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSectionCaptionControl.Size = new System.Drawing.Size(257, 83);
             this.ProductionSectionCaptionControl.TabIndex = 0;
             this.ProductionSectionCaptionControl.Text = "  Production";
             this.ProductionSectionCaptionControl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -985,9 +1042,10 @@
             // DashboardSectionControl
             // 
             this.DashboardSectionControl.Controls.Add(this.DashboardControl);
-            this.DashboardSectionControl.Location = new System.Drawing.Point(6, 1);
+            this.DashboardSectionControl.Location = new System.Drawing.Point(9, 2);
+            this.DashboardSectionControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DashboardSectionControl.Name = "DashboardSectionControl";
-            this.DashboardSectionControl.Size = new System.Drawing.Size(190, 50);
+            this.DashboardSectionControl.Size = new System.Drawing.Size(271, 83);
             this.DashboardSectionControl.TabIndex = 0;
             this.DashboardSectionControl.Tag = "0";
             // 
@@ -997,12 +1055,13 @@
             this.DashboardControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DashboardControl.FlatAppearance.BorderSize = 0;
             this.DashboardControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DashboardControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DashboardControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DashboardControl.ForeColor = System.Drawing.Color.White;
             this.DashboardControl.Image = global::FPIS.Properties.Resources.dash_white;
-            this.DashboardControl.Location = new System.Drawing.Point(5, 0);
+            this.DashboardControl.Location = new System.Drawing.Point(7, 0);
+            this.DashboardControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DashboardControl.Name = "DashboardControl";
-            this.DashboardControl.Size = new System.Drawing.Size(180, 50);
+            this.DashboardControl.Size = new System.Drawing.Size(257, 83);
             this.DashboardControl.TabIndex = 0;
             this.DashboardControl.Text = "  DashBoard";
             this.DashboardControl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1014,17 +1073,19 @@
             // 
             this.MainContainerControl.Controls.Add(this.pictureBox1);
             this.MainContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContainerControl.Location = new System.Drawing.Point(220, 100);
+            this.MainContainerControl.Location = new System.Drawing.Point(314, 167);
+            this.MainContainerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MainContainerControl.Name = "MainContainerControl";
-            this.MainContainerControl.Size = new System.Drawing.Size(1063, 688);
+            this.MainContainerControl.Size = new System.Drawing.Size(1519, 939);
             this.MainContainerControl.TabIndex = 3;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FPIS.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(339, 245);
+            this.pictureBox1.Location = new System.Drawing.Point(484, 408);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(385, 199);
+            this.pictureBox1.Size = new System.Drawing.Size(550, 332);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1033,21 +1094,23 @@
             // 
             this.DividerControl.BackColor = System.Drawing.Color.Silver;
             this.DividerControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DividerControl.Location = new System.Drawing.Point(220, 100);
+            this.DividerControl.Location = new System.Drawing.Point(314, 167);
+            this.DividerControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DividerControl.Name = "DividerControl";
-            this.DividerControl.Size = new System.Drawing.Size(1, 688);
+            this.DividerControl.Size = new System.Drawing.Size(1, 939);
             this.DividerControl.TabIndex = 4;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 788);
+            this.ClientSize = new System.Drawing.Size(1833, 1106);
             this.Controls.Add(this.DividerControl);
             this.Controls.Add(this.MainContainerControl);
             this.Controls.Add(this.NavigationDrawerControl);
             this.Controls.Add(this.TitleBarControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Screen";

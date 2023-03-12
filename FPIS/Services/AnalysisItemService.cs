@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 namespace FPIS.Services
 {
@@ -13,6 +14,20 @@ namespace FPIS.Services
         public AnalysisItemService(AppDbContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        public List<AnalysisProduct> FetchAnalysisProducts()
+        {
+            return this._dbContext.AnalysisProducts
+                .Include(ap => ap.Product)
+                .ToList();
+        }
+
+        public List<AnalysisWater> FetchAnalysisWater()
+        {
+            return this._dbContext.AnalysisWaters
+                .Include(aw => aw.Water)
+                .ToList();
         }
 
         /// <summary>
