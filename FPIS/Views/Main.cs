@@ -218,6 +218,19 @@ namespace FPIS.Views
             WindowState = FormWindowState.Minimized;
         }
 
+        private void ConsumbalesSection_ReceiveNewStockControl_Click(object sender, EventArgs e)
+        {
+            ReceiveStock receive_Stock = new ReceiveStock();
+            receive_Stock.Show();
+        }
+
+        private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
+        {
+            userControlIssueStock us = new userControlIssueStock();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(us);
+        }
+
         private void ProductionSection_AddSampleControl_Click(object sender, EventArgs e)
         {
             SelectAnalysisTypeForm selectAnalysisTypeForm = new();

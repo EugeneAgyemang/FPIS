@@ -13,7 +13,7 @@ namespace FPIS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
-        public DateTime ReceivedDate { get; set; }
+        public DateOnly ReceivedDate { get; set; }
         public int Quantity { get; set;}
         public int QuantityAvailable { get; set; }
         public DateOnly ExpiryDate { get; set; }
