@@ -1,4 +1,4 @@
-﻿namespace FPIS.Views
+namespace FPIS.Views
 {
     partial class Main
     {

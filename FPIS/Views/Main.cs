@@ -17,6 +17,9 @@ namespace FPIS.Views
         StringBuilder navigationButtonsContents = new StringBuilder();
         int[] panelHeights = new int[8];
         int indexOfNavigationButtonClicked = -1;
+
+        public static string LOGGED_USER_ID = "c6cfd03d-b708-434a-aa01-b9089bd0d027";
+
         public Main()
         {
             InitializeComponent();
@@ -226,6 +229,19 @@ namespace FPIS.Views
             userControlIssueStock us = new userControlIssueStock();
             MainContainerControl.Controls.Clear();
             MainContainerControl.Controls.Add(us);
+        }
+
+        private void ProductionSection_AddSampleControl_Click(object sender, EventArgs e)
+        {
+            SelectAnalysisTypeForm selectAnalysisTypeForm = new();
+            DialogResult dialogResult = selectAnalysisTypeForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                CreateAnalysisRequestFormUserControl requestForAnalysis = new();
+                MainContainerControl.Controls.Clear();
+                MainContainerControl.Controls.Add(requestForAnalysis);
+            }
         }
     }
 }
