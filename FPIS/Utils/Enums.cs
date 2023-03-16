@@ -24,4 +24,11 @@
         /// </summary>
         AUTH_PASS
     }
+
+    public enum DateFormat
+    {
+        DATE_ONLY,
+        TIME_ONLY,
+        DATE_AND_TIME
+    }
 }

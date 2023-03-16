@@ -18,7 +18,7 @@ namespace FPIS.Views
         int[] panelHeights = new int[8];
         int indexOfNavigationButtonClicked = -1;
 
-        public static string LOGGED_USER_ID = "c6cfd03d-b708-434a-aa01-b9089bd0d027";
+        public static string LOGGED_USER_ID = "ba491ba1-1f50-462d-965d-cd568472bcf1";
 
         public Main()
         {
@@ -216,6 +216,7 @@ namespace FPIS.Views
         private void MinimizeWindowControl_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+
         }
 
         private void ProductionSection_AddSampleControl_Click(object sender, EventArgs e)
@@ -229,6 +230,29 @@ namespace FPIS.Views
                 MainContainerControl.Controls.Clear();
                 MainContainerControl.Controls.Add(requestForAnalysis);
             }
+        }
+
+        private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(ProcurementReceiveMaterialsUserControl.Instance);
+        }
+        /// <summary>
+        /// Add the given user control to the MainContainerControl
+        /// </summary>
+        /// <param name="userControl">An instance of the user control to be added. Instance has to be static.</param>
+        private void AddUserControlToMainContainerControl(UserControl userControl)
+        {
+            ClearControlsFromMainContainerControl();
+            MainContainerControl.Controls.Add(userControl);
+        }
+        private void ClearControlsFromMainContainerControl()
+        {
+            MainContainerControl.Controls.Clear();
+        }
+
+        private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
         }
     }
 }

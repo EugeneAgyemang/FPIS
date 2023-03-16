@@ -19,5 +19,9 @@ namespace FPIS.Models
         public List<MaterialProcurement> MaterialProcurements { get; set;}
         public List<AnalysisProduct> AnalysisProducts { get; set;}
     
+        public override string ToString()
+        {
+            return ProductName;
+        }
     }
 }
