@@ -3,6 +3,7 @@ using FPIS.Services;
 using FPIS.Utils;
 using FPIS.Views;
 using MaterialSkin.Controls;
+using System;
 using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS
@@ -14,27 +15,31 @@ namespace FPIS
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
-            btnLogin.Click += LogUserIn;
+            EmployeeIdErrorControl.ForeColor =
+                PasswordErrorControl.ForeColor = Color.Red;
+        }
+        public void ResetFields()
+        {
+            txtPassword.Text = string.Empty;
         }
 
-        private void LogUserIn(object? sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            string employeeId = txtEmpId.Text;
-            string password = txtPassword.Text;
+            ResetErrorCaptions();
+            bool shouldSave = true;
 
-            // Seperately check the username and passwords to show different error messages
-            bool dataProvided = UserProvidedData(employeeId);
-            if (!dataProvided)
+            string employeeId = txtEmpId.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            ValidateFields(employeeId,
+                password,
+                ref shouldSave);
+
+            if (!shouldSave)
             {
-                MaterialMessageBox.Show("Kindly provide your Employee ID", "Login Failed");
-                txtEmpId.Focus();
+                return;
             }
-            dataProvided = UserProvidedData(password);
-            if (!dataProvided)
-            {
-                MaterialMessageBox.Show("Kindly provide your password", "Login Failed");
-                txtPassword.Focus();
-            }
+
 
             AppDbContext appDbContext = new();
             try
@@ -43,34 +48,64 @@ namespace FPIS
                 LoginAuth loginResults = loginService.AuthenticateUser(employeeId, password);
                 if (loginResults == LoginAuth.AUTH_FAIL)
                 {
-                    MaterialMessageBox.Show("Invalid login credentials", "Login Failed");
+                    Utils.Utils.ShowMessageBox("Invalid login credentials", "Login Failed");
                     ResetFields();
                 }
                 else
                 {
-                    MaterialMessageBox.Show("Welcome", "Login Passed");
+                    Main.LOGGED_USER_ID= employeeId;
+                    Hide();
+                    Main main = new Main(this);
+                    main.Show();
                 }
             }
             catch (Exception exception)
             {
-                MaterialMessageBox.Show(exception.Message);
+                Utils.Utils.ShowMessageBox(exception.Message, "Oops... An error occured");
             }
             finally
             {
                 appDbContext.Dispose();
             }
         }
+        public void ValidateFields(string empId, string password, ref bool shouldSave)
+        {
+            bool isErrorMessageDisplayed = false;
+            ValidateEmpId(empId, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidatePassword(password, ref shouldSave, ref isErrorMessageDisplayed);
 
-        public bool UserProvidedData(string userInput)
-        {
-            string userInputTrimmed = userInput.Trim();
-            // Check whether there's no content in the input field
-            bool isDataProvided = (!(userInputTrimmed == string.Empty));
-            return isDataProvided;
         }
-        public void ResetFields()
+        public void ValidateEmpId(string empId, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
-            txtPassword.Text = string.Empty;
+            if (empId.Length == 0)
+            {
+                DisplayErrorMessage(EmployeeIdErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "Kindly provide your Employee ID");
+                return;
+            }
+        }
+        public void ValidatePassword(string password, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (password.Length == 0)
+            {
+                DisplayErrorMessage(PasswordErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "Kindly provide your password");
+                return;
+            }
+        }
+
+        private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed, string message)
+        {
+            shouldSave = false;
+            if (!isErrorMessageDisplayed)
+            {
+                isErrorMessageDisplayed = true;
+                Utils.Utils.ShowMessageBox("An error occuured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            errorCaption.Text = message;
+        }
+        public void ResetErrorCaptions()
+        {
+            EmployeeIdErrorControl.Text =
+                PasswordErrorControl.Text = string.Empty;
         }
     }
 }

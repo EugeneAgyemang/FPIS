@@ -201,9 +201,9 @@
             this.TitleBarCaptionControl.ForeColor = System.Drawing.Color.White;
             this.TitleBarCaptionControl.Location = new System.Drawing.Point(156, 66);
             this.TitleBarCaptionControl.Name = "TitleBarCaptionControl";
-            this.TitleBarCaptionControl.Size = new System.Drawing.Size(90, 23);
+            this.TitleBarCaptionControl.Size = new System.Drawing.Size(95, 23);
             this.TitleBarCaptionControl.TabIndex = 0;
-            this.TitleBarCaptionControl.Text = "Welcome";
+            this.TitleBarCaptionControl.Text = "Welcome ";
             // 
             // NavigationIndicatorControl
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FPIS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace FPIS.Views
 {
     public partial class Main : Form
     {
+        Login login;
         const int PERFECTSIZEFORHIDINGNAVIGATION = 130;
         bool isNavigationOpen = true;
         StringBuilder navigationButtonsContents = new StringBuilder();
@@ -20,11 +22,17 @@ namespace FPIS.Views
 
         public static string LOGGED_USER_ID = "ba491ba1-1f50-462d-965d-cd568472bcf1";
 
-        public Main()
+        public Main(Login login)
         {
             InitializeComponent();
             CachePanelState();
             CollapseNavigationDrawer();
+            LoadUsername();
+            this.login = login;
+        }
+        private void LoadUsername()
+        {
+            TitleBarCaptionControl.Text += new LoginService(new()).GetFullName(LOGGED_USER_ID);
         }
         private void HamburgerControl_Click(object sender, EventArgs e)
         {
@@ -198,7 +206,7 @@ namespace FPIS.Views
                 MessageBoxIcon.Question);
             if (userWantsToCloseForm == DialogResult.Yes)
             {
-                Application.Exit();
+                Environment.Exit(0);
             }
         }
         /// <summary>
@@ -254,5 +262,6 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
         }
+        
     }
 }
