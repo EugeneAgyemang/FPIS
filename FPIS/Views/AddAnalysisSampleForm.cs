@@ -90,6 +90,8 @@ namespace FPIS.Views
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex < 0 || e.RowIndex < 0)
+                return;
             string selectItemColumnValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             string itemId = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
