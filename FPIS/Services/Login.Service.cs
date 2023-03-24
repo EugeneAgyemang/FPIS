@@ -26,12 +26,10 @@ namespace FPIS.Services
             }
             return LoginAuth.AUTH_PASS;
         }
-        public string GetFullName(string empId)
+        public Guid GetEmployeeId(string empId)
         {
-            string fullName;
             User user = appDbContext.Users.FirstOrDefault(user => user.EmpID == empId);
-            fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
-            return fullName;
+            return user.Id;
         }
     }
 }

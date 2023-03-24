@@ -20,7 +20,7 @@ namespace FPIS.Views
         int[] panelHeights = new int[8];
         int indexOfNavigationButtonClicked = -1;
 
-        public static string LOGGED_USER_ID = "ba491ba1-1f50-462d-965d-cd568472bcf1";
+        public static string LOGGED_USER_ID;
 
         public Main(Login login)
         {
@@ -32,7 +32,7 @@ namespace FPIS.Views
         }
         private void LoadUsername()
         {
-            TitleBarCaptionControl.Text += new LoginService(new()).GetFullName(LOGGED_USER_ID);
+            TitleBarCaptionControl.Text += new UserService(new()).GetFullName(Guid.Parse(LOGGED_USER_ID));
         }
         private void HamburgerControl_Click(object sender, EventArgs e)
         {

@@ -11,6 +11,9 @@
     <Compile Update="Views\AddDesignation.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AddRawMaterialsAnalysisSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateAnalysisForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -47,10 +50,10 @@
     <Compile Update="Views\ProcurementReceiveMaterialsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Register.cs">
+    <Compile Update="Views\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Main.cs">
+    <Compile Update="Views\Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\SelectAnalysisTypeForm.cs">

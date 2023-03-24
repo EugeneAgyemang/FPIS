@@ -53,7 +53,7 @@ namespace FPIS
                 }
                 else
                 {
-                    Main.LOGGED_USER_ID= employeeId;
+                    Main.LOGGED_USER_ID = new LoginService(new()).GetEmployeeId(employeeId).ToString();
                     Hide();
                     Main main = new Main(this);
                     main.Show();
