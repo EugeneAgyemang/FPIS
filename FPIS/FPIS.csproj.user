@@ -44,13 +44,7 @@
     <Compile Update="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\ProcurementIssueMaterials.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\ProcurementReceiveMaterialsUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\Main.cs">
+    <Compile Update="Views\ReceiveStock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Register.cs">
@@ -69,6 +63,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\userControlIssueStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

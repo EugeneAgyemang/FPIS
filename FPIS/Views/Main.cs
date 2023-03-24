@@ -1,4 +1,4 @@
-﻿using FPIS.Services;
+using FPIS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -239,11 +239,6 @@ namespace FPIS.Views
                 MainContainerControl.Controls.Add(requestForAnalysis);
             }
         }
-
-        private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
-        {
-            AddUserControlToMainContainerControl(ProcurementReceiveMaterialsUserControl.Instance);
-        }
         /// <summary>
         /// Add the given user control to the MainContainerControl
         /// </summary>
@@ -256,11 +251,6 @@ namespace FPIS.Views
         private void ClearControlsFromMainContainerControl()
         {
             MainContainerControl.Controls.Clear();
-        }
-
-        private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
-        {
-            AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
         }
         
     }

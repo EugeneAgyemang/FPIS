@@ -1,4 +1,4 @@
-﻿namespace FPIS.Views
+namespace FPIS.Views
 {
     partial class Main
     {
@@ -257,7 +257,6 @@
             this.ProcurementSection_IssueMaterialsControl.TabIndex = 3;
             this.ProcurementSection_IssueMaterialsControl.Text = "Issue Materials";
             this.ProcurementSection_IssueMaterialsControl.UseVisualStyleBackColor = false;
-            this.ProcurementSection_IssueMaterialsControl.Click += new System.EventHandler(this.ProcurementSection_IssueMaterialsControl_Click);
             // 
             // ProcurementSection_ReceiveMaterialsControl
             // 
@@ -273,7 +272,6 @@
             this.ProcurementSection_ReceiveMaterialsControl.TabIndex = 2;
             this.ProcurementSection_ReceiveMaterialsControl.Text = "Receive Materials";
             this.ProcurementSection_ReceiveMaterialsControl.UseVisualStyleBackColor = false;
-            this.ProcurementSection_ReceiveMaterialsControl.Click += new System.EventHandler(this.ProcurementSection_ReceiveMaterialsControl_Click);
             // 
             // ProcurementSectionCaptionControl
             // 

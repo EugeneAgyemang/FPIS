@@ -1,4 +1,4 @@
-﻿
+
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -65,6 +65,7 @@ public class Utils
         }
         return isKeyHandled;
     }
+
     
     /// <summary>
     /// Retrieve the last characters from the right of the given string
