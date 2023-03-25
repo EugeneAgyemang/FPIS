@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,28 @@ namespace FPIS.Services
         public AnalysisService(AppDbContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+
+
+        public Sample? FetchProductionAnalysis(string sampleId)
+        {
+            return _dbContext.Samples
+                .Include(s => s.SampleDetails)
+                .ThenInclude(sd => sd.AnalysisItem)
+                .ThenInclude(ai => ai.AnalysisProducts)
+                .ThenInclude(ap => ap.Product)
+                .FirstOrDefault(s => s.Id.ToString() == sampleId);
+        }
+
+        public Sample? FetchWaterAnalysis(string sampleId)
+        {
+            return _dbContext.Samples
+                .Include(s => s.SampleDetails)
+                .ThenInclude(sd => sd.AnalysisItem)
+                .ThenInclude(ai => ai.AnalysisWaters)
+                .ThenInclude(aw => aw.Water)
+                .FirstOrDefault(s => s.Id.ToString() == sampleId);
         }
 
         public Sample CreateSample(
@@ -56,6 +79,70 @@ namespace FPIS.Services
             _dbContext.SaveChanges();
 
             return sample;
+        }
+
+        public Sample? SetSampleAsComplete(string sampleId)
+        {
+            Sample? sample = _dbContext.Samples.FirstOrDefault(s => s.Id.ToString().Equals(sampleId));
+
+            if (sample == null)
+            {
+                return null;
+            }
+
+            sample.Status = "Completed";
+            _dbContext.Samples.Update(sample);
+
+            _dbContext.SaveChanges();
+
+            return sample;
+        }
+
+        public SampleResult CreateSampleResult(
+            string sampleId,
+            string userId,
+            List<AnalysisResultSampleDetailBindingItem> sampleDetailsIdsWithParameters
+        )
+        {
+            SampleResult sampleResult = _dbContext.SampleResults.Add(
+                new()
+                {
+                    Id = new Guid(),
+                    IsRetest = false,
+                    UserId = new Guid(userId),
+                    SampleId = new Guid(sampleId),
+                    Date =  DateOnly.FromDateTime(DateTime.UtcNow.Date),
+                    Time = TimeOnly.FromDateTime(DateTime.UtcNow),
+                }
+            ).Entity;
+
+            foreach(AnalysisResultSampleDetailBindingItem sampleDetailsIdsWithParameter in sampleDetailsIdsWithParameters)
+            {
+                SampleResultDetail sampleResultDetail = _dbContext.SampleResultDetails.Add(
+                    new SampleResultDetail() {
+                        Id = new Guid(),
+                        SampleResultId = sampleResult.Id,
+                        AnalysisItemId = new Guid(sampleDetailsIdsWithParameter.AnalysisItemId)
+                    }
+                ).Entity;
+
+                foreach(ParametersWithValues parameterWithValue in sampleDetailsIdsWithParameter.parametersWithValues)
+                {
+                    _dbContext.SampleResultsDetailsWithParameters.Add(
+                        new SampleResultsDetailsWithParameter()
+                        {
+                            Id = new Guid(),
+                            SampleResultDetailId = sampleResultDetail.Id,
+                            Value = float.Parse(parameterWithValue.ParameterValue),
+                            AnalysisParameterId = new Guid(parameterWithValue.ParameterId)
+                        }
+                    );
+                }
+            }
+
+            _dbContext.SaveChanges();
+
+            return sampleResult;
         }
     }
 }

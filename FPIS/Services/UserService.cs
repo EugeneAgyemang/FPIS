@@ -35,5 +35,10 @@ namespace FPIS.Services
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == new Guid(userId));
         }
+
+        public User? GetUserByEmployeeId(string employeeId)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.EmpID == employeeId);
+        }
     }
 }
