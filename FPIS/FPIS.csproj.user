@@ -2,14 +2,26 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\AddAnalysisSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\AddDesignation.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AddRawMaterialsAnalysisSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateAnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateAnalysisProduct.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateAnalysisRequestFormUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\CreateAnalysisWater.cs">
       <SubType>Form</SubType>
@@ -32,6 +44,12 @@
     <Compile Update="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\ProcurementIssueMaterials.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\ProcurementReceiveMaterialsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\ReceiveStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -39,6 +57,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\SelectAnalysisTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Startup.cs">
