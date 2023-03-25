@@ -89,7 +89,7 @@ namespace FPIS.Views
                 {
                     Id = u.Id,
                     EmpID = u.EmpID,
-                    Name = $"{u.FirstName} {u.MiddleName} {u.LastName}"
+                    Name = $"{u.FirstName} {u.LastName} {u.MiddleName}".Trim()
                 })
                 .ToList();
 
