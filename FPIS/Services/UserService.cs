@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Linq.Expressions;
 
@@ -17,31 +18,35 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
-        public List<User> GetAllUsers()
+        public List<Models.User> GetAllUsers()
         {
             return _dbContext.Users.ToList();
         }
 
-        public List<User> GetAllUsersWithoutId(Guid userId)
+        public List<Models.User> GetAllUsersWithoutId(Guid userId)
         {
             return _dbContext.Users.Where(u => u.Id != userId).ToList();
         }
 
-        public User? GetUserById(Guid userId)
+        public Models.User? GetUserById(Guid userId)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == userId);
         }
 
-        public User? GetUserById(string userId)
+        public Models.User? GetUserById(string userId)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == new Guid(userId));
         }
         public string GetFullName(Guid id)
         {
             string fullName;
-            User user = _dbContext.Users.FirstOrDefault(user => user.Id == id);
+            Models.User user = _dbContext.Users.FirstOrDefault(user => user.Id == id);
             fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
             return fullName;
+        }
+        public Models.User GetUserByEmpId(string empId)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.EmpID == empId);
         }
     }
 }
