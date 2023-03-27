@@ -90,6 +90,7 @@
             this.MainContainerControl = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DividerControl = new System.Windows.Forms.Panel();
+            this.ProcurementSection_ViewRequestsControl = new System.Windows.Forms.Button();
             this.TitleBarControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FujiOilLogoSmallControl)).BeginInit();
             this.WindowStateHandlerControl.SuspendLayout();
@@ -234,12 +235,13 @@
             // 
             // ProcurementSectionControl
             // 
+            this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ViewRequestsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_IssueMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
             this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1856);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
-            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 153);
+            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 203);
             this.ProcurementSectionControl.TabIndex = 8;
             this.ProcurementSectionControl.Tag = "6";
             // 
@@ -297,7 +299,7 @@
             // SettingsSectionControl
             // 
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2009);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2057);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 124);
             this.SettingsSectionControl.TabIndex = 7;
@@ -1046,6 +1048,22 @@
             this.DividerControl.Size = new System.Drawing.Size(1, 688);
             this.DividerControl.TabIndex = 4;
             // 
+            // ProcurementSection_ViewRequestsControl
+            // 
+            this.ProcurementSection_ViewRequestsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProcurementSection_ViewRequestsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProcurementSection_ViewRequestsControl.FlatAppearance.BorderSize = 0;
+            this.ProcurementSection_ViewRequestsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProcurementSection_ViewRequestsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProcurementSection_ViewRequestsControl.ForeColor = System.Drawing.Color.White;
+            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 151);
+            this.ProcurementSection_ViewRequestsControl.Name = "ProcurementSection_ViewRequestsControl";
+            this.ProcurementSection_ViewRequestsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProcurementSection_ViewRequestsControl.TabIndex = 5;
+            this.ProcurementSection_ViewRequestsControl.Text = "View Requests";
+            this.ProcurementSection_ViewRequestsControl.UseVisualStyleBackColor = false;
+            this.ProcurementSection_ViewRequestsControl.Click += new System.EventHandler(this.ProcurementSection_ViewRequestsControl_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1144,5 +1162,6 @@
         private Button ProcurementSection_ReceiveMaterialsControl;
         private Button ProcurementSectionCaptionControl;
         private Button ReportsSectionCaptionControl;
+        private Button ProcurementSection_ViewRequestsControl;
     }
 }

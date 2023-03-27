@@ -14,9 +14,6 @@
     <Compile Update="Views\AddRawMaterialsAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\CreateAnalysisForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\CreateAnalysisProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -48,6 +45,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\ProcurementReceiveMaterialsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\ProcurementViewRequestsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\ReceiveStock.cs">

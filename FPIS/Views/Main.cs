@@ -227,9 +227,7 @@ namespace FPIS.Views
 
             if (dialogResult == DialogResult.OK)
             {
-                CreateAnalysisRequestFormUserControl requestForAnalysis = new();
-                MainContainerControl.Controls.Clear();
-                MainContainerControl.Controls.Add(requestForAnalysis);
+                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
             }
         }
 
@@ -263,6 +261,11 @@ namespace FPIS.Views
         {
             ReceiveStock receive_Stock = new ReceiveStock();
             receive_Stock.Show();
+        }
+
+        private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(ProcurementViewRequestsUserControl.Instance);
         }
     }
 }
