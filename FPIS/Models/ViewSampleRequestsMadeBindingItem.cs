@@ -8,7 +8,7 @@ namespace FPIS.Models
 {
     public class ViewSampleRequestsMadeBindingItem
     {
-        public string SampleDetailsIdAsString { get; set; }
+        public string SampleIdAsString { get; set; }
         public Guid ProductId { get; set; }
         public Guid SampleId { get; set; }
         public Guid SampleDetailId { get; set; }

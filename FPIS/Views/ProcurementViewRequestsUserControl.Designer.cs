@@ -34,10 +34,10 @@
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.SampleDetailsIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sampleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sampleDetailIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sampleIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisItemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisProductIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,10 +93,10 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SampleDetailsIdAsString,
+            this.SampleIdAsString,
+            this.sampleIdDataGridViewTextBoxColumn,
             this.sampleDetailIdDataGridViewTextBoxColumn,
             this.productIdDataGridViewTextBoxColumn,
-            this.sampleIdDataGridViewTextBoxColumn,
             this.analysisItemIdDataGridViewTextBoxColumn,
             this.analysisProductIdDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn,
@@ -118,12 +118,20 @@
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // SampleDetailsIdAsString
+            // SampleIdAsString
             // 
-            this.SampleDetailsIdAsString.DataPropertyName = "SampleDetailsIdAsString";
-            this.SampleDetailsIdAsString.HeaderText = "Sample Detail Id";
-            this.SampleDetailsIdAsString.Name = "SampleDetailsIdAsString";
-            this.SampleDetailsIdAsString.ReadOnly = true;
+            this.SampleIdAsString.DataPropertyName = "SampleIdAsString";
+            this.SampleIdAsString.HeaderText = "Sample Id";
+            this.SampleIdAsString.Name = "SampleIdAsString";
+            this.SampleIdAsString.ReadOnly = true;
+            // 
+            // sampleIdDataGridViewTextBoxColumn
+            // 
+            this.sampleIdDataGridViewTextBoxColumn.DataPropertyName = "SampleId";
+            this.sampleIdDataGridViewTextBoxColumn.HeaderText = "SampleId";
+            this.sampleIdDataGridViewTextBoxColumn.Name = "sampleIdDataGridViewTextBoxColumn";
+            this.sampleIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sampleIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // sampleDetailIdDataGridViewTextBoxColumn
             // 
@@ -140,14 +148,6 @@
             this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
             this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.productIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sampleIdDataGridViewTextBoxColumn
-            // 
-            this.sampleIdDataGridViewTextBoxColumn.DataPropertyName = "SampleId";
-            this.sampleIdDataGridViewTextBoxColumn.HeaderText = "SampleId";
-            this.sampleIdDataGridViewTextBoxColumn.Name = "sampleIdDataGridViewTextBoxColumn";
-            this.sampleIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sampleIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // analysisItemIdDataGridViewTextBoxColumn
             // 
@@ -277,9 +277,10 @@
         private BindingSource viewSampleRequestsMadeBindingItemBindingSource;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn SampleDetailsIdAsString;
+        private DataGridViewTextBoxColumn SampleIdAsString;
+        private DataGridViewTextBoxColumn sampleIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn sampleDetailIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn sampleIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn analysisItemIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn analysisProductIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
