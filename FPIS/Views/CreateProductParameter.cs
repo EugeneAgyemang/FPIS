@@ -22,10 +22,12 @@ namespace FPIS.Views
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
-            ParameterNameErrorCaption.ForeColor = 
-                ParameterMethodErrorCaption.ForeColor = 
-                ParameterUnitErrorCaption.ForeColor = 
-                ParameterSpecificationErrorCaption.ForeColor = Color.Red;
+            ParameterNameErrorCaption.ForeColor =
+                ParameterMethodErrorCaption.ForeColor =
+                ParameterUnitErrorCaption.ForeColor =
+                ParameterSpecificationErrorCaption.ForeColor =
+                ParameterProductErrorCaption.ForeColor = Color.Red;
+            LoadProducts();
         }
 
         private void SaveParameterControl_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace FPIS.Views
             float parameterSpecification;
             float.TryParse(ParameterSpecificationControl.Text, out parameterSpecification);
 
-            ValidateFields(ParameterNameControl.Text, ParameterMethodControl.Text, ParameterUnitControl.Text, parameterSpecification, ref shouldSave);
+            ValidateFields(ParameterNameControl.Text, ParameterMethodControl.Text, ParameterUnitControl.Text, parameterSpecification, ParameterProductControl.Text, ref shouldSave);
 
             if (!shouldSave)
             {
@@ -48,7 +50,8 @@ namespace FPIS.Views
             }
             AppDbContext appDbContext = new();
             ProductParameterService productParameterService = new ProductParameterService(appDbContext);
-            bool isProductParameterAlreadySaved = productParameterService.DoesProductParameterExist(ParameterNameControl.Text);
+            Product product = new ProductService(new()).GetProductByName(ParameterProductControl.Text);
+            bool isProductParameterAlreadySaved = productParameterService.DoesProductParameterExist(ParameterNameControl.Text, product.Id);
             if (isProductParameterAlreadySaved)
             {
                 Utils.Utils.ShowMessageBox("The product parameter you provided already exists", "Duplicate Record Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,20 +61,22 @@ namespace FPIS.Views
                 (ParameterNameControl.Text,
                 ParameterUnitControl.Text,
                 ParameterMethodControl.Text,
-                parameterSpecification);
+                parameterSpecification,
+                product.Id);
             if (productParameter != null)
             {
                 ResetFields();
                 Utils.Utils.ShowMessageBox("Product parameter saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public void ValidateFields(string parameterName, string parameterMethod, string parameterUnit, float parameterSpecification, ref bool shouldSave)
+        public void ValidateFields(string parameterName, string parameterMethod, string parameterUnit, float parameterSpecification, string parameterProduct, ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateParameterName(parameterName, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterMethod(parameterMethod, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterUnit(parameterUnit, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterSpecification(parameterSpecification, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateParameterProduct(parameterProduct, ref shouldSave, ref isErrorMessageDisplayed);
         }
         public void ValidateParameterName(string parameterName, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
@@ -101,6 +106,13 @@ namespace FPIS.Views
                 DisplayErrorMessage(ParameterSpecificationErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
             }
         }
+        public void ValidateParameterProduct(string parameterProduct, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if(parameterProduct.Length== 0)
+            {
+                DisplayErrorMessage(ParameterProductErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
+            }
+        }
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
             shouldSave = false;
@@ -117,17 +129,24 @@ namespace FPIS.Views
             ParameterNameErrorCaption.Text =
                 ParameterMethodErrorCaption.Text =
                 ParameterSpecificationErrorCaption.Text =
-                ParameterUnitErrorCaption.Text = string.Empty;
+                ParameterUnitErrorCaption.Text =
+                ParameterProductErrorCaption.Text = string.Empty;
         }
         public void ResetFields()
         {
-            ParameterNameControl.Text = 
-                ParameterMethodControl.Text = 
-                ParameterUnitControl.Text = 
-                ParameterSpecificationControl.Text = 
+            ParameterNameControl.Text =
+                ParameterMethodControl.Text =
+                ParameterUnitControl.Text =
+                ParameterSpecificationControl.Text =
                 string.Empty;
+            ParameterProductControl.StartIndex =
+                ParameterUnitControl.StartIndex = -1;
         }
-
+        public void LoadProducts()
+        {
+            List<Product> products = new ProductService(new()).GetAllProducts();
+            ParameterProductControl.Items.AddRange(products.ToArray());
+        }
         private void ParameterSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);

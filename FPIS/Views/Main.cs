@@ -272,5 +272,10 @@ namespace FPIS.Views
         {
             new CreateProductForm().ShowDialog();
         }
+
+        private void ProductionSection_CreateProductParameterControl_Click(object sender, EventArgs e)
+        {
+            new CreateProductParameter().ShowDialog();
+        }
     }
 }

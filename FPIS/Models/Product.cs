@@ -17,8 +17,12 @@ namespace FPIS.Models
         public string Type { get; set; }
 
         // Navigation Properties
+        public List<ProductParameter> ProductParameters { get; set; }
         public List<MaterialProcurement> MaterialProcurements { get; set; }
         public List<AnalysisProduct> AnalysisProducts { get; set; }
-
+        public override string ToString()
+        {
+            return ProductName;
+        }
     }
 }

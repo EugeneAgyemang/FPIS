@@ -879,7 +879,6 @@
             // 
             this.ProductionSection_CreateProductParameterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_CreateProductParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_CreateProductParameterControl.Enabled = false;
             this.ProductionSection_CreateProductParameterControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CreateProductParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CreateProductParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -890,6 +889,7 @@
             this.ProductionSection_CreateProductParameterControl.TabIndex = 3;
             this.ProductionSection_CreateProductParameterControl.Text = "Create Product Parameter";
             this.ProductionSection_CreateProductParameterControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_CreateProductParameterControl.Click += new System.EventHandler(this.ProductionSection_CreateProductParameterControl_Click);
             // 
             // ProductionSection_AddProductionRemarkControl
             // 
