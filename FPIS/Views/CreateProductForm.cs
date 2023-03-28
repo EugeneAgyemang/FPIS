@@ -16,7 +16,7 @@ namespace FPIS.Views
             Theme.Set(Themes.LIGHT);
 
             // set color to red in the #hexadecimal format
-            labelProductNameError.ForeColor =
+            materialLabelProductNameError.ForeColor =
                 labelProductTypeError.ForeColor =
                 ColorTranslator.FromHtml("#FF0000");
         }
@@ -29,7 +29,7 @@ namespace FPIS.Views
 
         public void ClearErrorLabels()
         {
-            labelProductNameError.Text =
+            materialLabelProductNameError.Text =
                 labelProductTypeError.Text = "";
         }
 
@@ -38,7 +38,7 @@ namespace FPIS.Views
             if (productName.Length == 0)
             {
                 _isDataValid = false;
-                labelProductNameError.Text = "Name is required!";
+                materialLabelProductNameError.Text = "Name is required!";
             }
         }
         public void ValidateProductType(string productType)

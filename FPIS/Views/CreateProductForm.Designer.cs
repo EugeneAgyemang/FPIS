@@ -31,7 +31,7 @@
             this.materialButtonCreateProduct = new MaterialSkin.Controls.MaterialButton();
             this.materialComboBoxProductType = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTextBoxProductName = new MaterialSkin.Controls.MaterialTextBox();
-            this.labelProductNameError = new System.Windows.Forms.Label();
+            this.materialLabelProductNameError = new System.Windows.Forms.Label();
             this.labelProductTypeError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -102,15 +102,15 @@
             this.materialTextBoxProductName.Text = "";
             this.materialTextBoxProductName.TrailingIcon = null;
             // 
-            // labelProductNameError
+            // materialLabelProductNameError
             // 
-            this.labelProductNameError.AutoSize = true;
-            this.labelProductNameError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelProductNameError.ForeColor = System.Drawing.Color.Red;
-            this.labelProductNameError.Location = new System.Drawing.Point(24, 177);
-            this.labelProductNameError.Name = "labelProductNameError";
-            this.labelProductNameError.Size = new System.Drawing.Size(0, 13);
-            this.labelProductNameError.TabIndex = 29;
+            this.materialLabelProductNameError.AutoSize = true;
+            this.materialLabelProductNameError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.materialLabelProductNameError.ForeColor = System.Drawing.Color.Red;
+            this.materialLabelProductNameError.Location = new System.Drawing.Point(24, 177);
+            this.materialLabelProductNameError.Name = "materialLabelProductNameError";
+            this.materialLabelProductNameError.Size = new System.Drawing.Size(0, 13);
+            this.materialLabelProductNameError.TabIndex = 29;
             // 
             // labelProductTypeError
             // 
@@ -127,7 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(450, 410);
             this.Controls.Add(this.labelProductTypeError);
-            this.Controls.Add(this.labelProductNameError);
+            this.Controls.Add(this.materialLabelProductNameError);
             this.Controls.Add(this.materialTextBoxProductName);
             this.Controls.Add(this.materialComboBoxProductType);
             this.Controls.Add(this.materialButtonCreateProduct);
@@ -144,10 +144,9 @@
 
         #endregion
         private MaterialSkin.Controls.MaterialButton materialButtonCreateProduct;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxProductType;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBoxProductName;
-        private Label labelProductNameError;
-        private Label labelProductTypeError;
+        public MaterialSkin.Controls.MaterialTextBox materialTextBoxProductName;
+        public Label materialLabelProductNameError;
+        public Label labelProductTypeError;
     }
 }
