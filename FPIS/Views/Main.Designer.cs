@@ -847,7 +847,6 @@
             // 
             this.ProductionSection_CreateAnalysisProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_CreateAnalysisProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_CreateAnalysisProductControl.Enabled = false;
             this.ProductionSection_CreateAnalysisProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CreateAnalysisProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CreateAnalysisProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -858,6 +857,7 @@
             this.ProductionSection_CreateAnalysisProductControl.TabIndex = 4;
             this.ProductionSection_CreateAnalysisProductControl.Text = "Create Analysis Product";
             this.ProductionSection_CreateAnalysisProductControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_CreateAnalysisProductControl.Click += new System.EventHandler(this.ProductionSection_CreateAnalysisProductControl_Click);
             // 
             // ProductionSection_ViewProductionRemarkControl
             // 

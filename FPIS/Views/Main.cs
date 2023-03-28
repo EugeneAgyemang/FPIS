@@ -1,4 +1,5 @@
 ﻿using FPIS.Services;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -244,6 +245,15 @@ namespace FPIS.Views
             ClearControlsFromMainContainerControl();
             MainContainerControl.Controls.Add(userControl);
         }
+        /// <summary>
+        /// Open the given form after clearing all open instances in the MainContainerControl
+        /// </summary>
+        /// <param name="form">An instance of the form to be opened</param>
+        private void OpenModal(Form form)
+        {
+            ClearControlsFromMainContainerControl();
+            form.ShowDialog();
+        }
         private void ClearControlsFromMainContainerControl()
         {
             MainContainerControl.Controls.Clear();
@@ -259,8 +269,7 @@ namespace FPIS.Views
         }
         private void ConsumbalesSection_ReceiveNewStockControl_Click(object sender, EventArgs e)
         {
-            ReceiveStock receive_Stock = new ReceiveStock();
-            receive_Stock.Show();
+            OpenModal(new ReceiveStock());
         }
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
@@ -270,12 +279,17 @@ namespace FPIS.Views
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
         {
-            new CreateProductForm().ShowDialog();
+            OpenModal(new CreateProductForm());
         }
 
         private void ProductionSection_CreateProductParameterControl_Click(object sender, EventArgs e)
         {
-            new CreateProductParameter().ShowDialog();
+            OpenModal(new CreateProductParameter());
+        }
+
+        private void ProductionSection_CreateAnalysisProductControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateAnalysisProduct());
         }
     }
 }
