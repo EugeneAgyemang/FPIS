@@ -30,19 +30,5 @@ namespace FPIS.Services
             appDbContext.SaveChanges();
             return materialToBeProcured;
         }
-        public Receiving SaveMaterialReceivedRecord(Receiving materialReceived)
-        {
-            Receiving _materialReceived = new Receiving()
-            {
-                Supplier = materialReceived.Supplier,
-                TruckNumber = materialReceived.TruckNumber,
-                Quantity= materialReceived.Quantity,
-                Units= materialReceived.Units,
-                MaterialProcurementId = materialReceived.MaterialProcurementId
-            };
-            appDbContext.Add(_materialReceived);
-            appDbContext.SaveChanges();
-            return _materialReceived;
-        }
     }
 }

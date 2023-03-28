@@ -219,8 +219,8 @@ namespace FPIS.Views
                 Units = UnitsControl.Text,
                 MaterialProcurementId = materialBeingProcured
             };
-            MaterialProcurementService materialProcurementService = new MaterialProcurementService(new());
-            materialProcurementService.SaveMaterialReceivedRecord(materialReceivedRecord);
+            ReceivingService receivingService = new ReceivingService(new());
+            receivingService.SaveMaterialReceivedRecord(materialReceivedRecord);
         }
         public void ValidateFields(string supplier, string truck, string quantity, string unit, string materialProcured, string warehouse, ref bool shouldSave)
         {
