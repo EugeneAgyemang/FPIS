@@ -248,8 +248,8 @@ namespace FPIS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -337,6 +337,10 @@ namespace FPIS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -377,6 +381,9 @@ namespace FPIS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid");
+
                     b.Property<float>("Specification")
                         .HasColumnType("real");
 
@@ -385,6 +392,8 @@ namespace FPIS.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductParameters");
                 });
@@ -921,6 +930,17 @@ namespace FPIS.Migrations
                     b.Navigation("ProductParameter");
                 });
 
+            modelBuilder.Entity("FPIS.Models.ProductParameter", b =>
+                {
+                    b.HasOne("FPIS.Models.Product", "Product")
+                        .WithMany("ProductParameters")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("FPIS.Models.ProductionDailyReport", b =>
                 {
                     b.HasOne("FPIS.Models.User", "User")
@@ -1131,6 +1151,8 @@ namespace FPIS.Migrations
                     b.Navigation("AnalysisProducts");
 
                     b.Navigation("MaterialProcurements");
+
+                    b.Navigation("ProductParameters");
                 });
 
             modelBuilder.Entity("FPIS.Models.ProductParameter", b =>

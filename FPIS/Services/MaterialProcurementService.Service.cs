@@ -15,12 +15,6 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-        public List<Product> LoadProducts()
-        {
-            var products = new List<Product>();
-            products = appDbContext.Products.Where(product => product.ProductName.ToLower().Contains("shea nut")).ToList();
-            return products;
-        }
         public MaterialProcurement SaveMaterialProcuredRecord(MaterialProcurement materialProcured)
         {
             MaterialProcurement materialToBeProcured = new MaterialProcurement()

@@ -42,9 +42,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.MaterialProcurementDividerControl = new System.Windows.Forms.Panel();
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
+            this.WarehouseErrorCaption = new System.Windows.Forms.Label();
             this.ProductErrorCaption = new System.Windows.Forms.Label();
             this.RemarksCaptionControl = new MaterialSkin.Controls.MaterialLabel();
-            this.RemarksControl = new System.Windows.Forms.TextBox();
+            this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.SwitchDateCaptionControl = new MaterialSkin.Controls.MaterialLabel();
             this.SaveProcurementRecords = new MaterialSkin.Controls.MaterialButton();
             this.ProductControl = new MaterialSkin.Controls.MaterialComboBox();
@@ -52,7 +53,6 @@
             this.SelectedDateControl = new MaterialSkin.Controls.MaterialLabel();
             this.SwitchDateControl = new MaterialSkin.Controls.MaterialSwitch();
             this.WarehouseControl = new MaterialSkin.Controls.MaterialComboBox();
-            this.WarehouseErrorCaption = new System.Windows.Forms.Label();
             this.ReceivingSetionControl.SuspendLayout();
             this.MaterialProcurementSection.SuspendLayout();
             this.SuspendLayout();
@@ -253,6 +253,15 @@
             this.MaterialProcurementSection.Size = new System.Drawing.Size(450, 600);
             this.MaterialProcurementSection.TabIndex = 12;
             // 
+            // WarehouseErrorCaption
+            // 
+            this.WarehouseErrorCaption.AutoSize = true;
+            this.WarehouseErrorCaption.ForeColor = System.Drawing.Color.Red;
+            this.WarehouseErrorCaption.Location = new System.Drawing.Point(25, 186);
+            this.WarehouseErrorCaption.Name = "WarehouseErrorCaption";
+            this.WarehouseErrorCaption.Size = new System.Drawing.Size(0, 15);
+            this.WarehouseErrorCaption.TabIndex = 18;
+            // 
             // ProductErrorCaption
             // 
             this.ProductErrorCaption.AutoSize = true;
@@ -277,12 +286,28 @@
             // 
             // RemarksControl
             // 
-            this.RemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemarksControl.AnimateReadOnly = false;
+            this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.RemarksControl.Depth = 0;
+            this.RemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemarksControl.HideSelection = true;
             this.RemarksControl.Location = new System.Drawing.Point(25, 387);
-            this.RemarksControl.Multiline = true;
+            this.RemarksControl.MaxLength = 32767;
+            this.RemarksControl.MouseState = MaterialSkin.MouseState.OUT;
             this.RemarksControl.Name = "RemarksControl";
+            this.RemarksControl.PasswordChar = '\0';
+            this.RemarksControl.ReadOnly = false;
+            this.RemarksControl.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.RemarksControl.SelectedText = "";
+            this.RemarksControl.SelectionLength = 0;
+            this.RemarksControl.SelectionStart = 0;
+            this.RemarksControl.ShortcutsEnabled = true;
             this.RemarksControl.Size = new System.Drawing.Size(400, 113);
             this.RemarksControl.TabIndex = 12;
+            this.RemarksControl.TabStop = false;
+            this.RemarksControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.RemarksControl.UseSystemPasswordChar = false;
             this.RemarksControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RemarksControl_KeyUp);
             // 
             // SwitchDateCaptionControl
@@ -411,15 +436,6 @@
             this.WarehouseControl.StartIndex = -1;
             this.WarehouseControl.TabIndex = 9;
             // 
-            // WarehouseErrorCaption
-            // 
-            this.WarehouseErrorCaption.AutoSize = true;
-            this.WarehouseErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.WarehouseErrorCaption.Location = new System.Drawing.Point(25, 186);
-            this.WarehouseErrorCaption.Name = "WarehouseErrorCaption";
-            this.WarehouseErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.WarehouseErrorCaption.TabIndex = 18;
-            // 
             // ProcurementReceiveMaterialsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -458,7 +474,7 @@
         private MaterialSkin.Controls.MaterialTextBox SupplierControl;
         private MaterialSkin.Controls.MaterialLabel SwitchDateCaptionControl;
         private MaterialSkin.Controls.MaterialLabel RemarksCaptionControl;
-        private TextBox RemarksControl;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 RemarksControl;
         private Label SupplierErrorCaption;
         private Label QuantityErrorCaption;
         private Label TruckNumberErrorCaption;

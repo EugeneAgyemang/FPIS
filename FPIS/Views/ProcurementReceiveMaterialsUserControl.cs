@@ -155,8 +155,7 @@ namespace FPIS.Views
         }
         private void LoadProductNames()
         {
-            MaterialProcurementService materialProcurementService = new MaterialProcurementService(new());
-            var products = materialProcurementService.LoadProducts();
+            var products = new ProductService(new()).GetProductsByType("raw materials");
             foreach (Product product in products)
             {
                 ProductControl.Items.Add(product);
