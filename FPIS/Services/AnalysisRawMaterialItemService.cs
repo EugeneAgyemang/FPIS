@@ -19,7 +19,7 @@ namespace FPIS.Services
         public List<Product> FetchAnalysisProducts()
         {
             return this._dbContext.Products
-                .Where(product => product.ProductName.ToLower().Contains("shea nut"))
+                .Where(product => product.Type.ToLower() == "raw materials")
                 .Include(product => product.AnalysisProducts)
                 .Include(product => product.MaterialProcurements)
                 .ThenInclude(materialProcurement => materialProcurement.Receivings)
