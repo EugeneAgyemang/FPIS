@@ -28,39 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialTextBoxProductName = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialButtonCreateProduct = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabelProductNameError = new MaterialSkin.Controls.MaterialLabel();
+            this.materialComboBoxProductType = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialTextBoxProductName = new MaterialSkin.Controls.MaterialTextBox();
+            this.labelProductNameError = new System.Windows.Forms.Label();
+            this.labelProductTypeError = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // materialTextBoxProductName
-            // 
-            this.materialTextBoxProductName.AnimateReadOnly = false;
-            this.materialTextBoxProductName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialTextBoxProductName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialTextBoxProductName.Depth = 0;
-            this.materialTextBoxProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBoxProductName.HideSelection = true;
-            this.materialTextBoxProductName.Hint = "Name";
-            this.materialTextBoxProductName.LeadingIcon = null;
-            this.materialTextBoxProductName.Location = new System.Drawing.Point(25, 125);
-            this.materialTextBoxProductName.MaxLength = 32767;
-            this.materialTextBoxProductName.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBoxProductName.Name = "materialTextBoxProductName";
-            this.materialTextBoxProductName.PasswordChar = '\0';
-            this.materialTextBoxProductName.PrefixSuffixText = null;
-            this.materialTextBoxProductName.ReadOnly = false;
-            this.materialTextBoxProductName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialTextBoxProductName.SelectedText = "";
-            this.materialTextBoxProductName.SelectionLength = 0;
-            this.materialTextBoxProductName.SelectionStart = 0;
-            this.materialTextBoxProductName.ShortcutsEnabled = true;
-            this.materialTextBoxProductName.Size = new System.Drawing.Size(400, 48);
-            this.materialTextBoxProductName.TabIndex = 0;
-            this.materialTextBoxProductName.TabStop = false;
-            this.materialTextBoxProductName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.materialTextBoxProductName.TrailingIcon = null;
-            this.materialTextBoxProductName.UseSystemPasswordChar = false;
             // 
             // materialButtonCreateProduct
             // 
@@ -71,7 +44,7 @@
             this.materialButtonCreateProduct.Depth = 0;
             this.materialButtonCreateProduct.HighEmphasis = true;
             this.materialButtonCreateProduct.Icon = null;
-            this.materialButtonCreateProduct.Location = new System.Drawing.Point(152, 241);
+            this.materialButtonCreateProduct.Location = new System.Drawing.Point(152, 329);
             this.materialButtonCreateProduct.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonCreateProduct.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCreateProduct.Name = "materialButtonCreateProduct";
@@ -84,27 +57,84 @@
             this.materialButtonCreateProduct.UseVisualStyleBackColor = true;
             this.materialButtonCreateProduct.Click += new System.EventHandler(this.materialButtonCreateProduct_Click);
             // 
-            // materialLabelProductNameError
+            // materialComboBoxProductType
             // 
-            this.materialLabelProductNameError.AutoSize = true;
-            this.materialLabelProductNameError.Depth = 0;
-            this.materialLabelProductNameError.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelProductNameError.ForeColor = System.Drawing.Color.Red;
-            this.materialLabelProductNameError.Location = new System.Drawing.Point(25, 176);
-            this.materialLabelProductNameError.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabelProductNameError.Name = "materialLabelProductNameError";
-            this.materialLabelProductNameError.Size = new System.Drawing.Size(1, 0);
-            this.materialLabelProductNameError.TabIndex = 0;
+            this.materialComboBoxProductType.AutoResize = false;
+            this.materialComboBoxProductType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxProductType.Depth = 0;
+            this.materialComboBoxProductType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxProductType.DropDownHeight = 174;
+            this.materialComboBoxProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxProductType.DropDownWidth = 121;
+            this.materialComboBoxProductType.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.materialComboBoxProductType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxProductType.FormattingEnabled = true;
+            this.materialComboBoxProductType.Hint = "Type";
+            this.materialComboBoxProductType.IntegralHeight = false;
+            this.materialComboBoxProductType.ItemHeight = 43;
+            this.materialComboBoxProductType.Items.AddRange(new object[] {
+            "Raw Materials",
+            "WIP / Finished Products"});
+            this.materialComboBoxProductType.Location = new System.Drawing.Point(24, 212);
+            this.materialComboBoxProductType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.materialComboBoxProductType.MaxDropDownItems = 4;
+            this.materialComboBoxProductType.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxProductType.Name = "materialComboBoxProductType";
+            this.materialComboBoxProductType.Size = new System.Drawing.Size(400, 49);
+            this.materialComboBoxProductType.StartIndex = -1;
+            this.materialComboBoxProductType.TabIndex = 26;
+            // 
+            // materialTextBoxProductName
+            // 
+            this.materialTextBoxProductName.AnimateReadOnly = false;
+            this.materialTextBoxProductName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialTextBoxProductName.Depth = 0;
+            this.materialTextBoxProductName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialTextBoxProductName.Hint = "Name";
+            this.materialTextBoxProductName.LeadingIcon = null;
+            this.materialTextBoxProductName.Location = new System.Drawing.Point(24, 124);
+            this.materialTextBoxProductName.MaxLength = 50;
+            this.materialTextBoxProductName.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialTextBoxProductName.Multiline = false;
+            this.materialTextBoxProductName.Name = "materialTextBoxProductName";
+            this.materialTextBoxProductName.Size = new System.Drawing.Size(400, 50);
+            this.materialTextBoxProductName.TabIndex = 28;
+            this.materialTextBoxProductName.Text = "";
+            this.materialTextBoxProductName.TrailingIcon = null;
+            // 
+            // labelProductNameError
+            // 
+            this.labelProductNameError.AutoSize = true;
+            this.labelProductNameError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelProductNameError.ForeColor = System.Drawing.Color.Red;
+            this.labelProductNameError.Location = new System.Drawing.Point(24, 177);
+            this.labelProductNameError.Name = "labelProductNameError";
+            this.labelProductNameError.Size = new System.Drawing.Size(0, 13);
+            this.labelProductNameError.TabIndex = 29;
+            // 
+            // labelProductTypeError
+            // 
+            this.labelProductTypeError.AutoSize = true;
+            this.labelProductTypeError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelProductTypeError.ForeColor = System.Drawing.Color.Red;
+            this.labelProductTypeError.Location = new System.Drawing.Point(24, 264);
+            this.labelProductTypeError.Name = "labelProductTypeError";
+            this.labelProductTypeError.Size = new System.Drawing.Size(0, 13);
+            this.labelProductTypeError.TabIndex = 30;
             // 
             // CreateProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 320);
-            this.Controls.Add(this.materialLabelProductNameError);
-            this.Controls.Add(this.materialButtonCreateProduct);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(450, 410);
+            this.Controls.Add(this.labelProductTypeError);
+            this.Controls.Add(this.labelProductNameError);
             this.Controls.Add(this.materialTextBoxProductName);
+            this.Controls.Add(this.materialComboBoxProductType);
+            this.Controls.Add(this.materialButtonCreateProduct);
+            this.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "CreateProductForm";
+            this.Padding = new System.Windows.Forms.Padding(4, 64, 4, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Product";
             this.ResumeLayout(false);
@@ -113,9 +143,11 @@
         }
 
         #endregion
-
-        public MaterialSkin.Controls.MaterialTextBox2 materialTextBoxProductName;
         private MaterialSkin.Controls.MaterialButton materialButtonCreateProduct;
-        public MaterialSkin.Controls.MaterialLabel materialLabelProductNameError;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBoxProductType;
+        private MaterialSkin.Controls.MaterialTextBox materialTextBoxProductName;
+        private Label labelProductNameError;
+        private Label labelProductTypeError;
     }
 }

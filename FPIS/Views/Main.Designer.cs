@@ -39,6 +39,7 @@
             this.NavigationIndicatorControl = new System.Windows.Forms.Panel();
             this.NavigationDrawerControl = new System.Windows.Forms.Panel();
             this.ProcurementSectionControl = new System.Windows.Forms.Panel();
+            this.ProcurementSection_ViewRequestsControl = new System.Windows.Forms.Button();
             this.ProcurementSection_IssueMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSection_ReceiveMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSectionCaptionControl = new System.Windows.Forms.Button();
@@ -90,7 +91,6 @@
             this.MainContainerControl = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DividerControl = new System.Windows.Forms.Panel();
-            this.ProcurementSection_ViewRequestsControl = new System.Windows.Forms.Button();
             this.TitleBarControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FujiOilLogoSmallControl)).BeginInit();
             this.WindowStateHandlerControl.SuspendLayout();
@@ -244,6 +244,22 @@
             this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 203);
             this.ProcurementSectionControl.TabIndex = 8;
             this.ProcurementSectionControl.Tag = "6";
+            // 
+            // ProcurementSection_ViewRequestsControl
+            // 
+            this.ProcurementSection_ViewRequestsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProcurementSection_ViewRequestsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProcurementSection_ViewRequestsControl.FlatAppearance.BorderSize = 0;
+            this.ProcurementSection_ViewRequestsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProcurementSection_ViewRequestsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProcurementSection_ViewRequestsControl.ForeColor = System.Drawing.Color.White;
+            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 151);
+            this.ProcurementSection_ViewRequestsControl.Name = "ProcurementSection_ViewRequestsControl";
+            this.ProcurementSection_ViewRequestsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProcurementSection_ViewRequestsControl.TabIndex = 5;
+            this.ProcurementSection_ViewRequestsControl.Text = "View Requests";
+            this.ProcurementSection_ViewRequestsControl.UseVisualStyleBackColor = false;
+            this.ProcurementSection_ViewRequestsControl.Click += new System.EventHandler(this.ProcurementSection_ViewRequestsControl_Click);
             // 
             // ProcurementSection_IssueMaterialsControl
             // 
@@ -959,7 +975,6 @@
             // 
             this.ProductionSection_AddProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_AddProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_AddProductControl.Enabled = false;
             this.ProductionSection_AddProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_AddProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -970,6 +985,7 @@
             this.ProductionSection_AddProductControl.TabIndex = 1;
             this.ProductionSection_AddProductControl.Text = "Add Product";
             this.ProductionSection_AddProductControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_AddProductControl.Click += new System.EventHandler(this.ProductionSection_AddProductControl_Click);
             // 
             // ProductionSectionCaptionControl
             // 
@@ -1047,22 +1063,6 @@
             this.DividerControl.Name = "DividerControl";
             this.DividerControl.Size = new System.Drawing.Size(1, 688);
             this.DividerControl.TabIndex = 4;
-            // 
-            // ProcurementSection_ViewRequestsControl
-            // 
-            this.ProcurementSection_ViewRequestsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ProcurementSection_ViewRequestsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProcurementSection_ViewRequestsControl.FlatAppearance.BorderSize = 0;
-            this.ProcurementSection_ViewRequestsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProcurementSection_ViewRequestsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProcurementSection_ViewRequestsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 151);
-            this.ProcurementSection_ViewRequestsControl.Name = "ProcurementSection_ViewRequestsControl";
-            this.ProcurementSection_ViewRequestsControl.Size = new System.Drawing.Size(180, 50);
-            this.ProcurementSection_ViewRequestsControl.TabIndex = 5;
-            this.ProcurementSection_ViewRequestsControl.Text = "View Requests";
-            this.ProcurementSection_ViewRequestsControl.UseVisualStyleBackColor = false;
-            this.ProcurementSection_ViewRequestsControl.Click += new System.EventHandler(this.ProcurementSection_ViewRequestsControl_Click);
             // 
             // Main
             // 

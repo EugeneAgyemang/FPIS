@@ -63,12 +63,13 @@ namespace FPIS.Services
         /// Creates a new `Product` with a product name
         /// </summary>
         /// <param name="productName"></param>
-        public Product CreateProduct(string productName)
+        public Product CreateProduct(string productName, string type)
         {
             var product = _dbContext.Products.Add(
                     new()
                     {
-                        ProductName = productName
+                        ProductName = productName,
+                        Type = type
                     }
                 ).Entity;
 

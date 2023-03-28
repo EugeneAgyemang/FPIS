@@ -19,7 +19,7 @@ namespace FPIS.Views
         int[] panelHeights = new int[8];
         int indexOfNavigationButtonClicked = -1;
 
-        public static string LOGGED_USER_ID = "ba491ba1-1f50-462d-965d-cd568472bcf1";
+        public static string LOGGED_USER_ID = "6e41d3af-92de-4481-923f-164e72fbaa09";
 
         public Main()
         {
@@ -266,6 +266,11 @@ namespace FPIS.Views
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
             AddUserControlToMainContainerControl(ProcurementViewRequestsUserControl.Instance);
+        }
+
+        private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
+        {
+            new CreateProductForm().ShowDialog();
         }
     }
 }

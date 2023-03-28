@@ -16,17 +16,21 @@ namespace FPIS.Views
             Theme.Set(Themes.LIGHT);
 
             // set color to red in the #hexadecimal format
-            materialLabelProductNameError.ForeColor = ColorTranslator.FromHtml("#FF0000");
+            labelProductNameError.ForeColor =
+                labelProductTypeError.ForeColor =
+                ColorTranslator.FromHtml("#FF0000");
         }
 
         public void ClearFormFields()
         {
             materialTextBoxProductName.Text = "";
+            materialComboBoxProductType.StartIndex = -1;
         }
 
         public void ClearErrorLabels()
         {
-            materialLabelProductNameError.Text = "";
+            labelProductNameError.Text =
+                labelProductTypeError.Text = "";
         }
 
         public void ValidateProductName(string productName)
@@ -34,7 +38,15 @@ namespace FPIS.Views
             if (productName.Length == 0)
             {
                 _isDataValid = false;
-                materialLabelProductNameError.Text = "Name is required!";
+                labelProductNameError.Text = "Name is required!";
+            }
+        }
+        public void ValidateProductType(string productType)
+        {
+            if (productType.Length == 0)
+            {
+                _isDataValid = false;
+                labelProductTypeError.Text = "Product type is required";
             }
         }
 
@@ -42,9 +54,11 @@ namespace FPIS.Views
         {
 
             string productName = materialTextBoxProductName.Text.Trim();
+            string productType = materialComboBoxProductType.Text;
             ClearErrorLabels();
 
             ValidateProductName(productName);
+            ValidateProductType(productType);
 
             if (!_isDataValid)
             {
@@ -89,7 +103,7 @@ namespace FPIS.Views
                         return;
                     }
 
-                    productService.CreateProduct(productName);
+                    productService.CreateProduct(productName, productType);
                     MaterialMessageBox.Show(
                         $"\"{productName}\" is successfully created.",
                         "Success",
