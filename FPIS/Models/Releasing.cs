@@ -13,12 +13,15 @@ namespace FPIS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
-        public int FatContent { get; set; }
+        public int Quantity { get; set; }
+        //public int FatContent { get; set; }
 
         // Navigation Properties
         public Guid MaterialProcurementId { get; set; }
         [ForeignKey("MaterialProcurementId")]
-
         public MaterialProcurement MaterialProcurement { get; set; }
+        public Guid ReceivingId { get; set; }
+        [ForeignKey("ReceivingId")]
+        public Receiving Receiving { get; set; }
     }
 }

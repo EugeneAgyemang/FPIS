@@ -3,6 +3,7 @@ using System;
 using FPIS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FPIS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230328024443_RemoveFatContentFromReleasingsModel")]
+    partial class RemoveFatContentFromReleasingsModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -492,17 +495,9 @@ namespace FPIS.Migrations
                     b.Property<Guid>("MaterialProcurementId")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("ReceivingId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MaterialProcurementId");
-
-                    b.HasIndex("ReceivingId");
 
                     b.ToTable("Releasings");
                 });
@@ -987,15 +982,7 @@ namespace FPIS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FPIS.Models.Receiving", "Receiving")
-                        .WithMany("Releasings")
-                        .HasForeignKey("ReceivingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("MaterialProcurement");
-
-                    b.Navigation("Receiving");
                 });
 
             modelBuilder.Entity("FPIS.Models.Sample", b =>
@@ -1173,11 +1160,6 @@ namespace FPIS.Migrations
                     b.Navigation("ProcurementParameters");
 
                     b.Navigation("ProductAnalysisParameters");
-                });
-
-            modelBuilder.Entity("FPIS.Models.Receiving", b =>
-                {
-                    b.Navigation("Releasings");
                 });
 
             modelBuilder.Entity("FPIS.Models.Sample", b =>

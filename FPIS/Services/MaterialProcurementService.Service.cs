@@ -30,5 +30,14 @@ namespace FPIS.Services
             appDbContext.SaveChanges();
             return materialToBeProcured;
         }
+        public MaterialProcurement GetMaterialProcuredById(Guid id)
+        {
+            return appDbContext.MaterialProcurements.
+                                Include(materialProcured => materialProcured.Receivings).
+                                Include(materialProcured => materialProcured.Releasings).
+                                Include(materialProcured => materialProcured.User).
+                                Where(materialProcured => materialProcured.Id == id).
+                                FirstOrDefault();
+        }
     }
 }

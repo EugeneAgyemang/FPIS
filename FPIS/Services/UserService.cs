@@ -48,5 +48,11 @@ namespace FPIS.Services
         {
             return _dbContext.Users.FirstOrDefault(u => u.EmpID == empId);
         }
+        public string GetEmployeeIdByGuid(Guid id)
+        {
+            return (_dbContext.Users.
+                Where(user => user.Id == id).
+                FirstOrDefault()).EmpID;
+        }
     }
 }

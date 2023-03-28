@@ -17,7 +17,6 @@ namespace FPIS.Views
         private static ProcurementIssueMaterials instance;
 
         private readonly UserService userService;
-        public static string analysisType = "Raw Materials";
         private readonly AnalysisRawMaterialsService analysisService;
 
         public static BindingList<AnalysisRawMaterialsSampleBindingItem> analysisItemList = new();
@@ -29,19 +28,7 @@ namespace FPIS.Views
             AppDbContext context = new();
             analysisService = new(context);
             userService = new(context);
-
-            LoadProductionEngineer1();
-            LoadEmployee2();
         }
-
-        private class UserForDropDown
-        {
-            public Guid Id { get; set; }
-            public string Name { get; set; }
-
-            public string EmpID { get; set; }
-        }
-
         public static ProcurementIssueMaterials Instance
         {
             get
@@ -61,72 +48,10 @@ namespace FPIS.Views
             addRawMaterialsAnalysisSampleForm.ShowDialog();
         }
 
-        private void LoadProductionEngineer1()
-        {
-            User? user = userService.GetUserById(Main.LOGGED_USER_ID);
-
-            if (user != null)
-            {
-                UserForDropDown userForDropDown = new()
-                {
-                    Id = user.Id,
-                    EmpID = user.EmpID,
-                    Name = $"{user.FirstName} {user.LastName} {user.MiddleName}".Trim()
-                };
-
-                List<UserForDropDown> engineerOne = new();
-                engineerOne.Add(userForDropDown);
-
-                materialComboBoxEmployee1.DataSource = engineerOne;
-                materialComboBoxEmployee1.DisplayMember = "Name";
-            }
-        }
-
-        private void LoadEmployee2()
-        {
-            materialComboBoxEmployee2.DataSource = userService.GetAllUsersWithoutId(new Guid(Main.LOGGED_USER_ID))
-                .Select(u => new UserForDropDown()
-                {
-                    Id = u.Id,
-                    EmpID = u.EmpID,
-                    Name = $"{u.FirstName} {u.LastName} {u.MiddleName}".Trim()
-                })
-                .ToList();
-
-            materialComboBoxEmployee2.DisplayMember = "Name";
-        }
-
         private void RequestForAnalysisControl_Click(object sender, EventArgs e)
         {
             try
             {
-                UserForDropDown? employee1 = materialComboBoxEmployee1.SelectedItem as UserForDropDown;
-                UserForDropDown? employee2 = materialComboBoxEmployee2.SelectedItem as UserForDropDown;
-
-                if (employee1 == null || employee2 == null)
-                {
-                    Utils.Utils.ShowMessageBox(
-                        $"Please ensure that Employee 1 and Employee 2 are selected before you continue.",
-                        "Select Employees",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                        );
-
-                    return;
-                }
-
-                if (employee1.Id.Equals(employee2.Id))
-                {
-                    Utils.Utils.ShowMessageBox(
-                        $"Employee 1 and Employee 2 cannot be the same person ({employee1.Name})!",
-                        "Equal Employees",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                        );
-
-                    return;
-                }
-
                 if (analysisItemList.Count == 0)
                 {
                     Utils.Utils.ShowMessageBox(
@@ -154,13 +79,39 @@ namespace FPIS.Views
                 OpenAddMaterialsControl.Enabled = false;
                 RequestForAnalysisControl.Enabled = false;
 
+                MaterialProcurementService materialProcuredService = new MaterialProcurementService(new());
+                ReleasingService releasingService = new ReleasingService(new());
+
+                foreach (AnalysisRawMaterialsSampleBindingItem analysisItem in analysisItemList)
+                {
+                    MaterialProcurement materialReceivedToBeReleased = new MaterialProcurement();
+                    MaterialProcurement materialProcuredToBeReleased = new MaterialProcurement();
+                    Receiving materialReceived = new Receiving();
+
+                    materialReceivedToBeReleased = materialProcuredService.GetMaterialProcuredById(analysisItem.MaterialProcuredId);
+                    materialReceived = materialReceivedToBeReleased.Receivings.FirstOrDefault();
+
+                    materialProcuredToBeReleased.Location = materialReceivedToBeReleased.Location;
+                    materialProcuredToBeReleased.ProductId = materialReceivedToBeReleased.ProductId;
+                    materialProcuredToBeReleased.Remarks = "update";
+                    materialProcuredToBeReleased.Type = "Releasing";
+                    materialProcuredToBeReleased.UserId = Guid.Parse(Main.LOGGED_USER_ID);
+                    Releasing materialToBeReleased = new Releasing();
+                    materialToBeReleased.ReceivingId = materialReceived.Id;
+                    materialReceivedToBeReleased = materialProcuredService.SaveMaterialProcuredRecord(materialProcuredToBeReleased);
+                    materialToBeReleased.MaterialProcurementId = materialReceivedToBeReleased.Id;
+                    releasingService.SaveMaterialsToBeReleased(materialToBeReleased);
+                }
+
+                UserService userService = new UserService(new());
+                Guid userId = Guid.Parse(Main.LOGGED_USER_ID);
                 analysisService.CreateSample(
-                    new Guid(Main.LOGGED_USER_ID),
-                    employee1.EmpID,
-                    employee2.EmpID,
+                    userId,
+                    userService.GetEmployeeIdByGuid(userId),
+                    userService.GetEmployeeIdByGuid(userId),
                     DateOnly.FromDateTime(DateTime.UtcNow.Date),
                     TimeOnly.FromDateTime(DateTime.UtcNow),
-                    analysisType,
+                    "raw materials",
                     analysisItemList.ToList()
                 );
 

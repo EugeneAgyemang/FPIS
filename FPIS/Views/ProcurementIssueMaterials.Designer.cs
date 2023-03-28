@@ -34,12 +34,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.RequestForAnalysisControl = new MaterialSkin.Controls.MaterialButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button3 = new System.Windows.Forms.Button();
-            this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.materialComboBoxEmployee2 = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialComboBoxEmployee1 = new MaterialSkin.Controls.MaterialComboBox();
             this.idAsStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialProcuredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +45,11 @@
             this.quantityLeftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button3 = new System.Windows.Forms.Button();
+            this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -94,7 +90,7 @@
             this.RequestForAnalysisControl.Depth = 0;
             this.RequestForAnalysisControl.HighEmphasis = true;
             this.RequestForAnalysisControl.Icon = null;
-            this.RequestForAnalysisControl.Location = new System.Drawing.Point(43, 450);
+            this.RequestForAnalysisControl.Location = new System.Drawing.Point(43, 336);
             this.RequestForAnalysisControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.RequestForAnalysisControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.RequestForAnalysisControl.Name = "RequestForAnalysisControl";
@@ -127,100 +123,12 @@
             this.remarksDataGridViewTextBoxColumn,
             this.analysisStatusDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 181);
+            this.dataGridView1.Location = new System.Drawing.Point(43, 81);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(914, 246);
             this.dataGridView1.TabIndex = 17;
-            // 
-            // analysisRawMaterialsSampleBindingItemBindingSource
-            // 
-            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(674, 538);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 27);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // OpenAddMaterialsControl
-            // 
-            this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenAddMaterialsControl.Depth = 0;
-            this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
-            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(901, 440);
-            this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
-            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(56, 56);
-            this.OpenAddMaterialsControl.TabIndex = 19;
-            this.OpenAddMaterialsControl.Text = "Add Materials";
-            this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
-            this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.materialComboBoxEmployee2);
-            this.groupBox1.Controls.Add(this.materialComboBoxEmployee1);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(43, 81);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(582, 77);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Production Engineer 1 and 2";
-            // 
-            // materialComboBoxEmployee2
-            // 
-            this.materialComboBoxEmployee2.AutoResize = false;
-            this.materialComboBoxEmployee2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBoxEmployee2.Depth = 0;
-            this.materialComboBoxEmployee2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBoxEmployee2.DropDownHeight = 174;
-            this.materialComboBoxEmployee2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBoxEmployee2.DropDownWidth = 121;
-            this.materialComboBoxEmployee2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBoxEmployee2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBoxEmployee2.FormattingEnabled = true;
-            this.materialComboBoxEmployee2.IntegralHeight = false;
-            this.materialComboBoxEmployee2.ItemHeight = 43;
-            this.materialComboBoxEmployee2.Location = new System.Drawing.Point(299, 23);
-            this.materialComboBoxEmployee2.Margin = new System.Windows.Forms.Padding(2);
-            this.materialComboBoxEmployee2.MaxDropDownItems = 4;
-            this.materialComboBoxEmployee2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBoxEmployee2.Name = "materialComboBoxEmployee2";
-            this.materialComboBoxEmployee2.Size = new System.Drawing.Size(271, 49);
-            this.materialComboBoxEmployee2.StartIndex = -1;
-            this.materialComboBoxEmployee2.TabIndex = 9;
-            // 
-            // materialComboBoxEmployee1
-            // 
-            this.materialComboBoxEmployee1.AutoResize = false;
-            this.materialComboBoxEmployee1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBoxEmployee1.Depth = 0;
-            this.materialComboBoxEmployee1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBoxEmployee1.DropDownHeight = 174;
-            this.materialComboBoxEmployee1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBoxEmployee1.DropDownWidth = 121;
-            this.materialComboBoxEmployee1.Enabled = false;
-            this.materialComboBoxEmployee1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBoxEmployee1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBoxEmployee1.FormattingEnabled = true;
-            this.materialComboBoxEmployee1.IntegralHeight = false;
-            this.materialComboBoxEmployee1.ItemHeight = 43;
-            this.materialComboBoxEmployee1.Location = new System.Drawing.Point(12, 23);
-            this.materialComboBoxEmployee1.Margin = new System.Windows.Forms.Padding(2);
-            this.materialComboBoxEmployee1.MaxDropDownItems = 4;
-            this.materialComboBoxEmployee1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBoxEmployee1.Name = "materialComboBoxEmployee1";
-            this.materialComboBoxEmployee1.Size = new System.Drawing.Size(272, 49);
-            this.materialComboBoxEmployee1.StartIndex = 0;
-            this.materialComboBoxEmployee1.TabIndex = 8;
             // 
             // idAsStrDataGridViewTextBoxColumn
             // 
@@ -301,11 +209,37 @@
             this.analysisStatusDataGridViewTextBoxColumn.Name = "analysisStatusDataGridViewTextBoxColumn";
             this.analysisStatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // analysisRawMaterialsSampleBindingItemBindingSource
+            // 
+            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(674, 538);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(34, 27);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // OpenAddMaterialsControl
+            // 
+            this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenAddMaterialsControl.Depth = 0;
+            this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
+            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(901, 336);
+            this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
+            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(56, 56);
+            this.OpenAddMaterialsControl.TabIndex = 19;
+            this.OpenAddMaterialsControl.Text = "Add Materials";
+            this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
+            this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
+            // 
             // ProcurementIssueMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.OpenAddMaterialsControl);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
@@ -314,10 +248,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.materialLabel1);
             this.Name = "ProcurementIssueMaterials";
-            this.Size = new System.Drawing.Size(1000, 600);
+            this.Size = new System.Drawing.Size(1000, 400);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
