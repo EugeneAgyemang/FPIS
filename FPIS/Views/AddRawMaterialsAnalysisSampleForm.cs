@@ -50,12 +50,15 @@ namespace FPIS.Views
                 MaterialProcurement[] materialsProcured = ap.MaterialProcurements.ToArray();
                 foreach (MaterialProcurement materialProcured in materialsProcured)
                 {
-                    Receiving materialReceived = materialProcured.Receivings.First();
+                    Receiving materialReceived = materialProcured.Receivings.FirstOrDefault();
                     var existingItem = selectedSamples.FirstOrDefault(it => it.MaterialProcuredId == materialProcured.Id);
-
+                    if(materialReceived == null)
+                    {
+                        continue;
+                    }
                     AnalysisRawMaterialsSampleBindingItem newItem = new()
                     {
-                        Id = ap.AnalysisProducts.First().AnalysisItemId,
+                        Id = ap.AnalysisProducts.FirstOrDefault().AnalysisItemId,
                         MaterialProcuredId = materialProcured.Id,
                         IdAsStr = Utils.Utils.GetLastCharacters(materialProcured.Id.ToString(), 4),
                         AnalysisStatus = "Pending",
