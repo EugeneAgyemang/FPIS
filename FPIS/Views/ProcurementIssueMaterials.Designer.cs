@@ -48,6 +48,7 @@
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -236,10 +237,22 @@
             this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
             this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(43, 59);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 19);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Selected Samples";
+            // 
             // ProcurementIssueMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.OpenAddMaterialsControl);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
@@ -281,5 +294,6 @@
         private DataGridViewTextBoxColumn quantityLeftDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn remarksDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn analysisStatusDataGridViewTextBoxColumn;
+        private Label label1;
     }
 }
