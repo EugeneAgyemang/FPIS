@@ -24,5 +24,6 @@ namespace FPIS.Models
         public string EngineerTwoEmpId { get; set; }
         public string EngineerOneFullName { get; set; }
         public string EngineerTwoFullName { get; set; }
+        public string Engineer { get; set; }
     }
 }

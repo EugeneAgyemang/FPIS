@@ -15,20 +15,44 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-        public List<Sample> GetSamplesRequested(string category)
+        public List<Sample> GetSamplesRequested(params string[] typesForFiltering)
         {
-            // TODO: CHANGE CTAEGORY TO THE NEW CATEGORY FIELD IN THE TABLE AND NOT THE PRODUCT NAME
-            List<Sample> productSamplesRequested = new List<Sample>();
-            productSamplesRequested = appDbContext.Samples.
+            IQueryable<Sample> productSamplesRequestedQuery = appDbContext.Samples.
                 Include(sample => sample.User.Samples).
                 Include(analysisItem => analysisItem.SampleDetails).
                 ThenInclude(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
-                ThenInclude(analysisProduct => analysisProduct.Product.AnalysisProducts).
-                Where(analysisItem => analysisItem.SampleDetails.
-                                        FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().Product.
-                                        ProductName.ToLower() == category).ToList();
-                //Where(product => product.ProductName.ToLower().Contains(category));
+                ThenInclude(analysisProduct => analysisProduct.Product.AnalysisProducts);
+
+            if (typesForFiltering.Length == 1)
+            {
+                typesForFiltering[0] = CheckTypeForFiltering(typesForFiltering[0]);
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.TypeForFiltering.ToLower() == typesForFiltering[0]);
+            }
+            else
+            {
+                typesForFiltering[0] = CheckTypeForFiltering(typesForFiltering[0]);
+                typesForFiltering[1] = CheckTypeForFiltering(typesForFiltering[1]);
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.TypeForFiltering.ToLower() != "raw materials");
+            }
+            List<Sample> productSamplesRequested = productSamplesRequestedQuery.ToList();
             return productSamplesRequested;
+            //Where(analysisItem => analysisItem.SampleDetails.
+            //                        FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().Product.
+            //                        Type.ToLower().Contains(category)).ToList();
+        }
+        private string CheckTypeForFiltering(string type)
+        {
+            string[] validTypes = { "raw materials", "production", "water" };
+            foreach (var validType in validTypes)
+            {
+                if (type == validType)
+                {
+                    return type;
+                }
+            }
+            return "production";
         }
     }
 }

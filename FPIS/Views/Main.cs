@@ -274,7 +274,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementViewRequestsUserControl.Instance);
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, "raw materials"));
         }
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
