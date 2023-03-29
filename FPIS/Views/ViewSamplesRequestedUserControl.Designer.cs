@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.SamplesRequestedCaption = new MaterialSkin.Controls.MaterialLabel();
             this.viewSampleRequestsMadeBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button4 = new System.Windows.Forms.Button();
@@ -51,23 +51,25 @@
             this.EngineerOneFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerTwoFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Engineer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // materialLabel1
+            // SamplesRequestedCaption
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(25, 13);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(189, 24);
-            this.materialLabel1.TabIndex = 14;
-            this.materialLabel1.Text = "View Requests Made";
+            this.SamplesRequestedCaption.AutoSize = true;
+            this.SamplesRequestedCaption.Depth = 0;
+            this.SamplesRequestedCaption.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedCaption.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.SamplesRequestedCaption.Location = new System.Drawing.Point(25, 13);
+            this.SamplesRequestedCaption.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesRequestedCaption.Name = "SamplesRequestedCaption";
+            this.SamplesRequestedCaption.Size = new System.Drawing.Size(189, 24);
+            this.SamplesRequestedCaption.TabIndex = 14;
+            this.SamplesRequestedCaption.Text = "View Requests Made";
             // 
             // viewSampleRequestsMadeBindingItemBindingSource
             // 
@@ -250,14 +252,39 @@
             this.Engineer.ReadOnly = true;
             this.Engineer.Visible = false;
             // 
-            // ProcurementViewRequestsUserControl
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(579, 495);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 10);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // SamplesRequestedOverviewControl
+            // 
+            this.SamplesRequestedOverviewControl.AutoSize = true;
+            this.SamplesRequestedOverviewControl.Depth = 0;
+            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.SamplesRequestedOverviewControl.HighEmphasis = true;
+            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
+            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
+            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
+            this.SamplesRequestedOverviewControl.TabIndex = 25;
+            this.SamplesRequestedOverviewControl.Text = "-----";
+            // 
+            // ViewSamplesRequestedUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.SamplesRequestedOverviewControl);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.materialLabel1);
-            this.Name = "ProcurementViewRequestsUserControl";
+            this.Controls.Add(this.SamplesRequestedCaption);
+            this.Name = "ViewSamplesRequestedUserControl";
             this.Size = new System.Drawing.Size(1000, 600);
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).EndInit();
@@ -269,7 +296,7 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel SamplesRequestedCaption;
         private Button button4;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn materialProcuredIdDataGridViewTextBoxColumn;
@@ -319,5 +346,7 @@
         private DataGridViewTextBoxColumn EngineerOneFullName;
         private DataGridViewTextBoxColumn EngineerTwoFullName;
         private DataGridViewTextBoxColumn Engineer;
+        private Button button1;
+        private MaterialSkin.Controls.MaterialLabel SamplesRequestedOverviewControl;
     }
 }

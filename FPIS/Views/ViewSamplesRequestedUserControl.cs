@@ -30,10 +30,29 @@ namespace FPIS.Views
             UpdateDataGridColumns();
             LoadSampleRequestsMade();
         }
-
+        void UpdateSamplesRequestedCaption(int totalSamplesRequested)
+        {
+            SamplesRequestedCaption.Text = 
+                $"{SamplesRequestedCaption.Text} ({totalSamplesRequested} request{((totalSamplesRequested > 1) ? "s" : "")})";
+        }
+        void UpdateSamplesRequestedOverview(int totalSamplesRequested)
+        {
+            if (totalSamplesRequested == 0)
+            {
+                SamplesRequestedOverviewControl.Text = "No requests made yet";
+            }
+            else
+            {
+                SamplesRequestedOverviewControl.Text = 
+                    $"{totalSamplesRequested} sample{((totalSamplesRequested > 1) ? "s" : "")} requested";
+            }
+        }
         private void LoadSampleRequestsMade()
         {
             List<Sample> samplesRequested = new ViewSampleRequestedService(new()).GetSamplesRequested(typesForFiletring);
+            int totalSamplesRequested = samplesRequested.Count;
+            UpdateSamplesRequestedCaption(totalSamplesRequested);
+            UpdateSamplesRequestedOverview(totalSamplesRequested);
             foreach (var sampleRequested in samplesRequested)
             {
                 ViewSampleRequestsMadeBindingItem sampleRequestMade = new ViewSampleRequestsMadeBindingItem();
