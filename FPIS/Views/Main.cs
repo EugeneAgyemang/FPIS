@@ -291,5 +291,10 @@ namespace FPIS.Views
         {
             OpenModal(new CreateAnalysisProduct());
         }
+
+        private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, "production", "water"));
+        }
     }
 }

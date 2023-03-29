@@ -927,7 +927,7 @@
             // 
             this.ProductionSection_ViewSampleControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_ViewSampleControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_ViewSampleControl.Enabled = false;
+            this.ProductionSection_ViewSampleControl.Enabled = true;
             this.ProductionSection_ViewSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -938,6 +938,7 @@
             this.ProductionSection_ViewSampleControl.TabIndex = 4;
             this.ProductionSection_ViewSampleControl.Text = "View Sample";
             this.ProductionSection_ViewSampleControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_ViewSampleControl.Click += new System.EventHandler(this.ProductionSection_ViewSampleControl_Click);
             // 
             // ProductionSection_AddSampleControl
             // 
