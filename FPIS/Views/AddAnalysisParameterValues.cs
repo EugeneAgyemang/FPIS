@@ -64,12 +64,9 @@ namespace FPIS.Views
         {
             _analysisParameterService.FetchAnalysisWaterParameters()
                 .ForEach(ap => {
-                    AnalysisResultSampleDetailBindingItem? d =
-                    AddAnalysisResultForm._sampleDetails
-                        .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId);
-
-                    string value = d.parametersWithValues
-                    .FirstOrDefault(pwv => pwv.ParameterId.Equals(ap.AnalysisParameterId))?.ParameterValue ?? "0.00";
+                    string value = AddAnalysisResultForm._sampleDetails
+                        .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId)?.parametersWithValues
+                        .FirstOrDefault(pwv => pwv.ParameterId.Equals(ap.AnalysisParameterId.ToString()))?.ParameterValue ?? "0.00";
 
                     _parameterList.Add(new() {
                         Id = ap.AnalysisParameterId,
@@ -85,20 +82,9 @@ namespace FPIS.Views
         {
             _analysisParameterService.FetchProductAnalysisParameters()
                 .ForEach(ap => {
-                    AnalysisResultSampleDetailBindingItem? d =
-                        AddAnalysisResultForm._sampleDetails
-                        .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId);
-
-                    string value = d.parametersWithValues
-                    .FirstOrDefault(pwv => pwv.ParameterId.Equals(ap.AnalysisParameterId))?.ParameterValue ?? "0.00";
-
-                    d.parametersWithValues.ForEach(p =>
-                    {
-                        if (ap.AnalysisParameterId.Equals(p.ParameterId))
-                        {
-                            MessageBox.Show(p.ParameterId + " " + ap.AnalysisParameterId);
-                        }
-                    });
+                    string value = AddAnalysisResultForm._sampleDetails
+                        .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId)?.parametersWithValues
+                        .FirstOrDefault(pwv => pwv.ParameterId.Equals(ap.AnalysisParameterId.ToString()))?.ParameterValue ?? "0.00";
 
                     _parameterList.Add(new() {
                         Value = value,
