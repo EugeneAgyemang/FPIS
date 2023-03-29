@@ -30,10 +30,21 @@ namespace FPIS.Services
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == userId);
         }
+        public Guid GetEmployeeId(string empId)
+        {
+            return _dbContext.Users.FirstOrDefault(user => user.EmpID == empId).Id;
+        }
 
         public User? GetUserById(string userId)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == new Guid(userId));
+        }
+        public string GetFullName(Guid id)
+        {
+            string fullName;
+            User user = _dbContext.Users.FirstOrDefault(user => user.Id == id);
+            fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
+            return fullName;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FPIS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +18,21 @@ namespace FPIS.Views
         StringBuilder navigationButtonsContents = new StringBuilder();
         int[] panelHeights = new int[8];
         int indexOfNavigationButtonClicked = -1;
+        Login login;
 
-        public static string LOGGED_USER_ID = "c6cfd03d-b708-434a-aa01-b9089bd0d027";
+        public static string LOGGED_USER_ID;
 
-        public Main()
+        public Main(Login login)
         {
+            this.login = login;
             InitializeComponent();
             CachePanelState();
             CollapseNavigationDrawer();
+            LoadUsername();
+        }
+        private void LoadUsername()
+        {
+            TitleBarCaptionControl.Text += new UserService(new()).GetFullName(Guid.Parse(LOGGED_USER_ID));
         }
         private void HamburgerControl_Click(object sender, EventArgs e)
         {
@@ -241,6 +249,16 @@ namespace FPIS.Views
                 CreateAnalysisRequestFormUserControl requestForAnalysis = new();
                 MainContainerControl.Controls.Clear();
                 MainContainerControl.Controls.Add(requestForAnalysis);
+            }
+        }
+        private void LogoutControl_Click(object sender, EventArgs e)
+        {
+            string fullname = new UserService(new()).GetFullName(Guid.Parse(LOGGED_USER_ID));
+            DialogResult userOption = Utils.Utils.ShowMessageBox($"{fullname}, do you wish to proceed with logout?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (userOption == DialogResult.Yes)
+            {
+                login.Show();
+                Close();
             }
         }
     }
