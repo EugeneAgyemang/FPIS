@@ -290,6 +290,7 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

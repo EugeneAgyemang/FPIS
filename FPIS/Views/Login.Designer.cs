@@ -33,6 +33,10 @@
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.EmployeeIdErrorControl = new System.Windows.Forms.Label();
             this.PasswordErrorControl = new System.Windows.Forms.Label();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.CreateAccountControl = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtEmpId
@@ -114,12 +118,51 @@
             this.PasswordErrorControl.Size = new System.Drawing.Size(0, 15);
             this.PasswordErrorControl.TabIndex = 4;
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.materialLabel1.Location = new System.Drawing.Point(17, 11);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(147, 17);
+            this.materialLabel1.TabIndex = 5;
+            this.materialLabel1.Text = "Don\'t have an account?";
+            // 
+            // CreateAccountControl
+            // 
+            this.CreateAccountControl.AutoSize = true;
+            this.CreateAccountControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CreateAccountControl.Depth = 0;
+            this.CreateAccountControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.CreateAccountControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.CreateAccountControl.Location = new System.Drawing.Point(170, 11);
+            this.CreateAccountControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.CreateAccountControl.Name = "CreateAccountControl";
+            this.CreateAccountControl.Size = new System.Drawing.Size(73, 17);
+            this.CreateAccountControl.TabIndex = 6;
+            this.CreateAccountControl.Text = "Create One";
+            this.CreateAccountControl.UseAccent = true;
+            this.CreateAccountControl.Click += new System.EventHandler(this.CreateAccountControl_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.materialLabel1);
+            this.panel1.Controls.Add(this.CreateAccountControl);
+            this.panel1.Location = new System.Drawing.Point(96, 270);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(259, 38);
+            this.panel1.TabIndex = 7;
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 410);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.PasswordErrorControl);
             this.Controls.Add(this.EmployeeIdErrorControl);
             this.Controls.Add(this.btnLogin);
@@ -130,6 +173,8 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +187,9 @@
         private MaterialSkin.Controls.MaterialButton btnLogin;
         private Label EmployeeIdErrorControl;
         private Label PasswordErrorControl;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel CreateAccountControl;
     }
 }
