@@ -31,6 +31,8 @@
             this.txtEmpId = new MaterialSkin.Controls.MaterialTextBox();
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
+            this.EmployeeIdErrorControl = new System.Windows.Forms.Label();
+            this.PasswordErrorControl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtEmpId
@@ -92,6 +94,25 @@
             this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnLogin.UseAccentColor = true;
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // EmployeeIdErrorControl
+            // 
+            this.EmployeeIdErrorControl.AutoSize = true;
+            this.EmployeeIdErrorControl.ForeColor = System.Drawing.Color.Red;
+            this.EmployeeIdErrorControl.Location = new System.Drawing.Point(23, 178);
+            this.EmployeeIdErrorControl.Name = "EmployeeIdErrorControl";
+            this.EmployeeIdErrorControl.Size = new System.Drawing.Size(0, 15);
+            this.EmployeeIdErrorControl.TabIndex = 3;
+            // 
+            // PasswordErrorControl
+            // 
+            this.PasswordErrorControl.AutoSize = true;
+            this.PasswordErrorControl.ForeColor = System.Drawing.Color.Red;
+            this.PasswordErrorControl.Location = new System.Drawing.Point(23, 267);
+            this.PasswordErrorControl.Name = "PasswordErrorControl";
+            this.PasswordErrorControl.Size = new System.Drawing.Size(0, 15);
+            this.PasswordErrorControl.TabIndex = 4;
             // 
             // Login
             // 
@@ -99,6 +120,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 410);
+            this.Controls.Add(this.PasswordErrorControl);
+            this.Controls.Add(this.EmployeeIdErrorControl);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmpId);
@@ -117,5 +140,7 @@
         private MaterialSkin.Controls.MaterialTextBox txtEmpId;
         public MaterialSkin.Controls.MaterialTextBox txtPassword;
         private MaterialSkin.Controls.MaterialButton btnLogin;
+        private Label EmployeeIdErrorControl;
+        private Label PasswordErrorControl;
     }
 }

@@ -44,6 +44,7 @@
             this.ProcurementSection_ReceiveMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSectionCaptionControl = new System.Windows.Forms.Button();
             this.SettingsSectionControl = new System.Windows.Forms.Panel();
+            this.LogoutControl = new System.Windows.Forms.Button();
             this.OpenSettingsControl = new System.Windows.Forms.Button();
             this.QualityControlSectionControl = new System.Windows.Forms.Panel();
             this.QualityControl_CreateAnalysisWaterControl = new System.Windows.Forms.Button();
@@ -314,12 +315,32 @@
             // 
             // SettingsSectionControl
             // 
+            this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
             this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2057);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 124);
             this.SettingsSectionControl.TabIndex = 7;
             this.SettingsSectionControl.Tag = "7";
+            // 
+            // LogoutControl
+            // 
+            this.LogoutControl.BackColor = System.Drawing.Color.Red;
+            this.LogoutControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoutControl.FlatAppearance.BorderSize = 0;
+            this.LogoutControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LogoutControl.ForeColor = System.Drawing.Color.White;
+            this.LogoutControl.Image = global::FPIS.Properties.Resources.logout;
+            this.LogoutControl.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LogoutControl.Location = new System.Drawing.Point(5, 50);
+            this.LogoutControl.Name = "LogoutControl";
+            this.LogoutControl.Size = new System.Drawing.Size(180, 50);
+            this.LogoutControl.TabIndex = 5;
+            this.LogoutControl.Text = "  Log out";
+            this.LogoutControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LogoutControl.UseVisualStyleBackColor = false;
+            this.LogoutControl.Click += new System.EventHandler(this.LogoutControl_Click);
             // 
             // OpenSettingsControl
             // 
@@ -338,6 +359,7 @@
             this.OpenSettingsControl.Text = "  Settings";
             this.OpenSettingsControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.OpenSettingsControl.UseVisualStyleBackColor = false;
+            this.OpenSettingsControl.Click += new System.EventHandler(this.ShowNavigationSubmenu);
             // 
             // QualityControlSectionControl
             // 
@@ -730,6 +752,7 @@
             // 
             this.ConsumbalesSection_AddIssuedStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ConsumbalesSection_AddIssuedStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_AddIssuedStockControl.Enabled = false;
             this.ConsumbalesSection_AddIssuedStockControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_AddIssuedStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConsumbalesSection_AddIssuedStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -740,7 +763,6 @@
             this.ConsumbalesSection_AddIssuedStockControl.TabIndex = 5;
             this.ConsumbalesSection_AddIssuedStockControl.Text = "Issue Stock";
             this.ConsumbalesSection_AddIssuedStockControl.UseVisualStyleBackColor = false;
-            this.ConsumbalesSection_AddIssuedStockControl.Click += new System.EventHandler(this.ConsumbalesSection_AddIssuedStockControl_Click);
             // 
             // ConsumbalesSection_ViewReceivedStockControl
             // 
@@ -762,6 +784,7 @@
             // 
             this.ConsumbalesSection_ReceiveNewStockControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ConsumbalesSection_ReceiveNewStockControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConsumbalesSection_ReceiveNewStockControl.Enabled = false;
             this.ConsumbalesSection_ReceiveNewStockControl.FlatAppearance.BorderSize = 0;
             this.ConsumbalesSection_ReceiveNewStockControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConsumbalesSection_ReceiveNewStockControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -772,7 +795,6 @@
             this.ConsumbalesSection_ReceiveNewStockControl.TabIndex = 3;
             this.ConsumbalesSection_ReceiveNewStockControl.Text = "Receive New Stock";
             this.ConsumbalesSection_ReceiveNewStockControl.UseVisualStyleBackColor = false;
-            this.ConsumbalesSection_ReceiveNewStockControl.Click += new System.EventHandler(this.ConsumbalesSection_ReceiveNewStockControl_Click);
             // 
             // ConsumbalesSection_ViewStockItemControl
             // 
@@ -1164,5 +1186,6 @@
         private Button ProcurementSectionCaptionControl;
         private Button ReportsSectionCaptionControl;
         private Button ProcurementSection_ViewRequestsControl;
+        private Button LogoutControl;
     }
 }

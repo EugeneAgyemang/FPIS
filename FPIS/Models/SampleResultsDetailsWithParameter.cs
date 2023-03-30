@@ -19,12 +19,12 @@ namespace FPIS.Models
 
         public Guid SampleResultDetailId { get; set; }
         [ForeignKey("SampleResultDetailId")]
+
         public SampleResultDetail SampleResultDetail { get; set; }
-        public Guid SampleDetailId { get; set; }
-        [ForeignKey("SampleDetailId")]
-        public SampleDetail SampleDetail { get; set; }
+
         public Guid AnalysisParameterId { get; set; }
         [ForeignKey("AnalysisParameterId")]
+
         public AnalysisParameter AnalysisParameter { get; set; }
     }
 }

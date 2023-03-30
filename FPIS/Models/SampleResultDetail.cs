@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FPIS.Models
 {
     public class SampleResultDetail
@@ -18,12 +12,16 @@ namespace FPIS.Models
 
         public Guid SampleResultId { get; set; }
         [ForeignKey("SampleResultId")]
-        public SampleResult SampleResult { get; set; }
-        public Guid UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
-        public List<SampleResultsDetailsWithParameter> sampleResultsDetailsWithParameters { get; set; }
-        public List<AnalysisRemark> AnalysisRemarks { get; set; }
 
+        public SampleResult SampleResult { get; set; }
+
+        public Guid AnalysisItemId { get; set; }
+        [ForeignKey("AnalysisItemId")]
+
+        public AnalysisItem AnalysisItem { get; set; }
+
+        public List<SampleResultsDetailsWithParameter> sampleResultsDetailsWithParameters { get; set; }
+
+        public List<AnalysisRemark> AnalysisRemarks { get; set; }
     }
 }

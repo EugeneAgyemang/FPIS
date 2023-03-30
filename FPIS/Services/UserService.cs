@@ -1,6 +1,4 @@
-﻿using FPIS.Models;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
+using FPIS.Models;
 using System.Linq.Expressions;
 
 namespace FPIS.Services
@@ -18,41 +16,48 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
-        public List<Models.User> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             return _dbContext.Users.ToList();
         }
 
-        public List<Models.User> GetAllUsersWithoutId(Guid userId)
+        public List<User> GetAllUsersWithoutId(Guid userId)
         {
             return _dbContext.Users.Where(u => u.Id != userId).ToList();
         }
 
-        public Models.User? GetUserById(Guid userId)
+        public User? GetUserById(Guid userId)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == userId);
         }
+        public Guid GetEmployeeId(string empId)
+        {
+            return _dbContext.Users.FirstOrDefault(user => user.EmpID == empId).Id;
+        }
 
-        public Models.User? GetUserById(string userId)
+        public User? GetUserById(string userId)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == new Guid(userId));
         }
-        public string GetFullName(Guid id)
-        {
-            string fullName;
-            Models.User user = _dbContext.Users.FirstOrDefault(user => user.Id == id);
-            fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
-            return fullName;
-        }
-        public Models.User GetUserByEmpId(string empId)
-        {
-            return _dbContext.Users.FirstOrDefault(u => u.EmpID == empId);
-        }
+        
         public string GetEmployeeIdByGuid(Guid id)
         {
             return (_dbContext.Users.
                 Where(user => user.Id == id).
                 FirstOrDefault()).EmpID;
+        }
+
+        public User? GetUserByEmployeeId(string employeeId)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.EmpID == employeeId);
+        }
+
+        public string GetFullName(Guid id)
+        {
+            string fullName;
+            User user = _dbContext.Users.FirstOrDefault(user => user.Id == id);
+            fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
+            return fullName;
         }
     }
 }
