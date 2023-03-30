@@ -74,7 +74,8 @@
             this.materialComboBoxProductType.ItemHeight = 43;
             this.materialComboBoxProductType.Items.AddRange(new object[] {
             "Raw Materials",
-            "WIP / Finished Products"});
+            "Finished Products",
+            "Work In Progress"});
             this.materialComboBoxProductType.Location = new System.Drawing.Point(24, 212);
             this.materialComboBoxProductType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.materialComboBoxProductType.MaxDropDownItems = 4;
