@@ -314,5 +314,10 @@ namespace FPIS.Views
                 Close();
             }
         }
+
+        private void QualityControl_AddSampleResultControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL));
+        }
     }
 }

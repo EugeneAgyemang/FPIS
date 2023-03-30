@@ -29,11 +29,12 @@ namespace FPIS.Services
                 .ToList();
         }
 
-        public List<ProductAnalysisParameter> FetchProductAnalysisParameters()
+        public List<ProductAnalysisParameter> FetchProductAnalysisParameters(Guid productId)
         {
             return _dbContext.ProductAnalysisParameters
                 .Include(pap => pap.AnalysisParameter)
                 .Include(pap => pap.ProductParameter)
+                .Where(pap => pap.ProductParameter.ProductId == productId)
                 .ToList();
         }
     }

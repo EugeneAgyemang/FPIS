@@ -511,7 +511,6 @@
             // 
             this.QualityControl_AddSampleResultControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_AddSampleResultControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_AddSampleResultControl.Enabled = false;
             this.QualityControl_AddSampleResultControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddSampleResultControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_AddSampleResultControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -522,6 +521,7 @@
             this.QualityControl_AddSampleResultControl.TabIndex = 1;
             this.QualityControl_AddSampleResultControl.Text = "Add Sample Result";
             this.QualityControl_AddSampleResultControl.UseVisualStyleBackColor = false;
+            this.QualityControl_AddSampleResultControl.Click += new System.EventHandler(this.QualityControl_AddSampleResultControl_Click);
             // 
             // QualityControlCaptionControl
             // 
@@ -949,7 +949,6 @@
             // 
             this.ProductionSection_ViewSampleControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_ViewSampleControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_ViewSampleControl.Enabled = true;
             this.ProductionSection_ViewSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

@@ -9,6 +9,7 @@ namespace FPIS.Views
         private Sample? _sample;
         private readonly string _sampleId;
         private readonly string _sampleType;
+        private string _productId;
         private User? _productionEngineer1;
         private User? _productionEngineer2;
         private readonly UserService _userService;
@@ -17,6 +18,7 @@ namespace FPIS.Views
 
         public AddAnalysisResultForm(string sampleId = "", string sampleType = "")
         {
+            _sampleDetails.Clear();
             InitializeComponent();
 
             _sampleId = sampleId; // argument value or empty string
@@ -33,7 +35,8 @@ namespace FPIS.Views
         {
             labelAnalysisResultTextAndId.Text =
                 $"{labelAnalysisResultTextAndId.Text} " +
-                $"...{_sample.Id.ToString().Substring(_sampleId.LastIndexOf("-") + 1)}";
+                $" {_sample.Date.DayOfWeek}, {_sample.Date.ToLongDateString()} @ " +
+                $"{_sample.Time.ToLongTimeString()}";
 
             labelAnalysisType.Text = $"{_sample.TypeForFiltering} Analysis";
             labelStatus.Text = _sample.Status;
@@ -93,7 +96,7 @@ namespace FPIS.Views
                     }
                 );
             });
-
+            
             dataGridView1.DataSource = _sampleDetails;
         }
 
@@ -130,6 +133,13 @@ namespace FPIS.Views
             SetupInitialValues();
             SetupSampleDetails();
             FetchProductionEngineer1();
+            if (_sample.Employee1 == _sample.Employee2)
+            {
+                ProductionEngineerOneCaptionControl.Text = "Procurement Officer";
+                ProductionEngineerTwoCaptionControl.Visible =
+                    labelEngineer2.Visible = false;
+                return;
+            }
             FetchProductionEngineer2();
         }
 
@@ -149,6 +159,13 @@ namespace FPIS.Views
                 string itemName = activeRow.Cells[1].Value.ToString();
                 string analysisItemId = activeRow.Cells[2].Value.ToString();
 
+
+                _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
+                    .AnalysisItem
+                    .AnalysisProducts
+                    .FirstOrDefault()
+                    .ProductId.ToString();
+
                 AnalysisResultSampleDetailBindingItem sdbi =
                     _sampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId);
 
@@ -157,7 +174,8 @@ namespace FPIS.Views
                     itemName,
                     analysisItemId,
                     _sampleType
-                ).Show();
+                , _productId
+                ).ShowDialog();
             }
         }
 
