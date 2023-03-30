@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace FPIS.Models
 {
@@ -6,7 +7,8 @@ namespace FPIS.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password=eugene");
+            string password = ConfigurationManager.AppSettings["database_password"];
+            optionsBuilder.UseNpgsql($"Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password={password}");
         }
 
 
@@ -30,9 +32,9 @@ namespace FPIS.Models
                .WithMany(srd => srd.SampleResultDetails)
                .HasForeignKey(sr => sr.SampleResultId);
 
-            modelBuilder.Entity<SampleResultDetail>()
+            modelBuilder.Entity<SampleResult>()
                .HasOne(u => u.User)
-               .WithMany(srd => srd.SampleResultDetails)
+               .WithMany(srd => srd.SampleResults)
                .HasForeignKey(u => u.UserId);
 
             modelBuilder.Entity<SampleResultsDetailsWithParameter>()
@@ -41,9 +43,9 @@ namespace FPIS.Models
                .HasForeignKey(srd => srd.SampleResultDetailId);
 
             modelBuilder.Entity<SampleResultsDetailsWithParameter>()
-               .HasOne(sd => sd.SampleDetail)
+               .HasOne(sd => sd.SampleResultDetail)
                .WithMany(srdwp => srdwp.sampleResultsDetailsWithParameters)
-               .HasForeignKey(sd => sd.SampleDetailId);
+               .HasForeignKey(sd => sd.SampleResultDetailId);
 
             modelBuilder.Entity<SampleResultsDetailsWithParameter>()
                .HasOne(ap => ap.AnalysisParameter)
