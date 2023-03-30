@@ -193,7 +193,7 @@
             // TypeForFiltering
             // 
             this.TypeForFiltering.DataPropertyName = "TypeForFiltering";
-            this.TypeForFiltering.HeaderText = "TypeForFiltering";
+            this.TypeForFiltering.HeaderText = "Type Of Sample";
             this.TypeForFiltering.Name = "TypeForFiltering";
             this.TypeForFiltering.ReadOnly = true;
             this.TypeForFiltering.Visible = false;

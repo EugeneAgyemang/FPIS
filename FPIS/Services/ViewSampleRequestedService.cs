@@ -28,15 +28,40 @@ namespace FPIS.Services
             {
                 case ViewSamplesRequestedUserControl.Source.PROCUREMENT:
                     productSamplesRequestedQuery = productSamplesRequestedQuery.
-                    Where(sample => sample.TypeForFiltering.ToLower() == "raw materials");
+                    Where(sample => sample.SampleDetails
+                                    .FirstOrDefault()
+                                    .AnalysisItem
+                                    .AnalysisProducts
+                                    .FirstOrDefault()
+                                    .Product
+                                    .Type
+                                    .ToLower() == "raw materials");
                     break;
                 case ViewSamplesRequestedUserControl.Source.PRODUCTION:
                     productSamplesRequestedQuery = productSamplesRequestedQuery.
                     Where(sample => sample.TypeForFiltering.ToLower() == "production");
+                    productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.SampleDetails
+                                    .FirstOrDefault()
+                                    .AnalysisItem
+                                    .AnalysisProducts
+                                    .FirstOrDefault()
+                                    .Product
+                                    .Type
+                                    .ToLower() != "raw materials");
                     break;
                 case ViewSamplesRequestedUserControl.Source.WATER:
                     productSamplesRequestedQuery = productSamplesRequestedQuery.
                     Where(sample => sample.TypeForFiltering.ToLower() == "water");
+                    productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.SampleDetails
+                                    .FirstOrDefault()
+                                    .AnalysisItem
+                                    .AnalysisProducts
+                                    .FirstOrDefault()
+                                    .Product
+                                    .Type
+                                    .ToLower() != "raw materials");
                     break;
             }
             List<Sample> productSamplesRequested = productSamplesRequestedQuery.ToList();
