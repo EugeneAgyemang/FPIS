@@ -39,6 +39,7 @@
             this.NavigationIndicatorControl = new System.Windows.Forms.Panel();
             this.NavigationDrawerControl = new System.Windows.Forms.Panel();
             this.ProcurementSectionControl = new System.Windows.Forms.Panel();
+            this.ProcurementSection_ViewRequestsControl = new System.Windows.Forms.Button();
             this.ProcurementSection_IssueMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSection_ReceiveMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSectionCaptionControl = new System.Windows.Forms.Button();
@@ -235,14 +236,31 @@
             // 
             // ProcurementSectionControl
             // 
+            this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ViewRequestsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_IssueMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
             this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1856);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
-            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 153);
+            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 203);
             this.ProcurementSectionControl.TabIndex = 8;
             this.ProcurementSectionControl.Tag = "6";
+            // 
+            // ProcurementSection_ViewRequestsControl
+            // 
+            this.ProcurementSection_ViewRequestsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProcurementSection_ViewRequestsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProcurementSection_ViewRequestsControl.FlatAppearance.BorderSize = 0;
+            this.ProcurementSection_ViewRequestsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProcurementSection_ViewRequestsControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProcurementSection_ViewRequestsControl.ForeColor = System.Drawing.Color.White;
+            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 151);
+            this.ProcurementSection_ViewRequestsControl.Name = "ProcurementSection_ViewRequestsControl";
+            this.ProcurementSection_ViewRequestsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProcurementSection_ViewRequestsControl.TabIndex = 5;
+            this.ProcurementSection_ViewRequestsControl.Text = "View Requests";
+            this.ProcurementSection_ViewRequestsControl.UseVisualStyleBackColor = false;
+            this.ProcurementSection_ViewRequestsControl.Click += new System.EventHandler(this.ProcurementSection_ViewRequestsControl_Click);
             // 
             // ProcurementSection_IssueMaterialsControl
             // 
@@ -258,6 +276,7 @@
             this.ProcurementSection_IssueMaterialsControl.TabIndex = 3;
             this.ProcurementSection_IssueMaterialsControl.Text = "Issue Materials";
             this.ProcurementSection_IssueMaterialsControl.UseVisualStyleBackColor = false;
+            this.ProcurementSection_IssueMaterialsControl.Click += new System.EventHandler(this.ProcurementSection_IssueMaterialsControl_Click);
             // 
             // ProcurementSection_ReceiveMaterialsControl
             // 
@@ -273,6 +292,7 @@
             this.ProcurementSection_ReceiveMaterialsControl.TabIndex = 2;
             this.ProcurementSection_ReceiveMaterialsControl.Text = "Receive Materials";
             this.ProcurementSection_ReceiveMaterialsControl.UseVisualStyleBackColor = false;
+            this.ProcurementSection_ReceiveMaterialsControl.Click += new System.EventHandler(this.ProcurementSection_ReceiveMaterialsControl_Click);
             // 
             // ProcurementSectionCaptionControl
             // 
@@ -297,7 +317,7 @@
             // 
             this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2009);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2057);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 124);
             this.SettingsSectionControl.TabIndex = 7;
@@ -849,7 +869,6 @@
             // 
             this.ProductionSection_CreateAnalysisProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_CreateAnalysisProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_CreateAnalysisProductControl.Enabled = false;
             this.ProductionSection_CreateAnalysisProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CreateAnalysisProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CreateAnalysisProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -860,6 +879,7 @@
             this.ProductionSection_CreateAnalysisProductControl.TabIndex = 4;
             this.ProductionSection_CreateAnalysisProductControl.Text = "Create Analysis Product";
             this.ProductionSection_CreateAnalysisProductControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_CreateAnalysisProductControl.Click += new System.EventHandler(this.ProductionSection_CreateAnalysisProductControl_Click);
             // 
             // ProductionSection_ViewProductionRemarkControl
             // 
@@ -881,7 +901,6 @@
             // 
             this.ProductionSection_CreateProductParameterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_CreateProductParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_CreateProductParameterControl.Enabled = false;
             this.ProductionSection_CreateProductParameterControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_CreateProductParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CreateProductParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -892,6 +911,7 @@
             this.ProductionSection_CreateProductParameterControl.TabIndex = 3;
             this.ProductionSection_CreateProductParameterControl.Text = "Create Product Parameter";
             this.ProductionSection_CreateProductParameterControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_CreateProductParameterControl.Click += new System.EventHandler(this.ProductionSection_CreateProductParameterControl_Click);
             // 
             // ProductionSection_AddProductionRemarkControl
             // 
@@ -929,7 +949,7 @@
             // 
             this.ProductionSection_ViewSampleControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_ViewSampleControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_ViewSampleControl.Enabled = false;
+            this.ProductionSection_ViewSampleControl.Enabled = true;
             this.ProductionSection_ViewSampleControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -940,6 +960,7 @@
             this.ProductionSection_ViewSampleControl.TabIndex = 4;
             this.ProductionSection_ViewSampleControl.Text = "View Sample";
             this.ProductionSection_ViewSampleControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_ViewSampleControl.Click += new System.EventHandler(this.ProductionSection_ViewSampleControl_Click);
             // 
             // ProductionSection_AddSampleControl
             // 
@@ -977,7 +998,6 @@
             // 
             this.ProductionSection_AddProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_AddProductControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_AddProductControl.Enabled = false;
             this.ProductionSection_AddProductControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_AddProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_AddProductControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -988,6 +1008,7 @@
             this.ProductionSection_AddProductControl.TabIndex = 1;
             this.ProductionSection_AddProductControl.Text = "Add Product";
             this.ProductionSection_AddProductControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_AddProductControl.Click += new System.EventHandler(this.ProductionSection_AddProductControl_Click);
             // 
             // ProductionSectionCaptionControl
             // 
@@ -1164,6 +1185,7 @@
         private Button ProcurementSection_ReceiveMaterialsControl;
         private Button ProcurementSectionCaptionControl;
         private Button ReportsSectionCaptionControl;
+        private Button ProcurementSection_ViewRequestsControl;
         private Button LogoutControl;
     }
 }

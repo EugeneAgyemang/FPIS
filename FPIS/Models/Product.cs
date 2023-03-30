@@ -14,10 +14,15 @@ namespace FPIS.Models
         [Key]
         public Guid Id { get; set; }
         public string ProductName { get; set; }
+        public string Type { get; set; }
 
         // Navigation Properties
-        public List<MaterialProcurement> MaterialProcurements { get; set;}
-        public List<AnalysisProduct> AnalysisProducts { get; set;}
-    
+        public List<ProductParameter> ProductParameters { get; set; }
+        public List<MaterialProcurement> MaterialProcurements { get; set; }
+        public List<AnalysisProduct> AnalysisProducts { get; set; }
+        public override string ToString()
+        {
+            return ProductName;
+        }
     }
 }

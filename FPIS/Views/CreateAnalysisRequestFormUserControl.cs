@@ -47,7 +47,7 @@ namespace FPIS.Views
                 {
                     Id = user.Id,
                     EmpID = user.EmpID,
-                    Name = $"{user.FirstName} {user.MiddleName} {user.LastName}"
+                    Name = $"{user.FirstName} {user.LastName} {user.MiddleName}".Trim()
                 };
 
                 List<UserForDropDown> engineerOne = new();
@@ -65,7 +65,7 @@ namespace FPIS.Views
                 {
                     Id = u.Id,
                     EmpID = u.EmpID,
-                    Name = $"{u.FirstName} {u.MiddleName} {u.LastName}"
+                    Name = $"{u.FirstName} {u.LastName} {u.MiddleName}".Trim()
                 })
                 .ToList();
 

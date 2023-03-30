@@ -14,6 +14,9 @@ namespace FPIS.Models
         public float Specification { get; set; }
 
         // Navigation Properties
+        public Guid ProductId { get; set; }
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
         public List<ProductAnalysisParameter> ProductAnalysisParameters { get; set; }
         public List<ProcurementParameter> ProcurementParameters { get; set; }
     }

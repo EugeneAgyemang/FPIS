@@ -23,5 +23,6 @@ namespace FPIS.Models
         public Guid MaterialProcurementId { get; set; }
         [ForeignKey("MaterialProcurementId")]
         public MaterialProcurement MaterialProcurement { get; set; }
+        public List<Releasing> Releasings { get; set; }
     }
 }

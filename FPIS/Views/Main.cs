@@ -1,4 +1,5 @@
-﻿using FPIS.Services;
+using FPIS.Services;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -206,7 +207,7 @@ namespace FPIS.Views
                 MessageBoxIcon.Question);
             if (userWantsToCloseForm == DialogResult.Yes)
             {
-                Application.Exit();
+                Environment.Exit(0);
             }
         }
         /// <summary>
@@ -224,19 +225,7 @@ namespace FPIS.Views
         private void MinimizeWindowControl_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
 
-        private void ConsumbalesSection_ReceiveNewStockControl_Click(object sender, EventArgs e)
-        {
-            ReceiveStock receive_Stock = new ReceiveStock();
-            receive_Stock.Show();
-        }
-
-        private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
-        {
-            userControlIssueStock us = new userControlIssueStock();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(us);
         }
 
         private void ProductionSection_AddSampleControl_Click(object sender, EventArgs e)
@@ -246,11 +235,75 @@ namespace FPIS.Views
 
             if (dialogResult == DialogResult.OK)
             {
-                CreateAnalysisRequestFormUserControl requestForAnalysis = new();
-                MainContainerControl.Controls.Clear();
-                MainContainerControl.Controls.Add(requestForAnalysis);
+                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
             }
         }
+
+        private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(ProcurementReceiveMaterialsUserControl.Instance);
+        }
+        /// <summary>
+        /// Add the given user control to the MainContainerControl
+        /// </summary>
+        /// <param name="userControl">An instance of the user control to be added. Instance has to be static.</param>
+        private void AddUserControlToMainContainerControl(UserControl userControl)
+        {
+            ClearControlsFromMainContainerControl();
+            MainContainerControl.Controls.Add(userControl);
+        }
+        /// <summary>
+        /// Open the given form after clearing all open instances in the MainContainerControl
+        /// </summary>
+        /// <param name="form">An instance of the form to be opened</param>
+        private void OpenModal(Form form)
+        {
+            ClearControlsFromMainContainerControl();
+            form.ShowDialog();
+        }
+        private void ClearControlsFromMainContainerControl()
+        {
+            MainContainerControl.Controls.Clear();
+        }
+
+        private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
+        }
+        private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new userControlIssueStock());
+        }
+        private void ConsumbalesSection_ReceiveNewStockControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new ReceiveStock());
+        }
+
+        private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, "raw materials"));
+        }
+
+        private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateProductForm());
+        }
+
+        private void ProductionSection_CreateProductParameterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateProductParameter());
+        }
+
+        private void ProductionSection_CreateAnalysisProductControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateAnalysisProduct());
+        }
+
+        private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, "production", "water"));
+        }
+        
         private void LogoutControl_Click(object sender, EventArgs e)
         {
             string fullname = new UserService(new()).GetFullName(Guid.Parse(LOGGED_USER_ID));

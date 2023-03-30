@@ -42,6 +42,18 @@ namespace FPIS.Services
         }
 
         /// <summary>
+        /// Returns all products of the given type
+        /// </summary>
+        /// <param name="type">The type of products needed</param>
+        /// <returns></returns>
+        public List<Product> GetProductsByType(string type)
+        {
+            return _dbContext.Products.
+                            Where(product => product.Type.ToLower() == type).
+                            ToList();
+        }
+
+        /// <summary>
         /// Checks if a product name exists already.
         /// </summary>
         /// <param name="productName"></param>
@@ -63,12 +75,13 @@ namespace FPIS.Services
         /// Creates a new `Product` with a product name
         /// </summary>
         /// <param name="productName"></param>
-        public Product CreateProduct(string productName)
+        public Product CreateProduct(string productName, string type)
         {
             var product = _dbContext.Products.Add(
                     new()
                     {
-                        ProductName = productName
+                        ProductName = productName,
+                        Type = type
                     }
                 ).Entity;
 

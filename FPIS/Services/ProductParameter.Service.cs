@@ -1,4 +1,4 @@
-﻿using FPIS.Models;
+using FPIS.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +14,19 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-        public bool DoesProductParameterExist(string parameterName)
+        public bool DoesProductParameterExist(string parameterName, Guid productId)
         {
             bool itExists = false;
-            ProductParameter foundItem = appDbContext.ProductParameters.FirstOrDefault(productParameter => productParameter.ParameterName == parameterName);
+            ProductParameter foundItem = appDbContext.ProductParameters.
+                                            Where(productParameter => productParameter.ParameterName == parameterName
+                                            && productParameter.ProductId == productId).FirstOrDefault();
             if (foundItem != null)
             {
                 itExists = true;
             }
             return itExists;
         }
-        public ProductParameter Save(string parameterName, string unit, string method, float specification)
+        public ProductParameter Save(string parameterName, string unit, string method, float specification, Guid productId)
         {
             AnalysisParameter analysisParameter = appDbContext.AnalysisParameters.Add(
                 new AnalysisParameter(){ Id = new Guid(), ItemType = "Product"  }
@@ -37,7 +39,8 @@ namespace FPIS.Services
                         Unit = unit,
                         Method = method,
                         Specification = specification,
-                        Id = new Guid()
+                        Id = new Guid(),
+                        ProductId = productId
                     }
                 ).Entity;
 
@@ -48,7 +51,6 @@ namespace FPIS.Services
                     ProductParameterId = productParameter.Id
                 }
             );
-
             appDbContext.SaveChanges();
             return productParameter;
         }

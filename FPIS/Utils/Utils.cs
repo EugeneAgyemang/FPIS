@@ -1,5 +1,6 @@
 ﻿
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace FPIS.Utils;
@@ -63,6 +64,24 @@ public class Utils
             isKeyHandled = false;
         }
         return isKeyHandled;
+    }
+    /// <summary>
+    /// Retrieve the last characters from the right of the given string
+    /// </summary>
+    /// <param name="length">Number of characters needed</param>
+    /// <returns>A string with four dots followed by the number of characters requested</returns>
+    public static string GetLastCharacters(string text, int length)
+    {
+        StringBuilder builder = new StringBuilder("....");
+        int len = text.Length;
+        if (length >= len)
+            len = 4;
+        int i = len - length;
+        while (i < len)
+        {
+            builder.Append(text[i++]);
+        }
+        return builder.ToString();
     }
 
     /// <summary>

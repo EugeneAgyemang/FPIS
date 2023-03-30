@@ -23,6 +23,7 @@
 
         private void materialButtonContinue_Click(object sender, EventArgs e)
         {
+            CreateAnalysisRequestFormUserControl.analysisItemList.Clear();
             CreateAnalysisRequestFormUserControl.analysisType =
                 materialComboBoxAnalysisType.SelectedItem.ToString();
 

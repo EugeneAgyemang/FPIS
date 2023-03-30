@@ -37,6 +37,8 @@
             this.ParameterMethodErrorCaption = new System.Windows.Forms.Label();
             this.ParameterUnitErrorCaption = new System.Windows.Forms.Label();
             this.ParameterSpecificationErrorCaption = new System.Windows.Forms.Label();
+            this.ParameterProductControl = new MaterialSkin.Controls.MaterialComboBox();
+            this.ParameterProductErrorCaption = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ParameterNameControl
@@ -131,7 +133,7 @@
             this.SaveParameterControl.Depth = 0;
             this.SaveParameterControl.HighEmphasis = true;
             this.SaveParameterControl.Icon = null;
-            this.SaveParameterControl.Location = new System.Drawing.Point(193, 509);
+            this.SaveParameterControl.Location = new System.Drawing.Point(193, 597);
             this.SaveParameterControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveParameterControl.Name = "SaveParameterControl";
@@ -184,10 +186,45 @@
             this.ParameterSpecificationErrorCaption.Size = new System.Drawing.Size(0, 14);
             this.ParameterSpecificationErrorCaption.TabIndex = 22;
             // 
+            // ParameterProductControl
+            // 
+            this.ParameterProductControl.AutoResize = false;
+            this.ParameterProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ParameterProductControl.Depth = 0;
+            this.ParameterProductControl.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ParameterProductControl.DropDownHeight = 174;
+            this.ParameterProductControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ParameterProductControl.DropDownWidth = 121;
+            this.ParameterProductControl.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ParameterProductControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ParameterProductControl.FormattingEnabled = true;
+            this.ParameterProductControl.Hint = "Product";
+            this.ParameterProductControl.IntegralHeight = false;
+            this.ParameterProductControl.ItemHeight = 43;
+            this.ParameterProductControl.Location = new System.Drawing.Point(25, 480);
+            this.ParameterProductControl.MaxDropDownItems = 4;
+            this.ParameterProductControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.ParameterProductControl.Name = "ParameterProductControl";
+            this.ParameterProductControl.Size = new System.Drawing.Size(400, 49);
+            this.ParameterProductControl.StartIndex = -1;
+            this.ParameterProductControl.TabIndex = 24;
+            // 
+            // ParameterProductErrorCaption
+            // 
+            this.ParameterProductErrorCaption.AutoSize = true;
+            this.ParameterProductErrorCaption.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ParameterProductErrorCaption.ForeColor = System.Drawing.Color.Red;
+            this.ParameterProductErrorCaption.Location = new System.Drawing.Point(25, 532);
+            this.ParameterProductErrorCaption.Name = "ParameterProductErrorCaption";
+            this.ParameterProductErrorCaption.Size = new System.Drawing.Size(0, 14);
+            this.ParameterProductErrorCaption.TabIndex = 25;
+            // 
             // CreateProductParameter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(450, 590);
+            this.ClientSize = new System.Drawing.Size(450, 650);
+            this.Controls.Add(this.ParameterProductErrorCaption);
+            this.Controls.Add(this.ParameterProductControl);
             this.Controls.Add(this.ParameterSpecificationErrorCaption);
             this.Controls.Add(this.ParameterUnitErrorCaption);
             this.Controls.Add(this.ParameterMethodErrorCaption);
@@ -217,5 +254,7 @@
         private Label ParameterMethodErrorCaption;
         private Label ParameterUnitErrorCaption;
         private Label ParameterSpecificationErrorCaption;
+        private MaterialSkin.Controls.MaterialComboBox ParameterProductControl;
+        private Label ParameterProductErrorCaption;
     }
 }
