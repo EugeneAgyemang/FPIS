@@ -14,17 +14,19 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-        public bool DoesWaterParameterExist(string parameterName)
+        public bool DoesWaterParameterExist(string parameterName, Guid waterId)
         {
             bool itExists = false;
-            WaterParameter foundItem = appDbContext.WaterParameters.FirstOrDefault(waterParameter => waterParameter.ParameterName == parameterName);
+            WaterParameter foundItem = appDbContext.WaterParameters.
+                FirstOrDefault(waterParameter => waterParameter.ParameterName == parameterName 
+                && waterParameter.WaterId == waterId);
             if(foundItem != null)
             {
                 itExists = true;
             }
             return itExists;
         }
-        public WaterParameter Save(string parameterName, string unit, float controlLimit)
+        public WaterParameter Save(string parameterName, string unit, float controlLimit, Guid waterId)
         {
             AnalysisParameter analysisParameter = appDbContext.AnalysisParameters.Add(
                 new AnalysisParameter() { Id = new Guid(), ItemType = "Water" }
@@ -35,7 +37,8 @@ namespace FPIS.Services
                 {
                     ParameterName = parameterName,
                     Unit = unit,
-                    ControlLimit = controlLimit
+                    ControlLimit = controlLimit,
+                    WaterId = waterId
                 }
             ).Entity;
 

@@ -17,6 +17,11 @@ namespace FPIS.Models
 
         // Navigation Properties
         public List<AnalysisWater> AnalysisWaters { get; set; }
+        public List<WaterParameter> WaterParameters { get; set; }
+        public override string ToString()
+        {
+            return WaterName;
+        }
     }
 
 }

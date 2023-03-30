@@ -18,6 +18,9 @@ namespace FPIS.Models
         public float ControlLimit { get; set; }
 
         // Navigation Properties
+        public Guid WaterId { get; set; }
+        [ForeignKey("WaterId")]
+        public Water Water { get; set; }
         public List<WaterAnalysisParameter> WaterAnalysisParameters { get; set; }
     }
 }

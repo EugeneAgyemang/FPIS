@@ -399,7 +399,6 @@
             // 
             this.QualityControl_AddWaterParameterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_AddWaterParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_AddWaterParameterControl.Enabled = false;
             this.QualityControl_AddWaterParameterControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddWaterParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_AddWaterParameterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -410,12 +409,12 @@
             this.QualityControl_AddWaterParameterControl.TabIndex = 6;
             this.QualityControl_AddWaterParameterControl.Text = "Add Water Parameter";
             this.QualityControl_AddWaterParameterControl.UseVisualStyleBackColor = false;
+            this.QualityControl_AddWaterParameterControl.Click += new System.EventHandler(this.QualityControl_AddWaterParameterControl_Click);
             // 
             // QualityControl_AddWaterControl
             // 
             this.QualityControl_AddWaterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_AddWaterControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_AddWaterControl.Enabled = false;
             this.QualityControl_AddWaterControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddWaterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_AddWaterControl.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -426,6 +425,7 @@
             this.QualityControl_AddWaterControl.TabIndex = 5;
             this.QualityControl_AddWaterControl.Text = "Add Water";
             this.QualityControl_AddWaterControl.UseVisualStyleBackColor = false;
+            this.QualityControl_AddWaterControl.Click += new System.EventHandler(this.QualityControl_AddWaterControl_Click);
             // 
             // QualityControl_OpenAnalysisCalculatorControl
             // 

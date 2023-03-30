@@ -319,5 +319,15 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL));
         }
+
+        private void QualityControl_AddWaterParameterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateWaterParameter());
+        }
+
+        private void QualityControl_AddWaterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateWaterForm());
+        }
     }
 }
