@@ -55,7 +55,7 @@ namespace FPIS.Views
 
         private User? LoadUser(string empId)
         {
-            return new UserService(new()).GetUserByEmpId(empId);
+            return new UserService(new()).GetUserByEmployeeId(empId);
         }
         private string LoadUserFullName(Guid id)
         {

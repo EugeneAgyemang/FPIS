@@ -30,7 +30,7 @@ namespace FPIS.Models
         public List<Sample> Samples { get; set; }
         public List<ProductionDailyReport> ProductionDailyReports { get; set;}
         public List<MaterialProcurement> MaterialProcurements { get; set; }
-        public List<SampleResultDetail> SampleResultDetails { get; set; }
+        public List<SampleResult> SampleResults { get; set; }
         public List<AnalysisRemark> AnalysisRemarks { get; set; }
       
       public override string ToString()

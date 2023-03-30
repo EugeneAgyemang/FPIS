@@ -21,7 +21,6 @@ namespace FPIS.Models
         public Guid AnalysisItemId { get; set; }
         [ForeignKey("AnalysisItemId")]
         public AnalysisItem AnalysisItem { get; set; }
-        public List<SampleResultsDetailsWithParameter> sampleResultsDetailsWithParameters { get; set; }
         public List<AnalysisRemark> AnalysisRemarks { get; set; }
     }
 }

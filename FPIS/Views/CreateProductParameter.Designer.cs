@@ -30,7 +30,6 @@
         {
             this.ParameterNameControl = new MaterialSkin.Controls.MaterialTextBox();
             this.ParameterMethodControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.ParameterUnitControl = new MaterialSkin.Controls.MaterialComboBox();
             this.ParameterSpecificationControl = new MaterialSkin.Controls.MaterialTextBox();
             this.SaveParameterControl = new MaterialSkin.Controls.MaterialButton();
             this.ParameterNameErrorCaption = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@
             this.ParameterSpecificationErrorCaption = new System.Windows.Forms.Label();
             this.ParameterProductControl = new MaterialSkin.Controls.MaterialComboBox();
             this.ParameterProductErrorCaption = new System.Windows.Forms.Label();
+            this.ParameterUnitControl = new MaterialSkin.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // ParameterNameControl
@@ -77,34 +77,6 @@
             this.ParameterMethodControl.Text = "";
             this.ParameterMethodControl.TrailingIcon = null;
             // 
-            // ParameterUnitControl
-            // 
-            this.ParameterUnitControl.AutoResize = false;
-            this.ParameterUnitControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ParameterUnitControl.Depth = 0;
-            this.ParameterUnitControl.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.ParameterUnitControl.DropDownHeight = 174;
-            this.ParameterUnitControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ParameterUnitControl.DropDownWidth = 121;
-            this.ParameterUnitControl.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterUnitControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ParameterUnitControl.FormattingEnabled = true;
-            this.ParameterUnitControl.Hint = "Unit";
-            this.ParameterUnitControl.IntegralHeight = false;
-            this.ParameterUnitControl.ItemHeight = 43;
-            this.ParameterUnitControl.Items.AddRange(new object[] {
-            "ltr",
-            "cm",
-            "m",
-            "inch"});
-            this.ParameterUnitControl.Location = new System.Drawing.Point(25, 303);
-            this.ParameterUnitControl.MaxDropDownItems = 4;
-            this.ParameterUnitControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.ParameterUnitControl.Name = "ParameterUnitControl";
-            this.ParameterUnitControl.Size = new System.Drawing.Size(400, 49);
-            this.ParameterUnitControl.StartIndex = -1;
-            this.ParameterUnitControl.TabIndex = 2;
-            // 
             // ParameterSpecificationControl
             // 
             this.ParameterSpecificationControl.AnimateReadOnly = false;
@@ -139,7 +111,7 @@
             this.SaveParameterControl.Name = "SaveParameterControl";
             this.SaveParameterControl.NoAccentTextColor = System.Drawing.Color.Empty;
             this.SaveParameterControl.Size = new System.Drawing.Size(64, 36);
-            this.SaveParameterControl.TabIndex = 4;
+            this.SaveParameterControl.TabIndex = 5;
             this.SaveParameterControl.Text = "Save";
             this.SaveParameterControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.SaveParameterControl.UseAccentColor = true;
@@ -207,7 +179,7 @@
             this.ParameterProductControl.Name = "ParameterProductControl";
             this.ParameterProductControl.Size = new System.Drawing.Size(400, 49);
             this.ParameterProductControl.StartIndex = -1;
-            this.ParameterProductControl.TabIndex = 24;
+            this.ParameterProductControl.TabIndex = 4;
             // 
             // ParameterProductErrorCaption
             // 
@@ -219,10 +191,29 @@
             this.ParameterProductErrorCaption.Size = new System.Drawing.Size(0, 14);
             this.ParameterProductErrorCaption.TabIndex = 25;
             // 
+            // ParameterUnitControl
+            // 
+            this.ParameterUnitControl.AnimateReadOnly = false;
+            this.ParameterUnitControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ParameterUnitControl.Depth = 0;
+            this.ParameterUnitControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ParameterUnitControl.Hint = "Unit";
+            this.ParameterUnitControl.LeadingIcon = null;
+            this.ParameterUnitControl.Location = new System.Drawing.Point(25, 303);
+            this.ParameterUnitControl.MaxLength = 50;
+            this.ParameterUnitControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.ParameterUnitControl.Multiline = false;
+            this.ParameterUnitControl.Name = "ParameterUnitControl";
+            this.ParameterUnitControl.Size = new System.Drawing.Size(400, 50);
+            this.ParameterUnitControl.TabIndex = 2;
+            this.ParameterUnitControl.Text = "";
+            this.ParameterUnitControl.TrailingIcon = null;
+            // 
             // CreateProductParameter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(450, 650);
+            this.Controls.Add(this.ParameterUnitControl);
             this.Controls.Add(this.ParameterProductErrorCaption);
             this.Controls.Add(this.ParameterProductControl);
             this.Controls.Add(this.ParameterSpecificationErrorCaption);
@@ -231,7 +222,6 @@
             this.Controls.Add(this.ParameterNameErrorCaption);
             this.Controls.Add(this.SaveParameterControl);
             this.Controls.Add(this.ParameterSpecificationControl);
-            this.Controls.Add(this.ParameterUnitControl);
             this.Controls.Add(this.ParameterMethodControl);
             this.Controls.Add(this.ParameterNameControl);
             this.ForeColor = System.Drawing.Color.Red;
@@ -247,7 +237,6 @@
 
         private MaterialSkin.Controls.MaterialTextBox ParameterNameControl;
         private MaterialSkin.Controls.MaterialTextBox ParameterMethodControl;
-        private MaterialSkin.Controls.MaterialComboBox ParameterUnitControl;
         private MaterialSkin.Controls.MaterialTextBox ParameterSpecificationControl;
         private MaterialSkin.Controls.MaterialButton SaveParameterControl;
         private Label ParameterNameErrorCaption;
@@ -256,5 +245,6 @@
         private Label ParameterSpecificationErrorCaption;
         private MaterialSkin.Controls.MaterialComboBox ParameterProductControl;
         private Label ParameterProductErrorCaption;
+        private MaterialSkin.Controls.MaterialTextBox ParameterUnitControl;
     }
 }
