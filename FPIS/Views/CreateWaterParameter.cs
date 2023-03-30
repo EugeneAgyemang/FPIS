@@ -23,7 +23,9 @@ namespace FPIS.Views
             Theme.Set(Themes.LIGHT);
             ParameterNameErrorCaption.ForeColor =
                 ParameterUnitErrorCaption.ForeColor =
-                ParameterControlLimitErrorCaption.ForeColor = Color.Red;
+                ParameterControlLimitErrorCaption.ForeColor =
+                ParameterWaterErrorCaption.ForeColor = Color.Red;
+            LoadWater();
         }
 
         private void SaveParameterControl_Click(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace FPIS.Views
             float parameterControlLimit;
             float.TryParse(ParameterControlLimitControl.Text, out parameterControlLimit);
 
-            ValidateFields(ParameterNameControl.Text, ParameterUnitControl.Text, parameterControlLimit, ref shouldSave);
+            ValidateFields(ParameterNameControl.Text, ParameterUnitControl.Text, parameterControlLimit, ParameterWaterControl.Text, ref shouldSave);
 
             if (!shouldSave)
             {
@@ -46,7 +48,8 @@ namespace FPIS.Views
             }
             AppDbContext appDbContext = new();
             WaterParameterService waterParameterService = new WaterParameterService(appDbContext);
-            bool isWaterParameterAlreadySaved = waterParameterService.DoesWaterParameterExist(ParameterNameControl.Text);
+            Water water = new WaterService(new()).GetWaterByName(ParameterWaterControl.Text);
+            bool isWaterParameterAlreadySaved = waterParameterService.DoesWaterParameterExist(ParameterNameControl.Text, water.Id);
             if (isWaterParameterAlreadySaved)
             {
                 Utils.Utils.ShowMessageBox("The water parameter you provided already exists", "Duplicate Record Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,19 +58,21 @@ namespace FPIS.Views
             WaterParameter productParameter = waterParameterService.Save
                 (ParameterNameControl.Text,
                 ParameterUnitControl.Text,
-                parameterControlLimit);
+                parameterControlLimit,
+                water.Id);
             if (productParameter != null)
             {
                 ResetFields();
                 Utils.Utils.ShowMessageBox("Water parameter saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        public void ValidateFields(string parameterName, string parameterUnit, float parameterControlLimit, ref bool shouldSave)
+        public void ValidateFields(string parameterName, string parameterUnit, float parameterControlLimit, string parameterWater, ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateParameterName(parameterName, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterUnit(parameterUnit, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterControlLimit(parameterControlLimit, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateParameterWater(parameterWater, ref shouldSave, ref isErrorMessageDisplayed);
         }
         public void ValidateParameterName(string parameterName, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
@@ -90,6 +95,13 @@ namespace FPIS.Views
                 DisplayErrorMessage(ParameterControlLimitErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
             }
         }
+        public void ValidateParameterWater(string parameterWater, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (parameterWater.Length == 0)
+            {
+                DisplayErrorMessage(ParameterWaterErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
+            }
+        }
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
             shouldSave = false;
@@ -105,6 +117,7 @@ namespace FPIS.Views
         {
             ParameterNameErrorCaption.Text =
                 ParameterUnitErrorCaption.Text =
+                ParameterWaterErrorCaption.Text =
                 ParameterControlLimitErrorCaption.Text = string.Empty;
         }
         public void ResetFields()
@@ -113,11 +126,17 @@ namespace FPIS.Views
                 ParameterUnitControl.Text =
                 ParameterControlLimitControl.Text =
                 string.Empty;
+            ParameterWaterControl.StartIndex = -1;
         }
 
         private void ParameterControlLimitControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+        }
+        public void LoadWater()
+        {
+            List<Water> water = new WaterService(new()).GetAllWater();
+            ParameterWaterControl.Items.AddRange(water.ToArray());
         }
     }
 }

@@ -17,22 +17,20 @@ namespace FPIS.Views
         /// <summary>
         /// Specify the source where the user control is being referenced
         /// </summary>
-        public enum Source { PROCUREMENT, PRODUCTION };
+        public enum Source { PROCUREMENT, PRODUCTION, WATER, ALL };
         private Source source;
-        private string[] typesForFiletring;
         readonly BindingList<ViewSampleRequestsMadeBindingItem> listOfRequests = new BindingList<ViewSampleRequestsMadeBindingItem>();
-        public ViewSamplesRequestedUserControl(Source source, params string[] typesForFiletring)
+        public ViewSamplesRequestedUserControl(Source source)
         {
             InitializeComponent();
             dataGridView1.DataSource = listOfRequests;
-            this.typesForFiletring = typesForFiletring;
             this.source = source;
             UpdateDataGridColumns();
             LoadSampleRequestsMade();
         }
         void UpdateSamplesRequestedCaption(int totalSamplesRequested)
         {
-            SamplesRequestedCaption.Text = 
+            SamplesRequestedCaption.Text =
                 $"{SamplesRequestedCaption.Text} ({totalSamplesRequested} request{((totalSamplesRequested > 1) ? "s" : "")})";
         }
         void UpdateSamplesRequestedOverview(int totalSamplesRequested)
@@ -43,13 +41,13 @@ namespace FPIS.Views
             }
             else
             {
-                SamplesRequestedOverviewControl.Text = 
+                SamplesRequestedOverviewControl.Text =
                     $"{totalSamplesRequested} sample{((totalSamplesRequested > 1) ? "s" : "")} requested";
             }
         }
         private void LoadSampleRequestsMade()
         {
-            List<Sample> samplesRequested = new ViewSampleRequestedService(new()).GetSamplesRequested(typesForFiletring);
+            List<Sample> samplesRequested = new ViewSampleRequestedService(new()).GetSamplesRequested(source);
             int totalSamplesRequested = samplesRequested.Count;
             UpdateSamplesRequestedCaption(totalSamplesRequested);
             UpdateSamplesRequestedOverview(totalSamplesRequested);
@@ -90,10 +88,16 @@ namespace FPIS.Views
                     dataGridView1.Columns["Engineer"].Visible = true;
                     break;
                 case Source.PRODUCTION:
+                case Source.WATER:
                     dataGridView1.Columns["EngineerOneFullName"].Visible =
                         dataGridView1.Columns["EngineerTwoFullName"].Visible = true;
 
                     dataGridView1.Columns["Engineer"].Visible = false;
+                    break;
+                case Source.ALL:
+                    dataGridView1.Columns["EngineerOneFullName"].Visible =
+                       dataGridView1.Columns["EngineerTwoFullName"].Visible =
+                        dataGridView1.Columns["Engineer"].Visible = true;
                     break;
             }
         }

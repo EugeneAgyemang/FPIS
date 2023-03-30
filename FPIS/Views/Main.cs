@@ -281,7 +281,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, "raw materials"));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT));
         }
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
@@ -301,7 +301,7 @@ namespace FPIS.Views
 
         private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, "production", "water"));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
         }
         
         private void LogoutControl_Click(object sender, EventArgs e)
@@ -313,6 +313,16 @@ namespace FPIS.Views
                 login.Show();
                 Close();
             }
+        }
+
+        private void QualityControl_AddWaterParameterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateWaterParameter());
+        }
+
+        private void QualityControl_AddWaterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateWaterForm());
         }
     }
 }
