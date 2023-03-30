@@ -56,7 +56,7 @@
             this.materialComboBoxDepartmentName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxDepartmentName.Name = "materialComboBoxDepartmentName";
             this.materialComboBoxDepartmentName.Size = new System.Drawing.Size(400, 49);
-            this.materialComboBoxDepartmentName.StartIndex = 0;
+            this.materialComboBoxDepartmentName.StartIndex = -1;
             this.materialComboBoxDepartmentName.TabIndex = 0;
             // 
             // materialTextBoxDesignationName

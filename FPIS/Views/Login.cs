@@ -107,5 +107,11 @@ namespace FPIS
             EmployeeIdErrorControl.Text =
                 PasswordErrorControl.Text = string.Empty;
         }
+
+        private void CreateAccountControl_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new Register(this).Show();
+        }
     }
 }

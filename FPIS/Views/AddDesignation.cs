@@ -137,6 +137,7 @@ namespace FPIS.Views
             {
                 btnAddDesignation.Enabled = true;
                 materialTextBoxDesignationName.Text = "";
+                materialComboBoxDepartmentName.StartIndex = -1;
                 dbContext.Dispose();
             }
         }

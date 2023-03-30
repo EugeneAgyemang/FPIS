@@ -28,11 +28,6 @@ namespace FPIS.Views
             UpdateDataGridColumns();
             LoadSampleRequestsMade();
         }
-        void UpdateSamplesRequestedCaption(int totalSamplesRequested)
-        {
-            SamplesRequestedCaption.Text =
-                $"{SamplesRequestedCaption.Text} ({totalSamplesRequested} request{((totalSamplesRequested > 1) ? "s" : "")})";
-        }
         void UpdateSamplesRequestedOverview(int totalSamplesRequested)
         {
             if (totalSamplesRequested == 0)
@@ -49,7 +44,6 @@ namespace FPIS.Views
         {
             List<Sample> samplesRequested = new ViewSampleRequestedService(new()).GetSamplesRequested(source);
             int totalSamplesRequested = samplesRequested.Count;
-            UpdateSamplesRequestedCaption(totalSamplesRequested);
             UpdateSamplesRequestedOverview(totalSamplesRequested);
             foreach (var sampleRequested in samplesRequested)
             {
@@ -65,13 +59,27 @@ namespace FPIS.Views
                 sampleRequestMade.Time = sampleRequested.Time;
                 sampleRequestMade.Status = sampleRequested.Status;
                 sampleRequestMade.TypeForFiltering = sampleRequested.TypeForFiltering;
+
+                sampleRequestMade.EngineerOne = LoadUser(sampleRequested.Employee1).Id;
+                sampleRequestMade.EngineerTwo = LoadUser(sampleRequested.Employee2).Id;
+
+
                 sampleRequestMade.EngineerOne = LoadUser(sampleRequested.Employee1).Id;
                 sampleRequestMade.EngineerTwo = LoadUser(sampleRequested.Employee2).Id;
                 sampleRequestMade.EngineerOneEmpId = sampleRequested.Employee1;
                 sampleRequestMade.EngineerTwoEmpId = sampleRequested.Employee2;
-                sampleRequestMade.EngineerOneFullName = LoadUserFullName(sampleRequestMade.EngineerOne);
-                sampleRequestMade.EngineerTwoFullName = LoadUserFullName(sampleRequestMade.EngineerTwo);
-                sampleRequestMade.Engineer = sampleRequestMade.EngineerOneFullName;
+                //if (sampleRequested.TypeForFiltering.ToLower() != "raw materials")
+                if (sampleRequested.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().Product.Type.ToLower() != "raw materials")
+                {
+                    sampleRequestMade.EngineerOneFullName = LoadUserFullName(sampleRequestMade.EngineerOne);
+                    sampleRequestMade.EngineerTwoFullName = LoadUserFullName(sampleRequestMade.EngineerTwo);
+                    sampleRequestMade.Engineer = "";
+                }
+                else
+                {
+                    sampleRequestMade.EngineerOneFullName = LoadUserFullName(sampleRequestMade.EngineerOne);
+                    sampleRequestMade.EngineerTwoFullName = "-";
+                }
 
                 listOfRequests.Add(sampleRequestMade);
 
@@ -83,7 +91,8 @@ namespace FPIS.Views
             {
                 case Source.PROCUREMENT:
                     dataGridView1.Columns["EngineerOneFullName"].Visible =
-                        dataGridView1.Columns["EngineerTwoFullName"].Visible = false;
+                        dataGridView1.Columns["EngineerTwoFullName"].Visible =
+                        dataGridView1.Columns["TypeForFiltering"].Visible = false;
 
                     dataGridView1.Columns["Engineer"].Visible = true;
                     break;
@@ -92,12 +101,15 @@ namespace FPIS.Views
                     dataGridView1.Columns["EngineerOneFullName"].Visible =
                         dataGridView1.Columns["EngineerTwoFullName"].Visible = true;
 
-                    dataGridView1.Columns["Engineer"].Visible = false;
+                    dataGridView1.Columns["Engineer"].Visible =
+                        dataGridView1.Columns["TypeForFiltering"].Visible = false;
                     break;
                 case Source.ALL:
                     dataGridView1.Columns["EngineerOneFullName"].Visible =
                        dataGridView1.Columns["EngineerTwoFullName"].Visible =
-                        dataGridView1.Columns["Engineer"].Visible = true;
+                        dataGridView1.Columns["TypeForFiltering"].Visible = true;
+
+                    dataGridView1.Columns["Engineer"].Visible = false;
                     break;
             }
         }
@@ -114,8 +126,21 @@ namespace FPIS.Views
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
                 return;
+            }
+            string sampleId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string typeForFiltering = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString().ToLower();
+
+            if (source == Source.PRODUCTION)
+            {
+
+            }
+            else if (source == Source.ALL)
+            {
+                new AddAnalysisResultForm(sampleId, typeForFiltering).ShowDialog();
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs args)

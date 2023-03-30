@@ -18,6 +18,7 @@ namespace FPIS.Views
         private readonly string _analysisType;
         private readonly string _sampleDetailId;
         private readonly string _analysisItemId;
+        private readonly string _productId;
         private readonly AnalysisParameterService _analysisParameterService;
         private readonly BindingList<AnalysisSampleParameterBindingItem> _parameterList = new();
 
@@ -26,6 +27,7 @@ namespace FPIS.Views
             string itemName,
             string analysisItemId,
             string analysisType
+            , string productId
         )
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace FPIS.Views
             _analysisType = analysisType;
             _sampleDetailId = sampleDetailId;
             _analysisItemId = analysisItemId;
+            _productId = productId;
 
             labelItemName.Text += $" \"{_itemName}\"";
             dataGridView1.DataSource = _parameterList;
@@ -80,7 +83,7 @@ namespace FPIS.Views
 
         void LoadProductParameters()
         {
-            _analysisParameterService.FetchProductAnalysisParameters()
+            _analysisParameterService.FetchProductAnalysisParameters(Guid.Parse(_productId))
                 .ForEach(ap => {
                     string value = AddAnalysisResultForm._sampleDetails
                         .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId)?.parametersWithValues
@@ -130,6 +133,14 @@ namespace FPIS.Views
 
         private void materialButtonSaveAndClose_Click(object sender, EventArgs e)
         {
+            DialogResult userOption = Utils.Utils.ShowMessageBox("Do you wish to proceed?"
+                , "Confirm Proceed"
+                , MessageBoxButtons.YesNo
+                , MessageBoxIcon.Question);
+            if(userOption == DialogResult.No)
+            {
+                return;
+            }
             AnalysisResultSampleDetailBindingItem bindingItem =
                 AddAnalysisResultForm._sampleDetails.First(sd => sd.Id.ToString() == _sampleDetailId);
 

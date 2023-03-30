@@ -14,9 +14,10 @@ namespace FPIS
         // 3 characters or more, no numbers and special characters
         readonly string nameRegexPattern = "^[a-zA-Z]{3,}$";
         readonly string passwordRegexPattern = "^.{6,}$"; // very minimal password enforcement
-
-        public Register()
+        Login login;
+        public Register(Login login)
         {
+            this.login = login;
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
@@ -183,8 +184,7 @@ namespace FPIS
                 );
 
                 dbContext.Dispose();
-
-                Console.WriteLine($"Create user {user}");
+                ResetControls();
             }
             catch (Exception ex)
             {
@@ -215,8 +215,15 @@ namespace FPIS
                 return;
             }
 
+            DialogResult userOption = Utils.Utils.ShowMessageBox("Do you wish to proceed with details you provided?"
+                , "Confirm Registration"
+                , MessageBoxButtons.YesNo
+                , MessageBoxIcon.Question);
+            if(userOption == DialogResult.No)
+            {
+                return;
+            }
             RegisterUser();
-            // Close();
         }
         public void LoadDesignations()
         {
@@ -234,6 +241,21 @@ namespace FPIS
                 Console.WriteLine($"Error Loading Designations: {ex}");
                 MaterialMessageBox.Show(ex.ToString());
             }
+        }
+
+        private void Register_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            login.Show();
+        }
+        void ResetControls()
+        {
+            materialTextBoxEmployeeId.Text =
+                materialTextBoxFirstName.Text =
+                materialTextBoxMiddleName.Text =
+                materialTextBoxLastName.Text =
+                materialTextBoxPassword.Text =
+                materialTextBoxConfirmedPassword.Text = string.Empty;
+            materialComboBoxDesignation.StartIndex = -1;
         }
     }
 }
