@@ -256,6 +256,7 @@
             this.materialComboBoxDesignation.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialComboBoxDesignation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialComboBoxDesignation.FormattingEnabled = true;
+            this.materialComboBoxDesignation.Hint = "Designation";
             this.materialComboBoxDesignation.IntegralHeight = false;
             this.materialComboBoxDesignation.ItemHeight = 43;
             this.materialComboBoxDesignation.Location = new System.Drawing.Point(28, 521);
@@ -263,7 +264,7 @@
             this.materialComboBoxDesignation.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxDesignation.Name = "materialComboBoxDesignation";
             this.materialComboBoxDesignation.Size = new System.Drawing.Size(399, 49);
-            this.materialComboBoxDesignation.StartIndex = 0;
+            this.materialComboBoxDesignation.StartIndex = -1;
             this.materialComboBoxDesignation.TabIndex = 35;
             // 
             // Register
