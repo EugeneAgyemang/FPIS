@@ -32,7 +32,6 @@
             this.SamplesRequestedCaption = new MaterialSkin.Controls.MaterialLabel();
             this.viewSampleRequestsMadeBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SampleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +50,6 @@
             this.EngineerOneFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerTwoFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Engineer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
@@ -78,15 +76,6 @@
             // analysisRawMaterialsSampleBindingItemBindingSource
             // 
             this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(820, 433);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 135);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -252,15 +241,6 @@
             this.Engineer.ReadOnly = true;
             this.Engineer.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(579, 495);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 10);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // SamplesRequestedOverviewControl
             // 
             this.SamplesRequestedOverviewControl.AutoSize = true;
@@ -280,12 +260,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.SamplesRequestedOverviewControl);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.SamplesRequestedCaption);
             this.Name = "ViewSamplesRequestedUserControl";
-            this.Size = new System.Drawing.Size(1000, 600);
+            this.Size = new System.Drawing.Size(1000, 500);
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

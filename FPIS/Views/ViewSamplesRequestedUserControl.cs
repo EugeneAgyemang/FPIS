@@ -28,11 +28,6 @@ namespace FPIS.Views
             UpdateDataGridColumns();
             LoadSampleRequestsMade();
         }
-        void UpdateSamplesRequestedCaption(int totalSamplesRequested)
-        {
-            SamplesRequestedCaption.Text =
-                $"{SamplesRequestedCaption.Text} ({totalSamplesRequested} request{((totalSamplesRequested > 1) ? "s" : "")})";
-        }
         void UpdateSamplesRequestedOverview(int totalSamplesRequested)
         {
             if (totalSamplesRequested == 0)
@@ -49,7 +44,6 @@ namespace FPIS.Views
         {
             List<Sample> samplesRequested = new ViewSampleRequestedService(new()).GetSamplesRequested(source);
             int totalSamplesRequested = samplesRequested.Count;
-            UpdateSamplesRequestedCaption(totalSamplesRequested);
             UpdateSamplesRequestedOverview(totalSamplesRequested);
             foreach (var sampleRequested in samplesRequested)
             {
@@ -83,9 +77,8 @@ namespace FPIS.Views
                 }
                 else
                 {
-                    sampleRequestMade.EngineerOneFullName = "";
-                    sampleRequestMade.EngineerTwoFullName = "";
-                    sampleRequestMade.Engineer = LoadUserFullName(sampleRequestMade.EngineerOne);
+                    sampleRequestMade.EngineerOneFullName = LoadUserFullName(sampleRequestMade.EngineerOne);
+                    sampleRequestMade.EngineerTwoFullName = "-";
                 }
 
                 listOfRequests.Add(sampleRequestMade);
@@ -114,8 +107,9 @@ namespace FPIS.Views
                 case Source.ALL:
                     dataGridView1.Columns["EngineerOneFullName"].Visible =
                        dataGridView1.Columns["EngineerTwoFullName"].Visible =
-                        dataGridView1.Columns["Engineer"].Visible =
                         dataGridView1.Columns["TypeForFiltering"].Visible = true;
+
+                    dataGridView1.Columns["Engineer"].Visible = false;
                     break;
             }
         }
