@@ -281,7 +281,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, "raw materials"));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT));
         }
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
@@ -301,7 +301,7 @@ namespace FPIS.Views
 
         private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, "production", "water"));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
         }
         
         private void LogoutControl_Click(object sender, EventArgs e)

@@ -47,9 +47,6 @@
     <Compile Update="Views\ProcurementReceiveMaterialsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\ProcurementViewRequestsUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Views\ReceiveStock.cs">
       <SubType>Form</SubType>
     </Compile>
