@@ -128,9 +128,9 @@ namespace FPIS.Views
                 ParameterMethodControl.Text =
                 ParameterUnitControl.Text =
                 ParameterSpecificationControl.Text =
+                ParameterUnitControl.Text =
                 string.Empty;
-            ParameterProductControl.StartIndex =
-                ParameterUnitControl.StartIndex = -1;
+            ParameterProductControl.StartIndex = -1;
         }
         public void LoadProducts()
         {
