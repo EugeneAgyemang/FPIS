@@ -111,7 +111,7 @@ namespace FPIS.Views
                     userService.GetEmployeeIdByGuid(userId),
                     DateOnly.FromDateTime(DateTime.UtcNow.Date),
                     TimeOnly.FromDateTime(DateTime.UtcNow),
-                    "raw materials",
+                    "Production",
                     analysisItemList.ToList()
                 );
 
