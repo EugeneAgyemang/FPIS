@@ -26,16 +26,31 @@ namespace FPIS.Services
         }
         public ProductParameter Save(string parameterName, string unit, string method, float specification)
         {
-            ProductParameter productParametertoBeSaved = new ProductParameter()
-            {
-                ParameterName = parameterName,
-                Unit = unit,
-                Method = method,
-                Specification = specification
-            };
-            ProductParameter productParameterSaved = appDbContext.ProductParameters.Add(productParametertoBeSaved).Entity;
+            AnalysisParameter analysisParameter = appDbContext.AnalysisParameters.Add(
+                new AnalysisParameter(){ Id = new Guid(), ItemType = "Product"  }
+            ).Entity;
+
+            ProductParameter productParameter = appDbContext.ProductParameters
+                .Add(new ProductParameter()
+                    {
+                        ParameterName = parameterName,
+                        Unit = unit,
+                        Method = method,
+                        Specification = specification,
+                        Id = new Guid()
+                    }
+                ).Entity;
+
+            appDbContext.ProductAnalysisParameters.Add(
+                new ProductAnalysisParameter() {
+                    Id = new Guid(),
+                    AnalysisParameterId = analysisParameter.Id,
+                    ProductParameterId = productParameter.Id
+                }
+            );
+
             appDbContext.SaveChanges();
-            return productParameterSaved;
+            return productParameter;
         }
     }
 }

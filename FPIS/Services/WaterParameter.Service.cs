@@ -26,15 +26,30 @@ namespace FPIS.Services
         }
         public WaterParameter Save(string parameterName, string unit, float controlLimit)
         {
-            WaterParameter waterParameterToBeSaved = new WaterParameter()
-            {
-                ParameterName = parameterName,
-                Unit = unit,
-                ControlLimit = controlLimit
-            };
-            WaterParameter waterParameterSaved = appDbContext.WaterParameters.Add(waterParameterToBeSaved).Entity;
+            AnalysisParameter analysisParameter = appDbContext.AnalysisParameters.Add(
+                new AnalysisParameter() { Id = new Guid(), ItemType = "Water" }
+            ).Entity;
+
+            WaterParameter waterParameter = appDbContext.WaterParameters.Add(
+                new WaterParameter()
+                {
+                    ParameterName = parameterName,
+                    Unit = unit,
+                    ControlLimit = controlLimit
+                }
+            ).Entity;
+
+            appDbContext.WaterAnalysisParameters.Add(
+                new WaterAnalysisParameter()
+                {
+                    Id = new Guid(),
+                    AnalysisParameterId = analysisParameter.Id,
+                    WaterParameterId = waterParameter.Id
+                }
+            );
+
             appDbContext.SaveChanges();
-            return waterParameterSaved;
+            return waterParameter;
         }
     }
 }

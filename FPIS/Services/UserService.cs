@@ -1,4 +1,4 @@
-﻿using FPIS.Models;
+using FPIS.Models;
 using System.Linq.Expressions;
 
 namespace FPIS.Services
@@ -39,6 +39,12 @@ namespace FPIS.Services
         {
             return _dbContext.Users.FirstOrDefault(u => u.Id == new Guid(userId));
         }
+
+        public User? GetUserByEmployeeId(string employeeId)
+        {
+            return _dbContext.Users.FirstOrDefault(u => u.EmpID == employeeId);
+        }
+
         public string GetFullName(Guid id)
         {
             string fullName;
