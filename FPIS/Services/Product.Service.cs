@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,6 +89,27 @@ namespace FPIS.Services
             _dbContext.SaveChanges();
 
             return product;
+        }
+
+        public List<SampleDetail> GetProductsWithAnalysisResults(string productName = "")
+        {
+            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
+                ThenInclude(a => a.ProductAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+            if (productName != string.Empty)
+            {
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
+            }
+
+
+            return productSamplesRequestedQuery.ToList();
+
         }
     }
 }

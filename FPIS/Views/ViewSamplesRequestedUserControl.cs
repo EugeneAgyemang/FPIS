@@ -20,6 +20,7 @@ namespace FPIS.Views
         public enum Source { PROCUREMENT, PRODUCTION, WATER, ALL };
         private Source source;
         readonly BindingList<ViewSampleRequestsMadeBindingItem> listOfRequests = new BindingList<ViewSampleRequestsMadeBindingItem>();
+        public static bool isRequestCompleted = false;
         public ViewSamplesRequestedUserControl(Source source)
         {
             InitializeComponent();
@@ -78,7 +79,8 @@ namespace FPIS.Views
                 else
                 {
                     sampleRequestMade.EngineerOneFullName = LoadUserFullName(sampleRequestMade.EngineerOne);
-                    sampleRequestMade.EngineerTwoFullName = "-";
+                    sampleRequestMade.Engineer = LoadUserFullName(sampleRequestMade.EngineerOne);
+                    sampleRequestMade.EngineerTwoFullName = "";
                 }
 
                 listOfRequests.Add(sampleRequestMade);
@@ -140,6 +142,11 @@ namespace FPIS.Views
             else if (source == Source.ALL)
             {
                 new AddAnalysisResultForm(sampleId, typeForFiltering).ShowDialog();
+            }
+            if (isRequestCompleted)
+            {
+                listOfRequests.RemoveAt(e.RowIndex);
+                UpdateSamplesRequestedOverview(listOfRequests.Count);
             }
         }
 

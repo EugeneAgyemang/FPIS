@@ -20,11 +20,12 @@ namespace FPIS.Services
         {
             IQueryable<Sample> productSamplesRequestedQuery = appDbContext.Samples.
                 Include(sample => sample.User.Samples).
+                Where(a => a.Status.ToLower() == "pending").
                 Include(analysisItem => analysisItem.SampleDetails).
                 ThenInclude(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
                 ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
                 ThenInclude(a => a.ProductAnalysisParameters).
-                ThenInclude(a =>a.AnalysisParameter.sampleResultsDetailsWithParameters);
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters);
 
             switch (source)
             {
