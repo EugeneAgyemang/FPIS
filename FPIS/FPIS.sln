@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1F8E0670-7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPIS_TEST", "..\test\FPIS_TEST\FPIS_TEST.csproj", "{C56512B7-D360-4A24-AEE1-76685998F227}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FPIS_report", "FPIS_report", "{F63FEBA5-FB2E-4824-9E8F-BFC4FDC2C668}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "..\reports\Reports\Reports\Reports.csproj", "{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA}"
 EndProject
 Global
@@ -37,7 +35,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C56512B7-D360-4A24-AEE1-76685998F227} = {1F8E0670-7CB5-4C7C-8173-C9752162BA8E}
-		{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA} = {F63FEBA5-FB2E-4824-9E8F-BFC4FDC2C668}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {41733BDE-83B1-466A-95A6-0D5447FD8EEA}
