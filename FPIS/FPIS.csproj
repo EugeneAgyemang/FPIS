@@ -17,6 +17,11 @@
     </PackageReference>
     <PackageReference Include="Moq.EntityFrameworkCore" Version="7.0.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\reports\Reports\Reports\Reports.csproj" />
   </ItemGroup>
 
   <ItemGroup>

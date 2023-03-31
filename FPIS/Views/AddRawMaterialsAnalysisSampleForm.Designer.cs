@@ -54,6 +54,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdAsStr,
@@ -69,12 +71,12 @@
             this.selectedDataGridViewCheckBoxColumn,
             this.AnalysisStatus});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 71);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 95);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(1371, 347);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -90,13 +92,16 @@
             // 
             this.IdAsStr.DataPropertyName = "IdAsStr";
             this.IdAsStr.HeaderText = "Id";
+            this.IdAsStr.MinimumWidth = 6;
             this.IdAsStr.Name = "IdAsStr";
             this.IdAsStr.ReadOnly = true;
+            this.IdAsStr.Visible = false;
             // 
             // MaterialProcuredId
             // 
             this.MaterialProcuredId.DataPropertyName = "MaterialProcuredId";
             this.MaterialProcuredId.HeaderText = "Material Procured Id";
+            this.MaterialProcuredId.MinimumWidth = 6;
             this.MaterialProcuredId.Name = "MaterialProcuredId";
             this.MaterialProcuredId.ReadOnly = true;
             this.MaterialProcuredId.Visible = false;
@@ -105,6 +110,7 @@
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
@@ -113,6 +119,7 @@
             // 
             this.DateAdded.DataPropertyName = "DateAdded";
             this.DateAdded.HeaderText = "DateAdded";
+            this.DateAdded.MinimumWidth = 6;
             this.DateAdded.Name = "DateAdded";
             this.DateAdded.ReadOnly = true;
             // 
@@ -120,6 +127,7 @@
             // 
             this.Warehouse.DataPropertyName = "Warehouse";
             this.Warehouse.HeaderText = "Warehouse Stored";
+            this.Warehouse.MinimumWidth = 6;
             this.Warehouse.Name = "Warehouse";
             this.Warehouse.ReadOnly = true;
             // 
@@ -127,6 +135,7 @@
             // 
             this.Supplier.DataPropertyName = "Supplier";
             this.Supplier.HeaderText = "Supplier";
+            this.Supplier.MinimumWidth = 6;
             this.Supplier.Name = "Supplier";
             this.Supplier.ReadOnly = true;
             // 
@@ -134,6 +143,7 @@
             // 
             this.TruckNumber.DataPropertyName = "TruckNumber";
             this.TruckNumber.HeaderText = "Truck Number";
+            this.TruckNumber.MinimumWidth = 6;
             this.TruckNumber.Name = "TruckNumber";
             this.TruckNumber.ReadOnly = true;
             // 
@@ -141,6 +151,7 @@
             // 
             this.QuantityReceived.DataPropertyName = "QuantityReceived";
             this.QuantityReceived.HeaderText = "Quantity Received";
+            this.QuantityReceived.MinimumWidth = 6;
             this.QuantityReceived.Name = "QuantityReceived";
             this.QuantityReceived.ReadOnly = true;
             // 
@@ -148,6 +159,7 @@
             // 
             this.QuantityLeft.DataPropertyName = "QuantityLeft";
             this.QuantityLeft.HeaderText = "Quantity Left";
+            this.QuantityLeft.MinimumWidth = 6;
             this.QuantityLeft.Name = "QuantityLeft";
             this.QuantityLeft.ReadOnly = true;
             // 
@@ -155,6 +167,7 @@
             // 
             this.Remarks.DataPropertyName = "Remarks";
             this.Remarks.HeaderText = "Remarks";
+            this.Remarks.MinimumWidth = 6;
             this.Remarks.Name = "Remarks";
             this.Remarks.ReadOnly = true;
             // 
@@ -165,26 +178,26 @@
             this.selectedDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
             this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.selectedDataGridViewCheckBoxColumn.Width = 150;
             // 
             // AnalysisStatus
             // 
             this.AnalysisStatus.DataPropertyName = "AnalysisStatus";
             this.AnalysisStatus.HeaderText = "Analysis Status";
+            this.AnalysisStatus.MinimumWidth = 6;
             this.AnalysisStatus.Name = "AnalysisStatus";
             this.AnalysisStatus.ReadOnly = true;
             // 
             // AddRawMaterialsAnalysisSampleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 350);
+            this.ClientSize = new System.Drawing.Size(1440, 467);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "AddRawMaterialsAnalysisSampleForm";
-            this.Padding = new System.Windows.Forms.Padding(2, 38, 2, 2);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Padding = new System.Windows.Forms.Padding(2, 51, 2, 3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Analysis Samples";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).EndInit();

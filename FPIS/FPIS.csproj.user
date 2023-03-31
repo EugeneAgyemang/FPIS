@@ -74,10 +74,25 @@
     <Compile Update="Views\UserControlA.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlAddFinishedProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlB.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlDailyProductionReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\userControlIssueStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewCertificateOfAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewReceivedStocks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewStockItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\ViewSamplesRequestedUserControl.cs">

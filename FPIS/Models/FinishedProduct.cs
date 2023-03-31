@@ -13,7 +13,7 @@ namespace FPIS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
         public string Consignee { get; set; }
         public string ProductType { get; set; }
         public string BatchNumber { get; set; }

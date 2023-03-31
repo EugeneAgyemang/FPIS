@@ -329,5 +329,52 @@ namespace FPIS.Views
         {
             OpenModal(new CreateWaterForm());
         }
+
+        private void FinishedProducts_AddFinishedProductControl_Click(object sender, EventArgs e)
+        {
+            UserControlAddFinishedProduct fp = new UserControlAddFinishedProduct();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(fp);
+        }
+
+        private void FinishedProducts_ViewCertificateOfAnalysisControl_Click(object sender, EventArgs e)
+        {
+            UserControlViewCertificateOfAnalysis coa = new UserControlViewCertificateOfAnalysis();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(coa);
+        }
+
+        private void ConsumbalesSection_AddStockItemControl_Click(object sender, EventArgs e)
+        {
+            CreateStockItem createStock = new CreateStockItem();
+            createStock.ShowDialog();
+        }
+
+        private void ConsumbalesSection_ReceiveNewStockControl_Click_1(object sender, EventArgs e)
+        {
+            ReceiveStock receiveStock = new ReceiveStock();
+            receiveStock.ShowDialog();
+        }
+
+        private void ConsumbalesSection_AddIssuedStockControl_Click_1(object sender, EventArgs e)
+        {
+            userControlIssueStock issueStock = new userControlIssueStock();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(issueStock);
+        }
+
+        private void ConsumbalesSection_ViewStockItemControl_Click(object sender, EventArgs e)
+        {
+            UserControlViewStockItems viewStockItems = new UserControlViewStockItems();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(viewStockItems);
+        }
+
+        private void ConsumbalesSection_ViewReceivedStockControl_Click(object sender, EventArgs e)
+        {
+            UserControlViewReceivedStocks viewReceivedStock = new UserControlViewReceivedStocks();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(viewReceivedStock);
+        }
     }
 }

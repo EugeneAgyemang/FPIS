@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.labelItemName = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.analysisSampleParameterBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.materialButtonSaveAndClose = new MaterialSkin.Controls.MaterialButton();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +38,10 @@
             this.ControlLimitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specificationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisSampleParameterBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.materialButtonSaveAndClose = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleParameterBindingItemBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -51,9 +51,10 @@
             // 
             this.labelItemName.AutoSize = true;
             this.labelItemName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelItemName.Location = new System.Drawing.Point(12, 28);
+            this.labelItemName.Location = new System.Drawing.Point(10, 22);
+            this.labelItemName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelItemName.Name = "labelItemName";
-            this.labelItemName.Size = new System.Drawing.Size(288, 32);
+            this.labelItemName.Size = new System.Drawing.Size(236, 28);
             this.labelItemName.TabIndex = 0;
             this.labelItemName.Text = "Add Parameter Values for:";
             // 
@@ -62,6 +63,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -72,14 +75,65 @@
             this.specificationColumn,
             this.valueDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.analysisSampleParameterBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 221);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 177);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1065, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(982, 241);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            // 
+            // methodColumn
+            // 
+            this.methodColumn.DataPropertyName = "Method";
+            this.methodColumn.HeaderText = "Method";
+            this.methodColumn.MinimumWidth = 8;
+            this.methodColumn.Name = "methodColumn";
+            // 
+            // ControlLimitColumn
+            // 
+            this.ControlLimitColumn.DataPropertyName = "ControlLimit";
+            this.ControlLimitColumn.HeaderText = "ControlLimit";
+            this.ControlLimitColumn.MinimumWidth = 8;
+            this.ControlLimitColumn.Name = "ControlLimitColumn";
+            // 
+            // specificationColumn
+            // 
+            this.specificationColumn.DataPropertyName = "Specification";
+            this.specificationColumn.HeaderText = "Specification";
+            this.specificationColumn.MinimumWidth = 8;
+            this.specificationColumn.Name = "specificationColumn";
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Result";
+            this.valueDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             // 
             // analysisSampleParameterBindingItemBindingSource
             // 
@@ -89,9 +143,11 @@
             // 
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.materialButtonSaveAndClose);
-            this.groupBox1.Location = new System.Drawing.Point(12, 90);
+            this.groupBox1.Location = new System.Drawing.Point(10, 72);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1063, 88);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(982, 70);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
@@ -99,9 +155,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 39);
+            this.label1.Location = new System.Drawing.Point(5, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(618, 25);
+            this.label1.Size = new System.Drawing.Size(520, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Double click any cell in the \"Value\" column to add or edit a parameter\'s value";
             // 
@@ -112,8 +169,8 @@
             this.materialButtonSaveAndClose.Depth = 0;
             this.materialButtonSaveAndClose.HighEmphasis = true;
             this.materialButtonSaveAndClose.Icon = null;
-            this.materialButtonSaveAndClose.Location = new System.Drawing.Point(916, 33);
-            this.materialButtonSaveAndClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSaveAndClose.Location = new System.Drawing.Point(835, 22);
+            this.materialButtonSaveAndClose.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.materialButtonSaveAndClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSaveAndClose.Name = "materialButtonSaveAndClose";
             this.materialButtonSaveAndClose.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -125,73 +182,17 @@
             this.materialButtonSaveAndClose.UseVisualStyleBackColor = true;
             this.materialButtonSaveAndClose.Click += new System.EventHandler(this.materialButtonSaveAndClose_Click);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // methodColumn
-            // 
-            this.methodColumn.DataPropertyName = "Method";
-            this.methodColumn.HeaderText = "Method";
-            this.methodColumn.MinimumWidth = 8;
-            this.methodColumn.Name = "methodColumn";
-            this.methodColumn.Width = 150;
-            // 
-            // ControlLimitColumn
-            // 
-            this.ControlLimitColumn.DataPropertyName = "ControlLimit";
-            this.ControlLimitColumn.HeaderText = "ControlLimit";
-            this.ControlLimitColumn.MinimumWidth = 8;
-            this.ControlLimitColumn.Name = "ControlLimitColumn";
-            this.ControlLimitColumn.Width = 150;
-            // 
-            // specificationColumn
-            // 
-            this.specificationColumn.DataPropertyName = "Specification";
-            this.specificationColumn.HeaderText = "Specification";
-            this.specificationColumn.MinimumWidth = 8;
-            this.specificationColumn.Name = "specificationColumn";
-            this.specificationColumn.Width = 150;
-            // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.valueDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.Width = 150;
-            // 
             // AddAnalysisParameterValues
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 523);
+            this.ClientSize = new System.Drawing.Size(1001, 418);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelItemName);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddAnalysisParameterValues";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enter Parameter Values";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleParameterBindingItemBindingSource)).EndInit();
