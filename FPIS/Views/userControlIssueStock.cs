@@ -102,7 +102,7 @@ namespace FPIS.Views
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error Loading Departments: {ex}");
+                Console.WriteLine($"Error Loading Stocks: {ex}");
                 MaterialMessageBox.Show(ex.ToString());
             }
         }

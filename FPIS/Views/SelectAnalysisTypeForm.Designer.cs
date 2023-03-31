@@ -47,11 +47,12 @@
             this.materialComboBoxAnalysisType.FormattingEnabled = true;
             this.materialComboBoxAnalysisType.IntegralHeight = false;
             this.materialComboBoxAnalysisType.ItemHeight = 43;
-            this.materialComboBoxAnalysisType.Location = new System.Drawing.Point(12, 104);
+            this.materialComboBoxAnalysisType.Location = new System.Drawing.Point(10, 83);
+            this.materialComboBoxAnalysisType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.materialComboBoxAnalysisType.MaxDropDownItems = 4;
             this.materialComboBoxAnalysisType.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxAnalysisType.Name = "materialComboBoxAnalysisType";
-            this.materialComboBoxAnalysisType.Size = new System.Drawing.Size(463, 49);
+            this.materialComboBoxAnalysisType.Size = new System.Drawing.Size(371, 49);
             this.materialComboBoxAnalysisType.StartIndex = 0;
             this.materialComboBoxAnalysisType.TabIndex = 2;
             // 
@@ -63,8 +64,8 @@
             this.materialButtonContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.materialButtonContinue.HighEmphasis = true;
             this.materialButtonContinue.Icon = null;
-            this.materialButtonContinue.Location = new System.Drawing.Point(493, 117);
-            this.materialButtonContinue.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonContinue.Location = new System.Drawing.Point(394, 92);
+            this.materialButtonContinue.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.materialButtonContinue.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonContinue.Name = "materialButtonContinue";
             this.materialButtonContinue.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -80,20 +81,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 31);
+            this.label1.Location = new System.Drawing.Point(10, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 38);
+            this.label1.Size = new System.Drawing.Size(228, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Select Analysis Type";
             // 
             // SelectAnalysisTypeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 216);
+            this.ClientSize = new System.Drawing.Size(496, 173);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialButtonContinue);
             this.Controls.Add(this.materialComboBoxAnalysisType);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SelectAnalysisTypeForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
