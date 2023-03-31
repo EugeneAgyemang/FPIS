@@ -80,6 +80,9 @@
     <Compile Update="Views\UserControlB.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlCheckAnalyticalResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlDailyProductionReport.cs">
       <SubType>UserControl</SubType>
     </Compile>

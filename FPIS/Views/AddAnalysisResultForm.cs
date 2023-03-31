@@ -181,6 +181,7 @@ namespace FPIS.Views
 
         private void materialButtonGenerateResult_Click(object sender, EventArgs e)
         {
+            ViewSamplesRequestedUserControl.isRequestCompleted = false;
             DialogResult dialogResult = Utils.Utils.ShowMessageBox(
                 "Are you sure about you want create a result now?",
                 "Generate Analysis Result?",
@@ -202,6 +203,7 @@ namespace FPIS.Views
                     "Analysis Result is successfully generated.",
                     "Analysis Result Generated"
                 );
+                ViewSamplesRequestedUserControl.isRequestCompleted= true;
             }
             catch (Exception ex)
             {

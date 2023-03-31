@@ -352,8 +352,7 @@ namespace FPIS.Views
 
         private void ConsumbalesSection_ReceiveNewStockControl_Click_1(object sender, EventArgs e)
         {
-            ReceiveStock receiveStock = new ReceiveStock();
-            receiveStock.ShowDialog();
+            OpenModal(new ReceiveStock());
         }
 
         private void ConsumbalesSection_AddIssuedStockControl_Click_1(object sender, EventArgs e)
@@ -375,6 +374,11 @@ namespace FPIS.Views
             UserControlViewReceivedStocks viewReceivedStock = new UserControlViewReceivedStocks();
             MainContainerControl.Controls.Clear();
             MainContainerControl.Controls.Add(viewReceivedStock);
+        }
+
+        private void ProductionSection_CheckAnalyticalResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
         }
     }
 }

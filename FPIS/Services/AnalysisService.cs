@@ -29,7 +29,7 @@ namespace FPIS.Services
                 .Include(s => s.SampleDetails)
                 .ThenInclude(sd => sd.AnalysisItem)
                 .ThenInclude(ai => ai.AnalysisProducts)
-                .ThenInclude(ap => ap.Product)
+                .ThenInclude(ap => ap.Product.MaterialProcurements)
                 .FirstOrDefault(s => s.Id.ToString() == sampleId);
         }
 

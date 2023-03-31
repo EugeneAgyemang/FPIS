@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.SupplierControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.TruckNumberControl = new MaterialSkin.Controls.MaterialTextBox();
             this.QuantityControl = new MaterialSkin.Controls.MaterialTextBox();
             this.UnitsControl = new MaterialSkin.Controls.MaterialComboBox();
@@ -39,7 +38,6 @@
             this.QuantityErrorCaption = new System.Windows.Forms.Label();
             this.TruckNumberErrorCaption = new System.Windows.Forms.Label();
             this.SupplierErrorCaption = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.MaterialProcurementDividerControl = new System.Windows.Forms.Panel();
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
             this.WarehouseErrorCaption = new System.Windows.Forms.Label();
@@ -74,15 +72,6 @@
             this.SupplierControl.TabIndex = 0;
             this.SupplierControl.Text = "";
             this.SupplierControl.TrailingIcon = null;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(271, 539);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // TruckNumberControl
             // 
@@ -155,12 +144,10 @@
             this.ReceivingSetionControl.Controls.Add(this.QuantityErrorCaption);
             this.ReceivingSetionControl.Controls.Add(this.TruckNumberErrorCaption);
             this.ReceivingSetionControl.Controls.Add(this.SupplierErrorCaption);
-            this.ReceivingSetionControl.Controls.Add(this.button2);
             this.ReceivingSetionControl.Controls.Add(this.SupplierControl);
             this.ReceivingSetionControl.Controls.Add(this.TruckNumberControl);
             this.ReceivingSetionControl.Controls.Add(this.UnitsControl);
             this.ReceivingSetionControl.Controls.Add(this.QuantityControl);
-            this.ReceivingSetionControl.Controls.Add(this.button1);
             this.ReceivingSetionControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.ReceivingSetionControl.Location = new System.Drawing.Point(0, 0);
             this.ReceivingSetionControl.Name = "ReceivingSetionControl";
@@ -215,15 +202,6 @@
             this.SupplierErrorCaption.Name = "SupplierErrorCaption";
             this.SupplierErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.SupplierErrorCaption.TabIndex = 12;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(122, 498);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 36);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // MaterialProcurementDividerControl
             // 
@@ -456,12 +434,10 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialTextBox SuplierControl;
-        private Button button1;
         private MaterialSkin.Controls.MaterialTextBox TruckNumberControl;
         private MaterialSkin.Controls.MaterialTextBox QuantityControl;
         private MaterialSkin.Controls.MaterialComboBox UnitsControl;
         private Panel ReceivingSetionControl;
-        private Button button2;
         private Panel MaterialProcurementDividerControl;
         private Panel MaterialProcurementSection;
         private MaterialSkin.Controls.MaterialComboBox ProductControl;
