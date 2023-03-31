@@ -19,7 +19,7 @@ namespace FPIS.Views
         public UserControlAddFinishedProduct()
         {
             InitializeComponent();
-  
+
             labelCosigneeError.ForeColor = System.Drawing.Color.Red;
             labelBatchNumberError.ForeColor = System.Drawing.Color.Red;
             labelContainerNumberError.ForeColor = System.Drawing.Color.Red;
@@ -34,7 +34,7 @@ namespace FPIS.Views
 
             materialComboBoxFinishedProduct.SelectedIndex = -1;
             materialButtonAddFinishedProduct.Enabled = false;
-
+            LoadFinishedProducts();
         }
 
         public void ClearErrorLabels()
@@ -134,9 +134,8 @@ namespace FPIS.Views
                                           analysisRequestTime = Sample.Time,
                                           analysisResultDate = SampleResult.Date,
                                           analysisResultTime = SampleResult.Time
-                                          
                                       };
-                dataGridView_Finished_Products_With_Results.Rows.Clear();
+                        dataGridView_Finished_Products_With_Results.Rows.Clear();
                 foreach (var items in finishedProduct)
                 {
                     dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID,items.finishedProduct,items.analysisRequestDate,items.analysisRequestTime,items.analysisResultDate,items.analysisResultTime);
@@ -186,11 +185,11 @@ namespace FPIS.Views
                                       where SampleDetail.Id == _sampleDetailsID
                                       from SampleResult in dbContext.SampleResults
                                       where SampleResult.SampleId == SampleDetail.SampleId
-                                      
+
                                       select new
-                                   {
-                                      sampleResultID = SampleResult.Id           
-                                   };
+                                      {
+                                          sampleResultID = SampleResult.Id
+                                      };
                 Guid Id = Guid.NewGuid();
                 foreach (var sampleResultID in finishedProduct)
                 {
@@ -259,7 +258,30 @@ namespace FPIS.Views
             {
 
             }
-            
+
+        }
+        private void LoadFinishedProducts()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                //var finishedProduct = from Product in dbContext.Products
+                //                      where Product.Type.ToLower() == "finished products"
+                //                      select ProductName;
+                var finishedProduct = dbContext
+                                        .Products
+                                        .Where(p => p.Type.ToLower() == "finished products")
+                                        .ToList();
+
+                materialComboBoxFinishedProduct.DataSource = finishedProduct.ToList();
+                materialComboBoxFinishedProduct.DisplayMember = "FinishedProduct";
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Finished products: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
         }
     }
 }
