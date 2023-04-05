@@ -113,32 +113,23 @@ namespace FPIS.Views
         {
             ToggleSwitchDate();
         }
-        /// <summary>
-        /// Toggle the switch for selecting the current date or a different date on or off. 
-        /// We can easily use this function from elsewhere by setting the calledElseWhere
-        /// to true.
-        /// </summary>
-        /// <param name="isCalledElsedWhere">Override the toggle feature when this value is given.
-        /// It will just set the switch to the default state (Switched on). Extremely useful
-        /// when the function is called outside the scope of the event on the switch itself.</param>
-        private void ToggleSwitchDate(bool isCalledElsedWhere = false)
+        private void ToggleSwitchDate()
         {
             string[] captions = { "Use a new date", "Use today's date" };
             string[] switchDateCaptions = { "I'm using the current date", "I'm using the new date you pick" };
             string captionOfSwitchDateControl = SwitchDateControl.Text;
-            if (captionOfSwitchDateControl == captions[1] || isCalledElsedWhere)
+            if (captionOfSwitchDateControl == captions[1])
             {
                 SwitchDateControl.Text = captions[0];
                 SwitchDateCaptionControl.Text = switchDateCaptions[0];
                 PickDateControl.Enabled = false;
+                PickDateControl.Value = DateTime.Now.Date;
                 return;
             }
             SwitchDateControl.Text = captions[1];
             SwitchDateCaptionControl.Text = switchDateCaptions[1];
             PickDateControl.Enabled = true;
-            PickDateControl.Value = DateTime.Now.Date;
         }
-
         private void PickDateControl_ValueChanged(object sender, EventArgs e)
         {
             DateTime datePicked = PickDateControl.Value;
@@ -171,6 +162,7 @@ namespace FPIS.Views
                 UnitsControl.Text,
                 ProductControl.Text,
                 WarehouseControl.Text,
+                LotControl.Text,
                 ref shouldSave);
 
             if (!shouldSave)
@@ -200,7 +192,8 @@ namespace FPIS.Views
                 Date = DateOnly.FromDateTime(PickDateControl.Value),
                 Remarks = RemarksControl.Text.Trim(),
                 Type = "Receiving",
-                UserId = Guid.Parse(Main.LOGGED_USER_ID)
+                UserId = Guid.Parse(Main.LOGGED_USER_ID),
+                Lot = LotControl.Text.Trim(),
             };
             MaterialProcurementService materialProcurementService = new MaterialProcurementService(new());
             var materialProcured = materialProcurementService.SaveMaterialProcuredRecord(materialProcurement);
@@ -222,7 +215,7 @@ namespace FPIS.Views
             ReceivingService receivingService = new ReceivingService(new());
             receivingService.SaveMaterialReceivedRecord(materialReceivedRecord);
         }
-        public void ValidateFields(string supplier, string truck, string quantity, string unit, string materialProcured, string warehouse, ref bool shouldSave)
+        public void ValidateFields(string supplier, string truck, string quantity, string unit, string materialProcured, string warehouse, string lot, ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateSupplier(supplier, ref shouldSave, ref isErrorMessageDisplayed);
@@ -231,6 +224,7 @@ namespace FPIS.Views
             ValidateUnit(unit, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateProduct(materialProcured, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateWarehouse(warehouse, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateLot(lot, ref shouldSave, ref isErrorMessageDisplayed);
 
         }
         public void ValidateSupplier(string supplier, ref bool shouldSave, ref bool isErrorMessageDisplayed)
@@ -281,6 +275,14 @@ namespace FPIS.Views
                 return;
             }
         }
+        public void ValidateLot(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (lot.Length == 0)
+            {
+                DisplayErrorMessage(LotErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the lot you'll be storing the raw-material received");
+                return;
+            }
+        }
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed, string message)
         {
             shouldSave = false;
@@ -294,11 +296,12 @@ namespace FPIS.Views
         public void ResetErrorCaptions()
         {
             SupplierErrorCaption.Text =
-                TruckNumberErrorCaption.Text =
+                WarehouseErrorCaption.Text =
                 QuantityErrorCaption.Text =
                 UnitsErrorCaption.Text =
-                WarehouseErrorCaption.Text =
-                ProductErrorCaption.Text = string.Empty;
+                TruckNumberErrorCaption.Text =
+                ProductErrorCaption.Text =
+                LotErrorCaption.Text = string.Empty;
         }
         public void ResetFields()
         {
@@ -307,11 +310,12 @@ namespace FPIS.Views
                 QuantityControl.Text =
                 ProductControl.Text =
                 RemarksControl.Text =
+                WarehouseControl.Text =
+                UnitsControl.Text =
+                LotControl.Text =
                 string.Empty;
-            ToggleSwitchDate(isCalledElsedWhere: true);
-            ProductControl.StartIndex =
-                UnitsControl.StartIndex =
-                WarehouseControl.StartIndex = -1;
+            SwitchDateControl.Checked = true;
+            ProductControl.StartIndex = -1;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
         }
     }

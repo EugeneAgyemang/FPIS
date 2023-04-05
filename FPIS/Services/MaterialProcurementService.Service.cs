@@ -24,7 +24,8 @@ namespace FPIS.Services
                 Date = materialProcured.Date,
                 Remarks = materialProcured.Remarks,
                 Type = materialProcured.Type,
-                UserId = materialProcured.UserId
+                UserId = materialProcured.UserId,
+                Lot = materialProcured.Lot
             };
             appDbContext.Add(materialToBeProcured);
             appDbContext.SaveChanges();
