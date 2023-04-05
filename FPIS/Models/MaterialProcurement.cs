@@ -18,12 +18,13 @@ namespace FPIS.Models
         public string Location { get; set; }
         public string Remarks { get; set; }
         public string Type { get; set; }
+        public string Lot { get; set; }
 
         // Navigation Properties
-        
+
         public Guid ProductId { get; set; }
         [ForeignKey("ProductId")]
-        public Product  Product { get; set; }
+        public Product Product { get; set; }
         public Guid UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
