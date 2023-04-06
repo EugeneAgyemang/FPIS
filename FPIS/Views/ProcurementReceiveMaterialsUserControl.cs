@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 
 namespace FPIS.Views
 {
@@ -154,16 +155,8 @@ namespace FPIS.Views
         }
         private void SaveProcurementRecords_Click(object sender, EventArgs e)
         {
-            ResetErrorCaptions();
+            PerformValidations();
             bool shouldSave = true;
-            ValidateFields(SupplierControl.Text.Trim(),
-                TruckNumberControl.Text.Trim(),
-                QuantityControl.Text.Trim(),
-                UnitsControl.Text,
-                ProductControl.Text,
-                WarehouseControl.Text,
-                LotControl.Text,
-                ref shouldSave);
 
             if (!shouldSave)
             {
@@ -184,17 +177,7 @@ namespace FPIS.Views
         }
         private MaterialProcurement SaveMaterialProcuredRecord()
         {
-            Product selected = (Product)ProductControl.SelectedItem;
-            Models.MaterialProcurement materialProcurement = new Models.MaterialProcurement()
-            {
-                ProductId = selected.Id,
-                Location = WarehouseControl.Text.Trim(),
-                Date = DateOnly.FromDateTime(PickDateControl.Value),
-                Remarks = RemarksControl.Text.Trim(),
-                Type = "Receiving",
-                UserId = Guid.Parse(Main.LOGGED_USER_ID),
-                Lot = LotControl.Text.Trim(),
-            };
+            Models.MaterialProcurement materialProcurement = GetMaterialToBeProcured();
             MaterialProcurementService materialProcurementService = new MaterialProcurementService(new());
             var materialProcured = materialProcurementService.SaveMaterialProcuredRecord(materialProcurement);
             SaveMaterialReceivedRecord(materialProcured.Id);
@@ -202,16 +185,7 @@ namespace FPIS.Views
         }
         private void SaveMaterialReceivedRecord(Guid materialBeingProcured)
         {
-            int quantity;
-            int.TryParse(QuantityControl.Text, out quantity);
-            Receiving materialReceivedRecord = new Receiving()
-            {
-                Supplier = SupplierControl.Text.Trim(),
-                TruckNumber = TruckNumberControl.Text.Trim(),
-                Quantity = quantity,
-                Units = UnitsControl.Text,
-                MaterialProcurementId = materialBeingProcured
-            };
+            Receiving materialReceivedRecord = GetMaterialToBeReceived(materialBeingProcured);
             ReceivingService receivingService = new ReceivingService(new());
             receivingService.SaveMaterialReceivedRecord(materialReceivedRecord);
         }
@@ -317,6 +291,141 @@ namespace FPIS.Views
             SwitchDateControl.Checked = true;
             ProductControl.StartIndex = -1;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
+        }
+        private MaterialProcurement GetMaterialToBeProcured()
+        {
+            Product selected = (Product)ProductControl.SelectedItem;
+            return new MaterialProcurement()
+            {
+                ProductId = selected.Id,
+                Location = WarehouseControl.Text.Trim(),
+                Date = DateOnly.FromDateTime(PickDateControl.Value),
+                Remarks = RemarksControl.Text.Trim(),
+                Type = "Receiving",
+                UserId = Guid.Parse(Main.LOGGED_USER_ID),
+                Lot = LotControl.Text.Trim(),
+            };
+        }
+        private Receiving GetMaterialToBeReceived(Guid materialBeingProcured)
+        {
+            int quantity;
+            int.TryParse(QuantityControl.Text, out quantity);
+            return new Receiving()
+            {
+                Supplier = SupplierControl.Text.Trim(),
+                TruckNumber = TruckNumberControl.Text.Trim(),
+                Quantity = quantity,
+                Units = UnitsControl.Text,
+                MaterialProcurementId = materialBeingProcured
+            };
+        }
+        private bool PerformValidations()
+        {
+            ResetErrorCaptions();
+            bool shouldSave = true;
+            ValidateFields(SupplierControl.Text.Trim(),
+                TruckNumberControl.Text.Trim(),
+                QuantityControl.Text.Trim(),
+                UnitsControl.Text,
+                ProductControl.Text,
+                WarehouseControl.Text,
+                LotControl.Text,
+                ref shouldSave);
+
+            return shouldSave;
+        }
+        private void StartSampleRequest_Click(object sender, EventArgs e)
+        {
+            bool shouldSave = true;
+            shouldSave = PerformValidations();
+
+            if (!shouldSave)
+            {
+                return;
+            }
+
+            MaterialProcurement materialToBeProcured = GetMaterialToBeProcured();
+            Receiving materialToBeReceived = GetMaterialToBeReceived(materialToBeProcured.Id);
+            DialogResult userOption = Utils.Utils.ShowMessageBox("Do you want to send a request to Quality Control with the following details:\n\n" +
+                $"Product: {ProductControl.Text}\n" +
+                $"Warehouse: {materialToBeProcured.Location}\n" +
+                $"Lot : {materialToBeProcured.Location}\n" +
+                $"Date: {materialToBeProcured.Date.ToLongDateString()}\n" +
+                $"----------\n" +
+                $"Supplier: {materialToBeReceived.Supplier}\n" +
+                $"Truck #: {materialToBeReceived.TruckNumber}\n" +
+                $"Quantity Received: {materialToBeReceived.Quantity}\n" +
+                $"Unit : {materialToBeReceived.Units}\n" +
+                $"{((materialToBeProcured.Remarks == string.Empty) ? "" : $"Remarks: {materialToBeProcured.Remarks}")}"
+                , "Confirm Request"
+                , MessageBoxButtons.YesNo
+                , MessageBoxIcon.Question);
+            if(userOption == DialogResult.No)
+            {
+                return;
+            }
+            AnalysisService analysis = new AnalysisService(new());
+            string empId = new UserService(new()).GetEmployeeIdByGuid(Guid.Parse(Main.LOGGED_USER_ID));
+            Sample sampleCreated = analysis.CreateSample(
+                Guid.Parse(Main.LOGGED_USER_ID)
+                , empId
+                , empId
+                , DateOnly.FromDateTime(DateTime.Now)
+                , TimeOnly.FromDateTime(DateTime.Now)
+                , "Production"
+                , new List<AnalysisSampleBindingItem>()
+                    {
+                        new AnalysisSampleBindingItem()
+                        {
+                            Id = new AnalysisProductService(new())
+                                .GetAnalysisProductByProductId(
+                                    new ProductService(new())
+                                    .GetProductByName(ProductControl.Text)
+                                    .Id)
+                            .AnalysisItemId
+                        }
+                    }
+                );
+            if(sampleCreated == null)
+            {
+                Utils.Utils.ShowMessageBox(
+                    "We could not create the sample you created. Kindly try again later 🙂"
+                    , "Error Occured"
+                    , MessageBoxButtons.OK
+                    , MessageBoxIcon.Error);
+                return;
+            }
+            FreezeFields();
+            UpdateUIAfterRequestingSample();
+        }
+        private void FreezeFields()
+        {
+            IterateThroughPanel(ReceivingSetionControl);
+            IterateThroughPanel(DateProcuredSection);
+            IterateThroughPanel(MaterialProcurementSection);
+        }
+        private void IterateThroughPanel(Panel panel)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (control is MaterialTextBox || 
+                    control is MaterialComboBox || 
+                    control is MaterialSwitch ||
+                    control is MaterialMultiLineTextBox2)
+                {
+                    control.Enabled = false;
+                }
+            }
+        }
+        private void UpdateUIAfterRequestingSample()
+        {
+            StartSampleRequest.Enabled = false;
+            DoneControl.Text = "En Route";
+        }
+        public void UpdateUIAfterProcessingSample()
+        {
+            StartSampleRequest.Enabled = true;
+            DoneControl.Text = "Done";
         }
     }
 }

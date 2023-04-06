@@ -406,6 +406,7 @@
             this.StartSampleRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.StartSampleRequest.UseAccentColor = true;
             this.StartSampleRequest.UseVisualStyleBackColor = true;
+            this.StartSampleRequest.Click += new System.EventHandler(this.StartSampleRequest_Click);
             // 
             // UnitsControl
             // 
