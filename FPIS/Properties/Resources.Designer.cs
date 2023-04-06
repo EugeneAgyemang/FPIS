@@ -103,6 +103,16 @@ namespace FPIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap done_light {
+            get {
+                object obj = ResourceManager.GetObject("done_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap finish_white {
             get {
                 object obj = ResourceManager.GetObject("finish_white", resourceCulture);
@@ -146,6 +156,16 @@ namespace FPIS.Properties {
         internal static System.Drawing.Bitmap minimize_white {
             get {
                 object obj = ResourceManager.GetObject("minimize_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap not_done_light {
+            get {
+                object obj = ResourceManager.GetObject("not_done_light", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

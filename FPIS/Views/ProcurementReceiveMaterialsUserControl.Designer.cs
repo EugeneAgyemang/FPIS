@@ -48,6 +48,9 @@
             this.UnitsErrorCaption = new System.Windows.Forms.Label();
             this.MaterialProcurementDividerControl = new System.Windows.Forms.Panel();
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
+            this.DoneControl = new System.Windows.Forms.Button();
+            this.AbortProcurementRecords = new MaterialSkin.Controls.MaterialButton();
+            this.StartSampleRequest = new MaterialSkin.Controls.MaterialButton();
             this.UnitsControl = new MaterialSkin.Controls.MaterialTextBox();
             this.TruckNumberErrorCaption = new System.Windows.Forms.Label();
             this.SupplierErrorCaption = new System.Windows.Forms.Label();
@@ -128,7 +131,7 @@
             this.ReceivingSetionControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.ReceivingSetionControl.Location = new System.Drawing.Point(0, 0);
             this.ReceivingSetionControl.Name = "ReceivingSetionControl";
-            this.ReceivingSetionControl.Size = new System.Drawing.Size(500, 600);
+            this.ReceivingSetionControl.Size = new System.Drawing.Size(500, 650);
             this.ReceivingSetionControl.TabIndex = 1;
             // 
             // LotErrorCaption
@@ -321,11 +324,14 @@
             this.MaterialProcurementDividerControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.MaterialProcurementDividerControl.Location = new System.Drawing.Point(500, 0);
             this.MaterialProcurementDividerControl.Name = "MaterialProcurementDividerControl";
-            this.MaterialProcurementDividerControl.Size = new System.Drawing.Size(2, 600);
+            this.MaterialProcurementDividerControl.Size = new System.Drawing.Size(2, 650);
             this.MaterialProcurementDividerControl.TabIndex = 11;
             // 
             // MaterialProcurementSection
             // 
+            this.MaterialProcurementSection.Controls.Add(this.DoneControl);
+            this.MaterialProcurementSection.Controls.Add(this.AbortProcurementRecords);
+            this.MaterialProcurementSection.Controls.Add(this.StartSampleRequest);
             this.MaterialProcurementSection.Controls.Add(this.UnitsControl);
             this.MaterialProcurementSection.Controls.Add(this.QuantityErrorCaption);
             this.MaterialProcurementSection.Controls.Add(this.TruckNumberErrorCaption);
@@ -340,8 +346,66 @@
             this.MaterialProcurementSection.Dock = System.Windows.Forms.DockStyle.Right;
             this.MaterialProcurementSection.Location = new System.Drawing.Point(550, 0);
             this.MaterialProcurementSection.Name = "MaterialProcurementSection";
-            this.MaterialProcurementSection.Size = new System.Drawing.Size(450, 600);
+            this.MaterialProcurementSection.Size = new System.Drawing.Size(450, 650);
             this.MaterialProcurementSection.TabIndex = 2;
+            // 
+            // DoneControl
+            // 
+            this.DoneControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.DoneControl.Cursor = System.Windows.Forms.Cursors.No;
+            this.DoneControl.FlatAppearance.BorderSize = 0;
+            this.DoneControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DoneControl.ForeColor = System.Drawing.Color.White;
+            this.DoneControl.Image = global::FPIS.Properties.Resources.not_done_light;
+            this.DoneControl.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.DoneControl.Location = new System.Drawing.Point(154, 599);
+            this.DoneControl.Name = "DoneControl";
+            this.DoneControl.Size = new System.Drawing.Size(101, 36);
+            this.DoneControl.TabIndex = 23;
+            this.DoneControl.Text = "  Ready";
+            this.DoneControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.DoneControl.UseVisualStyleBackColor = false;
+            // 
+            // AbortProcurementRecords
+            // 
+            this.AbortProcurementRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AbortProcurementRecords.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AbortProcurementRecords.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.AbortProcurementRecords.Depth = 0;
+            this.AbortProcurementRecords.Enabled = false;
+            this.AbortProcurementRecords.HighEmphasis = true;
+            this.AbortProcurementRecords.Icon = null;
+            this.AbortProcurementRecords.Location = new System.Drawing.Point(278, 599);
+            this.AbortProcurementRecords.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AbortProcurementRecords.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AbortProcurementRecords.Name = "AbortProcurementRecords";
+            this.AbortProcurementRecords.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.AbortProcurementRecords.Size = new System.Drawing.Size(72, 36);
+            this.AbortProcurementRecords.TabIndex = 22;
+            this.AbortProcurementRecords.Text = " Abort ";
+            this.AbortProcurementRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.AbortProcurementRecords.UseAccentColor = true;
+            this.AbortProcurementRecords.UseVisualStyleBackColor = true;
+            // 
+            // StartSampleRequest
+            // 
+            this.StartSampleRequest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.StartSampleRequest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartSampleRequest.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.StartSampleRequest.Depth = 0;
+            this.StartSampleRequest.HighEmphasis = true;
+            this.StartSampleRequest.Icon = null;
+            this.StartSampleRequest.Location = new System.Drawing.Point(8, 599);
+            this.StartSampleRequest.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.StartSampleRequest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.StartSampleRequest.Name = "StartSampleRequest";
+            this.StartSampleRequest.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.StartSampleRequest.Size = new System.Drawing.Size(123, 36);
+            this.StartSampleRequest.TabIndex = 21;
+            this.StartSampleRequest.Text = " Send Sample";
+            this.StartSampleRequest.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.StartSampleRequest.UseAccentColor = true;
+            this.StartSampleRequest.UseVisualStyleBackColor = true;
             // 
             // UnitsControl
             // 
@@ -424,9 +488,10 @@
             this.SaveProcurementRecords.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveProcurementRecords.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.SaveProcurementRecords.Depth = 0;
+            this.SaveProcurementRecords.Enabled = false;
             this.SaveProcurementRecords.HighEmphasis = true;
             this.SaveProcurementRecords.Icon = null;
-            this.SaveProcurementRecords.Location = new System.Drawing.Point(361, 539);
+            this.SaveProcurementRecords.Location = new System.Drawing.Point(374, 599);
             this.SaveProcurementRecords.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveProcurementRecords.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveProcurementRecords.Name = "SaveProcurementRecords";
@@ -447,7 +512,7 @@
             this.Controls.Add(this.MaterialProcurementDividerControl);
             this.Controls.Add(this.ReceivingSetionControl);
             this.Name = "ProcurementReceiveMaterialsUserControl";
-            this.Size = new System.Drawing.Size(1000, 600);
+            this.Size = new System.Drawing.Size(1000, 650);
             this.ReceivingSetionControl.ResumeLayout(false);
             this.ReceivingSetionControl.PerformLayout();
             this.DateProcuredSection.ResumeLayout(false);
@@ -468,7 +533,7 @@
         private Panel MaterialProcurementSection;
         private MaterialSkin.Controls.MaterialComboBox ProductControl;
         private DateTimePicker PickDateControl;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton StartSampleRequest;
         private MaterialSkin.Controls.MaterialButton SaveProcurementRecords;
         private MaterialSkin.Controls.MaterialTextBox SupplierControl;
         private MaterialSkin.Controls.MaterialLabel RemarksCaptionControl;
@@ -488,5 +553,7 @@
         private MaterialSkin.Controls.MaterialTextBox WarehouseControl;
         private Label LotErrorCaption;
         private MaterialSkin.Controls.MaterialTextBox UnitsControl;
+        private MaterialSkin.Controls.MaterialButton AbortProcurementRecords;
+        private Button DoneControl;
     }
 }
