@@ -411,7 +411,8 @@ namespace FPIS.Views
                 if (control is MaterialTextBox || 
                     control is MaterialComboBox || 
                     control is MaterialSwitch ||
-                    control is MaterialMultiLineTextBox2)
+                    control is MaterialMultiLineTextBox2 ||
+                    control is DateTimePicker)
                 {
                     control.Enabled = false;
                 }
