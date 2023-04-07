@@ -20,6 +20,7 @@ namespace FPIS.Views
     public partial class ProcurementReceiveMaterialsUserControl : UserControl
     {
         private static ProcurementReceiveMaterialsUserControl instance;
+        private const string DIRECTORY_NAME = "Material Procured";
         bool allowKeyboardShortcut = false;
         private ProcurementReceiveMaterialsUserControl()
         {
@@ -42,6 +43,10 @@ namespace FPIS.Views
                 }
                 else
                 {
+                    // This code will ensure the user's previous request shows all the time when they click 
+                    // receive materials from the procurement section (if any). This is fine until the user
+                    // tries to add new data and clicks on a different tab, they will lose their new entry
+                    //instance.LoadCachedData();
                     return instance;
                 }
             }
@@ -399,22 +404,24 @@ namespace FPIS.Views
             if(sampleCreated == null)
             {
                 Utils.Utils.ShowMessageBox(
-                    "We could not create the sample you created. Kindly try again later 🙂"
+                    "We could not create the sample you requested. Kindly try again later 🙂"
                     , "Error Occured"
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
                 return;
             }
-            FreezeFields();
+            int totalNumberOfSamplesRequested = GetSampleFilesForCurrentUser().Length + 1;
             MaterialProcurementSchema materialProcurementSchema = new MaterialProcurementSchema()
             {
                 SampleDetail = sampleCreated.SampleDetails.FirstOrDefault()
                 ,
                 Receiving = materialToBeReceived
+                ,
+                SchemaId = $"{totalNumberOfSamplesRequested}"
             };
             sampleCreated.SampleDetails.Clear();
             materialToBeReceived.MaterialProcurement = materialToBeProcured;
-            JsonParser.Serialize<MaterialProcurementSchema>(materialProcurementSchema, Path.Combine("Material Procured"
+            JsonParser.Serialize<MaterialProcurementSchema>(materialProcurementSchema, Path.Combine(DIRECTORY_NAME
                                                             , $"material-procured" +
                                                             $"-{sampleCreated.Date.Month}" +
                                                             $"-{sampleCreated.Date.Day}" +
@@ -422,11 +429,13 @@ namespace FPIS.Views
                                                             $"-{sampleCreated.Time.Minute}" +
                                                             $"-{sampleCreated.Time.Second}" +
                                                             $".json"));
+            FreezeFields();
             UpdateUIAfterRequestingSample();
+            LoadCachedData();
         }
         private void FreezeFields()
         {
-            IterateThroughPanel(ReceivingSetionControl, false);
+            IterateThroughPanel(ReceivingSectionControl, false);
             IterateThroughPanel(DateProcuredSection, false);
             IterateThroughPanel(MaterialProcurementSection, false);
         }
@@ -450,7 +459,9 @@ namespace FPIS.Views
             StartSampleRequest.Enabled = false;
             DoneControl.Text = "En Route";
             Snackbar.Visible = true;
+            EnableKeyboardShourtcut();
         }
+        // TODO: WILL BE USED WHEN QC PROVIDES RESULTS ON SAMPLE
         public void UpdateUIAfterProcessingSample()
         {
             StartSampleRequest.Enabled = true;
@@ -467,38 +478,29 @@ namespace FPIS.Views
         }
         private void LoadCachedData()
         {
-            FileInfo[] files = JsonParser.GetFIles(Path.Combine("Material Procured"));
-            int cachedMaterialProcurementRequests = files.Length;
-            if (cachedMaterialProcurementRequests == 1)
+            ViewSampleRequestedControl.Items.Clear();
+            FileInfo[] files = GetSampleFilesForCurrentUser();
+            int cachedRequests = files.Length;
+            if (cachedRequests == 0)
             {
+                return;
+            }
+            if (cachedRequests == 1)
+            {
+                ListOfRequestedSamplesControl.Visible = false;
+                ReceivingSectionControl.Location = new Point(25, 40);
                 MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
                                                         .Deserialize<MaterialProcurementSchema>
-                                                        (Path.Combine("Material Procured"
-                                                                        , files[0].Name)
-                                                        );
-                Receiving receiving = cachedData.Receiving;
-                MaterialProcurement materialProcurement = receiving.MaterialProcurement;
-
-                ProductControl.Text = new ProductService(new())
-                                            .GetProductById
-                                            (materialProcurement.ProductId)
-                                            .ToString();
-                WarehouseControl.Text = materialProcurement.Location;
-                PickDateControl.Value = materialProcurement.Date.ToDateTime(TimeOnly.MinValue);
-                RemarksControl.Text = materialProcurement.Remarks;
-                LotControl.Text = materialProcurement.Lot;
-                SupplierControl.Text = receiving.Supplier;
-                QuantityControl.Text = $"{receiving.Quantity}";
-                UnitsControl.Text = receiving.Units;
-                TruckNumberControl.Text = receiving.TruckNumber;
-                SwitchDateControl.Checked = false;
-                UpdateUIAfterRequestingSample();
-                FreezeFields();
+                                                        (files[0].FullName);
+                PopulateFields(cachedData);
+                return;
             }
+            ListOfRequestedSamplesControl.Visible = true;
+            ReceivingSectionControl.Location = new Point(25, 89);
         }
         private void UnfreezeFields()
         {
-            IterateThroughPanel(ReceivingSetionControl, true);
+            IterateThroughPanel(ReceivingSectionControl, true);
             IterateThroughPanel(DateProcuredSection, true);
             IterateThroughPanel(MaterialProcurementSection, true);
             StartSampleRequest.Enabled = true;
@@ -519,7 +521,7 @@ namespace FPIS.Views
         {
             Utils.Utils.ShowMessageBox("If you wish to send some more samples to Quality" +
                 " Control click the plus (+) icon to the left.\n\nFeel free to send as " +
-                "many samples to Quality Control 👍\n\nYou can always access the menu to the left" +
+                "many samples to Quality Control 👍\n\nYou can always access this command" +
                 " using the keyboard shortcuts Ctrl + N", "Info", MessageBoxButtons.OK);
         }
 
@@ -550,6 +552,73 @@ namespace FPIS.Views
         private void HideSnackBar()
         {
             Snackbar.Visible = false;
+        }
+        private void PopulateFields(MaterialProcurementSchema cachedData)
+        {
+            Receiving receiving = cachedData.Receiving;
+            MaterialProcurement materialProcurement = receiving.MaterialProcurement;
+
+            ProductControl.Text = new ProductService(new())
+                                        .GetProductById
+                                        (materialProcurement.ProductId)
+                                        .ToString();
+            WarehouseControl.Text = materialProcurement.Location;
+            PickDateControl.Value = materialProcurement.Date.ToDateTime(TimeOnly.MinValue);
+            RemarksControl.Text = materialProcurement.Remarks;
+            LotControl.Text = materialProcurement.Lot;
+            SupplierControl.Text = receiving.Supplier;
+            QuantityControl.Text = $"{receiving.Quantity}";
+            UnitsControl.Text = receiving.Units;
+            TruckNumberControl.Text = receiving.TruckNumber;
+            SwitchDateControl.Checked = false;
+            UpdateUIAfterRequestingSample();
+            FreezeFields();
+        }
+
+        private void ListOfRequestedSamplesControl_SaveClick(object sender, EventArgs e)
+        {
+            string sampleRequestSelected = ViewSampleRequestedControl.Text;
+            if (sampleRequestSelected == string.Empty)
+            {
+                Utils.Utils.ShowMessageBox("Kindly select any of the sample's you requested earlier"
+                                            , "Info"
+                                            , MessageBoxButtons.OK);
+                return;
+            }
+
+            foreach (FileInfo file in GetSampleFilesForCurrentUser())
+            {
+                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
+                                                        .Deserialize<MaterialProcurementSchema>
+                                                        (file.FullName);
+                string schemaId = sampleRequestSelected.Split("#")[1].Split(" ")[0];
+                if (schemaId == cachedData.SchemaId)
+                {
+                    PopulateFields(cachedData);
+                }
+            }
+            UpdateUIAfterRequestingSample();
+            FreezeFields();
+        }
+        private FileInfo[] GetSampleFilesForCurrentUser()
+        {
+            string selectedItem = ViewSampleRequestedControl.Text;
+            ViewSampleRequestedControl.Items.Clear();
+            FileInfo[] allFiles = JsonParser.GetFiles(Path.Combine(DIRECTORY_NAME));
+            List<FileInfo> files = new List<FileInfo>();
+            foreach (FileInfo file in allFiles)
+            {
+                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
+                                                    .Deserialize<MaterialProcurementSchema>
+                                                    (file.FullName);
+                if (cachedData.SampleDetail.Sample.UserId == Guid.Parse(Main.LOGGED_USER_ID))
+                {
+                    ViewSampleRequestedControl.Items.Add(cachedData);
+                    files.Add(file);
+                }
+            }
+            ViewSampleRequestedControl.Text = selectedItem;
+            return files.ToArray();
         }
     }
 }

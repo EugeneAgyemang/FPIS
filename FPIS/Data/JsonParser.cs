@@ -25,7 +25,9 @@ namespace FPIS.Data
         /// </summary>
         /// <param name="obj">The object to be serialized. Can be a reference 
         /// type that stores a reference</param>
-        /// <param name="fileName">The name for the JSON file that gets created</param>
+        /// <param name="fileName">The name for the JSON file that gets created. 
+        /// The caller would have to specify a sub-directory as part of the filename when
+        /// retrieving a file from a specific sub directory</param>
         /// <returns>The path to the newly created file</returns>
         public static string Serialize<T>(object obj, string fileName)
         {
@@ -34,6 +36,16 @@ namespace FPIS.Data
             File.WriteAllText(filePath, json);
             return filePath;
         }
+        /// <summary>
+        /// Deserializes the JSON file given into the object T
+        /// </summary>
+        /// <typeparam name="T">Any defined type of yours. For instance the 
+        /// MaterialProcurementSchema</typeparam>
+        /// <param name="fileName">The name for the JSON file. The system would
+        /// search the default directory FPIS. The caller would have to
+        /// specify a sub-directory as part of the filename when
+        /// retrieving a file from a specific sub directory</param>
+        /// <returns></returns>
         public static object Deserialize<T>(string fileName)
         {
             string json = File.ReadAllText(Path.Combine(dirPath, fileName));
@@ -48,11 +60,12 @@ namespace FPIS.Data
             return Directory.CreateDirectory(Path.Combine(dirPath));
         }
         /// <summary>
-        /// Gets the files in a particular directory
+        /// Gets the files in a particular directory found in the default
+        /// FPIS directory
         /// </summary>
         /// <param name="directory">The director to search</param>
         /// <returns>All the files in the specified directory</returns>
-        public static FileInfo[] GetFIles(string directory)
+        public static FileInfo[] GetFiles(string directory)
         {
             return new DirectoryInfo(Path.Combine(dirPath, directory)).GetFiles();
         }

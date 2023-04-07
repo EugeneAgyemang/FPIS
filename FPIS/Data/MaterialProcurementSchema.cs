@@ -13,7 +13,16 @@ namespace FPIS.Data
     /// </summary>
     public class MaterialProcurementSchema
     {
+        public string SchemaId { get; set; }
         public SampleDetail SampleDetail { get; set; }
         public Receiving Receiving { get; set; }
+        public override string ToString()
+        {
+            Sample sample = SampleDetail.Sample;
+            return $"Request #{SchemaId} " +
+                $"@ {sample.Time.ToShortTimeString()} " +
+                $"on " +
+                $"{sample.Date.ToShortDateString()}";
+        }
     }
 }

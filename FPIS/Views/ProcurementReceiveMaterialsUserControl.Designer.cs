@@ -31,19 +31,22 @@
             this.SupplierControl = new MaterialSkin.Controls.MaterialTextBox();
             this.TruckNumberControl = new MaterialSkin.Controls.MaterialTextBox();
             this.QuantityControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.ReceivingSetionControl = new System.Windows.Forms.Panel();
-            this.LotErrorCaption = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ListOfRequestedSamplesControl = new MaterialSkin.Controls.MaterialExpansionPanel();
+            this.ViewSampleRequestedControl = new MaterialSkin.Controls.MaterialComboBox();
+            this.ReceivingSectionControl = new System.Windows.Forms.Panel();
             this.WarehouseControl = new MaterialSkin.Controls.MaterialTextBox();
             this.DateProcuredSection = new System.Windows.Forms.Panel();
             this.SwitchDateCaptionControl = new MaterialSkin.Controls.MaterialLabel();
             this.SelectedDateControl = new MaterialSkin.Controls.MaterialLabel();
             this.SwitchDateControl = new MaterialSkin.Controls.MaterialSwitch();
+            this.LotErrorCaption = new System.Windows.Forms.Label();
             this.LotControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.WarehouseErrorCaption = new System.Windows.Forms.Label();
-            this.ProductErrorCaption = new System.Windows.Forms.Label();
             this.ProductControl = new MaterialSkin.Controls.MaterialComboBox();
+            this.WarehouseErrorCaption = new System.Windows.Forms.Label();
             this.PickDateControl = new System.Windows.Forms.DateTimePicker();
+            this.ProductErrorCaption = new System.Windows.Forms.Label();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.OpenHelper = new System.Windows.Forms.PictureBox();
             this.QuantityErrorCaption = new System.Windows.Forms.Label();
             this.UnitsErrorCaption = new System.Windows.Forms.Label();
@@ -51,6 +54,7 @@
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
             this.Snackbar = new MaterialSkin.Controls.MaterialCard();
             this.AddNewRequest = new System.Windows.Forms.PictureBox();
+            this.CloseSnackbarControl = new System.Windows.Forms.PictureBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.DoneControl = new System.Windows.Forms.Button();
             this.AbortProcurementRecords = new MaterialSkin.Controls.MaterialButton();
@@ -61,8 +65,9 @@
             this.RemarksCaptionControl = new MaterialSkin.Controls.MaterialLabel();
             this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.SaveProcurementRecords = new MaterialSkin.Controls.MaterialButton();
-            this.CloseSnackbarControl = new System.Windows.Forms.PictureBox();
-            this.ReceivingSetionControl.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.ListOfRequestedSamplesControl.SuspendLayout();
+            this.ReceivingSectionControl.SuspendLayout();
             this.DateProcuredSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OpenHelper)).BeginInit();
             this.MaterialProcurementSection.SuspendLayout();
@@ -126,32 +131,79 @@
             this.QuantityControl.TrailingIcon = null;
             this.QuantityControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityControl_KeyPress);
             // 
-            // ReceivingSetionControl
+            // panel2
             // 
-            this.ReceivingSetionControl.Controls.Add(this.LotErrorCaption);
-            this.ReceivingSetionControl.Controls.Add(this.WarehouseControl);
-            this.ReceivingSetionControl.Controls.Add(this.DateProcuredSection);
-            this.ReceivingSetionControl.Controls.Add(this.LotControl);
-            this.ReceivingSetionControl.Controls.Add(this.materialLabel1);
-            this.ReceivingSetionControl.Controls.Add(this.WarehouseErrorCaption);
-            this.ReceivingSetionControl.Controls.Add(this.ProductErrorCaption);
-            this.ReceivingSetionControl.Controls.Add(this.ProductControl);
-            this.ReceivingSetionControl.Controls.Add(this.PickDateControl);
-            this.ReceivingSetionControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ReceivingSetionControl.Location = new System.Drawing.Point(0, 0);
-            this.ReceivingSetionControl.Name = "ReceivingSetionControl";
-            this.ReceivingSetionControl.Size = new System.Drawing.Size(500, 650);
-            this.ReceivingSetionControl.TabIndex = 1;
+            this.panel2.Controls.Add(this.ListOfRequestedSamplesControl);
+            this.panel2.Controls.Add(this.ReceivingSectionControl);
+            this.panel2.Controls.Add(this.materialLabel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(500, 650);
+            this.panel2.TabIndex = 1;
             // 
-            // LotErrorCaption
+            // ListOfRequestedSamplesControl
             // 
-            this.LotErrorCaption.AutoSize = true;
-            this.LotErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.LotErrorCaption.Location = new System.Drawing.Point(25, 317);
-            this.LotErrorCaption.Name = "LotErrorCaption";
-            this.LotErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.LotErrorCaption.TabIndex = 22;
-            this.LotErrorCaption.Tag = "";
+            this.ListOfRequestedSamplesControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ListOfRequestedSamplesControl.CancelButtonText = "";
+            this.ListOfRequestedSamplesControl.Collapse = true;
+            this.ListOfRequestedSamplesControl.Controls.Add(this.ViewSampleRequestedControl);
+            this.ListOfRequestedSamplesControl.Depth = 0;
+            this.ListOfRequestedSamplesControl.Description = "";
+            this.ListOfRequestedSamplesControl.ExpandHeight = 200;
+            this.ListOfRequestedSamplesControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ListOfRequestedSamplesControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ListOfRequestedSamplesControl.Location = new System.Drawing.Point(25, 55);
+            this.ListOfRequestedSamplesControl.Margin = new System.Windows.Forms.Padding(16, 1, 16, 0);
+            this.ListOfRequestedSamplesControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ListOfRequestedSamplesControl.Name = "ListOfRequestedSamplesControl";
+            this.ListOfRequestedSamplesControl.Padding = new System.Windows.Forms.Padding(24, 64, 24, 16);
+            this.ListOfRequestedSamplesControl.Size = new System.Drawing.Size(400, 48);
+            this.ListOfRequestedSamplesControl.TabIndex = 23;
+            this.ListOfRequestedSamplesControl.Title = "Choose a sample you requested   ";
+            this.ListOfRequestedSamplesControl.UseAccentColor = true;
+            this.ListOfRequestedSamplesControl.ValidationButtonEnable = true;
+            this.ListOfRequestedSamplesControl.ValidationButtonText = "Load";
+            this.ListOfRequestedSamplesControl.Visible = false;
+            this.ListOfRequestedSamplesControl.SaveClick += new System.EventHandler(this.ListOfRequestedSamplesControl_SaveClick);
+            // 
+            // ViewSampleRequestedControl
+            // 
+            this.ViewSampleRequestedControl.AutoResize = false;
+            this.ViewSampleRequestedControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ViewSampleRequestedControl.Depth = 0;
+            this.ViewSampleRequestedControl.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ViewSampleRequestedControl.DropDownHeight = 174;
+            this.ViewSampleRequestedControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ViewSampleRequestedControl.DropDownWidth = 121;
+            this.ViewSampleRequestedControl.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ViewSampleRequestedControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ViewSampleRequestedControl.FormattingEnabled = true;
+            this.ViewSampleRequestedControl.Hint = "Pick a sample";
+            this.ViewSampleRequestedControl.IntegralHeight = false;
+            this.ViewSampleRequestedControl.ItemHeight = 43;
+            this.ViewSampleRequestedControl.Location = new System.Drawing.Point(27, 56);
+            this.ViewSampleRequestedControl.MaxDropDownItems = 4;
+            this.ViewSampleRequestedControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.ViewSampleRequestedControl.Name = "ViewSampleRequestedControl";
+            this.ViewSampleRequestedControl.Size = new System.Drawing.Size(346, 49);
+            this.ViewSampleRequestedControl.StartIndex = 0;
+            this.ViewSampleRequestedControl.TabIndex = 2;
+            // 
+            // ReceivingSectionControl
+            // 
+            this.ReceivingSectionControl.Controls.Add(this.WarehouseControl);
+            this.ReceivingSectionControl.Controls.Add(this.DateProcuredSection);
+            this.ReceivingSectionControl.Controls.Add(this.LotErrorCaption);
+            this.ReceivingSectionControl.Controls.Add(this.LotControl);
+            this.ReceivingSectionControl.Controls.Add(this.ProductControl);
+            this.ReceivingSectionControl.Controls.Add(this.WarehouseErrorCaption);
+            this.ReceivingSectionControl.Controls.Add(this.PickDateControl);
+            this.ReceivingSectionControl.Controls.Add(this.ProductErrorCaption);
+            this.ReceivingSectionControl.Location = new System.Drawing.Point(25, 40);
+            this.ReceivingSectionControl.Name = "ReceivingSectionControl";
+            this.ReceivingSectionControl.Size = new System.Drawing.Size(451, 600);
+            this.ReceivingSectionControl.TabIndex = 23;
             // 
             // WarehouseControl
             // 
@@ -161,13 +213,13 @@
             this.WarehouseControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.WarehouseControl.Hint = "Warehouse";
             this.WarehouseControl.LeadingIcon = null;
-            this.WarehouseControl.Location = new System.Drawing.Point(25, 174);
+            this.WarehouseControl.Location = new System.Drawing.Point(3, 134);
             this.WarehouseControl.MaxLength = 50;
             this.WarehouseControl.MouseState = MaterialSkin.MouseState.OUT;
             this.WarehouseControl.Multiline = false;
             this.WarehouseControl.Name = "WarehouseControl";
             this.WarehouseControl.Size = new System.Drawing.Size(400, 50);
-            this.WarehouseControl.TabIndex = 1;
+            this.WarehouseControl.TabIndex = 6;
             this.WarehouseControl.Text = "";
             this.WarehouseControl.TrailingIcon = null;
             // 
@@ -176,10 +228,10 @@
             this.DateProcuredSection.Controls.Add(this.SwitchDateCaptionControl);
             this.DateProcuredSection.Controls.Add(this.SelectedDateControl);
             this.DateProcuredSection.Controls.Add(this.SwitchDateControl);
-            this.DateProcuredSection.Location = new System.Drawing.Point(25, 356);
+            this.DateProcuredSection.Location = new System.Drawing.Point(-3, 316);
             this.DateProcuredSection.Name = "DateProcuredSection";
             this.DateProcuredSection.Size = new System.Drawing.Size(456, 100);
-            this.DateProcuredSection.TabIndex = 3;
+            this.DateProcuredSection.TabIndex = 8;
             // 
             // SwitchDateCaptionControl
             // 
@@ -187,7 +239,7 @@
             this.SwitchDateCaptionControl.Depth = 0;
             this.SwitchDateCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SwitchDateCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SwitchDateCaptionControl.Location = new System.Drawing.Point(0, 16);
+            this.SwitchDateCaptionControl.Location = new System.Drawing.Point(3, 16);
             this.SwitchDateCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchDateCaptionControl.Name = "SwitchDateCaptionControl";
             this.SwitchDateCaptionControl.Size = new System.Drawing.Size(162, 17);
@@ -214,7 +266,7 @@
             this.SwitchDateControl.Checked = true;
             this.SwitchDateControl.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SwitchDateControl.Depth = 0;
-            this.SwitchDateControl.Location = new System.Drawing.Point(0, 33);
+            this.SwitchDateControl.Location = new System.Drawing.Point(3, 33);
             this.SwitchDateControl.Margin = new System.Windows.Forms.Padding(0);
             this.SwitchDateControl.MouseLocation = new System.Drawing.Point(-1, -1);
             this.SwitchDateControl.MouseState = MaterialSkin.MouseState.HOVER;
@@ -226,6 +278,16 @@
             this.SwitchDateControl.UseVisualStyleBackColor = true;
             this.SwitchDateControl.CheckedChanged += new System.EventHandler(this.SwitchDateControl_CheckedChanged);
             // 
+            // LotErrorCaption
+            // 
+            this.LotErrorCaption.AutoSize = true;
+            this.LotErrorCaption.ForeColor = System.Drawing.Color.Red;
+            this.LotErrorCaption.Location = new System.Drawing.Point(3, 277);
+            this.LotErrorCaption.Name = "LotErrorCaption";
+            this.LotErrorCaption.Size = new System.Drawing.Size(0, 15);
+            this.LotErrorCaption.TabIndex = 22;
+            this.LotErrorCaption.Tag = "";
+            // 
             // LotControl
             // 
             this.LotControl.AnimateReadOnly = false;
@@ -234,46 +296,15 @@
             this.LotControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LotControl.Hint = "Lot";
             this.LotControl.LeadingIcon = null;
-            this.LotControl.Location = new System.Drawing.Point(25, 264);
+            this.LotControl.Location = new System.Drawing.Point(3, 224);
             this.LotControl.MaxLength = 50;
             this.LotControl.MouseState = MaterialSkin.MouseState.OUT;
             this.LotControl.Multiline = false;
             this.LotControl.Name = "LotControl";
             this.LotControl.Size = new System.Drawing.Size(400, 50);
-            this.LotControl.TabIndex = 2;
+            this.LotControl.TabIndex = 7;
             this.LotControl.Text = "";
             this.LotControl.TrailingIcon = null;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(25, 13);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(225, 24);
-            this.materialLabel1.TabIndex = 15;
-            this.materialLabel1.Text = "Store Materials Procured";
-            // 
-            // WarehouseErrorCaption
-            // 
-            this.WarehouseErrorCaption.AutoSize = true;
-            this.WarehouseErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.WarehouseErrorCaption.Location = new System.Drawing.Point(25, 226);
-            this.WarehouseErrorCaption.Name = "WarehouseErrorCaption";
-            this.WarehouseErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.WarehouseErrorCaption.TabIndex = 13;
-            // 
-            // ProductErrorCaption
-            // 
-            this.ProductErrorCaption.AutoSize = true;
-            this.ProductErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ProductErrorCaption.Location = new System.Drawing.Point(25, 134);
-            this.ProductErrorCaption.Name = "ProductErrorCaption";
-            this.ProductErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.ProductErrorCaption.TabIndex = 12;
             // 
             // ProductControl
             // 
@@ -290,23 +321,54 @@
             this.ProductControl.Hint = "Material Procured";
             this.ProductControl.IntegralHeight = false;
             this.ProductControl.ItemHeight = 43;
-            this.ProductControl.Location = new System.Drawing.Point(25, 82);
+            this.ProductControl.Location = new System.Drawing.Point(3, 42);
             this.ProductControl.MaxDropDownItems = 4;
             this.ProductControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ProductControl.Name = "ProductControl";
             this.ProductControl.Size = new System.Drawing.Size(400, 49);
             this.ProductControl.StartIndex = 0;
-            this.ProductControl.TabIndex = 0;
+            this.ProductControl.TabIndex = 5;
+            // 
+            // WarehouseErrorCaption
+            // 
+            this.WarehouseErrorCaption.AutoSize = true;
+            this.WarehouseErrorCaption.ForeColor = System.Drawing.Color.Red;
+            this.WarehouseErrorCaption.Location = new System.Drawing.Point(3, 187);
+            this.WarehouseErrorCaption.Name = "WarehouseErrorCaption";
+            this.WarehouseErrorCaption.Size = new System.Drawing.Size(0, 15);
+            this.WarehouseErrorCaption.TabIndex = 13;
             // 
             // PickDateControl
             // 
             this.PickDateControl.Enabled = false;
             this.PickDateControl.Font = new System.Drawing.Font("Roboto Condensed", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PickDateControl.Location = new System.Drawing.Point(25, 498);
+            this.PickDateControl.Location = new System.Drawing.Point(3, 458);
             this.PickDateControl.Name = "PickDateControl";
             this.PickDateControl.Size = new System.Drawing.Size(400, 30);
-            this.PickDateControl.TabIndex = 4;
+            this.PickDateControl.TabIndex = 9;
             this.PickDateControl.ValueChanged += new System.EventHandler(this.PickDateControl_ValueChanged);
+            // 
+            // ProductErrorCaption
+            // 
+            this.ProductErrorCaption.AutoSize = true;
+            this.ProductErrorCaption.ForeColor = System.Drawing.Color.Red;
+            this.ProductErrorCaption.Location = new System.Drawing.Point(3, 94);
+            this.ProductErrorCaption.Name = "ProductErrorCaption";
+            this.ProductErrorCaption.Size = new System.Drawing.Size(0, 15);
+            this.ProductErrorCaption.TabIndex = 12;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel1.Location = new System.Drawing.Point(25, 13);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(225, 24);
+            this.materialLabel1.TabIndex = 15;
+            this.materialLabel1.Text = "Store Materials Procured";
             // 
             // OpenHelper
             // 
@@ -401,7 +463,19 @@
             this.AddNewRequest.TabIndex = 24;
             this.AddNewRequest.TabStop = false;
             this.AddNewRequest.Click += new System.EventHandler(this.AddNewRequest_Click);
-            //
+            // 
+            // CloseSnackbarControl
+            // 
+            this.CloseSnackbarControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseSnackbarControl.Image = global::FPIS.Properties.Resources.close_dark;
+            this.CloseSnackbarControl.Location = new System.Drawing.Point(301, 8);
+            this.CloseSnackbarControl.Name = "CloseSnackbarControl";
+            this.CloseSnackbarControl.Size = new System.Drawing.Size(18, 18);
+            this.CloseSnackbarControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseSnackbarControl.TabIndex = 23;
+            this.CloseSnackbarControl.TabStop = false;
+            this.CloseSnackbarControl.Click += new System.EventHandler(this.CloseSnackbarControl_Click);
+            // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
@@ -571,18 +645,6 @@
             this.SaveProcurementRecords.UseAccentColor = true;
             this.SaveProcurementRecords.UseVisualStyleBackColor = true;
             this.SaveProcurementRecords.Click += new System.EventHandler(this.SaveProcurementRecords_Click);
-            //
-            // CloseSnackbarControl
-            // 
-            this.CloseSnackbarControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseSnackbarControl.Image = global::FPIS.Properties.Resources.close_dark;
-            this.CloseSnackbarControl.Location = new System.Drawing.Point(301, 8);
-            this.CloseSnackbarControl.Name = "CloseSnackbarControl";
-            this.CloseSnackbarControl.Size = new System.Drawing.Size(18, 18);
-            this.CloseSnackbarControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseSnackbarControl.TabIndex = 23;
-            this.CloseSnackbarControl.TabStop = false;
-            this.CloseSnackbarControl.Click += new System.EventHandler(this.CloseSnackbarControl_Click);
             // 
             // ProcurementReceiveMaterialsUserControl
             // 
@@ -590,12 +652,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MaterialProcurementSection);
             this.Controls.Add(this.MaterialProcurementDividerControl);
-            this.Controls.Add(this.ReceivingSetionControl);
+            this.Controls.Add(this.panel2);
             this.Name = "ProcurementReceiveMaterialsUserControl";
             this.Size = new System.Drawing.Size(1000, 650);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProcurementReceiveMaterialsUserControl_KeyDown);
-            this.ReceivingSetionControl.ResumeLayout(false);
-            this.ReceivingSetionControl.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ListOfRequestedSamplesControl.ResumeLayout(false);
+            this.ListOfRequestedSamplesControl.PerformLayout();
+            this.ReceivingSectionControl.ResumeLayout(false);
+            this.ReceivingSectionControl.PerformLayout();
             this.DateProcuredSection.ResumeLayout(false);
             this.DateProcuredSection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OpenHelper)).EndInit();
@@ -614,11 +680,9 @@
         private MaterialSkin.Controls.MaterialTextBox SuplierControl;
         private MaterialSkin.Controls.MaterialTextBox TruckNumberControl;
         private MaterialSkin.Controls.MaterialTextBox QuantityControl;
-        private Panel ReceivingSetionControl;
+        private Panel panel2;
         private Panel MaterialProcurementDividerControl;
         private Panel MaterialProcurementSection;
-        private MaterialSkin.Controls.MaterialComboBox ProductControl;
-        private DateTimePicker PickDateControl;
         private MaterialSkin.Controls.MaterialButton StartSampleRequest;
         private MaterialSkin.Controls.MaterialButton SaveProcurementRecords;
         private MaterialSkin.Controls.MaterialTextBox SupplierControl;
@@ -630,13 +694,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private Label UnitsErrorCaption;
         private Label TruckNumberErrorCaption;
-        private Panel DateProcuredSection;
         private Label QuantityErrorCaption;
-        private MaterialSkin.Controls.MaterialLabel SwitchDateCaptionControl;
-        private MaterialSkin.Controls.MaterialLabel SelectedDateControl;
-        private MaterialSkin.Controls.MaterialSwitch SwitchDateControl;
-        private MaterialSkin.Controls.MaterialTextBox LotControl;
-        private MaterialSkin.Controls.MaterialTextBox WarehouseControl;
         private Label LotErrorCaption;
         private MaterialSkin.Controls.MaterialTextBox UnitsControl;
         private MaterialSkin.Controls.MaterialButton AbortProcurementRecords;
@@ -647,5 +705,18 @@
         private MaterialSkin.Controls.MaterialCard Snackbar;
         private PictureBox AddNewRequest;
         private PictureBox OpenHelper;
+        private MaterialSkin.Controls.MaterialExpansionPanel materialExpansionPanel1;
+        private Panel ReceivingSetionControl;
+        private MaterialSkin.Controls.MaterialTextBox WarehouseControl;
+        private Panel DateProcuredSection;
+        private MaterialSkin.Controls.MaterialLabel SwitchDateCaptionControl;
+        private MaterialSkin.Controls.MaterialLabel SelectedDateControl;
+        private MaterialSkin.Controls.MaterialSwitch SwitchDateControl;
+        private MaterialSkin.Controls.MaterialTextBox LotControl;
+        private MaterialSkin.Controls.MaterialComboBox ProductControl;
+        private DateTimePicker PickDateControl;
+        private Panel ReceivingSectionControl;
+        private MaterialSkin.Controls.MaterialExpansionPanel ListOfRequestedSamplesControl;
+        private MaterialSkin.Controls.MaterialComboBox ViewSampleRequestedControl;
     }
 }
