@@ -63,6 +63,16 @@ namespace FPIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_dark {
+            get {
+                object obj = ResourceManager.GetObject("add_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_white {
             get {
                 object obj = ResourceManager.GetObject("add_white", resourceCulture);
@@ -126,6 +136,16 @@ namespace FPIS.Properties {
         internal static System.Drawing.Bitmap finish_white {
             get {
                 object obj = ResourceManager.GetObject("finish_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help_black {
+            get {
+                object obj = ResourceManager.GetObject("help_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

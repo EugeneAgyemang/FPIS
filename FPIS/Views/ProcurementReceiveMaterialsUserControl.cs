@@ -20,6 +20,7 @@ namespace FPIS.Views
     public partial class ProcurementReceiveMaterialsUserControl : UserControl
     {
         private static ProcurementReceiveMaterialsUserControl instance;
+        bool allowKeyboardShortcut = false;
         private ProcurementReceiveMaterialsUserControl()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace FPIS.Views
             LoadProductNames();
             LimitDateUserCanPick();
             LoadCachedData();
+            EnableKeyboardShourtcut();
         }
 
         public static ProcurementReceiveMaterialsUserControl Instance
@@ -295,6 +297,7 @@ namespace FPIS.Views
                 UnitsControl.Text =
                 LotControl.Text =
                 string.Empty;
+            DoneControl.Text = "Ready";
             SwitchDateControl.Checked = true;
             ProductControl.StartIndex = -1;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
@@ -423,11 +426,11 @@ namespace FPIS.Views
         }
         private void FreezeFields()
         {
-            IterateThroughPanel(ReceivingSetionControl);
-            IterateThroughPanel(DateProcuredSection);
-            IterateThroughPanel(MaterialProcurementSection);
+            IterateThroughPanel(ReceivingSetionControl, false);
+            IterateThroughPanel(DateProcuredSection, false);
+            IterateThroughPanel(MaterialProcurementSection, false);
         }
-        private void IterateThroughPanel(Panel panel)
+        private void IterateThroughPanel(Panel panel, bool state)
         {
             foreach (Control control in panel.Controls)
             {
@@ -437,15 +440,15 @@ namespace FPIS.Views
                     control is MaterialMultiLineTextBox2 ||
                     control is DateTimePicker)
                 {
-                    control.Enabled = false;
+                    control.Enabled = state;
                 }
             }
         }
         private void UpdateUIAfterRequestingSample()
         {
+            allowKeyboardShortcut = true;
             StartSampleRequest.Enabled = false;
             DoneControl.Text = "En Route";
-            SwitchDateCaptionControl.Focus();
             Snackbar.Visible = true;
         }
         public void UpdateUIAfterProcessingSample()
@@ -453,10 +456,14 @@ namespace FPIS.Views
             StartSampleRequest.Enabled = true;
             DoneControl.Text = "Done";
         }
-
+        private void EnableKeyboardShourtcut()
+        {
+            DoneControl.Focus();
+        }
         private void CloseSnackbarControl_Click(object sender, EventArgs e)
         {
-            Snackbar.Visible = false;
+            EnableKeyboardShourtcut();
+            HideSnackBar();
         }
         private void LoadCachedData()
         {
@@ -488,6 +495,61 @@ namespace FPIS.Views
                 UpdateUIAfterRequestingSample();
                 FreezeFields();
             }
+        }
+        private void UnfreezeFields()
+        {
+            IterateThroughPanel(ReceivingSetionControl, true);
+            IterateThroughPanel(DateProcuredSection, true);
+            IterateThroughPanel(MaterialProcurementSection, true);
+            StartSampleRequest.Enabled = true;
+        }
+        private void AddNewRequest_Click(object sender, EventArgs e)
+        {
+            StartNewSampleRequest();
+        }
+        private void StartNewSampleRequest()
+        {
+            allowKeyboardShortcut = false;
+            HideSnackBar();
+            UnfreezeFields();
+            ResetFields();
+        }
+
+        private void OpenHelper_Click(object sender, EventArgs e)
+        {
+            Utils.Utils.ShowMessageBox("If you wish to send some more samples to Quality" +
+                " Control click the plus (+) icon to the left.\n\nFeel free to send as " +
+                "many samples to Quality Control 👍\n\nYou can always access the menu to the left" +
+                " using the keyboard shortcuts Ctrl + N", "Info", MessageBoxButtons.OK);
+        }
+
+        private void OpenHelper_MouseEnter(object sender, EventArgs e)
+        {
+            OpenHelper.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void OpenHelper_MouseLeave(object sender, EventArgs e)
+        {
+            OpenHelper.SizeMode = PictureBoxSizeMode.Normal;
+        }
+
+        private void ProcurementReceiveMaterialsUserControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!allowKeyboardShortcut)
+            {
+                return;
+            }
+            if (e.Modifiers == Keys.Control)
+            {
+                if (e.KeyCode == Keys.N)
+                {
+                    StartNewSampleRequest();
+                }
+            }
+        }
+        private void HideSnackBar()
+        {
+            Snackbar.Visible = false;
         }
     }
 }

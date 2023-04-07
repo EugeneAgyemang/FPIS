@@ -44,11 +44,13 @@
             this.ProductErrorCaption = new System.Windows.Forms.Label();
             this.ProductControl = new MaterialSkin.Controls.MaterialComboBox();
             this.PickDateControl = new System.Windows.Forms.DateTimePicker();
+            this.OpenHelper = new System.Windows.Forms.PictureBox();
             this.QuantityErrorCaption = new System.Windows.Forms.Label();
             this.UnitsErrorCaption = new System.Windows.Forms.Label();
             this.MaterialProcurementDividerControl = new System.Windows.Forms.Panel();
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
             this.Snackbar = new MaterialSkin.Controls.MaterialCard();
+            this.AddNewRequest = new System.Windows.Forms.PictureBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.DoneControl = new System.Windows.Forms.Button();
             this.AbortProcurementRecords = new MaterialSkin.Controls.MaterialButton();
@@ -62,8 +64,10 @@
             this.CloseSnackbarControl = new System.Windows.Forms.PictureBox();
             this.ReceivingSetionControl.SuspendLayout();
             this.DateProcuredSection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OpenHelper)).BeginInit();
             this.MaterialProcurementSection.SuspendLayout();
             this.Snackbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddNewRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSnackbarControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,6 +308,19 @@
             this.PickDateControl.TabIndex = 4;
             this.PickDateControl.ValueChanged += new System.EventHandler(this.PickDateControl_ValueChanged);
             // 
+            // OpenHelper
+            // 
+            this.OpenHelper.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenHelper.Image = global::FPIS.Properties.Resources.help_black;
+            this.OpenHelper.Location = new System.Drawing.Point(358, 5);
+            this.OpenHelper.Name = "OpenHelper";
+            this.OpenHelper.Size = new System.Drawing.Size(25, 25);
+            this.OpenHelper.TabIndex = 25;
+            this.OpenHelper.TabStop = false;
+            this.OpenHelper.Click += new System.EventHandler(this.OpenHelper_Click);
+            this.OpenHelper.MouseEnter += new System.EventHandler(this.OpenHelper_MouseEnter);
+            this.OpenHelper.MouseLeave += new System.EventHandler(this.OpenHelper_MouseLeave);
+            // 
             // QuantityErrorCaption
             // 
             this.QuantityErrorCaption.AutoSize = true;
@@ -358,6 +375,8 @@
             // Snackbar
             // 
             this.Snackbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Snackbar.Controls.Add(this.OpenHelper);
+            this.Snackbar.Controls.Add(this.AddNewRequest);
             this.Snackbar.Controls.Add(this.CloseSnackbarControl);
             this.Snackbar.Controls.Add(this.materialLabel2);
             this.Snackbar.Depth = 0;
@@ -371,12 +390,24 @@
             this.Snackbar.TabIndex = 23;
             this.Snackbar.Visible = false;
             // 
+            // AddNewRequest
+            // 
+            this.AddNewRequest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddNewRequest.Image = global::FPIS.Properties.Resources.add_dark;
+            this.AddNewRequest.Location = new System.Drawing.Point(325, 8);
+            this.AddNewRequest.Name = "AddNewRequest";
+            this.AddNewRequest.Size = new System.Drawing.Size(18, 18);
+            this.AddNewRequest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AddNewRequest.TabIndex = 24;
+            this.AddNewRequest.TabStop = false;
+            this.AddNewRequest.Click += new System.EventHandler(this.AddNewRequest_Click);
+            //
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(50, 8);
+            this.materialLabel2.Location = new System.Drawing.Point(18, 8);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(277, 19);
@@ -400,6 +431,7 @@
             this.DoneControl.Text = "  Ready";
             this.DoneControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DoneControl.UseVisualStyleBackColor = false;
+            this.DoneControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProcurementReceiveMaterialsUserControl_KeyDown);
             // 
             // AbortProcurementRecords
             // 
@@ -539,12 +571,12 @@
             this.SaveProcurementRecords.UseAccentColor = true;
             this.SaveProcurementRecords.UseVisualStyleBackColor = true;
             this.SaveProcurementRecords.Click += new System.EventHandler(this.SaveProcurementRecords_Click);
-            // 
+            //
             // CloseSnackbarControl
             // 
             this.CloseSnackbarControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseSnackbarControl.Image = global::FPIS.Properties.Resources.close_dark;
-            this.CloseSnackbarControl.Location = new System.Drawing.Point(333, 8);
+            this.CloseSnackbarControl.Location = new System.Drawing.Point(301, 8);
             this.CloseSnackbarControl.Name = "CloseSnackbarControl";
             this.CloseSnackbarControl.Size = new System.Drawing.Size(18, 18);
             this.CloseSnackbarControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -561,14 +593,17 @@
             this.Controls.Add(this.ReceivingSetionControl);
             this.Name = "ProcurementReceiveMaterialsUserControl";
             this.Size = new System.Drawing.Size(1000, 650);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProcurementReceiveMaterialsUserControl_KeyDown);
             this.ReceivingSetionControl.ResumeLayout(false);
             this.ReceivingSetionControl.PerformLayout();
             this.DateProcuredSection.ResumeLayout(false);
             this.DateProcuredSection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OpenHelper)).EndInit();
             this.MaterialProcurementSection.ResumeLayout(false);
             this.MaterialProcurementSection.PerformLayout();
             this.Snackbar.ResumeLayout(false);
             this.Snackbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddNewRequest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSnackbarControl)).EndInit();
             this.ResumeLayout(false);
 
@@ -610,5 +645,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private PictureBox CloseSnackbarControl;
         private MaterialSkin.Controls.MaterialCard Snackbar;
+        private PictureBox AddNewRequest;
+        private PictureBox OpenHelper;
     }
 }
