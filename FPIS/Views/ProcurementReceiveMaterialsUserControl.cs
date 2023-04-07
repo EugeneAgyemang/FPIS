@@ -422,11 +422,18 @@ namespace FPIS.Views
         {
             StartSampleRequest.Enabled = false;
             DoneControl.Text = "En Route";
+            SwitchDateCaptionControl.Focus();
+            Snackbar.Visible = true;
         }
         public void UpdateUIAfterProcessingSample()
         {
             StartSampleRequest.Enabled = true;
             DoneControl.Text = "Done";
+        }
+
+        private void CloseSnackbarControl_Click(object sender, EventArgs e)
+        {
+            Snackbar.Visible = false;
         }
     }
 }

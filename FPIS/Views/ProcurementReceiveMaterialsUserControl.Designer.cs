@@ -48,6 +48,8 @@
             this.UnitsErrorCaption = new System.Windows.Forms.Label();
             this.MaterialProcurementDividerControl = new System.Windows.Forms.Panel();
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
+            this.Snackbar = new MaterialSkin.Controls.MaterialCard();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.DoneControl = new System.Windows.Forms.Button();
             this.AbortProcurementRecords = new MaterialSkin.Controls.MaterialButton();
             this.StartSampleRequest = new MaterialSkin.Controls.MaterialButton();
@@ -57,9 +59,12 @@
             this.RemarksCaptionControl = new MaterialSkin.Controls.MaterialLabel();
             this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.SaveProcurementRecords = new MaterialSkin.Controls.MaterialButton();
+            this.CloseSnackbarControl = new System.Windows.Forms.PictureBox();
             this.ReceivingSetionControl.SuspendLayout();
             this.DateProcuredSection.SuspendLayout();
             this.MaterialProcurementSection.SuspendLayout();
+            this.Snackbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseSnackbarControl)).BeginInit();
             this.SuspendLayout();
             // 
             // SupplierControl
@@ -329,6 +334,7 @@
             // 
             // MaterialProcurementSection
             // 
+            this.MaterialProcurementSection.Controls.Add(this.Snackbar);
             this.MaterialProcurementSection.Controls.Add(this.DoneControl);
             this.MaterialProcurementSection.Controls.Add(this.AbortProcurementRecords);
             this.MaterialProcurementSection.Controls.Add(this.StartSampleRequest);
@@ -348,6 +354,35 @@
             this.MaterialProcurementSection.Name = "MaterialProcurementSection";
             this.MaterialProcurementSection.Size = new System.Drawing.Size(450, 650);
             this.MaterialProcurementSection.TabIndex = 2;
+            // 
+            // Snackbar
+            // 
+            this.Snackbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Snackbar.Controls.Add(this.CloseSnackbarControl);
+            this.Snackbar.Controls.Add(this.materialLabel2);
+            this.Snackbar.Depth = 0;
+            this.Snackbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Snackbar.Location = new System.Drawing.Point(25, 550);
+            this.Snackbar.Margin = new System.Windows.Forms.Padding(14);
+            this.Snackbar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Snackbar.Name = "Snackbar";
+            this.Snackbar.Padding = new System.Windows.Forms.Padding(14);
+            this.Snackbar.Size = new System.Drawing.Size(400, 35);
+            this.Snackbar.TabIndex = 23;
+            this.Snackbar.Visible = false;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(50, 8);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(277, 19);
+            this.materialLabel2.TabIndex = 0;
+            this.materialLabel2.Text = "Sample was requested successfully! 👍";
+            this.materialLabel2.UseAccent = true;
             // 
             // DoneControl
             // 
@@ -505,6 +540,18 @@
             this.SaveProcurementRecords.UseVisualStyleBackColor = true;
             this.SaveProcurementRecords.Click += new System.EventHandler(this.SaveProcurementRecords_Click);
             // 
+            // CloseSnackbarControl
+            // 
+            this.CloseSnackbarControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseSnackbarControl.Image = global::FPIS.Properties.Resources.close_dark;
+            this.CloseSnackbarControl.Location = new System.Drawing.Point(333, 8);
+            this.CloseSnackbarControl.Name = "CloseSnackbarControl";
+            this.CloseSnackbarControl.Size = new System.Drawing.Size(18, 18);
+            this.CloseSnackbarControl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseSnackbarControl.TabIndex = 23;
+            this.CloseSnackbarControl.TabStop = false;
+            this.CloseSnackbarControl.Click += new System.EventHandler(this.CloseSnackbarControl_Click);
+            // 
             // ProcurementReceiveMaterialsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -520,6 +567,9 @@
             this.DateProcuredSection.PerformLayout();
             this.MaterialProcurementSection.ResumeLayout(false);
             this.MaterialProcurementSection.PerformLayout();
+            this.Snackbar.ResumeLayout(false);
+            this.Snackbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseSnackbarControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,5 +606,9 @@
         private MaterialSkin.Controls.MaterialTextBox UnitsControl;
         private MaterialSkin.Controls.MaterialButton AbortProcurementRecords;
         private Button DoneControl;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private PictureBox CloseSnackbarControl;
+        private MaterialSkin.Controls.MaterialCard Snackbar;
     }
 }
