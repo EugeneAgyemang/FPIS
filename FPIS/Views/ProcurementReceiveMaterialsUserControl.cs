@@ -296,6 +296,7 @@ namespace FPIS.Views
                 TruckNumberErrorCaption.Text =
                 ProductErrorCaption.Text =
                 LotErrorCaption.Text = string.Empty;
+            ProductErrorCaption.ForeColor = Color.Red;
         }
         public void ResetFields()
         {
@@ -315,6 +316,7 @@ namespace FPIS.Views
             SwitchDateControl.Checked = true;
             ProductControl.StartIndex = -1;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
+            ViewSampleRequestedControl.StartIndex = -1;
         }
         private MaterialProcurement GetMaterialToBeProcured()
         {
@@ -601,6 +603,9 @@ namespace FPIS.Views
             UnitsControl.Text = receiving.Units;
             TruckNumberControl.Text = receiving.TruckNumber;
             SwitchDateControl.Checked = false;
+            // Use the error caption hidden field to store the Sample Id
+            ProductErrorCaption.ForeColor = Color.White;
+            ProductErrorCaption.Text = $"{cachedData.SampleDetail.SampleId}";
             switch (cachedData.Status.ToLower().Trim())
             {
                 case "en route":
@@ -662,6 +667,21 @@ namespace FPIS.Views
 
         private void SyncControl_Click(object sender, EventArgs e)
         {
+            string guidDelimeter = "-";
+            if (ProductErrorCaption.Text.Contains(guidDelimeter))
+            {
+                foreach (FileInfo file in GetSampleFilesForCurrentUser())
+                {
+                    MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
+                                                                        .Deserialize<MaterialProcurementSchema>
+                                                                        (file.FullName);
+                    if (materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
+                    {
+                        PopulateFields(materialProcurementSchema);
+                    }
+                }
+                return;
+            }
             LoadCachedData();
         }
     }

@@ -1,4 +1,5 @@
-﻿using FPIS.Models;
+﻿using FPIS.Data;
+using FPIS.Models;
 using FPIS.Services;
 using System;
 using System.Collections.Generic;
@@ -134,7 +135,7 @@ namespace FPIS.Views
             }
             string sampleId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             string typeForFiltering = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString().ToLower();
-
+            UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.ANALYZED);
             if (source == Source.PRODUCTION)
             {
 
@@ -147,8 +148,15 @@ namespace FPIS.Views
             {
                 listOfRequests.RemoveAt(e.RowIndex);
                 UpdateSamplesRequestedOverview(listOfRequests.Count);
+                UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.DONE);
+            }
+            else
+            {
+                UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.EN_ROUTE);
             }
         }
+
+
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs args)
         {
@@ -194,6 +202,29 @@ namespace FPIS.Views
             else
             {
                 return false;
+            }
+        }
+        
+        
+        
+        
+        
+        private void UpdateRawMaterialSampleRequestStatus(Guid sampleUserClicked, string status)
+        {
+            FileInfo[] files = JsonParser.GetFiles(ProcurementReceiveMaterialsUserControl.DIRECTORY_NAME);
+            foreach (FileInfo file in files)
+            {
+
+                MaterialProcurementSchema aSampleRequestedByAnyUser = (MaterialProcurementSchema)JsonParser
+                                                                        .Deserialize<MaterialProcurementSchema>
+                                                                        (file.FullName);
+                if (aSampleRequestedByAnyUser.SampleDetail.Sample.Id == sampleUserClicked)
+                {
+                    aSampleRequestedByAnyUser.Status = status;
+                    JsonParser.Serialize<MaterialProcurementSchema>(aSampleRequestedByAnyUser, file.FullName);
+                    break;
+                }
+
             }
         }
     }
