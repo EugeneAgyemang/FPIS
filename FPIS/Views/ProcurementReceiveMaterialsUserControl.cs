@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using System.Text.Json;
+using FPIS.Data;
 
 namespace FPIS.Views
 {
@@ -24,6 +26,7 @@ namespace FPIS.Views
             SelectedDateControl.Text = GetDate(DateFormat.DATE_ONLY, DateTime.Now);
             LoadProductNames();
             LimitDateUserCanPick();
+            LoadCachedData();
         }
 
         public static ProcurementReceiveMaterialsUserControl Instance
@@ -400,6 +403,22 @@ namespace FPIS.Views
                 return;
             }
             FreezeFields();
+            MaterialProcurementSchema materialProcurementSchema = new MaterialProcurementSchema()
+            {
+                SampleDetail = sampleCreated.SampleDetails.FirstOrDefault()
+                ,
+                Receiving = materialToBeReceived
+            };
+            sampleCreated.SampleDetails.Clear();
+            materialToBeReceived.MaterialProcurement = materialToBeProcured;
+            JsonParser.Serialize<MaterialProcurementSchema>(materialProcurementSchema, Path.Combine("Material Procured"
+                                                            , $"material-procured" +
+                                                            $"-{sampleCreated.Date.Month}" +
+                                                            $"-{sampleCreated.Date.Day}" +
+                                                            $"-{sampleCreated.Time.Hour}" +
+                                                            $"-{sampleCreated.Time.Minute}" +
+                                                            $"-{sampleCreated.Time.Second}" +
+                                                            $".json"));
             UpdateUIAfterRequestingSample();
         }
         private void FreezeFields()
@@ -438,6 +457,37 @@ namespace FPIS.Views
         private void CloseSnackbarControl_Click(object sender, EventArgs e)
         {
             Snackbar.Visible = false;
+        }
+        private void LoadCachedData()
+        {
+            FileInfo[] files = JsonParser.GetFIles(Path.Combine("Material Procured"));
+            int cachedMaterialProcurementRequests = files.Length;
+            if (cachedMaterialProcurementRequests == 1)
+            {
+                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
+                                                        .Deserialize<MaterialProcurementSchema>
+                                                        (Path.Combine("Material Procured"
+                                                                        , files[0].Name)
+                                                        );
+                Receiving receiving = cachedData.Receiving;
+                MaterialProcurement materialProcurement = receiving.MaterialProcurement;
+
+                ProductControl.Text = new ProductService(new())
+                                            .GetProductById
+                                            (materialProcurement.ProductId)
+                                            .ToString();
+                WarehouseControl.Text = materialProcurement.Location;
+                PickDateControl.Value = materialProcurement.Date.ToDateTime(TimeOnly.MinValue);
+                RemarksControl.Text = materialProcurement.Remarks;
+                LotControl.Text = materialProcurement.Lot;
+                SupplierControl.Text = receiving.Supplier;
+                QuantityControl.Text = $"{receiving.Quantity}";
+                UnitsControl.Text = receiving.Units;
+                TruckNumberControl.Text = receiving.TruckNumber;
+                SwitchDateControl.Checked = false;
+                UpdateUIAfterRequestingSample();
+                FreezeFields();
+            }
         }
     }
 }
