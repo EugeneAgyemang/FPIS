@@ -20,7 +20,13 @@ namespace FPIS.Views
     public partial class ProcurementReceiveMaterialsUserControl : UserControl
     {
         private static ProcurementReceiveMaterialsUserControl instance;
-        private const string DIRECTORY_NAME = "Material Procured";
+        public const string DIRECTORY_NAME = "Material Procured";
+
+        public static List<MaterialProcurementSchema> samplesRequested = new List<MaterialProcurementSchema>();
+        public const string EN_ROUTE = "En Route";
+        public const string ANALYZED = "Analyzed";
+        public const string DONE = "Done";
+
         bool allowKeyboardShortcut = false;
         private ProcurementReceiveMaterialsUserControl()
         {
@@ -303,6 +309,9 @@ namespace FPIS.Views
                 LotControl.Text =
                 string.Empty;
             DoneControl.Text = "Ready";
+            DoneControl.Image = Properties.Resources.not_done_light;
+            AbortProcurementRecords.Enabled = false;
+            StartSampleRequest.Enabled = true;
             SwitchDateControl.Checked = true;
             ProductControl.StartIndex = -1;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
@@ -418,6 +427,7 @@ namespace FPIS.Views
                 Receiving = materialToBeReceived
                 ,
                 SchemaId = $"{totalNumberOfSamplesRequested}"
+                , Status = EN_ROUTE
             };
             sampleCreated.SampleDetails.Clear();
             materialToBeReceived.MaterialProcurement = materialToBeProcured;
@@ -457,15 +467,30 @@ namespace FPIS.Views
         {
             allowKeyboardShortcut = true;
             StartSampleRequest.Enabled = false;
-            DoneControl.Text = "En Route";
-            Snackbar.Visible = true;
+            AbortProcurementRecords.Enabled = true;
+            SaveProcurementRecords.Enabled = false;
+            DoneControl.Text = EN_ROUTE;
+            DoneControl.Image = Properties.Resources.not_done_light;
+            ShowSnackBar("Sample was requested successfully! 👍");
             EnableKeyboardShourtcut();
         }
         // TODO: WILL BE USED WHEN QC PROVIDES RESULTS ON SAMPLE
         public void UpdateUIAfterProcessingSample()
         {
-            StartSampleRequest.Enabled = true;
+            StartSampleRequest.Enabled = false;
+            AbortProcurementRecords.Enabled = false;
+            SaveProcurementRecords.Enabled = true;
             DoneControl.Text = "Done";
+            DoneControl.Image = Properties.Resources.done_light;
+        }
+        public void UpdateUIWhenProcessingStarts()
+        {
+            StartSampleRequest.Enabled = false;
+            SaveProcurementRecords.Enabled = false;
+            AbortProcurementRecords.Enabled = false;
+            DoneControl.Text = ANALYZED;
+            DoneControl.Image = Properties.Resources.not_done_light;
+            ShowSnackBar("Sample is analyzed at the lab ATM! 👍");
         }
         private void EnableKeyboardShourtcut()
         {
@@ -525,14 +550,14 @@ namespace FPIS.Views
                 " using the keyboard shortcuts Ctrl + N", "Info", MessageBoxButtons.OK);
         }
 
-        private void OpenHelper_MouseEnter(object sender, EventArgs e)
+        private void ImageActionControl_MouseEnter(object sender, EventArgs e)
         {
-            OpenHelper.SizeMode = PictureBoxSizeMode.Zoom;
+            ((PictureBox)sender).SizeMode = PictureBoxSizeMode.Zoom;
         }
 
-        private void OpenHelper_MouseLeave(object sender, EventArgs e)
+        private void ImageActionControl_MouseLeave(object sender, EventArgs e)
         {
-            OpenHelper.SizeMode = PictureBoxSizeMode.Normal;
+            ((PictureBox)sender).SizeMode = PictureBoxSizeMode.Normal;
         }
 
         private void ProcurementReceiveMaterialsUserControl_KeyDown(object sender, KeyEventArgs e)
@@ -553,6 +578,11 @@ namespace FPIS.Views
         {
             Snackbar.Visible = false;
         }
+        private void ShowSnackBar(string message)
+        {
+            Snackbar.Visible = true;
+            SnackbarCaptionControl.Text = message;
+        }
         private void PopulateFields(MaterialProcurementSchema cachedData)
         {
             Receiving receiving = cachedData.Receiving;
@@ -571,11 +601,19 @@ namespace FPIS.Views
             UnitsControl.Text = receiving.Units;
             TruckNumberControl.Text = receiving.TruckNumber;
             SwitchDateControl.Checked = false;
-            UpdateUIAfterRequestingSample();
+            switch (cachedData.Status.ToLower().Trim())
+            {
+                case "en route":
+                    UpdateUIAfterRequestingSample();
+                    break;
+                case "analyzed":
+                    UpdateUIWhenProcessingStarts();
+                    break;
+            }
             FreezeFields();
         }
 
-        private void ListOfRequestedSamplesControl_SaveClick(object sender, EventArgs e)
+        private void ListOfRequestedSamplesControl_LoadClick(object sender, EventArgs e)
         {
             string sampleRequestSelected = ViewSampleRequestedControl.Text;
             if (sampleRequestSelected == string.Empty)
@@ -595,14 +633,14 @@ namespace FPIS.Views
                 if (schemaId == cachedData.SchemaId)
                 {
                     PopulateFields(cachedData);
+                    break;
                 }
             }
-            UpdateUIAfterRequestingSample();
-            FreezeFields();
         }
         private FileInfo[] GetSampleFilesForCurrentUser()
         {
             string selectedItem = ViewSampleRequestedControl.Text;
+            samplesRequested.Clear();
             ViewSampleRequestedControl.Items.Clear();
             FileInfo[] allFiles = JsonParser.GetFiles(Path.Combine(DIRECTORY_NAME));
             List<FileInfo> files = new List<FileInfo>();
@@ -613,12 +651,18 @@ namespace FPIS.Views
                                                     (file.FullName);
                 if (cachedData.SampleDetail.Sample.UserId == Guid.Parse(Main.LOGGED_USER_ID))
                 {
-                    ViewSampleRequestedControl.Items.Add(cachedData);
                     files.Add(file);
+                    samplesRequested.Add(cachedData);
                 }
             }
+            ViewSampleRequestedControl.Items.AddRange(samplesRequested.ToArray());
             ViewSampleRequestedControl.Text = selectedItem;
             return files.ToArray();
+        }
+
+        private void SyncControl_Click(object sender, EventArgs e)
+        {
+            LoadCachedData();
         }
     }
 }

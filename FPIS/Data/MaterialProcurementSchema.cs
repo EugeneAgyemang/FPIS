@@ -16,6 +16,7 @@ namespace FPIS.Data
         public string SchemaId { get; set; }
         public SampleDetail SampleDetail { get; set; }
         public Receiving Receiving { get; set; }
+        public string Status { get; set; }
         public override string ToString()
         {
             Sample sample = SampleDetail.Sample;
