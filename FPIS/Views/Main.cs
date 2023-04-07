@@ -303,7 +303,7 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
         }
-        
+
         private void LogoutControl_Click(object sender, EventArgs e)
         {
             string fullname = new UserService(new()).GetFullName(Guid.Parse(LOGGED_USER_ID));
@@ -311,6 +311,7 @@ namespace FPIS.Views
             if (userOption == DialogResult.Yes)
             {
                 login.Show();
+                ProcurementReceiveMaterialsUserControl.Instance = null;
                 Close();
             }
         }

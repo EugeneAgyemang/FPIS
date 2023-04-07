@@ -40,6 +40,10 @@ namespace FPIS.Views
                     return instance;
                 }
             }
+            set
+            {
+                instance = value;
+            }
         }
         public static int LiveCharacterCount(int maxLength, string contents)
         {
@@ -408,8 +412,8 @@ namespace FPIS.Views
         {
             foreach (Control control in panel.Controls)
             {
-                if (control is MaterialTextBox || 
-                    control is MaterialComboBox || 
+                if (control is MaterialTextBox ||
+                    control is MaterialComboBox ||
                     control is MaterialSwitch ||
                     control is MaterialMultiLineTextBox2 ||
                     control is DateTimePicker)
