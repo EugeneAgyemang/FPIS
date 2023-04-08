@@ -23,9 +23,10 @@ namespace FPIS.Views
         public const string DIRECTORY_NAME = "Material Procured";
 
         public static List<MaterialProcurementSchema> samplesRequested = new List<MaterialProcurementSchema>();
-        public const string EN_ROUTE = "En Route";
-        public const string ANALYZED = "Analyzed";
-        public const string DONE = "Done";
+        public const string EN_ROUTE = " En Route ";
+        public const string ANALYZED = " Analyzed ";
+        public const string DONE = " Done ";
+        public const string READY = " Ready ";
 
         bool allowKeyboardShortcut = false;
         private ProcurementReceiveMaterialsUserControl()
@@ -167,6 +168,7 @@ namespace FPIS.Views
         }
         private void LoadProductNames()
         {
+            ProductControl.Items.Clear();
             var products = new ProductService(new()).GetProductsByType("raw materials");
             foreach (Product product in products)
             {
@@ -309,7 +311,7 @@ namespace FPIS.Views
                 UnitsControl.Text =
                 LotControl.Text =
                 string.Empty;
-            DoneControl.Text = "Ready";
+            DoneControl.Text = READY;
             DoneControl.Image = Properties.Resources.not_done_light;
             AbortProcurementRecords.Enabled = false;
             StartSampleRequest.Enabled = true;
@@ -421,7 +423,7 @@ namespace FPIS.Views
                     , MessageBoxIcon.Error);
                 return;
             }
-            int totalNumberOfSamplesRequested = GetSampleFilesForCurrentUser().Length + 1;
+            int totalNumberOfSamplesRequested = GetLastSchemaId();
             MaterialProcurementSchema materialProcurementSchema = new MaterialProcurementSchema()
             {
                 SampleDetail = sampleCreated.SampleDetails.FirstOrDefault()
@@ -429,7 +431,8 @@ namespace FPIS.Views
                 Receiving = materialToBeReceived
                 ,
                 SchemaId = $"{totalNumberOfSamplesRequested}"
-                , Status = EN_ROUTE
+                ,
+                Status = EN_ROUTE
             };
             sampleCreated.SampleDetails.Clear();
             materialToBeReceived.MaterialProcurement = materialToBeProcured;
@@ -542,6 +545,7 @@ namespace FPIS.Views
             HideSnackBar();
             UnfreezeFields();
             ResetFields();
+            ResetErrorCaptions();
         }
 
         private void OpenHelper_Click(object sender, EventArgs e)
@@ -631,6 +635,10 @@ namespace FPIS.Views
 
             foreach (FileInfo file in GetSampleFilesForCurrentUser())
             {
+                if (file.Name.StartsWith("schema"))
+                {
+                    continue;
+                }
                 MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
                                                         .Deserialize<MaterialProcurementSchema>
                                                         (file.FullName);
@@ -651,6 +659,10 @@ namespace FPIS.Views
             List<FileInfo> files = new List<FileInfo>();
             foreach (FileInfo file in allFiles)
             {
+                if (file.Name.StartsWith("schema"))
+                {
+                    continue;
+                }
                 MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
                                                     .Deserialize<MaterialProcurementSchema>
                                                     (file.FullName);
@@ -672,6 +684,10 @@ namespace FPIS.Views
             {
                 foreach (FileInfo file in GetSampleFilesForCurrentUser())
                 {
+                    if (file.Name.StartsWith("schema"))
+                    {
+                        continue;
+                    }
                     MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
                                                                         .Deserialize<MaterialProcurementSchema>
                                                                         (file.FullName);
