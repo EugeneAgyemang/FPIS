@@ -144,5 +144,17 @@ namespace FPIS.Services
 
             return sampleResult;
         }
+        /// <summary>
+        /// Aborts a sample requested This is typical for the Procurement
+        /// Engineer should there be the need.
+        /// </summary>
+        /// <param name="sample">The sample to be aborted</param>
+        /// <returns></returns>
+        public Sample DeleteSample(Sample sample)
+        {
+            Sample sampleDeleted = _dbContext.Samples.Remove(sample).Entity;
+            _dbContext.SaveChanges();
+            return sampleDeleted;
+        }
     }
 }

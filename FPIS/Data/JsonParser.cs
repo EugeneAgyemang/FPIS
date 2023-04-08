@@ -77,5 +77,9 @@ namespace FPIS.Data
         {
             File.Delete(Path.Combine(dirPath, fileName));
         }
+        public static bool DoesFileExists(string fileName)
+        {
+            return File.Exists(Path.Combine(dirPath, fileName));
+        }
     }
 }

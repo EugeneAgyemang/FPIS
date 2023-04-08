@@ -700,5 +700,73 @@ namespace FPIS.Views
             }
             LoadCachedData();
         }
+
+        private void AbortProcurementRecords_Click(object sender, EventArgs e)
+        {
+            DialogResult userOption = Utils.Utils.ShowMessageBox("Do you truly want to cancel this request?\n\n" +
+                                                                    "This action cannot be undone should you choose yes!"
+                                                                    , "Confirm Abort"
+                                                                    , MessageBoxButtons.YesNo
+                                                                    , MessageBoxIcon.Question);
+            if (userOption == DialogResult.No)
+            {
+                return;
+            }
+            FileInfo[] files = GetSampleFilesForCurrentUser();
+            foreach (FileInfo file in files)
+            {
+                if (file.Name.StartsWith("schema"))
+                {
+                    continue;
+                }
+                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
+                                                                        .Deserialize<MaterialProcurementSchema>
+                                                                        (file.FullName);
+                if (materialProcurementSchema.Status.ToLower().Trim() == "en route"
+                    && materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
+                {
+                    JsonParser.DeleteFile(Path.Combine(DIRECTORY_NAME, file.Name));
+                    Sample sample = new AnalysisService(new())
+                                        .DeleteSample
+                                        (materialProcurementSchema
+                                            .SampleDetail
+                                            .Sample);
+                    Utils.Utils.ShowMessageBox($"The sample you requested on {sample.Date.ToLongDateString()} at {sample.Time.ToShortTimeString()} is cancelled successfully!"
+                                                , "Info", MessageBoxButtons.OK);
+                    ResetErrorCaptions();
+                    ResetFields();
+                    LoadCachedData();
+                    UpdateUIAfterAbortingRequest();
+                    return;
+                }
+            }
+            MessageBox.Show("Test");
+        }
+        private void UpdateUIAfterAbortingRequest()
+        {
+            allowKeyboardShortcut = true;
+            StartSampleRequest.Enabled = false;
+            AbortProcurementRecords.Enabled = false;
+            SaveProcurementRecords.Enabled = false;
+            DoneControl.Text = READY;
+            DoneControl.Image = Properties.Resources.not_done_light;
+            ShowSnackBar("Request was aborted successfully! 👍");
+            EnableKeyboardShourtcut();
+        }
+        private int GetLastSchemaId()
+        {
+            string schemaFileName = "schema-id.json";
+            if (!(JsonParser.DoesFileExists(Path.Combine(DIRECTORY_NAME, schemaFileName))))
+            {
+                JsonParser.Serialize<string>("{schema-id:1}", Path.Combine(DIRECTORY_NAME, schemaFileName));
+
+            }
+            string schemaIdAsStr = (string)JsonParser.Deserialize<string>(Path.Combine(DIRECTORY_NAME, schemaFileName));
+            int lastSchemaId = int.Parse(schemaIdAsStr.Split(":")[1].Split("}")[0]);
+            JsonParser.Serialize<string>($"{{schema-id:{lastSchemaId + 1}}}", Path.Combine(DIRECTORY_NAME, schemaFileName));
+
+            return lastSchemaId;
+
+        }
     }
 }

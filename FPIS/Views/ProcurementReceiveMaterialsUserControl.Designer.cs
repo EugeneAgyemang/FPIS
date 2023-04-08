@@ -543,6 +543,7 @@
             this.AbortProcurementRecords.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AbortProcurementRecords.UseAccentColor = true;
             this.AbortProcurementRecords.UseVisualStyleBackColor = true;
+            this.AbortProcurementRecords.Click += new System.EventHandler(this.AbortProcurementRecords_Click);
             // 
             // StartSampleRequest
             // 
