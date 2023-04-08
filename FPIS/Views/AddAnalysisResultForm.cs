@@ -7,108 +7,226 @@ namespace FPIS.Views
     public partial class AddAnalysisResultForm : Form
     {
         private Sample? _sample;
-        private readonly string _sampleId;
+        private SampleResult? _sampleResult;
+        private readonly string analysisId;
         private readonly string _sampleType;
+        private readonly bool _shouldUpdate;
         private string _productId;
         private User? _productionEngineer1;
         private User? _productionEngineer2;
         private readonly UserService _userService;
         private readonly AnalysisService _analysisService;
-        public static BindingList<AnalysisResultSampleDetailBindingItem>_sampleDetails = new();
+        public static BindingList<AnalysisResultSampleDetailBindingItem>_sampleItems = new();
 
-        public AddAnalysisResultForm(string sampleId = "", string sampleType = "")
+        public AddAnalysisResultForm(
+            string analysisId = "",
+            string sampleType = "",
+            bool shouldUpdateAnalysisResult = false
+        )
         {
-            _sampleDetails.Clear();
+            _sampleItems.Clear();
             InitializeComponent();
 
-            _sampleId = sampleId; // argument value or empty string
+            _shouldUpdate = shouldUpdateAnalysisResult;
+            this.analysisId = analysisId; // argument value or empty string
             _sampleType = sampleType.ToLower();
             AppDbContext dbContext = new();
 
             _userService = new(dbContext);
             _analysisService = new(dbContext);
 
-            LoadSample();
+            if (shouldUpdateAnalysisResult)
+            {
+                LoadSampleResult();
+            } else
+            {
+                LoadSample();
+            }
         }
 
-        private void SetupInitialValues()
+        private void SetupInitialValues(
+            DateOnly analysisDate,
+            TimeOnly analysisTime,
+            string analysisType,
+            string analysisStatus
+        )
         {
+            string textPrefix = !_shouldUpdate ? "Add Analysis Result for Request: " : "Update Analysis Result: ";
             labelAnalysisResultTextAndId.Text =
-                $"{labelAnalysisResultTextAndId.Text} " +
-                $" {_sample.Date.DayOfWeek}, {_sample.Date.ToLongDateString()} @ " +
-                $"{_sample.Time.ToLongTimeString()}";
+                $"{textPrefix} " +
+                $"{analysisDate.ToLongDateString()} @ " +
+                $"{analysisTime.ToLongTimeString()}";
 
-            labelAnalysisType.Text = $"{_sample.TypeForFiltering} Analysis";
-            labelStatus.Text = _sample.Status;
+            labelAnalysisType.Text = $"{analysisType} Analysis";
+            labelStatus.Text = analysisStatus;
+            materialButtonGenerateResult.Text = !_shouldUpdate ? "Generate Analysis Result" : "Update Analysis Result"; ;
+            Text = !_shouldUpdate ? "Add Analysis Result" : "Update Analysis Result";
         }
 
-        private void FetchProductionEngineer1()
+        private void SetProductionEngineerLabel(string employeeId, Label label)
         {
-            if (_sample != null)
+            _productionEngineer1 = _userService.GetUserByEmployeeId(employeeId);
+
+            label.Text =
+                $"{_productionEngineer1?.FirstName} " +
+                $"{_productionEngineer1?.MiddleName}" +
+                $"{_productionEngineer1?.LastName}";
+        }
+
+        // Gets the product or water name from a sample detail or sample result detail
+        private string GetItemName(string analysisType, AnalysisItem analysisItem)
+        {
+            if (analysisItem == null)
             {
-                _productionEngineer1 = _userService.GetUserByEmployeeId(
-                    _sample.Employee1
-                );
-
-                labelEngineer1.Text =
-                    $"{_productionEngineer1?.FirstName} " +
-                    $"{_productionEngineer1?.MiddleName}" +
-                    $"{_productionEngineer1?.LastName}";
+                // throw new ArgumentException($"analysisItem cannot be null");
+                return "No Name";
             }
-        }
 
-        private void FetchProductionEngineer2()
-        {
-            if (_sample != null)
+            string itemName = "";
+            analysisType = analysisType.ToLower();
+
+            if (analysisType == "production")
             {
-                _productionEngineer2 = _userService.GetUserByEmployeeId(
-                    _sample.Employee2
-                );
-
-                labelEngineer2.Text =
-                    $"{_productionEngineer2?.FirstName} " +
-                    $"{_productionEngineer2?.MiddleName}" +
-                    $"{_productionEngineer2?.LastName}";
+                itemName = analysisItem.AnalysisProducts[0].Product.ProductName;
             }
+            else if (analysisType.ToLower() == "water")
+            {
+                itemName = analysisItem.AnalysisWaters[0].Water.WaterName;
+            }
+            else
+            {
+                throw new ArgumentException($"{analysisItem} is not recognized, use \"water\" or \"production\"");
+            }
+
+            return itemName;
         }
 
-        private void SetupSampleDetails()
+        // Gets the product or water id from a sample detail or sample result detail
+        private string GetItemId(string analysisType, AnalysisItem analysisItem)
         {
-            _sample.SampleDetails.ForEach(sd => {
-                string itemName = "";
+            if (analysisItem == null)
+            {
+                throw new ArgumentException($"analysisItem cannot be null");
+            }
 
-                if (_sample.TypeForFiltering.ToLower() == "production")
-                {
-                    itemName = sd.AnalysisItem.AnalysisProducts[0].Product.ProductName;
-                }
+            string itemId = "";
+            analysisType = analysisType.ToLower();
 
-                if (_sample.TypeForFiltering.ToLower() == "water")
-                {
-                    itemName = sd.AnalysisItem.AnalysisWaters[0].Water.WaterName;
-                }
+            if (analysisType == "production")
+            {
+                itemId = analysisItem.AnalysisProducts[0].ProductId.ToString();
+            }
+            else if (analysisType.ToLower() == "water")
+            {
+                itemId = analysisItem.AnalysisWaters[0].WaterId.ToString();
+            }
+            else
+            {
+                throw new ArgumentException($"{analysisItem} is not recognized, use \"water\" or \"production\"");
+            }
 
-                _sampleDetails.Add(
+            return itemId;
+        }
+
+        // Gets the parameter name or water name from a sample detail or sample result detail
+        private string GetItemParameterName(string analysisType, AnalysisParameter analysisParameter)
+        {
+            if (analysisParameter == null)
+            {
+                // throw new ArgumentException($"analysisItem cannot be null");
+                return "No Name";
+            }
+
+            string itemName = "";
+            analysisType = analysisType.ToLower();
+
+            if (analysisType == "production")
+            {
+                itemName = analysisParameter
+                    .ProductAnalysisParameters
+                    .FirstOrDefault()
+                    ?.ProductParameter
+                    ?.ParameterName ?? "No Parameter Name";
+            }
+            else if (analysisType.ToLower() == "water")
+            {
+                itemName = analysisParameter
+                    .WaterAnalysisParameters
+                    .FirstOrDefault()
+                    ?.WaterParameter
+                    ?.ParameterName ?? "No Parameter Name";
+            }
+            else
+            {
+                throw new ArgumentException($"{analysisParameter} is not recognized, use \"water\" or \"production\"");
+            }
+
+            return itemName;
+        }
+
+
+        private void SetupSampleDetails(List<SampleDetail> sampleDetails)
+        {
+            sampleDetails.ForEach(sd => {
+                string itemName = GetItemName(sd.Sample.TypeForFiltering, sd.AnalysisItem);
+                string itemId = GetItemId(sd.Sample.TypeForFiltering, sd.AnalysisItem);
+
+                _sampleItems.Add(
                     new()
                     {
                         Id = sd.Id,
                         Name = itemName,
+                        ProductOrWaterId = itemId,
                         AnalysisItemId = sd.AnalysisItemId.ToString()
                     }
                 );
             });
-            
-            dataGridView1.DataSource = _sampleDetails;
+
+            dataGridView1.DataSource = _sampleItems;
+        }
+
+        private void SetupSampleResultDetails(List<SampleResultDetail> sampleResultDetails)
+        {
+            sampleResultDetails.ForEach(srd => {
+                string itemName = GetItemName(srd.SampleResult.Sample.TypeForFiltering, srd.AnalysisItem);
+                string itemId = GetItemId(srd.SampleResult.Sample.TypeForFiltering, srd.AnalysisItem);
+
+                _sampleItems.Add(
+                    new()
+                    {
+                        Id = srd.Id,
+                        Name = itemName,
+                        ProductOrWaterId = itemId,
+                        AnalysisItemId = srd.AnalysisItemId.ToString(),
+                        parametersWithValues = _analysisService
+                            .FetchSampleResultWithParameters(
+                                srd.Id.ToString(),
+                                srd.SampleResult.Sample.TypeForFiltering
+                            ).Select(param => new ParametersWithValues()
+                        {
+                            ParameterId = param.AnalysisParameterId.ToString(),
+                            ParameterValue = param.Value.ToString(),
+                            AnalysisResultWithParameterId = param.Id.ToString(),
+                            ParameterName = GetItemParameterName(srd.SampleResult.Sample.TypeForFiltering, param.AnalysisParameter)
+                        }).ToList()
+                    }
+                );
+            });
+
+            dataGridView1.DataSource = _sampleItems.Select(it => { it.ParameterValues = it.ToString(); return it; }).ToList();
         }
 
         private void LoadSample()
         {
-            if (_sampleType.ToLower() == "water")
+            string sampleType = _sampleType.ToLower();
+
+            if (sampleType == "water")
             {
-                _sample = _analysisService.FetchWaterAnalysis(_sampleId);
+                _sample = _analysisService.FetchWaterAnalysis(analysisId);
             }
-            else if (_sampleType.ToLower() == "production")
+            else if (sampleType == "production")
             {
-                _sample = _analysisService.FetchProductionAnalysis(_sampleId);
+                _sample = _analysisService.FetchProductionAnalysis(analysisId);
             }
 
             if (_sample == null)
@@ -130,9 +248,10 @@ namespace FPIS.Views
                 return;
             }
 
-            SetupInitialValues();
-            SetupSampleDetails();
-            FetchProductionEngineer1();
+            SetupInitialValues(_sample.Date, _sample.Time, _sample.TypeForFiltering, _sample.Status);
+            SetupSampleDetails(_sample.SampleDetails);
+
+            SetProductionEngineerLabel(_sample.Employee1, labelEngineer1);
             if (_sample.Employee1 == _sample.Employee2)
             {
                 ProductionEngineerOneCaptionControl.Text = "Procurement Officer";
@@ -140,8 +259,109 @@ namespace FPIS.Views
                     labelEngineer2.Visible = false;
                 return;
             }
-            FetchProductionEngineer2();
+            SetProductionEngineerLabel(_sample.Employee2, labelEngineer2);
         }
+
+        private void LoadSampleResult()
+        {
+            string sampleType = _sampleType.ToLower();
+
+            if (sampleType == "water")
+            {
+                _sampleResult = _analysisService.FetchWaterAnalysisResult(analysisId);
+            }
+            else if (sampleType == "production")
+            {
+                _sampleResult = _analysisService.FetchProductionAnalysisResult(analysisId);
+            }
+
+            if (_sampleResult == null)
+            {
+                DialogResult dialogResult = Utils.Utils.ShowMessageBox(
+                    "We could not find the \"Analysis Request\" you want to update.",
+                    "Analysis Request Not Found",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                // this is a work around, because the user
+                // can click on the close button to dismiss
+                // this dialog
+                if (dialogResult != DialogResult.Yes)
+                {
+                    Close();
+                }
+                return;
+            }
+
+            SetupInitialValues(
+                _sampleResult.Date,
+                _sampleResult.Time,
+                _sampleResult.Sample.TypeForFiltering,
+                _sampleResult.Sample.Status
+            );
+            SetupSampleResultDetails(_sampleResult.SampleResultDetails);
+
+            SetProductionEngineerLabel(_sampleResult.Sample.Employee1, labelEngineer1);
+            if (_sampleResult.Sample.Employee1 == _sampleResult.Sample.Employee2)
+            {
+                ProductionEngineerOneCaptionControl.Text = "Procurement Officer";
+                ProductionEngineerTwoCaptionControl.Visible =
+                    labelEngineer2.Visible = false;
+                return;
+            }
+            SetProductionEngineerLabel(_sampleResult.Sample.Employee2, labelEngineer2);
+        }
+
+        /*
+        private string? GetSampleAnalysisProductId(string sampleDetailId)
+        {
+            string? itemId = null;
+
+            if (_sampleType == "production")
+            {
+                itemId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleDetailId)
+                        ?.AnalysisItem
+                        ?.AnalysisProducts
+                        ?.FirstOrDefault()
+                        ?.ProductId.ToString();
+            }
+            else if (_sampleType == "water")
+            {
+                itemId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleDetailId)
+                        ?.AnalysisItem
+                        ?.AnalysisWaters
+                        ?.FirstOrDefault()
+                        ?.WaterId.ToString();
+            }
+
+            return itemId;
+        }
+
+        private string GetSampleResultAnalysisProductId(string sampleResultDetailId)
+        {
+            string? itemId = null;
+
+            if (_sampleType == "production")
+            {
+                itemId = _sampleResult.SampleResultDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleResultDetailId)
+                        ?.AnalysisItem
+                        ?.AnalysisProducts
+                        ?.FirstOrDefault()
+                        ?.ProductId.ToString();
+            }
+            else if (_sampleType == "water")
+            {
+                itemId = _sampleResult.SampleResultDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleResultDetailId)
+                        ?.AnalysisItem
+                        ?.AnalysisWaters
+                        ?.FirstOrDefault()
+                        ?.WaterId.ToString();
+            }
+
+            return itemId;
+        }
+        */
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -152,29 +372,25 @@ namespace FPIS.Views
 
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-            if (e.ColumnIndex == row.Cells.Count - 1)
+            if (row != null && row.Cells["parameterValuesDataGridViewColumn"].Selected)
             {
                 DataGridViewRow activeRow = dataGridView1.Rows[e.RowIndex];
                 string itemId = activeRow.Cells[0].Value.ToString();
                 string itemName = activeRow.Cells[1].Value.ToString();
                 string analysisItemId = activeRow.Cells[2].Value.ToString();
-
-
-                _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
-                    .AnalysisItem
-                    .AnalysisProducts
-                    .FirstOrDefault()
-                    .ProductId.ToString();
+                string productOrWaterId = activeRow.Cells[activeRow.Cells.Count - 1].Value.ToString();
 
                 AnalysisResultSampleDetailBindingItem sdbi =
-                    _sampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId);
+                    _sampleItems.FirstOrDefault(sd => sd.Id.ToString() == itemId);
 
                 new AddAnalysisParameterValues(
                     itemId,
                     itemName,
                     analysisItemId,
-                    _sampleType
-                , _productId
+                    _sampleType,
+                    sdbi,
+                    productOrWaterId,
+                    _shouldUpdate
                 ).ShowDialog();
             }
         }
@@ -196,14 +412,38 @@ namespace FPIS.Views
 
             try
             {
-                _analysisService.CreateSampleResult(_sampleId, Main.LOGGED_USER_ID, _sampleDetails.ToList());
-                _analysisService.SetSampleAsComplete(_sampleId);
+                if (_shouldUpdate)
+                {
+                    IEnumerable<SampleResultsDetailsWithParameter> sampleResultsDetailsWithParameters = new List<SampleResultsDetailsWithParameter>();
 
-                Utils.Utils.ShowMessageBox(
-                    "Analysis Result is successfully generated.",
-                    "Analysis Result Generated"
-                );
-                ViewSamplesRequestedUserControl.isRequestCompleted= true;
+                    _sampleItems.ToList().ForEach(sampleItem =>
+                    {
+                        sampleResultsDetailsWithParameters = sampleResultsDetailsWithParameters.Concat(
+                            sampleItem.parametersWithValues.Select(paramWithValue => new SampleResultsDetailsWithParameter()
+                            {
+                                Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
+                                Value = float.Parse(paramWithValue.ParameterValue)
+                            })
+                        );
+                    });
+
+                    _analysisService.UpdateSampleResult(_sampleResult.Id.ToString(), sampleResultsDetailsWithParameters.ToList());
+                    Utils.Utils.ShowMessageBox(
+                        "Analysis Result is successfully updated.",
+                        "Analysis Result Updated"
+                    );
+                }
+                else
+                {
+                    _analysisService.CreateSampleResult(analysisId, Main.LOGGED_USER_ID, _sampleItems.ToList());
+                    _analysisService.SetSampleAsComplete(analysisId);
+
+                    Utils.Utils.ShowMessageBox(
+                        "Analysis Result is successfully generated.",
+                        "Analysis Result Generated"
+                    );
+                    ViewSamplesRequestedUserControl.isRequestCompleted = true;
+                }
             }
             catch (Exception ex)
             {

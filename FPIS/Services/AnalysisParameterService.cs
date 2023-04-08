@@ -21,11 +21,12 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
-        public List<WaterAnalysisParameter> FetchAnalysisWaterParameters()
+        public List<WaterAnalysisParameter> FetchAnalysisWaterParameters(Guid waterId)
         {
             return _dbContext.WaterAnalysisParameters
                 .Include(pap => pap.AnalysisParameter)
                 .Include(pap => pap.WaterParameter)
+                .Where(pap => pap.WaterParameter.WaterId == waterId)
                 .ToList();
         }
 
