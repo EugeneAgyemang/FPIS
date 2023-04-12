@@ -69,7 +69,8 @@ namespace FPIS.Views
                         Supplier = materialReceived.Supplier,
                         TruckNumber = materialReceived.TruckNumber,
                         Warehouse = materialProcured.Location,
-                        Selected = existingItem != null
+                        Selected = existingItem != null,
+                        Lot = materialProcured.Lot
                     };
 
                     itemList.Add(newItem);

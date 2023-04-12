@@ -37,6 +37,7 @@
             this.idAsStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialProcuredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialProcuredIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateAddedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,11 +45,13 @@
             this.quantityReceivedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityLeftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.analysisStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +118,7 @@
             this.idAsStrDataGridViewTextBoxColumn,
             this.MaterialProcuredId,
             this.idDataGridViewTextBoxColumn,
+            this.materialProcuredIdDataGridViewTextBoxColumn,
             this.dateAddedDataGridViewTextBoxColumn,
             this.warehouseDataGridViewTextBoxColumn,
             this.supplierDataGridViewTextBoxColumn,
@@ -122,7 +126,9 @@
             this.quantityReceivedDataGridViewTextBoxColumn,
             this.quantityLeftDataGridViewTextBoxColumn,
             this.remarksDataGridViewTextBoxColumn,
-            this.analysisStatusDataGridViewTextBoxColumn});
+            this.selectedDataGridViewCheckBoxColumn,
+            this.analysisStatusDataGridViewTextBoxColumn,
+            this.Lot});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(43, 81);
             this.dataGridView1.Name = "dataGridView1";
@@ -134,7 +140,7 @@
             // idAsStrDataGridViewTextBoxColumn
             // 
             this.idAsStrDataGridViewTextBoxColumn.DataPropertyName = "IdAsStr";
-            this.idAsStrDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idAsStrDataGridViewTextBoxColumn.HeaderText = "IdAsStr";
             this.idAsStrDataGridViewTextBoxColumn.Name = "idAsStrDataGridViewTextBoxColumn";
             this.idAsStrDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -152,12 +158,18 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // materialProcuredIdDataGridViewTextBoxColumn
+            // 
+            this.materialProcuredIdDataGridViewTextBoxColumn.DataPropertyName = "MaterialProcuredId";
+            this.materialProcuredIdDataGridViewTextBoxColumn.HeaderText = "MaterialProcuredId";
+            this.materialProcuredIdDataGridViewTextBoxColumn.Name = "materialProcuredIdDataGridViewTextBoxColumn";
+            this.materialProcuredIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateAddedDataGridViewTextBoxColumn
             // 
             this.dateAddedDataGridViewTextBoxColumn.DataPropertyName = "DateAdded";
-            this.dateAddedDataGridViewTextBoxColumn.HeaderText = "Date Added";
+            this.dateAddedDataGridViewTextBoxColumn.HeaderText = "DateAdded";
             this.dateAddedDataGridViewTextBoxColumn.Name = "dateAddedDataGridViewTextBoxColumn";
             this.dateAddedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -178,21 +190,21 @@
             // truckNumberDataGridViewTextBoxColumn
             // 
             this.truckNumberDataGridViewTextBoxColumn.DataPropertyName = "TruckNumber";
-            this.truckNumberDataGridViewTextBoxColumn.HeaderText = "Truck Number";
+            this.truckNumberDataGridViewTextBoxColumn.HeaderText = "TruckNumber";
             this.truckNumberDataGridViewTextBoxColumn.Name = "truckNumberDataGridViewTextBoxColumn";
             this.truckNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // quantityReceivedDataGridViewTextBoxColumn
             // 
             this.quantityReceivedDataGridViewTextBoxColumn.DataPropertyName = "QuantityReceived";
-            this.quantityReceivedDataGridViewTextBoxColumn.HeaderText = "Quantity Received";
+            this.quantityReceivedDataGridViewTextBoxColumn.HeaderText = "QuantityReceived";
             this.quantityReceivedDataGridViewTextBoxColumn.Name = "quantityReceivedDataGridViewTextBoxColumn";
             this.quantityReceivedDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // quantityLeftDataGridViewTextBoxColumn
             // 
             this.quantityLeftDataGridViewTextBoxColumn.DataPropertyName = "QuantityLeft";
-            this.quantityLeftDataGridViewTextBoxColumn.HeaderText = "Quantity Left";
+            this.quantityLeftDataGridViewTextBoxColumn.HeaderText = "QuantityLeft";
             this.quantityLeftDataGridViewTextBoxColumn.Name = "quantityLeftDataGridViewTextBoxColumn";
             this.quantityLeftDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -203,12 +215,26 @@
             this.remarksDataGridViewTextBoxColumn.Name = "remarksDataGridViewTextBoxColumn";
             this.remarksDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // selectedDataGridViewCheckBoxColumn
+            // 
+            this.selectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
+            this.selectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
+            this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
+            this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // analysisStatusDataGridViewTextBoxColumn
             // 
             this.analysisStatusDataGridViewTextBoxColumn.DataPropertyName = "AnalysisStatus";
-            this.analysisStatusDataGridViewTextBoxColumn.HeaderText = "Analysis Status";
+            this.analysisStatusDataGridViewTextBoxColumn.HeaderText = "AnalysisStatus";
             this.analysisStatusDataGridViewTextBoxColumn.Name = "analysisStatusDataGridViewTextBoxColumn";
             this.analysisStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Lot
+            // 
+            this.Lot.DataPropertyName = "Lot";
+            this.Lot.HeaderText = "Lot";
+            this.Lot.Name = "Lot";
+            this.Lot.ReadOnly = true;
             // 
             // analysisRawMaterialsSampleBindingItemBindingSource
             // 
@@ -223,20 +249,6 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // OpenAddMaterialsControl
-            // 
-            this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenAddMaterialsControl.Depth = 0;
-            this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
-            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(901, 336);
-            this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
-            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(56, 56);
-            this.OpenAddMaterialsControl.TabIndex = 19;
-            this.OpenAddMaterialsControl.Text = "Add Materials";
-            this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
-            this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -248,12 +260,27 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Selected Samples";
             // 
+            // OpenAddMaterialsControl
+            // 
+            this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenAddMaterialsControl.Depth = 0;
+            this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
+            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(917, 334);
+            this.OpenAddMaterialsControl.Mini = true;
+            this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
+            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(40, 40);
+            this.OpenAddMaterialsControl.TabIndex = 21;
+            this.OpenAddMaterialsControl.Text = "materialFloatingActionButton1";
+            this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
+            this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
+            // 
             // ProcurementIssueMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.OpenAddMaterialsControl);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.RequestForAnalysisControl);
@@ -283,9 +310,11 @@
         private GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxEmployee2;
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxEmployee1;
-        private DataGridViewTextBoxColumn idAsStrDataGridViewTextBoxColumn;
+        private Label label1;
         private DataGridViewTextBoxColumn MaterialProcuredId;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn materialProcuredIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idAsStrDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateAddedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn warehouseDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
@@ -293,7 +322,8 @@
         private DataGridViewTextBoxColumn quantityReceivedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn quantityLeftDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn remarksDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn selectedDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn analysisStatusDataGridViewTextBoxColumn;
-        private Label label1;
+        private DataGridViewTextBoxColumn Lot;
     }
 }
