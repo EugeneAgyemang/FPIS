@@ -495,7 +495,8 @@
             // SnackbarCaptionControl
             // 
             this.SnackbarCaptionControl.Depth = 0;
-            this.SnackbarCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SnackbarCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SnackbarCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.SnackbarCaptionControl.Location = new System.Drawing.Point(0, 8);
             this.SnackbarCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SnackbarCaptionControl.Name = "SnackbarCaptionControl";

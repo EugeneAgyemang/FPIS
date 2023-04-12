@@ -23,10 +23,10 @@ namespace FPIS.Views
         public const string DIRECTORY_NAME = "Material Procured";
 
         public static List<MaterialProcurementSchema> samplesRequested = new List<MaterialProcurementSchema>();
-        public const string EN_ROUTE = " En Route ";
-        public const string ANALYZED = " Analyzed ";
-        public const string DONE = " Done ";
-        public const string READY = " Ready ";
+        public const string EN_ROUTE = "  En Route";
+        public const string ANALYZED = "  Analyzed";
+        public const string DONE = "  Done";
+        public const string READY = "  Ready";
 
         bool allowKeyboardShortcut = false;
         private ProcurementReceiveMaterialsUserControl()
@@ -177,13 +177,6 @@ namespace FPIS.Views
         }
         private void SaveProcurementRecords_Click(object sender, EventArgs e)
         {
-            PerformValidations();
-            bool shouldSave = true;
-
-            if (!shouldSave)
-            {
-                return;
-            }
             DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox("Do you wish to proceed?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (userReponseToProceed != DialogResult.Yes)
             {
@@ -193,6 +186,7 @@ namespace FPIS.Views
             MaterialProcurement materialProcured = SaveMaterialProcuredRecord();
             if (materialProcured != null)
             {
+                DeleteCachedFile();
                 ResetFields();
                 Utils.Utils.ShowMessageBox("Raw material procured has been saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -445,7 +439,7 @@ namespace FPIS.Views
                                                             $"-{sampleCreated.Time.Second}" +
                                                             $".json"));
             FreezeFields();
-            UpdateUIAfterRequestingSample();
+            UpdateUIAfterRequestingSample(ProductControl.Text);
             LoadCachedData();
         }
         private void FreezeFields()
@@ -468,7 +462,7 @@ namespace FPIS.Views
                 }
             }
         }
-        private void UpdateUIAfterRequestingSample()
+        private void UpdateUIAfterRequestingSample(string product)
         {
             allowKeyboardShortcut = true;
             StartSampleRequest.Enabled = false;
@@ -476,29 +470,33 @@ namespace FPIS.Views
             SaveProcurementRecords.Enabled = false;
             DoneControl.Text = EN_ROUTE;
             DoneControl.Image = Properties.Resources.not_done_light;
-            ShowSnackBar("Sample was requested successfully! 👍");
+            ShowSnackBar($"{product} analysis requested successfully! 👍");
             EnableKeyboardShourtcut();
         }
-        // TODO: WILL BE USED WHEN QC PROVIDES RESULTS ON SAMPLE
-        public void UpdateUIAfterProcessingSample()
+        public void UpdateUIAfterProcessingSample(string product)
         {
             StartSampleRequest.Enabled = false;
             AbortProcurementRecords.Enabled = false;
             SaveProcurementRecords.Enabled = true;
-            DoneControl.Text = "Done";
+            DoneControl.Text = DONE;
             DoneControl.Image = Properties.Resources.done_light;
+            ShowSnackBar($"{product} analysis completed successfully! 👍");
+            EnableKeyboardShourtcut();
         }
-        public void UpdateUIWhenProcessingStarts()
+        public void UpdateUIWhenProcessingStarts(string product)
         {
             StartSampleRequest.Enabled = false;
             SaveProcurementRecords.Enabled = false;
             AbortProcurementRecords.Enabled = false;
             DoneControl.Text = ANALYZED;
             DoneControl.Image = Properties.Resources.not_done_light;
-            ShowSnackBar("Sample is analyzed at the lab ATM! 👍");
+            //ShowSnackBar("Sample is analyzed at the lab ATM! 👍");
+            ShowSnackBar($"{product} is analyzed at the lab ATM! 👍");
+            EnableKeyboardShourtcut();
         }
         private void EnableKeyboardShourtcut()
         {
+            allowKeyboardShortcut = true;
             DoneControl.Focus();
         }
         private void CloseSnackbarControl_Click(object sender, EventArgs e)
@@ -542,6 +540,7 @@ namespace FPIS.Views
         private void StartNewSampleRequest()
         {
             allowKeyboardShortcut = false;
+            SaveProcurementRecords.Enabled = false;
             HideSnackBar();
             UnfreezeFields();
             ResetFields();
@@ -613,10 +612,13 @@ namespace FPIS.Views
             switch (cachedData.Status.ToLower().Trim())
             {
                 case "en route":
-                    UpdateUIAfterRequestingSample();
+                    UpdateUIAfterRequestingSample(ProductControl.Text);
                     break;
                 case "analyzed":
-                    UpdateUIWhenProcessingStarts();
+                    UpdateUIWhenProcessingStarts(ProductControl.Text);
+                    break;
+                case "done":
+                    UpdateUIAfterProcessingSample(ProductControl.Text);
                     break;
             }
             FreezeFields();
@@ -682,12 +684,9 @@ namespace FPIS.Views
             string guidDelimeter = "-";
             if (ProductErrorCaption.Text.Contains(guidDelimeter))
             {
+                ResetFields();
                 foreach (FileInfo file in GetSampleFilesForCurrentUser())
                 {
-                    if (file.Name.StartsWith("schema"))
-                    {
-                        continue;
-                    }
                     MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
                                                                         .Deserialize<MaterialProcurementSchema>
                                                                         (file.FullName);
@@ -715,10 +714,6 @@ namespace FPIS.Views
             FileInfo[] files = GetSampleFilesForCurrentUser();
             foreach (FileInfo file in files)
             {
-                if (file.Name.StartsWith("schema"))
-                {
-                    continue;
-                }
                 MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
                                                                         .Deserialize<MaterialProcurementSchema>
                                                                         (file.FullName);
@@ -744,7 +739,6 @@ namespace FPIS.Views
         }
         private void UpdateUIAfterAbortingRequest()
         {
-            allowKeyboardShortcut = true;
             StartSampleRequest.Enabled = false;
             AbortProcurementRecords.Enabled = false;
             SaveProcurementRecords.Enabled = false;
@@ -767,6 +761,34 @@ namespace FPIS.Views
 
             return lastSchemaId;
 
+        }
+        private void UpdateUIAfterSavingProcurement()
+        {
+            StartSampleRequest.Enabled = false;
+            AbortProcurementRecords.Enabled = false;
+            SaveProcurementRecords.Enabled = false;
+            DoneControl.Text = READY;
+            DoneControl.Image = Properties.Resources.not_done_light;
+            ShowSnackBar("Material procured successfully! 👍");
+            EnableKeyboardShourtcut();
+        }
+        private void DeleteCachedFile()
+        {
+            FileInfo[] files = GetSampleFilesForCurrentUser();
+            foreach (FileInfo file in files)
+            {
+                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
+                                                                        .Deserialize<MaterialProcurementSchema>
+                                                                        (file.FullName);
+                if (materialProcurementSchema.Status.ToLower().Trim() == "done"
+                    && materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
+                {
+                    JsonParser.DeleteFile(Path.Combine(DIRECTORY_NAME, file.Name));
+                    LoadCachedData();
+                    UpdateUIAfterSavingProcurement();
+                    return;
+                }
+            }
         }
     }
 }
