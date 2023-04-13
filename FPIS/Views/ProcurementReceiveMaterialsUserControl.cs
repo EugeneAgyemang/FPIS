@@ -749,7 +749,7 @@ namespace FPIS.Views
         }
         private int GetLastSchemaId()
         {
-            string schemaFileName = "schema-id.json";
+            string schemaFileName = "schema-received-id.json";
             if (!(JsonParser.DoesFileExists(Path.Combine(DIRECTORY_NAME, schemaFileName))))
             {
                 JsonParser.Serialize<string>("{schema-id:1}", Path.Combine(DIRECTORY_NAME, schemaFileName));
