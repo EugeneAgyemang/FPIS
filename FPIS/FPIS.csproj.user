@@ -20,6 +20,9 @@
     <Compile Update="Views\AddRawMaterialsAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AnalysisCalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateAnalysisProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,14 +68,14 @@
     <Compile Update="Views\SelectAnalysisTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\SetVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\TestUserControls.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\UserControlA.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
@@ -89,7 +92,16 @@
     <Compile Update="Views\userControlIssueStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlProductReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\userControlSampleReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlViewCertificateOfAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewIssuedStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlViewReceivedStocks.cs">

@@ -26,19 +26,21 @@ namespace FPIS.Services
         }
 
         /// <summary>
-        /// Adds a new `Issue Stock` with a Quantity Issued, Issued Date 
+        /// Adds a new `Issue Stock` with a Quantity Issued, Issued Date , userID
         /// </summary>
         /// <param name="quantityIssued"></param>
         /// <param name="issuedDate"></param>
         /// <param name="stockItemID"></param>
-        public IssuedStock AddIssuedStock(int quantityIssued, DateOnly issuedDate, Guid stockItemID)
+        /// <param name="userID"></param>
+        public IssuedStock AddIssuedStock(int quantityIssued, DateOnly issuedDate, Guid stockItemID, Guid userID)
         {
             var issuedStock = _dbContext.IssuedStocks.Add(
                     new()
                     {
                         QuantityIssued = quantityIssued,
                         IssuedDate = issuedDate,
-                        StockItemId = stockItemID
+                        StockItemId = stockItemID,
+                        UserId= userID
                     }
                 ).Entity;
 

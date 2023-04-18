@@ -192,7 +192,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -258,7 +258,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -299,7 +299,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Stock_Items_Dataset</DataSetName>
-        <Top>1.68in</Top>
+        <Top>1.18in</Top>
         <Left>0.355in</Left>
         <Height>0.56666in</Height>
         <Width>5.68332in</Width>

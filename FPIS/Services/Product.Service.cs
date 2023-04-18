@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -100,6 +101,7 @@ namespace FPIS.Services
                 ThenInclude(a => a.ProductAnalysisParameters).
                 ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
                 ThenInclude(a => a.SampleResultDetail.SampleResult);
+            
 
             if (productName != string.Empty)
             {
@@ -111,5 +113,31 @@ namespace FPIS.Services
             return productSamplesRequestedQuery.ToList();
 
         }
+
+        public List<SampleDetail> GetProductsWithAnalysisResultsPerDate(DateOnly fromDate,DateOnly toDate ,string productName = "")
+        {
+            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
+                ThenInclude(a => a.ProductAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (productName != string.Empty)
+            {
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
+                
+            }
+
+
+            return productSamplesRequestedQuery.ToList();
+
+        }
+
+
     }
 }

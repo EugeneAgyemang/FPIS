@@ -380,5 +380,53 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
         }
+
+        private void QualityControl_CreateAnalysisWaterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateAnalysisWater());
+        }
+
+        private void ProductionSection_AddProductionRemarkControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlDailyProductionReport());
+        }
+
+        private void ConsumbalesSection_ViewIssuedStockControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewIssuedStock());
+        }
+
+        private void QualityControl_OpenAnalysisCalculatorControl_Click(object sender, EventArgs e)
+        {
+            AnalysisCalculatorForm acf = new AnalysisCalculatorForm();
+            acf.Show();
+        }
+
+        private void ReportsSection_OpenStockReportControl_Click(object sender, EventArgs e)
+        {
+            UserControlViewReceivedStocks viewReceivedStock = new UserControlViewReceivedStocks();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(viewReceivedStock);
+        }
+
+        private void ReportsSection_OpenAnalyticalResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+        }
+
+        private void ReportsSection_OpenSampleReportControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new userControlSampleReport());
+        }
+
+        private void ReportsSection_OpenProductsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlProductReport());
+        }
+
+        private void ProductionSection_ViewProductsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlProductReport());
+        }
     }
 }

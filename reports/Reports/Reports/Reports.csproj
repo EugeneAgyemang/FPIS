@@ -66,22 +66,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datasets\Analytical_Results.cs" />
     <Compile Include="Datasets\Certificate_Of_Analysis.cs" />
-    <Compile Include="Datasets\Received_Stock.cs" />
+    <Compile Include="Datasets\DailyProduction_Report.cs" />
+    <Compile Include="Datasets\Issued_Stocks.cs" />
+    <Compile Include="Datasets\Product_Report.cs" />
+    <Compile Include="Datasets\Received_Stock_Items.cs" />
+    <Compile Include="Datasets\Requested_Samples.cs" />
     <Compile Include="Datasets\StockItemsReport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViews\AnalyticalResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\AnalyticalResults.Designer.cs">
+      <DependentUpon>AnalyticalResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViews\CertificateOfAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportViews\CertificateOfAnalysis.Designer.cs">
       <DependentUpon>CertificateOfAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViews\DailyProductionReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\DailyProductionReportForm.Designer.cs">
+      <DependentUpon>DailyProductionReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViews\IssuedStockItemsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\IssuedStockItemsReportForm.Designer.cs">
+      <DependentUpon>IssuedStockItemsReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViews\ProductReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\ProductReportForm.Designer.cs">
+      <DependentUpon>ProductReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViews\ReceivedStockReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportViews\ReceivedStockReport.Designer.cs">
       <DependentUpon>ReceivedStockReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViews\RequestedSamples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViews\RequestedSamples.Designer.cs">
+      <DependentUpon>RequestedSamples.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportViews\StockItems.cs">
       <SubType>Form</SubType>
@@ -99,20 +134,47 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RDLCReports\AnalyticalResults.rdlc" />
     <EmbeddedResource Include="RDLCReports\CertificateOfAnalysis.rdlc" />
+    <EmbeddedResource Include="RDLCReports\DailyProductionReport.rdlc" />
+    <EmbeddedResource Include="RDLCReports\IssuedStockReport.rdlc" />
+    <EmbeddedResource Include="RDLCReports\ProductReport.rdlc" />
     <EmbeddedResource Include="RDLCReports\ReceivedStocks.rdlc" />
+    <EmbeddedResource Include="RDLCReports\RequestedSamples.rdlc" />
     <EmbeddedResource Include="RDLCReports\StockItems.rdlc" />
+    <EmbeddedResource Include="ReportViews\AnalyticalResults.resx">
+      <DependentUpon>AnalyticalResults.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViews\CertificateOfAnalysis.resx">
       <DependentUpon>CertificateOfAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportViews\DailyProductionReportForm.resx">
+      <DependentUpon>DailyProductionReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViews\IssuedStockItemsReportForm.resx">
+      <DependentUpon>IssuedStockItemsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViews\ProductReportForm.resx">
+      <DependentUpon>ProductReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViews\ReceivedStockReport.resx">
       <DependentUpon>ReceivedStockReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViews\RequestedSamples.resx">
+      <DependentUpon>RequestedSamples.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViews\StockItems.resx">
       <DependentUpon>StockItems.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Reports.Datasets.Analytical_Results.datasource" />
+    <None Include="Properties\DataSources\Reports.Datasets.DailyProduction_Report.datasource" />
+    <None Include="Properties\DataSources\Reports.Datasets.Issued_Stocks.datasource" />
+    <None Include="Properties\DataSources\Reports.Datasets.Issued_Stock_Items.datasource" />
+    <None Include="Properties\DataSources\Reports.Datasets.Product_Report.datasource" />
     <None Include="Properties\DataSources\Reports.Datasets.Received_Stock.datasource" />
+    <None Include="Properties\DataSources\Reports.Datasets.Received_Stock_Items.datasource" />
+    <None Include="Properties\DataSources\Reports.Datasets.Requested_Samples.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

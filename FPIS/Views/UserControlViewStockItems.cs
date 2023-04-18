@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using FPIS.Services;
 using FPISReports.Datasets;
 using FPISReports.ReportViews;
 using MaterialSkin.Controls;
@@ -17,14 +18,96 @@ namespace FPIS.Views
     public partial class UserControlViewStockItems : UserControl
     {
         int stocks;
+        public bool _isDataValid = true;
         public UserControlViewStockItems()
         {
             InitializeComponent();
             LoadStockItems();
+            LoadStockItemCategory();
             stockItemCount(stocks);
-            
+            materialComboBoxItemCategory.SelectedIndex = -1;
+
+            labelItemCategoryError.ForeColor = System.Drawing.Color.Red;
+
+            labelItemCategoryError.Text = "";
+
         }
 
+        public void ValidateCategoryFilter(string itemCategory)
+        {
+            if (itemCategory.Length == 0)
+            {
+                labelItemCategoryError.Text = "Select an Item Category!";
+                _isDataValid = false;
+                return;
+            }
+
+        }
+
+        public void ClearErrorLabels()
+        {
+            labelItemCategoryError.Text = "";
+        }
+
+        private void LoadStockItemCategory()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var itemCategory = from StockItem in dbContext.StockItems
+                                   select StockItem.StockItemType;
+                materialComboBoxItemCategory.DataSource = itemCategory.Distinct().ToList();
+                materialComboBoxItemCategory.DisplayMember = "StockItemType";
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Stock Item Type: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
+        }
+
+        public void ResetCategoryFilter()
+        {
+            materialComboBoxItemCategory.SelectedIndex = -1;
+            materialComboBoxItemCategory.Focus();
+        }
+
+        private void LoadStockDataByItemCategory(string itemCategory)
+        {
+            ClearErrorLabels();
+            ValidateCategoryFilter(itemCategory);
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
+                return;
+            }
+            try
+            {
+                AppDbContext dbContext = new();
+                var stockItems = from StockItem in dbContext.StockItems
+                                 where StockItem.StockItemType == itemCategory
+                                 select new
+                                 {
+                                     itemName = StockItem.StockItemName,
+                                     unit = StockItem.Unit,
+                                     itemType = StockItem.StockItemType
+                                 };
+                dataGridViewStockItems.Rows.Clear();
+                foreach (var items in stockItems)
+                {
+                    dataGridViewStockItems.Rows.Add(items.itemName, items.unit, items.itemType);
+                }
+                dbContext.Dispose();
+                stocks = dataGridViewStockItems.Rows.Count;
+                labelStockItemCount.Text = stocks.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Received Stocks: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
+        }
 
         void stockItemCount(int totalStockItems)
         {
@@ -41,6 +124,7 @@ namespace FPIS.Views
 
         private void LoadStockItems()
         {
+            ClearErrorLabels();
             try
             {
                 AppDbContext dbContext = new();
@@ -90,6 +174,17 @@ namespace FPIS.Views
             StockItems st = new StockItems(stock_Items);
             st.ShowDialog();
 
+        }
+
+        private void materialButtonSearchDailyReport_Click(object sender, EventArgs e)
+        {
+            LoadStockDataByItemCategory(materialComboBoxItemCategory.Text);
+            stockItemCount(stocks);
+        }
+        private void materialButtonShowAll_Click_1(object sender, EventArgs e)
+        {
+            LoadStockItems();
+            stockItemCount(stocks);
         }
     }
 }

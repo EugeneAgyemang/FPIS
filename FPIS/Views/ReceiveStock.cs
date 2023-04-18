@@ -137,7 +137,7 @@ namespace FPIS.Views
                 try
                 {
                     ReceivedStockService receivedStockService = new(dbContext);
-                    receivedStockService.AddReceivedStock(receivedDate, int.Parse(quantity), int.Parse(balance),expiryDate, stockItem.Id);
+                    receivedStockService.AddReceivedStock(receivedDate, int.Parse(quantity), int.Parse(balance),expiryDate, stockItem.Id, new Guid(Main.LOGGED_USER_ID));
                     MessageBox.Show(
                         $"Stock Item \"{stockItemName}\" is successfully created.",
                         "Success",

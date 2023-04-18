@@ -51,11 +51,11 @@ namespace FPIS.Views
                 ViewSampleRequestsMadeBindingItem sampleRequestMade = new ViewSampleRequestsMadeBindingItem();
 
                 sampleRequestMade.SampleIdAsString = Utils.Utils.GetLastCharacters(sampleRequested.Id.ToString(), 4);
-                sampleRequestMade.ProductId = sampleRequested.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().ProductId;
+                //sampleRequestMade.AnalysisProductId = sampleRequested.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().ProductId;
                 sampleRequestMade.SampleId = sampleRequested.Id;
                 sampleRequestMade.SampleDetailId = sampleRequested.SampleDetails.FirstOrDefault().Id;
                 sampleRequestMade.AnalysisItemId = sampleRequested.SampleDetails.FirstOrDefault().AnalysisItemId;
-                sampleRequestMade.AnalysisProductId = sampleRequested.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().Id;
+               // sampleRequestMade.AnalysisProductId = sampleRequested.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().Id;
                 sampleRequestMade.Date = sampleRequested.Date;
                 sampleRequestMade.Time = sampleRequested.Time;
                 sampleRequestMade.Status = sampleRequested.Status;

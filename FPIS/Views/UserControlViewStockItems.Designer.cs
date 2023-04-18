@@ -36,6 +36,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelStockItemCount = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonPrintStockItems = new MaterialSkin.Controls.MaterialButton();
+            this.materialComboBoxItemCategory = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialButtonSearchItemCategory = new MaterialSkin.Controls.MaterialButton();
+            this.materialButtonShowAll = new MaterialSkin.Controls.MaterialButton();
+            this.labelItemCategoryError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +66,7 @@
             this.StockItemName,
             this.UnitOfMeasurement,
             this.StockItemType});
-            this.dataGridViewStockItems.Location = new System.Drawing.Point(363, 189);
+            this.dataGridViewStockItems.Location = new System.Drawing.Point(363, 211);
             this.dataGridViewStockItems.Name = "dataGridViewStockItems";
             this.dataGridViewStockItems.ReadOnly = true;
             this.dataGridViewStockItems.RowHeadersWidth = 51;
@@ -86,7 +90,7 @@
             // 
             // StockItemType
             // 
-            this.StockItemType.HeaderText = "STOCK ITEM TYPE";
+            this.StockItemType.HeaderText = "STOCK ITEM CATEGORY";
             this.StockItemType.MinimumWidth = 6;
             this.StockItemType.Name = "StockItemType";
             this.StockItemType.ReadOnly = true;
@@ -95,7 +99,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(691, 133);
+            this.label2.Location = new System.Drawing.Point(691, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 28);
             this.label2.TabIndex = 13;
@@ -122,7 +126,7 @@
             this.materialButtonPrintStockItems.Depth = 0;
             this.materialButtonPrintStockItems.HighEmphasis = true;
             this.materialButtonPrintStockItems.Icon = null;
-            this.materialButtonPrintStockItems.Location = new System.Drawing.Point(1247, 689);
+            this.materialButtonPrintStockItems.Location = new System.Drawing.Point(1247, 710);
             this.materialButtonPrintStockItems.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonPrintStockItems.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintStockItems.Name = "materialButtonPrintStockItems";
@@ -135,10 +139,86 @@
             this.materialButtonPrintStockItems.UseVisualStyleBackColor = true;
             this.materialButtonPrintStockItems.Click += new System.EventHandler(this.materialButtonPrintStockItems_Click);
             // 
+            // materialComboBoxItemCategory
+            // 
+            this.materialComboBoxItemCategory.AutoResize = false;
+            this.materialComboBoxItemCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxItemCategory.Depth = 0;
+            this.materialComboBoxItemCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxItemCategory.DropDownHeight = 174;
+            this.materialComboBoxItemCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxItemCategory.DropDownWidth = 121;
+            this.materialComboBoxItemCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBoxItemCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxItemCategory.FormattingEnabled = true;
+            this.materialComboBoxItemCategory.Hint = "Search by Item Category";
+            this.materialComboBoxItemCategory.IntegralHeight = false;
+            this.materialComboBoxItemCategory.ItemHeight = 43;
+            this.materialComboBoxItemCategory.Location = new System.Drawing.Point(589, 81);
+            this.materialComboBoxItemCategory.MaxDropDownItems = 4;
+            this.materialComboBoxItemCategory.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxItemCategory.Name = "materialComboBoxItemCategory";
+            this.materialComboBoxItemCategory.Size = new System.Drawing.Size(257, 49);
+            this.materialComboBoxItemCategory.StartIndex = 0;
+            this.materialComboBoxItemCategory.TabIndex = 54;
+            // 
+            // materialButtonSearchItemCategory
+            // 
+            this.materialButtonSearchItemCategory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchItemCategory.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonSearchItemCategory.Depth = 0;
+            this.materialButtonSearchItemCategory.HighEmphasis = true;
+            this.materialButtonSearchItemCategory.Icon = null;
+            this.materialButtonSearchItemCategory.Location = new System.Drawing.Point(873, 86);
+            this.materialButtonSearchItemCategory.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchItemCategory.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonSearchItemCategory.Name = "materialButtonSearchItemCategory";
+            this.materialButtonSearchItemCategory.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButtonSearchItemCategory.Size = new System.Drawing.Size(78, 36);
+            this.materialButtonSearchItemCategory.TabIndex = 52;
+            this.materialButtonSearchItemCategory.Text = "Search";
+            this.materialButtonSearchItemCategory.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonSearchItemCategory.UseAccentColor = false;
+            this.materialButtonSearchItemCategory.UseVisualStyleBackColor = true;
+            this.materialButtonSearchItemCategory.Click += new System.EventHandler(this.materialButtonSearchDailyReport_Click);
+            // 
+            // materialButtonShowAll
+            // 
+            this.materialButtonShowAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonShowAll.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonShowAll.Depth = 0;
+            this.materialButtonShowAll.HighEmphasis = true;
+            this.materialButtonShowAll.Icon = null;
+            this.materialButtonShowAll.Location = new System.Drawing.Point(966, 86);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonShowAll.Name = "materialButtonShowAll";
+            this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButtonShowAll.Size = new System.Drawing.Size(93, 36);
+            this.materialButtonShowAll.TabIndex = 53;
+            this.materialButtonShowAll.Text = "Show All";
+            this.materialButtonShowAll.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonShowAll.UseAccentColor = false;
+            this.materialButtonShowAll.UseVisualStyleBackColor = true;
+            this.materialButtonShowAll.Click += new System.EventHandler(this.materialButtonShowAll_Click_1);
+            // 
+            // labelItemCategoryError
+            // 
+            this.labelItemCategoryError.AutoSize = true;
+            this.labelItemCategoryError.Location = new System.Drawing.Point(589, 133);
+            this.labelItemCategoryError.Name = "labelItemCategoryError";
+            this.labelItemCategoryError.Size = new System.Drawing.Size(50, 20);
+            this.labelItemCategoryError.TabIndex = 55;
+            this.labelItemCategoryError.Text = "label3";
+            // 
             // UserControlViewStockItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelItemCategoryError);
+            this.Controls.Add(this.materialComboBoxItemCategory);
+            this.Controls.Add(this.materialButtonSearchItemCategory);
+            this.Controls.Add(this.materialButtonShowAll);
             this.Controls.Add(this.materialButtonPrintStockItems);
             this.Controls.Add(this.labelStockItemCount);
             this.Controls.Add(this.label2);
@@ -156,11 +236,15 @@
 
         private Label label1;
         private DataGridView dataGridViewStockItems;
-        private DataGridViewTextBoxColumn StockItemName;
-        private DataGridViewTextBoxColumn UnitOfMeasurement;
-        private DataGridViewTextBoxColumn StockItemType;
         private Label label2;
         private MaterialSkin.Controls.MaterialLabel labelStockItemCount;
         private MaterialSkin.Controls.MaterialButton materialButtonPrintStockItems;
+        private DataGridViewTextBoxColumn StockItemName;
+        private DataGridViewTextBoxColumn UnitOfMeasurement;
+        private DataGridViewTextBoxColumn StockItemType;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBoxItemCategory;
+        private MaterialSkin.Controls.MaterialButton materialButtonSearchItemCategory;
+        private MaterialSkin.Controls.MaterialButton materialButtonShowAll;
+        private Label labelItemCategoryError;
     }
 }

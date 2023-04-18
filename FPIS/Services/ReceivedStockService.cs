@@ -34,7 +34,8 @@ namespace FPIS.Services
         /// <param name="balance"></param>
         /// <param name="expiryDate"></param>
         /// <param name="stockItemID"></param>
-        public ReceivedStock AddReceivedStock(DateOnly receivedDate,int quantity, int balance, DateOnly expiryDate, Guid stockItemID)
+        /// <param name="userID"></param>
+        public ReceivedStock AddReceivedStock(DateOnly receivedDate,int quantity, int balance, DateOnly expiryDate, Guid stockItemID,Guid userID)
         {
             var receivedStock = _dbContext.ReceivedStocks.Add(
                     new()
@@ -43,7 +44,8 @@ namespace FPIS.Services
                         Quantity = quantity,
                         QuantityAvailable = balance,
                         ExpiryDate = expiryDate,
-                        StockItemId= stockItemID
+                        StockItemId= stockItemID,
+                        UserId= userID
                     }
                 ).Entity;
 
