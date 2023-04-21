@@ -21,6 +21,16 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
+        public List<SampleResult> FetchSampleResults()
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
         public Sample? FetchProductionAnalysis(string sampleId)
         {
             return _dbContext.Samples
@@ -201,18 +211,23 @@ namespace FPIS.Services
         }
 
         public bool UpdateSampleResult(
-            string sampleResultId,
-            List<SampleResultsDetailsWithParameter> sampleResultDetailsIdsWithParameters
+            List<SampleResultsDetailsWithParameter> itemsToUpdate,
+            List<SampleResultsDetailsWithParameter> itemsToInsert
         )
         {
             try
             {
-                sampleResultDetailsIdsWithParameters.ForEach(sr =>
+                itemsToUpdate.ForEach(sr =>
                 {
                     _dbContext.SampleResultsDetailsWithParameters
                     .Where(it => it.Id == sr.Id)
                     .ExecuteUpdate(it => it.SetProperty(resultWithParam => resultWithParam.Value, sr.Value));
                 });
+
+                if (itemsToInsert.Count > 0)
+                {
+                    _dbContext.SampleResultsDetailsWithParameters.AddRange(itemsToInsert.ToArray());
+                }
 
                 _dbContext.SaveChanges();
                 return true;

@@ -313,56 +313,6 @@ namespace FPIS.Views
             SetProductionEngineerLabel(_sampleResult.Sample.Employee2, labelEngineer2);
         }
 
-        /*
-        private string? GetSampleAnalysisProductId(string sampleDetailId)
-        {
-            string? itemId = null;
-
-            if (_sampleType == "production")
-            {
-                itemId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleDetailId)
-                        ?.AnalysisItem
-                        ?.AnalysisProducts
-                        ?.FirstOrDefault()
-                        ?.ProductId.ToString();
-            }
-            else if (_sampleType == "water")
-            {
-                itemId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleDetailId)
-                        ?.AnalysisItem
-                        ?.AnalysisWaters
-                        ?.FirstOrDefault()
-                        ?.WaterId.ToString();
-            }
-
-            return itemId;
-        }
-
-        private string GetSampleResultAnalysisProductId(string sampleResultDetailId)
-        {
-            string? itemId = null;
-
-            if (_sampleType == "production")
-            {
-                itemId = _sampleResult.SampleResultDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleResultDetailId)
-                        ?.AnalysisItem
-                        ?.AnalysisProducts
-                        ?.FirstOrDefault()
-                        ?.ProductId.ToString();
-            }
-            else if (_sampleType == "water")
-            {
-                itemId = _sampleResult.SampleResultDetails.FirstOrDefault(sd => sd.Id.ToString() == sampleResultDetailId)
-                        ?.AnalysisItem
-                        ?.AnalysisWaters
-                        ?.FirstOrDefault()
-                        ?.WaterId.ToString();
-            }
-
-            return itemId;
-        }
-        */
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
@@ -415,23 +365,44 @@ namespace FPIS.Views
                 if (_shouldUpdate)
                 {
                     IEnumerable<SampleResultsDetailsWithParameter> sampleResultsDetailsWithParameters = new List<SampleResultsDetailsWithParameter>();
+                    List<SampleResultsDetailsWithParameter> filteredParameterWithValues = new();
 
                     _sampleItems.ToList().ForEach(sampleItem =>
                     {
-                        sampleResultsDetailsWithParameters = sampleResultsDetailsWithParameters.Concat(
-                            sampleItem.parametersWithValues.Select(paramWithValue => new SampleResultsDetailsWithParameter()
-                            {
-                                Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
-                                Value = float.Parse(paramWithValue.ParameterValue)
-                            })
-                        );
+                        if (sampleItem != null)
+                        {
+                            sampleResultsDetailsWithParameters = sampleResultsDetailsWithParameters.Concat(
+                                sampleItem.parametersWithValues
+                                .Where(paramWithValue => !string.IsNullOrEmpty(paramWithValue.AnalysisResultWithParameterId))
+                                .Select(paramWithValue => new SampleResultsDetailsWithParameter()
+                                {
+                                    Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
+                                    Value = float.Parse(paramWithValue.ParameterValue)
+                                })
+                            );
+
+                            filteredParameterWithValues = sampleItem.parametersWithValues
+                                .Where(pmw => string.IsNullOrEmpty(pmw.AnalysisResultWithParameterId))
+                                .Select(pmw => new SampleResultsDetailsWithParameter()
+                                {
+                                    Value = float.Parse(pmw.ParameterValue),
+                                    SampleResultDetailId = sampleItem.Id,
+                                    AnalysisParameterId = new Guid(pmw.ParameterId),
+                                }).ToList();
+                        }
                     });
 
-                    _analysisService.UpdateSampleResult(_sampleResult.Id.ToString(), sampleResultsDetailsWithParameters.ToList());
-                    Utils.Utils.ShowMessageBox(
-                        "Analysis Result is successfully updated.",
-                        "Analysis Result Updated"
-                    );
+                    if (_sampleResult != null)
+                    {
+                        _analysisService.UpdateSampleResult(
+                            sampleResultsDetailsWithParameters.ToList(),
+                            filteredParameterWithValues
+                        );
+                        DialogResult result = Utils.Utils.ShowMessageBox(
+                            "Analysis Result is successfully updated.",
+                            "Analysis Result Updated"
+                        );
+                    }
                 }
                 else
                 {
@@ -444,6 +415,8 @@ namespace FPIS.Views
                     );
                     ViewSamplesRequestedUserControl.isRequestCompleted = true;
                 }
+
+                Close();
             }
             catch (Exception ex)
             {

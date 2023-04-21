@@ -95,6 +95,9 @@
     <Compile Update="Views\UserControlViewReceivedStocks.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlViewSampleResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlViewStockItems.cs">
       <SubType>UserControl</SubType>
     </Compile>

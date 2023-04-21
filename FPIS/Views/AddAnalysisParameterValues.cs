@@ -13,8 +13,13 @@ namespace FPIS.Views
         private readonly string _waterOrProductId;
         private readonly bool _shouldUpdate;
         private readonly AnalysisParameterService _analysisParameterService;
-        private readonly BindingList<AnalysisSampleParameterBindingItem> _parameterList = new();
         private readonly AnalysisResultSampleDetailBindingItem _selectedBindingItem;
+        private BindingList<AnalysisSampleParameterBindingItem> _parameterList = new();
+
+        // this will contain new parameters that were not created when the analysis result
+        // was created.
+        private readonly BindingList<AnalysisSampleParameterBindingItem> _newParameterList = new();
+        private readonly BindingList<AnalysisSampleParameterBindingItem> _oldParameterList = new();
 
         public AddAnalysisParameterValues(
             string sampleDetailId,
@@ -34,6 +39,7 @@ namespace FPIS.Views
             _analysisItemId = analysisItemId;
             _waterOrProductId = waterOrProductId;
             _shouldUpdate = shouldUpdate;
+            materialCheckboxShowNewParameters.Visible = false;
 
             if (!_shouldUpdate)
             {
@@ -79,26 +85,37 @@ namespace FPIS.Views
                 ParametersWithValues? item = bindingItem.parametersWithValues
                     .FirstOrDefault(pwv => pwv.ParameterId.Equals(waterAnalysisParameter.AnalysisParameterId.ToString()));
 
-                // This is important because if a parameter was not part of an analysis item
-                // at the time of generating a sample result, then it cannot be listed during
-                // and update. This is only true if we are updating a parameter and that parameter
-                // does not have an "AnalysisResultWithParameterId".
-                // The same is true for "LoadProductParameters(...)" function below.
-                if (_shouldUpdate && item != null && item.AnalysisResultWithParameterId == null)
+                if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
                 {
-                    continue;
+                    _oldParameterList.Add(new()
+                    {
+                        Id = waterAnalysisParameter.AnalysisParameterId,
+                        Unit = waterAnalysisParameter.WaterParameter.Unit,
+                        Value = item?.ParameterValue ?? "0.00",
+                        Name = waterAnalysisParameter.WaterParameter.ParameterName,
+                        ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                        shouldUpdate = true,
+                    });
+                } else
+                {
+                    _newParameterList.Add(new()
+                    {
+                        Id = waterAnalysisParameter.AnalysisParameterId,
+                        Unit = waterAnalysisParameter.WaterParameter.Unit,
+                        Value = item?.ParameterValue ?? "0.00",
+                        Name = waterAnalysisParameter.WaterParameter.ParameterName,
+                        ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                        shouldUpdate = false,
+                    });
                 }
-
-                _parameterList.Add(new()
-                {
-                    Id = waterAnalysisParameter.AnalysisParameterId,
-                    Unit = waterAnalysisParameter.WaterParameter.Unit,
-                    Value = item?.ParameterValue ?? "0.00",
-                    Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                    ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit
-                });
-
             }
+
+            if (_newParameterList.Count > 0)
+            {
+                materialCheckboxShowNewParameters.Visible = true;
+            };
+
+            dataGridView1.DataSource = _oldParameterList;
         }
 
         void LoadProductParameters(AnalysisResultSampleDetailBindingItem bindingItem)
@@ -111,22 +128,39 @@ namespace FPIS.Views
                 ParametersWithValues? item = bindingItem.parametersWithValues
                     .FirstOrDefault(pwv => pwv.ParameterId.Equals(productAnalysisParameter.AnalysisParameterId.ToString()));
 
-                if (_shouldUpdate && item != null && item.AnalysisResultWithParameterId == null)
+                if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
                 {
-                    continue;
+                    _oldParameterList.Add(new()
+                    {
+                        Value = item?.ParameterValue ?? "0.00",
+                        Id = productAnalysisParameter.AnalysisParameterId,
+                        Unit = productAnalysisParameter.ProductParameter.Unit,
+                        Method = productAnalysisParameter.ProductParameter.Method,
+                        Name = productAnalysisParameter.ProductParameter.ParameterName,
+                        Specification = productAnalysisParameter.ProductParameter.Specification,
+                        shouldUpdate = true,
+                    });
+                } else
+                {
+                    _newParameterList.Add(new()
+                    {
+                        Value = item?.ParameterValue ?? "0.00",
+                        Id = productAnalysisParameter.AnalysisParameterId,
+                        Unit = productAnalysisParameter.ProductParameter.Unit,
+                        Method = productAnalysisParameter.ProductParameter.Method,
+                        Name = productAnalysisParameter.ProductParameter.ParameterName,
+                        Specification = productAnalysisParameter.ProductParameter.Specification,
+                        shouldUpdate = false,
+                    });
                 }
-
-                _parameterList.Add(new()
-                {
-                    Value = item?.ParameterValue ?? "0.00",
-                    Id = productAnalysisParameter.AnalysisParameterId,
-                    Unit = productAnalysisParameter.ProductParameter.Unit,
-                    Method = productAnalysisParameter.ProductParameter.Method,
-                    Name = productAnalysisParameter.ProductParameter.ParameterName,
-                    Specification = productAnalysisParameter.ProductParameter.Specification
-                });
-
             }
+
+            if (_newParameterList.Count > 0)
+            {
+                materialCheckboxShowNewParameters.Visible = true;
+            };
+
+            dataGridView1.DataSource = _oldParameterList;
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -144,7 +178,7 @@ namespace FPIS.Views
                 string parameterName = activeRow.Cells[1].Value.ToString();
                 string enteredValue = activeRow.Cells[activeRow.Cells.Count - 1].Value?.ToString();
 
-                if (String.IsNullOrEmpty(enteredValue))
+                if (string.IsNullOrEmpty(enteredValue))
                 {
                     return;
                 }
@@ -170,6 +204,13 @@ namespace FPIS.Views
             _parameterList.ToList().ForEach(parameterBinding => {
                 ParametersWithValues? item = _selectedBindingItem.parametersWithValues
                     .FirstOrDefault(pw => pw.ParameterId == parameterBinding.Id.ToString());
+
+                if (!materialCheckboxShowNewParameters.Checked)
+                {
+                    _selectedBindingItem.parametersWithValues = _selectedBindingItem.parametersWithValues.Where(
+                        it => !string.IsNullOrEmpty(it.AnalysisResultWithParameterId)
+                    ).ToList();
+                }
 
                 if (item != null) {
                     item.ParameterValue = parameterBinding.Value ?? "0.00";
@@ -199,6 +240,19 @@ namespace FPIS.Views
             AddAnalysisResultForm._sampleItems.Add(_selectedBindingItem);
 
             Close();
+        }
+
+        private void materialCheckboxShowNewParameters_CheckedChanged(object sender, EventArgs e)
+        {
+            if(materialCheckboxShowNewParameters.Checked)
+            {
+                _parameterList = new BindingList<AnalysisSampleParameterBindingItem>(_oldParameterList.Concat(_newParameterList).ToList());
+                dataGridView1.DataSource = _parameterList;
+            } else
+            {
+                _parameterList = new BindingList<AnalysisSampleParameterBindingItem>(_oldParameterList);
+                dataGridView1.DataSource = _parameterList;
+            }
         }
     }
 }
