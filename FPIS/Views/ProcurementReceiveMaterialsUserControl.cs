@@ -177,8 +177,13 @@ namespace FPIS.Views
         }
         private void SaveProcurementRecords_Click(object sender, EventArgs e)
         {
-            DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox("Do you wish to proceed?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (userReponseToProceed != DialogResult.Yes)
+            DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox($"{((RemarksControl.Text == string.Empty) ? "Looks like you forgot to provide a remark 😟\n\n" : string.Empty)}" +
+                                                    $"Do you wish to proceed{((RemarksControl.Text == string.Empty) ? " anyways" : string.Empty)}" +
+                                                    $"{((RemarksControl.Text == string.Empty) ? " without adding any remarks?" : "?")}"
+                                                    , "Continue"
+                                                    , MessageBoxButtons.YesNo
+                                                    , MessageBoxIcon.Question);
+            if(userReponseToProceed == DialogResult.No)
             {
                 return;
             }
@@ -463,6 +468,10 @@ namespace FPIS.Views
                     control is MaterialMultiLineTextBox2 ||
                     control is DateTimePicker)
                 {
+                    if(control.Name == "RemarksControl")
+                    {
+                        continue;
+                    }
                     control.Enabled = state;
                 }
             }
@@ -475,6 +484,7 @@ namespace FPIS.Views
             DoneControl.Text = EN_ROUTE;
             DoneControl.Image = Properties.Resources.not_done_light;
             ShowSnackBar($"{product} analysis requested successfully! 👍");
+            RemarksControl.Enabled = false;
             EnableKeyboardShourtcut();
         }
         public void UpdateUIAfterProcessingSample(string product)
@@ -485,6 +495,8 @@ namespace FPIS.Views
             DoneControl.Text = DONE;
             DoneControl.Image = Properties.Resources.done_light;
             ShowSnackBar($"{product} analysis completed successfully! 👍");
+            RemarksControl.Enabled = true;
+            RemarksControl.Focus();
             EnableKeyboardShourtcut();
         }
         public void UpdateUIWhenProcessingStarts(string product)
@@ -496,6 +508,7 @@ namespace FPIS.Views
             DoneControl.Image = Properties.Resources.not_done_light;
             //ShowSnackBar("Sample is analyzed at the lab ATM! 👍");
             ShowSnackBar($"{product} is analyzed at the lab ATM! 👍");
+            RemarksControl.Enabled = false;
             EnableKeyboardShourtcut();
         }
         private void EnableKeyboardShourtcut()

@@ -115,5 +115,8 @@
     <EmbeddedResource Update="Views\ProcurementReceiveMaterialsUserControl.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewSamplesRequestedUserControl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

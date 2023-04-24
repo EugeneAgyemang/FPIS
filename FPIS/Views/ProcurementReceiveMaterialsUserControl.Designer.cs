@@ -634,6 +634,7 @@
             this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.RemarksControl.Depth = 0;
+            this.RemarksControl.Enabled = false;
             this.RemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RemarksControl.HideSelection = true;
             this.RemarksControl.Location = new System.Drawing.Point(25, 420);
