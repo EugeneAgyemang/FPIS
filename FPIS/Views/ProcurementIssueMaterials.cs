@@ -296,8 +296,7 @@ namespace FPIS.Views
                 $" - Status: ({materialIssueSchema.Status.ToUpper().Trim()})";
             NoteControl.Text = $"You can only issue up to {(new AppDbContext().Receivings.FirstOrDefault(receiving => receiving.Id == materialIssueSchema.MaterialToBeIssued.Id).Quantity) - 1} " +
                 $"{materialIssueSchema.MaterialToBeIssued.Units} of {productIssued}!\n\n" +
-                $"Here's some feedback the last time {productIssued} was received:\n" +
-                $"\"{materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks}\" - " +
+                $"{((materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks != string.Empty)? $"Here's some feedback the last time {productIssued} was received:\n{materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks} - " : "No remarks given by ")}" +
                 $"{new UserService(new()).GetFullName(materialIssueSchema.SampleDetail.Sample.UserId)}";
         }
         private List<FileInfo> GetSampleFilesForCurrentUser()
