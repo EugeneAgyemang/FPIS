@@ -29,6 +29,7 @@ namespace FPIS.Views
             _analysisService = new(dbContext);
 
             LoadSample();
+            ViewSamplesRequestedUserControl.isRequestCompleted = false;
         }
 
         private void SetupInitialValues()
@@ -159,12 +160,22 @@ namespace FPIS.Views
                 string itemName = activeRow.Cells[1].Value.ToString();
                 string analysisItemId = activeRow.Cells[2].Value.ToString();
 
-
-                _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
-                    .AnalysisItem
-                    .AnalysisProducts
-                    .FirstOrDefault()
-                    .ProductId.ToString();
+                if (_sample.TypeForFiltering.ToLower() == "production")
+                {
+                    _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
+                        .AnalysisItem
+                        .AnalysisProducts
+                        .FirstOrDefault()
+                        .ProductId.ToString();
+                }
+                else if (_sample.TypeForFiltering.ToLower() == "water")
+                {
+                    _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
+                        .AnalysisItem
+                        .AnalysisWaters
+                        .FirstOrDefault()
+                        .WaterId.ToString();
+                }
 
                 AnalysisResultSampleDetailBindingItem sdbi =
                     _sampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId);
