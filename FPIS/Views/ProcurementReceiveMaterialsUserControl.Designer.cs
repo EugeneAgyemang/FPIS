@@ -454,22 +454,29 @@
             // 
             this.DoneControl.AutoSize = false;
             this.DoneControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DoneControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
             this.DoneControl.Cursor = System.Windows.Forms.Cursors.No;
             this.DoneControl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.DoneControl.Depth = 0;
+            this.DoneControl.FlatAppearance.BorderSize = 0;
+            this.DoneControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DoneControl.ForeColor = System.Drawing.Color.White;
             this.DoneControl.HighEmphasis = true;
             this.DoneControl.Icon = global::FPIS.Properties.Resources.not_done_light;
-            this.DoneControl.Location = new System.Drawing.Point(139, 599);
+            this.DoneControl.Image = global::FPIS.Properties.Resources.not_done_light;
+            this.DoneControl.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.DoneControl.Location = new System.Drawing.Point(144, 599);
             this.DoneControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DoneControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.DoneControl.Name = "DoneControl";
             this.DoneControl.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.DoneControl.Size = new System.Drawing.Size(147, 36);
-            this.DoneControl.TabIndex = 24;
+            this.DoneControl.Size = new System.Drawing.Size(121, 36);
+            this.DoneControl.TabIndex = 23;
             this.DoneControl.Text = "  Ready";
+            this.DoneControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DoneControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.DoneControl.UseAccentColor = true;
-            this.DoneControl.UseVisualStyleBackColor = true;
+            this.DoneControl.UseVisualStyleBackColor = false;
             this.DoneControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProcurementReceiveMaterialsUserControl_KeyDown);
             // 
             // Snackbar
@@ -538,7 +545,7 @@
             this.AbortProcurementRecords.Enabled = false;
             this.AbortProcurementRecords.HighEmphasis = true;
             this.AbortProcurementRecords.Icon = null;
-            this.AbortProcurementRecords.Location = new System.Drawing.Point(294, 599);
+            this.AbortProcurementRecords.Location = new System.Drawing.Point(278, 599);
             this.AbortProcurementRecords.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AbortProcurementRecords.MouseState = MaterialSkin.MouseState.HOVER;
             this.AbortProcurementRecords.Name = "AbortProcurementRecords";
@@ -656,7 +663,7 @@
             this.SaveProcurementRecords.Enabled = false;
             this.SaveProcurementRecords.HighEmphasis = true;
             this.SaveProcurementRecords.Icon = null;
-            this.SaveProcurementRecords.Location = new System.Drawing.Point(374, 599);
+            this.SaveProcurementRecords.Location = new System.Drawing.Point(363, 599);
             this.SaveProcurementRecords.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveProcurementRecords.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveProcurementRecords.Name = "SaveProcurementRecords";
@@ -721,7 +728,6 @@
         private Label LotErrorCaption;
         private MaterialSkin.Controls.MaterialTextBox UnitsControl;
         private MaterialSkin.Controls.MaterialButton AbortProcurementRecords;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialLabel SnackbarCaptionControl;
         private PictureBox CloseSnackbarControl;
         private MaterialSkin.Controls.MaterialCard Snackbar;
