@@ -59,5 +59,12 @@ namespace FPIS.Services
             fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
             return fullName;
         }
+        public string GetFullName(string empId)
+        {
+            string fullName;
+            User user = _dbContext.Users.FirstOrDefault(user => user.EmpID == empId);
+            fullName = $"{user.FirstName} {user.LastName} {user.MiddleName}";
+            return fullName;
+        }
     }
 }
