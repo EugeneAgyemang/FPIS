@@ -53,11 +53,11 @@
             this.UnitsErrorCaption = new System.Windows.Forms.Label();
             this.MaterialProcurementDividerControl = new System.Windows.Forms.Panel();
             this.MaterialProcurementSection = new System.Windows.Forms.Panel();
+            this.DoneControl = new MaterialSkin.Controls.MaterialButton();
             this.Snackbar = new MaterialSkin.Controls.MaterialCard();
             this.AddNewRequest = new System.Windows.Forms.PictureBox();
             this.CloseSnackbarControl = new System.Windows.Forms.PictureBox();
             this.SnackbarCaptionControl = new MaterialSkin.Controls.MaterialLabel();
-            this.DoneControl = new System.Windows.Forms.Button();
             this.AbortProcurementRecords = new MaterialSkin.Controls.MaterialButton();
             this.StartSampleRequest = new MaterialSkin.Controls.MaterialButton();
             this.UnitsControl = new MaterialSkin.Controls.MaterialTextBox();
@@ -429,8 +429,8 @@
             // 
             // MaterialProcurementSection
             // 
-            this.MaterialProcurementSection.Controls.Add(this.Snackbar);
             this.MaterialProcurementSection.Controls.Add(this.DoneControl);
+            this.MaterialProcurementSection.Controls.Add(this.Snackbar);
             this.MaterialProcurementSection.Controls.Add(this.AbortProcurementRecords);
             this.MaterialProcurementSection.Controls.Add(this.StartSampleRequest);
             this.MaterialProcurementSection.Controls.Add(this.UnitsControl);
@@ -449,6 +449,28 @@
             this.MaterialProcurementSection.Name = "MaterialProcurementSection";
             this.MaterialProcurementSection.Size = new System.Drawing.Size(450, 650);
             this.MaterialProcurementSection.TabIndex = 2;
+            // 
+            // DoneControl
+            // 
+            this.DoneControl.AutoSize = false;
+            this.DoneControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DoneControl.Cursor = System.Windows.Forms.Cursors.No;
+            this.DoneControl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.DoneControl.Depth = 0;
+            this.DoneControl.HighEmphasis = true;
+            this.DoneControl.Icon = global::FPIS.Properties.Resources.not_done_light;
+            this.DoneControl.Location = new System.Drawing.Point(139, 599);
+            this.DoneControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DoneControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.DoneControl.Name = "DoneControl";
+            this.DoneControl.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.DoneControl.Size = new System.Drawing.Size(147, 36);
+            this.DoneControl.TabIndex = 24;
+            this.DoneControl.Text = "  Ready";
+            this.DoneControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.DoneControl.UseAccentColor = true;
+            this.DoneControl.UseVisualStyleBackColor = true;
+            this.DoneControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProcurementReceiveMaterialsUserControl_KeyDown);
             // 
             // Snackbar
             // 
@@ -472,13 +494,14 @@
             // 
             this.AddNewRequest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewRequest.Image = global::FPIS.Properties.Resources.add_dark;
-            this.AddNewRequest.Location = new System.Drawing.Point(325, 8);
+            this.AddNewRequest.Location = new System.Drawing.Point(326, 5);
             this.AddNewRequest.Name = "AddNewRequest";
-            this.AddNewRequest.Size = new System.Drawing.Size(18, 18);
-            this.AddNewRequest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AddNewRequest.Size = new System.Drawing.Size(25, 25);
             this.AddNewRequest.TabIndex = 24;
             this.AddNewRequest.TabStop = false;
             this.AddNewRequest.Click += new System.EventHandler(this.AddNewRequest_Click);
+            this.AddNewRequest.MouseEnter += new System.EventHandler(this.ImageActionControl_MouseEnter);
+            this.AddNewRequest.MouseLeave += new System.EventHandler(this.ImageActionControl_MouseLeave);
             // 
             // CloseSnackbarControl
             // 
@@ -506,24 +529,6 @@
             this.SnackbarCaptionControl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.SnackbarCaptionControl.UseAccent = true;
             // 
-            // DoneControl
-            // 
-            this.DoneControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.DoneControl.Cursor = System.Windows.Forms.Cursors.No;
-            this.DoneControl.FlatAppearance.BorderSize = 0;
-            this.DoneControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DoneControl.ForeColor = System.Drawing.Color.White;
-            this.DoneControl.Image = global::FPIS.Properties.Resources.not_done_light;
-            this.DoneControl.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.DoneControl.Location = new System.Drawing.Point(154, 599);
-            this.DoneControl.Name = "DoneControl";
-            this.DoneControl.Size = new System.Drawing.Size(101, 36);
-            this.DoneControl.TabIndex = 23;
-            this.DoneControl.Text = "  Ready";
-            this.DoneControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.DoneControl.UseVisualStyleBackColor = false;
-            this.DoneControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProcurementReceiveMaterialsUserControl_KeyDown);
-            // 
             // AbortProcurementRecords
             // 
             this.AbortProcurementRecords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -533,7 +538,7 @@
             this.AbortProcurementRecords.Enabled = false;
             this.AbortProcurementRecords.HighEmphasis = true;
             this.AbortProcurementRecords.Icon = null;
-            this.AbortProcurementRecords.Location = new System.Drawing.Point(278, 599);
+            this.AbortProcurementRecords.Location = new System.Drawing.Point(294, 599);
             this.AbortProcurementRecords.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AbortProcurementRecords.MouseState = MaterialSkin.MouseState.HOVER;
             this.AbortProcurementRecords.Name = "AbortProcurementRecords";
@@ -716,7 +721,6 @@
         private Label LotErrorCaption;
         private MaterialSkin.Controls.MaterialTextBox UnitsControl;
         private MaterialSkin.Controls.MaterialButton AbortProcurementRecords;
-        private Button DoneControl;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialLabel SnackbarCaptionControl;
         private PictureBox CloseSnackbarControl;
@@ -737,5 +741,6 @@
         private MaterialSkin.Controls.MaterialExpansionPanel ListOfRequestedSamplesControl;
         private MaterialSkin.Controls.MaterialComboBox ViewSampleRequestedControl;
         private PictureBox SyncControl;
+        private MaterialSkin.Controls.MaterialButton DoneControl;
     }
 }
