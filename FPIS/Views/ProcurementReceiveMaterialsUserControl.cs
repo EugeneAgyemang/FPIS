@@ -310,6 +310,7 @@ namespace FPIS.Views
             AbortProcurementRecords.Enabled = false;
             StartSampleRequest.Enabled = true;
             SwitchDateControl.Checked = true;
+            PickDateControl.Enabled = false;
             ProductControl.StartIndex = -1;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
             ViewSampleRequestedControl.StartIndex = -1;
@@ -368,6 +369,7 @@ namespace FPIS.Views
 
             MaterialProcurement materialToBeProcured = GetMaterialToBeProcured();
             Receiving materialToBeReceived = GetMaterialToBeReceived(materialToBeProcured.Id);
+            materialToBeReceived.MaterialProcurement = materialToBeProcured;
             DialogResult userOption = Utils.Utils.ShowMessageBox("Do you want to send a request to Quality Control with the following details:\n\n" +
                 $"Product: {ProductControl.Text}\n" +
                 $"Warehouse: {materialToBeProcured.Location}\n" +
@@ -429,15 +431,18 @@ namespace FPIS.Views
                 Status = EN_ROUTE
             };
             sampleCreated.SampleDetails.Clear();
-            materialToBeReceived.MaterialProcurement = materialToBeProcured;
-            JsonParser.Serialize<MaterialProcurementSchema>(materialProcurementSchema, Path.Combine(DIRECTORY_NAME
-                                                            , $"material-procured" +
-                                                            $"-{sampleCreated.Date.Month}" +
-                                                            $"-{sampleCreated.Date.Day}" +
-                                                            $"-{sampleCreated.Time.Hour}" +
-                                                            $"-{sampleCreated.Time.Minute}" +
-                                                            $"-{sampleCreated.Time.Second}" +
-                                                            $".json"));
+
+
+            string json = JsonParser.Stringify<MaterialProcurementSchema>(materialProcurementSchema);
+            JsonParser.Write(json, Path.Combine(DIRECTORY_NAME
+                                    , $"material-procured" +
+                                    $"-{sampleCreated.Date.Month}" +
+                                    $"-{sampleCreated.Date.Day}" +
+                                    $"-{sampleCreated.Time.Hour}" +
+                                    $"-{sampleCreated.Time.Minute}" +
+                                    $"-{sampleCreated.Time.Second}" +
+                                    $"-{materialProcurementSchema.SchemaId}" +
+                                    $".json"));
             FreezeFields();
             UpdateUIAfterRequestingSample(ProductControl.Text);
             LoadCachedData();
@@ -464,7 +469,6 @@ namespace FPIS.Views
         }
         private void UpdateUIAfterRequestingSample(string product)
         {
-            allowKeyboardShortcut = true;
             StartSampleRequest.Enabled = false;
             AbortProcurementRecords.Enabled = true;
             SaveProcurementRecords.Enabled = false;
@@ -506,6 +510,7 @@ namespace FPIS.Views
         }
         private void LoadCachedData()
         {
+            string json;
             ViewSampleRequestedControl.Items.Clear();
             FileInfo[] files = GetSampleFilesForCurrentUser();
             int cachedRequests = files.Length;
@@ -517,9 +522,10 @@ namespace FPIS.Views
             {
                 ListOfRequestedSamplesControl.Visible = false;
                 ReceivingSectionControl.Location = new Point(25, 40);
+                json = JsonParser.Read(files[0].FullName);
                 MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
-                                                        .Deserialize<MaterialProcurementSchema>
-                                                        (files[0].FullName);
+                                                        .Parse<MaterialProcurementSchema>
+                                                        (json);
                 PopulateFields(cachedData);
                 return;
             }
@@ -626,6 +632,7 @@ namespace FPIS.Views
 
         private void ListOfRequestedSamplesControl_LoadClick(object sender, EventArgs e)
         {
+            string json;
             string sampleRequestSelected = ViewSampleRequestedControl.Text;
             if (sampleRequestSelected == string.Empty)
             {
@@ -641,9 +648,10 @@ namespace FPIS.Views
                 {
                     continue;
                 }
+                json = JsonParser.Read(file.FullName);
                 MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
-                                                        .Deserialize<MaterialProcurementSchema>
-                                                        (file.FullName);
+                                                        .Parse<MaterialProcurementSchema>
+                                                        (json);
                 string schemaId = sampleRequestSelected.Split("#")[1].Split(" ")[0];
                 if (schemaId == cachedData.SchemaId)
                 {
@@ -654,9 +662,11 @@ namespace FPIS.Views
         }
         private FileInfo[] GetSampleFilesForCurrentUser()
         {
+            string json;
             string selectedItem = ViewSampleRequestedControl.Text;
             samplesRequested.Clear();
             ViewSampleRequestedControl.Items.Clear();
+            JsonParser.CreateDirectory(DIRECTORY_NAME);
             FileInfo[] allFiles = JsonParser.GetFiles(Path.Combine(DIRECTORY_NAME));
             List<FileInfo> files = new List<FileInfo>();
             foreach (FileInfo file in allFiles)
@@ -665,9 +675,8 @@ namespace FPIS.Views
                 {
                     continue;
                 }
-                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
-                                                    .Deserialize<MaterialProcurementSchema>
-                                                    (file.FullName);
+                json = JsonParser.Read(file.FullName);
+                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
                 if (cachedData.SampleDetail.Sample.UserId == Guid.Parse(Main.LOGGED_USER_ID))
                 {
                     files.Add(file);
@@ -682,14 +691,14 @@ namespace FPIS.Views
         private void SyncControl_Click(object sender, EventArgs e)
         {
             string guidDelimeter = "-";
+            string json;
             if (ProductErrorCaption.Text.Contains(guidDelimeter))
             {
                 ResetFields();
                 foreach (FileInfo file in GetSampleFilesForCurrentUser())
                 {
-                    MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
-                                                                        .Deserialize<MaterialProcurementSchema>
-                                                                        (file.FullName);
+                    json = JsonParser.Read(file.FullName);
+                    MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
                     if (materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
                     {
                         PopulateFields(materialProcurementSchema);
@@ -702,6 +711,7 @@ namespace FPIS.Views
 
         private void AbortProcurementRecords_Click(object sender, EventArgs e)
         {
+            string json;
             DialogResult userOption = Utils.Utils.ShowMessageBox("Do you truly want to cancel this request?\n\n" +
                                                                     "This action cannot be undone should you choose yes!"
                                                                     , "Confirm Abort"
@@ -714,9 +724,8 @@ namespace FPIS.Views
             FileInfo[] files = GetSampleFilesForCurrentUser();
             foreach (FileInfo file in files)
             {
-                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
-                                                                        .Deserialize<MaterialProcurementSchema>
-                                                                        (file.FullName);
+                json = JsonParser.Read(file.FullName);
+                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
                 if (materialProcurementSchema.Status.ToLower().Trim() == "en route"
                     && materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
                 {
@@ -749,15 +758,19 @@ namespace FPIS.Views
         }
         private int GetLastSchemaId()
         {
+            string json;
             string schemaFileName = "schema-received-id.json";
             if (!(JsonParser.DoesFileExists(Path.Combine(DIRECTORY_NAME, schemaFileName))))
             {
-                JsonParser.Serialize<string>("{schema-id:1}", Path.Combine(DIRECTORY_NAME, schemaFileName));
+                json = JsonParser.Stringify<string>("{schema-id:1}");
+                JsonParser.Write(json, Path.Combine(DIRECTORY_NAME, schemaFileName));
 
             }
-            string schemaIdAsStr = (string)JsonParser.Deserialize<string>(Path.Combine(DIRECTORY_NAME, schemaFileName));
+            json = JsonParser.Read(Path.Combine(DIRECTORY_NAME, schemaFileName));
+            string schemaIdAsStr = (string)JsonParser.Parse<string>(json);
             int lastSchemaId = int.Parse(schemaIdAsStr.Split(":")[1].Split("}")[0]);
-            JsonParser.Serialize<string>($"{{schema-id:{lastSchemaId + 1}}}", Path.Combine(DIRECTORY_NAME, schemaFileName));
+            json = JsonParser.Stringify<string>($"{{schema-id:{lastSchemaId + 1}}}");
+            JsonParser.Write(json, Path.Combine(DIRECTORY_NAME, schemaFileName));
 
             return lastSchemaId;
 
@@ -774,12 +787,12 @@ namespace FPIS.Views
         }
         private void DeleteCachedFile()
         {
+            string json;
             FileInfo[] files = GetSampleFilesForCurrentUser();
             foreach (FileInfo file in files)
             {
-                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser
-                                                                        .Deserialize<MaterialProcurementSchema>
-                                                                        (file.FullName);
+                json = JsonParser.Read(file.FullName);
+                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
                 if (materialProcurementSchema.Status.ToLower().Trim() == "done"
                     && materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
                 {
