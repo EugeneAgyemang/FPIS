@@ -40,5 +40,26 @@ namespace FPIS.Services
                                 Where(materialProcured => materialProcured.Id == id).
                                 FirstOrDefault();
         }
+        public List<MaterialProcurement> GetMaterialsProcuredForItem(Guid analysisItemId)
+        {
+            List<MaterialProcurement> materialProcurements = appDbContext.MaterialProcurements
+                                                                .Include(materialProcurement => materialProcurement.Receivings)
+                                                                .Include(materialProcurement => materialProcurement.Product)
+                                                                .ThenInclude(product => product.AnalysisProducts)
+                                                                .ThenInclude(analysisProduct => analysisProduct.AnalysisItem)
+                                                                .Where(materialProcurement => materialProcurement
+                                                                                                .Product
+                                                                                                .AnalysisProducts
+                                                                                                .FirstOrDefault()
+                                                                                                .AnalysisItemId == analysisItemId)
+                                                                .ToList();
+            return materialProcurements;
+        }
+        // DELETE THIS FUNCTION
+        public Product GetProductForRawMaterial(Guid materialProcurementId)
+        {
+            Product product = appDbContext.Products.FirstOrDefault(product => product.MaterialProcurements.FirstOrDefault().Id == materialProcurementId);
+            return product;
+        }
     }
 }
