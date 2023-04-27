@@ -115,7 +115,8 @@ namespace FPIS.Views
                 materialCheckboxShowNewParameters.Visible = true;
             };
 
-            dataGridView1.DataSource = _oldParameterList;
+            _parameterList = _oldParameterList;
+            dataGridView1.DataSource = _parameterList;
         }
 
         void LoadProductParameters(AnalysisResultSampleDetailBindingItem bindingItem)
@@ -160,7 +161,8 @@ namespace FPIS.Views
                 materialCheckboxShowNewParameters.Visible = true;
             };
 
-            dataGridView1.DataSource = _oldParameterList;
+            _parameterList = _oldParameterList;
+            dataGridView1.DataSource = _parameterList;
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -183,10 +185,13 @@ namespace FPIS.Views
                     return;
                 }
 
-                AnalysisSampleParameterBindingItem selectedItem =
-                    _parameterList.First(item => item.Id.ToString() == analysisParameterId);
+                AnalysisSampleParameterBindingItem? selectedItem =
+                    _parameterList.FirstOrDefault(item => item?.Id.ToString() == analysisParameterId);
 
-                selectedItem.Value = enteredValue;
+                if (selectedItem != null)
+                {
+                    selectedItem.Value = enteredValue;
+                }
             }
         }
 
