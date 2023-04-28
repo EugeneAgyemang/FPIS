@@ -16,67 +16,6 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-
-
-        /*
-      public List<Sample> GetSamplesRequested(ViewSamplesRequestedUserControl.Source source)
-      {
-          IQueryable<Sample> productSamplesRequestedQuery = appDbContext.Samples.
-              Include(sample => sample.User.Samples).
-              Where(a => a.Status.ToLower() == "pending").
-              Include(sample => sample.SampleDetails).
-              Include(sample => sample.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters).
-              Include(sample => sample.SampleDetails.FirstOrDefault().AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterParameters).
-
-              //ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
-
-              ThenInclude(a => a.ProductAnalysisParameters).
-              ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters);
-
-          switch (source)
-          {
-              case ViewSamplesRequestedUserControl.Source.PROCUREMENT:
-                  productSamplesRequestedQuery = productSamplesRequestedQuery.
-                  Where(sample => sample.SampleDetails
-                                  .FirstOrDefault()
-                                  .AnalysisItem
-                                  .AnalysisProducts
-                                  .FirstOrDefault()
-                                  .Product
-                                  .Type
-                                  .ToLower() == "raw materials");
-                  break;
-              case ViewSamplesRequestedUserControl.Source.PRODUCTION:
-                  productSamplesRequestedQuery = productSamplesRequestedQuery.
-                  Where(sample => sample.TypeForFiltering.ToLower() == "production");
-                  productSamplesRequestedQuery = productSamplesRequestedQuery.
-                  Where(sample => sample.SampleDetails
-                                  .FirstOrDefault()
-                                  .AnalysisItem
-                                  .AnalysisProducts
-                                  .FirstOrDefault()
-                                  .Product
-                                  .Type
-                                  .ToLower() != "raw materials");
-                  break;
-              case ViewSamplesRequestedUserControl.Source.WATER:
-                  productSamplesRequestedQuery = productSamplesRequestedQuery.
-                  Where(sample => sample.TypeForFiltering.ToLower() == "water");
-                  productSamplesRequestedQuery = productSamplesRequestedQuery.
-                  Where(sample => sample.SampleDetails
-                                  .FirstOrDefault()
-                                  .AnalysisItem
-                                  .AnalysisProducts
-                                  .FirstOrDefault()
-                                  .Product
-                                  .Type
-                                  .ToLower() != "raw materials");
-                  break;
-          }
-          */
-
-
-
         public List<Sample> GetSamplesRequested(ViewSamplesRequestedUserControl.Source source)
         {
             IQueryable<Sample> productSamplesRequestedQuery = appDbContext.Samples.

@@ -13,10 +13,9 @@ namespace FPIS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
-        public DateOnly Date { get; set; }
         public TimeOnly TimeIn { get; set; }
-        public TimeOnly? TimeOut { get; set; }
-        public string? ProductionRemark { get; set; }
+        public TimeOnly TimeOut { get; set; }
+        public string ProductionRemark { get; set; }
 
         // Navigation Properties
         

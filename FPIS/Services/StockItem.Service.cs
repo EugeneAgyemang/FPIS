@@ -67,21 +67,5 @@ namespace FPIS.Services
 
             return stockItem;
         }
-
-        public string GetStockItemName(Guid id)
-        {
-            string itemName;
-            StockItem item = _dbContext.StockItems.FirstOrDefault(item => item.Id == id);
-            itemName = item.StockItemName;
-            return itemName;
-        }
-
-        public string GetStockItemType(Guid id)
-        {
-            string itemType;
-            StockItem item = _dbContext.StockItems.FirstOrDefault(item => item.Id == id);
-            itemType = item.StockItemType;
-            return itemType;
-        }
     }
 }

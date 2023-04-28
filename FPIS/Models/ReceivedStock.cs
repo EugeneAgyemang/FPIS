@@ -23,9 +23,5 @@ namespace FPIS.Models
         public Guid StockItemId { get; set; }
         [ForeignKey("StockItemId")]
         public StockItem StockItem { get; set; }
-
-        public Guid UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace FPIS.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string password = ConfigurationManager.AppSettings["database_password"];
-            optionsBuilder.UseNpgsql($"Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password=eugene");
+            optionsBuilder.UseNpgsql($"Host=localhost;Port=5432;Database=FPIS;Username=postgres;Password={password}");
         }
 
 
@@ -119,6 +119,5 @@ namespace FPIS.Models
         public DbSet<AnalysisRemark> AnalysisRemarks { get; set; }
         public DbSet<ProcurementParameter> ProcurementParameters { get; set; }
         public DbSet<ProcurementAttribute> ProcurementAttributes { get; set; }
-        public DbSet<CalculatorVariable> CalculatorVariables { get; set; }
     }
 }

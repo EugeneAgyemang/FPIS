@@ -1,73 +1,3 @@
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\msvcr120.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\msvcr120.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Reports.exe.config
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Reports.exe
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Reports.pdb
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.Common.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.Design.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.SqlServer.Types.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\EnvDTE.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\stdole.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.AssemblyReference.cache
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.SuggestedBindingRedirects.cache
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.Properties.Resources.resources
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\FPISReports.ReportViews.CertificateOfAnalysis.resources
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.ReceivedStockReport.resources
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\FPISReports.ReportViews.StockItems.resources
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.GenerateResource.cache
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CoreCompileInputs.cache
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CopyComplete
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.exe
-C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.pdb
-D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\msvcr120.dll
-D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
-D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\msvcr120.dll
-D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\Reports.exe.config
 D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\Reports.exe
 D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\Reports.pdb
@@ -145,17 +75,81 @@ D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.AssemblyReference.
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.SuggestedBindingRedirects.cache
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.exe.config
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.Properties.Resources.resources
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.AnalyticalResults.resources
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\FPISReports.ReportViews.CertificateOfAnalysis.resources
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.DailyProductionReportForm.resources
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.IssuedStockItemsReportForm.resources
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.ReceivedStockReport.resources
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.RequestedSamples.resources
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\FPISReports.ReportViews.StockItems.resources
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.GenerateResource.cache
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CoreCompileInputs.cache
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CopyComplete
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.exe
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.pdb
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.ProductReportForm.resources
-D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.AnalysisRemarkForm.resources
+D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\FPIS\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.ReceivedStockReport.resources
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Reports.exe.config
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Reports.exe
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Reports.pdb
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\EnvDTE.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\stdole.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.AssemblyReference.cache
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.SuggestedBindingRedirects.cache
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.Properties.Resources.resources
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\FPISReports.ReportViews.CertificateOfAnalysis.resources
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.ReceivedStockReport.resources
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\FPISReports.ReportViews.StockItems.resources
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.GenerateResource.cache
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CoreCompileInputs.cache
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CopyComplete
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.exe
+C:\Users\OMLC\Documents\Visual Studio 2022\Projects\FPIS\reports\Reports\Reports\obj\Debug\Reports.pdb
