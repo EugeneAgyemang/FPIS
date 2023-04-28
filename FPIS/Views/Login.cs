@@ -4,12 +4,14 @@ using FPIS.Utils;
 using FPIS.Views;
 using MaterialSkin.Controls;
 using System;
+using System.Text;
 using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS
 {
     public partial class Login : MaterialForm
     {
+        public Role userRole;
         public Login()
         {
             InitializeComponent();
@@ -53,6 +55,16 @@ namespace FPIS
                 }
                 else
                 {
+                    userRole = new Role();
+                    Department department = new UserService(new())
+                                                .GetUserDepartmentDetailsByEmpId
+                                                    (txtEmpId
+                                                    .Text
+                                                    .Trim()
+                                                    )
+                                                    .Designation
+                                                    .Department;
+                    userRole.TagFinder(department);
                     txtPassword.Text = string.Empty;
                     Main.LOGGED_USER_ID = new UserService(new()).GetEmployeeId(employeeId).ToString();
                     Hide();
@@ -112,6 +124,32 @@ namespace FPIS
         {
             Hide();
             new Register(this).Show();
+        }
+        public class Role
+        {
+            public StringBuilder tags = new StringBuilder();
+            public void TagFinder(Department department)
+            {
+                tags.Append("0 ");
+                string departmentName = department.DepartmentName.ToLower();
+                switch(departmentName)
+                {
+                    case "production":
+                        tags.Append("1 ");
+                        break;
+                    case "quality control":
+                        tags.Append("2 ");
+                        tags.Append("3 ");
+                        tags.Append("4 ");
+                        tags.Append("6 ");
+                        break;
+                    case "procurement":
+                        tags.Append("6 ");
+                        break;
+                }
+                tags.Append("5 ");
+                tags.Append("7");
+            }
         }
     }
 }
