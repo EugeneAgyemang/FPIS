@@ -29,7 +29,7 @@ namespace FPIS.Views
         public const string READY = "  Ready";
 
         bool allowKeyboardShortcut = false;
-        private ProcurementReceiveMaterialsUserControl()
+        public ProcurementReceiveMaterialsUserControl()
         {
             InitializeComponent();
             SelectedDateControl.Text = GetDate(DateFormat.DATE_ONLY, DateTime.Now);
@@ -39,29 +39,6 @@ namespace FPIS.Views
             EnableKeyboardShourtcut();
         }
 
-        public static ProcurementReceiveMaterialsUserControl Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ProcurementReceiveMaterialsUserControl();
-                    return instance;
-                }
-                else
-                {
-                    // This code will ensure the user's previous request shows all the time when they click 
-                    // receive materials from the procurement section (if any). This is fine until the user
-                    // tries to add new data and clicks on a different tab, they will lose their new entry
-                    //instance.LoadCachedData();
-                    return instance;
-                }
-            }
-            set
-            {
-                instance = value;
-            }
-        }
         public static int LiveCharacterCount(int maxLength, string contents)
         {
             int length = contents.Length;

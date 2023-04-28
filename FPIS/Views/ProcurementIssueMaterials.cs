@@ -25,26 +25,13 @@ namespace FPIS.Views
 
         public static BindingList<AnalysisRawMaterialsSampleBindingItem> analysisItemList = new();
         private List<FileInfo> samplesRequestedFiles = new List<FileInfo>();
-        private ProcurementIssueMaterials()
+        public ProcurementIssueMaterials()
         {
             InitializeComponent();
             dataGridView1.DataSource = analysisItemList;
 
             AppDbContext context = new();
             LoadCachedData();
-        }
-        public static ProcurementIssueMaterials Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ProcurementIssueMaterials();
-                    return instance;
-                }
-                instance.LoadCachedData();
-                return instance;
-            }
         }
 
         private void OpenAddMaterialsControl_Click(object sender, EventArgs e)

@@ -241,7 +241,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementReceiveMaterialsUserControl.Instance);
+            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl());
         }
         /// <summary>
         /// Add the given user control to the MainContainerControl
@@ -268,7 +268,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
+            AddUserControlToMainContainerControl(new ProcurementIssueMaterials());
         }
         private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
         {
@@ -311,7 +311,6 @@ namespace FPIS.Views
             if (userOption == DialogResult.Yes)
             {
                 login.Show();
-                ProcurementReceiveMaterialsUserControl.Instance = null;
                 Close();
             }
         }
