@@ -166,6 +166,5 @@ namespace FPIS.Views
             materialComboBoxUnitOfMeasurement.SelectedIndex = -1;
             materialComboBoxStockItemType.SelectedIndex = -1;
         }
-
     }
 }

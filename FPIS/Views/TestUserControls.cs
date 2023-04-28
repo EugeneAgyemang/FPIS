@@ -36,8 +36,8 @@ namespace FPIS.Views
             MainPanelControl.Controls.Clear();
 
             // then
-            //UserControlAddFinishedProduct instance = UserControlAddFinishedProduct.Instance;
-            //MainPanelControl.Controls.Add(instance);
+            UserControlA instance = UserControlA.Instance;
+            MainPanelControl.Controls.Add(instance);
             // Or MainPanelControl.Controls.Add(UserControlA.Instance);
         }
     }

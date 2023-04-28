@@ -39,7 +39,7 @@ namespace FPIS.Services
                     {
                         TimeIn = timein,
                         UserId = userid,
-                        Date = date
+                        //Date = date
                     }
                 ).Entity;
 

@@ -10,14 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
 
 namespace Reports.ReportViews
 {
     public partial class ReceivedStockReport : Form
     {
-        List<Received_Stock_Items> _receivedStockReport;
-        public ReceivedStockReport(List<Received_Stock_Items> dataSource)
+        List<Received_Stock> _receivedStockReport;
+        public ReceivedStockReport(List<Received_Stock> dataSource)
         {
             InitializeComponent();
             _receivedStockReport = dataSource;

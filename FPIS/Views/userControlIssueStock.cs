@@ -221,7 +221,7 @@ namespace FPIS.Views
                     {
                         IssueStockService issueStockService = new(dbContext);
                         ReceivedStockService receivedStockService = new(dbContext);
-                        issueStockService.AddIssuedStock(int.Parse(quantityToIssue), issuedDate, stockItem.Id, new Guid(Main.LOGGED_USER_ID));
+                        issueStockService.AddIssuedStock(int.Parse(quantityToIssue), issuedDate, stockItem.Id);
                         UpdateAvailableQuantity();
                         LoadStockData();
                         MessageBox.Show(
