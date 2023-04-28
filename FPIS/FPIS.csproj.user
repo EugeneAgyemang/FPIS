@@ -95,18 +95,30 @@
     <Compile Update="Views\UserControlViewReceivedStocks.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControlViewSampleResults.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Views\UserControlViewStockItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\ViewSamplesRequestedUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlViewSampleResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddRawMaterialsAnalysisSampleForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProcurementIssueMaterials.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProcurementReceiveMaterialsUserControl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewSamplesRequestedUserControl.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
