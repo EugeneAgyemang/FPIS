@@ -63,6 +63,7 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string value = item.Text;
+                    navigationButton.ImageAlign = ContentAlignment.MiddleCenter;
                     navigationButton.Text = string.Empty;
                     navigationButton.Width -= perfectSizeForHidingNavigation;
                     navigationButtonsContents.Append(value);
@@ -87,6 +88,7 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string navigationButtonContent = contents[navigationButtonContentIndex];
+                    navigationButton.ImageAlign = ContentAlignment.MiddleLeft;
                     navigationButton.Text = navigationButtonContent;
                     navigationButton.Width += perfectSizeForHidingNavigation;
                     navigationButtonsContents.Remove(0, navigationButtonContent.Length + 1);
@@ -119,7 +121,6 @@ namespace FPIS.Views
                 // Find y-axis for the panel. Tag # is simply it's position away from the top. Ergo Tag#0 -> 1, Tag#1 -> 51
                 int panelYAxis = (tag * panel.Height) + top;
                 panel.Location = new Point(6, panelYAxis);
-            
             }
         }
         private void ShowNavigationSubmenu(object sender, EventArgs e)
