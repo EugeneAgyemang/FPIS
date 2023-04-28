@@ -448,5 +448,89 @@ namespace FPIS.Views
             NavigationDrawerControl.Controls[reportsIndex].Tag = $"{newTag++}";
             NavigationDrawerControl.Controls[settingsIndex].Tag = $"{newTag}";
         }
+        
+        private void ProductionSection_CheckAnalyticalResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+        }
+
+        private void QualityControl_CreateAnalysisWaterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new CreateAnalysisWater());
+        }
+
+        private void ProductionSection_AddProductionRemarkControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlDailyProductionReport());
+        }
+
+        private void ConsumbalesSection_ViewIssuedStockControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewIssuedStock());
+        }
+
+        private void QualityControl_OpenAnalysisCalculatorControl_Click(object sender, EventArgs e)
+        {
+            AnalysisCalculatorForm acf = new AnalysisCalculatorForm();
+            acf.Show();
+        }
+
+        private void ReportsSection_OpenStockReportControl_Click(object sender, EventArgs e)
+        {
+            UserControlViewReceivedStocks viewReceivedStock = new UserControlViewReceivedStocks();
+            MainContainerControl.Controls.Clear();
+            MainContainerControl.Controls.Add(viewReceivedStock);
+        }
+
+        private void ReportsSection_OpenAnalyticalResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+        }
+
+        private void ReportsSection_OpenSampleReportControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new userControlSampleReport());
+        }
+
+        private void ReportsSection_OpenProductsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlProductReport());
+        }
+
+        private void ProductionSection_ViewProductsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlProductReport());
+        }
+
+        private void QualityControl_ViewSampleResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+        }
+
+        private void QualityControl_AddWaterAnalysisControl_Click(object sender, EventArgs e)
+        {
+            SelectAnalysisTypeForm selectAnalysisTypeForm = new();
+            DialogResult dialogResult = selectAnalysisTypeForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
+            }
+        }
+
+        private void QualityControl_ViewWaterAnalysisControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
+        }
+
+        private void ProductionSection_ViewProductionRemarkControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
+        }
+
+        private void QualityControl_ViewProductionRemarksControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
+        }
     }
 }

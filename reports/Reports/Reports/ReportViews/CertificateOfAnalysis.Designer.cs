@@ -47,6 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 693);
             this.Controls.Add(this.reportViewerCertificateOfAnalysis);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CertificateOfAnalysis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

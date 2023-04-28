@@ -11,14 +11,15 @@ namespace FPIS.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_SampleResultDetails_Users_UserId",
-                table: "SampleResultDetails");
+            /*
+             migrationBuilder.DropForeignKey(
+                 name: "FK_SampleResultDetails_Users_UserId",
+                 table: "SampleResultDetails");
 
-            migrationBuilder.DropForeignKey(
-                name: "FK_SampleResultsDetailsWithParameters_SampleDetails_SampleDeta~",
-                table: "SampleResultsDetailsWithParameters");
-
+             migrationBuilder.DropForeignKey(
+                 name: "FK_SampleResultsDetailsWithParameters_SampleDetails_SampleDeta~",
+                 table: "SampleResultsDetailsWithParameters");
+            
             migrationBuilder.DropIndex(
                 name: "IX_SampleResultsDetailsWithParameters_SampleDetailId",
                 table: "SampleResultsDetailsWithParameters");
@@ -26,7 +27,7 @@ namespace FPIS.Migrations
             migrationBuilder.DropColumn(
                 name: "SampleDetailId",
                 table: "SampleResultsDetailsWithParameters");
-
+             
             migrationBuilder.RenameColumn(
                 name: "UserId",
                 table: "SampleResultDetails",
@@ -64,6 +65,7 @@ namespace FPIS.Migrations
                 principalTable: "Users",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
+            */
         }
 
         /// <inheritdoc />

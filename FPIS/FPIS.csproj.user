@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
@@ -11,6 +12,9 @@
     <Compile Update="Views\AddAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AddAnalysisSampleFormForFinishedProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,7 +24,13 @@
     <Compile Update="Views\AddRawMaterialsAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AnalysisCalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateAnalysisProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateAnalysisRequestFinishedProducts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\CreateAnalysisRequestFormUserControl.cs">
@@ -65,14 +75,14 @@
     <Compile Update="Views\SelectAnalysisTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\SetVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\TestUserControls.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\UserControlA.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
@@ -89,7 +99,19 @@
     <Compile Update="Views\userControlIssueStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlProductReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\userControlSampleReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewAnalysisRemarks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlViewCertificateOfAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewIssuedStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlViewReceivedStocks.cs">
@@ -101,24 +123,9 @@
     <Compile Update="Views\ViewSamplesRequestedUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControlViewSampleResults.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\AddRawMaterialsAnalysisSampleForm.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ProcurementIssueMaterials.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ProcurementReceiveMaterialsUserControl.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ViewSamplesRequestedUserControl.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
