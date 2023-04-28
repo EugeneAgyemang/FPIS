@@ -1,6 +1,14 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FPIS.Views
 {
@@ -10,46 +18,26 @@ namespace FPIS.Views
         private readonly string _analysisType;
         private readonly string _sampleDetailId;
         private readonly string _analysisItemId;
-        private readonly string _waterOrProductId;
-        private readonly bool _shouldUpdate;
+        private readonly string _productId;
         private readonly AnalysisParameterService _analysisParameterService;
-        private readonly AnalysisResultSampleDetailBindingItem _selectedBindingItem;
-        private BindingList<AnalysisSampleParameterBindingItem> _parameterList = new();
-
-        // this will contain new parameters that were not created when the analysis result
-        // was created.
-        private readonly BindingList<AnalysisSampleParameterBindingItem> _newParameterList = new();
-        private readonly BindingList<AnalysisSampleParameterBindingItem> _oldParameterList = new();
+        private readonly BindingList<AnalysisSampleParameterBindingItem> _parameterList = new();
 
         public AddAnalysisParameterValues(
             string sampleDetailId,
             string itemName,
             string analysisItemId,
-            string analysisType,
-            AnalysisResultSampleDetailBindingItem selectedBindingItem,
-            string waterOrProductId,
-            bool shouldUpdate
+            string analysisType
+            , string productId
         )
         {
             InitializeComponent();
-            _selectedBindingItem = selectedBindingItem;
             _itemName = itemName;
             _analysisType = analysisType;
             _sampleDetailId = sampleDetailId;
             _analysisItemId = analysisItemId;
-            _waterOrProductId = waterOrProductId;
-            _shouldUpdate = shouldUpdate;
-            materialCheckboxShowNewParameters.Visible = false;
+            _productId = productId;
 
-            if (!_shouldUpdate)
-            {
-                labelItemName.Text += $" \"{_itemName}\"";
-            }
-            else
-            {
-                labelItemName.Text = $"Update Parameter Values for: \"{_itemName}\"";
-            }
-
+            labelItemName.Text += $" \"{_itemName}\"";
             dataGridView1.DataSource = _parameterList;
 
             AppDbContext dbContext = new();
@@ -65,104 +53,51 @@ namespace FPIS.Views
             if (lowerAnalysisType.Equals("production"))
             {
                 dataGridView1.Columns["ControlLimitColumn"].Visible = false;
-                LoadProductParameters(_selectedBindingItem);
+                LoadProductParameters();
             }
             else if (lowerAnalysisType.Equals("water"))
             {
                 dataGridView1.Columns["methodColumn"].Visible = false;
                 dataGridView1.Columns["specificationColumn"].Visible = false;
-                LoadWaterParameters(_selectedBindingItem);
+                LoadWaterParameters();
             }
         }
 
-        void LoadWaterParameters(AnalysisResultSampleDetailBindingItem bindingItem)
+        void LoadWaterParameters() 
         {
-            IEnumerable<WaterAnalysisParameter> waterAnalysisParameters =
-            _analysisParameterService.FetchAnalysisWaterParameters(Guid.Parse(_waterOrProductId));
+            _analysisParameterService.FetchAnalysisWaterParameters()
+                .ForEach(ap => {
+                    string value = AddAnalysisResultForm._sampleDetails
+                        .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId)?.parametersWithValues
+                        .FirstOrDefault(pwv => pwv.ParameterId.Equals(ap.AnalysisParameterId.ToString()))?.ParameterValue ?? "0.00";
 
-            foreach (WaterAnalysisParameter waterAnalysisParameter in waterAnalysisParameters)
-            {
-                ParametersWithValues? item = bindingItem.parametersWithValues
-                    .FirstOrDefault(pwv => pwv.ParameterId.Equals(waterAnalysisParameter.AnalysisParameterId.ToString()));
-
-                if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
-                {
-                    _oldParameterList.Add(new()
-                    {
-                        Id = waterAnalysisParameter.AnalysisParameterId,
-                        Unit = waterAnalysisParameter.WaterParameter.Unit,
-                        Value = item?.ParameterValue ?? "0.00",
-                        Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                        ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
-                        shouldUpdate = true,
+                    _parameterList.Add(new() {
+                        Id = ap.AnalysisParameterId,
+                        Unit = ap.WaterParameter.Unit,
+                        Value = value,
+                        Name = ap.WaterParameter.ParameterName,
+                        ControlLimit = ap.WaterParameter.ControlLimit
                     });
-                } else
-                {
-                    _newParameterList.Add(new()
-                    {
-                        Id = waterAnalysisParameter.AnalysisParameterId,
-                        Unit = waterAnalysisParameter.WaterParameter.Unit,
-                        Value = item?.ParameterValue ?? "0.00",
-                        Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                        ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
-                        shouldUpdate = false,
-                    });
-                }
-            }
-
-            if (_newParameterList.Count > 0)
-            {
-                materialCheckboxShowNewParameters.Visible = true;
-            };
-
-            _parameterList = _oldParameterList;
-            dataGridView1.DataSource = _parameterList;
+                });
         }
 
-        void LoadProductParameters(AnalysisResultSampleDetailBindingItem bindingItem)
+        void LoadProductParameters()
         {
-            IEnumerable<ProductAnalysisParameter> productAnalysisParameters =
-                _analysisParameterService.FetchProductAnalysisParameters(Guid.Parse(_waterOrProductId));
+            _analysisParameterService.FetchProductAnalysisParameters(Guid.Parse(_productId))
+                .ForEach(ap => {
+                    string value = AddAnalysisResultForm._sampleDetails
+                        .FirstOrDefault(sd => sd.Id.ToString() == _sampleDetailId)?.parametersWithValues
+                        .FirstOrDefault(pwv => pwv.ParameterId.Equals(ap.AnalysisParameterId.ToString()))?.ParameterValue ?? "0.00";
 
-            foreach(ProductAnalysisParameter productAnalysisParameter in productAnalysisParameters)
-            {
-                ParametersWithValues? item = bindingItem.parametersWithValues
-                    .FirstOrDefault(pwv => pwv.ParameterId.Equals(productAnalysisParameter.AnalysisParameterId.ToString()));
-
-                if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
-                {
-                    _oldParameterList.Add(new()
-                    {
-                        Value = item?.ParameterValue ?? "0.00",
-                        Id = productAnalysisParameter.AnalysisParameterId,
-                        Unit = productAnalysisParameter.ProductParameter.Unit,
-                        Method = productAnalysisParameter.ProductParameter.Method,
-                        Name = productAnalysisParameter.ProductParameter.ParameterName,
-                        Specification = productAnalysisParameter.ProductParameter.Specification,
-                        shouldUpdate = true,
+                    _parameterList.Add(new() {
+                        Value = value,
+                        Id = ap.AnalysisParameterId,
+                        Unit = ap.ProductParameter.Unit,
+                        Method = ap.ProductParameter.Method,
+                        Name = ap.ProductParameter.ParameterName,
+                        Specification = ap.ProductParameter.Specification
                     });
-                } else
-                {
-                    _newParameterList.Add(new()
-                    {
-                        Value = item?.ParameterValue ?? "0.00",
-                        Id = productAnalysisParameter.AnalysisParameterId,
-                        Unit = productAnalysisParameter.ProductParameter.Unit,
-                        Method = productAnalysisParameter.ProductParameter.Method,
-                        Name = productAnalysisParameter.ProductParameter.ParameterName,
-                        Specification = productAnalysisParameter.ProductParameter.Specification,
-                        shouldUpdate = false,
-                    });
-                }
-            }
-
-            if (_newParameterList.Count > 0)
-            {
-                materialCheckboxShowNewParameters.Visible = true;
-            };
-
-            _parameterList = _oldParameterList;
-            dataGridView1.DataSource = _parameterList;
+                });
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -180,19 +115,20 @@ namespace FPIS.Views
                 string parameterName = activeRow.Cells[1].Value.ToString();
                 string enteredValue = activeRow.Cells[activeRow.Cells.Count - 1].Value?.ToString();
 
-                if (string.IsNullOrEmpty(enteredValue))
+                if (String.IsNullOrEmpty(enteredValue))
                 {
                     return;
                 }
 
-                AnalysisSampleParameterBindingItem? selectedItem =
-                    _parameterList.FirstOrDefault(item => item?.Id.ToString() == analysisParameterId);
+                AnalysisSampleParameterBindingItem selectedItem =
+                    _parameterList.First(item => item.Id.ToString() == analysisParameterId);
 
-                if (selectedItem != null)
-                {
-                    selectedItem.Value = enteredValue;
-                }
+                selectedItem.Value = enteredValue;
             }
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
         }
 
         private void materialButtonSaveAndClose_Click(object sender, EventArgs e)
@@ -205,59 +141,32 @@ namespace FPIS.Views
             {
                 return;
             }
+            AnalysisResultSampleDetailBindingItem bindingItem =
+                AddAnalysisResultForm._sampleDetails.First(sd => sd.Id.ToString() == _sampleDetailId);
+
+            bindingItem.parametersWithValues.Clear();
 
             _parameterList.ToList().ForEach(parameterBinding => {
-                ParametersWithValues? item = _selectedBindingItem.parametersWithValues
-                    .FirstOrDefault(pw => pw.ParameterId == parameterBinding.Id.ToString());
-
-                if (!materialCheckboxShowNewParameters.Checked)
-                {
-                    _selectedBindingItem.parametersWithValues = _selectedBindingItem.parametersWithValues.Where(
-                        it => !string.IsNullOrEmpty(it.AnalysisResultWithParameterId)
-                    ).ToList();
-                }
-
-                if (item != null) {
-                    item.ParameterValue = parameterBinding.Value ?? "0.00";
-                    item.ParameterId = parameterBinding.Id.ToString();
-                    item.ParameterName = parameterBinding.Name;
-                }
-                else
-                {
-                    _selectedBindingItem.parametersWithValues.Add(
-                        new ParametersWithValues()
-                        {
-                            ParameterId = parameterBinding.Id.ToString(),
-                            ParameterName = parameterBinding.Name,
-                            ParameterValue = parameterBinding.Value ?? "0.00"
-                        }
-                    );
-                }
+                bindingItem.parametersWithValues.Add(
+                    new ParametersWithValues() 
+                    {
+                        ParameterId = parameterBinding.Id.ToString(),
+                        ParameterName = parameterBinding.Name,
+                        ParameterValue = parameterBinding.Value ?? "0.00"
+                    }
+                );
             });
 
-            _selectedBindingItem.ParameterValues = _selectedBindingItem.ToString();
+            bindingItem.ParameterValues = bindingItem.ToString();
 
             // use this trick to update the _sampleDetails collection
             // because C# only does change detection when an item is
             // added or deleted. If not this, then the parameter values
-            // are not updated after this form is closed.
-            AddAnalysisResultForm._sampleItems.Remove(_selectedBindingItem);
-            AddAnalysisResultForm._sampleItems.Add(_selectedBindingItem);
+            // are not update after this form is closed.
+            AddAnalysisResultForm._sampleDetails.Remove(bindingItem);
+            AddAnalysisResultForm._sampleDetails.Add(bindingItem);
 
             Close();
-        }
-
-        private void materialCheckboxShowNewParameters_CheckedChanged(object sender, EventArgs e)
-        {
-            if(materialCheckboxShowNewParameters.Checked)
-            {
-                _parameterList = new BindingList<AnalysisSampleParameterBindingItem>(_oldParameterList.Concat(_newParameterList).ToList());
-                dataGridView1.DataSource = _parameterList;
-            } else
-            {
-                _parameterList = new BindingList<AnalysisSampleParameterBindingItem>(_oldParameterList);
-                dataGridView1.DataSource = _parameterList;
-            }
         }
     }
 }
