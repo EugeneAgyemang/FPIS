@@ -31,4 +31,11 @@
         TIME_ONLY,
         DATE_AND_TIME
     }
+    public enum Form
+    {
+        QUALITY_CONTROL,
+        PROCUREMENT_ISSUE,
+        PRODUCTION,
+        PROCUREMENT_RECEIVE
+    }
 }

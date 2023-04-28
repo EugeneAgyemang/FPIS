@@ -244,7 +244,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementReceiveMaterialsUserControl.Instance);
+            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl());
         }
         /// <summary>
         /// Add the given user control to the MainContainerControl
@@ -271,7 +271,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
+            AddUserControlToMainContainerControl(new ProcurementIssueMaterials());
         }
         private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
         {
@@ -284,7 +284,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, Utils.Form.PROCUREMENT_ISSUE));
         }
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
@@ -304,7 +304,7 @@ namespace FPIS.Views
 
         private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, Utils.Form.PRODUCTION));
         }
 
         private void LogoutControl_Click(object sender, EventArgs e)
@@ -320,7 +320,7 @@ namespace FPIS.Views
 
         private void QualityControl_AddSampleResultControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL));
         }
 
         private void QualityControl_AddWaterParameterControl_Click(object sender, EventArgs e)

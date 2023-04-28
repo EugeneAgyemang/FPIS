@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using FPIS.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -111,7 +112,7 @@ namespace FPIS.Services
                     IsRetest = false,
                     UserId = new Guid(userId),
                     SampleId = new Guid(sampleId),
-                    Date =  DateOnly.FromDateTime(DateTime.UtcNow.Date),
+                    Date = DateOnly.FromDateTime(DateTime.UtcNow.Date),
                     Time = TimeOnly.FromDateTime(DateTime.UtcNow),
                 }
             ).Entity;
@@ -143,6 +144,143 @@ namespace FPIS.Services
             _dbContext.SaveChanges();
 
             return sampleResult;
+        }
+        /// <summary>
+        /// Aborts a sample requested This is typical for the Procurement
+        /// Engineer should there be the need.
+        /// </summary>
+        /// <param name="sample">The sample to be aborted</param>
+        /// <returns></returns>
+        public Sample DeleteSample(Sample sample)
+        {
+            Sample sampleDeleted = _dbContext.Samples.Remove(sample).Entity;
+            _dbContext.SaveChanges();
+            return sampleDeleted;
+        }
+
+        public Sample? FetchRawMaterialsAnalysis(string sampleId)
+        {
+            return _dbContext.Samples
+                .Include(s => s.SampleDetails)
+                .ThenInclude(sd => sd.AnalysisItem)
+                .ThenInclude(ai => ai.AnalysisProducts)
+                .ThenInclude(ap => ap.Product.MaterialProcurements)
+                .ThenInclude(materialProcurement => materialProcurement.Receivings)
+                .ThenInclude(m => m.Releasings)
+                .FirstOrDefault(s => s.Id.ToString() == sampleId);
+        }
+
+        public IQueryable<Sample> GetSamplesRequested(string status)
+        {
+            IQueryable<Sample> productSamplesRequestedQuery = _dbContext.Samples.
+                Include(sample => sample.User.Samples).
+                Where(a => a.Status.ToLower() == status).
+                Include(analysisItem => analysisItem.SampleDetails);
+            return productSamplesRequestedQuery;
+        }
+        public List<Sample> GetProductSamplesRequestedByAllUsers(string status)
+        {
+            IQueryable<Sample> productSamplesRequestedQuery = GetSamplesRequested(status);
+            productSamplesRequestedQuery = productSamplesRequestedQuery.Where(sample => sample.TypeForFiltering.ToLower() == "production");
+
+            List<Sample> productSamplesRequested = productSamplesRequestedQuery.ToList();
+            return productSamplesRequested;
+        }
+
+        public List<Sample> GetWaterSamplesRequestedByAllUsers(string status)
+        {
+            IQueryable<Sample> waterSamplesRequestedQuery = GetSamplesRequested(status);
+            waterSamplesRequestedQuery = waterSamplesRequestedQuery.Where(sample => sample.TypeForFiltering.ToLower() == "water");
+
+            List<Sample> productSamplesRequested = waterSamplesRequestedQuery.ToList();
+            return productSamplesRequested;
+        }
+
+        public List<Sample> GetProductSamplesRequestedByAUser(ViewSamplesRequestedUserControl.Source source, Guid userId, string status)
+        {
+            IQueryable<Sample> productSamplesRequestedQuery = GetSamplesRequested(status);
+
+            productSamplesRequestedQuery = productSamplesRequestedQuery
+                                                .Where
+                                                    (sample =>
+                                                    sample.UserId == userId
+                                                    && sample.TypeForFiltering.ToLower() == "production");
+            switch (source)
+            {
+                case ViewSamplesRequestedUserControl.Source.PROCUREMENT:
+                    productSamplesRequestedQuery = ProcurementFilterQuery(productSamplesRequestedQuery);
+                    break;
+                case ViewSamplesRequestedUserControl.Source.PRODUCTION:
+                    productSamplesRequestedQuery = ProductionFilterQuery(productSamplesRequestedQuery);
+                    break;
+            }
+            List<Sample> productSamplesRequested = productSamplesRequestedQuery.ToList();
+            return productSamplesRequested;
+        }
+
+        public List<Sample> GetWaterSamplesRequestedByAUser(Guid userId, string status)
+        {
+            IQueryable<Sample> waterSamplesRequestedQuery = GetSamplesRequested(status);
+
+            waterSamplesRequestedQuery = waterSamplesRequestedQuery
+                                                .Where
+                                                    (sample =>
+                                                    sample.UserId == userId
+                                                    && sample.TypeForFiltering.ToLower() == "water");
+            waterSamplesRequestedQuery = WaterFilterQuery(waterSamplesRequestedQuery);
+            List<Sample> productSamplesRequested = waterSamplesRequestedQuery.ToList();
+            return productSamplesRequested;
+        }
+
+        private IQueryable<Sample> ProcurementFilterQuery(IQueryable<Sample> productSamplesRequestedQuery)
+        {
+            productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.TypeForFiltering.ToLower() == "production"
+                    && sample.Employee1 == sample.Employee2);
+            return productSamplesRequestedQuery;
+        }
+
+
+        private IQueryable<Sample> ProductionFilterQuery(IQueryable<Sample> productSamplesRequestedQuery)
+        {
+            productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.TypeForFiltering.ToLower() == "production"
+                    && sample.Employee1 != sample.Employee2);
+            return productSamplesRequestedQuery;
+        }
+
+        private IQueryable<Sample> WaterFilterQuery(IQueryable<Sample> productSamplesRequestedQuery)
+        {
+            productSamplesRequestedQuery = productSamplesRequestedQuery.
+                    Where(sample => sample.TypeForFiltering.ToLower() == "water");
+            return productSamplesRequestedQuery;
+        }
+
+        // DELETE THIS
+        public Sample CreateSample(
+            Guid userId,
+            string emp1Id,
+            string emp2Id,
+            DateOnly date,
+            TimeOnly time,
+            string analysisType
+            )
+        {
+            Sample sample = _dbContext.Samples.Add(
+                new Sample()
+                {
+                    Date = date,
+                    Time = time,
+                    UserId = userId,
+                    Employee1 = emp1Id,
+                    Employee2 = emp2Id,
+                    Status = "Pending",
+                    TypeForFiltering = analysisType
+                }
+            ).Entity;
+            _dbContext.SaveChanges();
+
+            return sample;
         }
     }
 }

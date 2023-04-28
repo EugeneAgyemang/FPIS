@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,27 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-        public Releasing SaveMaterialsToBeReleased(Releasing materialToBeReleased)
+        public Releasing SaveMaterialToBeReleased(Releasing materialToBeReleased, Guid materialReceivedId)
         {
             Releasing releasing = new Releasing();
-            releasing.ReceivingId = materialToBeReleased.ReceivingId;
+            releasing.ReceivingId = materialReceivedId;
             releasing.MaterialProcurementId = materialToBeReleased.MaterialProcurementId;
+            releasing.Quantity = materialToBeReleased.Quantity;
             appDbContext.Releasings.Add(releasing);
             appDbContext.SaveChanges();
             return releasing;
+        }
+        public int GetQuantityIssuedFromMaterialReceived(Guid materialReceivedId)
+        {
+            int quantityIssued = appDbContext
+                                    .Releasings
+                                        .Where(
+                                            releasing => releasing.ReceivingId 
+                                            == materialReceivedId)
+                                        .Sum(
+                                            releasing => 
+                                                releasing.Quantity);
+            return quantityIssued;
         }
     }
 }

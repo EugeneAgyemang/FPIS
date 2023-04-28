@@ -14,5 +14,6 @@
         public string Remarks { get; set; }
         public bool Selected { get; set; }
         public string AnalysisStatus { get; set; }
+        public string Lot { get; set; }
     }
 }
