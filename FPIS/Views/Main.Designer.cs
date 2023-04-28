@@ -242,7 +242,7 @@
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
             this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1856);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
-            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 203);
+            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 200);
             this.ProcurementSectionControl.TabIndex = 8;
             this.ProcurementSectionControl.Tag = "6";
             // 
@@ -254,7 +254,7 @@
             this.ProcurementSection_ViewRequestsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProcurementSection_ViewRequestsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSection_ViewRequestsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 151);
+            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 150);
             this.ProcurementSection_ViewRequestsControl.Name = "ProcurementSection_ViewRequestsControl";
             this.ProcurementSection_ViewRequestsControl.Size = new System.Drawing.Size(180, 50);
             this.ProcurementSection_ViewRequestsControl.TabIndex = 5;
@@ -270,7 +270,7 @@
             this.ProcurementSection_IssueMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProcurementSection_IssueMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSection_IssueMaterialsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_IssueMaterialsControl.Location = new System.Drawing.Point(5, 101);
+            this.ProcurementSection_IssueMaterialsControl.Location = new System.Drawing.Point(5, 100);
             this.ProcurementSection_IssueMaterialsControl.Name = "ProcurementSection_IssueMaterialsControl";
             this.ProcurementSection_IssueMaterialsControl.Size = new System.Drawing.Size(180, 50);
             this.ProcurementSection_IssueMaterialsControl.TabIndex = 3;
@@ -286,7 +286,7 @@
             this.ProcurementSection_ReceiveMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProcurementSection_ReceiveMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSection_ReceiveMaterialsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_ReceiveMaterialsControl.Location = new System.Drawing.Point(5, 51);
+            this.ProcurementSection_ReceiveMaterialsControl.Location = new System.Drawing.Point(5, 50);
             this.ProcurementSection_ReceiveMaterialsControl.Name = "ProcurementSection_ReceiveMaterialsControl";
             this.ProcurementSection_ReceiveMaterialsControl.Size = new System.Drawing.Size(180, 50);
             this.ProcurementSection_ReceiveMaterialsControl.TabIndex = 2;
@@ -304,7 +304,7 @@
             this.ProcurementSectionCaptionControl.ForeColor = System.Drawing.Color.White;
             this.ProcurementSectionCaptionControl.Image = global::FPIS.Properties.Resources.procurement;
             this.ProcurementSectionCaptionControl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ProcurementSectionCaptionControl.Location = new System.Drawing.Point(5, 1);
+            this.ProcurementSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
             this.ProcurementSectionCaptionControl.Name = "ProcurementSectionCaptionControl";
             this.ProcurementSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
             this.ProcurementSectionCaptionControl.TabIndex = 1;
@@ -550,7 +550,7 @@
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
-            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1557);
+            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1556);
             this.ReportsSectionControl.Name = "ReportsSectionControl";
             this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
             this.ReportsSectionControl.TabIndex = 6;
