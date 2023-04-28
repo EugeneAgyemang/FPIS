@@ -101,9 +101,6 @@
     <Compile Update="Views\ViewSamplesRequestedUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControlViewSampleResults.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

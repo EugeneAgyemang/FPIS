@@ -11,8 +11,6 @@ namespace FPIS.Models
 
         public string? ParameterValues { get; set; }
 
-        public string? ProductOrWaterId { get; set; }
-
         public List<ParametersWithValues> parametersWithValues = new();
 
         public override string ToString()
@@ -24,13 +22,12 @@ namespace FPIS.Models
                 stringBuilder.Append($"{it.ParameterName} = {it.ParameterValue}, ");
             });
 
-            return "{ " + stringBuilder.Replace(",", "", stringBuilder.ToString().LastIndexOf(","), 1) + " }";
+            return "{ " + stringBuilder + " }";
         }
     }
 
     public class ParametersWithValues
     {
-        public string AnalysisResultWithParameterId { get; set; }
         public string ParameterId { get; set; }
         public string ParameterValue { get; set; } = "0.00";
         public string ParameterName { get; set; }

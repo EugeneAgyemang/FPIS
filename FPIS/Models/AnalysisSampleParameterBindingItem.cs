@@ -14,7 +14,5 @@
         public float Specification { get; set; }
 
         public string? Value { get; set; }
-
-        public bool shouldUpdate = false;
     }
 }
