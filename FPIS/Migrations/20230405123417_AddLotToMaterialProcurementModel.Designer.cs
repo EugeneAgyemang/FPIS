@@ -3,6 +3,7 @@ using System;
 using FPIS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FPIS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230405123417_AddLotToMaterialProcurementModel")]
+    partial class AddLotToMaterialProcurementModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,12 +82,8 @@ namespace FPIS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("AnalysisItem")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Remark")
                         .IsRequired()
@@ -95,9 +94,6 @@ namespace FPIS.Migrations
 
                     b.Property<Guid>("SampleResultDetailId")
                         .HasColumnType("uuid");
-
-                    b.Property<TimeOnly>("Time")
-                        .HasColumnType("time without time zone");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
@@ -132,24 +128,6 @@ namespace FPIS.Migrations
                     b.HasIndex("WaterId");
 
                     b.ToTable("AnalysisWaters");
-                });
-
-            modelBuilder.Entity("FPIS.Models.CalculatorVariable", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
-
-                    b.Property<string>("VariableName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CalculatorVariables");
                 });
 
             modelBuilder.Entity("FPIS.Models.Department", b =>
@@ -245,14 +223,9 @@ namespace FPIS.Migrations
                     b.Property<Guid>("StockItemId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("StockItemId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("IssuedStocks");
                 });
@@ -438,16 +411,14 @@ namespace FPIS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
-
                     b.Property<string>("ProductionRemark")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<TimeOnly>("TimeIn")
                         .HasColumnType("time without time zone");
 
-                    b.Property<TimeOnly?>("TimeOut")
+                    b.Property<TimeOnly>("TimeOut")
                         .HasColumnType("time without time zone");
 
                     b.Property<Guid>("UserId")
@@ -481,14 +452,9 @@ namespace FPIS.Migrations
                     b.Property<Guid>("StockItemId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("StockItemId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ReceivedStocks");
                 });
@@ -902,15 +868,7 @@ namespace FPIS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FPIS.Models.User", "User")
-                        .WithMany("IssuedStocks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("StockItem");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("FPIS.Models.MaterialProcurement", b =>
@@ -1019,15 +977,7 @@ namespace FPIS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FPIS.Models.User", "User")
-                        .WithMany("ReceivedStocks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("StockItem");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("FPIS.Models.Receiving", b =>
@@ -1290,13 +1240,9 @@ namespace FPIS.Migrations
                 {
                     b.Navigation("AnalysisRemarks");
 
-                    b.Navigation("IssuedStocks");
-
                     b.Navigation("MaterialProcurements");
 
                     b.Navigation("ProductionDailyReports");
-
-                    b.Navigation("ReceivedStocks");
 
                     b.Navigation("SampleResults");
 

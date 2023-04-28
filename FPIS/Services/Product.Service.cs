@@ -189,5 +189,15 @@ namespace FPIS.Services
         }
 
 
+        /// <summary>
+        /// Returns a product with the given id
+        /// </summary>
+        /// <param name="type">The type of products needed</param>
+        /// <returns></returns>
+        public Product GetProductById(Guid Id)
+        {
+            return _dbContext.Products.
+                            FirstOrDefault(product => product.Id == Id);
+        }
     }
 }

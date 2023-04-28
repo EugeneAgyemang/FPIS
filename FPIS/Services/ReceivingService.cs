@@ -28,5 +28,15 @@ namespace FPIS.Services
             appDbContext.SaveChanges();
             return _materialReceived;
         }
+        public Receiving UpdateReceivedQuantity(Guid materialReceivedId, int quantityToIssue)
+        {
+            Receiving receiving = appDbContext.Receivings
+                                        .FirstOrDefault(record => 
+                                            record.Id == materialReceivedId);
+            receiving.Quantity = quantityToIssue;
+            appDbContext.Update(receiving);
+            appDbContext.SaveChanges();
+            return receiving;
+        }
     }
 }
