@@ -47,9 +47,22 @@
             this.Method = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelProductTypeError = new System.Windows.Forms.Label();
+            this.materialComboBoxProductType = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialButtonShowAll = new MaterialSkin.Controls.MaterialButton();
+            this.materialButtonSearchProductType = new MaterialSkin.Controls.MaterialButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonResetProductTypeFilter = new System.Windows.Forms.Button();
+            this.dateTimePickerToDate = new System.Windows.Forms.DateTimePicker();
+            this.SwitchCaptionControl = new MaterialSkin.Controls.MaterialLabel();
+            this.SwitchFilterControl = new MaterialSkin.Controls.MaterialSwitch();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinishedProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysisResult)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewFinishedProducts
@@ -71,7 +84,7 @@
             this.Quantity,
             this.Date,
             this.SampleResultID});
-            this.dataGridViewFinishedProducts.Location = new System.Drawing.Point(112, 132);
+            this.dataGridViewFinishedProducts.Location = new System.Drawing.Point(112, 336);
             this.dataGridViewFinishedProducts.Name = "dataGridViewFinishedProducts";
             this.dataGridViewFinishedProducts.ReadOnly = true;
             this.dataGridViewFinishedProducts.RowHeadersWidth = 51;
@@ -151,7 +164,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(113, 103);
+            this.label2.Location = new System.Drawing.Point(113, 307);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(412, 23);
             this.label2.TabIndex = 2;
@@ -161,7 +174,7 @@
             // 
             this.groupBox1.Controls.Add(this.materialButtonGenerateCertificateOfAnalysis);
             this.groupBox1.Controls.Add(this.dataGridViewAnalysisResult);
-            this.groupBox1.Location = new System.Drawing.Point(112, 449);
+            this.groupBox1.Location = new System.Drawing.Point(112, 653);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1410, 447);
             this.groupBox1.TabIndex = 3;
@@ -246,20 +259,190 @@
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labelProductTypeError);
+            this.groupBox2.Controls.Add(this.materialComboBoxProductType);
+            this.groupBox2.Controls.Add(this.materialButtonShowAll);
+            this.groupBox2.Controls.Add(this.materialButtonSearchProductType);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.buttonResetProductTypeFilter);
+            this.groupBox2.Controls.Add(this.dateTimePickerToDate);
+            this.groupBox2.Controls.Add(this.SwitchCaptionControl);
+            this.groupBox2.Controls.Add(this.SwitchFilterControl);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.dateTimePickerFromDate);
+            this.groupBox2.Location = new System.Drawing.Point(190, 101);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1226, 190);
+            this.groupBox2.TabIndex = 58;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search Filters";
+            // 
+            // labelProductTypeError
+            // 
+            this.labelProductTypeError.AutoSize = true;
+            this.labelProductTypeError.Location = new System.Drawing.Point(674, 162);
+            this.labelProductTypeError.Name = "labelProductTypeError";
+            this.labelProductTypeError.Size = new System.Drawing.Size(50, 20);
+            this.labelProductTypeError.TabIndex = 55;
+            this.labelProductTypeError.Text = "label5";
+            // 
+            // materialComboBoxProductType
+            // 
+            this.materialComboBoxProductType.AutoResize = false;
+            this.materialComboBoxProductType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBoxProductType.Depth = 0;
+            this.materialComboBoxProductType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBoxProductType.DropDownHeight = 174;
+            this.materialComboBoxProductType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBoxProductType.DropDownWidth = 121;
+            this.materialComboBoxProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBoxProductType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBoxProductType.FormattingEnabled = true;
+            this.materialComboBoxProductType.Hint = "Search by Product Type";
+            this.materialComboBoxProductType.IntegralHeight = false;
+            this.materialComboBoxProductType.ItemHeight = 43;
+            this.materialComboBoxProductType.Location = new System.Drawing.Point(674, 110);
+            this.materialComboBoxProductType.MaxDropDownItems = 4;
+            this.materialComboBoxProductType.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBoxProductType.Name = "materialComboBoxProductType";
+            this.materialComboBoxProductType.Size = new System.Drawing.Size(257, 49);
+            this.materialComboBoxProductType.StartIndex = 0;
+            this.materialComboBoxProductType.TabIndex = 50;
+            // 
+            // materialButtonShowAll
+            // 
+            this.materialButtonShowAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonShowAll.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonShowAll.Depth = 0;
+            this.materialButtonShowAll.HighEmphasis = true;
+            this.materialButtonShowAll.Icon = null;
+            this.materialButtonShowAll.Location = new System.Drawing.Point(1103, 117);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonShowAll.Name = "materialButtonShowAll";
+            this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButtonShowAll.Size = new System.Drawing.Size(93, 36);
+            this.materialButtonShowAll.TabIndex = 48;
+            this.materialButtonShowAll.Text = "Show All";
+            this.materialButtonShowAll.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonShowAll.UseAccentColor = false;
+            this.materialButtonShowAll.UseVisualStyleBackColor = true;
+            this.materialButtonShowAll.Click += new System.EventHandler(this.materialButtonShowAll_Click);
+            // 
+            // materialButtonSearchProductType
+            // 
+            this.materialButtonSearchProductType.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchProductType.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonSearchProductType.Depth = 0;
+            this.materialButtonSearchProductType.HighEmphasis = true;
+            this.materialButtonSearchProductType.Icon = null;
+            this.materialButtonSearchProductType.Location = new System.Drawing.Point(1012, 117);
+            this.materialButtonSearchProductType.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchProductType.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonSearchProductType.Name = "materialButtonSearchProductType";
+            this.materialButtonSearchProductType.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButtonSearchProductType.Size = new System.Drawing.Size(78, 36);
+            this.materialButtonSearchProductType.TabIndex = 45;
+            this.materialButtonSearchProductType.Text = "Search";
+            this.materialButtonSearchProductType.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonSearchProductType.UseAccentColor = false;
+            this.materialButtonSearchProductType.UseVisualStyleBackColor = true;
+            this.materialButtonSearchProductType.Click += new System.EventHandler(this.materialButtonSearchProductType_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(355, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "To :";
+            // 
+            // buttonResetProductTypeFilter
+            // 
+            this.buttonResetProductTypeFilter.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonResetProductTypeFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
+            this.buttonResetProductTypeFilter.Location = new System.Drawing.Point(931, 111);
+            this.buttonResetProductTypeFilter.Name = "buttonResetProductTypeFilter";
+            this.buttonResetProductTypeFilter.Size = new System.Drawing.Size(49, 49);
+            this.buttonResetProductTypeFilter.TabIndex = 54;
+            this.buttonResetProductTypeFilter.UseVisualStyleBackColor = false;
+            this.buttonResetProductTypeFilter.Click += new System.EventHandler(this.buttonResetProductTypeFilter_Click);
+            // 
+            // dateTimePickerToDate
+            // 
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(393, 122);
+            this.dateTimePickerToDate.Name = "dateTimePickerToDate";
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.TabIndex = 46;
+            // 
+            // SwitchCaptionControl
+            // 
+            this.SwitchCaptionControl.AutoSize = true;
+            this.SwitchCaptionControl.Depth = 0;
+            this.SwitchCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SwitchCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.SwitchCaptionControl.Location = new System.Drawing.Point(34, 37);
+            this.SwitchCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SwitchCaptionControl.Name = "SwitchCaptionControl";
+            this.SwitchCaptionControl.Size = new System.Drawing.Size(167, 17);
+            this.SwitchCaptionControl.TabIndex = 53;
+            this.SwitchCaptionControl.Text = "I\'m Searching by all Filters";
+            // 
+            // SwitchFilterControl
+            // 
+            this.SwitchFilterControl.AutoSize = true;
+            this.SwitchFilterControl.Checked = true;
+            this.SwitchFilterControl.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SwitchFilterControl.Depth = 0;
+            this.SwitchFilterControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SwitchFilterControl.Location = new System.Drawing.Point(21, 62);
+            this.SwitchFilterControl.Margin = new System.Windows.Forms.Padding(0);
+            this.SwitchFilterControl.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SwitchFilterControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SwitchFilterControl.Name = "SwitchFilterControl";
+            this.SwitchFilterControl.Ripple = true;
+            this.SwitchFilterControl.Size = new System.Drawing.Size(421, 37);
+            this.SwitchFilterControl.TabIndex = 52;
+            this.SwitchFilterControl.Text = "Turn Off Date filters to search only by Product Type";
+            this.SwitchFilterControl.UseVisualStyleBackColor = true;
+            this.SwitchFilterControl.CheckedChanged += new System.EventHandler(this.SwitchFilterControl_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "From :";
+            // 
+            // dateTimePickerFromDate
+            // 
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(80, 122);
+            this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.TabIndex = 43;
+            // 
             // UserControlViewCertificateOfAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewFinishedProducts);
             this.Name = "UserControlViewCertificateOfAnalysis";
-            this.Size = new System.Drawing.Size(1692, 939);
+            this.Size = new System.Drawing.Size(1692, 1166);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinishedProducts)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysisResult)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +469,17 @@
         private DataGridViewTextBoxColumn Method;
         private DataGridViewTextBoxColumn Specification;
         private DataGridViewTextBoxColumn Result;
+        private GroupBox groupBox2;
+        private Label labelProductTypeError;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBoxProductType;
+        private MaterialSkin.Controls.MaterialButton materialButtonShowAll;
+        private MaterialSkin.Controls.MaterialButton materialButtonSearchProductType;
+        private Label label3;
+        private Button buttonResetProductTypeFilter;
+        private DateTimePicker dateTimePickerToDate;
+        private MaterialSkin.Controls.MaterialLabel SwitchCaptionControl;
+        private MaterialSkin.Controls.MaterialSwitch SwitchFilterControl;
+        private Label label4;
+        private DateTimePicker dateTimePickerFromDate;
     }
 }

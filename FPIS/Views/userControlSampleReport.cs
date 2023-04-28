@@ -18,6 +18,7 @@ namespace FPIS.Views
     public partial class userControlSampleReport : UserControl
     {
         int countSamples;
+        public bool _isDataValid = true;
         public userControlSampleReport()
         {
             InitializeComponent();
@@ -25,6 +26,32 @@ namespace FPIS.Views
             samplesCount(countSamples);
             LoadRequestType();
             materialComboBoxRequestType.SelectedIndex = -1;
+
+            labelItemCategoryError.ForeColor = System.Drawing.Color.Red;
+
+            labelItemCategoryError.Text = "";
+        }
+
+        public void ValidateCategoryFilter(string itemCategory)
+        {
+            if (itemCategory.Length == 0)
+            {
+                labelItemCategoryError.Text = "Select a Request Type!";
+                _isDataValid = false;
+                return;
+            }
+
+        }
+
+        public void ClearErrorLabels()
+        {
+            labelItemCategoryError.Text = "";
+        }
+
+        public void ResetRequestTypeFilter()
+        {
+            materialComboBoxRequestType.SelectedIndex = -1;
+            materialComboBoxRequestType.Focus();
         }
 
         void samplesCount(int totalStockItems)
@@ -65,6 +92,7 @@ namespace FPIS.Views
 
         private void LoadRequestedSamples()
         {
+            ClearErrorLabels();
             try
             {
                 AppDbContext dbContext = new();
@@ -98,6 +126,7 @@ namespace FPIS.Views
 
         private void LoadRequestedSamplesPerDate(DateOnly fromDate, DateOnly toDate)
         {
+            ClearErrorLabels();
             try
             {
                 AppDbContext dbContext = new();
@@ -130,8 +159,50 @@ namespace FPIS.Views
             }
         }
 
+        private void LoadRequestedSamplesByRequestType(string requestType)
+        {
+            ClearErrorLabels();
+            ValidateCategoryFilter(requestType);
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
+                return;
+            }
+            try
+            {
+                AppDbContext dbContext = new();
+                var samples = from Sample in dbContext.Samples
+                              where Sample.TypeForFiltering == requestType
+                              orderby Sample.Date
+                              select new
+                              {
+                                  date = Sample.Date,
+                                  time = Sample.Time,
+                                  status = Sample.Status,
+                                  type = Sample.TypeForFiltering,
+                                  employee1 = Sample.Employee1,
+                                  employee2 = Sample.Employee2
+                              };
+                dataGridViewRequestedSamples.Rows.Clear();
+                foreach (var items in samples)
+                {
+                    dataGridViewRequestedSamples.Rows.Add(items.date, items.time,
+                        items.status, items.type, LoadUserFullName(items.employee1), LoadUserFullName(items.employee2));
+                }
+                dbContext.Dispose();
+                countSamples = dataGridViewRequestedSamples.Rows.Count;
+                labelRequestedSampleCount.Text = countSamples.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Requested Samples: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
+        }
+
         private void LoadRequestedSamplesPerDateAndType(DateOnly fromDate, DateOnly toDate,string requestType)
         {
+            ClearErrorLabels();
             try
             {
                 AppDbContext dbContext = new();
@@ -164,18 +235,40 @@ namespace FPIS.Views
             }
         }
 
+        private void ToggleSwitchDate(bool isCalledElsedWhere = false)
+        {
+            string[] captions = { "Turn Off Date filters to search only by Request Type", "Turn On Date filters to search with all Filters" };
+            string[] switchDateCaptions = { "I'm Searching by all Filters", "I'm searching only by Request Type" };
+            string captionOfSwitchDateControl = SwitchFilterControl.Text;
+            if (captionOfSwitchDateControl == captions[1] || isCalledElsedWhere)
+            {
+                SwitchFilterControl.Text = captions[0];
+                SwitchCaptionControl.Text = switchDateCaptions[0];
+                dateTimePickerFromDate.Enabled = true;
+                dateTimePickerToDate.Enabled = true;
+                return;
+            }
+            SwitchFilterControl.Text = captions[1];
+            SwitchCaptionControl.Text = switchDateCaptions[1];
+            dateTimePickerFromDate.Enabled = false;
+            dateTimePickerToDate.Enabled = false;
+        }
+
         private void materialButtonSearchRequestedSample_Click(object sender, EventArgs e)
         {
-            if (materialComboBoxRequestType.Text == "")
+            if (dateTimePickerFromDate.Enabled == false && dateTimePickerToDate.Enabled == false)
             {
-                LoadRequestedSamplesPerDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
-                samplesCount(countSamples);
+                LoadRequestedSamplesByRequestType(materialComboBoxRequestType.Text);
+            }
+            else if (materialComboBoxRequestType.Text == "")
+            {
+                LoadRequestedSamplesPerDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text)); 
             }
             else
             {
-                LoadRequestedSamplesPerDateAndType(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), materialComboBoxRequestType.Text);
-                samplesCount(countSamples);
+                LoadRequestedSamplesPerDateAndType(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), materialComboBoxRequestType.Text);   
             }
+            samplesCount(countSamples);
         }
 
         private void materialButtonShowAll_Click(object sender, EventArgs e)
@@ -210,6 +303,16 @@ namespace FPIS.Views
         private void materialButtonPrintRequestedSamples_Click(object sender, EventArgs e)
         {
             RequestedSamplesForReport();
+        }
+
+        private void SwitchFilterControl_CheckedChanged(object sender, EventArgs e)
+        {
+            ToggleSwitchDate();
+        }
+
+        private void buttonResetRequestTypeFilter_Click(object sender, EventArgs e)
+        {
+            ResetRequestTypeFilter();
         }
     }
 }

@@ -428,5 +428,36 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new UserControlProductReport());
         }
+
+        private void QualityControl_ViewSampleResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+        }
+
+        private void QualityControl_AddWaterAnalysisControl_Click(object sender, EventArgs e)
+        {
+            SelectAnalysisTypeForm selectAnalysisTypeForm = new();
+            DialogResult dialogResult = selectAnalysisTypeForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
+            }
+        }
+
+        private void QualityControl_ViewWaterAnalysisControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
+        }
+
+        private void ProductionSection_ViewProductionRemarkControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
+        }
+
+        private void QualityControl_ViewProductionRemarksControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
+        }
     }
 }

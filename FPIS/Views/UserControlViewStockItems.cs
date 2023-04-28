@@ -67,12 +67,6 @@ namespace FPIS.Views
             }
         }
 
-        public void ResetCategoryFilter()
-        {
-            materialComboBoxItemCategory.SelectedIndex = -1;
-            materialComboBoxItemCategory.Focus();
-        }
-
         private void LoadStockDataByItemCategory(string itemCategory)
         {
             ClearErrorLabels();

@@ -469,7 +469,6 @@
             // 
             this.QualityControl_ViewWaterAnalysisControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_ViewWaterAnalysisControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_ViewWaterAnalysisControl.Enabled = false;
             this.QualityControl_ViewWaterAnalysisControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_ViewWaterAnalysisControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -479,14 +478,14 @@
             this.QualityControl_ViewWaterAnalysisControl.Name = "QualityControl_ViewWaterAnalysisControl";
             this.QualityControl_ViewWaterAnalysisControl.Size = new System.Drawing.Size(206, 67);
             this.QualityControl_ViewWaterAnalysisControl.TabIndex = 5;
-            this.QualityControl_ViewWaterAnalysisControl.Text = "View Water Analysis";
+            this.QualityControl_ViewWaterAnalysisControl.Text = "View Analysis Requests";
             this.QualityControl_ViewWaterAnalysisControl.UseVisualStyleBackColor = false;
+            this.QualityControl_ViewWaterAnalysisControl.Click += new System.EventHandler(this.QualityControl_ViewWaterAnalysisControl_Click);
             // 
             // QualityControl_AddWaterAnalysisControl
             // 
             this.QualityControl_AddWaterAnalysisControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_AddWaterAnalysisControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_AddWaterAnalysisControl.Enabled = false;
             this.QualityControl_AddWaterAnalysisControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_AddWaterAnalysisControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_AddWaterAnalysisControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -496,14 +495,14 @@
             this.QualityControl_AddWaterAnalysisControl.Name = "QualityControl_AddWaterAnalysisControl";
             this.QualityControl_AddWaterAnalysisControl.Size = new System.Drawing.Size(206, 67);
             this.QualityControl_AddWaterAnalysisControl.TabIndex = 4;
-            this.QualityControl_AddWaterAnalysisControl.Text = "Add Water Analysis";
+            this.QualityControl_AddWaterAnalysisControl.Text = "Add Analysis Request";
             this.QualityControl_AddWaterAnalysisControl.UseVisualStyleBackColor = false;
+            this.QualityControl_AddWaterAnalysisControl.Click += new System.EventHandler(this.QualityControl_AddWaterAnalysisControl_Click);
             // 
             // QualityControl_ViewProductionRemarksControl
             // 
             this.QualityControl_ViewProductionRemarksControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_ViewProductionRemarksControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_ViewProductionRemarksControl.Enabled = false;
             this.QualityControl_ViewProductionRemarksControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewProductionRemarksControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_ViewProductionRemarksControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -515,12 +514,12 @@
             this.QualityControl_ViewProductionRemarksControl.TabIndex = 3;
             this.QualityControl_ViewProductionRemarksControl.Text = "View Production Remarks";
             this.QualityControl_ViewProductionRemarksControl.UseVisualStyleBackColor = false;
+            this.QualityControl_ViewProductionRemarksControl.Click += new System.EventHandler(this.QualityControl_ViewProductionRemarksControl_Click);
             // 
             // QualityControl_ViewSampleResultsControl
             // 
             this.QualityControl_ViewSampleResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_ViewSampleResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_ViewSampleResultsControl.Enabled = false;
             this.QualityControl_ViewSampleResultsControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_ViewSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -532,6 +531,7 @@
             this.QualityControl_ViewSampleResultsControl.TabIndex = 2;
             this.QualityControl_ViewSampleResultsControl.Text = "View Sample Results";
             this.QualityControl_ViewSampleResultsControl.UseVisualStyleBackColor = false;
+            this.QualityControl_ViewSampleResultsControl.Click += new System.EventHandler(this.QualityControl_ViewSampleResultsControl_Click);
             // 
             // QualityControl_AddSampleResultControl
             // 
@@ -934,7 +934,6 @@
             // 
             this.ProductionSection_ViewProductionRemarkControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_ViewProductionRemarkControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_ViewProductionRemarkControl.Enabled = false;
             this.ProductionSection_ViewProductionRemarkControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -946,6 +945,7 @@
             this.ProductionSection_ViewProductionRemarkControl.TabIndex = 7;
             this.ProductionSection_ViewProductionRemarkControl.Text = "View Production Remark";
             this.ProductionSection_ViewProductionRemarkControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_ViewProductionRemarkControl.Click += new System.EventHandler(this.ProductionSection_ViewProductionRemarkControl_Click);
             // 
             // ProductionSection_CreateProductParameterControl
             // 
@@ -977,7 +977,7 @@
             this.ProductionSection_AddProductionRemarkControl.Name = "ProductionSection_AddProductionRemarkControl";
             this.ProductionSection_AddProductionRemarkControl.Size = new System.Drawing.Size(206, 67);
             this.ProductionSection_AddProductionRemarkControl.TabIndex = 6;
-            this.ProductionSection_AddProductionRemarkControl.Text = "Add Production Remark";
+            this.ProductionSection_AddProductionRemarkControl.Text = "Daily Production Report";
             this.ProductionSection_AddProductionRemarkControl.UseVisualStyleBackColor = false;
             this.ProductionSection_AddProductionRemarkControl.Click += new System.EventHandler(this.ProductionSection_AddProductionRemarkControl_Click);
             // 
@@ -1011,7 +1011,7 @@
             this.ProductionSection_ViewSampleControl.Name = "ProductionSection_ViewSampleControl";
             this.ProductionSection_ViewSampleControl.Size = new System.Drawing.Size(206, 67);
             this.ProductionSection_ViewSampleControl.TabIndex = 4;
-            this.ProductionSection_ViewSampleControl.Text = "View Sample";
+            this.ProductionSection_ViewSampleControl.Text = "View Analysis Requests";
             this.ProductionSection_ViewSampleControl.UseVisualStyleBackColor = false;
             this.ProductionSection_ViewSampleControl.Click += new System.EventHandler(this.ProductionSection_ViewSampleControl_Click);
             // 
@@ -1028,7 +1028,7 @@
             this.ProductionSection_AddSampleControl.Name = "ProductionSection_AddSampleControl";
             this.ProductionSection_AddSampleControl.Size = new System.Drawing.Size(206, 67);
             this.ProductionSection_AddSampleControl.TabIndex = 3;
-            this.ProductionSection_AddSampleControl.Text = "Add Sample";
+            this.ProductionSection_AddSampleControl.Text = "Start Analysis Request";
             this.ProductionSection_AddSampleControl.UseVisualStyleBackColor = false;
             this.ProductionSection_AddSampleControl.Click += new System.EventHandler(this.ProductionSection_AddSampleControl_Click);
             // 

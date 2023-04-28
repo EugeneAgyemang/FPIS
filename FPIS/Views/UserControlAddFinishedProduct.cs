@@ -285,13 +285,8 @@ namespace FPIS.Views
 
         private void materialButtonRequestForAnalysis_Click(object sender, EventArgs e)
         {
-            SelectAnalysisTypeForm selectAnalysisTypeForm = new();
-            DialogResult dialogResult = selectAnalysisTypeForm.ShowDialog();
-
-            if (dialogResult == DialogResult.OK)
-            {
-               //AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
-            }
+            CreateAnalysisRequestFinishedProducts requestAanalysis = new CreateAnalysisRequestFinishedProducts();
+            requestAanalysis.ShowDialog();
         }
     }
 }

@@ -158,3 +158,4 @@ D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.csproj.CopyComplete
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.exe
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.pdb
 D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.ProductReportForm.resources
+D:\FPIS\FPIS\reports\Reports\Reports\obj\Debug\Reports.ReportViews.AnalysisRemarkForm.resources

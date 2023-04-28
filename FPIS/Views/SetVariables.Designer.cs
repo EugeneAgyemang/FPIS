@@ -142,7 +142,7 @@
             this.materialButtonSetVariable.NoAccentTextColor = System.Drawing.Color.Empty;
             this.materialButtonSetVariable.Size = new System.Drawing.Size(119, 36);
             this.materialButtonSetVariable.TabIndex = 33;
-            this.materialButtonSetVariable.Text = "Set Variable";
+            this.materialButtonSetVariable.Text = "Set Variables";
             this.materialButtonSetVariable.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButtonSetVariable.UseAccentColor = false;
             this.materialButtonSetVariable.UseVisualStyleBackColor = true;

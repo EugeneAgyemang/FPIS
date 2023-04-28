@@ -53,7 +53,6 @@
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialComboBoxFinishedProduct = new MaterialSkin.Controls.MaterialComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.materialButtonRequestForAnalysis = new MaterialSkin.Controls.MaterialButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Finished_Products_With_Results)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -401,31 +400,10 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Select a Finished Product to Add";
             // 
-            // materialButtonRequestForAnalysis
-            // 
-            this.materialButtonRequestForAnalysis.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButtonRequestForAnalysis.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButtonRequestForAnalysis.Depth = 0;
-            this.materialButtonRequestForAnalysis.HighEmphasis = true;
-            this.materialButtonRequestForAnalysis.Icon = null;
-            this.materialButtonRequestForAnalysis.Location = new System.Drawing.Point(795, 167);
-            this.materialButtonRequestForAnalysis.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButtonRequestForAnalysis.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonRequestForAnalysis.Name = "materialButtonRequestForAnalysis";
-            this.materialButtonRequestForAnalysis.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButtonRequestForAnalysis.Size = new System.Drawing.Size(188, 36);
-            this.materialButtonRequestForAnalysis.TabIndex = 24;
-            this.materialButtonRequestForAnalysis.Text = "Request For Analysis";
-            this.materialButtonRequestForAnalysis.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonRequestForAnalysis.UseAccentColor = false;
-            this.materialButtonRequestForAnalysis.UseVisualStyleBackColor = true;
-            this.materialButtonRequestForAnalysis.Click += new System.EventHandler(this.materialButtonRequestForAnalysis_Click);
-            // 
             // UserControlAddFinishedProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.materialButtonRequestForAnalysis);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView_Finished_Products_With_Results);
@@ -470,6 +448,5 @@
         private DataGridViewTextBoxColumn AnalysisResultDate;
         private DataGridViewTextBoxColumn AnalysisResultTime;
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxProductType;
-        private MaterialSkin.Controls.MaterialButton materialButtonRequestForAnalysis;
     }
 }

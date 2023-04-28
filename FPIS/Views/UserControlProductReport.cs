@@ -17,11 +17,51 @@ namespace FPIS.Views
     public partial class UserControlProductReport : UserControl
     {
         int countProducts;
+        public bool _isDataValid = true;
         public UserControlProductReport()
         {
             InitializeComponent();
             LoadProducts();
+            LoadProductType();
             ProductCount(countProducts);
+            materialComboBoxProductType.SelectedIndex = -1;
+
+            labelProductTypeError.ForeColor = System.Drawing.Color.Red;
+
+            labelProductTypeError.Text = "";
+        }
+
+        public void ValidateProductypeFilter(string productType)
+        {
+            if (productType.Length == 0)
+            {
+                labelProductTypeError.Text = "Select a Product Type!";
+                _isDataValid = false;
+                return;
+            }
+
+        }
+        public void ClearErrorLabels()
+        {
+            labelProductTypeError.Text = "";
+        }
+
+        private void LoadProductType()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var productType = from Product in dbContext.Products
+                                   select Product.Type;
+                materialComboBoxProductType.DataSource = productType.Distinct().ToList();
+                materialComboBoxProductType.DisplayMember = "ProductType";
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Product Type: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
         }
 
         void ProductCount(int totalStockItems)
@@ -39,6 +79,7 @@ namespace FPIS.Views
 
         private void LoadProducts()
         {
+            ClearErrorLabels();
             try
             {
                 AppDbContext dbContext = new();
@@ -48,6 +89,41 @@ namespace FPIS.Views
                                   name = Product.ProductName,
                                   type = Product.Type
                               };
+                dataGridViewProductreport.Rows.Clear();
+                foreach (var items in products)
+                {
+                    dataGridViewProductreport.Rows.Add(items.name, items.type);
+                }
+                dbContext.Dispose();
+                countProducts = dataGridViewProductreport.Rows.Count;
+                labelProductCount.Text = countProducts.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Requested Samples: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void LoadProductsByProductType(string productType)
+        {
+            ClearErrorLabels();
+            ValidateProductypeFilter(productType);
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
+                return;
+            }
+            try
+            {
+                AppDbContext dbContext = new();
+                var products = from Product in dbContext.Products
+                               where Product.Type== productType
+                               select new
+                               {
+                                   name = Product.ProductName,
+                                   type = Product.Type
+                               };
                 dataGridViewProductreport.Rows.Clear();
                 foreach (var items in products)
                 {
@@ -84,6 +160,17 @@ namespace FPIS.Views
         private void materialButtonPrintProductReport_Click(object sender, EventArgs e)
         {
             ProductsForReport();
+        }
+
+        private void materialButtonSearchProductType_Click(object sender, EventArgs e)
+        {
+            LoadProductsByProductType(materialComboBoxProductType.Text);
+            ProductCount(countProducts);
+        }
+
+        private void materialButtonShowAll_Click(object sender, EventArgs e)
+        {
+            LoadProducts();
         }
     }
 }

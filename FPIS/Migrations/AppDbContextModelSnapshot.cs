@@ -79,8 +79,12 @@ namespace FPIS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("AnalysisItem")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
 
                     b.Property<string>("Remark")
                         .IsRequired()
@@ -91,6 +95,9 @@ namespace FPIS.Migrations
 
                     b.Property<Guid>("SampleResultDetailId")
                         .HasColumnType("uuid");
+
+                    b.Property<TimeOnly>("Time")
+                        .HasColumnType("time without time zone");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");

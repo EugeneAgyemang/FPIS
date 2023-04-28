@@ -22,7 +22,6 @@ namespace FPIS.Views
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
-
             dateTimePickerExpiryDate.MinDate = DateTime.Now;
 
             labelStockItemToReceive.ForeColor = System.Drawing.Color.Red;
@@ -32,6 +31,7 @@ namespace FPIS.Views
             labelQuantityReceived.Text = "";
 
             LoadStockItems();
+            materialComboBoxStockItem.SelectedIndex = -1;
 
         }
 
