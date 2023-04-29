@@ -23,6 +23,9 @@
     <Compile Update="Views\CreateAnalysisProduct.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\DashboardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\CreateAnalysisRequestFormUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -43,9 +46,6 @@
     </Compile>
     <Compile Update="Views\CreateWaterParameter.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\DashboardUserControl.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Login.cs">
       <SubType>Form</SubType>
@@ -102,9 +102,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\ViewSamplesRequestedUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\UserControlViewSampleResults.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

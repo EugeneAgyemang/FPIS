@@ -19,6 +19,7 @@ namespace FPIS.Views
             _userService = new(dbContext);
 
             FetchAnalysisResults();
+
         }
 
         void FetchAnalysisResults()

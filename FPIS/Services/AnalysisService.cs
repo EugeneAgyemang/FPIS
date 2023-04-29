@@ -1,4 +1,4 @@
-using FPIS.Models;
+﻿using FPIS.Models;
 using FPIS.Views;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,15 +22,7 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
-        public List<SampleResult> FetchSampleResults()
-        {
-            return _dbContext.SampleResults
-                .OrderByDescending(s => s.Date)
-                .OrderByDescending(s => s.Time)
-                .Include(sr => sr.Sample)
-                .Include(sr => sr.User)
-                .ToList();
-        }
+
 
         public Sample? FetchProductionAnalysis(string sampleId)
         {
@@ -50,63 +42,6 @@ namespace FPIS.Services
                 .ThenInclude(ai => ai.AnalysisWaters)
                 .ThenInclude(aw => aw.Water)
                 .FirstOrDefault(s => s.Id.ToString() == sampleId);
-        }
-
-        public SampleResult? FetchWaterAnalysisResult(string analysisResultId)
-        {
-            return _dbContext.SampleResults
-                .Where(sr => sr.Id.ToString() == analysisResultId)
-                .Include(sr => sr.SampleResultDetails)
-                .ThenInclude(sd => sd.AnalysisItem)
-                .ThenInclude(ai => ai.AnalysisWaters)
-                .ThenInclude(aw => aw.Water)
-                .Include(sr => sr.Sample)
-                .FirstOrDefault(s => s.Id.ToString() == analysisResultId);
-        }
-
-        public SampleResult? FetchProductionAnalysisResult(string analysisResultId)
-        {
-            return _dbContext.SampleResults
-                .Where(sr => sr.Id.ToString() == analysisResultId)
-                .Include(s => s.SampleResultDetails)
-                .ThenInclude(sd => sd.AnalysisItem)
-                .ThenInclude(ai => ai.AnalysisProducts)
-                .ThenInclude(ap => ap.Product)
-                .Include(sr => sr.Sample)
-                .FirstOrDefault(s => s.Id.ToString() == analysisResultId);
-        }
-
-        public List<SampleResultsDetailsWithParameter> FetchSampleResultWithParameters(
-            string sampleResultDetailId,
-            string analysisType
-        )
-        {
-            if (analysisType.ToLower() == "production")
-            {
-                return _dbContext.SampleResultsDetailsWithParameters
-                    .Where(resultParam => resultParam.SampleResultDetailId.ToString() == sampleResultDetailId)
-                    .Include(parameter => parameter.SampleResultDetail)
-                    .ThenInclude(resultDetail => resultDetail.AnalysisItem)
-                    .ThenInclude(ai => ai.AnalysisProducts)
-                    .ThenInclude(ap => ap.Product)
-                    .Include(rp => rp.AnalysisParameter)
-                    .ThenInclude(ap => ap.ProductAnalysisParameters)
-                    .ThenInclude(pap => pap.ProductParameter)
-                    .ToList();
-            }
-            else
-            {
-                return _dbContext.SampleResultsDetailsWithParameters
-                    .Where(resultParam => resultParam.SampleResultDetailId.ToString() == sampleResultDetailId)
-                    .Include(parameter => parameter.SampleResultDetail)
-                    .ThenInclude(resultDetail => resultDetail.AnalysisItem)
-                    .ThenInclude(ai => ai.AnalysisWaters)
-                    .ThenInclude(ap => ap.Water)
-                    .Include(rp => rp.AnalysisParameter)
-                    .ThenInclude(ap => ap.WaterAnalysisParameters)
-                    .ThenInclude(wap => wap.WaterParameter)
-                    .ToList();
-            }
         }
 
         public Sample CreateSample(
@@ -209,34 +144,6 @@ namespace FPIS.Services
             _dbContext.SaveChanges();
 
             return sampleResult;
-        }
-
-        public bool UpdateSampleResult(
-            List<SampleResultsDetailsWithParameter> itemsToUpdate,
-            List<SampleResultsDetailsWithParameter> itemsToInsert
-        )
-        {
-            try
-            {
-                itemsToUpdate.ForEach(sr =>
-                {
-                    _dbContext.SampleResultsDetailsWithParameters
-                    .Where(it => it.Id == sr.Id)
-                    .ExecuteUpdate(it => it.SetProperty(resultWithParam => resultWithParam.Value, sr.Value));
-                });
-
-                if (itemsToInsert.Count > 0)
-                {
-                    _dbContext.SampleResultsDetailsWithParameters.AddRange(itemsToInsert.ToArray());
-                }
-
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
         /// <summary>
         /// Aborts a sample requested This is typical for the Procurement
@@ -347,6 +254,33 @@ namespace FPIS.Services
             productSamplesRequestedQuery = productSamplesRequestedQuery.
                     Where(sample => sample.TypeForFiltering.ToLower() == "water");
             return productSamplesRequestedQuery;
+        }
+
+        // DELETE THIS
+        public Sample CreateSample(
+            Guid userId,
+            string emp1Id,
+            string emp2Id,
+            DateOnly date,
+            TimeOnly time,
+            string analysisType
+            )
+        {
+            Sample sample = _dbContext.Samples.Add(
+                new Sample()
+                {
+                    Date = date,
+                    Time = time,
+                    UserId = userId,
+                    Employee1 = emp1Id,
+                    Employee2 = emp2Id,
+                    Status = "Pending",
+                    TypeForFiltering = analysisType
+                }
+            ).Entity;
+            _dbContext.SaveChanges();
+
+            return sample;
         }
     }
 }
