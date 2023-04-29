@@ -1,4 +1,4 @@
-﻿namespace FPIS.Views
+namespace FPIS.Views
 {
     partial class Main
     {
@@ -231,7 +231,7 @@
             this.NavigationDrawerControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.NavigationDrawerControl.Location = new System.Drawing.Point(0, 100);
             this.NavigationDrawerControl.Name = "NavigationDrawerControl";
-            this.NavigationDrawerControl.Size = new System.Drawing.Size(220, 688);
+            this.NavigationDrawerControl.Size = new System.Drawing.Size(220, 373);
             this.NavigationDrawerControl.TabIndex = 0;
             // 
             // ProcurementSectionControl
@@ -240,7 +240,7 @@
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_IssueMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
-            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1856);
+            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1857);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
             this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 200);
             this.ProcurementSectionControl.TabIndex = 8;
@@ -317,7 +317,7 @@
             // 
             this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2057);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2058);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 124);
             this.SettingsSectionControl.TabIndex = 7;
@@ -495,7 +495,6 @@
             // 
             this.QualityControl_ViewSampleResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_ViewSampleResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_ViewSampleResultsControl.Enabled = false;
             this.QualityControl_ViewSampleResultsControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_ViewSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_ViewSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -504,8 +503,9 @@
             this.QualityControl_ViewSampleResultsControl.Name = "QualityControl_ViewSampleResultsControl";
             this.QualityControl_ViewSampleResultsControl.Size = new System.Drawing.Size(180, 50);
             this.QualityControl_ViewSampleResultsControl.TabIndex = 2;
-            this.QualityControl_ViewSampleResultsControl.Text = "View Sample Results";
+            this.QualityControl_ViewSampleResultsControl.Text = "Update Sample Results";
             this.QualityControl_ViewSampleResultsControl.UseVisualStyleBackColor = false;
+            this.QualityControl_ViewSampleResultsControl.Click += new System.EventHandler(this.QualityControl_ViewSampleResultsControl_Click);
             // 
             // QualityControl_AddSampleResultControl
             // 
@@ -550,7 +550,7 @@
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
-            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1556);
+            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1557);
             this.ReportsSectionControl.Name = "ReportsSectionControl";
             this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
             this.ReportsSectionControl.TabIndex = 6;
@@ -1065,7 +1065,7 @@
             this.MainContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainContainerControl.Location = new System.Drawing.Point(220, 100);
             this.MainContainerControl.Name = "MainContainerControl";
-            this.MainContainerControl.Size = new System.Drawing.Size(1063, 688);
+            this.MainContainerControl.Size = new System.Drawing.Size(1063, 373);
             this.MainContainerControl.TabIndex = 3;
             // 
             // pictureBox1
@@ -1084,14 +1084,14 @@
             this.DividerControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.DividerControl.Location = new System.Drawing.Point(220, 100);
             this.DividerControl.Name = "DividerControl";
-            this.DividerControl.Size = new System.Drawing.Size(1, 688);
+            this.DividerControl.Size = new System.Drawing.Size(1, 373);
             this.DividerControl.TabIndex = 4;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 788);
+            this.ClientSize = new System.Drawing.Size(1283, 473);
             this.Controls.Add(this.DividerControl);
             this.Controls.Add(this.MainContainerControl);
             this.Controls.Add(this.NavigationDrawerControl);
