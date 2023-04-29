@@ -11,7 +11,7 @@ namespace FPIS.Views
         private readonly string analysisId;
         private readonly string _sampleType;
         private readonly bool _shouldUpdate;
-        private string _productId;
+        private string productOrWaterId;
         private User? _productionEngineer1;
         private User? _productionEngineer2;
         private readonly UserService _userService;
@@ -329,22 +329,8 @@ namespace FPIS.Views
                 string itemId = activeRow.Cells[0].Value.ToString();
                 string itemName = activeRow.Cells[1].Value.ToString();
                 string analysisItemId = activeRow.Cells[2].Value.ToString();
-                if (_sample.TypeForFiltering.ToLower() == "production")
-                {
-                    _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
-                        .AnalysisItem
-                        .AnalysisProducts
-                        .FirstOrDefault()
-                        .ProductId.ToString();
-                }
-                else if (_sample.TypeForFiltering.ToLower() == "water")
-                {
-                    _productId = _sample.SampleDetails.FirstOrDefault(sd => sd.Id.ToString() == itemId)
-                        .AnalysisItem
-                        .AnalysisWaters
-                        .FirstOrDefault()
-                        .WaterId.ToString();
-                }
+                string productOrWaterId = activeRow.Cells[activeRow.Cells.Count - 1].Value.ToString();
+               
 
                 AnalysisResultSampleDetailBindingItem sdbi =
                     _sampleItems.FirstOrDefault(sd => sd.Id.ToString() == itemId);
