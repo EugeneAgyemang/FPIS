@@ -524,5 +524,10 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
         }
+        
+        private void QualityControl_UpdateSampleResultsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new UserControlViewSampleResults());
+        }
     }
 }
