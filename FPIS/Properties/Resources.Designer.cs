@@ -243,6 +243,26 @@ namespace FPIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap results_large {
+            get {
+                object obj = ResourceManager.GetObject("results_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sample_large {
+            get {
+                object obj = ResourceManager.GetObject("sample_large", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings_black {
             get {
                 object obj = ResourceManager.GetObject("settings_black", resourceCulture);
@@ -266,6 +286,16 @@ namespace FPIS.Properties {
         internal static System.Drawing.Bitmap sync_dark {
             get {
                 object obj = ResourceManager.GetObject("sync_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_white {
+            get {
+                object obj = ResourceManager.GetObject("users_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
