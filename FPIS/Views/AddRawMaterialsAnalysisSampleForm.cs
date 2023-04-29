@@ -11,7 +11,7 @@ namespace FPIS.Views
     public partial class AddRawMaterialsAnalysisSampleForm : MaterialForm
     {
         private readonly AnalysisRawMaterialsSampleBindingItem[] selectedSamples;
-        private readonly AnalysisRawMaterialItemService analysisItemService;
+        private readonly AnalysisItemService analysisItemService;
         private readonly BindingList<AnalysisRawMaterialsSampleBindingItem> itemList = new();
 
         public AddRawMaterialsAnalysisSampleForm()
@@ -28,48 +28,40 @@ namespace FPIS.Views
             analysisItemService = new(new AppDbContext());
             LoadAnalysisRawMaterials();
         }
-
-        // NOTE: THIS IS WHERE I HAVE REACHED. I REALIZED I NEED TO PULL DATA FROM
-        // THE MATERIAL PROCUREMENT AND RECEIVING TABLE TO POPULATE MY GRID. SO THE
-        // USER WOULD SELECT THE STOCK THEY WOULD LIKE TO ISSUE. DO NOTE THEY WOULD
-        // BE ISSUING FROM THE STOCK RECEIVED. 
-        /*
-         * CURRENTLY THE AGREED WORKFLOW IS THIS:
-         * 1. USER SELECTS THE ITEMS THEY WISH TO ANALYZE
-         * 2. USER TRACKS THE STATUS OF THE REQUEST
-         * 3. USER IS PROBABLY NOTIFIED OF THE STATUS UPDATE ON THE REQUEST
-         * 4. USER SELECTS THE ITEM IN THE GRID THEY WISH TO PROVIDE THE QUANTITY ISSUED
-         * 5. USER SAVES AND QUANTITY IS UPDATED
-         */
         private void LoadAnalysisRawMaterials()
         {
-            List<Product> analysisProducts = analysisItemService.FetchAnalysisProducts();
+            List<AnalysisProduct> analysisProducts = analysisItemService.FetchAnalysisProducts();
 
-            foreach (Product ap in analysisProducts)
+            foreach (AnalysisProduct analysisProduct in analysisProducts)
             {
-                MaterialProcurement[] materialsProcured = ap.MaterialProcurements.ToArray();
+                MaterialProcurement[] materialsProcured = new MaterialProcurementService(new()).GetMaterialsProcuredForItem(analysisProduct.AnalysisItemId).ToArray();
                 foreach (MaterialProcurement materialProcured in materialsProcured)
                 {
                     Receiving materialReceived = materialProcured.Receivings.FirstOrDefault();
-                    var existingItem = selectedSamples.FirstOrDefault(it => it.MaterialProcuredId == materialProcured.Id);
                     if(materialReceived == null)
+                    {
+                        continue;
+                    }
+                    var existingItem = selectedSamples.FirstOrDefault(it => it.MaterialProcuredId == materialProcured.Id);
+                    if (materialReceived.Quantity <= 1)
                     {
                         continue;
                     }
                     AnalysisRawMaterialsSampleBindingItem newItem = new()
                     {
-                        Id = ap.AnalysisProducts.FirstOrDefault().AnalysisItemId,
+                        Id = analysisProduct.AnalysisItemId,
                         MaterialProcuredId = materialProcured.Id,
                         IdAsStr = Utils.Utils.GetLastCharacters(materialProcured.Id.ToString(), 4),
                         AnalysisStatus = "Pending",
                         Remarks = materialProcured.Remarks,
                         DateAdded = materialProcured.Date,
-                        QuantityReceived = materialReceived.Quantity,
                         QuantityLeft = materialReceived.Quantity,
+                        QuantityReceived = materialReceived.Quantity + new ReleasingService(new()).GetQuantityIssuedFromMaterialReceived(materialReceived.Id),
                         Supplier = materialReceived.Supplier,
                         TruckNumber = materialReceived.TruckNumber,
                         Warehouse = materialProcured.Location,
-                        Selected = existingItem != null
+                        Selected = existingItem != null,
+                        Lot = materialProcured.Lot
                     };
 
                     itemList.Add(newItem);

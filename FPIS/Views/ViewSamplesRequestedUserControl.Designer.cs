@@ -33,24 +33,16 @@
             this.viewSampleRequestsMadeBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
             this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleDetailId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnalysisItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnalysisProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sampleIdAsStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeForFiltering = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EngineerOne = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EngineerTwo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EngineerOneEmpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EngineerTwoEmpId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerOneFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerTwoFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Engineer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -85,23 +77,14 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SampleIdAsString,
-            this.SampleId,
-            this.SampleDetailId,
-            this.ProductId,
-            this.AnalysisItemId,
-            this.AnalysisProductId,
+            this.sampleIdAsStringDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn2,
             this.Date,
             this.Time,
             this.Status,
-            this.TypeForFiltering,
-            this.EngineerOne,
-            this.EngineerTwo,
-            this.EngineerOneEmpId,
-            this.EngineerTwoEmpId,
+            this.Type,
             this.EngineerOneFullName,
-            this.EngineerTwoFullName,
-            this.Engineer});
+            this.EngineerTwoFullName});
             this.dataGridView1.DataSource = this.viewSampleRequestsMadeBindingItemBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(43, 181);
             this.dataGridView1.Name = "dataGridView1";
@@ -111,52 +94,40 @@
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // SamplesRequestedOverviewControl
+            // 
+            this.SamplesRequestedOverviewControl.AutoSize = true;
+            this.SamplesRequestedOverviewControl.Depth = 0;
+            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.SamplesRequestedOverviewControl.HighEmphasis = true;
+            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
+            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
+            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
+            this.SamplesRequestedOverviewControl.TabIndex = 25;
+            this.SamplesRequestedOverviewControl.Text = "-----";
+            // 
             // SampleIdAsString
             // 
             this.SampleIdAsString.DataPropertyName = "SampleIdAsString";
             this.SampleIdAsString.HeaderText = "Sample Id";
             this.SampleIdAsString.Name = "SampleIdAsString";
-            this.SampleIdAsString.ReadOnly = true;
             // 
-            // SampleId
+            // sampleIdAsStringDataGridViewTextBoxColumn
             // 
-            this.SampleId.DataPropertyName = "SampleId";
-            this.SampleId.HeaderText = "SampleId";
-            this.SampleId.Name = "SampleId";
-            this.SampleId.ReadOnly = true;
-            this.SampleId.Visible = false;
+            this.sampleIdAsStringDataGridViewTextBoxColumn.DataPropertyName = "SampleIdAsString";
+            this.sampleIdAsStringDataGridViewTextBoxColumn.HeaderText = "Sample ID";
+            this.sampleIdAsStringDataGridViewTextBoxColumn.Name = "sampleIdAsStringDataGridViewTextBoxColumn";
+            this.sampleIdAsStringDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // SampleDetailId
+            // dataGridViewTextBoxColumn2
             // 
-            this.SampleDetailId.DataPropertyName = "SampleDetailId";
-            this.SampleDetailId.HeaderText = "SampleDetailId";
-            this.SampleDetailId.Name = "SampleDetailId";
-            this.SampleDetailId.ReadOnly = true;
-            this.SampleDetailId.Visible = false;
-            // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.ReadOnly = true;
-            this.ProductId.Visible = false;
-            // 
-            // AnalysisItemId
-            // 
-            this.AnalysisItemId.DataPropertyName = "AnalysisItemId";
-            this.AnalysisItemId.HeaderText = "AnalysisItemId";
-            this.AnalysisItemId.Name = "AnalysisItemId";
-            this.AnalysisItemId.ReadOnly = true;
-            this.AnalysisItemId.Visible = false;
-            // 
-            // AnalysisProductId
-            // 
-            this.AnalysisProductId.DataPropertyName = "AnalysisProductId";
-            this.AnalysisProductId.HeaderText = "AnalysisProductId";
-            this.AnalysisProductId.Name = "AnalysisProductId";
-            this.AnalysisProductId.ReadOnly = true;
-            this.AnalysisProductId.Visible = false;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "SampleId";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Hidden";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // Date
             // 
@@ -175,49 +146,16 @@
             // Status
             // 
             this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
+            this.Status.HeaderText = "Request Status";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
-            // TypeForFiltering
+            // Type
             // 
-            this.TypeForFiltering.DataPropertyName = "TypeForFiltering";
-            this.TypeForFiltering.HeaderText = "Type Of Sample";
-            this.TypeForFiltering.Name = "TypeForFiltering";
-            this.TypeForFiltering.ReadOnly = true;
-            this.TypeForFiltering.Visible = false;
-            // 
-            // EngineerOne
-            // 
-            this.EngineerOne.DataPropertyName = "EngineerOne";
-            this.EngineerOne.HeaderText = "EngineerOne";
-            this.EngineerOne.Name = "EngineerOne";
-            this.EngineerOne.ReadOnly = true;
-            this.EngineerOne.Visible = false;
-            // 
-            // EngineerTwo
-            // 
-            this.EngineerTwo.DataPropertyName = "EngineerTwo";
-            this.EngineerTwo.HeaderText = "EngineerTwo";
-            this.EngineerTwo.Name = "EngineerTwo";
-            this.EngineerTwo.ReadOnly = true;
-            this.EngineerTwo.Visible = false;
-            // 
-            // EngineerOneEmpId
-            // 
-            this.EngineerOneEmpId.DataPropertyName = "EngineerOneEmpId";
-            this.EngineerOneEmpId.HeaderText = "EngineerOneEmpId";
-            this.EngineerOneEmpId.Name = "EngineerOneEmpId";
-            this.EngineerOneEmpId.ReadOnly = true;
-            this.EngineerOneEmpId.Visible = false;
-            // 
-            // EngineerTwoEmpId
-            // 
-            this.EngineerTwoEmpId.DataPropertyName = "EngineerTwoEmpId";
-            this.EngineerTwoEmpId.HeaderText = "EngineerTwoEmpId";
-            this.EngineerTwoEmpId.Name = "EngineerTwoEmpId";
-            this.EngineerTwoEmpId.ReadOnly = true;
-            this.EngineerTwoEmpId.Visible = false;
+            this.Type.DataPropertyName = "TypeForFiltering";
+            this.Type.HeaderText = "Request Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // EngineerOneFullName
             // 
@@ -232,28 +170,6 @@
             this.EngineerTwoFullName.HeaderText = "Engineer Two";
             this.EngineerTwoFullName.Name = "EngineerTwoFullName";
             this.EngineerTwoFullName.ReadOnly = true;
-            // 
-            // Engineer
-            // 
-            this.Engineer.DataPropertyName = "Engineer";
-            this.Engineer.HeaderText = "Engineer";
-            this.Engineer.Name = "Engineer";
-            this.Engineer.ReadOnly = true;
-            this.Engineer.Visible = false;
-            // 
-            // SamplesRequestedOverviewControl
-            // 
-            this.SamplesRequestedOverviewControl.AutoSize = true;
-            this.SamplesRequestedOverviewControl.Depth = 0;
-            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SamplesRequestedOverviewControl.HighEmphasis = true;
-            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
-            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
-            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
-            this.SamplesRequestedOverviewControl.TabIndex = 25;
-            this.SamplesRequestedOverviewControl.Text = "-----";
             // 
             // ViewSamplesRequestedUserControl
             // 
@@ -307,24 +223,26 @@
         private DataGridViewTextBoxColumn engineerTwoEmpIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn engineerOneFullNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn engineerTwoFullNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn SampleIdAsString;
         private DataGridViewTextBoxColumn SampleId;
         private DataGridViewTextBoxColumn SampleDetailId;
         private DataGridViewTextBoxColumn ProductId;
         private DataGridViewTextBoxColumn AnalysisItemId;
         private DataGridViewTextBoxColumn AnalysisProductId;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn Time;
-        private DataGridViewTextBoxColumn Status;
-        private DataGridViewTextBoxColumn TypeForFiltering;
         private DataGridViewTextBoxColumn EngineerOne;
         private DataGridViewTextBoxColumn EngineerTwo;
         private DataGridViewTextBoxColumn EngineerOneEmpId;
         private DataGridViewTextBoxColumn EngineerTwoEmpId;
-        private DataGridViewTextBoxColumn EngineerOneFullName;
-        private DataGridViewTextBoxColumn EngineerTwoFullName;
-        private DataGridViewTextBoxColumn Engineer;
         private Button button1;
         private MaterialSkin.Controls.MaterialLabel SamplesRequestedOverviewControl;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn SampleIdAsString;
+        private DataGridViewTextBoxColumn sampleIdAsStringDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn Time;
+        private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn Type;
+        private DataGridViewTextBoxColumn EngineerOneFullName;
+        private DataGridViewTextBoxColumn EngineerTwoFullName;
     }
 }

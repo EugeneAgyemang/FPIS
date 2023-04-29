@@ -27,6 +27,8 @@ namespace FPIS.Views
         {
             this.login = login;
             InitializeComponent();
+            LoadUIForUserRole(login.userRole);
+            ResetNavigationItemTags(login.userRole);
             CachePanelState();
             CollapseNavigationDrawer();
             LoadUsername();
@@ -61,6 +63,7 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string value = item.Text;
+                    navigationButton.ImageAlign = ContentAlignment.MiddleCenter;
                     navigationButton.Text = string.Empty;
                     navigationButton.Width -= perfectSizeForHidingNavigation;
                     navigationButtonsContents.Append(value);
@@ -85,6 +88,7 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string navigationButtonContent = contents[navigationButtonContentIndex];
+                    navigationButton.ImageAlign = ContentAlignment.MiddleLeft;
                     navigationButton.Text = navigationButtonContent;
                     navigationButton.Width += perfectSizeForHidingNavigation;
                     navigationButtonsContents.Remove(0, navigationButtonContent.Length + 1);
@@ -117,7 +121,6 @@ namespace FPIS.Views
                 // Find y-axis for the panel. Tag # is simply it's position away from the top. Ergo Tag#0 -> 1, Tag#1 -> 51
                 int panelYAxis = (tag * panel.Height) + top;
                 panel.Location = new Point(6, panelYAxis);
-
             }
         }
         private void ShowNavigationSubmenu(object sender, EventArgs e)
@@ -241,7 +244,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementReceiveMaterialsUserControl.Instance);
+            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl());
         }
         /// <summary>
         /// Add the given user control to the MainContainerControl
@@ -268,7 +271,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(ProcurementIssueMaterials.Instance);
+            AddUserControlToMainContainerControl(new ProcurementIssueMaterials());
         }
         private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
         {
@@ -281,7 +284,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, Utils.Form.PROCUREMENT_ISSUE));
         }
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
@@ -301,9 +304,9 @@ namespace FPIS.Views
 
         private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, Utils.Form.PRODUCTION));
         }
-        
+
         private void LogoutControl_Click(object sender, EventArgs e)
         {
             string fullname = new UserService(new()).GetFullName(Guid.Parse(LOGGED_USER_ID));
@@ -317,7 +320,7 @@ namespace FPIS.Views
 
         private void QualityControl_AddSampleResultControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL));
         }
 
         private void QualityControl_AddWaterParameterControl_Click(object sender, EventArgs e)
@@ -380,7 +383,69 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
         }
+        
+        private void LoadUIForUserRole(Login.Role userRole)
+        {
+            string tagsAssociatedToUser = userRole.tags.ToString();
+            int numberOfNavItems = NavigationDrawerControl.Controls.Count;
+            for (int panelIndex = 0; panelIndex < numberOfNavItems; panelIndex++)
+            {
+                string tag = (string)NavigationDrawerControl.Controls[panelIndex].Tag;
+                string name = NavigationDrawerControl.Controls[panelIndex].Name;
+                if (tag == "-1")
+                {
+                    continue;
+                }
+                if (!(tagsAssociatedToUser.Contains(tag)))
+                {
+                    NavigationDrawerControl.Controls.Remove(NavigationDrawerControl.Controls[panelIndex--]);
+                    numberOfNavItems = NavigationDrawerControl.Controls.Count;
+                }
+            }
+        }
+        private void ResetNavigationItemTags(Login.Role userRole)
+        {
+            string tags = userRole.tags.ToString();
+            List<string> tagsAsTokens = tags.Split(" ").ToList();
+            tagsAsTokens.Sort();
+            int newTag = 1;
+            int navIndex = 0;
+            int settingsIndex = 0, reportsIndex = 0;
+            for (int index = 1; index < tagsAsTokens.Count; index++)
+            {
+                if (NavigationDrawerControl.Controls[navIndex].Tag == "-1" ||
+                    NavigationDrawerControl.Controls[navIndex].Tag == "0")
+                {
+                    index--;
+                    navIndex++;
+                    continue;
+                }
+                if (NavigationDrawerControl.Controls[navIndex].Name == "ReportsSectionControl")
+                {
+                    reportsIndex = index;
+                    navIndex++;
+                    continue;
+                }
+                if (NavigationDrawerControl.Controls[navIndex].Name == "SettingsSectionControl")
+                {
+                    settingsIndex = index;
+                    navIndex++;
+                    continue;
+                }
 
+                tagsAsTokens[index] = $"{newTag}";
+                NavigationDrawerControl.Controls[navIndex].Tag = tagsAsTokens[index];
+                navIndex++;
+                newTag++;
+            }
+            NavigationDrawerControl.Controls[reportsIndex].Tag = $"{newTag++}";
+            NavigationDrawerControl.Controls[settingsIndex].Tag = $"{newTag}";
+        }
+        
+
+
+
+        
         private void QualityControl_CreateAnalysisWaterControl_Click(object sender, EventArgs e)
         {
             OpenModal(new CreateAnalysisWater());

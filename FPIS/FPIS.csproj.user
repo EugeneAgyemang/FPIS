@@ -83,7 +83,19 @@
     <Compile Update="Views\TestUserControls.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UserControlA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlProductReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewAnalysisRemarks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\userControlSampleReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlB.cs">
@@ -98,19 +110,10 @@
     <Compile Update="Views\userControlIssueStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControlProductReport.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\userControlSampleReport.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\UserControlViewAnalysisRemarks.cs">
+    <Compile Update="Views\UserControlViewIssuedStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlViewCertificateOfAnalysis.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\UserControlViewIssuedStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlViewReceivedStocks.cs">
@@ -122,9 +125,24 @@
     <Compile Update="Views\ViewSamplesRequestedUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlViewSampleResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AddRawMaterialsAnalysisSampleForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProcurementIssueMaterials.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProcurementReceiveMaterialsUserControl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewSamplesRequestedUserControl.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
