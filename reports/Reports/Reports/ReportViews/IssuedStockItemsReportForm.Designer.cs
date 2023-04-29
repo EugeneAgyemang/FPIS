@@ -38,14 +38,14 @@
             this.reportViewerIsuuedStockItems.Location = new System.Drawing.Point(0, 0);
             this.reportViewerIsuuedStockItems.Name = "reportViewerIsuuedStockItems";
             this.reportViewerIsuuedStockItems.ServerReport.BearerToken = null;
-            this.reportViewerIsuuedStockItems.Size = new System.Drawing.Size(1078, 712);
+            this.reportViewerIsuuedStockItems.Size = new System.Drawing.Size(991, 712);
             this.reportViewerIsuuedStockItems.TabIndex = 0;
             // 
             // IssuedStockItemsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1078, 712);
+            this.ClientSize = new System.Drawing.Size(991, 712);
             this.Controls.Add(this.reportViewerIsuuedStockItems);
             this.MaximizeBox = false;
             this.Name = "IssuedStockItemsReportForm";

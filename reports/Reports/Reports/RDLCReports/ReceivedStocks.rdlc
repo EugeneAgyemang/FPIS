@@ -66,7 +66,7 @@
             <Value>FujiOilLogo</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.125in</Top>
-            <Left>4.575in</Left>
+            <Left>2.95in</Left>
             <Height>0.34722in</Height>
             <Width>3.18333in</Width>
             <Style>
@@ -96,7 +96,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.59666in</Top>
-            <Left>4.24999in</Left>
+            <Left>2.40285in</Left>
             <Height>0.45in</Height>
             <Width>3.38334in</Width>
             <ZIndex>1</ZIndex>
@@ -114,28 +114,28 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.89619in</Width>
+                  <Width>1.87478in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.61667in</Width>
+                  <Width>0.8425in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.06071in</Width>
+                  <Width>0.68571in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.06071in</Width>
+                  <Width>0.41071in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.06071in</Width>
+                  <Width>0.72738in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.06071in</Width>
+                  <Width>0.80238in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.06071in</Width>
+                  <Width>0.72738in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.01071in</Width>
+                  <Width>1.58571in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -153,6 +153,7 @@
                                 <TextRun>
                                   <Value>Item Name</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -187,6 +188,7 @@
                                 <TextRun>
                                   <Value>Item Category</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -221,6 +223,7 @@
                                 <TextRun>
                                   <Value>Received Date</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -253,8 +256,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Unit Of Measurement</Value>
+                                  <Value>Unit</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -289,6 +293,7 @@
                                 <TextRun>
                                   <Value>Quantity Received</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -323,6 +328,7 @@
                                 <TextRun>
                                   <Value>Available Quantity</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -357,6 +363,7 @@
                                 <TextRun>
                                   <Value>Expiry Date</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -391,6 +398,7 @@
                                 <TextRun>
                                   <Value>Received By</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -429,7 +437,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ItemName.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -459,7 +469,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ItemCategory.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -489,7 +501,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ReceivedDate.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -521,7 +535,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!UnitOfMeasurement.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -553,7 +569,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!QuantityReceived.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -585,7 +603,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!AvailableQuantity.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -617,7 +637,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ExpiryDate.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -649,7 +671,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ReceivedBy.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -697,9 +721,9 @@
             </TablixRowHierarchy>
             <DataSetName>Received_Stock_Dataset</DataSetName>
             <Top>1.18833in</Top>
-            <Left>0.68in</Left>
+            <Left>0.17173in</Left>
             <Height>0.5in</Height>
-            <Width>10.82712in</Width>
+            <Width>7.65655in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -711,12 +735,58 @@
         <Height>5in</Height>
         <Style />
       </Body>
-      <Width>12in</Width>
+      <Width>8in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageFooter>
+          <Height>1in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Fractionation Process Integration System (FPIS) - Fuji Oil Ghana Ltd.</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>0.75in</Top>
+              <Left>0.17173in</Left>
+              <Height>0.25in</Height>
+              <Width>4.37584in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <LeftMargin>0.2in</LeftMargin>
+        <RightMargin>0.2in</RightMargin>
+        <TopMargin>0.2in</TopMargin>
+        <BottomMargin>0.2in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>

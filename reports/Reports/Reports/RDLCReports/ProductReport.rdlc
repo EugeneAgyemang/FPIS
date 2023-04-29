@@ -7,7 +7,7 @@
         <Value>FujiOilLogo</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.125in</Top>
-        <Left>1.8875in</Left>
+        <Left>2.8875in</Left>
         <Height>0.34722in</Height>
         <Width>3.18333in</Width>
         <Style>
@@ -37,7 +37,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.675in</Top>
-        <Left>1.42917in</Left>
+        <Left>2.30416in</Left>
         <Height>0.45in</Height>
         <Width>3.39167in</Width>
         <ZIndex>1</ZIndex>
@@ -76,6 +76,7 @@
                             <TextRun>
                               <Value>Product Name</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -110,6 +111,7 @@
                             <TextRun>
                               <Value>Product Type</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -148,7 +150,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ProductName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -178,7 +182,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ProductType.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -220,7 +226,7 @@
         </TablixRowHierarchy>
         <DataSetName>Product_Report_Dataset</DataSetName>
         <Top>1.21333in</Top>
-        <Left>0.74667in</Left>
+        <Left>1.51708in</Left>
         <Height>0.5in</Height>
         <Width>4.96584in</Width>
         <ZIndex>2</ZIndex>
@@ -234,12 +240,58 @@
     <Height>5in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>8in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fractionation Process Integration System (FPIS) - Fuji Oil Ghana Ltd.</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.75in</Top>
+          <Left>0.15375in</Left>
+          <Height>0.25in</Height>
+          <Width>4.37584in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>0.2in</LeftMargin>
+    <RightMargin>0.2in</RightMargin>
+    <TopMargin>0.2in</TopMargin>
+    <BottomMargin>0.2in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

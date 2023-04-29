@@ -38,14 +38,14 @@
             this.reportViewerProductReport.Location = new System.Drawing.Point(0, 0);
             this.reportViewerProductReport.Name = "reportViewerProductReport";
             this.reportViewerProductReport.ServerReport.BearerToken = null;
-            this.reportViewerProductReport.Size = new System.Drawing.Size(800, 666);
+            this.reportViewerProductReport.Size = new System.Drawing.Size(991, 666);
             this.reportViewerProductReport.TabIndex = 0;
             // 
             // ProductReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 666);
+            this.ClientSize = new System.Drawing.Size(991, 666);
             this.Controls.Add(this.reportViewerProductReport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

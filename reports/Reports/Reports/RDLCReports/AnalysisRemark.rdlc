@@ -7,7 +7,7 @@
         <Value>FujiOilLogo</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.125in</Top>
-        <Left>3.5125in</Left>
+        <Left>2.90833in</Left>
         <Height>0.34722in</Height>
         <Width>3.18333in</Width>
         <Style>
@@ -23,7 +23,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Production Remark</Value>
+                <Value>Production Remarks</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -37,7 +37,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.675in</Top>
-        <Left>3.05417in</Left>
+        <Left>2.30416in</Left>
         <Height>0.45in</Height>
         <Width>3.39167in</Width>
         <ZIndex>1</ZIndex>
@@ -55,19 +55,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.44in</Width>
+              <Width>1.54667in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.065in</Width>
+              <Width>2.44416in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.08167in</Width>
+              <Width>1.01959in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.14in</Width>
+              <Width>0.97168in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.33167in</Width>
+              <Width>1.84667in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -85,6 +85,7 @@
                             <TextRun>
                               <Value>Analysis Item Name</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -119,6 +120,7 @@
                             <TextRun>
                               <Value>Remark</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -153,6 +155,7 @@
                             <TextRun>
                               <Value>Remark Date</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -187,6 +190,7 @@
                             <TextRun>
                               <Value>Remark Time</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -221,6 +225,7 @@
                             <TextRun>
                               <Value>Remark By</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -259,7 +264,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!AnalysisItemName.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -289,7 +296,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Remark.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -319,7 +328,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!RemarkDate.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -349,7 +360,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!RemarkTime.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -379,7 +392,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!RemarkBy.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -424,9 +439,9 @@
         </TablixRowHierarchy>
         <DataSetName>Analysis_Remark_Dataset</DataSetName>
         <Top>1.29667in</Top>
-        <Left>0.33833in</Left>
+        <Left>0.08562in</Left>
         <Height>0.5in</Height>
-        <Width>9.05833in</Width>
+        <Width>7.82877in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -438,12 +453,58 @@
     <Height>5in</Height>
     <Style />
   </Body>
-  <Width>10in</Width>
+  <Width>8in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fractionation Process Integration System (FPIS) - Fuji Oil Ghana Ltd.</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.75in</Top>
+          <Left>0.125in</Left>
+          <Height>0.25in</Height>
+          <Width>4.37584in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>0.2in</LeftMargin>
+    <RightMargin>0.2in</RightMargin>
+    <TopMargin>0.2in</TopMargin>
+    <BottomMargin>0.2in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

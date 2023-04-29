@@ -7,7 +7,7 @@
         <Value>FujiOilLogo</Value>
         <Sizing>FitProportional</Sizing>
         <Top>0.125in</Top>
-        <Left>3.2625in</Left>
+        <Left>2.7625in</Left>
         <Height>0.34722in</Height>
         <Width>3.18333in</Width>
         <Style>
@@ -37,7 +37,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.675in</Top>
-        <Left>2.92917in</Left>
+        <Left>2.30416in</Left>
         <Height>0.45in</Height>
         <Width>3.39167in</Width>
         <ZIndex>1</ZIndex>
@@ -67,10 +67,10 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.39167in</Width>
+              <Width>1.8375in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.09167in</Width>
+              <Width>1.925in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -88,6 +88,7 @@
                             <TextRun>
                               <Value>Request Date</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -122,6 +123,7 @@
                             <TextRun>
                               <Value>Request Time</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -156,6 +158,7 @@
                             <TextRun>
                               <Value>Status</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -190,6 +193,7 @@
                             <TextRun>
                               <Value>Request Type</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -224,6 +228,7 @@
                             <TextRun>
                               <Value>Employee1</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -258,6 +263,7 @@
                             <TextRun>
                               <Value>Employee2</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -296,7 +302,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!RequestDate.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -328,7 +336,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!RequestTime.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -360,7 +370,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Status.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -392,7 +404,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!RequestType.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -424,7 +438,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Employee1.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -456,7 +472,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Employee2.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -502,9 +520,9 @@
         </TablixRowHierarchy>
         <DataSetName>Requested_Samples_Dataset</DataSetName>
         <Top>1.155in</Top>
-        <Left>0.18833in</Left>
+        <Left>0.11875in</Left>
         <Height>0.5in</Height>
-        <Width>8.48333in</Width>
+        <Width>7.7625in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -516,12 +534,58 @@
     <Height>6in</Height>
     <Style />
   </Body>
-  <Width>9in</Width>
+  <Width>8in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fractionation Process Integration System (FPIS) - Fuji Oil Ghana Ltd.</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.75in</Top>
+          <Left>0.11875in</Left>
+          <Height>0.25in</Height>
+          <Width>4.37584in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <LeftMargin>0.2in</LeftMargin>
+    <RightMargin>0.2in</RightMargin>
+    <TopMargin>0.2in</TopMargin>
+    <BottomMargin>0.2in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>

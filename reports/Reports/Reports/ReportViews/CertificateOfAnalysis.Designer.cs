@@ -38,14 +38,14 @@
             this.reportViewerCertificateOfAnalysis.Location = new System.Drawing.Point(0, 0);
             this.reportViewerCertificateOfAnalysis.Name = "reportViewerCertificateOfAnalysis";
             this.reportViewerCertificateOfAnalysis.ServerReport.BearerToken = null;
-            this.reportViewerCertificateOfAnalysis.Size = new System.Drawing.Size(975, 693);
+            this.reportViewerCertificateOfAnalysis.Size = new System.Drawing.Size(991, 693);
             this.reportViewerCertificateOfAnalysis.TabIndex = 0;
             // 
             // CertificateOfAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 693);
+            this.ClientSize = new System.Drawing.Size(991, 693);
             this.Controls.Add(this.reportViewerCertificateOfAnalysis);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
