@@ -1,4 +1,4 @@
-﻿namespace FPIS.Views
+namespace FPIS.Views
 {
     partial class UserControlCheckAnalyticalResults
     {
@@ -97,7 +97,6 @@
             this.dataGridView_Finished_Products_With_Results.AllowUserToResizeColumns = false;
             this.dataGridView_Finished_Products_With_Results.AllowUserToResizeRows = false;
             this.dataGridView_Finished_Products_With_Results.AutoGenerateColumns = false;
-            this.dataGridView_Finished_Products_With_Results.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Finished_Products_With_Results.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_Finished_Products_With_Results.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Finished_Products_With_Results.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -128,6 +127,7 @@
             this.productNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
             this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 168;
             // 
             // AnalysisType
             // 
@@ -136,6 +136,7 @@
             this.AnalysisType.MinimumWidth = 6;
             this.AnalysisType.Name = "AnalysisType";
             this.AnalysisType.ReadOnly = true;
+            this.AnalysisType.Width = 168;
             // 
             // analysisRequestDateDataGridViewTextBoxColumn
             // 
@@ -144,6 +145,7 @@
             this.analysisRequestDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.analysisRequestDateDataGridViewTextBoxColumn.Name = "analysisRequestDateDataGridViewTextBoxColumn";
             this.analysisRequestDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.analysisRequestDateDataGridViewTextBoxColumn.Width = 168;
             // 
             // analysisRequestTimeDataGridViewTextBoxColumn
             // 
@@ -152,6 +154,7 @@
             this.analysisRequestTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.analysisRequestTimeDataGridViewTextBoxColumn.Name = "analysisRequestTimeDataGridViewTextBoxColumn";
             this.analysisRequestTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.analysisRequestTimeDataGridViewTextBoxColumn.Width = 169;
             // 
             // analysisResultDateDataGridViewTextBoxColumn
             // 
@@ -160,6 +163,7 @@
             this.analysisResultDateDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.analysisResultDateDataGridViewTextBoxColumn.Name = "analysisResultDateDataGridViewTextBoxColumn";
             this.analysisResultDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.analysisResultDateDataGridViewTextBoxColumn.Width = 168;
             // 
             // analysisResultTimeDataGridViewTextBoxColumn
             // 
@@ -168,6 +172,7 @@
             this.analysisResultTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.analysisResultTimeDataGridViewTextBoxColumn.Name = "analysisResultTimeDataGridViewTextBoxColumn";
             this.analysisResultTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.analysisResultTimeDataGridViewTextBoxColumn.Width = 168;
             // 
             // SampleDetailsId
             // 
@@ -176,6 +181,7 @@
             this.SampleDetailsId.MinimumWidth = 6;
             this.SampleDetailsId.Name = "SampleDetailsId";
             this.SampleDetailsId.ReadOnly = true;
+            this.SampleDetailsId.Width = 168;
             // 
             // SampleResultDetailsId
             // 
@@ -184,6 +190,7 @@
             this.SampleResultDetailsId.MinimumWidth = 6;
             this.SampleResultDetailsId.Name = "SampleResultDetailsId";
             this.SampleResultDetailsId.ReadOnly = true;
+            this.SampleResultDetailsId.Width = 168;
             // 
             // checkAnalyticalResultsBindingItemBindingSource
             // 
@@ -315,7 +322,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(355, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 43;
             this.label3.Text = "To :";
             // 
@@ -323,7 +330,7 @@
             // 
             this.dateTimePickerToDate.Location = new System.Drawing.Point(393, 120);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 23);
             this.dateTimePickerToDate.TabIndex = 42;
             // 
             // materialButtonSearchAnalyticalResults
@@ -351,7 +358,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 40;
             this.label4.Text = "From :";
             // 
@@ -359,7 +366,7 @@
             // 
             this.dateTimePickerFromDate.Location = new System.Drawing.Point(81, 120);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 23);
             this.dateTimePickerFromDate.TabIndex = 39;
             // 
             // groupBox1
@@ -387,7 +394,7 @@
             this.labelItemCategoryError.AutoSize = true;
             this.labelItemCategoryError.Location = new System.Drawing.Point(674, 162);
             this.labelItemCategoryError.Name = "labelItemCategoryError";
-            this.labelItemCategoryError.Size = new System.Drawing.Size(50, 20);
+            this.labelItemCategoryError.Size = new System.Drawing.Size(38, 15);
             this.labelItemCategoryError.TabIndex = 55;
             this.labelItemCategoryError.Text = "label5";
             // 
@@ -476,7 +483,7 @@
             this.labelAnalysisRemarkError.BackColor = System.Drawing.SystemColors.Control;
             this.labelAnalysisRemarkError.Location = new System.Drawing.Point(32, 232);
             this.labelAnalysisRemarkError.Name = "labelAnalysisRemarkError";
-            this.labelAnalysisRemarkError.Size = new System.Drawing.Size(177, 20);
+            this.labelAnalysisRemarkError.Size = new System.Drawing.Size(140, 15);
             this.labelAnalysisRemarkError.TabIndex = 13;
             this.labelAnalysisRemarkError.Text = "labelAnalysisRemarkError";
             // 
@@ -513,7 +520,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(34, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
+            this.label1.Size = new System.Drawing.Size(104, 15);
             this.label1.TabIndex = 11;
             this.label1.Text = "Enter your Remark";
             // 
