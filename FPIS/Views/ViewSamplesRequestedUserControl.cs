@@ -67,9 +67,6 @@ namespace FPIS.Views
 
                 sampleRequestMade.SampleIdAsString = Utils.Utils.GetLastCharacters(sampleRequested.Id.ToString(), 4);
                 sampleRequestMade.SampleId = sampleRequested.Id;
-                //sampleRequestMade.SampleId = sampleRequested.Id;
-                //sampleRequestMade.SampleDetailId = sampleRequested.SampleDetails.FirstOrDefault().Id;
-                //sampleRequestMade.AnalysisItemId = sampleRequested.SampleDetails.FirstOrDefault().AnalysisItemId;
                 sampleRequestMade.Date = sampleRequested.Date;
                 sampleRequestMade.Time = sampleRequested.Time;
                 sampleRequestMade.TypeForFiltering = sampleRequested.TypeForFiltering;

@@ -14,7 +14,9 @@ namespace FPIS.Models
         [Key]
         public Guid Id { get; set; }
         public string Remark { get; set; }
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
+        public TimeOnly Time { get; set; }
+        public string AnalysisItem { get; set; }
 
         // Navigation Properties
 

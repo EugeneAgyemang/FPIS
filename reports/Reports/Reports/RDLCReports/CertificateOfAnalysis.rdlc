@@ -105,7 +105,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.68556in</Top>
-            <Left>2.37167in</Left>
+            <Left>2.30416in</Left>
             <Height>0.45in</Height>
             <Width>3.39167in</Width>
             <Style>
@@ -126,15 +126,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Date:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.47167in</Top>
-            <Left>0.555in</Left>
+            <Top>1.09667in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -156,15 +158,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Consignee:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.77722in</Top>
-            <Left>0.555in</Left>
+            <Top>1.40222in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>2</ZIndex>
@@ -186,15 +190,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Product Type:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.09667in</Top>
-            <Left>0.555in</Left>
+            <Top>1.72167in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>3</ZIndex>
@@ -216,15 +222,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Batch Number:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.41611in</Top>
-            <Left>0.555in</Left>
+            <Top>2.04111in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>4</ZIndex>
@@ -246,15 +254,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Container Number:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.73556in</Top>
-            <Left>0.555in</Left>
+            <Top>2.36056in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1.24167in</Width>
             <ZIndex>5</ZIndex>
@@ -276,15 +286,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Seal Number:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>3.055in</Top>
-            <Left>0.555in</Left>
+            <Top>2.68in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>6</ZIndex>
@@ -306,15 +318,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>Quantity:</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>3.37444in</Top>
-            <Left>0.555in</Left>
+            <Top>2.99944in</Top>
+            <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>7</ZIndex>
@@ -336,15 +350,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pDate.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.47167in</Top>
-            <Left>2in</Left>
+            <Top>1.09667in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>8</ZIndex>
@@ -366,15 +382,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pConsignee.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.79111in</Top>
-            <Left>2in</Left>
+            <Top>1.41611in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>9</ZIndex>
@@ -396,15 +414,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pProductType.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.11056in</Top>
-            <Left>2in</Left>
+            <Top>1.73556in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>10</ZIndex>
@@ -426,15 +446,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pBatchNumber.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.41611in</Top>
-            <Left>2in</Left>
+            <Top>2.04111in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>11</ZIndex>
@@ -456,15 +478,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pContainerNumber.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.73556in</Top>
-            <Left>2in</Left>
+            <Top>2.36056in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>12</ZIndex>
@@ -486,15 +510,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pSealNumber.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>3.055in</Top>
-            <Left>2in</Left>
+            <Top>2.68in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>13</ZIndex>
@@ -516,15 +542,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Parameters!pQuantity.Value</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>3.37444in</Top>
-            <Left>2in</Left>
+            <Top>2.99944in</Top>
+            <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
             <ZIndex>14</ZIndex>
@@ -545,7 +573,7 @@
                   <Width>2.05167in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.16833in</Width>
+                  <Width>0.72082in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.585in</Width>
@@ -554,7 +582,7 @@
                   <Width>1.30167in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.185in</Width>
+                  <Width>0.82667in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -572,6 +600,7 @@
                                 <TextRun>
                                   <Value>Parameters</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Heavy</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -607,6 +636,7 @@
                                 <TextRun>
                                   <Value>Unit</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Heavy</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -642,6 +672,7 @@
                                 <TextRun>
                                   <Value>Method</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Heavy</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -677,6 +708,7 @@
                                 <TextRun>
                                   <Value>Specification</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Heavy</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -712,6 +744,7 @@
                                 <TextRun>
                                   <Value>Result</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Heavy</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -751,11 +784,13 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Parameters.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -784,7 +819,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Unit.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -817,7 +854,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Method.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -850,7 +889,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Specification.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -883,7 +924,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Result.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8.5pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -930,10 +973,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Analysis_Result_Dataset</DataSetName>
-            <Top>4.155in</Top>
-            <Left>0.29667in</Left>
+            <Top>3.405in</Top>
+            <Left>0.75708in</Left>
             <Height>0.5in</Height>
-            <Width>7.29167in</Width>
+            <Width>6.48583in</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -969,12 +1012,14 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox54</rd:DefaultName>
-            <Top>5.18in</Top>
-            <Left>6.36333in</Left>
+            <Top>4.18in</Top>
+            <Left>0.73833in</Left>
             <Height>0.25in</Height>
             <Width>1.075in</Width>
             <ZIndex>17</ZIndex>
@@ -990,14 +1035,64 @@
           </Textbox>
         </ReportItems>
         <Height>5.43in</Height>
-        <Style />
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
       </Body>
-      <Width>7.71333in</Width>
+      <Width>8in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageFooter>
+          <Height>1in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Fractionation Process Integration System (FPIS) - Fuji Oil Ghana Ltd.</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>0.75in</Top>
+              <Left>0.11208in</Left>
+              <Height>0.25in</Height>
+              <Width>4.37584in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <LeftMargin>0.2in</LeftMargin>
+        <RightMargin>0.2in</RightMargin>
+        <TopMargin>0.2in</TopMargin>
+        <BottomMargin>0.2in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>

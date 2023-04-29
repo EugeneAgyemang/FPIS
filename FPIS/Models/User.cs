@@ -32,8 +32,10 @@ namespace FPIS.Models
         public List<MaterialProcurement> MaterialProcurements { get; set; }
         public List<SampleResult> SampleResults { get; set; }
         public List<AnalysisRemark> AnalysisRemarks { get; set; }
-      
-      public override string ToString()
+        public List<IssuedStock> IssuedStocks { get; set; }
+        public List<ReceivedStock> ReceivedStocks { get; set; }
+
+        public override string ToString()
         {
             return $"EmployeeID: {EmpID}";
         }

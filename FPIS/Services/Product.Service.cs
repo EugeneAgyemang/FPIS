@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -91,26 +92,102 @@ namespace FPIS.Services
             return product;
         }
 
-        public List<SampleDetail> GetProductsWithAnalysisResults(string productName = "")
+        public List<SampleDetail> GetProductsWithAnalysisResults(Guid? sampleDetailId)
         {
-            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+            IQueryable<SampleDetail> samplesRequestedQuery = _dbContext.SampleDetails.
                 Include(sd => sd.Sample).
+                Where(sample => sample.Sample.Status.ToLower() == "completed").
+                Include(sample => sample.Sample.SampleResults).
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
                 ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
                 ThenInclude(a => a.ProductAnalysisParameters).
                 ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
                 ThenInclude(a => a.SampleResultDetail.SampleResult);
 
+
+            if (sampleDetailId != null)
+            {
+                samplesRequestedQuery = samplesRequestedQuery.
+                Where(a => a.Id == sampleDetailId);
+            }
+
+
+            return samplesRequestedQuery.ToList();
+
+        }
+
+        public List<SampleDetail> GetProductsWithAnalysisResultsPerDate(DateOnly fromDate, DateOnly toDate, string productName = "")
+        {
+            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
+                ThenInclude(a => a.ProductAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
             if (productName != string.Empty)
             {
                 productSamplesRequestedQuery = productSamplesRequestedQuery.
                 Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
+
             }
 
 
             return productSamplesRequestedQuery.ToList();
 
         }
+
+        public List<SampleDetail> GetProductsWithAnalysisResultsByAnalysisType(string analysisType, string productName = "")
+        {
+            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.TypeForFiltering == analysisType).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
+                ThenInclude(a => a.ProductAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (productName != string.Empty)
+            {
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
+
+            }
+
+
+            return productSamplesRequestedQuery.ToList();
+
+        }
+
+        public List<SampleDetail> GetProductsWithAnalysisResultsPerDateAndAnalysisType(DateOnly fromDate, DateOnly toDate, string analysisType,string productName = "")
+        {
+            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate && a.Sample.TypeForFiltering == analysisType).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
+                ThenInclude(a => a.ProductAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (productName != string.Empty)
+            {
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
+
+            }
+
+
+            return productSamplesRequestedQuery.ToList();
+
+        }
+
         /// <summary>
         /// Returns a product with the given id
         /// </summary>

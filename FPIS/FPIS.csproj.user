@@ -11,6 +11,9 @@
     <Compile Update="Views\AddAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AddAnalysisSampleFormForFinishedProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,7 +23,13 @@
     <Compile Update="Views\AddRawMaterialsAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\AnalysisCalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\CreateAnalysisProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\CreateAnalysisRequestFinishedProducts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\CreateAnalysisRequestFormUserControl.cs">
@@ -65,6 +74,9 @@
     <Compile Update="Views\SelectAnalysisTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\SetVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,15 @@
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlProductReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewAnalysisRemarks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\userControlSampleReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlB.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +108,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\userControlIssueStock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlViewIssuedStock.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlViewCertificateOfAnalysis.cs">
