@@ -383,14 +383,6 @@ namespace FPIS.Views
         {
             AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
         }
-
-        private void QualityControl_ViewSampleResultsControl_Click(object sender, EventArgs e)
-        {
-            UserControlViewSampleResults viewSampleResults = new();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(viewSampleResults);
-        }
-        
         private void LoadUIForUserRole(Login.Role userRole)
         {
             string tagsAssociatedToUser = userRole.tags.ToString();
