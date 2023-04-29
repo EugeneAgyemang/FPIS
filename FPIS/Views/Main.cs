@@ -512,7 +512,7 @@ namespace FPIS.Views
 
         private void QualityControl_ViewWaterAnalysisControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL);
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL));
         }
 
         private void ProductionSection_ViewProductionRemarkControl_Click(object sender, EventArgs e)
