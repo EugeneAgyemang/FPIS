@@ -10,7 +10,6 @@ namespace FPIS.Views
         private readonly string _sampleId;
         private readonly string _sampleType;
         private readonly bool _shouldUpdate;
-        private string productOrWaterId;
         private User? _productionEngineer1;
         private User? _productionEngineer2;
         private readonly UserService _userService;
@@ -171,7 +170,7 @@ namespace FPIS.Views
                     itemName,
                     analysisItemId,
                     _sampleType
-                , _productId
+                , productOrWaterId
                 ).ShowDialog();
             }
         }
