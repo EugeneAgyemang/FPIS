@@ -383,7 +383,6 @@ namespace FPIS.Views
             // 
             this.QualityControl_CreateAnalysisWaterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.QualityControl_CreateAnalysisWaterControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_CreateAnalysisWaterControl.Enabled = false;
             this.QualityControl_CreateAnalysisWaterControl.FlatAppearance.BorderSize = 0;
             this.QualityControl_CreateAnalysisWaterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.QualityControl_CreateAnalysisWaterControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -504,7 +503,7 @@ namespace FPIS.Views
             this.QualityControl_ViewSampleResultsControl.Name = "QualityControl_ViewSampleResultsControl";
             this.QualityControl_ViewSampleResultsControl.Size = new System.Drawing.Size(180, 50);
             this.QualityControl_ViewSampleResultsControl.TabIndex = 2;
-            this.QualityControl_ViewSampleResultsControl.Text = "Update Sample Results";
+            this.QualityControl_ViewSampleResultsControl.Text = "View Sample Results";
             this.QualityControl_ViewSampleResultsControl.UseVisualStyleBackColor = false;
             this.QualityControl_ViewSampleResultsControl.Click += new System.EventHandler(this.QualityControl_ViewSampleResultsControl_Click);
             // 
