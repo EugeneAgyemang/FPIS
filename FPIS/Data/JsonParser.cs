@@ -12,10 +12,12 @@ namespace FPIS.Data
 {
     public static class JsonParser
     {
-        static string dirPath = Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "FPIS");
+        static string defaultDirectoryPath = Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "FPIS");
+        static string materialReceivedDirectoryPath = Path.Combine(defaultDirectoryPath, "Material Procured");
+        static string materialIssuedDirectoryPath = Path.Combine(defaultDirectoryPath, "Material Issued");
         static JsonParser()
         {
-            CreateDirectory(dirPath);
+            CreateDirectory(defaultDirectoryPath, materialReceivedDirectoryPath, materialIssuedDirectoryPath);
         }
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace FPIS.Data
         /// <returns>The path to the newly created file</returns>
         public static string Write(string objString, string fileName)
         {
-            string filePath = Path.Combine(dirPath, fileName);
+            string filePath = Path.Combine(defaultDirectoryPath, fileName);
             File.WriteAllText(filePath, objString);
             return filePath;
         }
@@ -58,7 +60,7 @@ namespace FPIS.Data
         /// <returns>The text read from <paramref name="fileName"/></returns>
         public static string Read(string fileName)
         {
-            string text = File.ReadAllText(Path.Combine(dirPath, fileName));
+            string text = File.ReadAllText(Path.Combine(defaultDirectoryPath, fileName));
             return text;
         }
 
@@ -76,13 +78,19 @@ namespace FPIS.Data
         }
 
         /// <summary>
-        /// Create the FPIS default directory
+        /// Create a directory
         /// </summary>
-        /// <returns>The DirectoryInfo instance for the created directory.
-        /// Otherwise NULL should an error occur </returns>
-        public static DirectoryInfo CreateDirectory(string path = "")
+        /// <param name="path">The path to the new directory. When ommited
+        /// it creates the default FPIS application files directory</param>
+        /// <returns>The DirectoryInfo instance for the default application
+        /// folder directory</returns>
+        public static DirectoryInfo CreateDirectory(params string[] paths)
         {
-            return Directory.CreateDirectory(Path.Combine(dirPath, path));
+            foreach (string path in paths)
+            {
+                Directory.CreateDirectory(path);
+            }
+            return Directory.CreateDirectory(paths[0]);
         }
 
         /// <summary>
@@ -93,7 +101,7 @@ namespace FPIS.Data
         /// <returns>All the files in the specified directory</returns>
         public static FileInfo[] GetFiles(string directory)
         {
-            return new DirectoryInfo(Path.Combine(dirPath, directory)).GetFiles();
+            return new DirectoryInfo(Path.Combine(defaultDirectoryPath, directory)).GetFiles();
         }
 
         /// <summary>
@@ -102,12 +110,12 @@ namespace FPIS.Data
         /// <param name="fileName">The full path to the file to be removed</param>
         public static void DeleteFile(string fileName)
         {
-            File.Delete(Path.Combine(dirPath, fileName));
+            File.Delete(Path.Combine(defaultDirectoryPath, fileName));
         }
 
         public static bool DoesFileExists(string fileName)
         {
-            return File.Exists(Path.Combine(dirPath, fileName));
+            return File.Exists(Path.Combine(defaultDirectoryPath, fileName));
         }
     }
 }
