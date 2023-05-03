@@ -289,6 +289,15 @@ namespace FPIS.Services
             return productSamplesRequested;
         }
 
+        /// <summary>
+        /// Get product samples requested by the given user.
+        /// </summary>
+        /// <param name="source">The user control where the request for samples
+        /// is made. Used to apply filters to the query</param>
+        /// <param name="userId">The Id for the user who has logged in</param>
+        /// <param name="status">The status of samples needed to be fetched</param>
+        /// <returns>A list of samples requested by the given user with the
+        /// given status</returns>
         public List<Sample> GetProductSamplesRequestedByAUser(ViewSamplesRequestedUserControl.Source source, Guid userId, string status)
         {
             IQueryable<Sample> productSamplesRequestedQuery = GetSamplesRequested(status);
