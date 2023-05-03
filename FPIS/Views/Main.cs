@@ -180,7 +180,7 @@ namespace FPIS.Views
         }
         private void RepositionNavigationIndicator(int navigationMenuClicked)
         {
-            int yAxis = (navigationMenuClicked * 50) + 11;
+            int yAxis = (navigationMenuClicked * 50) + 11 + navigationMenuClicked;
             NavigationIndicatorControl.Location = new Point(3, yAxis);
         }
         private void ResetNavigationIndicator()
