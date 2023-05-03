@@ -1008,7 +1008,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Philemon Twum</Value>
+                    <Value>=Parameters!pQualityControlManager.Value</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -1021,8 +1021,40 @@
             <Top>4.18in</Top>
             <Left>0.73833in</Left>
             <Height>0.25in</Height>
-            <Width>1.075in</Width>
+            <Width>3.06667in</Width>
             <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox26">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Quality Control Manager</Value>
+                    <Style>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <Top>4.43in</Top>
+            <Left>0.75708in</Left>
+            <Height>0.25in</Height>
+            <Width>1.69167in</Width>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1126,6 +1158,11 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="pQualityControlManager">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1166,6 +1203,11 @@
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>pQuantity</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>pQualityControlManager</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

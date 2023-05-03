@@ -147,6 +147,7 @@ namespace FPIS.Views
                                       where Sample.Id == SampleDetail.SampleId
                                       from SampleResult in dbContext.SampleResults
                                       where SampleResult.SampleId == SampleDetail.SampleId
+                                      orderby SampleResult.Date descending
                                       select new
                                       {
                                           sampleDetailsID = SampleDetail.Id,
@@ -161,6 +162,47 @@ namespace FPIS.Views
                 foreach (var items in finishedProduct)
                 {
                     dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID,items.finishedProduct,items.analysisRequestDate,items.analysisRequestTime,items.analysisResultDate,items.analysisResultTime);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Departments: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void LoadFinishedProductsWithAnalysisResultsByDate(DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var finishedProduct = from Product in dbContext.Products
+                                      where Product.ProductName == materialComboBoxFinishedProduct.Text.Trim()
+                                      from AnalysisProduct in dbContext.AnalysisProducts
+                                      where AnalysisProduct.ProductId == Product.Id
+                                      from SampleDetail in dbContext.SampleDetails
+                                      where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId
+                                      from Sample in dbContext.Samples
+                                      where Sample.Id == SampleDetail.SampleId
+                                      from SampleResult in dbContext.SampleResults
+                                      where SampleResult.SampleId == SampleDetail.SampleId
+                                      where SampleResult.Date >= fromDate && SampleResult.Date <= toDate
+                                      orderby SampleResult.Date descending
+                                      select new
+                                      {
+                                          sampleDetailsID = SampleDetail.Id,
+                                          finishedProduct = Product.ProductName,
+                                          analysisRequestDate = Sample.Date,
+                                          analysisRequestTime = Sample.Time,
+                                          analysisResultDate = SampleResult.Date,
+                                          analysisResultTime = SampleResult.Time
+
+                                      };
+                dataGridView_Finished_Products_With_Results.Rows.Clear();
+                foreach (var items in finishedProduct)
+                {
+                    dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID, items.finishedProduct, items.analysisRequestDate, items.analysisRequestTime, items.analysisResultDate, items.analysisResultTime);
                 }
                 dbContext.Dispose();
             }
@@ -287,6 +329,11 @@ namespace FPIS.Views
         {
             CreateAnalysisRequestFinishedProducts requestAanalysis = new CreateAnalysisRequestFinishedProducts();
             requestAanalysis.ShowDialog();
+        }
+
+        private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
+        {
+            LoadFinishedProductsWithAnalysisResultsByDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
         }
     }
 }

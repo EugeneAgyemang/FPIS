@@ -99,6 +99,10 @@ namespace FPIS.Views
                 AppDbContext dbContext = new();
                 var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
                                        orderby FinishedProduct.Date
+                                       from Designation in dbContext.Designations
+                                       where Designation.DesignationName == "Quality Control Manager"
+                                       from User in dbContext.Users
+                                       where User.DesignationId == Designation.Id 
                                        select new
                                        {
                                            consignee = FinishedProduct.Consignee,
@@ -108,12 +112,13 @@ namespace FPIS.Views
                                            sealNumber = FinishedProduct.SealNumber,
                                            quantity = FinishedProduct.Quantity,
                                            date = FinishedProduct.Date,
-                                           sampleResultID = FinishedProduct.SampleResultId
+                                           sampleResultID = FinishedProduct.SampleResultId,
+                                           managerName = User.FirstName+" "+User.MiddleName+" "+User.LastName,
                                        };
                 dataGridViewFinishedProducts.Rows.Clear();
                 foreach (var items in finishedProducts)
                 {
-                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date, items.sampleResultID);
+                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date,items.managerName ,items.sampleResultID);
                 }
                 dbContext.Dispose();
             }
@@ -139,6 +144,10 @@ namespace FPIS.Views
                 var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
                                        where FinishedProduct.ProductType == productType
                                        orderby FinishedProduct.Date
+                                       from Designation in dbContext.Designations
+                                       where Designation.DesignationName == "Quality Control Manager"
+                                       from User in dbContext.Users
+                                       where User.DesignationId == Designation.Id
                                        select new
                                        {
                                            consignee = FinishedProduct.Consignee,
@@ -148,12 +157,14 @@ namespace FPIS.Views
                                            sealNumber = FinishedProduct.SealNumber,
                                            quantity = FinishedProduct.Quantity,
                                            date = FinishedProduct.Date,
-                                           sampleResultID = FinishedProduct.SampleResultId
+                                           sampleResultID = FinishedProduct.SampleResultId,
+                                           managerName = User.FirstName + " " + User.MiddleName + " " + User.LastName,
+
                                        };
                 dataGridViewFinishedProducts.Rows.Clear();
                 foreach (var items in finishedProducts)
                 {
-                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date, items.sampleResultID);
+                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date,items.managerName ,items.sampleResultID);
                 }
                 dbContext.Dispose();
             }
@@ -173,6 +184,10 @@ namespace FPIS.Views
                 var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
                                        where FinishedProduct.Date >= fromDate && FinishedProduct.Date <= toDate
                                        orderby FinishedProduct.Date
+                                       from Designation in dbContext.Designations
+                                       where Designation.DesignationName == "Quality Control Manager"
+                                       from User in dbContext.Users
+                                       where User.DesignationId == Designation.Id
                                        select new
                                        {
                                            consignee = FinishedProduct.Consignee,
@@ -182,12 +197,13 @@ namespace FPIS.Views
                                            sealNumber = FinishedProduct.SealNumber,
                                            quantity = FinishedProduct.Quantity,
                                            date = FinishedProduct.Date,
-                                           sampleResultID = FinishedProduct.SampleResultId
+                                           sampleResultID = FinishedProduct.SampleResultId,
+                                           managerName = User.FirstName + " " + User.MiddleName + " " + User.LastName,
                                        };
                 dataGridViewFinishedProducts.Rows.Clear();
                 foreach (var items in finishedProducts)
                 {
-                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date, items.sampleResultID);
+                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date,items.managerName ,items.sampleResultID);
                 }
                 dbContext.Dispose();
             }
@@ -207,6 +223,10 @@ namespace FPIS.Views
                 var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
                                        where FinishedProduct.Date >= fromDate && FinishedProduct.Date <= toDate && FinishedProduct.ProductType == productType
                                        orderby FinishedProduct.Date
+                                       from Designation in dbContext.Designations
+                                       where Designation.DesignationName == "Quality Control Manager"
+                                       from User in dbContext.Users
+                                       where User.DesignationId == Designation.Id
                                        select new
                                        {
                                            consignee = FinishedProduct.Consignee,
@@ -216,12 +236,13 @@ namespace FPIS.Views
                                            sealNumber = FinishedProduct.SealNumber,
                                            quantity = FinishedProduct.Quantity,
                                            date = FinishedProduct.Date,
-                                           sampleResultID = FinishedProduct.SampleResultId
+                                           sampleResultID = FinishedProduct.SampleResultId,
+                                           managerName = User.FirstName + " " + User.MiddleName + " " + User.LastName,
                                        };
                 dataGridViewFinishedProducts.Rows.Clear();
                 foreach (var items in finishedProducts)
                 {
-                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date, items.sampleResultID);
+                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date,items.managerName ,items.sampleResultID);
                 }
                 dbContext.Dispose();
             }
@@ -313,6 +334,7 @@ namespace FPIS.Views
         string _containerNumber;
         string _sealNumber;
         string _quantity;
+        string _qualityControlManager;
         private void dataGridViewFinishedProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -325,6 +347,7 @@ namespace FPIS.Views
                 _sealNumber = dataGridViewFinishedProducts.Rows[e.RowIndex].Cells["SealNumber"].FormattedValue.ToString();
                 _quantity = dataGridViewFinishedProducts.Rows[e.RowIndex].Cells["Quantity"].FormattedValue.ToString();
                 _sampleResultID = Guid.Parse(dataGridViewFinishedProducts.Rows[e.RowIndex].Cells["SampleResultID"].FormattedValue.ToString());
+                _qualityControlManager = dataGridViewFinishedProducts.Rows[e.RowIndex].Cells["QualityControlManager"].FormattedValue.ToString();
             }
             catch (Exception ex)
             {
@@ -356,7 +379,7 @@ namespace FPIS.Views
                 };
                 cert_Analysis.Add(cert);
             }
-            CertificateOfAnalysis coa = new CertificateOfAnalysis(cert_Analysis, DateOnly.FromDateTime(DateTime.UtcNow.Date).ToShortDateString(), _consignee, _productType, _batchNumber, _containerNumber, _sealNumber, _quantity);
+            CertificateOfAnalysis coa = new CertificateOfAnalysis(cert_Analysis, DateOnly.FromDateTime(DateTime.UtcNow.Date).ToShortDateString(), _consignee, _productType, _batchNumber, _containerNumber, _sealNumber, _quantity,_qualityControlManager);
             coa.ShowDialog();
 
         }

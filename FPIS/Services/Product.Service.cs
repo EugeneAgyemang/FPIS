@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 namespace FPIS.Services
 {
     /// <summary>
@@ -98,7 +100,9 @@ namespace FPIS.Services
                 Include(sd => sd.Sample).
                 Where(sample => sample.Sample.Status.ToLower() == "completed").
                 Include(sample => sample.Sample.SampleResults).
+                Where(a => a.AnalysisItem.ItemType == "Product").
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                
                 ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
                 ThenInclude(a => a.ProductAnalysisParameters).
                 ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
@@ -121,30 +125,7 @@ namespace FPIS.Services
             IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
                 Include(sd => sd.Sample).
                 Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
-                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
-                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
-                ThenInclude(a => a.ProductAnalysisParameters).
-                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
-                ThenInclude(a => a.SampleResultDetail.SampleResult);
-
-
-            if (productName != string.Empty)
-            {
-                productSamplesRequestedQuery = productSamplesRequestedQuery.
-                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
-
-            }
-
-
-            return productSamplesRequestedQuery.ToList();
-
-        }
-
-        public List<SampleDetail> GetProductsWithAnalysisResultsByAnalysisType(string analysisType, string productName = "")
-        {
-            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
-                Include(sd => sd.Sample).
-                Where(a => a.Sample.TypeForFiltering == analysisType).
+                Where(a => a.AnalysisItem.ItemType == "Product").
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
                 ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
                 ThenInclude(a => a.ProductAnalysisParameters).
