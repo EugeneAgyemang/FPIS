@@ -136,7 +136,11 @@ namespace FPIS.Views
             int tag = int.Parse((string)navigationButton.Parent.Tag);
             RepositionNavigationIndicator(tag);
             if (tag == 0)
+            {
+                MainContainerControl.Controls.Clear();
+                MainContainerControl.Controls.Add(new UserControlDashboard());
                 return;
+            }
             if (indexOfNavigationButtonClicked == tag)
             {
                 indexOfNavigationButtonClicked = -1;
