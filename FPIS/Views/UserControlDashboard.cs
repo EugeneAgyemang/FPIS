@@ -30,8 +30,8 @@ namespace FPIS.Views
             LoadPendingSamples();
 
             // User's live feed
-            LiveLoadSamples("pending", SampleRequestedBreakdownDetailsSection, pendingItemXAxis, pendingItemYAxis);
-            LiveLoadSamples("completed", SamplesProcessedBreakdownDetailsSection, completedItemXAxis, completedItemYAxis);
+            LiveLoadSamples("pending", SampleRequestedBreakdownDetailsSection, ref pendingItemXAxis, ref pendingItemYAxis);
+            LiveLoadSamples("completed", SamplesProcessedBreakdownDetailsSection, ref completedItemXAxis, ref completedItemYAxis);
 
         }
         private void LoadUsers()
@@ -52,14 +52,14 @@ namespace FPIS.Views
             SamplesPendingControl.Text = $"{appDbContext.Samples.Count() - appDbContext.SampleResults.Count()}"; ;
         }
 
-        private void LiveLoadSamples(string status, Panel section, int xAxis, int yAxis)
+        private void LiveLoadSamples(string status, Panel section, ref int xAxis, ref int yAxis)
         {
             Guid userId = Guid.Parse(Main.LOGGED_USER_ID);
-            LiveLoadProductSamples(userId, status, section, xAxis, yAxis);
-            LiveLoadWaterSamples(userId, status, section, xAxis, yAxis);
+            LiveLoadProductSamples(userId, status, section, ref xAxis, ref yAxis);
+            LiveLoadWaterSamples(userId, status, section, ref xAxis, ref yAxis);
         }
 
-        private void LiveLoadProductSamples(Guid userId, string status, Panel section, int itemXAxis, int itemYAxis)
+        private void LiveLoadProductSamples(Guid userId, string status, Panel section, ref int itemXAxis, ref int itemYAxis)
         {
             var sampleDetails = LiveLoadItemSamples(userId, status, "production").
                                     GroupBy(a => a.AnalysisItemId)
@@ -83,13 +83,13 @@ namespace FPIS.Views
                                         .Product;
                 string productName = product.ProductName;
                 int productCount = sampleDetail.Count;
-                MaterialLabel item = AddItem(productName, productCount, itemXAxis, itemYAxis);
+                MaterialLabel item = AddItem(productName, productCount, ref itemXAxis, ref itemYAxis);
                 section.Controls.Add(item);
                 itemYAxis += 30;
             }
         }
 
-        private void LiveLoadWaterSamples(Guid userId, string status, Panel section, int itemXAxis, int itemYAxis)
+        private void LiveLoadWaterSamples(Guid userId, string status, Panel section, ref int itemXAxis, ref int itemYAxis)
         {
             var sampleDetails = LiveLoadItemSamples(userId, status, "water").
                                     GroupBy(a => a.AnalysisItemId)
@@ -100,10 +100,11 @@ namespace FPIS.Views
                                                      Count = a.Count()
                                                  })
                                                  .ToList();
-            if (section.Controls.Count == 1 &&
+            if (sampleDetails.Count > 0 &&
+                section.Controls.Count == 1 &&
                 section.Controls[0].Text == "There's no data available")
             {
-                SampleRequestedBreakdownDetailsSection.Controls.Clear();
+                section.Controls.Clear();
             }
             foreach (var sampleDetail in sampleDetails)
             {
@@ -114,7 +115,7 @@ namespace FPIS.Views
                                         .Water;
                 string waterName = water.WaterName;
                 int waterCount = sampleDetail.Count;
-                MaterialLabel item = AddItem(waterName, waterCount, itemXAxis, itemYAxis);
+                MaterialLabel item = AddItem(waterName, waterCount, ref itemXAxis, ref itemYAxis);
                 section.Controls.Add(item);
                 itemYAxis += 30;
             }
@@ -126,10 +127,11 @@ namespace FPIS.Views
                                     .Include(sampleDetail => sampleDetail.Sample)
                                     .Where(sampleDetail => sampleDetail.Sample.UserId == userId &&
                                                             sampleDetail.Sample.Status.ToLower() == status &&
-                                                            sampleDetail.Sample.TypeForFiltering.ToLower() == typeForFiltering);
+                                                            sampleDetail.Sample.TypeForFiltering.ToLower() == typeForFiltering &&
+                                                            sampleDetail.Sample.Date == DateOnly.FromDateTime(DateTime.Now));
         }
 
-        private MaterialLabel AddItem(string productName, int productCount, int itemXAxis, int itemYAxis)
+        private MaterialLabel AddItem(string productName, int productCount, ref int itemXAxis, ref int itemYAxis)
         {
             MaterialLabel item = new MaterialLabel();
             item.Location = new Point(itemXAxis, itemYAxis);
@@ -167,8 +169,10 @@ namespace FPIS.Views
 
         private void asyncLoader_Tick(object sender, EventArgs e)
         {
-            LiveLoadSamples("pending", SampleRequestedBreakdownDetailsSection, pendingItemXAxis, pendingItemYAxis);
-            LiveLoadSamples("completed", SamplesProcessedBreakdownDetailsSection, completedItemXAxis, completedItemYAxis);
+            pendingItemXAxis = completedItemXAxis = 25;
+            pendingItemYAxis = completedItemYAxis = 20;
+            LiveLoadSamples("pending", SampleRequestedBreakdownDetailsSection, ref pendingItemXAxis, ref pendingItemYAxis);
+            LiveLoadSamples("completed", SamplesProcessedBreakdownDetailsSection, ref completedItemXAxis, ref completedItemYAxis);
         }
     }
 }

@@ -367,12 +367,12 @@
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.Location = new System.Drawing.Point(164, 287);
+            this.materialLabel7.Location = new System.Drawing.Point(149, 287);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(243, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(278, 19);
             this.materialLabel7.TabIndex = 0;
-            this.materialLabel7.Text = "Breakdown of Samples Requested";
+            this.materialLabel7.Text = "Breakdown of Sample Items Requested";
             // 
             // SamplesProcessedBreakdownSection
             // 
@@ -428,12 +428,12 @@
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.Location = new System.Drawing.Point(164, 287);
+            this.materialLabel12.Location = new System.Drawing.Point(150, 287);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(242, 19);
+            this.materialLabel12.Size = new System.Drawing.Size(277, 19);
             this.materialLabel12.TabIndex = 0;
-            this.materialLabel12.Text = "Breakdown of Samples Processed";
+            this.materialLabel12.Text = "Breakdown of Sample Items Processed";
             // 
             // asyncLoader
             // 
