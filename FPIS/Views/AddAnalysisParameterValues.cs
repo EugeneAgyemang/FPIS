@@ -85,20 +85,43 @@ namespace FPIS.Views
                 ParametersWithValues? item = bindingItem.parametersWithValues
                     .FirstOrDefault(pwv => pwv.ParameterId.Equals(waterAnalysisParameter.AnalysisParameterId.ToString()));
 
-                if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
+                if(_shouldUpdate)
                 {
-                    _oldParameterList.Add(new()
+                    if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
                     {
-                        Id = waterAnalysisParameter.AnalysisParameterId,
-                        Unit = waterAnalysisParameter.WaterParameter.Unit,
-                        Value = item?.ParameterValue ?? "0.00",
-                        Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                        ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
-                        shouldUpdate = true,
-                    });
+                        _oldParameterList.Add(new()
+                        {
+                            Id = waterAnalysisParameter.AnalysisParameterId,
+                            Unit = waterAnalysisParameter.WaterParameter.Unit,
+                            Value = item?.ParameterValue ?? "0.00",
+                            Name = waterAnalysisParameter.WaterParameter.ParameterName,
+                            ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                            shouldUpdate = true,
+                        });
+                    }
+                    else
+                    {
+                        _newParameterList.Add(new()
+                        {
+                            Id = waterAnalysisParameter.AnalysisParameterId,
+                            Unit = waterAnalysisParameter.WaterParameter.Unit,
+                            Value = item?.ParameterValue ?? "0.00",
+                            Name = waterAnalysisParameter.WaterParameter.ParameterName,
+                            ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                            shouldUpdate = false,
+                        });
+                    }
+
+                    if (_newParameterList.Count > 0)
+                    {
+                        materialCheckboxShowNewParameters.Visible = true;
+                    };
+
+                    _parameterList = _oldParameterList;
+                    dataGridView1.DataSource = _parameterList;
                 } else
                 {
-                    _newParameterList.Add(new()
+                    _parameterList.Add(new()
                     {
                         Id = waterAnalysisParameter.AnalysisParameterId,
                         Unit = waterAnalysisParameter.WaterParameter.Unit,
@@ -107,16 +130,11 @@ namespace FPIS.Views
                         ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
                         shouldUpdate = false,
                     });
+
+                    materialCheckboxShowNewParameters.Visible = false;
+                    dataGridView1.DataSource = _parameterList;
                 }
             }
-
-            if (_newParameterList.Count > 0)
-            {
-                materialCheckboxShowNewParameters.Visible = true;
-            };
-
-            _parameterList = _oldParameterList;
-            dataGridView1.DataSource = _parameterList;
         }
 
         void LoadProductParameters(AnalysisResultSampleDetailBindingItem bindingItem)
@@ -129,21 +147,44 @@ namespace FPIS.Views
                 ParametersWithValues? item = bindingItem.parametersWithValues
                     .FirstOrDefault(pwv => pwv.ParameterId.Equals(productAnalysisParameter.AnalysisParameterId.ToString()));
 
-                if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
+                if (_shouldUpdate)
                 {
-                    _oldParameterList.Add(new()
+                    if (!string.IsNullOrEmpty(item?.AnalysisResultWithParameterId))
                     {
-                        Value = item?.ParameterValue ?? "0.00",
-                        Id = productAnalysisParameter.AnalysisParameterId,
-                        Unit = productAnalysisParameter.ProductParameter.Unit,
-                        Method = productAnalysisParameter.ProductParameter.Method,
-                        Name = productAnalysisParameter.ProductParameter.ParameterName,
-                        Specification = productAnalysisParameter.ProductParameter.Specification,
-                        shouldUpdate = true,
-                    });
+                        _oldParameterList.Add(new()
+                        {
+                            Value = item?.ParameterValue ?? "0.00",
+                            Id = productAnalysisParameter.AnalysisParameterId,
+                            Unit = productAnalysisParameter.ProductParameter.Unit,
+                            Method = productAnalysisParameter.ProductParameter.Method,
+                            Name = productAnalysisParameter.ProductParameter.ParameterName,
+                            Specification = productAnalysisParameter.ProductParameter.Specification,
+                            shouldUpdate = true,
+                        });
+                    }
+                    else
+                    {
+                        _newParameterList.Add(new()
+                        {
+                            Value = item?.ParameterValue ?? "0.00",
+                            Id = productAnalysisParameter.AnalysisParameterId,
+                            Unit = productAnalysisParameter.ProductParameter.Unit,
+                            Method = productAnalysisParameter.ProductParameter.Method,
+                            Name = productAnalysisParameter.ProductParameter.ParameterName,
+                            Specification = productAnalysisParameter.ProductParameter.Specification,
+                            shouldUpdate = false,
+                        });
+                    }
+                    if (_newParameterList.Count > 0)
+                    {
+                        materialCheckboxShowNewParameters.Visible = true;
+                    };
+
+                    _parameterList = _oldParameterList;
+                    dataGridView1.DataSource = _parameterList;
                 } else
                 {
-                    _newParameterList.Add(new()
+                    _parameterList.Add(new()
                     {
                         Value = item?.ParameterValue ?? "0.00",
                         Id = productAnalysisParameter.AnalysisParameterId,
@@ -153,16 +194,11 @@ namespace FPIS.Views
                         Specification = productAnalysisParameter.ProductParameter.Specification,
                         shouldUpdate = false,
                     });
+
+                    materialCheckboxShowNewParameters.Visible = false;
+                    dataGridView1.DataSource = _parameterList;
                 }
             }
-
-            if (_newParameterList.Count > 0)
-            {
-                materialCheckboxShowNewParameters.Visible = true;
-            };
-
-            _parameterList = _oldParameterList;
-            dataGridView1.DataSource = _parameterList;
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
