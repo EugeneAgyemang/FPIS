@@ -83,10 +83,10 @@
     <Compile Update="Views\TestUserControls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\UserControlA.cs">
+    <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControlAddFinishedProduct.cs">
+    <Compile Update="Views\UserControlDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlProductReport.cs">
