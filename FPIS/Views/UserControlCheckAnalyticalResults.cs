@@ -27,30 +27,15 @@ namespace FPIS.Views
         {
             InitializeComponent();
             dataGridView_Finished_Products_With_Results.DataSource = sampleDetailsList;
-            dataGridView1.DataSource = parameterResultList;
+           // dataGridView1.DataSource = parameterResultList;
             LoadAnalyticalResults();
-            LoadAnalysisType();
-            materialComboBoxAnalysisType.SelectedIndex = -1;
 
-            labelItemCategoryError.ForeColor = System.Drawing.Color.Red;
             labelAnalysisRemarkError.ForeColor = System.Drawing.Color.Red;
 
-            labelItemCategoryError.Text = "";
             materialButtonSaveAnalysisRemark.Enabled= false;
             materialButtonPrintAnalyticalResult.Enabled= false; 
             textBoxAnalyticalRemark.Enabled= false;
             labelAnalysisRemarkError.Text = "";
-        }
-
-        public void ValidateCategoryFilter(string itemCategory)
-        {
-            if (itemCategory.Length == 0)
-            {
-                labelItemCategoryError.Text = "Select an Analysis Type!";
-                _isDataValid = false;
-                return;
-            }
-
         }
 
         public void ValidateAnalysisRemark(string analysisRemark)
@@ -71,57 +56,61 @@ namespace FPIS.Views
 
         public void ClearErrorLabels()
         {
-            labelItemCategoryError.Text = "";
             labelAnalysisRemarkError.Text = "";
         }
 
-        public void ResetAnalysisTypeFilter()
-        {
-            materialComboBoxAnalysisType.SelectedIndex = -1;
-            materialComboBoxAnalysisType.Focus();
-        }
-
-        private void LoadAnalysisType()
-        {
-            try
-            {
-                AppDbContext dbContext = new();
-                var requestType = from Sample in dbContext.Samples
-                                  select Sample.TypeForFiltering;
-                materialComboBoxAnalysisType.DataSource = requestType.Distinct().ToList();
-                materialComboBoxAnalysisType.DisplayMember = "TypeForFiltering";
-                dbContext.Dispose();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error Loading AnalysisType: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
-            }
-        }
         private void LoadAnalyticalResults()
         {
             ClearErrorLabels();
             int totalNumberOfRequests = 0;
-            List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResults(null);
-            sampleDetailsList.Clear();
-            foreach (SampleDetail sampleDetail in samplesDetails)
+            if (materialRadioButtonProductAnalysis.Checked)
             {
-                CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
-                sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
-                sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
-                sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
-                //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
-                sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
-                //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
-                sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
-                //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
-                //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
-                sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
-                sampleDetailItem.SampleResultDetailsId= sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString(); ;
-                totalNumberOfRequests++;
-                sampleDetailsList.Add(sampleDetailItem);
+                List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResults(null);
+                sampleDetailsList.Clear();
+                foreach (SampleDetail sampleDetail in samplesDetails)
+                {
+                    CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
+                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
+                    sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
+                    //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
+                    sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                   sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString();
+                    totalNumberOfRequests++;
+                    sampleDetailsList.Add(sampleDetailItem);
+                }
             }
+            else {
+                List<SampleDetail> samplesDetails = new WaterService(new()).GetWatersWithAnalysisResults(null);
+                sampleDetailsList.Clear();
+                foreach (SampleDetail sampleDetail in samplesDetails)
+                {
+                    CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
+                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
+                    sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
+                    //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
+                    sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterParameters.FirstOrDefault().WaterAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString(); ;
+                    totalNumberOfRequests++;
+                    sampleDetailsList.Add(sampleDetailItem);
+                }
+            }
+            
             CountAnalysisRequests(totalNumberOfRequests);
         }
 
@@ -129,98 +118,170 @@ namespace FPIS.Views
         {
             ClearErrorLabels();
             int totalNumberOfRequests = 0;
-            List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResultsPerDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
-            sampleDetailsList.Clear();
-            foreach (SampleDetail sampleDetail in samplesDetails)
+            if (materialRadioButtonProductAnalysis.Checked)
             {
-                CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
-                sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
-                sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
-                sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
-                sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
-                sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
-                //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
-                sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
-                totalNumberOfRequests++;
-                sampleDetailsList.Add(sampleDetailItem);
+                List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResultsPerDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
+                sampleDetailsList.Clear();
+                foreach (SampleDetail sampleDetail in samplesDetails)
+                {
+                    CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
+                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
+                    sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
+                    //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
+                    sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString(); ;
+                    totalNumberOfRequests++;
+                    sampleDetailsList.Add(sampleDetailItem);
+                }
+            }
+            else
+            {
+                List<SampleDetail> samplesDetails = new WaterService(new()).GetWatersWithAnalysisResultsPerDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
+                sampleDetailsList.Clear();
+                foreach (SampleDetail sampleDetail in samplesDetails)
+                {
+                    CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
+                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
+                    sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
+                    //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
+                    sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterParameters.FirstOrDefault().WaterAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString(); ;
+                    totalNumberOfRequests++;
+                    sampleDetailsList.Add(sampleDetailItem);
+                }
             }
             CountAnalysisRequests(totalNumberOfRequests);
         }
 
-        private void LoadAnalyticalResultsByAnalysisType()
+        private void LoadProductAnalyticalResult()
         {
-            ClearErrorLabels();
-            ValidateCategoryFilter(materialComboBoxAnalysisType.Text);
-            if (!_isDataValid)
+            try
             {
-                _isDataValid = true;
-                return;
+                AppDbContext dbContext = new();
+                var analysisResult = from Product in dbContext.Products
+                                     where Product.ProductName == _analysisItemName
+                                     from AnalysisProduct in dbContext.AnalysisProducts
+                                     where AnalysisProduct.ProductId == Product.Id
+                                     from SampleDetail in dbContext.SampleDetails
+                                     where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId
+                                     from Sample in dbContext.Samples
+                                     where Sample.Id == SampleDetail.SampleId
+
+                                     from SampleResult in dbContext.SampleResults
+                                     where SampleResult.SampleId == SampleDetail.SampleId
+                                     where SampleResult.Id == _sampleResultID
+                                     // from SampleResultDetail in dbContext.SampleResultDetails
+                                     // where SampleResultDetail.SampleResultId == SampleResult.Id
+
+                                     from ProductParameter in dbContext.ProductParameters
+                                     where ProductParameter.ProductId == Product.Id
+                                     from ProductAnalysisParameter in dbContext.ProductAnalysisParameters
+                                     where ProductAnalysisParameter.ProductParameterId == ProductParameter.Id
+                                     from AnalysisParameter in dbContext.AnalysisParameters
+                                     where ProductAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
+
+
+                                     from SampleResultDetail in dbContext.SampleResultDetails
+                                     where SampleResultDetail.SampleResultId == SampleResult.Id
+                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
+                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == SampleResultDetail.Id
+                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == AnalysisParameter.Id
+
+                                     //where SampleResultsDetailsWithParameter.SampleDetailId == SampleDetail.Id
+                                     select new
+                                     {
+                                         parameter = ProductParameter.ParameterName,
+                                         specification = ProductParameter.Specification,
+                                         result = SampleResultsDetailsWithParameter.Value,
+                                         variance = (float)Math.Round(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value,2),
+                                         indicator = (float)Math.Round(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value,2)
+                                     };
+                dataGridView1.Rows.Clear();
+                foreach (var items in analysisResult)
+                {
+                    dataGridView1.Rows.Add(items.parameter, items.specification, items.result, items.variance, items.indicator);
+                }
+                dbContext.Dispose();
             }
-            int totalNumberOfRequests = 0;
-            List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResultsByAnalysisType(materialComboBoxAnalysisType.Text);
-            sampleDetailsList.Clear();
-            foreach (SampleDetail sampleDetail in samplesDetails)
+            catch (Exception ex)
             {
-                CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
-                sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
-                sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
-                sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
-                sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
-                sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
-                //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
-                sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
-                totalNumberOfRequests++;
-                sampleDetailsList.Add(sampleDetailItem);
+                Console.WriteLine($"Error Loading Product Analytical Results: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
             }
-            CountAnalysisRequests(totalNumberOfRequests);
         }
 
-
-        private void LoadAnalyticalResultsByDateAndAnalysisType()
+        private void LoadWaterAnalyticalResult()
         {
-            ClearErrorLabels();
-            int totalNumberOfRequests = 0;
-            List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResultsPerDateAndAnalysisType(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), materialComboBoxAnalysisType.Text);
-            sampleDetailsList.Clear();
-            foreach (SampleDetail sampleDetail in samplesDetails)
+            try
             {
-                CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
-                sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
-                sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
-                sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
-                sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
-                sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
-                //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
-                sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
-                
-                totalNumberOfRequests++;
-                sampleDetailsList.Add(sampleDetailItem);
-            }
-            CountAnalysisRequests(totalNumberOfRequests);
-        }
+                AppDbContext dbContext = new();
+                var analysisResult = from Water in dbContext.Waters
+                                     where Water.WaterName == _analysisItemName
+                                     from AnalysisWater in dbContext.AnalysisWaters
+                                     where AnalysisWater.WaterId == Water.Id
+                                     from SampleDetail in dbContext.SampleDetails
+                                     where SampleDetail.AnalysisItemId == AnalysisWater.AnalysisItemId
+                                     from Sample in dbContext.Samples
+                                     where Sample.Id == SampleDetail.SampleId
 
-        private void ToggleSwitchDate(bool isCalledElsedWhere = false)
-        {
-            string[] captions = { "Turn Off Date filters to search only by Analysis Type", "Turn On Date filters to search with all Filters" };
-            string[] switchDateCaptions = { "I'm Searching by all Filters", "I'm searching only by Analysis Type" };
-            string captionOfSwitchDateControl = SwitchFilterControl.Text;
-            if (captionOfSwitchDateControl == captions[1] || isCalledElsedWhere)
+                                     from SampleResult in dbContext.SampleResults
+                                     where SampleResult.SampleId == SampleDetail.SampleId
+                                     where SampleResult.Id == _sampleResultID
+                                     // from SampleResultDetail in dbContext.SampleResultDetails
+                                     // where SampleResultDetail.SampleResultId == SampleResult.Id
+
+                                     from WaterParameter in dbContext.WaterParameters
+                                     where WaterParameter.WaterId == Water.Id
+                                     from WaterAnalysisParameter in dbContext.WaterAnalysisParameters
+                                     where WaterAnalysisParameter.WaterParameterId == WaterParameter.Id
+                                     from AnalysisParameter in dbContext.AnalysisParameters
+                                     where WaterAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
+
+
+                                     from SampleResultDetail in dbContext.SampleResultDetails
+                                     where SampleResultDetail.SampleResultId == SampleResult.Id
+                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
+                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == SampleResultDetail.Id
+                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == AnalysisParameter.Id
+
+                                     //where SampleResultsDetailsWithParameter.SampleDetailId == SampleDetail.Id
+                                     select new
+                                     {
+                                         parameter = WaterParameter.ParameterName,
+                                         specification = WaterParameter.ControlLimit,
+                                         result = SampleResultsDetailsWithParameter.Value,
+                                         variance = (float)Math.Round(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value, 2),
+                                         indicator = (float)Math.Round(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value, 2)
+                                     };
+                dataGridView1.Rows.Clear();
+                foreach (var items in analysisResult)
+                {
+                    dataGridView1.Rows.Add(items.parameter, items.specification, items.result, items.variance, items.indicator);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
             {
-                SwitchFilterControl.Text = captions[0];
-                SwitchCaptionControl.Text = switchDateCaptions[0];
-                dateTimePickerFromDate.Enabled = true;
-                dateTimePickerToDate.Enabled = true;
-                return;
+                Console.WriteLine($"Error Loading Product Analytical Results: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
             }
-            SwitchFilterControl.Text = captions[1];
-            SwitchCaptionControl.Text = switchDateCaptions[1];
-            dateTimePickerFromDate.Enabled = false;
-            dateTimePickerToDate.Enabled = false;
         }
-
 
         string _analysisItemName;
         string _analysisRequestDate;
@@ -228,10 +289,12 @@ namespace FPIS.Views
         string _analysisResultDate;
         string _analysisResultTime;
         string _sampleDetailID;
-        string _sampleResultDetailID;
+        Guid _sampleResultID = new Guid();
+        string _sampleResultDetailsId;
+        string _analysisType;
         private void dataGridView_Finished_Products_With_Results_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            parameterResultList.Clear();
+          /*  parameterResultList.Clear();
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
                 return;
@@ -253,21 +316,31 @@ namespace FPIS.Views
                     parameterResultList.Add(parameterResult);
                 }
             }
-
+          */
             try
             {
                 dataGridView_Finished_Products_With_Results.CurrentRow.Selected = true;
-                _analysisItemName = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["productNameDataGridViewTextBoxColumn"].FormattedValue.ToString();
-                _analysisRequestDate = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["analysisRequestDateDataGridViewTextBoxColumn"].FormattedValue.ToString();
-                _analysisRequestTime = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["analysisRequestTimeDataGridViewTextBoxColumn"].FormattedValue.ToString();
-                _analysisResultDate = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["analysisResultDateDataGridViewTextBoxColumn"].FormattedValue.ToString();
-                _analysisResultTime = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["analysisResultTimeDataGridViewTextBoxColumn"].FormattedValue.ToString();
-                _sampleDetailID = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleDetailsId"].FormattedValue.ToString();
-                _sampleResultDetailID = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleResultDetailsId"].FormattedValue.ToString();
+                _analysisItemName = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn1"].FormattedValue.ToString();
+                _analysisRequestDate = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn3"].FormattedValue.ToString();
+                _analysisRequestTime = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn4"].FormattedValue.ToString();
+                _analysisResultDate = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn5"].FormattedValue.ToString();
+                _analysisResultTime = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn6"].FormattedValue.ToString();
+                _sampleDetailID = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn7"].FormattedValue.ToString();
+                _sampleResultID = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleResultDetailsId"].FormattedValue.ToString());
+                _sampleResultDetailsId = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleResultsDetailsId"].FormattedValue.ToString();
+                _analysisType = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn2"].FormattedValue.ToString();
             }
             catch (Exception ex)
             {
 
+            }
+            if (_analysisType == "Production")
+            {
+                LoadProductAnalyticalResult();
+            }
+            else
+            {
+                LoadWaterAnalyticalResult();
             }
             materialButtonSaveAnalysisRemark.Enabled = true;
             materialButtonPrintAnalyticalResult.Enabled = true;
@@ -300,7 +373,7 @@ namespace FPIS.Views
                 if (dialogResult == DialogResult.Yes)
                 {
                     AnalysisRemarkService analysisRemarkService = new(dbContext);
-                     analysisRemarkService.AddAnalysisRemark(analysisRemark, remarkDate, new Guid(_sampleDetailID), new Guid(_sampleResultDetailID), new Guid(Main.LOGGED_USER_ID), remarkTime, _analysisItemName);
+                     analysisRemarkService.AddAnalysisRemark(analysisRemark, remarkDate, new Guid(_sampleDetailID), new Guid(_sampleResultDetailsId), new Guid(Main.LOGGED_USER_ID), remarkTime, _analysisItemName);
                      MessageBox.Show(
                        $"Analysis Remark added successfully for \"{_analysisItemName}\"",
                       "Success",
@@ -402,18 +475,7 @@ namespace FPIS.Views
 
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
         {
-            if (dateTimePickerFromDate.Enabled == false && dateTimePickerToDate.Enabled == false)
-            {
-                LoadAnalyticalResultsByAnalysisType();
-            }
-            else if (materialComboBoxAnalysisType.Text == "")
-            {
                 LoadAnalyticalResultsPerDate();
-            }
-            else
-            {
-                LoadAnalyticalResultsByDateAndAnalysisType();
-            }
         }
 
         private void materialButtonShowAll_Click(object sender, EventArgs e)
@@ -421,19 +483,21 @@ namespace FPIS.Views
             LoadAnalyticalResults();
         }
 
-        private void SwitchFilterControl_CheckedChanged(object sender, EventArgs e)
-        {
-            ToggleSwitchDate();
-        }
-
-        private void buttonResetRequestTypeFilter_Click(object sender, EventArgs e)
-        {
-            ResetAnalysisTypeFilter();
-        }
-
         private void materialButtonSaveAnalysisRemark_Click(object sender, EventArgs e)
         {
             AddAnalysisRemark();
+        }
+
+        private void materialRadioButtonProductAnalysis_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadAnalyticalResults();
+            dataGridView1.Rows.Clear();
+        }
+
+        private void materialRadioButtonWaterAnalysis_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadAnalyticalResults();
+            dataGridView1.Rows.Clear();
         }
     }
 }

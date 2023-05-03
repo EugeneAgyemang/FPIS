@@ -47,9 +47,16 @@
             this.materialTextBoxAvailableQuantity = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBoxItemName = new MaterialSkin.Controls.MaterialTextBox();
             this.materialButtonIssueStock = new MaterialSkin.Controls.MaterialButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.materialButtonSearchAnalyticalResults = new MaterialSkin.Controls.MaterialButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePickerToDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIssueStock)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -305,10 +312,77 @@
             this.materialButtonIssueStock.UseVisualStyleBackColor = false;
             this.materialButtonIssueStock.Click += new System.EventHandler(this.materialButtonIssueStock_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.materialButtonSearchAnalyticalResults);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.dateTimePickerToDate);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.dateTimePickerFromDate);
+            this.groupBox3.Location = new System.Drawing.Point(798, 187);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(756, 125);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Search by Received Date";
+            // 
+            // materialButtonSearchAnalyticalResults
+            // 
+            this.materialButtonSearchAnalyticalResults.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchAnalyticalResults.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButtonSearchAnalyticalResults.Depth = 0;
+            this.materialButtonSearchAnalyticalResults.HighEmphasis = true;
+            this.materialButtonSearchAnalyticalResults.Icon = null;
+            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(667, 44);
+            this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchAnalyticalResults.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonSearchAnalyticalResults.Name = "materialButtonSearchAnalyticalResults";
+            this.materialButtonSearchAnalyticalResults.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButtonSearchAnalyticalResults.Size = new System.Drawing.Size(78, 36);
+            this.materialButtonSearchAnalyticalResults.TabIndex = 46;
+            this.materialButtonSearchAnalyticalResults.Text = "Search";
+            this.materialButtonSearchAnalyticalResults.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButtonSearchAnalyticalResults.UseAccentColor = false;
+            this.materialButtonSearchAnalyticalResults.UseVisualStyleBackColor = true;
+            this.materialButtonSearchAnalyticalResults.Click += new System.EventHandler(this.materialButtonSearchAnalyticalResults_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(350, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "To :";
+            // 
+            // dateTimePickerToDate
+            // 
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(388, 47);
+            this.dateTimePickerToDate.Name = "dateTimePickerToDate";
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.TabIndex = 47;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.TabIndex = 45;
+            this.label4.Text = "From :";
+            // 
+            // dateTimePickerFromDate
+            // 
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(64, 47);
+            this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.TabIndex = 44;
+            // 
             // userControlIssueStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewIssueStock);
@@ -322,6 +396,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIssueStock)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +424,11 @@
         private DataGridViewTextBoxColumn AvailableQuantity;
         private DataGridViewTextBoxColumn ExpiryDate;
         private DataGridViewTextBoxColumn ReceivedStockID;
+        private GroupBox groupBox3;
+        private MaterialSkin.Controls.MaterialButton materialButtonSearchAnalyticalResults;
+        private Label label3;
+        private DateTimePicker dateTimePickerToDate;
+        private Label label4;
+        private DateTimePicker dateTimePickerFromDate;
     }
 }

@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewFinishedProducts = new System.Windows.Forms.DataGridView();
-            this.Consignee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContainerNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SealNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleResultID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -59,6 +51,15 @@
             this.SwitchFilterControl = new MaterialSkin.Controls.MaterialSwitch();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
+            this.Consignee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContainerNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SealNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QualityControlManager = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleResultID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinishedProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysisResult)).BeginInit();
@@ -83,6 +84,7 @@
             this.SealNumber,
             this.Quantity,
             this.Date,
+            this.QualityControlManager,
             this.SampleResultID});
             this.dataGridViewFinishedProducts.Location = new System.Drawing.Point(112, 336);
             this.dataGridViewFinishedProducts.Name = "dataGridViewFinishedProducts";
@@ -92,63 +94,6 @@
             this.dataGridViewFinishedProducts.Size = new System.Drawing.Size(1410, 287);
             this.dataGridViewFinishedProducts.TabIndex = 0;
             this.dataGridViewFinishedProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFinishedProducts_CellClick);
-            // 
-            // Consignee
-            // 
-            this.Consignee.HeaderText = "CONSIGNEE";
-            this.Consignee.MinimumWidth = 6;
-            this.Consignee.Name = "Consignee";
-            this.Consignee.ReadOnly = true;
-            // 
-            // ProductType
-            // 
-            this.ProductType.HeaderText = "PRODUCT TYPE";
-            this.ProductType.MinimumWidth = 6;
-            this.ProductType.Name = "ProductType";
-            this.ProductType.ReadOnly = true;
-            // 
-            // BatchNumber
-            // 
-            this.BatchNumber.HeaderText = "BATCH NUMBER";
-            this.BatchNumber.MinimumWidth = 6;
-            this.BatchNumber.Name = "BatchNumber";
-            this.BatchNumber.ReadOnly = true;
-            // 
-            // ContainerNumber
-            // 
-            this.ContainerNumber.HeaderText = "CONTAINER NUMBER";
-            this.ContainerNumber.MinimumWidth = 6;
-            this.ContainerNumber.Name = "ContainerNumber";
-            this.ContainerNumber.ReadOnly = true;
-            // 
-            // SealNumber
-            // 
-            this.SealNumber.HeaderText = "SEAL NUMBER";
-            this.SealNumber.MinimumWidth = 6;
-            this.SealNumber.Name = "SealNumber";
-            this.SealNumber.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "QUANTITY";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "DATE";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // SampleResultID
-            // 
-            this.SampleResultID.HeaderText = "SAMPLE RESULT ID";
-            this.SampleResultID.MinimumWidth = 6;
-            this.SampleResultID.Name = "SampleResultID";
-            this.SampleResultID.ReadOnly = true;
-            this.SampleResultID.Visible = false;
             // 
             // label1
             // 
@@ -426,6 +371,71 @@
             this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
             this.dateTimePickerFromDate.TabIndex = 43;
             // 
+            // Consignee
+            // 
+            this.Consignee.HeaderText = "CONSIGNEE";
+            this.Consignee.MinimumWidth = 6;
+            this.Consignee.Name = "Consignee";
+            this.Consignee.ReadOnly = true;
+            // 
+            // ProductType
+            // 
+            this.ProductType.HeaderText = "PRODUCT TYPE";
+            this.ProductType.MinimumWidth = 6;
+            this.ProductType.Name = "ProductType";
+            this.ProductType.ReadOnly = true;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "BATCH NUMBER";
+            this.BatchNumber.MinimumWidth = 6;
+            this.BatchNumber.Name = "BatchNumber";
+            this.BatchNumber.ReadOnly = true;
+            // 
+            // ContainerNumber
+            // 
+            this.ContainerNumber.HeaderText = "CONTAINER NUMBER";
+            this.ContainerNumber.MinimumWidth = 6;
+            this.ContainerNumber.Name = "ContainerNumber";
+            this.ContainerNumber.ReadOnly = true;
+            // 
+            // SealNumber
+            // 
+            this.SealNumber.HeaderText = "SEAL NUMBER";
+            this.SealNumber.MinimumWidth = 6;
+            this.SealNumber.Name = "SealNumber";
+            this.SealNumber.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "QUANTITY";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "DATE";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // QualityControlManager
+            // 
+            this.QualityControlManager.HeaderText = "QUALITY CONTROL MANAGER";
+            this.QualityControlManager.MinimumWidth = 6;
+            this.QualityControlManager.Name = "QualityControlManager";
+            this.QualityControlManager.ReadOnly = true;
+            this.QualityControlManager.Visible = false;
+            // 
+            // SampleResultID
+            // 
+            this.SampleResultID.HeaderText = "SAMPLE RESULT ID";
+            this.SampleResultID.MinimumWidth = 6;
+            this.SampleResultID.Name = "SampleResultID";
+            this.SampleResultID.ReadOnly = true;
+            this.SampleResultID.Visible = false;
+            // 
             // UserControlViewCertificateOfAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -452,14 +462,6 @@
 
         private DataGridView dataGridViewFinishedProducts;
         private Label label1;
-        private DataGridViewTextBoxColumn Consignee;
-        private DataGridViewTextBoxColumn ProductType;
-        private DataGridViewTextBoxColumn BatchNumber;
-        private DataGridViewTextBoxColumn ContainerNumber;
-        private DataGridViewTextBoxColumn SealNumber;
-        private DataGridViewTextBoxColumn Quantity;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn SampleResultID;
         private Label label2;
         private GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialButton materialButtonGenerateCertificateOfAnalysis;
@@ -481,5 +483,14 @@
         private MaterialSkin.Controls.MaterialSwitch SwitchFilterControl;
         private Label label4;
         private DateTimePicker dateTimePickerFromDate;
+        private DataGridViewTextBoxColumn Consignee;
+        private DataGridViewTextBoxColumn ProductType;
+        private DataGridViewTextBoxColumn BatchNumber;
+        private DataGridViewTextBoxColumn ContainerNumber;
+        private DataGridViewTextBoxColumn SealNumber;
+        private DataGridViewTextBoxColumn Quantity;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn QualityControlManager;
+        private DataGridViewTextBoxColumn SampleResultID;
     }
 }

@@ -14,9 +14,9 @@ namespace FPIS.Models
         public string AnalysisRequestTime { get; set; }
         public string AnalysisResultDate { get; set; }
         public string AnalysisResultTime { get; set; }
-        //public string SampleResultId { get; set; }
         public string SampleDetailsId { get; set; }
-        public string SampleResultDetailsId { get; set; }
+        public string SampleResultId { get; set; }
+        public string SampleResultDetailsId { get; set;}
 
     }
 }

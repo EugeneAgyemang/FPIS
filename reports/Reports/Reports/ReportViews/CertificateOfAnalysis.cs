@@ -14,9 +14,9 @@ namespace FPISReports.ReportViews
 {
     public partial class CertificateOfAnalysis : Form
     {
-        string _date, _consignee, _productType, _batchNumber, _containerNumber, _sealNumber, _quantity;
+        string _date, _consignee, _productType, _batchNumber, _containerNumber, _sealNumber, _quantity,_qualityControlManager;
         List<Certificate_Of_Analysis> _certificates;
-        public CertificateOfAnalysis(List<Certificate_Of_Analysis> dataSource,string date, string consignee, string productType, string batchNumber, string containerNumber, string sealNumber, string quantity)
+        public CertificateOfAnalysis(List<Certificate_Of_Analysis> dataSource,string date, string consignee, string productType, string batchNumber, string containerNumber, string sealNumber, string quantity,string qualityControlManager)
         {
             InitializeComponent();
             _certificates = dataSource;
@@ -27,6 +27,7 @@ namespace FPISReports.ReportViews
             _containerNumber = containerNumber;
             _sealNumber = sealNumber;
             _quantity = quantity;
+            _qualityControlManager = qualityControlManager;
         }
 
         ReportDataSource _reportDataSource = new ReportDataSource();
@@ -40,7 +41,8 @@ namespace FPISReports.ReportViews
                 new Microsoft.Reporting.WinForms.ReportParameter("pBatchNumber",_batchNumber),
                 new Microsoft.Reporting.WinForms.ReportParameter("pContainerNumber",_containerNumber),
                 new Microsoft.Reporting.WinForms.ReportParameter("pSealNumber",_sealNumber),
-                new Microsoft.Reporting.WinForms.ReportParameter("pQuantity",_quantity)
+                new Microsoft.Reporting.WinForms.ReportParameter("pQuantity",_quantity),
+                new Microsoft.Reporting.WinForms.ReportParameter("pQualityControlManager",_qualityControlManager),   
             };
             reportViewerCertificateOfAnalysis.LocalReport.SetParameters(para);
             _reportDataSource.Name = "Analysis_Result_Dataset";

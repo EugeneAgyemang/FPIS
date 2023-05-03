@@ -83,6 +83,7 @@ namespace FPIS.Views
                                    where StockItem.Id == ReceivedStock.StockItemId
                                    where StockItem.StockItemType.Equals(materialComboBoxStockType.Text)
                                    where ReceivedStock.QuantityAvailable > 0
+                                   orderby ReceivedStock.ExpiryDate ascending
                                    select new
                                    {
                                        itemName = StockItem.StockItemName,
@@ -97,6 +98,42 @@ namespace FPIS.Views
                 foreach(var items in itemsToIssue)
                 {
                     dataGridViewIssueStock.Rows.Add(items.itemName,items.receivedDate,items.unit,items.quantityReceived,items.availableQuantity,items.expiryDate,items.receivedStockID);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Stocks: {ex}");
+                MaterialMessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void LoadStockDataByDate(DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var itemsToIssue = from StockItem in dbContext.StockItems
+                                   from ReceivedStock in dbContext.ReceivedStocks
+                                   where StockItem.Id == ReceivedStock.StockItemId
+                                   where ReceivedStock.ReceivedDate >= fromDate && ReceivedStock.ReceivedDate <= toDate
+                                   where StockItem.StockItemType.Equals(materialComboBoxStockType.Text)
+                                   where ReceivedStock.QuantityAvailable > 0
+                                   orderby ReceivedStock.ExpiryDate ascending
+                                   select new
+                                   {
+                                       itemName = StockItem.StockItemName,
+                                       receivedDate = ReceivedStock.ReceivedDate,
+                                       unit = StockItem.Unit,
+                                       quantityReceived = ReceivedStock.Quantity,
+                                       availableQuantity = ReceivedStock.QuantityAvailable,
+                                       expiryDate = ReceivedStock.ExpiryDate,
+                                       receivedStockID = ReceivedStock.Id
+                                   };
+                dataGridViewIssueStock.Rows.Clear();
+                foreach (var items in itemsToIssue)
+                {
+                    dataGridViewIssueStock.Rows.Add(items.itemName, items.receivedDate, items.unit, items.quantityReceived, items.availableQuantity, items.expiryDate, items.receivedStockID);
                 }
                 dbContext.Dispose();
             }
@@ -249,6 +286,11 @@ namespace FPIS.Views
                 }
             }
 
+        }
+
+        private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
+        {
+            LoadStockDataByDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
         }
     }
 }

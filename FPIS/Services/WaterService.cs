@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,57 @@ namespace FPIS.Services
             _dbContext.SaveChanges();
 
             return water;
+        }
+
+        public List<SampleDetail> GetWatersWithAnalysisResults(Guid? sampleDetailId)
+        {
+            IQueryable<SampleDetail> samplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(sample => sample.Sample.Status.ToLower() == "completed").
+                Include(sample => sample.Sample.SampleResults).
+                Where(a => a.AnalysisItem.ItemType == "Water").
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisWaters).
+
+                ThenInclude(analysisWater => analysisWater.Water.WaterParameters).
+                ThenInclude(a => a.WaterAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (sampleDetailId != null)
+            {
+                samplesRequestedQuery = samplesRequestedQuery.
+                Where(a => a.Id == sampleDetailId);
+            }
+
+
+            return samplesRequestedQuery.ToList();
+
+        }
+
+        public List<SampleDetail> GetWatersWithAnalysisResultsPerDate(DateOnly fromDate, DateOnly toDate, string waterName = "")
+        {
+            IQueryable<SampleDetail> waterSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Where(a => a.AnalysisItem.ItemType == "Water").
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisWaters).
+                ThenInclude(analysisWater => analysisWater.Water.WaterParameters).
+                ThenInclude(a => a.WaterAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (waterName != string.Empty)
+            {
+                waterSamplesRequestedQuery = waterSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == waterName);
+
+            }
+
+
+            return waterSamplesRequestedQuery.ToList();
+
         }
     }
 }
