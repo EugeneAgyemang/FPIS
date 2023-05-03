@@ -1,11 +1,14 @@
-﻿using FPIS.Models;
+﻿using FPIS.Data;
+using FPIS.Models;
 using FPIS.Services;
 using FPIS.Utils;
 using FPIS.Views;
 using MaterialSkin.Controls;
 using System;
+using System.Configuration;
 using System.Text;
 using static MaterialSkin.MaterialSkinManager;
+using static System.Environment;
 
 namespace FPIS
 {
@@ -19,6 +22,7 @@ namespace FPIS
             Theme.Set(Themes.LIGHT);
             EmployeeIdErrorControl.ForeColor =
                 PasswordErrorControl.ForeColor = Color.Red;
+            SetupSuperAdmin();
         }
         public void ResetFields()
         {
@@ -120,11 +124,6 @@ namespace FPIS
                 PasswordErrorControl.Text = string.Empty;
         }
 
-        private void CreateAccountControl_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new Register(this).Show();
-        }
         public class Role
         {
             public StringBuilder tags = new StringBuilder();
@@ -132,7 +131,7 @@ namespace FPIS
             {
                 tags.Append("0 ");
                 string departmentName = department.DepartmentName.ToLower();
-                switch(departmentName)
+                switch (departmentName)
                 {
                     case "production":
                         tags.Append("1 ");
@@ -146,10 +145,66 @@ namespace FPIS
                     case "procurement":
                         tags.Append("6 ");
                         break;
+                    case "super admin":
+                        tags.Append("1 ");
+                        tags.Append("2 ");
+                        tags.Append("3 ");
+                        tags.Append("4 ");
+                        tags.Append("6 ");
+                        tags.Append("7 ");
+                        break;
                 }
                 tags.Append("5 ");
-                tags.Append("7");
+                tags.Append("8");
             }
+        }
+
+        private void SetupSuperAdmin()
+        {
+            string defaultDirectoryPath = Path.Combine(Environment.GetFolderPath(SpecialFolder.LocalApplicationData), "FPIS");
+            string superAdminDirectoryPath = Path.Combine(defaultDirectoryPath, "Super Admin");
+            string superAdminFilePath = Path.Combine(superAdminDirectoryPath, "super-admin.json");
+            bool isSuperAdminSetup = IsSuperUserSetup(superAdminFilePath);
+            if (isSuperAdminSetup)
+            {
+                return;
+            }
+            CreateSuperAdminFile(superAdminFilePath);
+            AddSuperAdminRecord();
+        }
+
+        private bool IsSuperUserSetup(string superUserFilePath)
+        {
+            bool fileExists = JsonParser.DoesFileExists(superUserFilePath);
+            return fileExists;
+        }
+
+        private void CreateSuperAdminFile(string superAdminFilePath)
+        {
+            string fileContent = "sa";
+            string text = JsonParser.Stringify<string>(fileContent);
+            JsonParser.Write(text, superAdminFilePath);
+        }
+
+        private void AddSuperAdminRecord()
+        {
+            Department department = new Department()
+            {
+                DepartmentName = "Super Admin"
+            };
+            Designation designation = new Designation()
+            {
+                DesignationName = "Super Admin"
+            };
+            User user = new User()
+            {
+                EmpID = "sa",
+                FirstName = "Super",
+                LastName = "Admin",
+                MiddleName = string.Empty,
+                Password = $"{Utils.Utils.HashPassword(ConfigurationManager.AppSettings["sa"])}"
+            };
+            new UserService(new()).RegisterUser(department, designation, user);
         }
     }
 }

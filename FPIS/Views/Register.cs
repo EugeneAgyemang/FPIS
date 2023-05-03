@@ -14,10 +14,8 @@ namespace FPIS
         // 3 characters or more, no numbers and special characters
         readonly string nameRegexPattern = "^[a-zA-Z]{3,}$";
         readonly string passwordRegexPattern = "^.{6,}$"; // very minimal password enforcement
-        Login login;
-        public Register(Login login)
+        public Register()
         {
-            this.login = login;
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
@@ -241,11 +239,6 @@ namespace FPIS
                 Console.WriteLine($"Error Loading Designations: {ex}");
                 MaterialMessageBox.Show(ex.ToString());
             }
-        }
-
-        private void Register_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            login.Show();
         }
         void ResetControls()
         {

@@ -17,7 +17,7 @@ namespace FPIS.Views
         const int PERFECTSIZEFORHIDINGNAVIGATION = 130;
         bool isNavigationOpen = true;
         StringBuilder navigationButtonsContents = new StringBuilder();
-        int[] panelHeights = new int[8];
+        int[] panelHeights = new int[9];
         int indexOfNavigationButtonClicked = -1;
         Login login;
 
@@ -63,7 +63,14 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string value = item.Text;
-                    navigationButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    if (navigationButton.TabIndex == 0)
+                    {
+                        navigationButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    }
+                    else
+                    {
+                        navigationButton.ImageAlign = ContentAlignment.MiddleRight;
+                    }
                     navigationButton.Text = string.Empty;
                     navigationButton.Width -= perfectSizeForHidingNavigation;
                     navigationButtonsContents.Append(value);
@@ -88,7 +95,10 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string navigationButtonContent = contents[navigationButtonContentIndex];
-                    navigationButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    if (navigationButton.TabIndex == 0)
+                    {
+                        navigationButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    }
                     navigationButton.Text = navigationButtonContent;
                     navigationButton.Width += perfectSizeForHidingNavigation;
                     navigationButtonsContents.Remove(0, navigationButtonContent.Length + 1);
@@ -184,7 +194,7 @@ namespace FPIS.Views
         }
         private void RepositionNavigationIndicator(int navigationMenuClicked)
         {
-            int yAxis = (navigationMenuClicked * 50) + 11;
+            int yAxis = (navigationMenuClicked * 50) + 11 + navigationMenuClicked;
             NavigationIndicatorControl.Location = new Point(3, yAxis);
         }
         private void ResetNavigationIndicator()
@@ -532,6 +542,21 @@ namespace FPIS.Views
         private void QualityControl_UpdateSampleResultsControl_Click(object sender, EventArgs e)
         {
             AddUserControlToMainContainerControl(new UserControlViewSampleResults());
+        }
+
+        private void AdminPanelSection_AddUsers_Click(object sender, EventArgs e)
+        {
+            OpenModal(new Register());
+        }
+
+        private void AdminPanelSection_AddDepartment_Click(object sender, EventArgs e)
+        {
+            OpenModal(new AddDepartment());
+        }
+
+        private void AdminPanelSection_AddDesignation_Click(object sender, EventArgs e)
+        {
+            OpenModal(new AddDesignation());
         }
     }
 }

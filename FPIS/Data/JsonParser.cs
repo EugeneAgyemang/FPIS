@@ -15,9 +15,10 @@ namespace FPIS.Data
         static string defaultDirectoryPath = Path.Combine(GetFolderPath(SpecialFolder.LocalApplicationData), "FPIS");
         static string materialReceivedDirectoryPath = Path.Combine(defaultDirectoryPath, "Material Procured");
         static string materialIssuedDirectoryPath = Path.Combine(defaultDirectoryPath, "Material Issued");
+        static string superUserDirectoryPath = Path.Combine(defaultDirectoryPath, "Super Admin");
         static JsonParser()
         {
-            CreateDirectory(defaultDirectoryPath, materialReceivedDirectoryPath, materialIssuedDirectoryPath);
+            CreateDirectory(defaultDirectoryPath, materialReceivedDirectoryPath, materialIssuedDirectoryPath, superUserDirectoryPath);
         }
 
         /// <summary>

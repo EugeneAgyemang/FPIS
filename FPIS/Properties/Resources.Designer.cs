@@ -83,6 +83,16 @@ namespace FPIS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap admin_panel_light {
+            get {
+                object obj = ResourceManager.GetObject("admin_panel_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_dark {
             get {
                 object obj = ResourceManager.GetObject("close_dark", resourceCulture);

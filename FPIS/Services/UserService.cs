@@ -85,5 +85,20 @@ namespace FPIS.Services
                         .ThenInclude(designation => designation.Department)
                         .FirstOrDefault(user => user.EmpID == empId);
         }
+
+        public User RegisterUser(Department department, Designation designation, User user)
+        {
+            Department savedDepartment = _dbContext.Departments.Add(department).Entity;
+            _dbContext.SaveChanges();
+
+            designation.DepartmentId = savedDepartment.Id;
+            Designation savedDesignation = _dbContext.Designations.Add(designation).Entity;
+            _dbContext.SaveChanges();
+
+            user.DesignationId = savedDesignation.Id;
+            User registeredUser = _dbContext.Users.Add(user).Entity;
+            _dbContext.SaveChanges();
+            return registeredUser;
+        }
     }
 }
