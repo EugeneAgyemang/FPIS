@@ -73,7 +73,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(25, 13);
+            this.materialLabel1.Location = new System.Drawing.Point(29, 17);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(225, 24);
@@ -82,9 +82,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(558, 355);
+            this.button2.Location = new System.Drawing.Point(638, 473);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 36);
+            this.button2.Size = new System.Drawing.Size(86, 48);
             this.button2.TabIndex = 15;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -97,8 +98,8 @@
             this.RequestForAnalysisControl.Depth = 0;
             this.RequestForAnalysisControl.HighEmphasis = true;
             this.RequestForAnalysisControl.Icon = null;
-            this.RequestForAnalysisControl.Location = new System.Drawing.Point(43, 336);
-            this.RequestForAnalysisControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.RequestForAnalysisControl.Location = new System.Drawing.Point(49, 448);
+            this.RequestForAnalysisControl.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.RequestForAnalysisControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.RequestForAnalysisControl.Name = "RequestForAnalysisControl";
             this.RequestForAnalysisControl.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -133,113 +134,143 @@
             this.analysisStatusDataGridViewTextBoxColumn,
             this.Lot});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 81);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 108);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(914, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(1045, 328);
             this.dataGridView1.TabIndex = 17;
             // 
             // idAsStrDataGridViewTextBoxColumn
             // 
             this.idAsStrDataGridViewTextBoxColumn.DataPropertyName = "IdAsStr";
             this.idAsStrDataGridViewTextBoxColumn.HeaderText = "Material Procurement ID";
+            this.idAsStrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idAsStrDataGridViewTextBoxColumn.Name = "idAsStrDataGridViewTextBoxColumn";
             this.idAsStrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idAsStrDataGridViewTextBoxColumn.Width = 125;
             // 
             // MaterialProcuredId
             // 
             this.MaterialProcuredId.DataPropertyName = "MaterialProcuredId";
             this.MaterialProcuredId.HeaderText = "Material Procured Id";
+            this.MaterialProcuredId.MinimumWidth = 6;
             this.MaterialProcuredId.Name = "MaterialProcuredId";
             this.MaterialProcuredId.ReadOnly = true;
             this.MaterialProcuredId.Visible = false;
+            this.MaterialProcuredId.Width = 125;
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
             // materialProcuredIdDataGridViewTextBoxColumn
             // 
             this.materialProcuredIdDataGridViewTextBoxColumn.DataPropertyName = "MaterialProcuredId";
             this.materialProcuredIdDataGridViewTextBoxColumn.HeaderText = "MaterialProcuredId";
+            this.materialProcuredIdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.materialProcuredIdDataGridViewTextBoxColumn.Name = "materialProcuredIdDataGridViewTextBoxColumn";
             this.materialProcuredIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.materialProcuredIdDataGridViewTextBoxColumn.Visible = false;
+            this.materialProcuredIdDataGridViewTextBoxColumn.Width = 125;
             // 
             // dateAddedDataGridViewTextBoxColumn
             // 
             this.dateAddedDataGridViewTextBoxColumn.DataPropertyName = "DateAdded";
             this.dateAddedDataGridViewTextBoxColumn.HeaderText = "DateAdded";
+            this.dateAddedDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dateAddedDataGridViewTextBoxColumn.Name = "dateAddedDataGridViewTextBoxColumn";
             this.dateAddedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateAddedDataGridViewTextBoxColumn.Width = 125;
             // 
             // warehouseDataGridViewTextBoxColumn
             // 
             this.warehouseDataGridViewTextBoxColumn.DataPropertyName = "Warehouse";
             this.warehouseDataGridViewTextBoxColumn.HeaderText = "Warehouse";
+            this.warehouseDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.warehouseDataGridViewTextBoxColumn.Name = "warehouseDataGridViewTextBoxColumn";
             this.warehouseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.warehouseDataGridViewTextBoxColumn.Width = 125;
             // 
             // supplierDataGridViewTextBoxColumn
             // 
             this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
             this.supplierDataGridViewTextBoxColumn.HeaderText = "Supplier";
+            this.supplierDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
             this.supplierDataGridViewTextBoxColumn.ReadOnly = true;
+            this.supplierDataGridViewTextBoxColumn.Width = 125;
             // 
             // truckNumberDataGridViewTextBoxColumn
             // 
             this.truckNumberDataGridViewTextBoxColumn.DataPropertyName = "TruckNumber";
             this.truckNumberDataGridViewTextBoxColumn.HeaderText = "TruckNumber";
+            this.truckNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.truckNumberDataGridViewTextBoxColumn.Name = "truckNumberDataGridViewTextBoxColumn";
             this.truckNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.truckNumberDataGridViewTextBoxColumn.Width = 125;
             // 
             // quantityReceivedDataGridViewTextBoxColumn
             // 
             this.quantityReceivedDataGridViewTextBoxColumn.DataPropertyName = "QuantityReceived";
             this.quantityReceivedDataGridViewTextBoxColumn.HeaderText = "QuantityReceived";
+            this.quantityReceivedDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.quantityReceivedDataGridViewTextBoxColumn.Name = "quantityReceivedDataGridViewTextBoxColumn";
             this.quantityReceivedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityReceivedDataGridViewTextBoxColumn.Width = 125;
             // 
             // quantityLeftDataGridViewTextBoxColumn
             // 
             this.quantityLeftDataGridViewTextBoxColumn.DataPropertyName = "QuantityLeft";
             this.quantityLeftDataGridViewTextBoxColumn.HeaderText = "QuantityLeft";
+            this.quantityLeftDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.quantityLeftDataGridViewTextBoxColumn.Name = "quantityLeftDataGridViewTextBoxColumn";
             this.quantityLeftDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityLeftDataGridViewTextBoxColumn.Width = 125;
             // 
             // remarksDataGridViewTextBoxColumn
             // 
             this.remarksDataGridViewTextBoxColumn.DataPropertyName = "Remarks";
             this.remarksDataGridViewTextBoxColumn.HeaderText = "Remarks";
+            this.remarksDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.remarksDataGridViewTextBoxColumn.Name = "remarksDataGridViewTextBoxColumn";
             this.remarksDataGridViewTextBoxColumn.ReadOnly = true;
+            this.remarksDataGridViewTextBoxColumn.Width = 125;
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
             this.selectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
             this.selectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
+            this.selectedDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
             this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.selectedDataGridViewCheckBoxColumn.Width = 125;
             // 
             // analysisStatusDataGridViewTextBoxColumn
             // 
             this.analysisStatusDataGridViewTextBoxColumn.DataPropertyName = "AnalysisStatus";
             this.analysisStatusDataGridViewTextBoxColumn.HeaderText = "AnalysisStatus";
+            this.analysisStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.analysisStatusDataGridViewTextBoxColumn.Name = "analysisStatusDataGridViewTextBoxColumn";
             this.analysisStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.analysisStatusDataGridViewTextBoxColumn.Width = 125;
             // 
             // Lot
             // 
             this.Lot.DataPropertyName = "Lot";
             this.Lot.HeaderText = "Lot";
+            this.Lot.MinimumWidth = 6;
             this.Lot.Name = "Lot";
             this.Lot.ReadOnly = true;
+            this.Lot.Width = 125;
             // 
             // analysisRawMaterialsSampleBindingItemBindingSource
             // 
@@ -247,9 +278,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(792, 364);
+            this.button3.Location = new System.Drawing.Point(905, 485);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(34, 27);
+            this.button3.Size = new System.Drawing.Size(39, 36);
             this.button3.TabIndex = 18;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
@@ -258,10 +290,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(43, 59);
+            this.label1.Location = new System.Drawing.Point(49, 79);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 19);
+            this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 20;
             this.label1.Text = "Selected Samples";
             // 
@@ -270,11 +302,12 @@
             this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenAddMaterialsControl.Depth = 0;
             this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
-            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(917, 334);
+            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(1048, 445);
+            this.OpenAddMaterialsControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OpenAddMaterialsControl.Mini = true;
             this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
-            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(40, 40);
+            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(46, 53);
             this.OpenAddMaterialsControl.TabIndex = 21;
             this.OpenAddMaterialsControl.Text = "materialFloatingActionButton1";
             this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
@@ -289,17 +322,18 @@
             this.SamplesRequestedControl.DropDownHeight = 174;
             this.SamplesRequestedControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SamplesRequestedControl.DropDownWidth = 121;
-            this.SamplesRequestedControl.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SamplesRequestedControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SamplesRequestedControl.FormattingEnabled = true;
             this.SamplesRequestedControl.Hint = "Choose a sample you requested";
             this.SamplesRequestedControl.IntegralHeight = false;
             this.SamplesRequestedControl.ItemHeight = 43;
-            this.SamplesRequestedControl.Location = new System.Drawing.Point(43, 398);
+            this.SamplesRequestedControl.Location = new System.Drawing.Point(49, 531);
+            this.SamplesRequestedControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SamplesRequestedControl.MaxDropDownItems = 4;
             this.SamplesRequestedControl.MouseState = MaterialSkin.MouseState.OUT;
             this.SamplesRequestedControl.Name = "SamplesRequestedControl";
-            this.SamplesRequestedControl.Size = new System.Drawing.Size(300, 49);
+            this.SamplesRequestedControl.Size = new System.Drawing.Size(342, 49);
             this.SamplesRequestedControl.StartIndex = 0;
             this.SamplesRequestedControl.TabIndex = 22;
             this.SamplesRequestedControl.SelectedIndexChanged += new System.EventHandler(this.SamplesRequestedControl_SelectedIndexChanged);
@@ -311,7 +345,7 @@
             this.SampleRequestedDetailsControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SampleRequestedDetailsControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.SampleRequestedDetailsControl.HighEmphasis = true;
-            this.SampleRequestedDetailsControl.Location = new System.Drawing.Point(43, 462);
+            this.SampleRequestedDetailsControl.Location = new System.Drawing.Point(49, 616);
             this.SampleRequestedDetailsControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SampleRequestedDetailsControl.Name = "SampleRequestedDetailsControl";
             this.SampleRequestedDetailsControl.Size = new System.Drawing.Size(1, 0);
@@ -328,9 +362,10 @@
             this.IssueSectionControl.Controls.Add(this.materialLabel2);
             this.IssueSectionControl.Controls.Add(this.IssueQuantityControl);
             this.IssueSectionControl.Controls.Add(this.IssueMaterialsControl);
-            this.IssueSectionControl.Location = new System.Drawing.Point(43, 488);
+            this.IssueSectionControl.Location = new System.Drawing.Point(49, 651);
+            this.IssueSectionControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.IssueSectionControl.Name = "IssueSectionControl";
-            this.IssueSectionControl.Size = new System.Drawing.Size(914, 281);
+            this.IssueSectionControl.Size = new System.Drawing.Size(1045, 375);
             this.IssueSectionControl.TabIndex = 27;
             this.IssueSectionControl.Visible = false;
             // 
@@ -340,7 +375,7 @@
             this.RemarksCaptionControl.Depth = 0;
             this.RemarksCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.RemarksCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.RemarksCaptionControl.Location = new System.Drawing.Point(425, 17);
+            this.RemarksCaptionControl.Location = new System.Drawing.Point(486, 23);
             this.RemarksCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.RemarksCaptionControl.Name = "RemarksCaptionControl";
             this.RemarksCaptionControl.Size = new System.Drawing.Size(165, 17);
@@ -353,9 +388,10 @@
             this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.RemarksControl.Depth = 0;
-            this.RemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemarksControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RemarksControl.HideSelection = true;
-            this.RemarksControl.Location = new System.Drawing.Point(425, 37);
+            this.RemarksControl.Location = new System.Drawing.Point(486, 49);
+            this.RemarksControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RemarksControl.MaxLength = 32767;
             this.RemarksControl.MouseState = MaterialSkin.MouseState.OUT;
             this.RemarksControl.Name = "RemarksControl";
@@ -366,7 +402,7 @@
             this.RemarksControl.SelectionLength = 0;
             this.RemarksControl.SelectionStart = 0;
             this.RemarksControl.ShortcutsEnabled = true;
-            this.RemarksControl.Size = new System.Drawing.Size(400, 113);
+            this.RemarksControl.Size = new System.Drawing.Size(457, 151);
             this.RemarksControl.TabIndex = 30;
             this.RemarksControl.TabStop = false;
             this.RemarksControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -377,18 +413,19 @@
             // 
             this.QuantityErrorCaption.AutoSize = true;
             this.QuantityErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.QuantityErrorCaption.Location = new System.Drawing.Point(17, 70);
+            this.QuantityErrorCaption.Location = new System.Drawing.Point(19, 93);
             this.QuantityErrorCaption.Name = "QuantityErrorCaption";
-            this.QuantityErrorCaption.Size = new System.Drawing.Size(0, 15);
+            this.QuantityErrorCaption.Size = new System.Drawing.Size(0, 20);
             this.QuantityErrorCaption.TabIndex = 28;
             this.QuantityErrorCaption.Tag = "";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
-            this.panel1.Location = new System.Drawing.Point(17, 158);
+            this.panel1.Location = new System.Drawing.Point(19, 211);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 2);
+            this.panel1.Size = new System.Drawing.Size(114, 3);
             this.panel1.TabIndex = 28;
             // 
             // NoteControl
@@ -396,10 +433,10 @@
             this.NoteControl.Depth = 0;
             this.NoteControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.NoteControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.NoteControl.Location = new System.Drawing.Point(17, 165);
+            this.NoteControl.Location = new System.Drawing.Point(19, 220);
             this.NoteControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.NoteControl.Name = "NoteControl";
-            this.NoteControl.Size = new System.Drawing.Size(402, 109);
+            this.NoteControl.Size = new System.Drawing.Size(459, 145);
             this.NoteControl.TabIndex = 29;
             this.NoteControl.UseAccent = true;
             // 
@@ -409,7 +446,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.materialLabel2.Location = new System.Drawing.Point(17, 138);
+            this.materialLabel2.Location = new System.Drawing.Point(19, 184);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(36, 17);
@@ -425,12 +462,13 @@
             this.IssueQuantityControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.IssueQuantityControl.Hint = "Quantity to issue";
             this.IssueQuantityControl.LeadingIcon = null;
-            this.IssueQuantityControl.Location = new System.Drawing.Point(17, 17);
+            this.IssueQuantityControl.Location = new System.Drawing.Point(19, 23);
+            this.IssueQuantityControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.IssueQuantityControl.MaxLength = 50;
             this.IssueQuantityControl.MouseState = MaterialSkin.MouseState.OUT;
             this.IssueQuantityControl.Multiline = false;
             this.IssueQuantityControl.Name = "IssueQuantityControl";
-            this.IssueQuantityControl.Size = new System.Drawing.Size(358, 50);
+            this.IssueQuantityControl.Size = new System.Drawing.Size(409, 50);
             this.IssueQuantityControl.TabIndex = 26;
             this.IssueQuantityControl.Text = "";
             this.IssueQuantityControl.TrailingIcon = null;
@@ -444,8 +482,8 @@
             this.IssueMaterialsControl.Depth = 0;
             this.IssueMaterialsControl.HighEmphasis = true;
             this.IssueMaterialsControl.Icon = null;
-            this.IssueMaterialsControl.Location = new System.Drawing.Point(164, 91);
-            this.IssueMaterialsControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.IssueMaterialsControl.Location = new System.Drawing.Point(187, 121);
+            this.IssueMaterialsControl.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.IssueMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.IssueMaterialsControl.Name = "IssueMaterialsControl";
             this.IssueMaterialsControl.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -459,7 +497,7 @@
             // 
             // ProcurementIssueMaterials
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.IssueSectionControl);
             this.Controls.Add(this.SampleRequestedDetailsControl);
@@ -471,8 +509,9 @@
             this.Controls.Add(this.RequestForAnalysisControl);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.materialLabel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ProcurementIssueMaterials";
-            this.Size = new System.Drawing.Size(1000, 794);
+            this.Size = new System.Drawing.Size(1143, 1059);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).EndInit();
             this.IssueSectionControl.ResumeLayout(false);

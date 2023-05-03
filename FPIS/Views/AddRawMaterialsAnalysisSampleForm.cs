@@ -112,9 +112,21 @@ namespace FPIS.Views
             }
             else
             {
+                ClearSelectedItems();
+                dataGridView1.Refresh();
                 item.Selected = true;
                 AnalysisRawMaterialsSampleBindingItem it = itemList.First(aI => aI.MaterialProcuredId.ToString() == itemId);
+                ProcurementIssueMaterials.analysisItemList.Clear();
                 ProcurementIssueMaterials.analysisItemList.Add(it);
+            }
+        }
+
+        private void ClearSelectedItems()
+        {
+            foreach (var item in itemList)
+            {
+                item.Selected = false;
+                
             }
         }
     }

@@ -246,7 +246,7 @@ namespace FPIS.Views
                 ParametersWithValues? item = _selectedBindingItem.parametersWithValues
                     .FirstOrDefault(pw => pw.ParameterId == parameterBinding.Id.ToString());
 
-                if (!materialCheckboxShowNewParameters.Checked)
+                if (_shouldUpdate && !materialCheckboxShowNewParameters.Checked)
                 {
                     _selectedBindingItem.parametersWithValues = _selectedBindingItem.parametersWithValues.Where(
                         it => !string.IsNullOrEmpty(it.AnalysisResultWithParameterId)
