@@ -86,6 +86,9 @@
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UserControlDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControlProductReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
