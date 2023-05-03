@@ -234,7 +234,7 @@
             this.SamplesPendingSection.Controls.Add(this.materialLabel4);
             this.SamplesPendingSection.Depth = 0;
             this.SamplesPendingSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SamplesPendingSection.Location = new System.Drawing.Point(87, 294);
+            this.SamplesPendingSection.Location = new System.Drawing.Point(993, 54);
             this.SamplesPendingSection.Margin = new System.Windows.Forms.Padding(14);
             this.SamplesPendingSection.MouseState = MaterialSkin.MouseState.HOVER;
             this.SamplesPendingSection.Name = "SamplesPendingSection";
@@ -293,10 +293,10 @@
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(87, 524);
+            this.materialDivider1.Location = new System.Drawing.Point(87, 304);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(576, 2);
+            this.materialDivider1.Size = new System.Drawing.Size(1176, 5);
             this.materialDivider1.TabIndex = 15;
             this.materialDivider1.Text = "materialDivider1";
             // 
@@ -306,7 +306,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.materialLabel6.Location = new System.Drawing.Point(25, 544);
+            this.materialLabel6.Location = new System.Drawing.Point(25, 324);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(89, 17);
@@ -321,7 +321,7 @@
             this.SamplesRequestedBreakdownSection.Controls.Add(this.materialLabel7);
             this.SamplesRequestedBreakdownSection.Depth = 0;
             this.SamplesRequestedBreakdownSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SamplesRequestedBreakdownSection.Location = new System.Drawing.Point(87, 575);
+            this.SamplesRequestedBreakdownSection.Location = new System.Drawing.Point(87, 364);
             this.SamplesRequestedBreakdownSection.Margin = new System.Windows.Forms.Padding(14);
             this.SamplesRequestedBreakdownSection.MouseState = MaterialSkin.MouseState.HOVER;
             this.SamplesRequestedBreakdownSection.Name = "SamplesRequestedBreakdownSection";
@@ -382,7 +382,7 @@
             this.SamplesProcessedBreakdownSection.Controls.Add(this.materialLabel12);
             this.SamplesProcessedBreakdownSection.Depth = 0;
             this.SamplesProcessedBreakdownSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SamplesProcessedBreakdownSection.Location = new System.Drawing.Point(87, 940);
+            this.SamplesProcessedBreakdownSection.Location = new System.Drawing.Point(691, 364);
             this.SamplesProcessedBreakdownSection.Margin = new System.Windows.Forms.Padding(14);
             this.SamplesProcessedBreakdownSection.MouseState = MaterialSkin.MouseState.HOVER;
             this.SamplesProcessedBreakdownSection.Name = "SamplesProcessedBreakdownSection";
@@ -407,14 +407,15 @@
             this.materialLabel11.Location = new System.Drawing.Point(25, 20);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(35, 17);
+            this.materialLabel11.Size = new System.Drawing.Size(492, 21);
             this.materialLabel11.TabIndex = 0;
-            this.materialLabel11.Text = "None";
+            this.materialLabel11.Text = "There\'s no data available";
+            this.materialLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.pictureBox6.Image = global::FPIS.Properties.Resources.sample_large;
+            this.pictureBox6.Image = global::FPIS.Properties.Resources.results_large;
             this.pictureBox6.Location = new System.Drawing.Point(0, 0);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(576, 122);
@@ -455,7 +456,7 @@
             this.Controls.Add(this.SamplesSection);
             this.Controls.Add(this.ActiveUsersSection);
             this.Name = "UserControlDashboard";
-            this.Size = new System.Drawing.Size(990, 1300);
+            this.Size = new System.Drawing.Size(1364, 783);
             this.ActiveUsersSection.ResumeLayout(false);
             this.ActiveUsersSection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
