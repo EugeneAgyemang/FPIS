@@ -63,7 +63,14 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string value = item.Text;
-                    navigationButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    if (navigationButton.TabIndex == 0)
+                    {
+                        navigationButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    }
+                    else
+                    {
+                        navigationButton.ImageAlign = ContentAlignment.MiddleRight;
+                    }
                     navigationButton.Text = string.Empty;
                     navigationButton.Width -= perfectSizeForHidingNavigation;
                     navigationButtonsContents.Append(value);
@@ -88,7 +95,10 @@ namespace FPIS.Views
                 {
                     Button navigationButton = (Button)item;
                     string navigationButtonContent = contents[navigationButtonContentIndex];
-                    navigationButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    if (navigationButton.TabIndex == 0)
+                    {
+                        navigationButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    }
                     navigationButton.Text = navigationButtonContent;
                     navigationButton.Width += perfectSizeForHidingNavigation;
                     navigationButtonsContents.Remove(0, navigationButtonContent.Length + 1);
