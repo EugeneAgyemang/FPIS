@@ -124,11 +124,6 @@ namespace FPIS
                 PasswordErrorControl.Text = string.Empty;
         }
 
-        private void CreateAccountControl_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new Register(this).Show();
-        }
         public class Role
         {
             public StringBuilder tags = new StringBuilder();
@@ -156,10 +151,11 @@ namespace FPIS
                         tags.Append("3 ");
                         tags.Append("4 ");
                         tags.Append("6 ");
+                        tags.Append("7 ");
                         break;
                 }
                 tags.Append("5 ");
-                tags.Append("7");
+                tags.Append("8");
             }
         }
 

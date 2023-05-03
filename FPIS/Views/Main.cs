@@ -17,7 +17,7 @@ namespace FPIS.Views
         const int PERFECTSIZEFORHIDINGNAVIGATION = 130;
         bool isNavigationOpen = true;
         StringBuilder navigationButtonsContents = new StringBuilder();
-        int[] panelHeights = new int[8];
+        int[] panelHeights = new int[9];
         int indexOfNavigationButtonClicked = -1;
         Login login;
 
@@ -528,6 +528,21 @@ namespace FPIS.Views
         private void QualityControl_UpdateSampleResultsControl_Click(object sender, EventArgs e)
         {
             AddUserControlToMainContainerControl(new UserControlViewSampleResults());
+        }
+
+        private void AdminPanelSection_AddUsers_Click(object sender, EventArgs e)
+        {
+            OpenModal(new Register());
+        }
+
+        private void AdminPanelSection_AddDepartment_Click(object sender, EventArgs e)
+        {
+            OpenModal(new AddDepartment());
+        }
+
+        private void AdminPanelSection_AddDesignation_Click(object sender, EventArgs e)
+        {
+            OpenModal(new AddDesignation());
         }
     }
 }

@@ -38,6 +38,11 @@ namespace FPIS.Views
             this.TitleBarCaptionControl = new System.Windows.Forms.Label();
             this.NavigationIndicatorControl = new System.Windows.Forms.Panel();
             this.NavigationDrawerControl = new System.Windows.Forms.Panel();
+            this.AdminPanelSectionControl = new System.Windows.Forms.Panel();
+            this.AdminPanelSection_AddDesignation = new System.Windows.Forms.Button();
+            this.AdminPanelSection_AddDepartment = new System.Windows.Forms.Button();
+            this.AdminPanelSection_AddUsers = new System.Windows.Forms.Button();
+            this.AdminPanelSectionCaptionControl = new System.Windows.Forms.Button();
             this.ProcurementSectionControl = new System.Windows.Forms.Panel();
             this.ProcurementSection_ViewRequestsControl = new System.Windows.Forms.Button();
             this.ProcurementSection_IssueMaterialsControl = new System.Windows.Forms.Button();
@@ -47,6 +52,7 @@ namespace FPIS.Views
             this.LogoutControl = new System.Windows.Forms.Button();
             this.OpenSettingsControl = new System.Windows.Forms.Button();
             this.QualityControlSectionControl = new System.Windows.Forms.Panel();
+            this.QualityControl_UpdateSampleResultsControl = new System.Windows.Forms.Button();
             this.QualityControl_CreateAnalysisWaterControl = new System.Windows.Forms.Button();
             this.QualityControl_AddWaterParameterControl = new System.Windows.Forms.Button();
             this.QualityControl_AddWaterControl = new System.Windows.Forms.Button();
@@ -91,12 +97,12 @@ namespace FPIS.Views
             this.MainContainerControl = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DividerControl = new System.Windows.Forms.Panel();
-            this.QualityControl_UpdateSampleResultsControl = new System.Windows.Forms.Button();
             this.TitleBarControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FujiOilLogoSmallControl)).BeginInit();
             this.WindowStateHandlerControl.SuspendLayout();
             this.LogoHolderControl.SuspendLayout();
             this.NavigationDrawerControl.SuspendLayout();
+            this.AdminPanelSectionControl.SuspendLayout();
             this.ProcurementSectionControl.SuspendLayout();
             this.SettingsSectionControl.SuspendLayout();
             this.QualityControlSectionControl.SuspendLayout();
@@ -219,6 +225,7 @@ namespace FPIS.Views
             // NavigationDrawerControl
             // 
             this.NavigationDrawerControl.AutoScroll = true;
+            this.NavigationDrawerControl.Controls.Add(this.AdminPanelSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.ProcurementSectionControl);
             this.NavigationDrawerControl.Controls.Add(this.NavigationIndicatorControl);
             this.NavigationDrawerControl.Controls.Add(this.SettingsSectionControl);
@@ -231,8 +238,87 @@ namespace FPIS.Views
             this.NavigationDrawerControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.NavigationDrawerControl.Location = new System.Drawing.Point(0, 100);
             this.NavigationDrawerControl.Name = "NavigationDrawerControl";
-            this.NavigationDrawerControl.Size = new System.Drawing.Size(220, 373);
+            this.NavigationDrawerControl.Size = new System.Drawing.Size(220, 750);
             this.NavigationDrawerControl.TabIndex = 0;
+            // 
+            // AdminPanelSectionControl
+            // 
+            this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddDesignation);
+            this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddDepartment);
+            this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddUsers);
+            this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSectionCaptionControl);
+            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2058);
+            this.AdminPanelSectionControl.Name = "AdminPanelSectionControl";
+            this.AdminPanelSectionControl.Size = new System.Drawing.Size(190, 200);
+            this.AdminPanelSectionControl.TabIndex = 9;
+            this.AdminPanelSectionControl.Tag = "7";
+            // 
+            // AdminPanelSection_AddDesignation
+            // 
+            this.AdminPanelSection_AddDesignation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.AdminPanelSection_AddDesignation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminPanelSection_AddDesignation.FlatAppearance.BorderSize = 0;
+            this.AdminPanelSection_AddDesignation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminPanelSection_AddDesignation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AdminPanelSection_AddDesignation.ForeColor = System.Drawing.Color.White;
+            this.AdminPanelSection_AddDesignation.Location = new System.Drawing.Point(5, 150);
+            this.AdminPanelSection_AddDesignation.Name = "AdminPanelSection_AddDesignation";
+            this.AdminPanelSection_AddDesignation.Size = new System.Drawing.Size(180, 50);
+            this.AdminPanelSection_AddDesignation.TabIndex = 5;
+            this.AdminPanelSection_AddDesignation.Text = "Add Designation";
+            this.AdminPanelSection_AddDesignation.UseVisualStyleBackColor = false;
+            this.AdminPanelSection_AddDesignation.Click += new System.EventHandler(this.AdminPanelSection_AddDesignation_Click);
+            // 
+            // AdminPanelSection_AddDepartment
+            // 
+            this.AdminPanelSection_AddDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.AdminPanelSection_AddDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminPanelSection_AddDepartment.FlatAppearance.BorderSize = 0;
+            this.AdminPanelSection_AddDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminPanelSection_AddDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AdminPanelSection_AddDepartment.ForeColor = System.Drawing.Color.White;
+            this.AdminPanelSection_AddDepartment.Location = new System.Drawing.Point(5, 100);
+            this.AdminPanelSection_AddDepartment.Name = "AdminPanelSection_AddDepartment";
+            this.AdminPanelSection_AddDepartment.Size = new System.Drawing.Size(180, 50);
+            this.AdminPanelSection_AddDepartment.TabIndex = 4;
+            this.AdminPanelSection_AddDepartment.Text = "Add Department";
+            this.AdminPanelSection_AddDepartment.UseVisualStyleBackColor = false;
+            this.AdminPanelSection_AddDepartment.Click += new System.EventHandler(this.AdminPanelSection_AddDepartment_Click);
+            // 
+            // AdminPanelSection_AddUsers
+            // 
+            this.AdminPanelSection_AddUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.AdminPanelSection_AddUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminPanelSection_AddUsers.FlatAppearance.BorderSize = 0;
+            this.AdminPanelSection_AddUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminPanelSection_AddUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AdminPanelSection_AddUsers.ForeColor = System.Drawing.Color.White;
+            this.AdminPanelSection_AddUsers.Location = new System.Drawing.Point(5, 50);
+            this.AdminPanelSection_AddUsers.Name = "AdminPanelSection_AddUsers";
+            this.AdminPanelSection_AddUsers.Size = new System.Drawing.Size(180, 50);
+            this.AdminPanelSection_AddUsers.TabIndex = 3;
+            this.AdminPanelSection_AddUsers.Text = "Add New User";
+            this.AdminPanelSection_AddUsers.UseVisualStyleBackColor = false;
+            this.AdminPanelSection_AddUsers.Click += new System.EventHandler(this.AdminPanelSection_AddUsers_Click);
+            // 
+            // AdminPanelSectionCaptionControl
+            // 
+            this.AdminPanelSectionCaptionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(138)))), ((int)(((byte)(58)))));
+            this.AdminPanelSectionCaptionControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminPanelSectionCaptionControl.FlatAppearance.BorderSize = 0;
+            this.AdminPanelSectionCaptionControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminPanelSectionCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AdminPanelSectionCaptionControl.ForeColor = System.Drawing.Color.White;
+            this.AdminPanelSectionCaptionControl.Image = global::FPIS.Properties.Resources.admin_panel_light;
+            this.AdminPanelSectionCaptionControl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdminPanelSectionCaptionControl.Location = new System.Drawing.Point(5, 0);
+            this.AdminPanelSectionCaptionControl.Name = "AdminPanelSectionCaptionControl";
+            this.AdminPanelSectionCaptionControl.Size = new System.Drawing.Size(180, 50);
+            this.AdminPanelSectionCaptionControl.TabIndex = 0;
+            this.AdminPanelSectionCaptionControl.Text = "  Admin Panel";
+            this.AdminPanelSectionCaptionControl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AdminPanelSectionCaptionControl.UseVisualStyleBackColor = false;
+            this.AdminPanelSectionCaptionControl.Click += new System.EventHandler(this.ShowNavigationSubmenu);
             // 
             // ProcurementSectionControl
             // 
@@ -317,11 +403,11 @@ namespace FPIS.Views
             // 
             this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2058);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2259);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 169);
             this.SettingsSectionControl.TabIndex = 7;
-            this.SettingsSectionControl.Tag = "7";
+            this.SettingsSectionControl.Tag = "8";
             // 
             // LogoutControl
             // 
@@ -379,6 +465,22 @@ namespace FPIS.Views
             this.QualityControlSectionControl.Size = new System.Drawing.Size(190, 551);
             this.QualityControlSectionControl.TabIndex = 3;
             this.QualityControlSectionControl.Tag = "2";
+            // 
+            // QualityControl_UpdateSampleResultsControl
+            // 
+            this.QualityControl_UpdateSampleResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.QualityControl_UpdateSampleResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QualityControl_UpdateSampleResultsControl.FlatAppearance.BorderSize = 0;
+            this.QualityControl_UpdateSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QualityControl_UpdateSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QualityControl_UpdateSampleResultsControl.ForeColor = System.Drawing.Color.White;
+            this.QualityControl_UpdateSampleResultsControl.Location = new System.Drawing.Point(5, 100);
+            this.QualityControl_UpdateSampleResultsControl.Name = "QualityControl_UpdateSampleResultsControl";
+            this.QualityControl_UpdateSampleResultsControl.Size = new System.Drawing.Size(180, 50);
+            this.QualityControl_UpdateSampleResultsControl.TabIndex = 8;
+            this.QualityControl_UpdateSampleResultsControl.Text = "Update Sample Result";
+            this.QualityControl_UpdateSampleResultsControl.UseVisualStyleBackColor = false;
+            this.QualityControl_UpdateSampleResultsControl.Click += new System.EventHandler(this.QualityControl_UpdateSampleResultsControl_Click);
             // 
             // QualityControl_CreateAnalysisWaterControl
             // 
@@ -1049,7 +1151,7 @@ namespace FPIS.Views
             this.MainContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainContainerControl.Location = new System.Drawing.Point(220, 100);
             this.MainContainerControl.Name = "MainContainerControl";
-            this.MainContainerControl.Size = new System.Drawing.Size(1063, 373);
+            this.MainContainerControl.Size = new System.Drawing.Size(1063, 750);
             this.MainContainerControl.TabIndex = 3;
             // 
             // pictureBox1
@@ -1068,30 +1170,14 @@ namespace FPIS.Views
             this.DividerControl.Dock = System.Windows.Forms.DockStyle.Left;
             this.DividerControl.Location = new System.Drawing.Point(220, 100);
             this.DividerControl.Name = "DividerControl";
-            this.DividerControl.Size = new System.Drawing.Size(1, 373);
+            this.DividerControl.Size = new System.Drawing.Size(1, 750);
             this.DividerControl.TabIndex = 4;
-            // 
-            // QualityControl_UpdateSampleResultsControl
-            // 
-            this.QualityControl_UpdateSampleResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.QualityControl_UpdateSampleResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.QualityControl_UpdateSampleResultsControl.FlatAppearance.BorderSize = 0;
-            this.QualityControl_UpdateSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.QualityControl_UpdateSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.QualityControl_UpdateSampleResultsControl.ForeColor = System.Drawing.Color.White;
-            this.QualityControl_UpdateSampleResultsControl.Location = new System.Drawing.Point(5, 100);
-            this.QualityControl_UpdateSampleResultsControl.Name = "QualityControl_UpdateSampleResultsControl";
-            this.QualityControl_UpdateSampleResultsControl.Size = new System.Drawing.Size(180, 50);
-            this.QualityControl_UpdateSampleResultsControl.TabIndex = 8;
-            this.QualityControl_UpdateSampleResultsControl.Text = "Update Sample Result";
-            this.QualityControl_UpdateSampleResultsControl.UseVisualStyleBackColor = false;
-            this.QualityControl_UpdateSampleResultsControl.Click += new System.EventHandler(this.QualityControl_UpdateSampleResultsControl_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 473);
+            this.ClientSize = new System.Drawing.Size(1283, 850);
             this.Controls.Add(this.DividerControl);
             this.Controls.Add(this.MainContainerControl);
             this.Controls.Add(this.NavigationDrawerControl);
@@ -1108,6 +1194,7 @@ namespace FPIS.Views
             this.LogoHolderControl.ResumeLayout(false);
             this.LogoHolderControl.PerformLayout();
             this.NavigationDrawerControl.ResumeLayout(false);
+            this.AdminPanelSectionControl.ResumeLayout(false);
             this.ProcurementSectionControl.ResumeLayout(false);
             this.SettingsSectionControl.ResumeLayout(false);
             this.QualityControlSectionControl.ResumeLayout(false);
@@ -1187,5 +1274,10 @@ namespace FPIS.Views
         private Button ProcurementSection_ViewRequestsControl;
         private Button LogoutControl;
         private Button QualityControl_UpdateSampleResultsControl;
+        private Panel AdminPanelSectionControl;
+        private Button AdminPanelSectionCaptionControl;
+        private Button AdminPanelSection_AddDepartment;
+        private Button AdminPanelSection_AddUsers;
+        private Button AdminPanelSection_AddDesignation;
     }
 }
