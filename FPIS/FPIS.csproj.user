@@ -11,9 +11,6 @@
     <Compile Update="Views\AddAnalysisSampleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\AddAnalysisSampleFormForFinishedProducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\AddDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -27,9 +24,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\CreateAnalysisProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\CreateAnalysisRequestFinishedProducts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\CreateAnalysisRequestFormUserControl.cs">
