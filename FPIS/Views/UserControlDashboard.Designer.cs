@@ -33,18 +33,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.RegisteredUsersControl = new System.Windows.Forms.Label();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.SamplesSection = new MaterialSkin.Controls.MaterialCard();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.SamplesControl = new System.Windows.Forms.Label();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.SampleResultsSection = new MaterialSkin.Controls.MaterialCard();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.SampleResultsControl = new System.Windows.Forms.Label();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.SamplesPendingSection = new MaterialSkin.Controls.MaterialCard();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.SamplesPendingControl = new System.Windows.Forms.Label();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -60,20 +48,34 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.asyncLoader = new System.Windows.Forms.Timer(this.components);
+            this.SectionForUser = new System.Windows.Forms.Panel();
+            this.SamplesPendingSection = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.SamplesPendingControl = new System.Windows.Forms.Label();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.SampleResultsSection = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.SampleResultsControl = new System.Windows.Forms.Label();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.SamplesSection = new MaterialSkin.Controls.MaterialCard();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SamplesControl = new System.Windows.Forms.Label();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.ActiveUsersSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.SamplesSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SampleResultsSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.SamplesPendingSection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SamplesRequestedBreakdownSection.SuspendLayout();
             this.SampleRequestedBreakdownDetailsSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SamplesProcessedBreakdownSection.SuspendLayout();
             this.SamplesProcessedBreakdownDetailsSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.SectionForUser.SuspendLayout();
+            this.SamplesPendingSection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.SampleResultsSection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.SamplesSection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ActiveUsersSection
@@ -126,156 +128,6 @@
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Accounts Registered";
             // 
-            // SamplesSection
-            // 
-            this.SamplesSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SamplesSection.Controls.Add(this.pictureBox1);
-            this.SamplesSection.Controls.Add(this.SamplesControl);
-            this.SamplesSection.Controls.Add(this.materialLabel2);
-            this.SamplesSection.Depth = 0;
-            this.SamplesSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SamplesSection.Location = new System.Drawing.Point(389, 54);
-            this.SamplesSection.Margin = new System.Windows.Forms.Padding(14);
-            this.SamplesSection.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SamplesSection.Name = "SamplesSection";
-            this.SamplesSection.Padding = new System.Windows.Forms.Padding(14);
-            this.SamplesSection.Size = new System.Drawing.Size(274, 212);
-            this.SamplesSection.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.pictureBox1.Image = global::FPIS.Properties.Resources.sample_large;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(274, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // SamplesControl
-            // 
-            this.SamplesControl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SamplesControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.SamplesControl.Location = new System.Drawing.Point(43, 128);
-            this.SamplesControl.Name = "SamplesControl";
-            this.SamplesControl.Size = new System.Drawing.Size(189, 45);
-            this.SamplesControl.TabIndex = 1;
-            this.SamplesControl.Text = "----";
-            this.SamplesControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(46, 185);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(182, 19);
-            this.materialLabel2.TabIndex = 0;
-            this.materialLabel2.Text = "Total Samples Requested";
-            // 
-            // SampleResultsSection
-            // 
-            this.SampleResultsSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SampleResultsSection.Controls.Add(this.pictureBox2);
-            this.SampleResultsSection.Controls.Add(this.SampleResultsControl);
-            this.SampleResultsSection.Controls.Add(this.materialLabel3);
-            this.SampleResultsSection.Depth = 0;
-            this.SampleResultsSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SampleResultsSection.Location = new System.Drawing.Point(691, 54);
-            this.SampleResultsSection.Margin = new System.Windows.Forms.Padding(14);
-            this.SampleResultsSection.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SampleResultsSection.Name = "SampleResultsSection";
-            this.SampleResultsSection.Padding = new System.Windows.Forms.Padding(14);
-            this.SampleResultsSection.Size = new System.Drawing.Size(274, 212);
-            this.SampleResultsSection.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.pictureBox2.Image = global::FPIS.Properties.Resources.results_large;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(274, 122);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // SampleResultsControl
-            // 
-            this.SampleResultsControl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SampleResultsControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.SampleResultsControl.Location = new System.Drawing.Point(43, 128);
-            this.SampleResultsControl.Name = "SampleResultsControl";
-            this.SampleResultsControl.Size = new System.Drawing.Size(189, 45);
-            this.SampleResultsControl.TabIndex = 1;
-            this.SampleResultsControl.Text = "----";
-            this.SampleResultsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(61, 185);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(152, 19);
-            this.materialLabel3.TabIndex = 0;
-            this.materialLabel3.Text = "Total Sample Results";
-            // 
-            // SamplesPendingSection
-            // 
-            this.SamplesPendingSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SamplesPendingSection.Controls.Add(this.pictureBox4);
-            this.SamplesPendingSection.Controls.Add(this.SamplesPendingControl);
-            this.SamplesPendingSection.Controls.Add(this.materialLabel4);
-            this.SamplesPendingSection.Depth = 0;
-            this.SamplesPendingSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SamplesPendingSection.Location = new System.Drawing.Point(993, 54);
-            this.SamplesPendingSection.Margin = new System.Windows.Forms.Padding(14);
-            this.SamplesPendingSection.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SamplesPendingSection.Name = "SamplesPendingSection";
-            this.SamplesPendingSection.Padding = new System.Windows.Forms.Padding(14);
-            this.SamplesPendingSection.Size = new System.Drawing.Size(274, 212);
-            this.SamplesPendingSection.TabIndex = 3;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.pictureBox4.Image = global::FPIS.Properties.Resources.sample_large;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(274, 122);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // SamplesPendingControl
-            // 
-            this.SamplesPendingControl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SamplesPendingControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.SamplesPendingControl.Location = new System.Drawing.Point(43, 128);
-            this.SamplesPendingControl.Name = "SamplesPendingControl";
-            this.SamplesPendingControl.Size = new System.Drawing.Size(189, 45);
-            this.SamplesPendingControl.TabIndex = 1;
-            this.SamplesPendingControl.Text = "----";
-            this.SamplesPendingControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(54, 185);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(166, 19);
-            this.materialLabel4.TabIndex = 0;
-            this.materialLabel4.Text = "Total Samples Pending";
-            // 
             // materialLabel5
             // 
             this.materialLabel5.AutoSize = true;
@@ -309,9 +161,9 @@
             this.materialLabel6.Location = new System.Drawing.Point(25, 324);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(89, 17);
+            this.materialLabel6.Size = new System.Drawing.Size(123, 17);
             this.materialLabel6.TabIndex = 16;
-            this.materialLabel6.Text = "Your live feed";
+            this.materialLabel6.Text = "Your daily live feed";
             // 
             // SamplesRequestedBreakdownSection
             // 
@@ -367,12 +219,12 @@
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.Location = new System.Drawing.Point(164, 287);
+            this.materialLabel7.Location = new System.Drawing.Point(181, 287);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(243, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(215, 19);
             this.materialLabel7.TabIndex = 0;
-            this.materialLabel7.Text = "Breakdown of Samples Requested";
+            this.materialLabel7.Text = "Breakdown of items requested";
             // 
             // SamplesProcessedBreakdownSection
             // 
@@ -428,12 +280,12 @@
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.Location = new System.Drawing.Point(164, 287);
+            this.materialLabel12.Location = new System.Drawing.Point(179, 287);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(242, 19);
+            this.materialLabel12.Size = new System.Drawing.Size(218, 19);
             this.materialLabel12.TabIndex = 0;
-            this.materialLabel12.Text = "Breakdown of Samples Processed";
+            this.materialLabel12.Text = "Breakdown of items processed";
             // 
             // asyncLoader
             // 
@@ -441,34 +293,183 @@
             this.asyncLoader.Interval = 1000;
             this.asyncLoader.Tick += new System.EventHandler(this.asyncLoader_Tick);
             // 
+            // SectionForUser
+            // 
+            this.SectionForUser.Controls.Add(this.SamplesPendingSection);
+            this.SectionForUser.Controls.Add(this.SampleResultsSection);
+            this.SectionForUser.Controls.Add(this.SamplesSection);
+            this.SectionForUser.Location = new System.Drawing.Point(369, 48);
+            this.SectionForUser.Name = "SectionForUser";
+            this.SectionForUser.Size = new System.Drawing.Size(898, 222);
+            this.SectionForUser.TabIndex = 19;
+            // 
+            // SamplesPendingSection
+            // 
+            this.SamplesPendingSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SamplesPendingSection.Controls.Add(this.pictureBox4);
+            this.SamplesPendingSection.Controls.Add(this.SamplesPendingControl);
+            this.SamplesPendingSection.Controls.Add(this.materialLabel4);
+            this.SamplesPendingSection.Depth = 0;
+            this.SamplesPendingSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SamplesPendingSection.Location = new System.Drawing.Point(614, 5);
+            this.SamplesPendingSection.Margin = new System.Windows.Forms.Padding(14);
+            this.SamplesPendingSection.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesPendingSection.Name = "SamplesPendingSection";
+            this.SamplesPendingSection.Padding = new System.Windows.Forms.Padding(14);
+            this.SamplesPendingSection.Size = new System.Drawing.Size(274, 212);
+            this.SamplesPendingSection.TabIndex = 6;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.pictureBox4.Image = global::FPIS.Properties.Resources.sample_large;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(274, 122);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // SamplesPendingControl
+            // 
+            this.SamplesPendingControl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SamplesPendingControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.SamplesPendingControl.Location = new System.Drawing.Point(43, 128);
+            this.SamplesPendingControl.Name = "SamplesPendingControl";
+            this.SamplesPendingControl.Size = new System.Drawing.Size(189, 45);
+            this.SamplesPendingControl.TabIndex = 1;
+            this.SamplesPendingControl.Text = "----";
+            this.SamplesPendingControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Location = new System.Drawing.Point(54, 185);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(166, 19);
+            this.materialLabel4.TabIndex = 0;
+            this.materialLabel4.Text = "Total Samples Pending";
+            // 
+            // SampleResultsSection
+            // 
+            this.SampleResultsSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SampleResultsSection.Controls.Add(this.pictureBox2);
+            this.SampleResultsSection.Controls.Add(this.SampleResultsControl);
+            this.SampleResultsSection.Controls.Add(this.materialLabel3);
+            this.SampleResultsSection.Depth = 0;
+            this.SampleResultsSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SampleResultsSection.Location = new System.Drawing.Point(312, 5);
+            this.SampleResultsSection.Margin = new System.Windows.Forms.Padding(14);
+            this.SampleResultsSection.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SampleResultsSection.Name = "SampleResultsSection";
+            this.SampleResultsSection.Padding = new System.Windows.Forms.Padding(14);
+            this.SampleResultsSection.Size = new System.Drawing.Size(274, 212);
+            this.SampleResultsSection.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.pictureBox2.Image = global::FPIS.Properties.Resources.results_large;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(274, 122);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // SampleResultsControl
+            // 
+            this.SampleResultsControl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SampleResultsControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.SampleResultsControl.Location = new System.Drawing.Point(43, 128);
+            this.SampleResultsControl.Name = "SampleResultsControl";
+            this.SampleResultsControl.Size = new System.Drawing.Size(189, 45);
+            this.SampleResultsControl.TabIndex = 1;
+            this.SampleResultsControl.Text = "----";
+            this.SampleResultsControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(61, 185);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(152, 19);
+            this.materialLabel3.TabIndex = 0;
+            this.materialLabel3.Text = "Total Sample Results";
+            // 
+            // SamplesSection
+            // 
+            this.SamplesSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SamplesSection.Controls.Add(this.pictureBox1);
+            this.SamplesSection.Controls.Add(this.SamplesControl);
+            this.SamplesSection.Controls.Add(this.materialLabel2);
+            this.SamplesSection.Depth = 0;
+            this.SamplesSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SamplesSection.Location = new System.Drawing.Point(10, 5);
+            this.SamplesSection.Margin = new System.Windows.Forms.Padding(14);
+            this.SamplesSection.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesSection.Name = "SamplesSection";
+            this.SamplesSection.Padding = new System.Windows.Forms.Padding(14);
+            this.SamplesSection.Size = new System.Drawing.Size(274, 212);
+            this.SamplesSection.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.pictureBox1.Image = global::FPIS.Properties.Resources.sample_large;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(274, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // SamplesControl
+            // 
+            this.SamplesControl.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SamplesControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
+            this.SamplesControl.Location = new System.Drawing.Point(43, 128);
+            this.SamplesControl.Name = "SamplesControl";
+            this.SamplesControl.Size = new System.Drawing.Size(189, 45);
+            this.SamplesControl.TabIndex = 1;
+            this.SamplesControl.Text = "----";
+            this.SamplesControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(46, 185);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(182, 19);
+            this.materialLabel2.TabIndex = 0;
+            this.materialLabel2.Text = "Total Samples Requested";
+            // 
             // UserControlDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.SectionForUser);
             this.Controls.Add(this.SamplesProcessedBreakdownSection);
             this.Controls.Add(this.SamplesRequestedBreakdownSection);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.materialLabel5);
-            this.Controls.Add(this.SamplesPendingSection);
-            this.Controls.Add(this.SampleResultsSection);
-            this.Controls.Add(this.SamplesSection);
             this.Controls.Add(this.ActiveUsersSection);
             this.Name = "UserControlDashboard";
             this.Size = new System.Drawing.Size(1364, 783);
             this.ActiveUsersSection.ResumeLayout(false);
             this.ActiveUsersSection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.SamplesSection.ResumeLayout(false);
-            this.SamplesSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.SampleResultsSection.ResumeLayout(false);
-            this.SampleResultsSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.SamplesPendingSection.ResumeLayout(false);
-            this.SamplesPendingSection.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.SamplesRequestedBreakdownSection.ResumeLayout(false);
             this.SamplesRequestedBreakdownSection.PerformLayout();
             this.SampleRequestedBreakdownDetailsSection.ResumeLayout(false);
@@ -477,6 +478,16 @@
             this.SamplesProcessedBreakdownSection.PerformLayout();
             this.SamplesProcessedBreakdownDetailsSection.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.SectionForUser.ResumeLayout(false);
+            this.SamplesPendingSection.ResumeLayout(false);
+            this.SamplesPendingSection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.SampleResultsSection.ResumeLayout(false);
+            this.SampleResultsSection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.SamplesSection.ResumeLayout(false);
+            this.SamplesSection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,19 +498,7 @@
         private MaterialSkin.Controls.MaterialCard ActiveUsersSection;
         private Label RegisteredUsersControl;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialCard SamplesSection;
-        private Label SamplesControl;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialCard SampleResultsSection;
-        private Label SampleResultsControl;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private MaterialSkin.Controls.MaterialCard SamplesPendingSection;
-        private PictureBox pictureBox4;
-        private Label SamplesPendingControl;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
@@ -515,5 +514,18 @@
         private PictureBox pictureBox6;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private System.Windows.Forms.Timer asyncLoader;
+        private Panel SectionForUser;
+        private MaterialSkin.Controls.MaterialCard SamplesPendingSection;
+        private PictureBox pictureBox4;
+        private Label SamplesPendingControl;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialCard SampleResultsSection;
+        private PictureBox pictureBox2;
+        private Label SampleResultsControl;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialCard SamplesSection;
+        private PictureBox pictureBox1;
+        private Label SamplesControl;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }
