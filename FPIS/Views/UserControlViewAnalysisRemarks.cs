@@ -68,7 +68,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Analysis Item Type: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -118,7 +118,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Issued Stock Items: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -151,7 +151,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Issued Stock Items: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -187,7 +187,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Issued Stock Items: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
         private void LoadAnalysisRemarkByAnalysisType(string analysisType)
@@ -228,7 +228,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Issued Stock Items: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -303,6 +303,16 @@ namespace FPIS.Views
         private void materialButtonPrintAnalysisRemark_Click(object sender, EventArgs e)
         {
             AnalysisRemarkForReport();
+        }
+        public void ResetProductTypeFilter()
+        {
+            materialComboBoxAnalysisItemType.SelectedIndex = -1;
+            materialComboBoxAnalysisItemType.Focus();
+        }
+
+        private void buttonResetCatrgotyFilter_Click(object sender, EventArgs e)
+        {
+            ResetCategoryFilter();
         }
     }
 }

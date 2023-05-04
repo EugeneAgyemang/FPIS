@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.materialComboBoxStockType = new MaterialSkin.Controls.MaterialComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
@@ -53,21 +52,12 @@
             this.dateTimePickerToDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIssueStock)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(101, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Issue Stock";
             // 
             // materialComboBoxStockType
             // 
@@ -97,7 +87,7 @@
             // 
             this.groupBox1.Controls.Add(this.materialButton1);
             this.groupBox1.Controls.Add(this.materialComboBoxStockType);
-            this.groupBox1.Location = new System.Drawing.Point(101, 140);
+            this.groupBox1.Location = new System.Drawing.Point(21, 62);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -110,6 +100,8 @@
             // 
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.materialButton1.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
@@ -123,7 +115,7 @@
             this.materialButton1.TabIndex = 2;
             this.materialButton1.Text = "Show Data";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseAccentColor = true;
             this.materialButton1.UseVisualStyleBackColor = false;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
@@ -143,7 +135,7 @@
             this.AvailableQuantity,
             this.ExpiryDate,
             this.ReceivedStockID});
-            this.dataGridViewIssueStock.Location = new System.Drawing.Point(99, 322);
+            this.dataGridViewIssueStock.Location = new System.Drawing.Point(19, 188);
             this.dataGridViewIssueStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewIssueStock.MultiSelect = false;
             this.dataGridViewIssueStock.Name = "dataGridViewIssueStock";
@@ -214,7 +206,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(486, 292);
+            this.label2.Location = new System.Drawing.Point(406, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 21);
             this.label2.TabIndex = 5;
@@ -227,7 +219,7 @@
             this.groupBox2.Controls.Add(this.materialTextBoxAvailableQuantity);
             this.groupBox2.Controls.Add(this.materialTextBoxItemName);
             this.groupBox2.Controls.Add(this.materialButtonIssueStock);
-            this.groupBox2.Location = new System.Drawing.Point(1080, 278);
+            this.groupBox2.Location = new System.Drawing.Point(950, 188);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -239,7 +231,7 @@
             // labelQuantityToIssueError
             // 
             this.labelQuantityToIssueError.AutoSize = true;
-            this.labelQuantityToIssueError.Location = new System.Drawing.Point(37, 202);
+            this.labelQuantityToIssueError.Location = new System.Drawing.Point(32, 213);
             this.labelQuantityToIssueError.Name = "labelQuantityToIssueError";
             this.labelQuantityToIssueError.Size = new System.Drawing.Size(38, 15);
             this.labelQuantityToIssueError.TabIndex = 10;
@@ -310,11 +302,13 @@
             // 
             this.materialButtonIssueStock.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButtonIssueStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.materialButtonIssueStock.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonIssueStock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonIssueStock.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonIssueStock.Depth = 0;
             this.materialButtonIssueStock.HighEmphasis = true;
             this.materialButtonIssueStock.Icon = null;
-            this.materialButtonIssueStock.Location = new System.Drawing.Point(92, 235);
+            this.materialButtonIssueStock.Location = new System.Drawing.Point(84, 235);
             this.materialButtonIssueStock.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonIssueStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonIssueStock.Name = "materialButtonIssueStock";
@@ -323,7 +317,7 @@
             this.materialButtonIssueStock.TabIndex = 6;
             this.materialButtonIssueStock.Text = "Issue Stock";
             this.materialButtonIssueStock.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonIssueStock.UseAccentColor = false;
+            this.materialButtonIssueStock.UseAccentColor = true;
             this.materialButtonIssueStock.UseVisualStyleBackColor = false;
             this.materialButtonIssueStock.Click += new System.EventHandler(this.materialButtonIssueStock_Click);
             // 
@@ -334,7 +328,7 @@
             this.groupBox3.Controls.Add(this.dateTimePickerToDate);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox3.Location = new System.Drawing.Point(698, 140);
+            this.groupBox3.Location = new System.Drawing.Point(619, 62);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -346,11 +340,13 @@
             // materialButtonSearchAnalyticalResults
             // 
             this.materialButtonSearchAnalyticalResults.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchAnalyticalResults.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonSearchAnalyticalResults.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonSearchAnalyticalResults.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonSearchAnalyticalResults.Depth = 0;
             this.materialButtonSearchAnalyticalResults.HighEmphasis = true;
             this.materialButtonSearchAnalyticalResults.Icon = null;
-            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(584, 33);
+            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(577, 30);
             this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchAnalyticalResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchAnalyticalResults.Name = "materialButtonSearchAnalyticalResults";
@@ -359,7 +355,7 @@
             this.materialButtonSearchAnalyticalResults.TabIndex = 46;
             this.materialButtonSearchAnalyticalResults.Text = "Search";
             this.materialButtonSearchAnalyticalResults.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonSearchAnalyticalResults.UseAccentColor = false;
+            this.materialButtonSearchAnalyticalResults.UseAccentColor = true;
             this.materialButtonSearchAnalyticalResults.UseVisualStyleBackColor = true;
             this.materialButtonSearchAnalyticalResults.Click += new System.EventHandler(this.materialButtonSearchAnalyticalResults_Click);
             // 
@@ -397,19 +393,32 @@
             this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 44;
             // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel5.Location = new System.Drawing.Point(25, 13);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(104, 24);
+            this.materialLabel5.TabIndex = 16;
+            this.materialLabel5.Text = "Issue Stock";
+            // 
             // userControlIssueStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewIssueStock);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "userControlIssueStock";
-            this.Size = new System.Drawing.Size(1480, 704);
+            this.Size = new System.Drawing.Size(1300, 504);
             this.Load += new System.EventHandler(this.userControlIssueStock_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -424,8 +433,6 @@
         }
 
         #endregion
-
-        private Label label1;
         private MaterialSkin.Controls.MaterialComboBox materialComboBoxStockType;
         private GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
@@ -450,5 +457,6 @@
         private DateTimePicker dateTimePickerToDate;
         private Label label4;
         private DateTimePicker dateTimePickerFromDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
     }
 }

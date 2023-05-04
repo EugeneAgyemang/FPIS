@@ -51,8 +51,7 @@
             this.SamplesRequestedCaption.Depth = 0;
             this.SamplesRequestedCaption.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SamplesRequestedCaption.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.SamplesRequestedCaption.Location = new System.Drawing.Point(29, 26);
-            this.SamplesRequestedCaption.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SamplesRequestedCaption.Location = new System.Drawing.Point(25, 13);
             this.SamplesRequestedCaption.MouseState = MaterialSkin.MouseState.HOVER;
             this.SamplesRequestedCaption.Name = "SamplesRequestedCaption";
             this.SamplesRequestedCaption.Size = new System.Drawing.Size(295, 24);
@@ -66,8 +65,7 @@
             this.labelSampleResultsTotal.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelSampleResultsTotal.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.labelSampleResultsTotal.HighEmphasis = true;
-            this.labelSampleResultsTotal.Location = new System.Drawing.Point(29, 65);
-            this.labelSampleResultsTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSampleResultsTotal.Location = new System.Drawing.Point(25, 62);
             this.labelSampleResultsTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelSampleResultsTotal.Name = "labelSampleResultsTotal";
             this.labelSampleResultsTotal.Size = new System.Drawing.Size(26, 17);
@@ -89,11 +87,12 @@
             this.dataGridViewTextBoxColumn8,
             this.updateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 132);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 81);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1226, 428);
+            this.dataGridView1.Size = new System.Drawing.Size(858, 257);
             this.dataGridView1.TabIndex = 27;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -170,13 +169,14 @@
             // 
             // UserControlViewSampleResults
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelSampleResultsTotal);
             this.Controls.Add(this.SamplesRequestedCaption);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserControlViewSampleResults";
-            this.Size = new System.Drawing.Size(1269, 563);
+            this.Size = new System.Drawing.Size(900, 350);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);

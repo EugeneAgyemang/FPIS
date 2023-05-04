@@ -33,16 +33,16 @@
             this.viewSampleRequestsMadeBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
+            this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sampleIdAsStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerOneFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerTwoFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
-            this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -78,22 +78,50 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date,
             this.sampleIdAsStringDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn2,
-            this.Date,
             this.Time,
             this.Status,
             this.Type,
             this.EngineerOneFullName,
             this.EngineerTwoFullName});
             this.dataGridView1.DataSource = this.viewSampleRequestsMadeBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 181);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(914, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(914, 270);
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // SamplesRequestedOverviewControl
+            // 
+            this.SamplesRequestedOverviewControl.AutoSize = true;
+            this.SamplesRequestedOverviewControl.Depth = 0;
+            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.SamplesRequestedOverviewControl.HighEmphasis = true;
+            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 62);
+            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
+            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
+            this.SamplesRequestedOverviewControl.TabIndex = 25;
+            this.SamplesRequestedOverviewControl.Text = "-----";
+            // 
+            // SampleIdAsString
+            // 
+            this.SampleIdAsString.DataPropertyName = "SampleIdAsString";
+            this.SampleIdAsString.HeaderText = "Sample Id";
+            this.SampleIdAsString.Name = "SampleIdAsString";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date Requested";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 145;
             // 
             // sampleIdAsStringDataGridViewTextBoxColumn
             // 
@@ -110,14 +138,6 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date Requested";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            this.Date.Width = 145;
             // 
             // Time
             // 
@@ -159,26 +179,6 @@
             this.EngineerTwoFullName.ReadOnly = true;
             this.EngineerTwoFullName.Width = 145;
             // 
-            // SamplesRequestedOverviewControl
-            // 
-            this.SamplesRequestedOverviewControl.AutoSize = true;
-            this.SamplesRequestedOverviewControl.Depth = 0;
-            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SamplesRequestedOverviewControl.HighEmphasis = true;
-            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
-            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
-            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
-            this.SamplesRequestedOverviewControl.TabIndex = 25;
-            this.SamplesRequestedOverviewControl.Text = "-----";
-            // 
-            // SampleIdAsString
-            // 
-            this.SampleIdAsString.DataPropertyName = "SampleIdAsString";
-            this.SampleIdAsString.HeaderText = "Sample Id";
-            this.SampleIdAsString.Name = "SampleIdAsString";
-            // 
             // ViewSamplesRequestedUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -187,7 +187,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.SamplesRequestedCaption);
             this.Name = "ViewSamplesRequestedUserControl";
-            this.Size = new System.Drawing.Size(1000, 500);
+            this.Size = new System.Drawing.Size(1000, 400);
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -244,9 +244,9 @@
         private MaterialSkin.Controls.MaterialLabel SamplesRequestedOverviewControl;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn SampleIdAsString;
+        private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn sampleIdAsStringDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Time;
         private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn Type;

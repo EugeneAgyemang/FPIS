@@ -1,10 +1,12 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
+using MaterialSkin.Controls;
 using System.ComponentModel;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
-    public partial class AddAnalysisParameterValues : Form
+    public partial class AddAnalysisParameterValues : MaterialForm
     {
         private readonly string _itemName;
         private readonly string _analysisType;
@@ -32,6 +34,8 @@ namespace FPIS.Views
         )
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
             _selectedBindingItem = selectedBindingItem;
             _itemName = itemName;
             _analysisType = analysisType;
@@ -43,11 +47,11 @@ namespace FPIS.Views
 
             if (!_shouldUpdate)
             {
-                labelItemName.Text += $" \"{_itemName}\"";
+                Text += $" \"{_itemName}\"";
             }
             else
             {
-                labelItemName.Text = $"Update Parameter Values for: \"{_itemName}\"";
+                Text = $"Update Parameter Values for: \"{_itemName}\"";
             }
 
             dataGridView1.DataSource = _parameterList;

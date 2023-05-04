@@ -79,9 +79,8 @@
             this.labelDepartmentName.AutoSize = true;
             this.labelDepartmentName.Location = new System.Drawing.Point(25, 176);
             this.labelDepartmentName.Name = "labelDepartmentName";
-            this.labelDepartmentName.Size = new System.Drawing.Size(127, 15);
+            this.labelDepartmentName.Size = new System.Drawing.Size(0, 15);
             this.labelDepartmentName.TabIndex = 33;
-            this.labelDepartmentName.Text = "labelDepartmentName";
             // 
             // AddDepartment
             // 

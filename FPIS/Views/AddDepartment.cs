@@ -115,7 +115,7 @@ namespace FPIS.Views
 
         private void ConfirmNewDepartment()
         {
-            DialogResult dialogResult = MaterialMessageBox.Show(
+            DialogResult dialogResult = Utils.Utils.ShowMessageBox(
                 $"Do you want to create \"{departmentName}\" as a new Department?",
                 "Confirm",
                 MessageBoxButtons.YesNo,

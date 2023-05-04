@@ -238,7 +238,7 @@ namespace FPIS
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Designations: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
         void ResetControls()

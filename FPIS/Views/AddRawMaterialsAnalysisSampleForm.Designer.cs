@@ -30,10 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdAsStr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialProcuredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +45,6 @@
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AnalysisStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
@@ -58,10 +58,10 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DateAdded,
             this.IdAsStr,
             this.MaterialProcuredId,
             this.Id,
-            this.DateAdded,
             this.Warehouse,
             this.Supplier,
             this.TruckNumber,
@@ -72,7 +72,7 @@
             this.AnalysisStatus,
             this.Lot});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 86);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -80,6 +80,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(1200, 260);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // analysisRawMaterialsSampleBindingItemBindingSource
+            // 
+            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
+            // 
+            // analysisSampleBindingItemBindingSource
+            // 
+            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
+            // 
+            // DateAdded
+            // 
+            this.DateAdded.DataPropertyName = "DateAdded";
+            this.DateAdded.HeaderText = "DateAdded";
+            this.DateAdded.MinimumWidth = 6;
+            this.DateAdded.Name = "DateAdded";
+            this.DateAdded.ReadOnly = true;
+            this.DateAdded.Width = 114;
             // 
             // IdAsStr
             // 
@@ -107,15 +124,6 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
-            // 
-            // DateAdded
-            // 
-            this.DateAdded.DataPropertyName = "DateAdded";
-            this.DateAdded.HeaderText = "DateAdded";
-            this.DateAdded.MinimumWidth = 6;
-            this.DateAdded.Name = "DateAdded";
-            this.DateAdded.ReadOnly = true;
-            this.DateAdded.Width = 114;
             // 
             // Warehouse
             // 
@@ -197,14 +205,6 @@
             this.Lot.ReadOnly = true;
             this.Lot.Width = 114;
             // 
-            // analysisRawMaterialsSampleBindingItemBindingSource
-            // 
-            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
-            // 
-            // analysisSampleBindingItemBindingSource
-            // 
-            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
-            // 
             // AddRawMaterialsAnalysisSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -228,10 +228,10 @@
         private DataGridView dataGridView1;
         private BindingSource analysisSampleBindingItemBindingSource;
         private BindingSource analysisRawMaterialsSampleBindingItemBindingSource;
+        private DataGridViewTextBoxColumn DateAdded;
         private DataGridViewTextBoxColumn IdAsStr;
         private DataGridViewTextBoxColumn MaterialProcuredId;
         private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn DateAdded;
         private DataGridViewTextBoxColumn Warehouse;
         private DataGridViewTextBoxColumn Supplier;
         private DataGridViewTextBoxColumn TruckNumber;

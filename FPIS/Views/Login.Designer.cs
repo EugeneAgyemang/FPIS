@@ -72,7 +72,7 @@
             this.txtPassword.Size = new System.Drawing.Size(401, 50);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "";
-            this.txtPassword.TrailingIcon = global::FPIS.Properties.Resources.show_password;
+            this.txtPassword.TrailingIcon = null;
             // 
             // btnLogin
             // 

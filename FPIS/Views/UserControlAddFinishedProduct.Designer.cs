@@ -41,7 +41,6 @@
             this.materialTextBoxContainerNumber = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBoxBatchNumber = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBoxCosignee = new MaterialSkin.Controls.MaterialTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_Finished_Products_With_Results = new System.Windows.Forms.DataGridView();
             this.SampleDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +58,7 @@
             this.dateTimePickerToDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Finished_Products_With_Results)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -79,11 +79,11 @@
             this.groupBox1.Controls.Add(this.materialTextBoxContainerNumber);
             this.groupBox1.Controls.Add(this.materialTextBoxBatchNumber);
             this.groupBox1.Controls.Add(this.materialTextBoxCosignee);
-            this.groupBox1.Location = new System.Drawing.Point(903, 272);
+            this.groupBox1.Location = new System.Drawing.Point(905, 184);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(546, 326);
+            this.groupBox1.Size = new System.Drawing.Size(546, 331);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a Finished Product";
@@ -111,7 +111,7 @@
             // labelQuantityError
             // 
             this.labelQuantityError.AutoSize = true;
-            this.labelQuantityError.Location = new System.Drawing.Point(301, 254);
+            this.labelQuantityError.Location = new System.Drawing.Point(301, 266);
             this.labelQuantityError.Name = "labelQuantityError";
             this.labelQuantityError.Size = new System.Drawing.Size(103, 15);
             this.labelQuantityError.TabIndex = 30;
@@ -120,7 +120,7 @@
             // labelSealNumberError
             // 
             this.labelSealNumberError.AutoSize = true;
-            this.labelSealNumberError.Location = new System.Drawing.Point(301, 163);
+            this.labelSealNumberError.Location = new System.Drawing.Point(301, 175);
             this.labelSealNumberError.Name = "labelSealNumberError";
             this.labelSealNumberError.Size = new System.Drawing.Size(122, 15);
             this.labelSealNumberError.TabIndex = 29;
@@ -129,7 +129,7 @@
             // labelContainerNumberError
             // 
             this.labelContainerNumberError.AutoSize = true;
-            this.labelContainerNumberError.Location = new System.Drawing.Point(301, 78);
+            this.labelContainerNumberError.Location = new System.Drawing.Point(301, 90);
             this.labelContainerNumberError.Name = "labelContainerNumberError";
             this.labelContainerNumberError.Size = new System.Drawing.Size(153, 15);
             this.labelContainerNumberError.TabIndex = 28;
@@ -138,7 +138,7 @@
             // labelBatchNumberError
             // 
             this.labelBatchNumberError.AutoSize = true;
-            this.labelBatchNumberError.Location = new System.Drawing.Point(47, 254);
+            this.labelBatchNumberError.Location = new System.Drawing.Point(47, 266);
             this.labelBatchNumberError.Name = "labelBatchNumberError";
             this.labelBatchNumberError.Size = new System.Drawing.Size(131, 15);
             this.labelBatchNumberError.TabIndex = 27;
@@ -147,7 +147,7 @@
             // labelCosigneeError
             // 
             this.labelCosigneeError.AutoSize = true;
-            this.labelCosigneeError.Location = new System.Drawing.Point(47, 163);
+            this.labelCosigneeError.Location = new System.Drawing.Point(47, 175);
             this.labelCosigneeError.Name = "labelCosigneeError";
             this.labelCosigneeError.Size = new System.Drawing.Size(106, 15);
             this.labelCosigneeError.TabIndex = 25;
@@ -156,12 +156,14 @@
             // materialButtonAddFinishedProduct
             // 
             this.materialButtonAddFinishedProduct.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonAddFinishedProduct.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonAddFinishedProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonAddFinishedProduct.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonAddFinishedProduct.Depth = 0;
             this.materialButtonAddFinishedProduct.HighEmphasis = true;
             this.materialButtonAddFinishedProduct.Icon = null;
             this.materialButtonAddFinishedProduct.Location = new System.Drawing.Point(193, 289);
-            this.materialButtonAddFinishedProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonAddFinishedProduct.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonAddFinishedProduct.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonAddFinishedProduct.Name = "materialButtonAddFinishedProduct";
             this.materialButtonAddFinishedProduct.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -169,7 +171,7 @@
             this.materialButtonAddFinishedProduct.TabIndex = 23;
             this.materialButtonAddFinishedProduct.Text = "Add Finished Product";
             this.materialButtonAddFinishedProduct.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonAddFinishedProduct.UseAccentColor = false;
+            this.materialButtonAddFinishedProduct.UseAccentColor = true;
             this.materialButtonAddFinishedProduct.UseVisualStyleBackColor = true;
             this.materialButtonAddFinishedProduct.Click += new System.EventHandler(this.materialButtonAddFinishedProduct_Click);
             // 
@@ -268,16 +270,6 @@
             this.materialTextBoxCosignee.Text = "";
             this.materialTextBoxCosignee.TrailingIcon = null;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(50, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 37);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Add Finished Product";
-            // 
             // dataGridView_Finished_Products_With_Results
             // 
             this.dataGridView_Finished_Products_With_Results.AllowUserToAddRows = false;
@@ -293,7 +285,7 @@
             this.AnalysisRequestTime,
             this.AnalysisResultDate,
             this.AnalysisResultTime});
-            this.dataGridView_Finished_Products_With_Results.Location = new System.Drawing.Point(29, 277);
+            this.dataGridView_Finished_Products_With_Results.Location = new System.Drawing.Point(30, 184);
             this.dataGridView_Finished_Products_With_Results.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_Finished_Products_With_Results.MultiSelect = false;
             this.dataGridView_Finished_Products_With_Results.Name = "dataGridView_Finished_Products_With_Results";
@@ -356,7 +348,7 @@
             // 
             this.groupBox2.Controls.Add(this.materialButton1);
             this.groupBox2.Controls.Add(this.materialComboBoxFinishedProduct);
-            this.groupBox2.Location = new System.Drawing.Point(29, 88);
+            this.groupBox2.Location = new System.Drawing.Point(25, 62);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -369,12 +361,14 @@
             // 
             this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.materialButton1.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
             this.materialButton1.Location = new System.Drawing.Point(460, 34);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -382,7 +376,7 @@
             this.materialButton1.TabIndex = 2;
             this.materialButton1.Text = "Show Data";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseAccentColor = true;
             this.materialButton1.UseVisualStyleBackColor = false;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
@@ -417,7 +411,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(338, 251);
+            this.label2.Location = new System.Drawing.Point(334, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(233, 21);
             this.label2.TabIndex = 13;
@@ -430,11 +424,11 @@
             this.groupBox3.Controls.Add(this.dateTimePickerToDate);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox3.Location = new System.Drawing.Point(649, 88);
+            this.groupBox3.Location = new System.Drawing.Point(637, 62);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(800, 94);
+            this.groupBox3.Size = new System.Drawing.Size(780, 94);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search by Analysis Result Date";
@@ -442,12 +436,14 @@
             // materialButtonSearchAnalyticalResults
             // 
             this.materialButtonSearchAnalyticalResults.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchAnalyticalResults.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonSearchAnalyticalResults.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonSearchAnalyticalResults.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonSearchAnalyticalResults.Depth = 0;
             this.materialButtonSearchAnalyticalResults.HighEmphasis = true;
             this.materialButtonSearchAnalyticalResults.Icon = null;
-            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(689, 33);
-            this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(611, 27);
+            this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchAnalyticalResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchAnalyticalResults.Name = "materialButtonSearchAnalyticalResults";
             this.materialButtonSearchAnalyticalResults.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -455,14 +451,14 @@
             this.materialButtonSearchAnalyticalResults.TabIndex = 46;
             this.materialButtonSearchAnalyticalResults.Text = "Search";
             this.materialButtonSearchAnalyticalResults.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonSearchAnalyticalResults.UseAccentColor = false;
+            this.materialButtonSearchAnalyticalResults.UseAccentColor = true;
             this.materialButtonSearchAnalyticalResults.UseVisualStyleBackColor = true;
             this.materialButtonSearchAnalyticalResults.Click += new System.EventHandler(this.materialButtonSearchAnalyticalResults_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(376, 38);
+            this.label3.Location = new System.Drawing.Point(331, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 48;
@@ -470,7 +466,7 @@
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(410, 35);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(365, 35);
             this.dateTimePickerToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
             this.dateTimePickerToDate.Size = new System.Drawing.Size(219, 23);
@@ -493,19 +489,32 @@
             this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 44;
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel1.Location = new System.Drawing.Point(25, 13);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(191, 24);
+            this.materialLabel1.TabIndex = 15;
+            this.materialLabel1.Text = "Add Finished Product";
+            // 
             // UserControlAddFinishedProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView_Finished_Products_With_Results);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlAddFinishedProduct";
-            this.Size = new System.Drawing.Size(1480, 704);
+            this.Size = new System.Drawing.Size(1480, 554);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Finished_Products_With_Results)).EndInit();
@@ -527,7 +536,6 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxContainerNumber;
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxBatchNumber;
         private MaterialSkin.Controls.MaterialTextBox materialTextBoxCosignee;
-        private Label label1;
         private Label labelQuantityError;
         private Label labelSealNumberError;
         private Label labelContainerNumberError;
@@ -551,5 +559,6 @@
         private DateTimePicker dateTimePickerToDate;
         private Label label4;
         private DateTimePicker dateTimePickerFromDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

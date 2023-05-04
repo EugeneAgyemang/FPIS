@@ -164,7 +164,7 @@
             this.materialTextBoxConfirmedPassword.Size = new System.Drawing.Size(400, 50);
             this.materialTextBoxConfirmedPassword.TabIndex = 5;
             this.materialTextBoxConfirmedPassword.Text = "";
-            this.materialTextBoxConfirmedPassword.TrailingIcon = global::FPIS.Properties.Resources.show_password;
+            this.materialTextBoxConfirmedPassword.TrailingIcon = null;
             // 
             // materialTextBoxPassword
             // 
@@ -184,7 +184,7 @@
             this.materialTextBoxPassword.Size = new System.Drawing.Size(400, 50);
             this.materialTextBoxPassword.TabIndex = 4;
             this.materialTextBoxPassword.Text = "";
-            this.materialTextBoxPassword.TrailingIcon = global::FPIS.Properties.Resources.show_password;
+            this.materialTextBoxPassword.TrailingIcon = null;
             // 
             // materialTextBoxLastName
             // 

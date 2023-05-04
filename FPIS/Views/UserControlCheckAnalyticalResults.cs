@@ -222,7 +222,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Product Analytical Results: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -279,7 +279,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Product Analytical Results: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -443,6 +443,7 @@ namespace FPIS.Views
             if (count == 0)
             {
                 SamplesRequestedOverviewControl.Text = "No analysis results available at the moment";
+                return;
             }
             SamplesRequestedOverviewControl.Text = $"{count} analysis result{((count > 1) ? "s" : "")} available";
         }

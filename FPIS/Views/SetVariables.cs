@@ -11,10 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
-    public partial class SetVariables : Form
+    public partial class SetVariables : MaterialForm
     {
         public bool _isDataValid = true;
         string Concentration = "Concentration of Sodium Hydroxide";
@@ -24,6 +25,8 @@ namespace FPIS.Views
         public SetVariables()
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
             labelNaOHError.ForeColor = System.Drawing.Color.Red;
             labelNaSOError.ForeColor = System.Drawing.Color.Red;
 

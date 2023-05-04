@@ -1,10 +1,12 @@
 using FPIS.Models;
 using FPIS.Services;
+using MaterialSkin.Controls;
 using System.ComponentModel;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
-    public partial class AddAnalysisResultForm : Form
+    public partial class AddAnalysisResultForm : MaterialForm
     {
         private Sample? _sample;
         private SampleResult? _sampleResult;
@@ -26,6 +28,8 @@ namespace FPIS.Views
         {
             _sampleItems.Clear();
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
 
             _shouldUpdate = shouldUpdateAnalysisResult;
             this.analysisId = analysisId; // argument value or empty string
@@ -53,7 +57,7 @@ namespace FPIS.Views
         )
         {
             string textPrefix = !_shouldUpdate ? "Add Analysis Result for Request: " : "Update Analysis Result: ";
-            labelAnalysisResultTextAndId.Text =
+            Text =
                 $"{textPrefix} " +
                 $"{analysisDate.ToLongDateString()} @ " +
                 $"{analysisTime.ToLongTimeString()}";
@@ -326,8 +330,8 @@ namespace FPIS.Views
             if (row != null && row.Cells["parameterValuesDataGridViewColumn"].Selected)
             {
                 DataGridViewRow activeRow = dataGridView1.Rows[e.RowIndex];
-                string itemId = activeRow.Cells[0].Value.ToString();
-                string itemName = activeRow.Cells[1].Value.ToString();
+                string itemId = activeRow.Cells[1].Value.ToString();
+                string itemName = activeRow.Cells[0].Value.ToString();
                 string analysisItemId = activeRow.Cells[2].Value.ToString();
                 string productOrWaterId = activeRow.Cells[activeRow.Cells.Count - 1].Value.ToString();
                

@@ -60,7 +60,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Product Type: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -96,12 +96,15 @@ namespace FPIS.Views
                 }
                 dbContext.Dispose();
                 countProducts = dataGridViewProductreport.Rows.Count;
-                labelProductCount.Text = countProducts.ToString();
+                ProductCount(countProducts);
+                //labelProductCount.Text = countProducts.ToString();
+                //labelProductCount.Text =
+                //    $"{countProducts} Product{((countProducts > 1) ? "s" : "")} Added";
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Requested Samples: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -136,7 +139,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Requested Samples: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
         public void ProductsForReport()

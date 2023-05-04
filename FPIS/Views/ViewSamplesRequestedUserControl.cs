@@ -133,7 +133,7 @@ namespace FPIS.Views
             {
                 return;
             }
-            string sampleId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string sampleId = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             string typeForFiltering = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString().ToLower();
             UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.ANALYZED);
             if (source == Source.PRODUCTION)

@@ -38,7 +38,6 @@
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QualityControlManager = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SampleResultID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.materialButtonGenerateCertificateOfAnalysis = new MaterialSkin.Controls.MaterialButton();
@@ -54,16 +53,18 @@
             this.materialButtonShowAll = new MaterialSkin.Controls.MaterialButton();
             this.materialButtonSearchProductType = new MaterialSkin.Controls.MaterialButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonResetProductTypeFilter = new System.Windows.Forms.Button();
             this.dateTimePickerToDate = new System.Windows.Forms.DateTimePicker();
             this.SwitchCaptionControl = new MaterialSkin.Controls.MaterialLabel();
             this.SwitchFilterControl = new MaterialSkin.Controls.MaterialSwitch();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerFromDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.buttonResetProductTypeFilter = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinishedProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysisResult)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonResetProductTypeFilter)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewFinishedProducts
@@ -85,7 +86,7 @@
             this.Date,
             this.QualityControlManager,
             this.SampleResultID});
-            this.dataGridViewFinishedProducts.Location = new System.Drawing.Point(98, 252);
+            this.dataGridViewFinishedProducts.Location = new System.Drawing.Point(23, 227);
             this.dataGridViewFinishedProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewFinishedProducts.Name = "dataGridViewFinishedProducts";
             this.dataGridViewFinishedProducts.ReadOnly = true;
@@ -167,21 +168,11 @@
             this.SampleResultID.ReadOnly = true;
             this.SampleResultID.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(39, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Certificate Of Analysis";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(99, 230);
+            this.label2.Location = new System.Drawing.Point(23, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(332, 19);
             this.label2.TabIndex = 2;
@@ -191,11 +182,11 @@
             // 
             this.groupBox1.Controls.Add(this.materialButtonGenerateCertificateOfAnalysis);
             this.groupBox1.Controls.Add(this.dataGridViewAnalysisResult);
-            this.groupBox1.Location = new System.Drawing.Point(98, 490);
+            this.groupBox1.Location = new System.Drawing.Point(23, 446);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1234, 335);
+            this.groupBox1.Size = new System.Drawing.Size(1234, 363);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ANALYSIS RESULT";
@@ -203,20 +194,22 @@
             // materialButtonGenerateCertificateOfAnalysis
             // 
             this.materialButtonGenerateCertificateOfAnalysis.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonGenerateCertificateOfAnalysis.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonGenerateCertificateOfAnalysis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonGenerateCertificateOfAnalysis.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonGenerateCertificateOfAnalysis.Depth = 0;
             this.materialButtonGenerateCertificateOfAnalysis.HighEmphasis = true;
             this.materialButtonGenerateCertificateOfAnalysis.Icon = null;
-            this.materialButtonGenerateCertificateOfAnalysis.Location = new System.Drawing.Point(934, 274);
+            this.materialButtonGenerateCertificateOfAnalysis.Location = new System.Drawing.Point(476, 307);
             this.materialButtonGenerateCertificateOfAnalysis.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonGenerateCertificateOfAnalysis.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonGenerateCertificateOfAnalysis.Name = "materialButtonGenerateCertificateOfAnalysis";
             this.materialButtonGenerateCertificateOfAnalysis.NoAccentTextColor = System.Drawing.Color.Empty;
             this.materialButtonGenerateCertificateOfAnalysis.Size = new System.Drawing.Size(283, 36);
             this.materialButtonGenerateCertificateOfAnalysis.TabIndex = 6;
-            this.materialButtonGenerateCertificateOfAnalysis.Text = "GENERATE CERTIFICATE OF ANALYSIS";
+            this.materialButtonGenerateCertificateOfAnalysis.Text = "Generate Certificate of Analysis";
             this.materialButtonGenerateCertificateOfAnalysis.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonGenerateCertificateOfAnalysis.UseAccentColor = false;
+            this.materialButtonGenerateCertificateOfAnalysis.UseAccentColor = true;
             this.materialButtonGenerateCertificateOfAnalysis.UseVisualStyleBackColor = true;
             this.materialButtonGenerateCertificateOfAnalysis.Click += new System.EventHandler(this.materialButton1_Click);
             // 
@@ -234,7 +227,7 @@
             this.Method,
             this.Specification,
             this.Result});
-            this.dataGridViewAnalysisResult.Location = new System.Drawing.Point(52, 33);
+            this.dataGridViewAnalysisResult.Location = new System.Drawing.Point(195, 33);
             this.dataGridViewAnalysisResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewAnalysisResult.Name = "dataGridViewAnalysisResult";
             this.dataGridViewAnalysisResult.ReadOnly = true;
@@ -285,18 +278,18 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonResetProductTypeFilter);
             this.groupBox2.Controls.Add(this.labelProductTypeError);
             this.groupBox2.Controls.Add(this.materialComboBoxProductType);
             this.groupBox2.Controls.Add(this.materialButtonShowAll);
             this.groupBox2.Controls.Add(this.materialButtonSearchProductType);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.buttonResetProductTypeFilter);
             this.groupBox2.Controls.Add(this.dateTimePickerToDate);
             this.groupBox2.Controls.Add(this.SwitchCaptionControl);
             this.groupBox2.Controls.Add(this.SwitchFilterControl);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox2.Location = new System.Drawing.Point(166, 76);
+            this.groupBox2.Location = new System.Drawing.Point(23, 62);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -308,7 +301,7 @@
             // labelProductTypeError
             // 
             this.labelProductTypeError.AutoSize = true;
-            this.labelProductTypeError.Location = new System.Drawing.Point(590, 122);
+            this.labelProductTypeError.Location = new System.Drawing.Point(581, 125);
             this.labelProductTypeError.Name = "labelProductTypeError";
             this.labelProductTypeError.Size = new System.Drawing.Size(38, 15);
             this.labelProductTypeError.TabIndex = 55;
@@ -329,7 +322,7 @@
             this.materialComboBoxProductType.Hint = "Search by Product Type";
             this.materialComboBoxProductType.IntegralHeight = false;
             this.materialComboBoxProductType.ItemHeight = 43;
-            this.materialComboBoxProductType.Location = new System.Drawing.Point(590, 82);
+            this.materialComboBoxProductType.Location = new System.Drawing.Point(581, 75);
             this.materialComboBoxProductType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxProductType.MaxDropDownItems = 4;
             this.materialComboBoxProductType.MouseState = MaterialSkin.MouseState.OUT;
@@ -341,11 +334,13 @@
             // materialButtonShowAll
             // 
             this.materialButtonShowAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonShowAll.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonShowAll.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonShowAll.Depth = 0;
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
-            this.materialButtonShowAll.Location = new System.Drawing.Point(965, 88);
+            this.materialButtonShowAll.Location = new System.Drawing.Point(948, 83);
             this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
@@ -354,18 +349,20 @@
             this.materialButtonShowAll.TabIndex = 48;
             this.materialButtonShowAll.Text = "Show All";
             this.materialButtonShowAll.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonShowAll.UseAccentColor = false;
+            this.materialButtonShowAll.UseAccentColor = true;
             this.materialButtonShowAll.UseVisualStyleBackColor = true;
             this.materialButtonShowAll.Click += new System.EventHandler(this.materialButtonShowAll_Click);
             // 
             // materialButtonSearchProductType
             // 
             this.materialButtonSearchProductType.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchProductType.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonSearchProductType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonSearchProductType.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonSearchProductType.Depth = 0;
             this.materialButtonSearchProductType.HighEmphasis = true;
             this.materialButtonSearchProductType.Icon = null;
-            this.materialButtonSearchProductType.Location = new System.Drawing.Point(886, 88);
+            this.materialButtonSearchProductType.Location = new System.Drawing.Point(862, 83);
             this.materialButtonSearchProductType.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchProductType.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchProductType.Name = "materialButtonSearchProductType";
@@ -374,7 +371,7 @@
             this.materialButtonSearchProductType.TabIndex = 45;
             this.materialButtonSearchProductType.Text = "Search";
             this.materialButtonSearchProductType.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonSearchProductType.UseAccentColor = false;
+            this.materialButtonSearchProductType.UseAccentColor = true;
             this.materialButtonSearchProductType.UseVisualStyleBackColor = true;
             this.materialButtonSearchProductType.Click += new System.EventHandler(this.materialButtonSearchProductType_Click);
             // 
@@ -386,18 +383,6 @@
             this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 47;
             this.label3.Text = "To :";
-            // 
-            // buttonResetProductTypeFilter
-            // 
-            this.buttonResetProductTypeFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonResetProductTypeFilter.Image = global::FPIS.Properties.Resources.sync_dark;
-            this.buttonResetProductTypeFilter.Location = new System.Drawing.Point(815, 83);
-            this.buttonResetProductTypeFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonResetProductTypeFilter.Name = "buttonResetProductTypeFilter";
-            this.buttonResetProductTypeFilter.Size = new System.Drawing.Size(43, 37);
-            this.buttonResetProductTypeFilter.TabIndex = 54;
-            this.buttonResetProductTypeFilter.UseVisualStyleBackColor = false;
-            this.buttonResetProductTypeFilter.Click += new System.EventHandler(this.buttonResetProductTypeFilter_Click);
             // 
             // dateTimePickerToDate
             // 
@@ -456,24 +441,49 @@
             this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 43;
             // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel5.Location = new System.Drawing.Point(25, 13);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(201, 24);
+            this.materialLabel5.TabIndex = 64;
+            this.materialLabel5.Text = "Certificate Of Analysis";
+            // 
+            // buttonResetProductTypeFilter
+            // 
+            this.buttonResetProductTypeFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonResetProductTypeFilter.Image = global::FPIS.Properties.Resources.sync_dark;
+            this.buttonResetProductTypeFilter.Location = new System.Drawing.Point(812, 88);
+            this.buttonResetProductTypeFilter.Name = "buttonResetProductTypeFilter";
+            this.buttonResetProductTypeFilter.Size = new System.Drawing.Size(25, 25);
+            this.buttonResetProductTypeFilter.TabIndex = 58;
+            this.buttonResetProductTypeFilter.TabStop = false;
+            this.buttonResetProductTypeFilter.Click += new System.EventHandler(this.buttonResetProductTypeFilter_Click);
+            // 
             // UserControlViewCertificateOfAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewFinishedProducts);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlViewCertificateOfAnalysis";
-            this.Size = new System.Drawing.Size(1480, 874);
+            this.Size = new System.Drawing.Size(1280, 874);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFinishedProducts)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysisResult)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonResetProductTypeFilter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,7 +492,6 @@
         #endregion
 
         private DataGridView dataGridViewFinishedProducts;
-        private Label label1;
         private Label label2;
         private GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialButton materialButtonGenerateCertificateOfAnalysis;
@@ -498,7 +507,6 @@
         private MaterialSkin.Controls.MaterialButton materialButtonShowAll;
         private MaterialSkin.Controls.MaterialButton materialButtonSearchProductType;
         private Label label3;
-        private Button buttonResetProductTypeFilter;
         private DateTimePicker dateTimePickerToDate;
         private MaterialSkin.Controls.MaterialLabel SwitchCaptionControl;
         private MaterialSkin.Controls.MaterialSwitch SwitchFilterControl;
@@ -513,5 +521,7 @@
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn QualityControlManager;
         private DataGridViewTextBoxColumn SampleResultID;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private PictureBox buttonResetProductTypeFilter;
     }
 }
