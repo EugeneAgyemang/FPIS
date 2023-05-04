@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
 {
-    public partial class AnalysisCalculatorForm : Form
+    public partial class AnalysisCalculatorForm : MaterialForm
     {
         string Concentration = "Concentration of Sodium Hydroxide";
         string Normality = "Normality of Sodium Thiosulfate";
@@ -22,6 +24,8 @@ namespace FPIS.Views
         public AnalysisCalculatorForm()
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
             LoadVariables();
 
             labelFFATitreValueError.ForeColor = System.Drawing.Color.Red;

@@ -75,19 +75,6 @@ namespace FPIS.Views
 
                 UserService userService = new UserService(new());
                 Guid userId = Guid.Parse(Main.LOGGED_USER_ID);
-                //Sample sampleCreated = new AnalysisService(new()).CreateSample(
-                //    userId,
-                //    userService.GetEmployeeIdByGuid(userId),
-                //    userService.GetEmployeeIdByGuid(userId),
-                //    DateOnly.FromDateTime(DateTime.UtcNow.Date),
-                //    TimeOnly.FromDateTime(DateTime.UtcNow),
-                //    "Production"
-                //);
-                //List<SampleDetail> sampleDetails = new SampleDetailsService(new())
-                //                                        .SaveRecords
-                //                                            (sampleCreated.Id
-                //                                            , analysisItemList
-                //                                                .ToList());
 
                 List<AnalysisSampleBindingItem> analysisSampleBindingItems = new List<AnalysisSampleBindingItem>();
                 foreach (var item in analysisItemList)

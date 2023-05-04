@@ -128,7 +128,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading RequestType: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -168,7 +168,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Departments: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -209,7 +209,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Departments: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -323,12 +323,6 @@ namespace FPIS.Views
 
             }
             
-        }
-
-        private void materialButtonRequestForAnalysis_Click(object sender, EventArgs e)
-        {
-            CreateAnalysisRequestFinishedProducts requestAanalysis = new CreateAnalysisRequestFinishedProducts();
-            requestAanalysis.ShowDialog();
         }
 
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)

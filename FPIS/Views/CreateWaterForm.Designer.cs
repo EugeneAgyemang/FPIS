@@ -28,22 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialLabelWaterNameError = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonCreateWater = new MaterialSkin.Controls.MaterialButton();
             this.materialTextBoxWaterName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.materialLabelWaterNameError = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // materialLabelWaterNameError
-            // 
-            this.materialLabelWaterNameError.AutoSize = true;
-            this.materialLabelWaterNameError.Depth = 0;
-            this.materialLabelWaterNameError.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabelWaterNameError.ForeColor = System.Drawing.Color.Red;
-            this.materialLabelWaterNameError.Location = new System.Drawing.Point(15, 90);
-            this.materialLabelWaterNameError.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabelWaterNameError.Name = "materialLabelWaterNameError";
-            this.materialLabelWaterNameError.Size = new System.Drawing.Size(1, 0);
-            this.materialLabelWaterNameError.TabIndex = 2;
             // 
             // materialButtonCreateWater
             // 
@@ -96,6 +84,16 @@
             this.materialTextBoxWaterName.TrailingIcon = null;
             this.materialTextBoxWaterName.UseSystemPasswordChar = false;
             // 
+            // materialLabelWaterNameError
+            // 
+            this.materialLabelWaterNameError.AutoSize = true;
+            this.materialLabelWaterNameError.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabelWaterNameError.ForeColor = System.Drawing.Color.Red;
+            this.materialLabelWaterNameError.Location = new System.Drawing.Point(25, 176);
+            this.materialLabelWaterNameError.Name = "materialLabelWaterNameError";
+            this.materialLabelWaterNameError.Size = new System.Drawing.Size(0, 14);
+            this.materialLabelWaterNameError.TabIndex = 20;
+            // 
             // CreateWaterForm
             // 
             this.AcceptButton = this.materialButtonCreateWater;
@@ -116,9 +114,8 @@
         }
 
         #endregion
-
-        public MaterialSkin.Controls.MaterialLabel materialLabelWaterNameError;
         private MaterialSkin.Controls.MaterialButton materialButtonCreateWater;
         public MaterialSkin.Controls.MaterialTextBox2 materialTextBoxWaterName;
+        private Label materialLabelWaterNameError;
     }
 }

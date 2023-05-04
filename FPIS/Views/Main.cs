@@ -252,20 +252,22 @@ namespace FPIS.Views
 
             if (dialogResult == DialogResult.OK)
             {
-                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
+                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl(), (Button)sender);
             }
         }
 
         private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl());
+            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl(), (Button)sender);
         }
         /// <summary>
         /// Add the given user control to the MainContainerControl
         /// </summary>
         /// <param name="userControl">An instance of the user control to be added. Instance has to be static.</param>
-        private void AddUserControlToMainContainerControl(UserControl userControl)
+        private void AddUserControlToMainContainerControl(UserControl userControl,Button button)
         {
+            ResetButtonsBackColor();
+            button.BackColor = Color.FromArgb(126, 230, 73);
             ClearControlsFromMainContainerControl();
             MainContainerControl.Controls.Add(userControl);
         }
@@ -273,8 +275,10 @@ namespace FPIS.Views
         /// Open the given form after clearing all open instances in the MainContainerControl
         /// </summary>
         /// <param name="form">An instance of the form to be opened</param>
-        private void OpenModal(Form form)
+        private void OpenModal(Form form, Button button)
         {
+            ResetButtonsBackColor();
+            button.BackColor = Color.FromArgb(126, 230, 73);
             ClearControlsFromMainContainerControl();
             form.ShowDialog();
         }
@@ -285,40 +289,40 @@ namespace FPIS.Views
 
         private void ProcurementSection_IssueMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ProcurementIssueMaterials());
+            AddUserControlToMainContainerControl(new ProcurementIssueMaterials(), (Button)sender);
         }
         private void ConsumbalesSection_AddIssuedStockControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new userControlIssueStock());
+            AddUserControlToMainContainerControl(new userControlIssueStock(), (Button)sender);
         }
         private void ConsumbalesSection_ReceiveNewStockControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new ReceiveStock());
+            OpenModal(new ReceiveStock(), (Button)sender);
         }
 
         private void ProcurementSection_ViewRequestsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, Utils.Form.PROCUREMENT_ISSUE));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PROCUREMENT, Utils.Form.PROCUREMENT_ISSUE), (Button)sender);
         }
 
         private void ProductionSection_AddProductControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new CreateProductForm());
+            OpenModal(new CreateProductForm(), (Button)sender);
         }
 
         private void ProductionSection_CreateProductParameterControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new CreateProductParameter());
+            OpenModal(new CreateProductParameter(), (Button)sender);
         }
 
         private void ProductionSection_CreateAnalysisProductControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new CreateAnalysisProduct());
+            OpenModal(new CreateAnalysisProduct(), (Button)sender);
         }
 
         private void ProductionSection_ViewSampleControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, Utils.Form.PRODUCTION));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.PRODUCTION, Utils.Form.PRODUCTION), (Button)sender);
         }
 
         private void LogoutControl_Click(object sender, EventArgs e)
@@ -334,68 +338,57 @@ namespace FPIS.Views
 
         private void QualityControl_AddSampleResultControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL), (Button)sender);
         }
 
         private void QualityControl_AddWaterParameterControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new CreateWaterParameter());
+            OpenModal(new CreateWaterParameter(), (Button)sender);
         }
 
         private void QualityControl_AddWaterControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new CreateWaterForm());
+            OpenModal(new CreateWaterForm(), (Button)sender);
         }
 
         private void FinishedProducts_AddFinishedProductControl_Click(object sender, EventArgs e)
         {
-            UserControlAddFinishedProduct fp = new UserControlAddFinishedProduct();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(fp);
+            AddUserControlToMainContainerControl(new UserControlAddFinishedProduct(), (Button)sender);
         }
 
         private void FinishedProducts_ViewCertificateOfAnalysisControl_Click(object sender, EventArgs e)
         {
-            UserControlViewCertificateOfAnalysis coa = new UserControlViewCertificateOfAnalysis();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(coa);
+            AddUserControlToMainContainerControl(new UserControlViewCertificateOfAnalysis(), (Button)sender);
         }
 
         private void ConsumbalesSection_AddStockItemControl_Click(object sender, EventArgs e)
         {
-            CreateStockItem createStock = new CreateStockItem();
-            createStock.ShowDialog();
+            OpenModal(new CreateStockItem(), (Button)sender);
         }
 
         private void ConsumbalesSection_ReceiveNewStockControl_Click_1(object sender, EventArgs e)
         {
-            OpenModal(new ReceiveStock());
+            OpenModal(new ReceiveStock(), (Button)sender);
         }
 
         private void ConsumbalesSection_AddIssuedStockControl_Click_1(object sender, EventArgs e)
         {
-            userControlIssueStock issueStock = new userControlIssueStock();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(issueStock);
+            AddUserControlToMainContainerControl(new userControlIssueStock(), (Button)sender);
         }
 
         private void ConsumbalesSection_ViewStockItemControl_Click(object sender, EventArgs e)
         {
-            UserControlViewStockItems viewStockItems = new UserControlViewStockItems();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(viewStockItems);
+            AddUserControlToMainContainerControl(new UserControlViewStockItems(), (Button)sender);
         }
 
         private void ConsumbalesSection_ViewReceivedStockControl_Click(object sender, EventArgs e)
         {
-            UserControlViewReceivedStocks viewReceivedStock = new UserControlViewReceivedStocks();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(viewReceivedStock);
+            AddUserControlToMainContainerControl(new UserControlViewReceivedStocks(), (Button)sender);
         }
 
         private void ProductionSection_CheckAnalyticalResultsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults(), (Button)sender);
         }
         
         private void LoadUIForUserRole(Login.Role userRole)
@@ -462,17 +455,17 @@ namespace FPIS.Views
         
         private void QualityControl_CreateAnalysisWaterControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new CreateAnalysisWater());
+            OpenModal(new CreateAnalysisWater(), (Button)sender);
         }
 
         private void ProductionSection_AddProductionRemarkControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlDailyProductionReport());
+            AddUserControlToMainContainerControl(new UserControlDailyProductionReport(), (Button)sender);
         }
 
         private void ConsumbalesSection_ViewIssuedStockControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlViewIssuedStock());
+            AddUserControlToMainContainerControl(new UserControlViewIssuedStock(), (Button)sender);
         }
 
         private void QualityControl_OpenAnalysisCalculatorControl_Click(object sender, EventArgs e)
@@ -483,34 +476,32 @@ namespace FPIS.Views
 
         private void ReportsSection_OpenStockReportControl_Click(object sender, EventArgs e)
         {
-            UserControlViewReceivedStocks viewReceivedStock = new UserControlViewReceivedStocks();
-            MainContainerControl.Controls.Clear();
-            MainContainerControl.Controls.Add(viewReceivedStock);
+            AddUserControlToMainContainerControl(new UserControlViewReceivedStocks(), (Button)sender);
         }
 
         private void ReportsSection_OpenAnalyticalResultsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults(), (Button)sender);
         }
 
         private void ReportsSection_OpenSampleReportControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new userControlSampleReport());
+            AddUserControlToMainContainerControl(new userControlSampleReport(), (Button)sender);
         }
 
         private void ReportsSection_OpenProductsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlProductReport());
+            AddUserControlToMainContainerControl(new UserControlProductReport(), (Button)sender);
         }
 
         private void ProductionSection_ViewProductsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlProductReport());
+            AddUserControlToMainContainerControl(new UserControlProductReport(), (Button)sender);
         }
 
         private void QualityControl_ViewSampleResultsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults());
+            AddUserControlToMainContainerControl(new UserControlCheckAnalyticalResults(), (Button)sender);
         }
 
         private void QualityControl_AddWaterAnalysisControl_Click(object sender, EventArgs e)
@@ -520,43 +511,61 @@ namespace FPIS.Views
 
             if (dialogResult == DialogResult.OK)
             {
-                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl());
+                AddUserControlToMainContainerControl(new CreateAnalysisRequestFormUserControl(), (Button)sender);
             }
         }
 
         private void QualityControl_ViewWaterAnalysisControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL));
+            AddUserControlToMainContainerControl(new ViewSamplesRequestedUserControl(ViewSamplesRequestedUserControl.Source.ALL, Utils.Form.QUALITY_CONTROL), (Button)sender);
         }
 
         private void ProductionSection_ViewProductionRemarkControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
+            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks(), (Button)sender);
         }
 
         private void QualityControl_ViewProductionRemarksControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks());
+            AddUserControlToMainContainerControl(new UserControlViewAnalysisRemarks(), (Button)sender);
         }
         
         private void QualityControl_UpdateSampleResultsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new UserControlViewSampleResults());
+            AddUserControlToMainContainerControl(new UserControlViewSampleResults(), (Button)sender);
         }
 
         private void AdminPanelSection_AddUsers_Click(object sender, EventArgs e)
         {
-            OpenModal(new Register());
+            OpenModal(new Register(), (Button)sender);
         }
 
         private void AdminPanelSection_AddDepartment_Click(object sender, EventArgs e)
         {
-            OpenModal(new AddDepartment());
+            OpenModal(new AddDepartment(), (Button)sender);
         }
 
         private void AdminPanelSection_AddDesignation_Click(object sender, EventArgs e)
         {
-            OpenModal(new AddDesignation());
+            OpenModal(new AddDesignation(), (Button)sender);
+        }
+
+        private void ResetButtonsBackColor()
+        {
+            foreach (Panel panel in NavigationDrawerControl.Controls)
+            {
+                if (panel.Name == "SettingsSectionControl")
+                {
+                    continue;
+                }
+                foreach (Control item in panel.Controls)
+                {
+                    if (item is Button)
+                    {
+                        item.BackColor = Color.FromArgb(98, 178, 57);
+                    }
+                }
+            }
         }
     }
 }

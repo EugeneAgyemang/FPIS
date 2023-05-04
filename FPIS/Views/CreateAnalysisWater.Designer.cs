@@ -66,6 +66,7 @@
             this.materialComboBoxWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialComboBoxWater.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialComboBoxWater.FormattingEnabled = true;
+            this.materialComboBoxWater.Hint = "Choose water";
             this.materialComboBoxWater.IntegralHeight = false;
             this.materialComboBoxWater.ItemHeight = 43;
             this.materialComboBoxWater.Location = new System.Drawing.Point(25, 124);
@@ -74,7 +75,7 @@
             this.materialComboBoxWater.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxWater.Name = "materialComboBoxWater";
             this.materialComboBoxWater.Size = new System.Drawing.Size(400, 49);
-            this.materialComboBoxWater.StartIndex = 0;
+            this.materialComboBoxWater.StartIndex = -1;
             this.materialComboBoxWater.TabIndex = 0;
             // 
             // CreateAnalysisWater

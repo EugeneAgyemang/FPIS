@@ -72,7 +72,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Product Type: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -125,7 +125,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Finished Products: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -171,7 +171,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Finished Products: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -210,7 +210,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Finished Products: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -249,7 +249,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Finished Products: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -323,7 +323,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Finished Products: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 

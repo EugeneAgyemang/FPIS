@@ -44,7 +44,9 @@ namespace FPIS.Views
                 .ToList();
 
             dataGridView1.DataSource = _sampleResults;
-            labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "0";
+
+            //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+            labelSampleResultsTotal.Text = _sampleResults?.Count() == 0? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
             
         }
 

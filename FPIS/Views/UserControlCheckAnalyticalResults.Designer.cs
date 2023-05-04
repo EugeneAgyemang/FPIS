@@ -90,7 +90,7 @@ namespace FPIS.Views
             this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.SamplesRequestedOverviewControl.HighEmphasis = true;
-            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
+            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 62);
             this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
             this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
@@ -106,7 +106,6 @@ namespace FPIS.Views
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -115,7 +114,7 @@ namespace FPIS.Views
             this.ActualResult,
             this.Variance,
             this.Indicator});
-            this.dataGridView1.Location = new System.Drawing.Point(81, 667);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 496);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
@@ -129,24 +128,28 @@ namespace FPIS.Views
             this.ParameterName.HeaderText = "Parameter Name";
             this.ParameterName.MinimumWidth = 6;
             this.ParameterName.Name = "ParameterName";
+            this.ParameterName.Width = 133;
             // 
             // ExpectedResult
             // 
             this.ExpectedResult.HeaderText = "Expected Result";
             this.ExpectedResult.MinimumWidth = 6;
             this.ExpectedResult.Name = "ExpectedResult";
+            this.ExpectedResult.Width = 133;
             // 
             // ActualResult
             // 
             this.ActualResult.HeaderText = "Actual Result";
             this.ActualResult.MinimumWidth = 6;
             this.ActualResult.Name = "ActualResult";
+            this.ActualResult.Width = 133;
             // 
             // Variance
             // 
             this.Variance.HeaderText = "Variance";
             this.Variance.MinimumWidth = 6;
             this.Variance.Name = "Variance";
+            this.Variance.Width = 133;
             // 
             // Indicator
             // 
@@ -154,6 +157,7 @@ namespace FPIS.Views
             this.Indicator.HeaderText = "Indicator";
             this.Indicator.MinimumWidth = 6;
             this.Indicator.Name = "Indicator";
+            this.Indicator.Width = 133;
             // 
             // checkAnalyticalParameterResultsBindingItemBindingSource1
             // 
@@ -166,11 +170,13 @@ namespace FPIS.Views
             // materialButtonPrintAnalyticalResult
             // 
             this.materialButtonPrintAnalyticalResult.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonPrintAnalyticalResult.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonPrintAnalyticalResult.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonPrintAnalyticalResult.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonPrintAnalyticalResult.Depth = 0;
             this.materialButtonPrintAnalyticalResult.HighEmphasis = true;
             this.materialButtonPrintAnalyticalResult.Icon = null;
-            this.materialButtonPrintAnalyticalResult.Location = new System.Drawing.Point(383, 1027);
+            this.materialButtonPrintAnalyticalResult.Location = new System.Drawing.Point(349, 846);
             this.materialButtonPrintAnalyticalResult.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonPrintAnalyticalResult.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintAnalyticalResult.Name = "materialButtonPrintAnalyticalResult";
@@ -179,7 +185,7 @@ namespace FPIS.Views
             this.materialButtonPrintAnalyticalResult.TabIndex = 33;
             this.materialButtonPrintAnalyticalResult.Text = "Print";
             this.materialButtonPrintAnalyticalResult.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonPrintAnalyticalResult.UseAccentColor = false;
+            this.materialButtonPrintAnalyticalResult.UseAccentColor = true;
             this.materialButtonPrintAnalyticalResult.UseVisualStyleBackColor = true;
             this.materialButtonPrintAnalyticalResult.Click += new System.EventHandler(this.materialButtonPrintAnalyticalResult_Click);
             // 
@@ -199,11 +205,13 @@ namespace FPIS.Views
             // materialButtonShowAll
             // 
             this.materialButtonShowAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonShowAll.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonShowAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonShowAll.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonShowAll.Depth = 0;
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
-            this.materialButtonShowAll.Location = new System.Drawing.Point(993, 49);
+            this.materialButtonShowAll.Location = new System.Drawing.Point(765, 17);
             this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
@@ -212,34 +220,36 @@ namespace FPIS.Views
             this.materialButtonShowAll.TabIndex = 44;
             this.materialButtonShowAll.Text = "Show All";
             this.materialButtonShowAll.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonShowAll.UseAccentColor = false;
+            this.materialButtonShowAll.UseAccentColor = true;
             this.materialButtonShowAll.UseVisualStyleBackColor = true;
             this.materialButtonShowAll.Click += new System.EventHandler(this.materialButtonShowAll_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(510, 55);
+            this.label3.Location = new System.Drawing.Point(363, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 43;
             this.label3.Text = "To :";
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(548, 52);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(401, 24);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 23);
             this.dateTimePickerToDate.TabIndex = 42;
             // 
             // materialButtonSearchAnalyticalResults
             // 
             this.materialButtonSearchAnalyticalResults.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSearchAnalyticalResults.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonSearchAnalyticalResults.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonSearchAnalyticalResults.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonSearchAnalyticalResults.Depth = 0;
             this.materialButtonSearchAnalyticalResults.HighEmphasis = true;
             this.materialButtonSearchAnalyticalResults.Icon = null;
-            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(898, 49);
+            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(670, 17);
             this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButtonSearchAnalyticalResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchAnalyticalResults.Name = "materialButtonSearchAnalyticalResults";
@@ -248,24 +258,24 @@ namespace FPIS.Views
             this.materialButtonSearchAnalyticalResults.TabIndex = 41;
             this.materialButtonSearchAnalyticalResults.Text = "Search";
             this.materialButtonSearchAnalyticalResults.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonSearchAnalyticalResults.UseAccentColor = false;
+            this.materialButtonSearchAnalyticalResults.UseAccentColor = true;
             this.materialButtonSearchAnalyticalResults.UseVisualStyleBackColor = true;
             this.materialButtonSearchAnalyticalResults.Click += new System.EventHandler(this.materialButtonSearchAnalyticalResults_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 55);
+            this.label4.Location = new System.Drawing.Point(36, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 40;
             this.label4.Text = "From :";
             // 
             // dateTimePickerFromDate
             // 
-            this.dateTimePickerFromDate.Location = new System.Drawing.Point(155, 52);
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(92, 24);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 23);
             this.dateTimePickerFromDate.TabIndex = 39;
             // 
             // groupBox1
@@ -276,9 +286,9 @@ namespace FPIS.Views
             this.groupBox1.Controls.Add(this.dateTimePickerToDate);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox1.Location = new System.Drawing.Point(72, 216);
+            this.groupBox1.Location = new System.Drawing.Point(25, 175);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1203, 128);
+            this.groupBox1.Size = new System.Drawing.Size(1203, 70);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
@@ -289,9 +299,9 @@ namespace FPIS.Views
             this.groupBox2.Controls.Add(this.textBoxAnalyticalRemark);
             this.groupBox2.Controls.Add(this.materialButtonSaveAnalysisRemark);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(821, 660);
+            this.groupBox2.Location = new System.Drawing.Point(749, 496);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(548, 352);
+            this.groupBox2.Size = new System.Drawing.Size(548, 345);
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add Analytical Remark";
@@ -302,7 +312,7 @@ namespace FPIS.Views
             this.labelAnalysisRemarkError.BackColor = System.Drawing.SystemColors.Control;
             this.labelAnalysisRemarkError.Location = new System.Drawing.Point(32, 232);
             this.labelAnalysisRemarkError.Name = "labelAnalysisRemarkError";
-            this.labelAnalysisRemarkError.Size = new System.Drawing.Size(177, 20);
+            this.labelAnalysisRemarkError.Size = new System.Drawing.Size(140, 15);
             this.labelAnalysisRemarkError.TabIndex = 13;
             this.labelAnalysisRemarkError.Text = "labelAnalysisRemarkError";
             // 
@@ -317,6 +327,8 @@ namespace FPIS.Views
             // materialButtonSaveAnalysisRemark
             // 
             this.materialButtonSaveAnalysisRemark.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButtonSaveAnalysisRemark.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.materialButtonSaveAnalysisRemark.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonSaveAnalysisRemark.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButtonSaveAnalysisRemark.Depth = 0;
             this.materialButtonSaveAnalysisRemark.HighEmphasis = true;
@@ -330,7 +342,7 @@ namespace FPIS.Views
             this.materialButtonSaveAnalysisRemark.TabIndex = 12;
             this.materialButtonSaveAnalysisRemark.Text = "Save";
             this.materialButtonSaveAnalysisRemark.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButtonSaveAnalysisRemark.UseAccentColor = false;
+            this.materialButtonSaveAnalysisRemark.UseAccentColor = true;
             this.materialButtonSaveAnalysisRemark.UseVisualStyleBackColor = true;
             this.materialButtonSaveAnalysisRemark.Click += new System.EventHandler(this.materialButtonSaveAnalysisRemark_Click);
             // 
@@ -339,7 +351,7 @@ namespace FPIS.Views
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(34, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
+            this.label1.Size = new System.Drawing.Size(104, 15);
             this.label1.TabIndex = 11;
             this.label1.Text = "Enter your Remark";
             // 
@@ -365,7 +377,7 @@ namespace FPIS.Views
             // 
             this.groupBox3.Controls.Add(this.materialRadioButtonWaterAnalysis);
             this.groupBox3.Controls.Add(this.materialRadioButtonProductAnalysis);
-            this.groupBox3.Location = new System.Drawing.Point(517, 84);
+            this.groupBox3.Location = new System.Drawing.Point(25, 82);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(513, 87);
             this.groupBox3.TabIndex = 61;
@@ -452,7 +464,6 @@ namespace FPIS.Views
             this.dataGridView_Finished_Products_With_Results.AllowUserToResizeColumns = false;
             this.dataGridView_Finished_Products_With_Results.AllowUserToResizeRows = false;
             this.dataGridView_Finished_Products_With_Results.AutoGenerateColumns = false;
-            this.dataGridView_Finished_Products_With_Results.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Finished_Products_With_Results.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_Finished_Products_With_Results.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Finished_Products_With_Results.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -466,14 +477,14 @@ namespace FPIS.Views
             this.SampleResultDetailsId,
             this.SampleResultsDetailsId});
             this.dataGridView_Finished_Products_With_Results.DataSource = this.checkAnalyticalResultsBindingItemBindingSource;
-            this.dataGridView_Finished_Products_With_Results.Location = new System.Drawing.Point(72, 380);
+            this.dataGridView_Finished_Products_With_Results.Location = new System.Drawing.Point(25, 250);
             this.dataGridView_Finished_Products_With_Results.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView_Finished_Products_With_Results.MultiSelect = false;
             this.dataGridView_Finished_Products_With_Results.Name = "dataGridView_Finished_Products_With_Results";
             this.dataGridView_Finished_Products_With_Results.ReadOnly = true;
             this.dataGridView_Finished_Products_With_Results.RowHeadersWidth = 51;
             this.dataGridView_Finished_Products_With_Results.RowTemplate.Height = 29;
-            this.dataGridView_Finished_Products_With_Results.Size = new System.Drawing.Size(1398, 241);
+            this.dataGridView_Finished_Products_With_Results.Size = new System.Drawing.Size(1203, 241);
             this.dataGridView_Finished_Products_With_Results.TabIndex = 62;
             this.dataGridView_Finished_Products_With_Results.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Finished_Products_With_Results_CellClick);
             // 
@@ -484,6 +495,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 224;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -492,6 +504,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 224;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -500,6 +513,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 225;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -508,6 +522,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 224;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -516,6 +531,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 224;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -524,6 +540,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 224;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -556,16 +573,16 @@ namespace FPIS.Views
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
+            this.Controls.Add(this.materialButtonPrintAnalyticalResult);
             this.Controls.Add(this.dataGridView_Finished_Products_With_Results);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.materialButtonPrintAnalyticalResult);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.SamplesRequestedOverviewControl);
             this.Controls.Add(this.materialLabel1);
             this.Name = "UserControlCheckAnalyticalResults";
-            this.Size = new System.Drawing.Size(1565, 1312);
+            this.Size = new System.Drawing.Size(1365, 912);
             ((System.ComponentModel.ISupportInitialize)(this.checkAnalyticalResultsBindingItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkAnalyticalParameterResultsBindingItemBindingSource1)).EndInit();

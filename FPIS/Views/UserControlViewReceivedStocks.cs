@@ -98,7 +98,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Stock Item Type: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -138,7 +138,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Received Stocks: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -185,7 +185,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Received Stocks: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -226,7 +226,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Received Stocks: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -267,7 +267,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Received Stocks: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 

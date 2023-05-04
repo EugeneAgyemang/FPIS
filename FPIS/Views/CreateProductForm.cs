@@ -62,7 +62,7 @@ namespace FPIS.Views
 
             if (!_isDataValid)
             {
-                MaterialMessageBox.Show(
+                Utils.Utils.ShowMessageBox(
                     "You have some invalid inputs.",
                     "Invalid Input",
                     MessageBoxButtons.OK,
@@ -74,7 +74,7 @@ namespace FPIS.Views
                 return;
             }
 
-            DialogResult dialogResult = MaterialMessageBox.Show(
+            DialogResult dialogResult = Utils.Utils.ShowMessageBox(
                 $"Do you want to create \"{productName}\" as a new product?",
                 "Confirm",
                 MessageBoxButtons.YesNo,
@@ -92,7 +92,7 @@ namespace FPIS.Views
 
                     if (productService.DoesProductExists(productName))
                     {
-                        MaterialMessageBox.Show(
+                        Utils.Utils.ShowMessageBox(
                             $"\"{productName}\" already exists, please change it.",
                             "Product Already Exists",
                             MessageBoxButtons.OK,
@@ -104,7 +104,7 @@ namespace FPIS.Views
                     }
 
                     productService.CreateProduct(productName, productType);
-                    MaterialMessageBox.Show(
+                    Utils.Utils.ShowMessageBox(
                         $"\"{productName}\" is successfully created.",
                         "Success",
                         MessageBoxButtons.OK,
@@ -114,7 +114,7 @@ namespace FPIS.Views
                 }
                 catch
                 {
-                    MaterialMessageBox.Show(
+                    Utils.Utils.ShowMessageBox(
                         "Unable to create product. Please try again.",
                         "Error",
                         MessageBoxButtons.OK,

@@ -93,7 +93,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Departments: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -144,7 +144,7 @@ namespace FPIS.Views
 
         private void ConfirmNewDesignation()
         {
-            DialogResult dialogResult = MaterialMessageBox.Show(
+            DialogResult dialogResult = Utils.Utils.ShowMessageBox(
                 $"Do you want to create \"{designationName}\" as a new Designation?",
                 "Confirm",
                 MessageBoxButtons.YesNo,

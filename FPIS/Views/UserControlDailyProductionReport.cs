@@ -94,7 +94,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Finished Products: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
 
@@ -228,7 +228,7 @@ namespace FPIS.Views
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Daily Production Remarks: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
 
         }
@@ -261,7 +261,7 @@ namespace FPIS.Views
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error Loading Daily Production Remarks: {ex}");
-                    MaterialMessageBox.Show(ex.ToString());
+                    Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
                 }
         
         }

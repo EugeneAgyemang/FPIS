@@ -1,10 +1,15 @@
-﻿namespace FPIS.Views
+﻿using MaterialSkin.Controls;
+using static MaterialSkin.MaterialSkinManager;
+
+namespace FPIS.Views
 {
-    public partial class SelectAnalysisTypeForm : Form
+    public partial class SelectAnalysisTypeForm : MaterialForm
     {
         public SelectAnalysisTypeForm()
         {
             InitializeComponent();
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
             materialComboBoxAnalysisType.DataSource =
                 new string[] { "Production", "Water" };
         }

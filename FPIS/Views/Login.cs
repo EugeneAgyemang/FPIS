@@ -175,8 +175,13 @@ namespace FPIS
 
         private bool IsSuperUserSetup(string superUserFilePath)
         {
-            bool fileExists = JsonParser.DoesFileExists(superUserFilePath);
-            return fileExists;
+            bool userCreated = JsonParser.DoesFileExists(superUserFilePath);
+            if(!userCreated)
+            {
+                User user = new UserService(new()).GetUserByEmployeeId("sa");
+                userCreated = user != null;
+            }
+            return userCreated;
         }
 
         private void CreateSuperAdminFile(string superAdminFilePath)

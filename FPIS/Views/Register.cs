@@ -229,7 +229,8 @@ namespace FPIS
             {
                 AppDbContext dbContext = new();
                 var designationName = from Designation in dbContext.Designations
-                                     select Designation;
+                                      where Designation.DesignationName.ToLower() != "super admin"
+                                      select Designation;
                 materialComboBoxDesignation.DataSource = designationName.ToList();
                 materialComboBoxDesignation.DisplayMember = "DesignationName";
                 dbContext.Dispose();
@@ -237,7 +238,7 @@ namespace FPIS
             catch (Exception ex)
             {
                 Console.WriteLine($"Error Loading Designations: {ex}");
-                MaterialMessageBox.Show(ex.ToString());
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
             }
         }
         void ResetControls()

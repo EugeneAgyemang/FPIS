@@ -45,12 +45,13 @@
             this.materialTextBoxStockItemName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxStockItemName.Hint = "Item Name";
             this.materialTextBoxStockItemName.LeadingIcon = null;
-            this.materialTextBoxStockItemName.Location = new System.Drawing.Point(29, 165);
+            this.materialTextBoxStockItemName.Location = new System.Drawing.Point(25, 124);
+            this.materialTextBoxStockItemName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialTextBoxStockItemName.MaxLength = 50;
             this.materialTextBoxStockItemName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxStockItemName.Multiline = false;
             this.materialTextBoxStockItemName.Name = "materialTextBoxStockItemName";
-            this.materialTextBoxStockItemName.Size = new System.Drawing.Size(457, 50);
+            this.materialTextBoxStockItemName.Size = new System.Drawing.Size(400, 50);
             this.materialTextBoxStockItemName.TabIndex = 0;
             this.materialTextBoxStockItemName.Text = "";
             this.materialTextBoxStockItemName.TrailingIcon = null;
@@ -58,9 +59,9 @@
             // labelStockItemName
             // 
             this.labelStockItemName.AutoSize = true;
-            this.labelStockItemName.Location = new System.Drawing.Point(29, 235);
+            this.labelStockItemName.Location = new System.Drawing.Point(25, 176);
             this.labelStockItemName.Name = "labelStockItemName";
-            this.labelStockItemName.Size = new System.Drawing.Size(148, 20);
+            this.labelStockItemName.Size = new System.Drawing.Size(117, 15);
             this.labelStockItemName.TabIndex = 4;
             this.labelStockItemName.Text = "labelStockItemName";
             // 
@@ -85,12 +86,13 @@
             "Glasswares",
             "Equipments",
             "General"});
-            this.materialComboBoxStockItemType.Location = new System.Drawing.Point(29, 396);
+            this.materialComboBoxStockItemType.Location = new System.Drawing.Point(25, 297);
+            this.materialComboBoxStockItemType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxStockItemType.MaxDropDownItems = 4;
             this.materialComboBoxStockItemType.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxStockItemType.Name = "materialComboBoxStockItemType";
-            this.materialComboBoxStockItemType.Size = new System.Drawing.Size(457, 49);
-            this.materialComboBoxStockItemType.StartIndex = 0;
+            this.materialComboBoxStockItemType.Size = new System.Drawing.Size(400, 49);
+            this.materialComboBoxStockItemType.StartIndex = -1;
             this.materialComboBoxStockItemType.TabIndex = 2;
             // 
             // btnCreateStockItem
@@ -102,8 +104,8 @@
             this.btnCreateStockItem.Depth = 0;
             this.btnCreateStockItem.HighEmphasis = true;
             this.btnCreateStockItem.Icon = null;
-            this.btnCreateStockItem.Location = new System.Drawing.Point(163, 548);
-            this.btnCreateStockItem.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCreateStockItem.Location = new System.Drawing.Point(143, 411);
+            this.btnCreateStockItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateStockItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCreateStockItem.Name = "btnCreateStockItem";
             this.btnCreateStockItem.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -142,38 +144,39 @@
             "bag",
             "roll",
             "mm"});
-            this.materialComboBoxUnitOfMeasurement.Location = new System.Drawing.Point(29, 281);
+            this.materialComboBoxUnitOfMeasurement.Location = new System.Drawing.Point(25, 211);
+            this.materialComboBoxUnitOfMeasurement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxUnitOfMeasurement.MaxDropDownItems = 4;
             this.materialComboBoxUnitOfMeasurement.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxUnitOfMeasurement.Name = "materialComboBoxUnitOfMeasurement";
-            this.materialComboBoxUnitOfMeasurement.Size = new System.Drawing.Size(457, 49);
-            this.materialComboBoxUnitOfMeasurement.StartIndex = 0;
+            this.materialComboBoxUnitOfMeasurement.Size = new System.Drawing.Size(400, 49);
+            this.materialComboBoxUnitOfMeasurement.StartIndex = -1;
             this.materialComboBoxUnitOfMeasurement.TabIndex = 1;
             // 
             // labelStockItemType
             // 
             this.labelStockItemType.AutoSize = true;
-            this.labelStockItemType.Location = new System.Drawing.Point(29, 464);
+            this.labelStockItemType.Location = new System.Drawing.Point(25, 348);
             this.labelStockItemType.Name = "labelStockItemType";
             this.labelStockItemType.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelStockItemType.Size = new System.Drawing.Size(139, 20);
+            this.labelStockItemType.Size = new System.Drawing.Size(109, 15);
             this.labelStockItemType.TabIndex = 8;
             this.labelStockItemType.Text = "labelStockItemType";
             // 
             // labelUnitOfMeasurement
             // 
             this.labelUnitOfMeasurement.AutoSize = true;
-            this.labelUnitOfMeasurement.Location = new System.Drawing.Point(29, 349);
+            this.labelUnitOfMeasurement.Location = new System.Drawing.Point(25, 262);
             this.labelUnitOfMeasurement.Name = "labelUnitOfMeasurement";
-            this.labelUnitOfMeasurement.Size = new System.Drawing.Size(175, 20);
+            this.labelUnitOfMeasurement.Size = new System.Drawing.Size(140, 15);
             this.labelUnitOfMeasurement.TabIndex = 6;
             this.labelUnitOfMeasurement.Text = "labelUnitOfMeasurement";
             // 
             // CreateStockItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 653);
+            this.ClientSize = new System.Drawing.Size(450, 490);
             this.Controls.Add(this.materialComboBoxUnitOfMeasurement);
             this.Controls.Add(this.btnCreateStockItem);
             this.Controls.Add(this.labelStockItemType);
@@ -181,7 +184,9 @@
             this.Controls.Add(this.labelUnitOfMeasurement);
             this.Controls.Add(this.labelStockItemName);
             this.Controls.Add(this.materialTextBoxStockItemName);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CreateStockItem";
+            this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Stock Item";
             this.Load += new System.EventHandler(this.CreateStockItem_Load);

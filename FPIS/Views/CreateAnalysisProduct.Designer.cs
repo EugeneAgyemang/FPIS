@@ -44,6 +44,7 @@
             this.materialComboBoxProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialComboBoxProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialComboBoxProducts.FormattingEnabled = true;
+            this.materialComboBoxProducts.Hint = "Choose a product";
             this.materialComboBoxProducts.IntegralHeight = false;
             this.materialComboBoxProducts.ItemHeight = 43;
             this.materialComboBoxProducts.Location = new System.Drawing.Point(25, 124);
@@ -52,7 +53,7 @@
             this.materialComboBoxProducts.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxProducts.Name = "materialComboBoxProducts";
             this.materialComboBoxProducts.Size = new System.Drawing.Size(400, 49);
-            this.materialComboBoxProducts.StartIndex = 0;
+            this.materialComboBoxProducts.StartIndex = -1;
             this.materialComboBoxProducts.TabIndex = 0;
             // 
             // materialButtonAddProduct
