@@ -971,7 +971,6 @@ namespace FPIS.Views
             // 
             this.ProductionSection_ViewProductionRemarkControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
             this.ProductionSection_ViewProductionRemarkControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProductionSection_ViewProductionRemarkControl.Enabled = false;
             this.ProductionSection_ViewProductionRemarkControl.FlatAppearance.BorderSize = 0;
             this.ProductionSection_ViewProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -982,6 +981,7 @@ namespace FPIS.Views
             this.ProductionSection_ViewProductionRemarkControl.TabIndex = 7;
             this.ProductionSection_ViewProductionRemarkControl.Text = "View Production Remark";
             this.ProductionSection_ViewProductionRemarkControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_ViewProductionRemarkControl.Click += new System.EventHandler(this.QualityControl_ViewProductionRemarksControl_Click);
             // 
             // ProductionSection_CreateProductParameterControl
             // 
