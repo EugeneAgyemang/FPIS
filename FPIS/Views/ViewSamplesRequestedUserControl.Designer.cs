@@ -120,6 +120,7 @@
             this.sampleIdAsStringDataGridViewTextBoxColumn.HeaderText = "Sample ID";
             this.sampleIdAsStringDataGridViewTextBoxColumn.Name = "sampleIdAsStringDataGridViewTextBoxColumn";
             this.sampleIdAsStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sampleIdAsStringDataGridViewTextBoxColumn.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 

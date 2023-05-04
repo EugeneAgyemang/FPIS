@@ -74,9 +74,6 @@
     <Compile Update="Views\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\TestUserControls.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,9 +87,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\userControlSampleReport.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\UserControlB.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlCheckAnalyticalResults.cs">
