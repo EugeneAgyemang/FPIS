@@ -562,7 +562,10 @@ namespace FPIS.Views
                 {
                     if (item is Button)
                     {
-                        item.BackColor = Color.FromArgb(98, 178, 57);
+                        if (item.TabIndex != 0)
+                        {
+                            item.BackColor = Color.FromArgb(98, 178, 57);
+                        }
                     }
                 }
             }
