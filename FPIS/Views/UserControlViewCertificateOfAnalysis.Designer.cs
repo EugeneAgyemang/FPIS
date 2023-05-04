@@ -208,7 +208,7 @@
             this.materialButtonGenerateCertificateOfAnalysis.HighEmphasis = true;
             this.materialButtonGenerateCertificateOfAnalysis.Icon = null;
             this.materialButtonGenerateCertificateOfAnalysis.Location = new System.Drawing.Point(934, 274);
-            this.materialButtonGenerateCertificateOfAnalysis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonGenerateCertificateOfAnalysis.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonGenerateCertificateOfAnalysis.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonGenerateCertificateOfAnalysis.Name = "materialButtonGenerateCertificateOfAnalysis";
             this.materialButtonGenerateCertificateOfAnalysis.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -346,7 +346,7 @@
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
             this.materialButtonShowAll.Location = new System.Drawing.Point(965, 88);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -366,7 +366,7 @@
             this.materialButtonSearchProductType.HighEmphasis = true;
             this.materialButtonSearchProductType.Icon = null;
             this.materialButtonSearchProductType.Location = new System.Drawing.Point(886, 88);
-            this.materialButtonSearchProductType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonSearchProductType.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchProductType.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchProductType.Name = "materialButtonSearchProductType";
             this.materialButtonSearchProductType.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -390,7 +390,7 @@
             // buttonResetProductTypeFilter
             // 
             this.buttonResetProductTypeFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonResetProductTypeFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
+            this.buttonResetProductTypeFilter.Image = global::FPIS.Properties.Resources.sync_dark;
             this.buttonResetProductTypeFilter.Location = new System.Drawing.Point(815, 83);
             this.buttonResetProductTypeFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetProductTypeFilter.Name = "buttonResetProductTypeFilter";

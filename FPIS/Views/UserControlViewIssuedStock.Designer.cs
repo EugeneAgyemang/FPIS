@@ -62,7 +62,7 @@
             this.materialButtonPrintIssuedStockItems.HighEmphasis = true;
             this.materialButtonPrintIssuedStockItems.Icon = null;
             this.materialButtonPrintIssuedStockItems.Location = new System.Drawing.Point(1166, 639);
-            this.materialButtonPrintIssuedStockItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonPrintIssuedStockItems.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonPrintIssuedStockItems.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintIssuedStockItems.Name = "materialButtonPrintIssuedStockItems";
             this.materialButtonPrintIssuedStockItems.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -178,7 +178,7 @@
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
             this.materialButtonShowAll.Location = new System.Drawing.Point(975, 90);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -215,7 +215,7 @@
             this.materialButtonSearchIssuedStock.HighEmphasis = true;
             this.materialButtonSearchIssuedStock.Icon = null;
             this.materialButtonSearchIssuedStock.Location = new System.Drawing.Point(892, 90);
-            this.materialButtonSearchIssuedStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonSearchIssuedStock.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchIssuedStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchIssuedStock.Name = "materialButtonSearchIssuedStock";
             this.materialButtonSearchIssuedStock.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -302,7 +302,7 @@
             // buttonResetCatrgotyFilter
             // 
             this.buttonResetCatrgotyFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonResetCatrgotyFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
+            this.buttonResetCatrgotyFilter.Image = global::FPIS.Properties.Resources.sync_dark;
             this.buttonResetCatrgotyFilter.Location = new System.Drawing.Point(815, 83);
             this.buttonResetCatrgotyFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetCatrgotyFilter.Name = "buttonResetCatrgotyFilter";

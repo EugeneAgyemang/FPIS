@@ -63,7 +63,7 @@
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
             this.materialButtonShowAll.Location = new System.Drawing.Point(965, 88);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -100,7 +100,7 @@
             this.materialButtonSearchRequestedSample.HighEmphasis = true;
             this.materialButtonSearchRequestedSample.Icon = null;
             this.materialButtonSearchRequestedSample.Location = new System.Drawing.Point(886, 88);
-            this.materialButtonSearchRequestedSample.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonSearchRequestedSample.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchRequestedSample.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchRequestedSample.Name = "materialButtonSearchRequestedSample";
             this.materialButtonSearchRequestedSample.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -243,7 +243,7 @@
             this.materialButtonPrintRequestedSamples.HighEmphasis = true;
             this.materialButtonPrintRequestedSamples.Icon = null;
             this.materialButtonPrintRequestedSamples.Location = new System.Drawing.Point(1166, 736);
-            this.materialButtonPrintRequestedSamples.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonPrintRequestedSamples.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonPrintRequestedSamples.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintRequestedSamples.Name = "materialButtonPrintRequestedSamples";
             this.materialButtonPrintRequestedSamples.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -313,7 +313,7 @@
             // buttonResetRequestTypeFilter
             // 
             this.buttonResetRequestTypeFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonResetRequestTypeFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
+            this.buttonResetRequestTypeFilter.Image = global::FPIS.Properties.Resources.sync_dark;
             this.buttonResetRequestTypeFilter.Location = new System.Drawing.Point(815, 83);
             this.buttonResetRequestTypeFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetRequestTypeFilter.Name = "buttonResetRequestTypeFilter";

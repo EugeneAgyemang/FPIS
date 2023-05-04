@@ -93,7 +93,7 @@
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
             this.materialButtonShowAll.Location = new System.Drawing.Point(975, 90);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -113,7 +113,7 @@
             this.materialButtonSearchIssuedStock.HighEmphasis = true;
             this.materialButtonSearchIssuedStock.Icon = null;
             this.materialButtonSearchIssuedStock.Location = new System.Drawing.Point(892, 90);
-            this.materialButtonSearchIssuedStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonSearchIssuedStock.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchIssuedStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchIssuedStock.Name = "materialButtonSearchIssuedStock";
             this.materialButtonSearchIssuedStock.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -161,7 +161,7 @@
             // buttonResetCatrgotyFilter
             // 
             this.buttonResetCatrgotyFilter.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonResetCatrgotyFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
+            this.buttonResetCatrgotyFilter.Image = global::FPIS.Properties.Resources.sync_dark;
             this.buttonResetCatrgotyFilter.Location = new System.Drawing.Point(815, 83);
             this.buttonResetCatrgotyFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetCatrgotyFilter.Name = "buttonResetCatrgotyFilter";
@@ -234,7 +234,7 @@
             this.materialButtonPrintAnalysisRemark.HighEmphasis = true;
             this.materialButtonPrintAnalysisRemark.Icon = null;
             this.materialButtonPrintAnalysisRemark.Location = new System.Drawing.Point(1200, 638);
-            this.materialButtonPrintAnalysisRemark.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonPrintAnalysisRemark.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonPrintAnalysisRemark.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintAnalysisRemark.Name = "materialButtonPrintAnalysisRemark";
             this.materialButtonPrintAnalysisRemark.NoAccentTextColor = System.Drawing.Color.Empty;
