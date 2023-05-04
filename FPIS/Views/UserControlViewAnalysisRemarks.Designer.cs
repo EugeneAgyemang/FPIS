@@ -67,9 +67,11 @@
             this.groupBox1.Controls.Add(this.SwitchFilterControl);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox1.Location = new System.Drawing.Point(132, 117);
+            this.groupBox1.Location = new System.Drawing.Point(116, 88);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1226, 190);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1073, 142);
             this.groupBox1.TabIndex = 62;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
@@ -77,9 +79,9 @@
             // labelItemCategoryError
             // 
             this.labelItemCategoryError.AutoSize = true;
-            this.labelItemCategoryError.Location = new System.Drawing.Point(674, 162);
+            this.labelItemCategoryError.Location = new System.Drawing.Point(590, 122);
             this.labelItemCategoryError.Name = "labelItemCategoryError";
-            this.labelItemCategoryError.Size = new System.Drawing.Size(50, 20);
+            this.labelItemCategoryError.Size = new System.Drawing.Size(38, 15);
             this.labelItemCategoryError.TabIndex = 55;
             this.labelItemCategoryError.Text = "label5";
             // 
@@ -90,8 +92,8 @@
             this.materialButtonShowAll.Depth = 0;
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
-            this.materialButtonShowAll.Location = new System.Drawing.Point(1114, 120);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonShowAll.Location = new System.Drawing.Point(975, 90);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -110,8 +112,8 @@
             this.materialButtonSearchIssuedStock.Depth = 0;
             this.materialButtonSearchIssuedStock.HighEmphasis = true;
             this.materialButtonSearchIssuedStock.Icon = null;
-            this.materialButtonSearchIssuedStock.Location = new System.Drawing.Point(1019, 120);
-            this.materialButtonSearchIssuedStock.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchIssuedStock.Location = new System.Drawing.Point(892, 90);
+            this.materialButtonSearchIssuedStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonSearchIssuedStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchIssuedStock.Name = "materialButtonSearchIssuedStock";
             this.materialButtonSearchIssuedStock.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -138,20 +140,21 @@
             this.materialComboBoxAnalysisItemType.Hint = "Search by Analysis Item Type";
             this.materialComboBoxAnalysisItemType.IntegralHeight = false;
             this.materialComboBoxAnalysisItemType.ItemHeight = 43;
-            this.materialComboBoxAnalysisItemType.Location = new System.Drawing.Point(674, 111);
+            this.materialComboBoxAnalysisItemType.Location = new System.Drawing.Point(590, 83);
+            this.materialComboBoxAnalysisItemType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxAnalysisItemType.MaxDropDownItems = 4;
             this.materialComboBoxAnalysisItemType.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxAnalysisItemType.Name = "materialComboBoxAnalysisItemType";
-            this.materialComboBoxAnalysisItemType.Size = new System.Drawing.Size(257, 49);
+            this.materialComboBoxAnalysisItemType.Size = new System.Drawing.Size(225, 49);
             this.materialComboBoxAnalysisItemType.StartIndex = 0;
             this.materialComboBoxAnalysisItemType.TabIndex = 51;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(356, 120);
+            this.label3.Location = new System.Drawing.Point(312, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 37;
             this.label3.Text = "To :";
             // 
@@ -159,17 +162,19 @@
             // 
             this.buttonResetCatrgotyFilter.BackColor = System.Drawing.SystemColors.Window;
             this.buttonResetCatrgotyFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
-            this.buttonResetCatrgotyFilter.Location = new System.Drawing.Point(931, 111);
+            this.buttonResetCatrgotyFilter.Location = new System.Drawing.Point(815, 83);
+            this.buttonResetCatrgotyFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetCatrgotyFilter.Name = "buttonResetCatrgotyFilter";
-            this.buttonResetCatrgotyFilter.Size = new System.Drawing.Size(49, 49);
+            this.buttonResetCatrgotyFilter.Size = new System.Drawing.Size(43, 37);
             this.buttonResetCatrgotyFilter.TabIndex = 54;
             this.buttonResetCatrgotyFilter.UseVisualStyleBackColor = false;
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(394, 117);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(345, 88);
+            this.dateTimePickerToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerToDate.TabIndex = 36;
             // 
             // SwitchCaptionControl
@@ -178,7 +183,7 @@
             this.SwitchCaptionControl.Depth = 0;
             this.SwitchCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SwitchCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SwitchCaptionControl.Location = new System.Drawing.Point(34, 37);
+            this.SwitchCaptionControl.Location = new System.Drawing.Point(30, 28);
             this.SwitchCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchCaptionControl.Name = "SwitchCaptionControl";
             this.SwitchCaptionControl.Size = new System.Drawing.Size(167, 17);
@@ -192,7 +197,7 @@
             this.SwitchFilterControl.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SwitchFilterControl.Depth = 0;
             this.SwitchFilterControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SwitchFilterControl.Location = new System.Drawing.Point(21, 62);
+            this.SwitchFilterControl.Location = new System.Drawing.Point(18, 46);
             this.SwitchFilterControl.Margin = new System.Windows.Forms.Padding(0);
             this.SwitchFilterControl.MouseLocation = new System.Drawing.Point(-1, -1);
             this.SwitchFilterControl.MouseState = MaterialSkin.MouseState.HOVER;
@@ -207,17 +212,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 122);
+            this.label4.Location = new System.Drawing.Point(20, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 34;
             this.label4.Text = "From :";
             // 
             // dateTimePickerFromDate
             // 
-            this.dateTimePickerFromDate.Location = new System.Drawing.Point(79, 119);
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(69, 89);
+            this.dateTimePickerFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 33;
             // 
             // materialButtonPrintAnalysisRemark
@@ -227,8 +233,8 @@
             this.materialButtonPrintAnalysisRemark.Depth = 0;
             this.materialButtonPrintAnalysisRemark.HighEmphasis = true;
             this.materialButtonPrintAnalysisRemark.Icon = null;
-            this.materialButtonPrintAnalysisRemark.Location = new System.Drawing.Point(1372, 851);
-            this.materialButtonPrintAnalysisRemark.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonPrintAnalysisRemark.Location = new System.Drawing.Point(1200, 638);
+            this.materialButtonPrintAnalysisRemark.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonPrintAnalysisRemark.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintAnalysisRemark.Name = "materialButtonPrintAnalysisRemark";
             this.materialButtonPrintAnalysisRemark.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -247,7 +253,7 @@
             this.labelStockItemCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelStockItemCount.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.labelStockItemCount.HighEmphasis = true;
-            this.labelStockItemCount.Location = new System.Drawing.Point(132, 79);
+            this.labelStockItemCount.Location = new System.Drawing.Point(116, 59);
             this.labelStockItemCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelStockItemCount.Name = "labelStockItemCount";
             this.labelStockItemCount.Size = new System.Drawing.Size(26, 17);
@@ -258,9 +264,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(679, 308);
+            this.label2.Location = new System.Drawing.Point(594, 231);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 28);
+            this.label2.Size = new System.Drawing.Size(178, 21);
             this.label2.TabIndex = 59;
             this.label2.Text = "List of Analysis Remarks";
             // 
@@ -269,7 +275,6 @@
             this.dataGridViewAnalysisRemarks.AllowUserToAddRows = false;
             this.dataGridViewAnalysisRemarks.AllowUserToDeleteRows = false;
             this.dataGridViewAnalysisRemarks.AllowUserToResizeRows = false;
-            this.dataGridViewAnalysisRemarks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAnalysisRemarks.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewAnalysisRemarks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAnalysisRemarks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -278,12 +283,13 @@
             this.AnalysisRemarkDate,
             this.AnalysisRemarkTime,
             this.RemarkBy});
-            this.dataGridViewAnalysisRemarks.Location = new System.Drawing.Point(132, 351);
+            this.dataGridViewAnalysisRemarks.Location = new System.Drawing.Point(116, 263);
+            this.dataGridViewAnalysisRemarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewAnalysisRemarks.Name = "dataGridViewAnalysisRemarks";
             this.dataGridViewAnalysisRemarks.ReadOnly = true;
             this.dataGridViewAnalysisRemarks.RowHeadersWidth = 51;
             this.dataGridViewAnalysisRemarks.RowTemplate.Height = 29;
-            this.dataGridViewAnalysisRemarks.Size = new System.Drawing.Size(1226, 536);
+            this.dataGridViewAnalysisRemarks.Size = new System.Drawing.Size(1073, 402);
             this.dataGridViewAnalysisRemarks.TabIndex = 58;
             // 
             // AnalysisItemName
@@ -292,6 +298,7 @@
             this.AnalysisItemName.MinimumWidth = 6;
             this.AnalysisItemName.Name = "AnalysisItemName";
             this.AnalysisItemName.ReadOnly = true;
+            this.AnalysisItemName.Width = 205;
             // 
             // AnalysisRemark
             // 
@@ -299,6 +306,7 @@
             this.AnalysisRemark.MinimumWidth = 6;
             this.AnalysisRemark.Name = "AnalysisRemark";
             this.AnalysisRemark.ReadOnly = true;
+            this.AnalysisRemark.Width = 204;
             // 
             // AnalysisRemarkDate
             // 
@@ -306,6 +314,7 @@
             this.AnalysisRemarkDate.MinimumWidth = 6;
             this.AnalysisRemarkDate.Name = "AnalysisRemarkDate";
             this.AnalysisRemarkDate.ReadOnly = true;
+            this.AnalysisRemarkDate.Width = 202;
             // 
             // AnalysisRemarkTime
             // 
@@ -313,6 +322,7 @@
             this.AnalysisRemarkTime.MinimumWidth = 4;
             this.AnalysisRemarkTime.Name = "AnalysisRemarkTime";
             this.AnalysisRemarkTime.ReadOnly = true;
+            this.AnalysisRemarkTime.Width = 205;
             // 
             // RemarkBy
             // 
@@ -320,20 +330,21 @@
             this.RemarkBy.MinimumWidth = 6;
             this.RemarkBy.Name = "RemarkBy";
             this.RemarkBy.ReadOnly = true;
+            this.RemarkBy.Width = 204;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(116, 20);
+            this.label1.Location = new System.Drawing.Point(102, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(401, 46);
+            this.label1.Size = new System.Drawing.Size(318, 37);
             this.label1.TabIndex = 57;
             this.label1.Text = "View Production Remarks";
             // 
             // UserControlViewAnalysisRemarks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.materialButtonPrintAnalysisRemark);
@@ -341,8 +352,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewAnalysisRemarks);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlViewAnalysisRemarks";
-            this.Size = new System.Drawing.Size(1552, 917);
+            this.Size = new System.Drawing.Size(1358, 688);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysisRemarks)).EndInit();

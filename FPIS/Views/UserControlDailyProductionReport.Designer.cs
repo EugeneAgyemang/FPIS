@@ -58,9 +58,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(44, 23);
+            this.label1.Location = new System.Drawing.Point(38, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(377, 46);
+            this.label1.Size = new System.Drawing.Size(300, 37);
             this.label1.TabIndex = 11;
             this.label1.Text = "Daily Production Report";
             // 
@@ -71,9 +71,11 @@
             this.groupBox1.Controls.Add(this.textBoxDailyProductionReport);
             this.groupBox1.Controls.Add(this.materialButtonCheckOut);
             this.groupBox1.Controls.Add(this.materialButtonCheckIn);
-            this.groupBox1.Location = new System.Drawing.Point(64, 103);
+            this.groupBox1.Location = new System.Drawing.Point(56, 77);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1393, 247);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1219, 185);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a New Production Report";
@@ -81,27 +83,28 @@
             // labelDailyProductionReportError
             // 
             this.labelDailyProductionReportError.AutoSize = true;
-            this.labelDailyProductionReportError.Location = new System.Drawing.Point(449, 159);
+            this.labelDailyProductionReportError.Location = new System.Drawing.Point(393, 119);
             this.labelDailyProductionReportError.Name = "labelDailyProductionReportError";
-            this.labelDailyProductionReportError.Size = new System.Drawing.Size(225, 20);
+            this.labelDailyProductionReportError.Size = new System.Drawing.Size(177, 15);
             this.labelDailyProductionReportError.TabIndex = 5;
             this.labelDailyProductionReportError.Text = "labelDailyProductionReportError";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(449, 20);
+            this.label2.Location = new System.Drawing.Point(393, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 20);
+            this.label2.Size = new System.Drawing.Size(129, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Add Production Report";
             // 
             // textBoxDailyProductionReport
             // 
-            this.textBoxDailyProductionReport.Location = new System.Drawing.Point(449, 48);
+            this.textBoxDailyProductionReport.Location = new System.Drawing.Point(393, 36);
+            this.textBoxDailyProductionReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDailyProductionReport.Multiline = true;
             this.textBoxDailyProductionReport.Name = "textBoxDailyProductionReport";
-            this.textBoxDailyProductionReport.Size = new System.Drawing.Size(481, 108);
+            this.textBoxDailyProductionReport.Size = new System.Drawing.Size(421, 82);
             this.textBoxDailyProductionReport.TabIndex = 2;
             // 
             // materialButtonCheckOut
@@ -111,8 +114,8 @@
             this.materialButtonCheckOut.Depth = 0;
             this.materialButtonCheckOut.HighEmphasis = true;
             this.materialButtonCheckOut.Icon = null;
-            this.materialButtonCheckOut.Location = new System.Drawing.Point(690, 185);
-            this.materialButtonCheckOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonCheckOut.Location = new System.Drawing.Point(604, 139);
+            this.materialButtonCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonCheckOut.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCheckOut.Name = "materialButtonCheckOut";
             this.materialButtonCheckOut.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -131,8 +134,8 @@
             this.materialButtonCheckIn.Depth = 0;
             this.materialButtonCheckIn.HighEmphasis = true;
             this.materialButtonCheckIn.Icon = null;
-            this.materialButtonCheckIn.Location = new System.Drawing.Point(580, 185);
-            this.materialButtonCheckIn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonCheckIn.Location = new System.Drawing.Point(508, 139);
+            this.materialButtonCheckIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonCheckIn.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonCheckIn.Name = "materialButtonCheckIn";
             this.materialButtonCheckIn.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -154,9 +157,11 @@
             this.groupBox2.Controls.Add(this.materialButtonSearchDailyReport);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox2.Location = new System.Drawing.Point(64, 366);
+            this.groupBox2.Location = new System.Drawing.Point(56, 274);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1393, 506);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(1219, 380);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Daily Production Report";
@@ -168,8 +173,8 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(1068, 22);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.Location = new System.Drawing.Point(934, 16);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -184,17 +189,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(626, 30);
+            this.label4.Location = new System.Drawing.Point(548, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 20);
+            this.label4.Size = new System.Drawing.Size(25, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "To :";
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(682, 27);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(597, 20);
+            this.dateTimePickerToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerToDate.TabIndex = 9;
             // 
             // materialButtonPrintDailyProductionReport
@@ -204,8 +210,8 @@
             this.materialButtonPrintDailyProductionReport.Depth = 0;
             this.materialButtonPrintDailyProductionReport.HighEmphasis = true;
             this.materialButtonPrintDailyProductionReport.Icon = null;
-            this.materialButtonPrintDailyProductionReport.Location = new System.Drawing.Point(1271, 458);
-            this.materialButtonPrintDailyProductionReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonPrintDailyProductionReport.Location = new System.Drawing.Point(1112, 344);
+            this.materialButtonPrintDailyProductionReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonPrintDailyProductionReport.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintDailyProductionReport.Name = "materialButtonPrintDailyProductionReport";
             this.materialButtonPrintDailyProductionReport.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -220,7 +226,6 @@
             // dataGridViewDailyProductionReport
             // 
             this.dataGridViewDailyProductionReport.AllowUserToAddRows = false;
-            this.dataGridViewDailyProductionReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDailyProductionReport.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewDailyProductionReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDailyProductionReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -229,12 +234,13 @@
             this.TimeIn,
             this.TimeOut,
             this.ProductionReport});
-            this.dataGridViewDailyProductionReport.Location = new System.Drawing.Point(56, 82);
+            this.dataGridViewDailyProductionReport.Location = new System.Drawing.Point(49, 62);
+            this.dataGridViewDailyProductionReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDailyProductionReport.Name = "dataGridViewDailyProductionReport";
             this.dataGridViewDailyProductionReport.ReadOnly = true;
             this.dataGridViewDailyProductionReport.RowHeadersWidth = 51;
             this.dataGridViewDailyProductionReport.RowTemplate.Height = 29;
-            this.dataGridViewDailyProductionReport.Size = new System.Drawing.Size(1293, 367);
+            this.dataGridViewDailyProductionReport.Size = new System.Drawing.Size(1131, 275);
             this.dataGridViewDailyProductionReport.TabIndex = 7;
             // 
             // ProductionEngineer
@@ -244,6 +250,7 @@
             this.ProductionEngineer.MinimumWidth = 6;
             this.ProductionEngineer.Name = "ProductionEngineer";
             this.ProductionEngineer.ReadOnly = true;
+            this.ProductionEngineer.Width = 190;
             // 
             // Date
             // 
@@ -252,6 +259,7 @@
             this.Date.MinimumWidth = 6;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            this.Date.Width = 152;
             // 
             // TimeIn
             // 
@@ -260,6 +268,7 @@
             this.TimeIn.MinimumWidth = 6;
             this.TimeIn.Name = "TimeIn";
             this.TimeIn.ReadOnly = true;
+            this.TimeIn.Width = 159;
             // 
             // TimeOut
             // 
@@ -268,6 +277,7 @@
             this.TimeOut.MinimumWidth = 6;
             this.TimeOut.Name = "TimeOut";
             this.TimeOut.ReadOnly = true;
+            this.TimeOut.Width = 114;
             // 
             // ProductionReport
             // 
@@ -276,6 +286,7 @@
             this.ProductionReport.MinimumWidth = 6;
             this.ProductionReport.Name = "ProductionReport";
             this.ProductionReport.ReadOnly = true;
+            this.ProductionReport.Width = 463;
             // 
             // materialButtonSearchDailyReport
             // 
@@ -284,8 +295,8 @@
             this.materialButtonSearchDailyReport.Depth = 0;
             this.materialButtonSearchDailyReport.HighEmphasis = true;
             this.materialButtonSearchDailyReport.Icon = null;
-            this.materialButtonSearchDailyReport.Location = new System.Drawing.Point(968, 22);
-            this.materialButtonSearchDailyReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchDailyReport.Location = new System.Drawing.Point(847, 16);
+            this.materialButtonSearchDailyReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonSearchDailyReport.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchDailyReport.Name = "materialButtonSearchDailyReport";
             this.materialButtonSearchDailyReport.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -300,28 +311,30 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(226, 34);
+            this.label3.Location = new System.Drawing.Point(198, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "From :";
             // 
             // dateTimePickerFromDate
             // 
-            this.dateTimePickerFromDate.Location = new System.Drawing.Point(282, 31);
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(247, 23);
+            this.dateTimePickerFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 0;
             // 
             // UserControlDailyProductionReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlDailyProductionReport";
-            this.Size = new System.Drawing.Size(1692, 939);
+            this.Size = new System.Drawing.Size(1480, 704);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

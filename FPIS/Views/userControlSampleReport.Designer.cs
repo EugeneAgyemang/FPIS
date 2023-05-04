@@ -62,8 +62,8 @@
             this.materialButtonShowAll.Depth = 0;
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
-            this.materialButtonShowAll.Location = new System.Drawing.Point(1103, 117);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonShowAll.Location = new System.Drawing.Point(965, 88);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -78,17 +78,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(355, 125);
+            this.label3.Location = new System.Drawing.Point(311, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 47;
             this.label3.Text = "To :";
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(393, 122);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(344, 92);
+            this.dateTimePickerToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerToDate.TabIndex = 46;
             // 
             // materialButtonSearchRequestedSample
@@ -98,8 +99,8 @@
             this.materialButtonSearchRequestedSample.Depth = 0;
             this.materialButtonSearchRequestedSample.HighEmphasis = true;
             this.materialButtonSearchRequestedSample.Icon = null;
-            this.materialButtonSearchRequestedSample.Location = new System.Drawing.Point(1012, 117);
-            this.materialButtonSearchRequestedSample.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchRequestedSample.Location = new System.Drawing.Point(886, 88);
+            this.materialButtonSearchRequestedSample.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonSearchRequestedSample.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchRequestedSample.Name = "materialButtonSearchRequestedSample";
             this.materialButtonSearchRequestedSample.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -114,17 +115,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 125);
+            this.label4.Location = new System.Drawing.Point(21, 94);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 44;
             this.label4.Text = "From :";
             // 
             // dateTimePickerFromDate
             // 
-            this.dateTimePickerFromDate.Location = new System.Drawing.Point(80, 122);
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(70, 92);
+            this.dateTimePickerFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 43;
             // 
             // labelRequestedSampleCount
@@ -134,7 +136,7 @@
             this.labelRequestedSampleCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelRequestedSampleCount.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.labelRequestedSampleCount.HighEmphasis = true;
-            this.labelRequestedSampleCount.Location = new System.Drawing.Point(90, 85);
+            this.labelRequestedSampleCount.Location = new System.Drawing.Point(79, 64);
             this.labelRequestedSampleCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelRequestedSampleCount.Name = "labelRequestedSampleCount";
             this.labelRequestedSampleCount.Size = new System.Drawing.Size(26, 17);
@@ -145,9 +147,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(637, 350);
+            this.label2.Location = new System.Drawing.Point(557, 262);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 28);
+            this.label2.Size = new System.Drawing.Size(192, 21);
             this.label2.TabIndex = 41;
             this.label2.Text = "List of Requested Samples";
             // 
@@ -157,7 +159,6 @@
             this.dataGridViewRequestedSamples.AllowUserToDeleteRows = false;
             this.dataGridViewRequestedSamples.AllowUserToResizeColumns = false;
             this.dataGridViewRequestedSamples.AllowUserToResizeRows = false;
-            this.dataGridViewRequestedSamples.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRequestedSamples.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewRequestedSamples.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRequestedSamples.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -167,12 +168,13 @@
             this.RequestType,
             this.Employee1,
             this.Employee2});
-            this.dataGridViewRequestedSamples.Location = new System.Drawing.Point(74, 398);
+            this.dataGridViewRequestedSamples.Location = new System.Drawing.Point(65, 298);
+            this.dataGridViewRequestedSamples.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRequestedSamples.Name = "dataGridViewRequestedSamples";
             this.dataGridViewRequestedSamples.ReadOnly = true;
             this.dataGridViewRequestedSamples.RowHeadersWidth = 51;
             this.dataGridViewRequestedSamples.RowTemplate.Height = 29;
-            this.dataGridViewRequestedSamples.Size = new System.Drawing.Size(1226, 619);
+            this.dataGridViewRequestedSamples.Size = new System.Drawing.Size(1073, 464);
             this.dataGridViewRequestedSamples.TabIndex = 40;
             // 
             // RequestDate
@@ -181,6 +183,7 @@
             this.RequestDate.MinimumWidth = 6;
             this.RequestDate.Name = "RequestDate";
             this.RequestDate.ReadOnly = true;
+            this.RequestDate.Width = 169;
             // 
             // RequestTime
             // 
@@ -188,6 +191,7 @@
             this.RequestTime.MinimumWidth = 6;
             this.RequestTime.Name = "RequestTime";
             this.RequestTime.ReadOnly = true;
+            this.RequestTime.Width = 168;
             // 
             // Status
             // 
@@ -195,6 +199,7 @@
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
+            this.Status.Width = 171;
             // 
             // RequestType
             // 
@@ -202,6 +207,7 @@
             this.RequestType.MinimumWidth = 6;
             this.RequestType.Name = "RequestType";
             this.RequestType.ReadOnly = true;
+            this.RequestType.Width = 170;
             // 
             // Employee1
             // 
@@ -209,6 +215,7 @@
             this.Employee1.MinimumWidth = 6;
             this.Employee1.Name = "Employee1";
             this.Employee1.ReadOnly = true;
+            this.Employee1.Width = 171;
             // 
             // Employee2
             // 
@@ -216,14 +223,15 @@
             this.Employee2.MinimumWidth = 6;
             this.Employee2.Name = "Employee2";
             this.Employee2.ReadOnly = true;
+            this.Employee2.Width = 171;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(74, 26);
+            this.label1.Location = new System.Drawing.Point(65, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 46);
+            this.label1.Size = new System.Drawing.Size(191, 37);
             this.label1.TabIndex = 39;
             this.label1.Text = "Sample Report";
             // 
@@ -234,8 +242,8 @@
             this.materialButtonPrintRequestedSamples.Depth = 0;
             this.materialButtonPrintRequestedSamples.HighEmphasis = true;
             this.materialButtonPrintRequestedSamples.Icon = null;
-            this.materialButtonPrintRequestedSamples.Location = new System.Drawing.Point(1332, 981);
-            this.materialButtonPrintRequestedSamples.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonPrintRequestedSamples.Location = new System.Drawing.Point(1166, 736);
+            this.materialButtonPrintRequestedSamples.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonPrintRequestedSamples.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintRequestedSamples.Name = "materialButtonPrintRequestedSamples";
             this.materialButtonPrintRequestedSamples.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -262,11 +270,12 @@
             this.materialComboBoxRequestType.Hint = "Search by Request Type";
             this.materialComboBoxRequestType.IntegralHeight = false;
             this.materialComboBoxRequestType.ItemHeight = 43;
-            this.materialComboBoxRequestType.Location = new System.Drawing.Point(674, 110);
+            this.materialComboBoxRequestType.Location = new System.Drawing.Point(590, 82);
+            this.materialComboBoxRequestType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxRequestType.MaxDropDownItems = 4;
             this.materialComboBoxRequestType.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxRequestType.Name = "materialComboBoxRequestType";
-            this.materialComboBoxRequestType.Size = new System.Drawing.Size(257, 49);
+            this.materialComboBoxRequestType.Size = new System.Drawing.Size(225, 49);
             this.materialComboBoxRequestType.StartIndex = 0;
             this.materialComboBoxRequestType.TabIndex = 50;
             // 
@@ -283,9 +292,11 @@
             this.groupBox1.Controls.Add(this.SwitchFilterControl);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox1.Location = new System.Drawing.Point(74, 136);
+            this.groupBox1.Location = new System.Drawing.Point(65, 102);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1226, 190);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1073, 142);
             this.groupBox1.TabIndex = 57;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
@@ -293,9 +304,9 @@
             // labelItemCategoryError
             // 
             this.labelItemCategoryError.AutoSize = true;
-            this.labelItemCategoryError.Location = new System.Drawing.Point(674, 162);
+            this.labelItemCategoryError.Location = new System.Drawing.Point(590, 122);
             this.labelItemCategoryError.Name = "labelItemCategoryError";
-            this.labelItemCategoryError.Size = new System.Drawing.Size(50, 20);
+            this.labelItemCategoryError.Size = new System.Drawing.Size(38, 15);
             this.labelItemCategoryError.TabIndex = 55;
             this.labelItemCategoryError.Text = "label5";
             // 
@@ -303,9 +314,10 @@
             // 
             this.buttonResetRequestTypeFilter.BackColor = System.Drawing.SystemColors.Window;
             this.buttonResetRequestTypeFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
-            this.buttonResetRequestTypeFilter.Location = new System.Drawing.Point(931, 111);
+            this.buttonResetRequestTypeFilter.Location = new System.Drawing.Point(815, 83);
+            this.buttonResetRequestTypeFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetRequestTypeFilter.Name = "buttonResetRequestTypeFilter";
-            this.buttonResetRequestTypeFilter.Size = new System.Drawing.Size(49, 49);
+            this.buttonResetRequestTypeFilter.Size = new System.Drawing.Size(43, 37);
             this.buttonResetRequestTypeFilter.TabIndex = 54;
             this.buttonResetRequestTypeFilter.UseVisualStyleBackColor = false;
             this.buttonResetRequestTypeFilter.Click += new System.EventHandler(this.buttonResetRequestTypeFilter_Click);
@@ -316,7 +328,7 @@
             this.SwitchCaptionControl.Depth = 0;
             this.SwitchCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SwitchCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SwitchCaptionControl.Location = new System.Drawing.Point(34, 37);
+            this.SwitchCaptionControl.Location = new System.Drawing.Point(30, 28);
             this.SwitchCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchCaptionControl.Name = "SwitchCaptionControl";
             this.SwitchCaptionControl.Size = new System.Drawing.Size(167, 17);
@@ -330,7 +342,7 @@
             this.SwitchFilterControl.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SwitchFilterControl.Depth = 0;
             this.SwitchFilterControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SwitchFilterControl.Location = new System.Drawing.Point(21, 62);
+            this.SwitchFilterControl.Location = new System.Drawing.Point(18, 46);
             this.SwitchFilterControl.Margin = new System.Windows.Forms.Padding(0);
             this.SwitchFilterControl.MouseLocation = new System.Drawing.Point(-1, -1);
             this.SwitchFilterControl.MouseState = MaterialSkin.MouseState.HOVER;
@@ -344,7 +356,7 @@
             // 
             // userControlSampleReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.materialButtonPrintRequestedSamples);
@@ -352,8 +364,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewRequestedSamples);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "userControlSampleReport";
-            this.Size = new System.Drawing.Size(1444, 1091);
+            this.Size = new System.Drawing.Size(1264, 818);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestedSamples)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -63,9 +63,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(115, 89);
+            this.label1.Location = new System.Drawing.Point(101, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 46);
+            this.label1.Size = new System.Drawing.Size(145, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Issue Stock";
             // 
@@ -84,11 +84,12 @@
             this.materialComboBoxStockType.Hint = "Select the type of Stock to Issue";
             this.materialComboBoxStockType.IntegralHeight = false;
             this.materialComboBoxStockType.ItemHeight = 43;
-            this.materialComboBoxStockType.Location = new System.Drawing.Point(41, 37);
+            this.materialComboBoxStockType.Location = new System.Drawing.Point(36, 28);
+            this.materialComboBoxStockType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxStockType.MaxDropDownItems = 4;
             this.materialComboBoxStockType.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxStockType.Name = "materialComboBoxStockType";
-            this.materialComboBoxStockType.Size = new System.Drawing.Size(452, 49);
+            this.materialComboBoxStockType.Size = new System.Drawing.Size(396, 49);
             this.materialComboBoxStockType.StartIndex = 0;
             this.materialComboBoxStockType.TabIndex = 1;
             // 
@@ -96,9 +97,11 @@
             // 
             this.groupBox1.Controls.Add(this.materialButton1);
             this.groupBox1.Controls.Add(this.materialComboBoxStockType);
-            this.groupBox1.Location = new System.Drawing.Point(115, 187);
+            this.groupBox1.Location = new System.Drawing.Point(101, 140);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(677, 125);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(592, 94);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Type";
@@ -111,8 +114,8 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(526, 45);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.Location = new System.Drawing.Point(460, 34);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -130,7 +133,7 @@
             this.dataGridViewIssueStock.AllowUserToDeleteRows = false;
             this.dataGridViewIssueStock.AllowUserToResizeColumns = false;
             this.dataGridViewIssueStock.AllowUserToResizeRows = false;
-            this.dataGridViewIssueStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewIssueStock.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewIssueStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewIssueStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
@@ -140,13 +143,14 @@
             this.AvailableQuantity,
             this.ExpiryDate,
             this.ReceivedStockID});
-            this.dataGridViewIssueStock.Location = new System.Drawing.Point(113, 429);
+            this.dataGridViewIssueStock.Location = new System.Drawing.Point(99, 322);
+            this.dataGridViewIssueStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewIssueStock.MultiSelect = false;
             this.dataGridViewIssueStock.Name = "dataGridViewIssueStock";
             this.dataGridViewIssueStock.ReadOnly = true;
             this.dataGridViewIssueStock.RowHeadersWidth = 51;
             this.dataGridViewIssueStock.RowTemplate.Height = 29;
-            this.dataGridViewIssueStock.Size = new System.Drawing.Size(1057, 311);
+            this.dataGridViewIssueStock.Size = new System.Drawing.Size(925, 233);
             this.dataGridViewIssueStock.TabIndex = 3;
             this.dataGridViewIssueStock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewIssueStock_CellClick);
             // 
@@ -156,6 +160,7 @@
             this.ItemName.MinimumWidth = 6;
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
+            this.ItemName.Width = 145;
             // 
             // ReceivedDate
             // 
@@ -163,6 +168,7 @@
             this.ReceivedDate.MinimumWidth = 6;
             this.ReceivedDate.Name = "ReceivedDate";
             this.ReceivedDate.ReadOnly = true;
+            this.ReceivedDate.Width = 146;
             // 
             // UnitsOfMeasurement
             // 
@@ -170,6 +176,7 @@
             this.UnitsOfMeasurement.MinimumWidth = 6;
             this.UnitsOfMeasurement.Name = "UnitsOfMeasurement";
             this.UnitsOfMeasurement.ReadOnly = true;
+            this.UnitsOfMeasurement.Width = 145;
             // 
             // QuatityReceived
             // 
@@ -177,6 +184,7 @@
             this.QuatityReceived.MinimumWidth = 6;
             this.QuatityReceived.Name = "QuatityReceived";
             this.QuatityReceived.ReadOnly = true;
+            this.QuatityReceived.Width = 145;
             // 
             // AvailableQuantity
             // 
@@ -184,6 +192,7 @@
             this.AvailableQuantity.MinimumWidth = 6;
             this.AvailableQuantity.Name = "AvailableQuantity";
             this.AvailableQuantity.ReadOnly = true;
+            this.AvailableQuantity.Width = 146;
             // 
             // ExpiryDate
             // 
@@ -191,6 +200,7 @@
             this.ExpiryDate.MinimumWidth = 6;
             this.ExpiryDate.Name = "ExpiryDate";
             this.ExpiryDate.ReadOnly = true;
+            this.ExpiryDate.Width = 145;
             // 
             // ReceivedStockID
             // 
@@ -204,9 +214,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(555, 390);
+            this.label2.Location = new System.Drawing.Point(486, 292);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 28);
+            this.label2.Size = new System.Drawing.Size(169, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Select the Item to Issue";
             // 
@@ -217,9 +227,11 @@
             this.groupBox2.Controls.Add(this.materialTextBoxAvailableQuantity);
             this.groupBox2.Controls.Add(this.materialTextBoxItemName);
             this.groupBox2.Controls.Add(this.materialButtonIssueStock);
-            this.groupBox2.Location = new System.Drawing.Point(1234, 370);
+            this.groupBox2.Location = new System.Drawing.Point(1080, 278);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(320, 375);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(280, 281);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Issue this Stock";
@@ -227,9 +239,9 @@
             // labelQuantityToIssueError
             // 
             this.labelQuantityToIssueError.AutoSize = true;
-            this.labelQuantityToIssueError.Location = new System.Drawing.Point(42, 269);
+            this.labelQuantityToIssueError.Location = new System.Drawing.Point(37, 202);
             this.labelQuantityToIssueError.Name = "labelQuantityToIssueError";
-            this.labelQuantityToIssueError.Size = new System.Drawing.Size(50, 20);
+            this.labelQuantityToIssueError.Size = new System.Drawing.Size(38, 15);
             this.labelQuantityToIssueError.TabIndex = 10;
             this.labelQuantityToIssueError.Text = "label3";
             // 
@@ -241,12 +253,13 @@
             this.materialTextBoxQuantityToIssue.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxQuantityToIssue.Hint = "Quantity to Issue";
             this.materialTextBoxQuantityToIssue.LeadingIcon = null;
-            this.materialTextBoxQuantityToIssue.Location = new System.Drawing.Point(37, 215);
+            this.materialTextBoxQuantityToIssue.Location = new System.Drawing.Point(32, 161);
+            this.materialTextBoxQuantityToIssue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialTextBoxQuantityToIssue.MaxLength = 50;
             this.materialTextBoxQuantityToIssue.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxQuantityToIssue.Multiline = false;
             this.materialTextBoxQuantityToIssue.Name = "materialTextBoxQuantityToIssue";
-            this.materialTextBoxQuantityToIssue.Size = new System.Drawing.Size(244, 50);
+            this.materialTextBoxQuantityToIssue.Size = new System.Drawing.Size(214, 50);
             this.materialTextBoxQuantityToIssue.TabIndex = 9;
             this.materialTextBoxQuantityToIssue.Text = "";
             this.materialTextBoxQuantityToIssue.TrailingIcon = null;
@@ -262,12 +275,13 @@
             this.materialTextBoxAvailableQuantity.Hint = "Available Quantity";
             this.materialTextBoxAvailableQuantity.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.materialTextBoxAvailableQuantity.LeadingIcon = null;
-            this.materialTextBoxAvailableQuantity.Location = new System.Drawing.Point(37, 129);
+            this.materialTextBoxAvailableQuantity.Location = new System.Drawing.Point(32, 97);
+            this.materialTextBoxAvailableQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialTextBoxAvailableQuantity.MaxLength = 50;
             this.materialTextBoxAvailableQuantity.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxAvailableQuantity.Multiline = false;
             this.materialTextBoxAvailableQuantity.Name = "materialTextBoxAvailableQuantity";
-            this.materialTextBoxAvailableQuantity.Size = new System.Drawing.Size(244, 50);
+            this.materialTextBoxAvailableQuantity.Size = new System.Drawing.Size(214, 50);
             this.materialTextBoxAvailableQuantity.TabIndex = 8;
             this.materialTextBoxAvailableQuantity.Text = "";
             this.materialTextBoxAvailableQuantity.TrailingIcon = null;
@@ -281,12 +295,13 @@
             this.materialTextBoxItemName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialTextBoxItemName.Hint = "Item Name";
             this.materialTextBoxItemName.LeadingIcon = null;
-            this.materialTextBoxItemName.Location = new System.Drawing.Point(37, 43);
+            this.materialTextBoxItemName.Location = new System.Drawing.Point(32, 32);
+            this.materialTextBoxItemName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialTextBoxItemName.MaxLength = 50;
             this.materialTextBoxItemName.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBoxItemName.Multiline = false;
             this.materialTextBoxItemName.Name = "materialTextBoxItemName";
-            this.materialTextBoxItemName.Size = new System.Drawing.Size(244, 50);
+            this.materialTextBoxItemName.Size = new System.Drawing.Size(214, 50);
             this.materialTextBoxItemName.TabIndex = 7;
             this.materialTextBoxItemName.Text = "";
             this.materialTextBoxItemName.TrailingIcon = null;
@@ -299,8 +314,8 @@
             this.materialButtonIssueStock.Depth = 0;
             this.materialButtonIssueStock.HighEmphasis = true;
             this.materialButtonIssueStock.Icon = null;
-            this.materialButtonIssueStock.Location = new System.Drawing.Point(105, 313);
-            this.materialButtonIssueStock.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonIssueStock.Location = new System.Drawing.Point(92, 235);
+            this.materialButtonIssueStock.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonIssueStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonIssueStock.Name = "materialButtonIssueStock";
             this.materialButtonIssueStock.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -319,9 +334,11 @@
             this.groupBox3.Controls.Add(this.dateTimePickerToDate);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.dateTimePickerFromDate);
-            this.groupBox3.Location = new System.Drawing.Point(798, 187);
+            this.groupBox3.Location = new System.Drawing.Point(698, 140);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(756, 125);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(662, 94);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search by Received Date";
@@ -333,8 +350,8 @@
             this.materialButtonSearchAnalyticalResults.Depth = 0;
             this.materialButtonSearchAnalyticalResults.HighEmphasis = true;
             this.materialButtonSearchAnalyticalResults.Icon = null;
-            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(667, 44);
-            this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchAnalyticalResults.Location = new System.Drawing.Point(584, 33);
+            this.materialButtonSearchAnalyticalResults.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSearchAnalyticalResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchAnalyticalResults.Name = "materialButtonSearchAnalyticalResults";
             this.materialButtonSearchAnalyticalResults.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -349,38 +366,40 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(350, 50);
+            this.label3.Location = new System.Drawing.Point(306, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 48;
             this.label3.Text = "To :";
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(388, 47);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(340, 35);
+            this.dateTimePickerToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerToDate.TabIndex = 47;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 50);
+            this.label4.Location = new System.Drawing.Point(7, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 45;
             this.label4.Text = "From :";
             // 
             // dateTimePickerFromDate
             // 
-            this.dateTimePickerFromDate.Location = new System.Drawing.Point(64, 47);
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(56, 35);
+            this.dateTimePickerFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 44;
             // 
             // userControlIssueStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -388,8 +407,9 @@
             this.Controls.Add(this.dataGridViewIssueStock);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "userControlIssueStock";
-            this.Size = new System.Drawing.Size(1692, 939);
+            this.Size = new System.Drawing.Size(1480, 704);
             this.Load += new System.EventHandler(this.userControlIssueStock_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

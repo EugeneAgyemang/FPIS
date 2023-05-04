@@ -47,9 +47,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(57, 23);
+            this.label1.Location = new System.Drawing.Point(50, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 46);
+            this.label1.Size = new System.Drawing.Size(216, 37);
             this.label1.TabIndex = 11;
             this.label1.Text = "View Stock Items";
             // 
@@ -59,19 +59,19 @@
             this.dataGridViewStockItems.AllowUserToDeleteRows = false;
             this.dataGridViewStockItems.AllowUserToResizeColumns = false;
             this.dataGridViewStockItems.AllowUserToResizeRows = false;
-            this.dataGridViewStockItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewStockItems.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewStockItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStockItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockItemName,
             this.UnitOfMeasurement,
             this.StockItemType});
-            this.dataGridViewStockItems.Location = new System.Drawing.Point(363, 211);
+            this.dataGridViewStockItems.Location = new System.Drawing.Point(318, 158);
+            this.dataGridViewStockItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewStockItems.Name = "dataGridViewStockItems";
             this.dataGridViewStockItems.ReadOnly = true;
             this.dataGridViewStockItems.RowHeadersWidth = 51;
             this.dataGridViewStockItems.RowTemplate.Height = 29;
-            this.dataGridViewStockItems.Size = new System.Drawing.Size(862, 536);
+            this.dataGridViewStockItems.Size = new System.Drawing.Size(754, 402);
             this.dataGridViewStockItems.TabIndex = 12;
             // 
             // StockItemName
@@ -80,6 +80,7 @@
             this.StockItemName.MinimumWidth = 6;
             this.StockItemName.Name = "StockItemName";
             this.StockItemName.ReadOnly = true;
+            this.StockItemName.Width = 233;
             // 
             // UnitOfMeasurement
             // 
@@ -87,6 +88,7 @@
             this.UnitOfMeasurement.MinimumWidth = 6;
             this.UnitOfMeasurement.Name = "UnitOfMeasurement";
             this.UnitOfMeasurement.ReadOnly = true;
+            this.UnitOfMeasurement.Width = 234;
             // 
             // StockItemType
             // 
@@ -94,14 +96,15 @@
             this.StockItemType.MinimumWidth = 6;
             this.StockItemType.Name = "StockItemType";
             this.StockItemType.ReadOnly = true;
+            this.StockItemType.Width = 234;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(691, 171);
+            this.label2.Location = new System.Drawing.Point(605, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 28);
+            this.label2.Size = new System.Drawing.Size(135, 21);
             this.label2.TabIndex = 13;
             this.label2.Text = "List of Stock Items";
             // 
@@ -112,7 +115,7 @@
             this.labelStockItemCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelStockItemCount.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.labelStockItemCount.HighEmphasis = true;
-            this.labelStockItemCount.Location = new System.Drawing.Point(73, 82);
+            this.labelStockItemCount.Location = new System.Drawing.Point(64, 62);
             this.labelStockItemCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelStockItemCount.Name = "labelStockItemCount";
             this.labelStockItemCount.Size = new System.Drawing.Size(26, 17);
@@ -126,8 +129,8 @@
             this.materialButtonPrintStockItems.Depth = 0;
             this.materialButtonPrintStockItems.HighEmphasis = true;
             this.materialButtonPrintStockItems.Icon = null;
-            this.materialButtonPrintStockItems.Location = new System.Drawing.Point(1247, 710);
-            this.materialButtonPrintStockItems.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonPrintStockItems.Location = new System.Drawing.Point(1091, 532);
+            this.materialButtonPrintStockItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonPrintStockItems.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintStockItems.Name = "materialButtonPrintStockItems";
             this.materialButtonPrintStockItems.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -154,11 +157,12 @@
             this.materialComboBoxItemCategory.Hint = "Search by Item Category";
             this.materialComboBoxItemCategory.IntegralHeight = false;
             this.materialComboBoxItemCategory.ItemHeight = 43;
-            this.materialComboBoxItemCategory.Location = new System.Drawing.Point(589, 81);
+            this.materialComboBoxItemCategory.Location = new System.Drawing.Point(515, 61);
+            this.materialComboBoxItemCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxItemCategory.MaxDropDownItems = 4;
             this.materialComboBoxItemCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxItemCategory.Name = "materialComboBoxItemCategory";
-            this.materialComboBoxItemCategory.Size = new System.Drawing.Size(257, 49);
+            this.materialComboBoxItemCategory.Size = new System.Drawing.Size(225, 49);
             this.materialComboBoxItemCategory.StartIndex = 0;
             this.materialComboBoxItemCategory.TabIndex = 54;
             // 
@@ -169,8 +173,8 @@
             this.materialButtonSearchItemCategory.Depth = 0;
             this.materialButtonSearchItemCategory.HighEmphasis = true;
             this.materialButtonSearchItemCategory.Icon = null;
-            this.materialButtonSearchItemCategory.Location = new System.Drawing.Point(873, 86);
-            this.materialButtonSearchItemCategory.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchItemCategory.Location = new System.Drawing.Point(764, 64);
+            this.materialButtonSearchItemCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonSearchItemCategory.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchItemCategory.Name = "materialButtonSearchItemCategory";
             this.materialButtonSearchItemCategory.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -189,8 +193,8 @@
             this.materialButtonShowAll.Depth = 0;
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
-            this.materialButtonShowAll.Location = new System.Drawing.Point(966, 86);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonShowAll.Location = new System.Drawing.Point(845, 64);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -205,15 +209,15 @@
             // labelItemCategoryError
             // 
             this.labelItemCategoryError.AutoSize = true;
-            this.labelItemCategoryError.Location = new System.Drawing.Point(589, 133);
+            this.labelItemCategoryError.Location = new System.Drawing.Point(515, 100);
             this.labelItemCategoryError.Name = "labelItemCategoryError";
-            this.labelItemCategoryError.Size = new System.Drawing.Size(50, 20);
+            this.labelItemCategoryError.Size = new System.Drawing.Size(38, 15);
             this.labelItemCategoryError.TabIndex = 55;
             this.labelItemCategoryError.Text = "label3";
             // 
             // UserControlViewStockItems
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelItemCategoryError);
             this.Controls.Add(this.materialComboBoxItemCategory);
@@ -224,8 +228,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewStockItems);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlViewStockItems";
-            this.Size = new System.Drawing.Size(1692, 939);
+            this.Size = new System.Drawing.Size(1480, 704);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStockItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

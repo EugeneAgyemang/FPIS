@@ -33,8 +33,6 @@
             this.viewSampleRequestsMadeBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
-            this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sampleIdAsStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +41,8 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerOneFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineerTwoFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SamplesRequestedOverviewControl = new MaterialSkin.Controls.MaterialLabel();
+            this.SampleIdAsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewSampleRequestsMadeBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,6 +75,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sampleIdAsStringDataGridViewTextBoxColumn,
@@ -93,26 +94,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(914, 229);
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // SamplesRequestedOverviewControl
-            // 
-            this.SamplesRequestedOverviewControl.AutoSize = true;
-            this.SamplesRequestedOverviewControl.Depth = 0;
-            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SamplesRequestedOverviewControl.HighEmphasis = true;
-            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
-            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
-            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
-            this.SamplesRequestedOverviewControl.TabIndex = 25;
-            this.SamplesRequestedOverviewControl.Text = "-----";
-            // 
-            // SampleIdAsString
-            // 
-            this.SampleIdAsString.DataPropertyName = "SampleIdAsString";
-            this.SampleIdAsString.HeaderText = "Sample Id";
-            this.SampleIdAsString.Name = "SampleIdAsString";
             // 
             // sampleIdAsStringDataGridViewTextBoxColumn
             // 
@@ -136,6 +117,7 @@
             this.Date.HeaderText = "Date Requested";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            this.Date.Width = 145;
             // 
             // Time
             // 
@@ -143,6 +125,7 @@
             this.Time.HeaderText = "Time Requested";
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
+            this.Time.Width = 145;
             // 
             // Status
             // 
@@ -150,6 +133,7 @@
             this.Status.HeaderText = "Request Status";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
+            this.Status.Width = 146;
             // 
             // Type
             // 
@@ -157,6 +141,7 @@
             this.Type.HeaderText = "Request Type";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
+            this.Type.Width = 145;
             // 
             // EngineerOneFullName
             // 
@@ -164,6 +149,7 @@
             this.EngineerOneFullName.HeaderText = "Engineer One";
             this.EngineerOneFullName.Name = "EngineerOneFullName";
             this.EngineerOneFullName.ReadOnly = true;
+            this.EngineerOneFullName.Width = 145;
             // 
             // EngineerTwoFullName
             // 
@@ -171,6 +157,27 @@
             this.EngineerTwoFullName.HeaderText = "Engineer Two";
             this.EngineerTwoFullName.Name = "EngineerTwoFullName";
             this.EngineerTwoFullName.ReadOnly = true;
+            this.EngineerTwoFullName.Width = 145;
+            // 
+            // SamplesRequestedOverviewControl
+            // 
+            this.SamplesRequestedOverviewControl.AutoSize = true;
+            this.SamplesRequestedOverviewControl.Depth = 0;
+            this.SamplesRequestedOverviewControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedOverviewControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.SamplesRequestedOverviewControl.HighEmphasis = true;
+            this.SamplesRequestedOverviewControl.Location = new System.Drawing.Point(25, 53);
+            this.SamplesRequestedOverviewControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SamplesRequestedOverviewControl.Name = "SamplesRequestedOverviewControl";
+            this.SamplesRequestedOverviewControl.Size = new System.Drawing.Size(26, 17);
+            this.SamplesRequestedOverviewControl.TabIndex = 25;
+            this.SamplesRequestedOverviewControl.Text = "-----";
+            // 
+            // SampleIdAsString
+            // 
+            this.SampleIdAsString.DataPropertyName = "SampleIdAsString";
+            this.SampleIdAsString.HeaderText = "Sample Id";
+            this.SampleIdAsString.Name = "SampleIdAsString";
             // 
             // ViewSamplesRequestedUserControl
             // 

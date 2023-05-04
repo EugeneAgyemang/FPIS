@@ -106,7 +106,6 @@ namespace FPIS.Views
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -129,24 +128,28 @@ namespace FPIS.Views
             this.ParameterName.HeaderText = "Parameter Name";
             this.ParameterName.MinimumWidth = 6;
             this.ParameterName.Name = "ParameterName";
+            this.ParameterName.Width = 133;
             // 
             // ExpectedResult
             // 
             this.ExpectedResult.HeaderText = "Expected Result";
             this.ExpectedResult.MinimumWidth = 6;
             this.ExpectedResult.Name = "ExpectedResult";
+            this.ExpectedResult.Width = 133;
             // 
             // ActualResult
             // 
             this.ActualResult.HeaderText = "Actual Result";
             this.ActualResult.MinimumWidth = 6;
             this.ActualResult.Name = "ActualResult";
+            this.ActualResult.Width = 133;
             // 
             // Variance
             // 
             this.Variance.HeaderText = "Variance";
             this.Variance.MinimumWidth = 6;
             this.Variance.Name = "Variance";
+            this.Variance.Width = 133;
             // 
             // Indicator
             // 
@@ -154,6 +157,7 @@ namespace FPIS.Views
             this.Indicator.HeaderText = "Indicator";
             this.Indicator.MinimumWidth = 6;
             this.Indicator.Name = "Indicator";
+            this.Indicator.Width = 133;
             // 
             // checkAnalyticalParameterResultsBindingItemBindingSource1
             // 
@@ -221,7 +225,7 @@ namespace FPIS.Views
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(510, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new System.Drawing.Size(25, 15);
             this.label3.TabIndex = 43;
             this.label3.Text = "To :";
             // 
@@ -229,7 +233,7 @@ namespace FPIS.Views
             // 
             this.dateTimePickerToDate.Location = new System.Drawing.Point(548, 52);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 23);
             this.dateTimePickerToDate.TabIndex = 42;
             // 
             // materialButtonSearchAnalyticalResults
@@ -257,7 +261,7 @@ namespace FPIS.Views
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(99, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 40;
             this.label4.Text = "From :";
             // 
@@ -265,7 +269,7 @@ namespace FPIS.Views
             // 
             this.dateTimePickerFromDate.Location = new System.Drawing.Point(155, 52);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 23);
             this.dateTimePickerFromDate.TabIndex = 39;
             // 
             // groupBox1
@@ -302,7 +306,7 @@ namespace FPIS.Views
             this.labelAnalysisRemarkError.BackColor = System.Drawing.SystemColors.Control;
             this.labelAnalysisRemarkError.Location = new System.Drawing.Point(32, 232);
             this.labelAnalysisRemarkError.Name = "labelAnalysisRemarkError";
-            this.labelAnalysisRemarkError.Size = new System.Drawing.Size(177, 20);
+            this.labelAnalysisRemarkError.Size = new System.Drawing.Size(140, 15);
             this.labelAnalysisRemarkError.TabIndex = 13;
             this.labelAnalysisRemarkError.Text = "labelAnalysisRemarkError";
             // 
@@ -339,7 +343,7 @@ namespace FPIS.Views
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(34, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
+            this.label1.Size = new System.Drawing.Size(104, 15);
             this.label1.TabIndex = 11;
             this.label1.Text = "Enter your Remark";
             // 
@@ -452,7 +456,6 @@ namespace FPIS.Views
             this.dataGridView_Finished_Products_With_Results.AllowUserToResizeColumns = false;
             this.dataGridView_Finished_Products_With_Results.AllowUserToResizeRows = false;
             this.dataGridView_Finished_Products_With_Results.AutoGenerateColumns = false;
-            this.dataGridView_Finished_Products_With_Results.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Finished_Products_With_Results.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView_Finished_Products_With_Results.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Finished_Products_With_Results.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -484,6 +487,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 224;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -492,6 +496,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 224;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -500,6 +505,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 225;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -508,6 +514,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 224;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -516,6 +523,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 224;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -524,6 +532,7 @@ namespace FPIS.Views
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 224;
             // 
             // dataGridViewTextBoxColumn7
             // 

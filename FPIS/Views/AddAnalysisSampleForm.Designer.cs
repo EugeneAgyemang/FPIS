@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +43,6 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -51,18 +50,14 @@
             this.nameDataGridViewTextBoxColumn,
             this.selectedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.analysisSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 56);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(589, 306);
+            this.dataGridView1.Size = new System.Drawing.Size(515, 230);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // analysisSampleBindingItemBindingSource
-            // 
-            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -80,6 +75,7 @@
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 225;
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
@@ -88,17 +84,22 @@
             this.selectedDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
             this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.selectedDataGridViewCheckBoxColumn.Width = 226;
+            // 
+            // analysisSampleBindingItemBindingSource
+            // 
+            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // AddAnalysisSampleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 389);
+            this.ClientSize = new System.Drawing.Size(532, 292);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "AddAnalysisSampleForm";
-            this.Padding = new System.Windows.Forms.Padding(2, 51, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(2, 38, 2, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Analysis Samples";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

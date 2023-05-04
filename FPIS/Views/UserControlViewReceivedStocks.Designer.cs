@@ -61,9 +61,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(69, 15);
+            this.label1.Location = new System.Drawing.Point(60, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 46);
+            this.label1.Size = new System.Drawing.Size(257, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "View Received Stock";
             // 
@@ -74,8 +74,8 @@
             this.materialButtonPrintReceivedStock.Depth = 0;
             this.materialButtonPrintReceivedStock.HighEmphasis = true;
             this.materialButtonPrintReceivedStock.Icon = null;
-            this.materialButtonPrintReceivedStock.Location = new System.Drawing.Point(1498, 857);
-            this.materialButtonPrintReceivedStock.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonPrintReceivedStock.Location = new System.Drawing.Point(1311, 643);
+            this.materialButtonPrintReceivedStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonPrintReceivedStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonPrintReceivedStock.Name = "materialButtonPrintReceivedStock";
             this.materialButtonPrintReceivedStock.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -93,7 +93,6 @@
             this.dataGridViewReceivedStock.AllowUserToDeleteRows = false;
             this.dataGridViewReceivedStock.AllowUserToOrderColumns = true;
             this.dataGridViewReceivedStock.AllowUserToResizeRows = false;
-            this.dataGridViewReceivedStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewReceivedStock.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewReceivedStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReceivedStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -105,12 +104,13 @@
             this.AvailableQuantity,
             this.ExpiryDate,
             this.ReceivedBy});
-            this.dataGridViewReceivedStock.Location = new System.Drawing.Point(69, 344);
+            this.dataGridViewReceivedStock.Location = new System.Drawing.Point(60, 258);
+            this.dataGridViewReceivedStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewReceivedStock.Name = "dataGridViewReceivedStock";
             this.dataGridViewReceivedStock.ReadOnly = true;
             this.dataGridViewReceivedStock.RowHeadersWidth = 51;
             this.dataGridViewReceivedStock.RowTemplate.Height = 29;
-            this.dataGridViewReceivedStock.Size = new System.Drawing.Size(1422, 549);
+            this.dataGridViewReceivedStock.Size = new System.Drawing.Size(1244, 412);
             this.dataGridViewReceivedStock.TabIndex = 15;
             // 
             // StockItemName
@@ -120,6 +120,7 @@
             this.StockItemName.MinimumWidth = 6;
             this.StockItemName.Name = "StockItemName";
             this.StockItemName.ReadOnly = true;
+            this.StockItemName.Width = 137;
             // 
             // StockItemCategory
             // 
@@ -127,6 +128,7 @@
             this.StockItemCategory.MinimumWidth = 6;
             this.StockItemCategory.Name = "StockItemCategory";
             this.StockItemCategory.ReadOnly = true;
+            this.StockItemCategory.Width = 150;
             // 
             // ReceivedDate
             // 
@@ -135,6 +137,7 @@
             this.ReceivedDate.MinimumWidth = 6;
             this.ReceivedDate.Name = "ReceivedDate";
             this.ReceivedDate.ReadOnly = true;
+            this.ReceivedDate.Width = 136;
             // 
             // UnitOfMeasurement
             // 
@@ -143,6 +146,7 @@
             this.UnitOfMeasurement.MinimumWidth = 6;
             this.UnitOfMeasurement.Name = "UnitOfMeasurement";
             this.UnitOfMeasurement.ReadOnly = true;
+            this.UnitOfMeasurement.Width = 137;
             // 
             // QuantityReceived
             // 
@@ -151,6 +155,7 @@
             this.QuantityReceived.MinimumWidth = 6;
             this.QuantityReceived.Name = "QuantityReceived";
             this.QuantityReceived.ReadOnly = true;
+            this.QuantityReceived.Width = 137;
             // 
             // AvailableQuantity
             // 
@@ -159,6 +164,7 @@
             this.AvailableQuantity.MinimumWidth = 6;
             this.AvailableQuantity.Name = "AvailableQuantity";
             this.AvailableQuantity.ReadOnly = true;
+            this.AvailableQuantity.Width = 136;
             // 
             // ExpiryDate
             // 
@@ -167,6 +173,7 @@
             this.ExpiryDate.MinimumWidth = 6;
             this.ExpiryDate.Name = "ExpiryDate";
             this.ExpiryDate.ReadOnly = true;
+            this.ExpiryDate.Width = 134;
             // 
             // ReceivedBy
             // 
@@ -175,6 +182,7 @@
             this.ReceivedBy.MinimumWidth = 6;
             this.ReceivedBy.Name = "ReceivedBy";
             this.ReceivedBy.ReadOnly = true;
+            this.ReceivedBy.Width = 224;
             // 
             // materialButtonSearchStockItems
             // 
@@ -183,8 +191,8 @@
             this.materialButtonSearchStockItems.Depth = 0;
             this.materialButtonSearchStockItems.HighEmphasis = true;
             this.materialButtonSearchStockItems.Icon = null;
-            this.materialButtonSearchStockItems.Location = new System.Drawing.Point(1037, 112);
-            this.materialButtonSearchStockItems.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonSearchStockItems.Location = new System.Drawing.Point(907, 84);
+            this.materialButtonSearchStockItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonSearchStockItems.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSearchStockItems.Name = "materialButtonSearchStockItems";
             this.materialButtonSearchStockItems.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -199,33 +207,35 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 122);
+            this.label3.Location = new System.Drawing.Point(30, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.Size = new System.Drawing.Size(41, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "From :";
             // 
             // dateTimePickerFromDate
             // 
-            this.dateTimePickerFromDate.Location = new System.Drawing.Point(90, 119);
+            this.dateTimePickerFromDate.Location = new System.Drawing.Point(79, 89);
+            this.dateTimePickerFromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerFromDate.Name = "dateTimePickerFromDate";
-            this.dateTimePickerFromDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerFromDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerFromDate.TabIndex = 16;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(372, 122);
+            this.label2.Location = new System.Drawing.Point(326, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 20);
+            this.label2.Size = new System.Drawing.Size(25, 15);
             this.label2.TabIndex = 20;
             this.label2.Text = "To :";
             // 
             // dateTimePickerToDate
             // 
-            this.dateTimePickerToDate.Location = new System.Drawing.Point(410, 119);
+            this.dateTimePickerToDate.Location = new System.Drawing.Point(359, 89);
+            this.dateTimePickerToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerToDate.Name = "dateTimePickerToDate";
-            this.dateTimePickerToDate.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePickerToDate.Size = new System.Drawing.Size(219, 23);
             this.dateTimePickerToDate.TabIndex = 19;
             // 
             // materialButtonShowAll
@@ -235,8 +245,8 @@
             this.materialButtonShowAll.Depth = 0;
             this.materialButtonShowAll.HighEmphasis = true;
             this.materialButtonShowAll.Icon = null;
-            this.materialButtonShowAll.Location = new System.Drawing.Point(1130, 112);
-            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButtonShowAll.Location = new System.Drawing.Point(989, 84);
+            this.materialButtonShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonShowAll.Name = "materialButtonShowAll";
             this.materialButtonShowAll.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -255,7 +265,7 @@
             this.labelReceivedStockCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelReceivedStockCount.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
             this.labelReceivedStockCount.HighEmphasis = true;
-            this.labelReceivedStockCount.Location = new System.Drawing.Point(82, 74);
+            this.labelReceivedStockCount.Location = new System.Drawing.Point(72, 56);
             this.labelReceivedStockCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelReceivedStockCount.Name = "labelReceivedStockCount";
             this.labelReceivedStockCount.Size = new System.Drawing.Size(26, 17);
@@ -266,9 +276,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(608, 301);
+            this.label4.Location = new System.Drawing.Point(532, 226);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(251, 28);
+            this.label4.Size = new System.Drawing.Size(201, 21);
             this.label4.TabIndex = 33;
             this.label4.Text = "List of Received Stock Items";
             // 
@@ -287,11 +297,12 @@
             this.materialComboBoxItemCategory.Hint = "Search by Item Category";
             this.materialComboBoxItemCategory.IntegralHeight = false;
             this.materialComboBoxItemCategory.ItemHeight = 43;
-            this.materialComboBoxItemCategory.Location = new System.Drawing.Point(691, 111);
+            this.materialComboBoxItemCategory.Location = new System.Drawing.Point(605, 83);
+            this.materialComboBoxItemCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.materialComboBoxItemCategory.MaxDropDownItems = 4;
             this.materialComboBoxItemCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxItemCategory.Name = "materialComboBoxItemCategory";
-            this.materialComboBoxItemCategory.Size = new System.Drawing.Size(257, 49);
+            this.materialComboBoxItemCategory.Size = new System.Drawing.Size(225, 49);
             this.materialComboBoxItemCategory.StartIndex = 0;
             this.materialComboBoxItemCategory.TabIndex = 51;
             // 
@@ -302,7 +313,7 @@
             this.SwitchFilterControl.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SwitchFilterControl.Depth = 0;
             this.SwitchFilterControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SwitchFilterControl.Location = new System.Drawing.Point(21, 62);
+            this.SwitchFilterControl.Location = new System.Drawing.Point(18, 46);
             this.SwitchFilterControl.Margin = new System.Windows.Forms.Padding(0);
             this.SwitchFilterControl.MouseLocation = new System.Drawing.Point(-1, -1);
             this.SwitchFilterControl.MouseState = MaterialSkin.MouseState.HOVER;
@@ -320,7 +331,7 @@
             this.SwitchCaptionControl.Depth = 0;
             this.SwitchCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.SwitchCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SwitchCaptionControl.Location = new System.Drawing.Point(34, 37);
+            this.SwitchCaptionControl.Location = new System.Drawing.Point(30, 28);
             this.SwitchCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SwitchCaptionControl.Name = "SwitchCaptionControl";
             this.SwitchCaptionControl.Size = new System.Drawing.Size(167, 17);
@@ -331,9 +342,10 @@
             // 
             this.buttonResetCatrgotyFilter.BackColor = System.Drawing.SystemColors.Window;
             this.buttonResetCatrgotyFilter.Image = global::FPIS.Properties.Resources.reset_icon1;
-            this.buttonResetCatrgotyFilter.Location = new System.Drawing.Point(948, 111);
+            this.buttonResetCatrgotyFilter.Location = new System.Drawing.Point(830, 83);
+            this.buttonResetCatrgotyFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonResetCatrgotyFilter.Name = "buttonResetCatrgotyFilter";
-            this.buttonResetCatrgotyFilter.Size = new System.Drawing.Size(49, 49);
+            this.buttonResetCatrgotyFilter.Size = new System.Drawing.Size(43, 37);
             this.buttonResetCatrgotyFilter.TabIndex = 54;
             this.buttonResetCatrgotyFilter.UseVisualStyleBackColor = false;
             this.buttonResetCatrgotyFilter.Click += new System.EventHandler(this.buttonResetCatrgotyFilter_Click);
@@ -351,9 +363,11 @@
             this.groupBox1.Controls.Add(this.dateTimePickerToDate);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.materialButtonShowAll);
-            this.groupBox1.Location = new System.Drawing.Point(144, 102);
+            this.groupBox1.Location = new System.Drawing.Point(126, 76);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1257, 190);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1100, 142);
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Filters";
@@ -361,15 +375,15 @@
             // labelItemCategoryError
             // 
             this.labelItemCategoryError.AutoSize = true;
-            this.labelItemCategoryError.Location = new System.Drawing.Point(691, 162);
+            this.labelItemCategoryError.Location = new System.Drawing.Point(605, 122);
             this.labelItemCategoryError.Name = "labelItemCategoryError";
-            this.labelItemCategoryError.Size = new System.Drawing.Size(50, 20);
+            this.labelItemCategoryError.Size = new System.Drawing.Size(38, 15);
             this.labelItemCategoryError.TabIndex = 55;
             this.labelItemCategoryError.Text = "label5";
             // 
             // UserControlViewReceivedStocks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
@@ -377,8 +391,9 @@
             this.Controls.Add(this.dataGridViewReceivedStock);
             this.Controls.Add(this.materialButtonPrintReceivedStock);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlViewReceivedStocks";
-            this.Size = new System.Drawing.Size(1692, 939);
+            this.Size = new System.Drawing.Size(1480, 704);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReceivedStock)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
