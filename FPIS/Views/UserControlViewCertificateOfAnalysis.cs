@@ -100,7 +100,7 @@ namespace FPIS.Views
                 var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
                                        orderby FinishedProduct.Date
                                        from Designation in dbContext.Designations
-                                       where Designation.DesignationName == "Quality Control Manager"
+                                       where Designation.DesignationName.ToLower().Trim() == "quality control manager"
                                        from User in dbContext.Users
                                        where User.DesignationId == Designation.Id 
                                        select new
