@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1F8E0670-7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FPIS_TEST", "..\test\FPIS_TEST\FPIS_TEST.csproj", "{C56512B7-D360-4A24-AEE1-76685998F227}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "..\reports\Reports\Reports\Reports.csproj", "{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reporting", "..\Reporting\Reporting.csproj", "{EC906F29-3057-4985-A473-E1EDD517E758}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,10 @@ Global
 		{C56512B7-D360-4A24-AEE1-76685998F227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C56512B7-D360-4A24-AEE1-76685998F227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C56512B7-D360-4A24-AEE1-76685998F227}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E5172DF-AE8A-4356-8B1A-82A188F2B4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC906F29-3057-4985-A473-E1EDD517E758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC906F29-3057-4985-A473-E1EDD517E758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC906F29-3057-4985-A473-E1EDD517E758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC906F29-3057-4985-A473-E1EDD517E758}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

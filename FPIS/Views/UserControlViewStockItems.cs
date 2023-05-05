@@ -1,7 +1,7 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
-using FPISReports.Datasets;
-using FPISReports.ReportViews;
+using Reporting.Datasets;
+using Reporting.ReportViews;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
