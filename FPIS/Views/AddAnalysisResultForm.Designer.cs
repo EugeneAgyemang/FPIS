@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAnalysisResultForm));
             this.labelAnalysisType = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisItemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parameterValuesDataGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productOrWaterIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisResultSampleDetailBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,11 +51,6 @@
             this.parameterValuesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialButtonGenerateResult = new MaterialSkin.Controls.MaterialButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.analysisItemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.parameterValuesDataGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productOrWaterIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisResultSampleDetailBindingItemBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,6 +90,51 @@
             this.dataGridView1.Size = new System.Drawing.Size(715, 157);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn1.Width = 325;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // analysisItemIdDataGridViewTextBoxColumn
+            // 
+            this.analysisItemIdDataGridViewTextBoxColumn.DataPropertyName = "AnalysisItemId";
+            this.analysisItemIdDataGridViewTextBoxColumn.HeaderText = "AnalysisItemId";
+            this.analysisItemIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.analysisItemIdDataGridViewTextBoxColumn.Name = "analysisItemIdDataGridViewTextBoxColumn";
+            this.analysisItemIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.analysisItemIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // parameterValuesDataGridViewColumn
+            // 
+            this.parameterValuesDataGridViewColumn.DataPropertyName = "ParameterValues";
+            this.parameterValuesDataGridViewColumn.HeaderText = "Parameter Results";
+            this.parameterValuesDataGridViewColumn.MinimumWidth = 8;
+            this.parameterValuesDataGridViewColumn.Name = "parameterValuesDataGridViewColumn";
+            this.parameterValuesDataGridViewColumn.ReadOnly = true;
+            this.parameterValuesDataGridViewColumn.Width = 326;
+            // 
+            // productOrWaterIdDataGridViewTextBoxColumn
+            // 
+            this.productOrWaterIdDataGridViewTextBoxColumn.DataPropertyName = "ProductOrWaterId";
+            this.productOrWaterIdDataGridViewTextBoxColumn.HeaderText = "ProductOrWaterId";
+            this.productOrWaterIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productOrWaterIdDataGridViewTextBoxColumn.Name = "productOrWaterIdDataGridViewTextBoxColumn";
+            this.productOrWaterIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productOrWaterIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // analysisResultSampleDetailBindingItemBindingSource
             // 
@@ -242,51 +288,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Click on any cell in the parameter results column to add results";
             // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn1.Width = 325;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // analysisItemIdDataGridViewTextBoxColumn
-            // 
-            this.analysisItemIdDataGridViewTextBoxColumn.DataPropertyName = "AnalysisItemId";
-            this.analysisItemIdDataGridViewTextBoxColumn.HeaderText = "AnalysisItemId";
-            this.analysisItemIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.analysisItemIdDataGridViewTextBoxColumn.Name = "analysisItemIdDataGridViewTextBoxColumn";
-            this.analysisItemIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.analysisItemIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // parameterValuesDataGridViewColumn
-            // 
-            this.parameterValuesDataGridViewColumn.DataPropertyName = "ParameterValues";
-            this.parameterValuesDataGridViewColumn.HeaderText = "Parameter Results";
-            this.parameterValuesDataGridViewColumn.MinimumWidth = 8;
-            this.parameterValuesDataGridViewColumn.Name = "parameterValuesDataGridViewColumn";
-            this.parameterValuesDataGridViewColumn.ReadOnly = true;
-            this.parameterValuesDataGridViewColumn.Width = 326;
-            // 
-            // productOrWaterIdDataGridViewTextBoxColumn
-            // 
-            this.productOrWaterIdDataGridViewTextBoxColumn.DataPropertyName = "ProductOrWaterId";
-            this.productOrWaterIdDataGridViewTextBoxColumn.HeaderText = "ProductOrWaterId";
-            this.productOrWaterIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.productOrWaterIdDataGridViewTextBoxColumn.Name = "productOrWaterIdDataGridViewTextBoxColumn";
-            this.productOrWaterIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productOrWaterIdDataGridViewTextBoxColumn.Visible = false;
-            // 
             // AddAnalysisResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -297,6 +298,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.Name = "AddAnalysisResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

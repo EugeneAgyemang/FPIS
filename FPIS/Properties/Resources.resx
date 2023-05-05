@@ -127,9 +127,6 @@
   <data name="menu_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="done_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\done_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="consume_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\consume_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,14 +157,29 @@
   <data name="dash_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dash_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="admin_panel_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\admin_panel_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="results_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\results_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="show-password" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\show-password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="prod_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prod_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="done_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\done_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sample_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sample_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="users_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="procurement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\procurement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,22 +187,13 @@
   <data name="not_done_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\not_done_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="show-password" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\show-password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="minimize_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="admin_panel_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\admin_panel_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="close_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="results_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\results_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sample_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sample_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="users_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\users_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fpis_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fpis_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

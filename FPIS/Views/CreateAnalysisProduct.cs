@@ -78,12 +78,17 @@ namespace FPIS.Views
                     icon: MessageBoxIcon.Information
                     );
 
-                Close();
+                ClearFormFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error ${ex}");
             }
+        }
+
+        public void ClearFormFields()
+        {
+            materialComboBoxProducts.Text = string.Empty;
         }
     }
 }

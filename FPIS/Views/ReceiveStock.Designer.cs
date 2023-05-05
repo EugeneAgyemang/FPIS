@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiveStock));
             this.materialComboBoxStockItem = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTextBoxQuantityReceived = new MaterialSkin.Controls.MaterialTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -107,7 +108,7 @@
             this.btnAddReceivedStock.HighEmphasis = true;
             this.btnAddReceivedStock.Icon = null;
             this.btnAddReceivedStock.Location = new System.Drawing.Point(139, 400);
-            this.btnAddReceivedStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddReceivedStock.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddReceivedStock.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddReceivedStock.Name = "btnAddReceivedStock";
             this.btnAddReceivedStock.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -149,6 +150,7 @@
             this.Controls.Add(this.dateTimePickerExpiryDate);
             this.Controls.Add(this.materialTextBoxQuantityReceived);
             this.Controls.Add(this.materialComboBoxStockItem);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ReceiveStock";
             this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);

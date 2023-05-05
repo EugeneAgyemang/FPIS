@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateWaterParameter));
             this.ParameterNameControl = new MaterialSkin.Controls.MaterialTextBox();
             this.ParameterControlLimitControl = new MaterialSkin.Controls.MaterialTextBox();
             this.SaveParameterControl = new MaterialSkin.Controls.MaterialButton();
@@ -190,6 +191,7 @@
             this.Controls.Add(this.SaveParameterControl);
             this.Controls.Add(this.ParameterControlLimitControl);
             this.Controls.Add(this.ParameterNameControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateWaterParameter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Water Parameter";

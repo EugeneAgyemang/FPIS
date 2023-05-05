@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateProductParameter));
             this.ParameterNameControl = new MaterialSkin.Controls.MaterialTextBox();
             this.ParameterMethodControl = new MaterialSkin.Controls.MaterialTextBox();
             this.ParameterSpecificationControl = new MaterialSkin.Controls.MaterialTextBox();
@@ -225,6 +226,7 @@
             this.Controls.Add(this.ParameterMethodControl);
             this.Controls.Add(this.ParameterNameControl);
             this.ForeColor = System.Drawing.Color.Red;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateProductParameter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Product Parameter";

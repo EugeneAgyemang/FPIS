@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectAnalysisTypeForm));
             this.materialComboBoxAnalysisType = new MaterialSkin.Controls.MaterialComboBox();
             this.materialButtonContinue = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
@@ -86,6 +87,7 @@
             this.ClientSize = new System.Drawing.Size(500, 180);
             this.Controls.Add(this.materialButtonContinue);
             this.Controls.Add(this.materialComboBoxAnalysisType);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SelectAnalysisTypeForm";
             this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);

@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRawMaterialsAnalysisSampleForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdAsStr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialProcuredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,8 @@
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AnalysisStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
@@ -80,14 +81,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1200, 260);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // analysisRawMaterialsSampleBindingItemBindingSource
-            // 
-            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
-            // 
-            // analysisSampleBindingItemBindingSource
-            // 
-            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // DateAdded
             // 
@@ -205,12 +198,21 @@
             this.Lot.ReadOnly = true;
             this.Lot.Width = 114;
             // 
+            // analysisRawMaterialsSampleBindingItemBindingSource
+            // 
+            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
+            // 
+            // analysisSampleBindingItemBindingSource
+            // 
+            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
+            // 
             // AddRawMaterialsAnalysisSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 350);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "AddRawMaterialsAnalysisSampleForm";

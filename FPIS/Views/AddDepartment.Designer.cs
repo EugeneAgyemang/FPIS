@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDepartment));
             this.btnAddDepartment = new MaterialSkin.Controls.MaterialButton();
             this.materialTextBoxDepartmentName = new MaterialSkin.Controls.MaterialTextBox();
             this.labelDepartmentName = new System.Windows.Forms.Label();
@@ -90,6 +91,7 @@
             this.Controls.Add(this.labelDepartmentName);
             this.Controls.Add(this.materialTextBoxDepartmentName);
             this.Controls.Add(this.btnAddDepartment);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddDepartment";
             this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);

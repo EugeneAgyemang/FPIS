@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateStockItem));
             this.materialTextBoxStockItemName = new MaterialSkin.Controls.MaterialTextBox();
             this.labelStockItemName = new System.Windows.Forms.Label();
             this.materialComboBoxStockItemType = new MaterialSkin.Controls.MaterialComboBox();
@@ -105,7 +106,7 @@
             this.btnCreateStockItem.HighEmphasis = true;
             this.btnCreateStockItem.Icon = null;
             this.btnCreateStockItem.Location = new System.Drawing.Point(143, 411);
-            this.btnCreateStockItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateStockItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateStockItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCreateStockItem.Name = "btnCreateStockItem";
             this.btnCreateStockItem.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -184,6 +185,7 @@
             this.Controls.Add(this.labelUnitOfMeasurement);
             this.Controls.Add(this.labelStockItemName);
             this.Controls.Add(this.materialTextBoxStockItemName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CreateStockItem";
             this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);

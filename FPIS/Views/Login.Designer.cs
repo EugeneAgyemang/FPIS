@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.txtEmpId = new MaterialSkin.Controls.MaterialTextBox();
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
@@ -126,6 +127,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmpId);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_56;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

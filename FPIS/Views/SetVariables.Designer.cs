@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetVariables));
             this.materialTextBoxConcentrationOFNaOH = new MaterialSkin.Controls.MaterialTextBox();
             this.materialTextBoxNormalityOfNaSO = new MaterialSkin.Controls.MaterialTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -140,7 +141,7 @@
             this.materialButtonSetVariable.HighEmphasis = true;
             this.materialButtonSetVariable.Icon = null;
             this.materialButtonSetVariable.Location = new System.Drawing.Point(161, 359);
-            this.materialButtonSetVariable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialButtonSetVariable.Margin = new System.Windows.Forms.Padding(4);
             this.materialButtonSetVariable.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSetVariable.Name = "materialButtonSetVariable";
             this.materialButtonSetVariable.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -174,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 410);
+            this.ClientSize = new System.Drawing.Size(466, 449);
             this.Controls.Add(this.labelNaSOError);
             this.Controls.Add(this.labelNaOHError);
             this.Controls.Add(this.materialButtonSetVariable);
@@ -186,6 +187,7 @@
             this.Controls.Add(this.materialTextBoxNormalityOfNaSO);
             this.Controls.Add(this.materialTextBoxConcentrationOFNaOH);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
