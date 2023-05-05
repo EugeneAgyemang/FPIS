@@ -77,14 +77,17 @@ namespace FPIS.Views
                     "Success",
                     icon: MessageBoxIcon.Information
                     );
-
-                Close();
+                ClearFormFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error ${ex}");
             }
 
+        }
+        public void ClearFormFields()
+        {
+            materialComboBoxWater.Text = string.Empty;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateWaterForm));
             this.materialButtonCreateWater = new MaterialSkin.Controls.MaterialButton();
             this.materialTextBoxWaterName = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabelWaterNameError = new System.Windows.Forms.Label();
@@ -103,6 +104,7 @@
             this.Controls.Add(this.materialLabelWaterNameError);
             this.Controls.Add(this.materialButtonCreateWater);
             this.Controls.Add(this.materialTextBoxWaterName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CreateWaterForm";
             this.Padding = new System.Windows.Forms.Padding(2, 38, 2, 2);

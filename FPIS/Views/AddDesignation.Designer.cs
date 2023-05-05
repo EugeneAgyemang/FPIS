@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDesignation));
             this.materialComboBoxDepartmentName = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTextBoxDesignationName = new MaterialSkin.Controls.MaterialTextBox();
             this.btnAddDesignation = new MaterialSkin.Controls.MaterialButton();
@@ -126,6 +127,7 @@
             this.Controls.Add(this.btnAddDesignation);
             this.Controls.Add(this.materialTextBoxDesignationName);
             this.Controls.Add(this.materialComboBoxDepartmentName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddDesignation";
             this.Padding = new System.Windows.Forms.Padding(3, 48, 3, 2);

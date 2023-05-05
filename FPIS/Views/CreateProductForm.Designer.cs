@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateProductForm));
             this.materialButtonCreateProduct = new MaterialSkin.Controls.MaterialButton();
             this.materialComboBoxProductType = new MaterialSkin.Controls.MaterialComboBox();
             this.materialTextBoxProductName = new MaterialSkin.Controls.MaterialTextBox();
@@ -133,6 +134,7 @@
             this.Controls.Add(this.materialComboBoxProductType);
             this.Controls.Add(this.materialButtonCreateProduct);
             this.Font = new System.Drawing.Font("Roboto Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "CreateProductForm";
             this.Padding = new System.Windows.Forms.Padding(4, 64, 4, 3);

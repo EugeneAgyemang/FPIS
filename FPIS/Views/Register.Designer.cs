@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.labelConfirmPassword = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelLastName = new System.Windows.Forms.Label();
@@ -286,6 +287,7 @@
             this.Controls.Add(this.materialTextBoxFirstName);
             this.Controls.Add(this.materialTextBoxEmployeeId);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_56;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

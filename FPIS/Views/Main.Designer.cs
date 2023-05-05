@@ -28,6 +28,7 @@ namespace FPIS.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.TitleBarControl = new System.Windows.Forms.Panel();
             this.FujiOilLogoSmallControl = new System.Windows.Forms.PictureBox();
             this.WindowStateHandlerControl = new System.Windows.Forms.Panel();
@@ -1183,6 +1184,7 @@ namespace FPIS.Views
             this.Controls.Add(this.NavigationDrawerControl);
             this.Controls.Add(this.TitleBarControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Screen";
