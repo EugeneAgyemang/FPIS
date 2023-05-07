@@ -17,9 +17,13 @@ namespace FPIS.Models
         public string TruckNumber { get; set; }
         public int Quantity { get; set; }
         public string Units { get; set; }
+        public string GrossWeight { get; set; }
+        public string NetWeight { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
 
         // Navigation Properties
-        
+
         public Guid MaterialProcurementId { get; set; }
         [ForeignKey("MaterialProcurementId")]
         public MaterialProcurement MaterialProcurement { get; set; }
