@@ -95,7 +95,7 @@ namespace FPIS.Views
                 return;
             }
             string selectItemColumnValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            string itemId = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string itemId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
             // only react if the user clicked on the select item column
             if (e.ColumnIndex != 2)
