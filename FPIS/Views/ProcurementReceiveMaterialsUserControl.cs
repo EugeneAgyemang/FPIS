@@ -656,7 +656,6 @@ namespace FPIS.Views
             string selectedItem = ViewSampleRequestedControl.Text;
             samplesRequested.Clear();
             ViewSampleRequestedControl.Items.Clear();
-            JsonParser.CreateDirectory(DIRECTORY_NAME);
             FileInfo[] allFiles = JsonParser.GetFiles(Path.Combine(DIRECTORY_NAME));
             List<FileInfo> files = new List<FileInfo>();
             foreach (FileInfo file in allFiles)
