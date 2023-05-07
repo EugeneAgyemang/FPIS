@@ -65,6 +65,7 @@ namespace FPIS.Views
             this.QualityControl_AddSampleResultControl = new System.Windows.Forms.Button();
             this.QualityControlCaptionControl = new System.Windows.Forms.Button();
             this.ReportsSectionControl = new System.Windows.Forms.Panel();
+            this.ReportsSection_ViewSampleResultsControl = new System.Windows.Forms.Button();
             this.ReportsSection_OpenProductsControl = new System.Windows.Forms.Button();
             this.ReportsSection_OpenStockReportControl = new System.Windows.Forms.Button();
             this.ReportsSection_OpenAnalyticalResultsControl = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@ namespace FPIS.Views
             this.ConsumbalesSection_AddStockItemControl = new System.Windows.Forms.Button();
             this.ConsumbalesSectionCaptionControl = new System.Windows.Forms.Button();
             this.ProductionSectionControl = new System.Windows.Forms.Panel();
+            this.ProductionSection_UpdateProductParameterControl = new System.Windows.Forms.Button();
             this.ProductionSection_CreateAnalysisProductControl = new System.Windows.Forms.Button();
             this.ProductionSection_ViewProductionRemarkControl = new System.Windows.Forms.Button();
             this.ProductionSection_CreateProductParameterControl = new System.Windows.Forms.Button();
@@ -248,7 +250,7 @@ namespace FPIS.Views
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddDepartment);
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddUsers);
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSectionCaptionControl);
-            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2058);
+            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2158);
             this.AdminPanelSectionControl.Name = "AdminPanelSectionControl";
             this.AdminPanelSectionControl.Size = new System.Drawing.Size(190, 200);
             this.AdminPanelSectionControl.TabIndex = 9;
@@ -327,7 +329,7 @@ namespace FPIS.Views
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_IssueMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
-            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1857);
+            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 1957);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
             this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 200);
             this.ProcurementSectionControl.TabIndex = 8;
@@ -404,7 +406,7 @@ namespace FPIS.Views
             // 
             this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2259);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2359);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 169);
             this.SettingsSectionControl.TabIndex = 7;
@@ -461,7 +463,7 @@ namespace FPIS.Views
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_ViewSampleResultsControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddSampleResultControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControlCaptionControl);
-            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 554);
+            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 604);
             this.QualityControlSectionControl.Name = "QualityControlSectionControl";
             this.QualityControlSectionControl.Size = new System.Drawing.Size(190, 551);
             this.QualityControlSectionControl.TabIndex = 3;
@@ -648,16 +650,33 @@ namespace FPIS.Views
             // 
             // ReportsSectionControl
             // 
+            this.ReportsSectionControl.Controls.Add(this.ReportsSection_ViewSampleResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenProductsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenStockReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
-            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1607);
+            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1657);
             this.ReportsSectionControl.Name = "ReportsSectionControl";
-            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 249);
+            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
             this.ReportsSectionControl.TabIndex = 6;
             this.ReportsSectionControl.Tag = "5";
+            // 
+            // ReportsSection_ViewSampleResultsControl
+            // 
+            this.ReportsSection_ViewSampleResultsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ReportsSection_ViewSampleResultsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportsSection_ViewSampleResultsControl.FlatAppearance.BorderSize = 0;
+            this.ReportsSection_ViewSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportsSection_ViewSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReportsSection_ViewSampleResultsControl.ForeColor = System.Drawing.Color.White;
+            this.ReportsSection_ViewSampleResultsControl.Location = new System.Drawing.Point(5, 250);
+            this.ReportsSection_ViewSampleResultsControl.Name = "ReportsSection_ViewSampleResultsControl";
+            this.ReportsSection_ViewSampleResultsControl.Size = new System.Drawing.Size(180, 50);
+            this.ReportsSection_ViewSampleResultsControl.TabIndex = 6;
+            this.ReportsSection_ViewSampleResultsControl.Text = "View Sample Results";
+            this.ReportsSection_ViewSampleResultsControl.UseVisualStyleBackColor = false;
+            this.ReportsSection_ViewSampleResultsControl.Click += new System.EventHandler(this.ReportsSection_ViewSampleResultsControl_Click);
             // 
             // ReportsSection_OpenProductsControl
             // 
@@ -747,7 +766,7 @@ namespace FPIS.Views
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_ViewCertificateOfAnalysisControl);
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_AddFinishedProductControl);
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProductsCaptionControl);
-            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 1104);
+            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 1154);
             this.FinishedProductsSectionControl.Name = "FinishedProductsSectionControl";
             this.FinishedProductsSectionControl.Size = new System.Drawing.Size(190, 150);
             this.FinishedProductsSectionControl.TabIndex = 4;
@@ -813,7 +832,7 @@ namespace FPIS.Views
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewStockItemControl);
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddStockItemControl);
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSectionCaptionControl);
-            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 1255);
+            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 1305);
             this.ConsumablesSectionControl.Name = "ConsumablesSectionControl";
             this.ConsumablesSectionControl.Size = new System.Drawing.Size(190, 351);
             this.ConsumablesSectionControl.TabIndex = 5;
@@ -936,6 +955,7 @@ namespace FPIS.Views
             // 
             // ProductionSectionControl
             // 
+            this.ProductionSectionControl.Controls.Add(this.ProductionSection_UpdateProductParameterControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_CreateAnalysisProductControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_ViewProductionRemarkControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_CreateProductParameterControl);
@@ -948,9 +968,25 @@ namespace FPIS.Views
             this.ProductionSectionControl.Controls.Add(this.ProductionSectionCaptionControl);
             this.ProductionSectionControl.Location = new System.Drawing.Point(6, 52);
             this.ProductionSectionControl.Name = "ProductionSectionControl";
-            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 502);
+            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 552);
             this.ProductionSectionControl.TabIndex = 2;
             this.ProductionSectionControl.Tag = "1";
+            // 
+            // ProductionSection_UpdateProductParameterControl
+            // 
+            this.ProductionSection_UpdateProductParameterControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProductionSection_UpdateProductParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProductionSection_UpdateProductParameterControl.FlatAppearance.BorderSize = 0;
+            this.ProductionSection_UpdateProductParameterControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductionSection_UpdateProductParameterControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_UpdateProductParameterControl.ForeColor = System.Drawing.Color.White;
+            this.ProductionSection_UpdateProductParameterControl.Location = new System.Drawing.Point(5, 150);
+            this.ProductionSection_UpdateProductParameterControl.Name = "ProductionSection_UpdateProductParameterControl";
+            this.ProductionSection_UpdateProductParameterControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_UpdateProductParameterControl.TabIndex = 8;
+            this.ProductionSection_UpdateProductParameterControl.Text = "Update Product Parameter";
+            this.ProductionSection_UpdateProductParameterControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_UpdateProductParameterControl.Click += new System.EventHandler(this.ProductionSection_UpdateProductParameterControl_Click);
             // 
             // ProductionSection_CreateAnalysisProductControl
             // 
@@ -960,7 +996,7 @@ namespace FPIS.Views
             this.ProductionSection_CreateAnalysisProductControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CreateAnalysisProductControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CreateAnalysisProductControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CreateAnalysisProductControl.Location = new System.Drawing.Point(5, 150);
+            this.ProductionSection_CreateAnalysisProductControl.Location = new System.Drawing.Point(5, 200);
             this.ProductionSection_CreateAnalysisProductControl.Name = "ProductionSection_CreateAnalysisProductControl";
             this.ProductionSection_CreateAnalysisProductControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_CreateAnalysisProductControl.TabIndex = 4;
@@ -976,7 +1012,7 @@ namespace FPIS.Views
             this.ProductionSection_ViewProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 450);
+            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 500);
             this.ProductionSection_ViewProductionRemarkControl.Name = "ProductionSection_ViewProductionRemarkControl";
             this.ProductionSection_ViewProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewProductionRemarkControl.TabIndex = 7;
@@ -1008,7 +1044,7 @@ namespace FPIS.Views
             this.ProductionSection_AddProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_AddProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 400);
+            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 450);
             this.ProductionSection_AddProductionRemarkControl.Name = "ProductionSection_AddProductionRemarkControl";
             this.ProductionSection_AddProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_AddProductionRemarkControl.TabIndex = 6;
@@ -1024,7 +1060,7 @@ namespace FPIS.Views
             this.ProductionSection_CheckAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CheckAnalyticalResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CheckAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 350);
+            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 400);
             this.ProductionSection_CheckAnalyticalResultsControl.Name = "ProductionSection_CheckAnalyticalResultsControl";
             this.ProductionSection_CheckAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_CheckAnalyticalResultsControl.TabIndex = 5;
@@ -1040,7 +1076,7 @@ namespace FPIS.Views
             this.ProductionSection_ViewSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewSampleControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewSampleControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewSampleControl.Location = new System.Drawing.Point(5, 300);
+            this.ProductionSection_ViewSampleControl.Location = new System.Drawing.Point(5, 350);
             this.ProductionSection_ViewSampleControl.Name = "ProductionSection_ViewSampleControl";
             this.ProductionSection_ViewSampleControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewSampleControl.TabIndex = 4;
@@ -1056,7 +1092,7 @@ namespace FPIS.Views
             this.ProductionSection_AddSampleControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_AddSampleControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddSampleControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddSampleControl.Location = new System.Drawing.Point(5, 250);
+            this.ProductionSection_AddSampleControl.Location = new System.Drawing.Point(5, 300);
             this.ProductionSection_AddSampleControl.Name = "ProductionSection_AddSampleControl";
             this.ProductionSection_AddSampleControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_AddSampleControl.TabIndex = 3;
@@ -1072,7 +1108,7 @@ namespace FPIS.Views
             this.ProductionSection_ViewProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewProductsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductsControl.Location = new System.Drawing.Point(5, 200);
+            this.ProductionSection_ViewProductsControl.Location = new System.Drawing.Point(5, 250);
             this.ProductionSection_ViewProductsControl.Name = "ProductionSection_ViewProductsControl";
             this.ProductionSection_ViewProductsControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewProductsControl.TabIndex = 2;
@@ -1281,5 +1317,7 @@ namespace FPIS.Views
         private Button AdminPanelSection_AddDepartment;
         private Button AdminPanelSection_AddUsers;
         private Button AdminPanelSection_AddDesignation;
+        private Button ReportsSection_ViewSampleResultsControl;
+        private Button ProductionSection_UpdateProductParameterControl;
     }
 }
