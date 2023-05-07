@@ -579,8 +579,7 @@ namespace FPIS.Views
 
         private void ProductionSection_UpdateProductParameterControl_Click(object sender, EventArgs e)
         {
-            // TODO: Replace the USerControl with your user control name. Remove this comment when you're done please
-            AddUserControlToMainContainerControl(new UserControl(), (Button)sender);
+            OpenModal(new Form(), (Button)sender);
         }
     }
 }
