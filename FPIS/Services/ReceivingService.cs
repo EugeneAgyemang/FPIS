@@ -22,7 +22,11 @@ namespace FPIS.Services
                 TruckNumber = materialReceived.TruckNumber,
                 Quantity = materialReceived.Quantity,
                 Units = materialReceived.Units,
-                MaterialProcurementId = materialReceived.MaterialProcurementId
+                MaterialProcurementId = materialReceived.MaterialProcurementId,
+                Country= materialReceived.Country,
+                City = materialReceived.City,
+                GrossWeight= materialReceived.GrossWeight,
+                NetWeight= materialReceived.NetWeight
             };
             appDbContext.Add(_materialReceived);
             appDbContext.SaveChanges();
