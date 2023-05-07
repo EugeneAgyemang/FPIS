@@ -152,7 +152,7 @@ namespace FPIS.Views
 
         public void ValidateNewControlLimit(float newControlLimit, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
-            if (newControlLimit < 1)
+            if (newControlLimit <= 0)
             {
                 DisplayErrorMessage(NewControlLimitErrorControl, ref shouldSave, ref isErrorMessageDisplayed);
             }

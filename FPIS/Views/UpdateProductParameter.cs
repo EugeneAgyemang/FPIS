@@ -152,7 +152,7 @@ namespace FPIS.Views
 
         public void ValidateNewSpecification(float newSpecification, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
-            if (newSpecification < 1)
+            if (newSpecification <= 0)
             {
                 DisplayErrorMessage(NewSpecificationErrorControl, ref shouldSave, ref isErrorMessageDisplayed);
             }
