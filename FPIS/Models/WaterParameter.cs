@@ -22,5 +22,10 @@ namespace FPIS.Models
         [ForeignKey("WaterId")]
         public Water Water { get; set; }
         public List<WaterAnalysisParameter> WaterAnalysisParameters { get; set; }
+
+        public override string ToString()
+        {
+            return ParameterName;
+        }
     }
 }

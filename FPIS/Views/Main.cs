@@ -584,7 +584,7 @@ namespace FPIS.Views
 
         private void QualityControl_UpdateWaterParameterControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new Form(), (Button)sender);
+            OpenModal(new UpdateWaterParameter(), (Button)sender);
         }
     }
 }
