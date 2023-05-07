@@ -31,7 +31,6 @@ namespace FPIS.Views
         {
             labelDepartmentName.Text = "";
             labelDesignation.Text = "";
-            materialComboBoxDepartmentName.SelectedIndex = -1;
         }
         private void ValidateDesignationName()
         {
