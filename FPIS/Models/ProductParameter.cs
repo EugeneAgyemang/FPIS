@@ -19,5 +19,10 @@ namespace FPIS.Models
         public Product Product { get; set; }
         public List<ProductAnalysisParameter> ProductAnalysisParameters { get; set; }
         public List<ProcurementParameter> ProcurementParameters { get; set; }
+
+        public override string ToString()
+        {
+            return ParameterName;
+        }
     }
 }

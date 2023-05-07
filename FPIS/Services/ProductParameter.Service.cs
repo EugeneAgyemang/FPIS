@@ -54,5 +54,22 @@ namespace FPIS.Services
             appDbContext.SaveChanges();
             return productParameter;
         }
+
+        public List<ProductParameter> GetProductParameters(Guid productId)
+        {
+            return appDbContext.ProductParameters
+                        .Where(productParameter => productParameter.ProductId == productId)
+                        .ToList();
+        }
+
+        public ProductParameter UpdateParameterSpecification(Guid parameterId, float newSpecification)
+        {
+            ProductParameter productParameter = appDbContext.ProductParameters
+                                                                .FirstOrDefault(productParameter => productParameter.Id == parameterId);
+            productParameter.Specification = newSpecification;
+            appDbContext.Update(productParameter);
+            appDbContext.SaveChanges();
+            return productParameter;
+        }
     }
 }

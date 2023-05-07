@@ -570,5 +570,21 @@ namespace FPIS.Views
                 }
             }
         }
+
+        private void ReportsSection_ViewSampleResultsControl_Click(object sender, EventArgs e)
+        {
+            // TODO: Replace the USerControl with your user control name. Remove this comment when you're done please
+            AddUserControlToMainContainerControl(new UserControl(), (Button)sender);
+        }
+
+        private void ProductionSection_UpdateProductParameterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new UpdateProductParameter(), (Button)sender);
+        }
+
+        private void QualityControl_UpdateWaterParameterControl_Click(object sender, EventArgs e)
+        {
+            OpenModal(new UpdateWaterParameter(), (Button)sender);
+        }
     }
 }
