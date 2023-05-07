@@ -579,7 +579,7 @@ namespace FPIS.Views
 
         private void ProductionSection_UpdateProductParameterControl_Click(object sender, EventArgs e)
         {
-            OpenModal(new Form(), (Button)sender);
+            OpenModal(new UpdateProductParameter(), (Button)sender);
         }
 
         private void QualityControl_UpdateWaterParameterControl_Click(object sender, EventArgs e)

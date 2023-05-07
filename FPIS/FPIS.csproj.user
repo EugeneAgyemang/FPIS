@@ -74,6 +74,9 @@
     <Compile Update="Views\Startup.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UpdateProductParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\UserControlAddFinishedProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
