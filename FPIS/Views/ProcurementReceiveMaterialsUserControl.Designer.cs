@@ -223,6 +223,64 @@
             this.ReceivingSectionControl.Size = new System.Drawing.Size(451, 680);
             this.ReceivingSectionControl.TabIndex = 0;
             // 
+            // NetWeightErrorControl
+            // 
+            this.NetWeightErrorControl.AutoSize = true;
+            this.NetWeightErrorControl.ForeColor = System.Drawing.Color.Red;
+            this.NetWeightErrorControl.Location = new System.Drawing.Point(3, 636);
+            this.NetWeightErrorControl.Name = "NetWeightErrorControl";
+            this.NetWeightErrorControl.Size = new System.Drawing.Size(0, 15);
+            this.NetWeightErrorControl.TabIndex = 31;
+            this.NetWeightErrorControl.Tag = "";
+            // 
+            // GrossWeightErrorControl
+            // 
+            this.GrossWeightErrorControl.AutoSize = true;
+            this.GrossWeightErrorControl.ForeColor = System.Drawing.Color.Red;
+            this.GrossWeightErrorControl.Location = new System.Drawing.Point(3, 544);
+            this.GrossWeightErrorControl.Name = "GrossWeightErrorControl";
+            this.GrossWeightErrorControl.Size = new System.Drawing.Size(0, 15);
+            this.GrossWeightErrorControl.TabIndex = 30;
+            this.GrossWeightErrorControl.Tag = "";
+            // 
+            // NetWeightControl
+            // 
+            this.NetWeightControl.AnimateReadOnly = false;
+            this.NetWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NetWeightControl.Depth = 0;
+            this.NetWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.NetWeightControl.Hint = "Net Weight (kg)";
+            this.NetWeightControl.LeadingIcon = null;
+            this.NetWeightControl.Location = new System.Drawing.Point(3, 583);
+            this.NetWeightControl.MaxLength = 50;
+            this.NetWeightControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.NetWeightControl.Multiline = false;
+            this.NetWeightControl.Name = "NetWeightControl";
+            this.NetWeightControl.Size = new System.Drawing.Size(400, 50);
+            this.NetWeightControl.TabIndex = 4;
+            this.NetWeightControl.Text = "";
+            this.NetWeightControl.TrailingIcon = null;
+            this.NetWeightControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityControl_KeyPress);
+            // 
+            // GrossWeightControl
+            // 
+            this.GrossWeightControl.AnimateReadOnly = false;
+            this.GrossWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GrossWeightControl.Depth = 0;
+            this.GrossWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GrossWeightControl.Hint = "Gross Weight (kg)";
+            this.GrossWeightControl.LeadingIcon = null;
+            this.GrossWeightControl.Location = new System.Drawing.Point(3, 493);
+            this.GrossWeightControl.MaxLength = 50;
+            this.GrossWeightControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.GrossWeightControl.Multiline = false;
+            this.GrossWeightControl.Name = "GrossWeightControl";
+            this.GrossWeightControl.Size = new System.Drawing.Size(400, 50);
+            this.GrossWeightControl.TabIndex = 3;
+            this.GrossWeightControl.Text = "";
+            this.GrossWeightControl.TrailingIcon = null;
+            this.GrossWeightControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityControl_KeyPress);
+            // 
             // SyncControl
             // 
             this.SyncControl.Cursor = System.Windows.Forms.Cursors.Hand;
