@@ -269,7 +269,7 @@ namespace FPIS.Views
                 $" made on {materialIssueSchema.SampleDetail.Sample.Date.ToLongDateString()}" +
                 $" at {materialIssueSchema.SampleDetail.Sample.Time.ToShortTimeString()}" +
                 $" - Status: ({materialIssueSchema.Status.ToUpper().Trim()})";
-            NoteControl.Text = $"You can only issue up to {(new AppDbContext().Receivings.FirstOrDefault(receiving => receiving.Id == materialIssueSchema.MaterialToBeIssued.Id).Quantity) - 1} " +
+            NoteControl.Text = $"You can only issue up to {new AppDbContext().Receivings.FirstOrDefault(receiving => receiving.Id == materialIssueSchema.MaterialToBeIssued.Id).Quantity} " +
                 $"{materialIssueSchema.MaterialToBeIssued.Units} of {productIssued}!\n\n" +
                 $"{((materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks != string.Empty) ? $"Here's some feedback the last time {productIssued} was received:\n{materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks} - " : "No remarks given by ")}" +
                 $"{new UserService(new()).GetFullName(materialIssueSchema.SampleDetail.Sample.UserId)}";
@@ -331,6 +331,12 @@ namespace FPIS.Views
         private void IssueMaterialsControl_Click(object sender, EventArgs e)
         {
             bool shouldSave = true;
+            shouldSave = CheckIssueQuantity();
+            if (!shouldSave)
+            {
+                IssueQuantityControl.Focus();
+                return;
+            }
             shouldSave = PerformValidations();
             if (!shouldSave)
             {
@@ -344,12 +350,6 @@ namespace FPIS.Views
                                                     , MessageBoxIcon.Question);
             if (userReponseToProceed != DialogResult.Yes)
             {
-                return;
-            }
-            shouldSave = CheckIssueQuantity();
-            if (!shouldSave)
-            {
-                IssueQuantityControl.Focus();
                 return;
             }
             MaterialProcurement materialProcured = SaveMaterialProcuredRecord();
@@ -366,7 +366,7 @@ namespace FPIS.Views
             int.TryParse(IssueQuantityControl.Text, out issueQuantity);
             MaterialIssueSchema materialIssueSchema = GetMaterialIssuedSchema();
             int actualQuantity = (new AppDbContext().Receivings.FirstOrDefault(receiving => receiving.Id == materialIssueSchema.MaterialToBeIssued.Id).Quantity);
-            if (issueQuantity >= actualQuantity)
+            if (issueQuantity > actualQuantity)
             {
                 Utils.Utils.ShowMessageBox("There isn't enough stock available to be issued!", "Issue Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
