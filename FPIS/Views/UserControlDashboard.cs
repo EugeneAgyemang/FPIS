@@ -161,33 +161,9 @@ namespace FPIS.Views
             item.FontType = MaterialSkinManager.fontType.Button;
             item.AutoSize = false;
             item.Size = new Size(492, 21);
-            item.Text = $"{TruncateLengthyText(productName)} {productCount}";
+            item.Text = $"{Utils.Utils.TruncateLengthyText(productName, 50)} {productCount}";
             helperToolTip.SetToolTip(item, productName);
             return item;
-        }
-
-        /// <summary>
-        /// Truncate the given text if it exceeds 50 characters.
-        /// </summary>
-        /// <param name="text">The original text to be checked</param>
-        /// <returns>The new text. WOuld only be the same as the original
-        /// text provided the original text has less than
-        /// 51 characters. Otherwise the truncated version of
-        /// text is returned</returns>
-        private string TruncateLengthyText(string text)
-        {
-            StringBuilder newText = new StringBuilder();
-            if (text.Length > 50)
-            {
-                newText.Append(text.Substring(0, 49));
-                newText.Append(text.Substring(0, 49));
-                newText.Append("...");
-            }
-            else
-            {
-                newText.Append(text);
-            }
-            return newText.ToString();
         }
 
         private void asyncLoader_Tick(object sender, EventArgs e)
