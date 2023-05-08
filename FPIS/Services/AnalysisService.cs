@@ -22,12 +22,73 @@ namespace FPIS.Services
             _dbContext = dbContext;
         }
 
-        public List<SampleResult> FetchSampleResults()
+        public List<SampleResult> FetchProductSampleResults()
         {
             return _dbContext.SampleResults
                 .OrderByDescending(s => s.Date)
                 .OrderByDescending(s => s.Time)
                 .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Production")
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
+        public List<SampleResult> FetchProductSampleResultsByDate(DateOnly fromDate, DateOnly toDate)
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Production")
+                .Where(sr => sr.Sample.Date >= fromDate && sr.Sample.Date <= toDate)
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
+        public List<SampleResult> FetchProductSampleResultsByTime(DateOnly fromDate, DateOnly toDate, TimeOnly fromTime, TimeOnly toTime)
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Production")
+                .Where(sr => sr.Sample.Date >= fromDate && sr.Sample.Date <= toDate)
+                .Where(sr => sr.Sample.Time >= fromTime && sr.Sample.Time <= toTime)
+                .Include(sr => sr.User)
+                .ToList();
+        }
+        public List<SampleResult> FetchWaterSampleResults()
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Water")
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
+        public List<SampleResult> FetchWaterSampleResultsByDate(DateOnly fromDate, DateOnly toDate)
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Water")
+                .Where(sr => sr.Sample.Date >= fromDate && sr.Sample.Date <= toDate)
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
+        public List<SampleResult> FetchWaterSampleResultsByTime(DateOnly fromDate, DateOnly toDate, TimeOnly fromTime, TimeOnly toTime)
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Water")
+                .Where(sr => sr.Sample.Date >= fromDate && sr.Sample.Date <= toDate)
+                .Where(sr => sr.Sample.Time >= fromTime && sr.Sample.Time <= toTime)
                 .Include(sr => sr.User)
                 .ToList();
         }

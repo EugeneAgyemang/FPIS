@@ -19,11 +19,13 @@ namespace FPIS.Views
             _userService = new(dbContext);
 
             FetchAnalysisResults();
+            DisableTimeFilter();
         }
-
         void FetchAnalysisResults()
         {
-            _sampleResults = _analysisService.FetchSampleResults()
+            if (materialRadioButtonProductAnalysis.Checked)
+            {
+                _sampleResults = _analysisService.FetchProductSampleResults()
                 .Select(sr =>
                 {
                     User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
@@ -43,11 +45,154 @@ namespace FPIS.Views
                 })
                 .ToList();
 
-            dataGridView1.DataSource = _sampleResults;
+                dataGridView1.DataSource = _sampleResults;
 
-            //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
-            labelSampleResultsTotal.Text = _sampleResults?.Count() == 0? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
-            
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+            else
+            {
+                _sampleResults = _analysisService.FetchWaterSampleResults()
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+        }
+
+        void FetchAnalysisResultsByDate()
+        {
+            if (materialRadioButtonProductAnalysis.Checked)
+            {
+                _sampleResults = _analysisService.FetchProductSampleResultsByDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text))
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+            else
+            {
+                _sampleResults = _analysisService.FetchWaterSampleResultsByDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text))
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+        }
+
+        void FetchAnalysisResultsByTime()
+        {
+            if (materialRadioButtonProductAnalysis.Checked)
+            {
+                _sampleResults = _analysisService.FetchProductSampleResultsByTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), TimeOnly.Parse(dateTimePickerToTime.Text))
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+            else
+            {
+                _sampleResults = _analysisService.FetchWaterSampleResultsByTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), TimeOnly.Parse(dateTimePickerToTime.Text))
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -70,6 +215,58 @@ namespace FPIS.Views
                     shouldUpdateAnalysisResult: true
                 ).Show();
             }
+        }
+
+        private void materialRadioButtonProductAnalysis_CheckedChanged(object sender, EventArgs e)
+        {
+            DisableTimeFilter();
+            FetchAnalysisResults();
+        }
+
+        private void materialRadioButtonWaterAnalysis_CheckedChanged(object sender, EventArgs e)
+        {
+            DisableTimeFilter();
+            FetchAnalysisResults();
+        }
+
+        private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
+        {
+            FetchAnalysisResultsByDate();
+            EnableTimeFilter();
+        }
+
+        private void materialButtonShowAll_Click(object sender, EventArgs e)
+        {
+            FetchAnalysisResults();
+            DisableTimeFilter();
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            FetchAnalysisResultsByTime();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            FetchAnalysisResultsByDate();
+        }
+
+        void DisableTimeFilter()
+        {
+            dateTimePickerFromTime.Enabled = false;
+            dateTimePickerToTime.Enabled = false;
+            materialButton1.Enabled = false;
+            materialButton2.Enabled = false;
+            groupBox2.Enabled = false;
+        }
+
+        void EnableTimeFilter()
+        {
+            dateTimePickerFromTime.Enabled = true;
+            dateTimePickerToTime.Enabled = true;
+            materialButton1.Enabled = true;
+            materialButton2.Enabled = true;
+            groupBox2.Enabled = true;
         }
     }
 }
