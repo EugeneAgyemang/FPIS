@@ -249,7 +249,7 @@
             this.NetWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NetWeightControl.Depth = 0;
             this.NetWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.NetWeightControl.Hint = "Net Weight";
+            this.NetWeightControl.Hint = "Net Weight (kg)";
             this.NetWeightControl.LeadingIcon = null;
             this.NetWeightControl.Location = new System.Drawing.Point(3, 583);
             this.NetWeightControl.MaxLength = 50;
@@ -268,7 +268,7 @@
             this.GrossWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GrossWeightControl.Depth = 0;
             this.GrossWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.GrossWeightControl.Hint = "Gross Weight";
+            this.GrossWeightControl.Hint = "Gross Weight (kg)";
             this.GrossWeightControl.LeadingIcon = null;
             this.GrossWeightControl.Location = new System.Drawing.Point(3, 493);
             this.GrossWeightControl.MaxLength = 50;
