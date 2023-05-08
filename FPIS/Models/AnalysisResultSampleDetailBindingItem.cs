@@ -7,6 +7,8 @@ namespace FPIS.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
 
+        public string Label { get; set; }
+
         public string AnalysisItemId { get; set; }
 
         public string? ParameterValues { get; set; }

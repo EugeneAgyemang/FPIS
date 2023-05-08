@@ -13,6 +13,7 @@ namespace FPIS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
+        public string? Label { get; set; }
 
         // Navigation properties
         public Guid SampleId { get; set; }
@@ -20,6 +21,7 @@ namespace FPIS.Models
         public Sample Sample { get; set; }
         public Guid AnalysisItemId { get; set; }
         [ForeignKey("AnalysisItemId")]
+
         public AnalysisItem AnalysisItem { get; set; }
         public List<AnalysisRemark> AnalysisRemarks { get; set; }
     }

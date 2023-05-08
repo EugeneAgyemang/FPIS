@@ -136,6 +136,7 @@ namespace FPIS.Services
             {
                 return new SampleDetail()
                 {
+                    Label = ai.Label,
                     SampleId = sample.Id,
                     AnalysisItemId = ai.Id,
                 };
@@ -188,6 +189,7 @@ namespace FPIS.Services
                     new SampleResultDetail() {
                         Id = new Guid(),
                         SampleResultId = sampleResult.Id,
+                        Label = sampleDetailsIdsWithParameter.Label,
                         AnalysisItemId = new Guid(sampleDetailsIdsWithParameter.AnalysisItemId)
                     }
                 ).Entity;

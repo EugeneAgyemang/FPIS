@@ -9,7 +9,6 @@ namespace FPIS.Views
 {
     public partial class AddAnalysisSampleForm : MaterialForm
     {
-        private readonly AnalysisSampleBindingItem[] selectedSamples;
         private readonly AnalysisItemService _analysisItemService;
         private readonly BindingList<AnalysisSampleBindingItem> itemList = new();
 
@@ -20,15 +19,6 @@ namespace FPIS.Views
             InitializeComponent();
             dataGridView1.DataSource = itemList;
 
-            /*
-             * Copy the analysisItems to selectedSamples as an array and clear
-             * the analysisItems because for some weird reason, the analysisItems
-             * become different in the dataGridView when this Form is started.
-             */
-            selectedSamples = CreateAnalysisRequestFormUserControl.analysisItemList.ToArray();
-            CreateAnalysisRequestFormUserControl.analysisItemList.Clear();
-
-
             _analysisItemService = new(new AppDbContext());
 
             if (CreateAnalysisRequestFormUserControl.analysisType == "Production")
@@ -38,6 +28,23 @@ namespace FPIS.Views
             {
                 LoadAnalysisWaters();
             }
+
+            SetZeroQuantityCellsToReadOnly();
+        }
+
+        private void SetZeroQuantityCellsToReadOnly()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["addAnalysisSamplesQuantity"].Value.ToString() != "0")
+                {
+                    row.Cells["addAnalysisSamplesQuantity"].ReadOnly = false;
+                }
+                else
+                {
+                    row.Cells["addAnalysisSamplesQuantity"].ReadOnly = false;
+                }
+            }
         }
     
         private void LoadAnalysisProducts()
@@ -46,21 +53,19 @@ namespace FPIS.Views
 
             foreach (AnalysisProduct ap in analysisProducts)
             {
-                var existingItem = selectedSamples.FirstOrDefault(it => it.Id == ap.AnalysisItemId);
+                var items = CreateAnalysisRequestFormUserControl.analysisItemList.Where(it => it.Id == ap.AnalysisItemId);
+
+                int itemsCount = items?.Count() ?? 0;
 
                 AnalysisSampleBindingItem newItem = new()
                 {
                     Id = ap.AnalysisItemId,
                     Name = ap.Product.ProductName,
-                    Selected = existingItem != null
+                    Selected = itemsCount > 0,
+                    Quantity = itemsCount.ToString()
                 };
 
                 itemList.Add(newItem);
-
-                if (existingItem != null)
-                {
-                    CreateAnalysisRequestFormUserControl.analysisItemList.Add(newItem);
-                }
             }
         }
 
@@ -70,21 +75,60 @@ namespace FPIS.Views
 
             foreach (AnalysisWater aw in analysisWaters)
             {
-                var existingItem = selectedSamples.FirstOrDefault(it => it.Id == aw.AnalysisItemId);
+                var items = CreateAnalysisRequestFormUserControl.analysisItemList.Where(it => it.Id == aw.AnalysisItemId);
+
+                int itemsCount = items?.Count() ?? 0;
 
                 AnalysisSampleBindingItem newItem = new()
                 {
                     Id = aw.AnalysisItemId,
                     Name = aw.Water.WaterName,
-                    Selected = existingItem != null
+                    Selected = itemsCount > 0,
+                    Quantity = itemsCount.ToString()
                 };
 
                 itemList.Add(newItem);
+            }
+        }
 
-                if (existingItem != null)
+        private void RemoveItems(string itemId, int currentQuantity, int newQuantity)
+        {
+            for (int i = newQuantity; i < currentQuantity; i++)
+            {
+                var itemToRemove = CreateAnalysisRequestFormUserControl.analysisItemList.Last(it => it.Id.ToString() == itemId);
+                CreateAnalysisRequestFormUserControl.analysisItemList.Remove(itemToRemove);
+            }
+        }
+
+        private void AddItems(AnalysisSampleBindingItem item, int currentQuantity, int newQuantity)
+        {
+            for (int i = currentQuantity + 1; i <= newQuantity; i++)
+            {
+                CreateAnalysisRequestFormUserControl.analysisItemList.Add(new()
                 {
-                    CreateAnalysisRequestFormUserControl.analysisItemList.Add(newItem);
-                }
+                    Id = item.Id,
+                    Name = item.Name,
+                    Selected = true
+                });
+            }
+        }
+
+        void OnQuantityChanged(AnalysisSampleBindingItem item, int newQuantity)
+        {
+            int currentQuantity = CreateAnalysisRequestFormUserControl.analysisItemList
+                .Where(it => it.Id == item.Id)
+                .Count();
+
+            if (newQuantity < currentQuantity)
+            {
+                // remove item multiple times
+                // based on difference of quantities
+                RemoveItems(item.Id.ToString(), currentQuantity, newQuantity);
+            }
+            else if (newQuantity > currentQuantity)
+            {
+                // add difference of quantities
+                AddItems(item, currentQuantity, newQuantity);
             }
         }
 
@@ -94,14 +138,16 @@ namespace FPIS.Views
             {
                 return;
             }
-            string selectItemColumnValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            string itemId = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            // only react if the user clicked on the select item column
-            if (e.ColumnIndex != 2)
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            if (row != null && !row.Cells["selectedDataGridViewCheckBoxColumn"].Selected)
             {
                 return;
             }
+
+            string itemId = row.Cells["idDataGridViewTextBoxColumn"].Value.ToString();
+            string selectItemColumnValue = row.Cells["selectedDataGridViewCheckBoxColumn"].Value.ToString();
 
             var item = itemList.FirstOrDefault(it => it.Id.ToString() == itemId);
 
@@ -116,13 +162,87 @@ namespace FPIS.Views
             {
                 item.Selected = false;
                 AnalysisSampleBindingItem it = itemList.First(it => it.Name == item.Name);
-                CreateAnalysisRequestFormUserControl.analysisItemList.Remove(it);
+                int quantity = CreateAnalysisRequestFormUserControl.analysisItemList.Where(it => it.Id == item.Id).ToList().Count;
+
+                it.Quantity = "0";
+
+                List<AnalysisSampleBindingItem> existingItems = CreateAnalysisRequestFormUserControl.analysisItemList
+                    .Where(it => it.Id.ToString() != itemId)
+                    .ToList();
+
+                CreateAnalysisRequestFormUserControl.analysisItemList.Clear();
+
+                existingItems.ForEach(it =>
+                {
+                    CreateAnalysisRequestFormUserControl.analysisItemList.Add(it);
+                });
             }
             else
             {
                 item.Selected = true;
                 AnalysisSampleBindingItem it = itemList.First(aI => aI.Id.ToString() == itemId);
+
+                it.Quantity = "1";
+                row.Cells["addAnalysisSamplesQuantity"].ReadOnly = false;
                 CreateAnalysisRequestFormUserControl.analysisItemList.Add(it);
+            }
+
+            dataGridView1.Refresh();
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            if (row == null)
+            {
+                return;
+            }
+
+            if (row.Cells[e.ColumnIndex].OwningColumn.Name != "addAnalysisSamplesQuantity")
+            {
+                return;
+            }
+
+            string itemId = row.Cells["idDataGridViewTextBoxColumn"].Value.ToString();
+            string selectItemColumnValue = row.Cells["addAnalysisSamplesQuantity"].Value.ToString();
+
+            var item = itemList.FirstOrDefault(it => it.Id.ToString() == itemId);
+            int oldQuantity = CreateAnalysisRequestFormUserControl.analysisItemList.Where(it => it.Id.ToString() == itemId).Count();
+
+            try
+            {
+                int value = int.Parse(selectItemColumnValue);
+
+                if (value <= 0)
+                {
+                    Utils.Utils.ShowMessageBox(
+                        "The value you have entered is invalid. You can only write positive integers.",
+                        "Invalid Quantity",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    row.Cells["addAnalysisSamplesQuantity"].Value = oldQuantity;
+                    return;
+                }
+
+                item.Selected = true;
+                dataGridView1.Refresh();
+                OnQuantityChanged(item, value);
+            } catch (Exception ex)
+            {
+                row.Cells["addAnalysisSamplesQuantity"].Value = oldQuantity;
+                Utils.Utils.ShowMessageBox(
+                    "The quantity can only be an integer ",
+                    "Quantity Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
     }

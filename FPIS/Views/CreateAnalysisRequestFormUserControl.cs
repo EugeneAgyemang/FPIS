@@ -171,5 +171,43 @@ namespace FPIS.Views
                 );
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            if (row != null && !row.Cells["analysisRequestSelectedDataGridViewCheckBoxColumn"].Selected)
+            {
+                return;
+            }
+
+            string itemId = row.Cells["analysisRequestIdDataGridViewTextBoxColumn"].Value.ToString();
+            string selectItemColumnValue = row.Cells["analysisRequestSelectedDataGridViewCheckBoxColumn"].Value.ToString();
+
+            var item = analysisItemList.FirstOrDefault(it => it.Id.ToString() == itemId);
+
+            if (item != null)
+            {
+                analysisItemList.Remove(item);
+            }
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            row.Cells["createAnalysisRequestLabel"].ReadOnly = false;
+        }
     }
 }

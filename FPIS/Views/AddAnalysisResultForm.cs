@@ -181,6 +181,7 @@ namespace FPIS.Views
                     {
                         Id = sd.Id,
                         Name = itemName,
+                        Label = sd.Label,
                         ProductOrWaterId = itemId,
                         AnalysisItemId = sd.AnalysisItemId.ToString()
                     }
@@ -201,6 +202,7 @@ namespace FPIS.Views
                     {
                         Id = srd.Id,
                         Name = itemName,
+                        Label = srd.Label,
                         ProductOrWaterId = itemId,
                         AnalysisItemId = srd.AnalysisItemId.ToString(),
                         parametersWithValues = _analysisService
