@@ -293,6 +293,14 @@ namespace FPIS.Views
                 DisplayErrorMessage(NetWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the net weight for the raw-material received");
                 return;
             }
+            float net, gross;
+            float.TryParse(NetWeightControl.Text, out net);
+            float.TryParse(GrossWeightControl.Text, out gross);
+            if (net >= gross)
+            {
+                DisplayErrorMessage(NetWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "Kindly provide the correct net weight");
+                return;
+            }
         }
 
         public void ValidateCity(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
