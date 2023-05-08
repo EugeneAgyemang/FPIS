@@ -154,6 +154,16 @@ namespace FPIS.Views
         }
         private void SaveProcurementRecords_Click(object sender, EventArgs e)
         {
+            GrossWeightErrorControl.Text =
+                NetWeightErrorControl.Text = string.Empty;
+            bool shouldSave = true;
+            bool isErrorMessageDisplayed = false;
+            ValidateGrossWeight(GrossWeightControl.Text, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateNetWeight(NetWeightControl.Text, ref shouldSave, ref isErrorMessageDisplayed);
+            if (!shouldSave)
+            {
+                return;
+            }
             DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox($"{((RemarksControl.Text == string.Empty) ? "Looks like you forgot to provide a remark 😟\n\n" : string.Empty)}" +
                                                     $"Do you wish to proceed{((RemarksControl.Text == string.Empty) ? " anyways" : string.Empty)}" +
                                                     $"{((RemarksControl.Text == string.Empty) ? " without adding any remarks?" : "?")}"
@@ -194,8 +204,6 @@ namespace FPIS.Views
                                     , string materialProcured
                                     , string warehouse
                                     , string lot
-                                    , string grossWeight
-                                    , string netWeight
                                     , string country
                                     , string city
                                     , ref bool shouldSave)
@@ -208,8 +216,6 @@ namespace FPIS.Views
             ValidateProduct(materialProcured, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateWarehouse(warehouse, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateLot(lot, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateGrossWeight(grossWeight, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateNetWeight(netWeight, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateCountry(country, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateCity(city, ref shouldSave, ref isErrorMessageDisplayed);
 
@@ -271,18 +277,18 @@ namespace FPIS.Views
             }
         }
 
-        public void ValidateGrossWeight(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        public void ValidateGrossWeight(string grossWeight, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
-            if (lot.Length == 0)
+            if (grossWeight.Length == 0)
             {
                 DisplayErrorMessage(GrossWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the gross weight for the raw-material received");
                 return;
             }
         }
 
-        public void ValidateNetWeight(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        public void ValidateNetWeight(string netWeight, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
-            if (lot.Length == 0)
+            if (netWeight.Length == 0)
             {
                 DisplayErrorMessage(NetWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the net weight for the raw-material received");
                 return;
@@ -354,6 +360,7 @@ namespace FPIS.Views
             SwitchDateControl.Checked = true;
             PickDateControl.Enabled = false;
             ProductControl.StartIndex = -1;
+            AfterSampleResultsSection.Enabled = false;
             RemarksCaptionControl.Text = $"Remarks ({500} characters)";
             ViewSampleRequestedControl.StartIndex = -1;
         }
@@ -399,8 +406,6 @@ namespace FPIS.Views
                 ProductControl.Text,
                 WarehouseControl.Text,
                 LotControl.Text,
-                GrossWeightControl.Text,
-                NetWeightControl.Text,
                 CountryControl.Text,
                 CityControl.Text,
                 ref shouldSave);
@@ -431,8 +436,6 @@ namespace FPIS.Views
                 $"Quantity Received: {materialToBeReceived.Quantity}\n" +
                 $"Unit : {materialToBeReceived.Units}\n" +
                 $"----------\n" +
-                $"Gross weight: {materialToBeReceived.GrossWeight}kg\n" +
-                $"Net weight: {materialToBeReceived.NetWeight}kg\n" +
                 $"Source: {materialToBeReceived.City}, {materialToBeReceived.Country}"
                 , "Confirm Request"
                 , MessageBoxButtons.YesNo
@@ -516,7 +519,7 @@ namespace FPIS.Views
                     control is MaterialMultiLineTextBox2 ||
                     control is DateTimePicker)
                 {
-                    if (control.Name == "RemarksSection")
+                    if (control.Name == "AfterSampleResultsSection")
                     {
                         continue;
                     }
@@ -532,7 +535,7 @@ namespace FPIS.Views
             DoneControl.Text = EN_ROUTE;
             DoneControl.Image = Properties.Resources.not_done_light;
             ShowSnackBar($"{product} analysis requested successfully! 👍");
-            RemarksControl.Enabled = false;
+            AfterSampleResultsSection.Enabled = false;
             EnableKeyboardShourtcut();
         }
         public void UpdateUIAfterProcessingSample(string product)
@@ -543,8 +546,8 @@ namespace FPIS.Views
             DoneControl.Text = DONE;
             DoneControl.Image = Properties.Resources.done_light;
             ShowSnackBar($"{product} analysis completed successfully! 👍");
-            RemarksSection.Enabled = true;
-            RemarksControl.Focus();
+            AfterSampleResultsSection.Enabled = true;
+            GrossWeightControl.Focus();
             EnableKeyboardShourtcut();
         }
         public void UpdateUIWhenProcessingStarts(string product)
@@ -556,7 +559,7 @@ namespace FPIS.Views
             DoneControl.Image = Properties.Resources.not_done_light;
             //ShowSnackBar("Sample is analyzed at the lab ATM! 👍");
             ShowSnackBar($"{product} is analyzed at the lab ATM! 👍");
-            RemarksControl.Enabled = false;
+            AfterSampleResultsSection.Enabled = false;
             EnableKeyboardShourtcut();
         }
         private void EnableKeyboardShourtcut()
@@ -816,6 +819,7 @@ namespace FPIS.Views
             AbortProcurementRecords.Enabled = false;
             SaveProcurementRecords.Enabled = false;
             DoneControl.Text = READY;
+            AfterSampleResultsSection.Enabled = false;
             DoneControl.Image = Properties.Resources.not_done_light;
             ShowSnackBar("Request was aborted successfully! 👍");
             EnableKeyboardShourtcut();

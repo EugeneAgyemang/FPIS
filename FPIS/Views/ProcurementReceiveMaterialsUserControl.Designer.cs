@@ -37,8 +37,6 @@
             this.ReceivingSectionControl = new System.Windows.Forms.Panel();
             this.NetWeightErrorControl = new System.Windows.Forms.Label();
             this.GrossWeightErrorControl = new System.Windows.Forms.Label();
-            this.NetWeightControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.GrossWeightControl = new MaterialSkin.Controls.MaterialTextBox();
             this.SyncControl = new System.Windows.Forms.PictureBox();
             this.WarehouseControl = new MaterialSkin.Controls.MaterialTextBox();
             this.DateProcuredSection = new System.Windows.Forms.Panel();
@@ -64,9 +62,6 @@
             this.CountryErrorControl = new System.Windows.Forms.Label();
             this.CityErrorControl = new System.Windows.Forms.Label();
             this.CountryControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.RemarksSection = new System.Windows.Forms.Panel();
-            this.RemarksCaptionControl = new MaterialSkin.Controls.MaterialLabel();
-            this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.CityControl = new MaterialSkin.Controls.MaterialTextBox();
             this.DoneControl = new MaterialSkin.Controls.MaterialButton();
             this.AbortProcurementRecords = new MaterialSkin.Controls.MaterialButton();
@@ -75,6 +70,11 @@
             this.TruckNumberErrorCaption = new System.Windows.Forms.Label();
             this.SupplierErrorCaption = new System.Windows.Forms.Label();
             this.SaveProcurementRecords = new MaterialSkin.Controls.MaterialButton();
+            this.AfterSampleResultsSection = new System.Windows.Forms.Panel();
+            this.NetWeightControl = new MaterialSkin.Controls.MaterialTextBox();
+            this.GrossWeightControl = new MaterialSkin.Controls.MaterialTextBox();
+            this.RemarksCaptionControl = new MaterialSkin.Controls.MaterialLabel();
+            this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.panel2.SuspendLayout();
             this.ListOfRequestedSamplesControl.SuspendLayout();
             this.ReceivingSectionControl.SuspendLayout();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AddNewRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseSnackbarControl)).BeginInit();
             this.MaterialProcurementSection.SuspendLayout();
-            this.RemarksSection.SuspendLayout();
+            this.AfterSampleResultsSection.SuspendLayout();
             this.SuspendLayout();
             // 
             // SupplierControl
@@ -205,13 +205,13 @@
             // 
             // ReceivingSectionControl
             // 
-            this.ReceivingSectionControl.Controls.Add(this.NetWeightErrorControl);
-            this.ReceivingSectionControl.Controls.Add(this.GrossWeightErrorControl);
-            this.ReceivingSectionControl.Controls.Add(this.NetWeightControl);
-            this.ReceivingSectionControl.Controls.Add(this.GrossWeightControl);
             this.ReceivingSectionControl.Controls.Add(this.SyncControl);
+            this.ReceivingSectionControl.Controls.Add(this.CountryErrorControl);
+            this.ReceivingSectionControl.Controls.Add(this.CountryControl);
+            this.ReceivingSectionControl.Controls.Add(this.CityErrorControl);
             this.ReceivingSectionControl.Controls.Add(this.WarehouseControl);
             this.ReceivingSectionControl.Controls.Add(this.DateProcuredSection);
+            this.ReceivingSectionControl.Controls.Add(this.CityControl);
             this.ReceivingSectionControl.Controls.Add(this.LotErrorCaption);
             this.ReceivingSectionControl.Controls.Add(this.LotControl);
             this.ReceivingSectionControl.Controls.Add(this.ProductControl);
@@ -227,7 +227,7 @@
             // 
             this.NetWeightErrorControl.AutoSize = true;
             this.NetWeightErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.NetWeightErrorControl.Location = new System.Drawing.Point(3, 636);
+            this.NetWeightErrorControl.Location = new System.Drawing.Point(25, 144);
             this.NetWeightErrorControl.Name = "NetWeightErrorControl";
             this.NetWeightErrorControl.Size = new System.Drawing.Size(0, 15);
             this.NetWeightErrorControl.TabIndex = 31;
@@ -237,49 +237,11 @@
             // 
             this.GrossWeightErrorControl.AutoSize = true;
             this.GrossWeightErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.GrossWeightErrorControl.Location = new System.Drawing.Point(3, 544);
+            this.GrossWeightErrorControl.Location = new System.Drawing.Point(25, 54);
             this.GrossWeightErrorControl.Name = "GrossWeightErrorControl";
             this.GrossWeightErrorControl.Size = new System.Drawing.Size(0, 15);
             this.GrossWeightErrorControl.TabIndex = 30;
             this.GrossWeightErrorControl.Tag = "";
-            // 
-            // NetWeightControl
-            // 
-            this.NetWeightControl.AnimateReadOnly = false;
-            this.NetWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NetWeightControl.Depth = 0;
-            this.NetWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.NetWeightControl.Hint = "Net Weight (kg)";
-            this.NetWeightControl.LeadingIcon = null;
-            this.NetWeightControl.Location = new System.Drawing.Point(3, 583);
-            this.NetWeightControl.MaxLength = 50;
-            this.NetWeightControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.NetWeightControl.Multiline = false;
-            this.NetWeightControl.Name = "NetWeightControl";
-            this.NetWeightControl.Size = new System.Drawing.Size(400, 50);
-            this.NetWeightControl.TabIndex = 4;
-            this.NetWeightControl.Text = "";
-            this.NetWeightControl.TrailingIcon = null;
-            this.NetWeightControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityControl_KeyPress);
-            // 
-            // GrossWeightControl
-            // 
-            this.GrossWeightControl.AnimateReadOnly = false;
-            this.GrossWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GrossWeightControl.Depth = 0;
-            this.GrossWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.GrossWeightControl.Hint = "Gross Weight (kg)";
-            this.GrossWeightControl.LeadingIcon = null;
-            this.GrossWeightControl.Location = new System.Drawing.Point(3, 493);
-            this.GrossWeightControl.MaxLength = 50;
-            this.GrossWeightControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.GrossWeightControl.Multiline = false;
-            this.GrossWeightControl.Name = "GrossWeightControl";
-            this.GrossWeightControl.Size = new System.Drawing.Size(400, 50);
-            this.GrossWeightControl.TabIndex = 3;
-            this.GrossWeightControl.Text = "";
-            this.GrossWeightControl.TrailingIcon = null;
-            this.GrossWeightControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.QuantityControl_KeyPress);
             // 
             // SyncControl
             // 
@@ -559,11 +521,7 @@
             // 
             // MaterialProcurementSection
             // 
-            this.MaterialProcurementSection.Controls.Add(this.CountryErrorControl);
-            this.MaterialProcurementSection.Controls.Add(this.CityErrorControl);
-            this.MaterialProcurementSection.Controls.Add(this.CountryControl);
-            this.MaterialProcurementSection.Controls.Add(this.RemarksSection);
-            this.MaterialProcurementSection.Controls.Add(this.CityControl);
+            this.MaterialProcurementSection.Controls.Add(this.AfterSampleResultsSection);
             this.MaterialProcurementSection.Controls.Add(this.DoneControl);
             this.MaterialProcurementSection.Controls.Add(this.AbortProcurementRecords);
             this.MaterialProcurementSection.Controls.Add(this.StartSampleRequest);
@@ -586,7 +544,7 @@
             // 
             this.CountryErrorControl.AutoSize = true;
             this.CountryErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.CountryErrorControl.Location = new System.Drawing.Point(28, 547);
+            this.CountryErrorControl.Location = new System.Drawing.Point(6, 634);
             this.CountryErrorControl.Name = "CountryErrorControl";
             this.CountryErrorControl.Size = new System.Drawing.Size(0, 15);
             this.CountryErrorControl.TabIndex = 33;
@@ -596,7 +554,7 @@
             // 
             this.CityErrorControl.AutoSize = true;
             this.CityErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.CityErrorControl.Location = new System.Drawing.Point(28, 457);
+            this.CityErrorControl.Location = new System.Drawing.Point(6, 544);
             this.CityErrorControl.Name = "CityErrorControl";
             this.CityErrorControl.Size = new System.Drawing.Size(0, 15);
             this.CityErrorControl.TabIndex = 32;
@@ -610,7 +568,7 @@
             this.CountryControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.CountryControl.Hint = "Country";
             this.CountryControl.LeadingIcon = null;
-            this.CountryControl.Location = new System.Drawing.Point(28, 494);
+            this.CountryControl.Location = new System.Drawing.Point(6, 583);
             this.CountryControl.MaxLength = 50;
             this.CountryControl.MouseState = MaterialSkin.MouseState.OUT;
             this.CountryControl.Multiline = false;
@@ -620,54 +578,6 @@
             this.CountryControl.Text = "";
             this.CountryControl.TrailingIcon = null;
             // 
-            // RemarksSection
-            // 
-            this.RemarksSection.Controls.Add(this.RemarksCaptionControl);
-            this.RemarksSection.Controls.Add(this.RemarksControl);
-            this.RemarksSection.Enabled = false;
-            this.RemarksSection.Location = new System.Drawing.Point(0, 584);
-            this.RemarksSection.Name = "RemarksSection";
-            this.RemarksSection.Size = new System.Drawing.Size(450, 145);
-            this.RemarksSection.TabIndex = 24;
-            // 
-            // RemarksCaptionControl
-            // 
-            this.RemarksCaptionControl.AutoSize = true;
-            this.RemarksCaptionControl.Depth = 0;
-            this.RemarksCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.RemarksCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.RemarksCaptionControl.Location = new System.Drawing.Point(25, 1);
-            this.RemarksCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.RemarksCaptionControl.Name = "RemarksCaptionControl";
-            this.RemarksCaptionControl.Size = new System.Drawing.Size(165, 17);
-            this.RemarksCaptionControl.TabIndex = 19;
-            this.RemarksCaptionControl.Text = "Remarks (500 characters)";
-            // 
-            // RemarksControl
-            // 
-            this.RemarksControl.AnimateReadOnly = false;
-            this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.RemarksControl.Depth = 0;
-            this.RemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RemarksControl.HideSelection = true;
-            this.RemarksControl.Location = new System.Drawing.Point(25, 21);
-            this.RemarksControl.MaxLength = 32767;
-            this.RemarksControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.RemarksControl.Name = "RemarksControl";
-            this.RemarksControl.PasswordChar = '\0';
-            this.RemarksControl.ReadOnly = false;
-            this.RemarksControl.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.RemarksControl.SelectedText = "";
-            this.RemarksControl.SelectionLength = 0;
-            this.RemarksControl.SelectionStart = 0;
-            this.RemarksControl.ShortcutsEnabled = true;
-            this.RemarksControl.Size = new System.Drawing.Size(400, 113);
-            this.RemarksControl.TabIndex = 18;
-            this.RemarksControl.TabStop = false;
-            this.RemarksControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RemarksControl.UseSystemPasswordChar = false;
-            // 
             // CityControl
             // 
             this.CityControl.AnimateReadOnly = false;
@@ -676,7 +586,7 @@
             this.CityControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.CityControl.Hint = "City";
             this.CityControl.LeadingIcon = null;
-            this.CityControl.Location = new System.Drawing.Point(25, 404);
+            this.CityControl.Location = new System.Drawing.Point(3, 493);
             this.CityControl.MaxLength = 50;
             this.CityControl.MouseState = MaterialSkin.MouseState.OUT;
             this.CityControl.Multiline = false;
@@ -820,6 +730,94 @@
             this.SaveProcurementRecords.UseVisualStyleBackColor = true;
             this.SaveProcurementRecords.Click += new System.EventHandler(this.SaveProcurementRecords_Click);
             // 
+            // AfterSampleResultsSection
+            // 
+            this.AfterSampleResultsSection.Controls.Add(this.RemarksCaptionControl);
+            this.AfterSampleResultsSection.Controls.Add(this.RemarksControl);
+            this.AfterSampleResultsSection.Controls.Add(this.GrossWeightErrorControl);
+            this.AfterSampleResultsSection.Controls.Add(this.NetWeightErrorControl);
+            this.AfterSampleResultsSection.Controls.Add(this.NetWeightControl);
+            this.AfterSampleResultsSection.Controls.Add(this.GrossWeightControl);
+            this.AfterSampleResultsSection.Enabled = false;
+            this.AfterSampleResultsSection.Location = new System.Drawing.Point(0, 404);
+            this.AfterSampleResultsSection.Name = "AfterSampleResultsSection";
+            this.AfterSampleResultsSection.Size = new System.Drawing.Size(450, 331);
+            this.AfterSampleResultsSection.TabIndex = 32;
+            // 
+            // NetWeightControl
+            // 
+            this.NetWeightControl.AnimateReadOnly = false;
+            this.NetWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NetWeightControl.Depth = 0;
+            this.NetWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.NetWeightControl.Hint = "Net Weight (kg)";
+            this.NetWeightControl.LeadingIcon = null;
+            this.NetWeightControl.Location = new System.Drawing.Point(25, 91);
+            this.NetWeightControl.MaxLength = 50;
+            this.NetWeightControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.NetWeightControl.Multiline = false;
+            this.NetWeightControl.Name = "NetWeightControl";
+            this.NetWeightControl.Size = new System.Drawing.Size(400, 50);
+            this.NetWeightControl.TabIndex = 21;
+            this.NetWeightControl.Text = "";
+            this.NetWeightControl.TrailingIcon = null;
+            // 
+            // GrossWeightControl
+            // 
+            this.GrossWeightControl.AnimateReadOnly = false;
+            this.GrossWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GrossWeightControl.Depth = 0;
+            this.GrossWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GrossWeightControl.Hint = "Gross Weight (kg)";
+            this.GrossWeightControl.LeadingIcon = null;
+            this.GrossWeightControl.Location = new System.Drawing.Point(25, 1);
+            this.GrossWeightControl.MaxLength = 50;
+            this.GrossWeightControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.GrossWeightControl.Multiline = false;
+            this.GrossWeightControl.Name = "GrossWeightControl";
+            this.GrossWeightControl.Size = new System.Drawing.Size(400, 50);
+            this.GrossWeightControl.TabIndex = 20;
+            this.GrossWeightControl.Text = "";
+            this.GrossWeightControl.TrailingIcon = null;
+            // 
+            // RemarksCaptionControl
+            // 
+            this.RemarksCaptionControl.AutoSize = true;
+            this.RemarksCaptionControl.Depth = 0;
+            this.RemarksCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.RemarksCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.RemarksCaptionControl.Location = new System.Drawing.Point(25, 178);
+            this.RemarksCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.RemarksCaptionControl.Name = "RemarksCaptionControl";
+            this.RemarksCaptionControl.Size = new System.Drawing.Size(165, 17);
+            this.RemarksCaptionControl.TabIndex = 33;
+            this.RemarksCaptionControl.Text = "Remarks (500 characters)";
+            // 
+            // RemarksControl
+            // 
+            this.RemarksControl.AnimateReadOnly = false;
+            this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.RemarksControl.Depth = 0;
+            this.RemarksControl.Font = new System.Drawing.Font("Roboto Condensed", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemarksControl.HideSelection = true;
+            this.RemarksControl.Location = new System.Drawing.Point(25, 198);
+            this.RemarksControl.MaxLength = 32767;
+            this.RemarksControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.RemarksControl.Name = "RemarksControl";
+            this.RemarksControl.PasswordChar = '\0';
+            this.RemarksControl.ReadOnly = false;
+            this.RemarksControl.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.RemarksControl.SelectedText = "";
+            this.RemarksControl.SelectionLength = 0;
+            this.RemarksControl.SelectionStart = 0;
+            this.RemarksControl.ShortcutsEnabled = true;
+            this.RemarksControl.Size = new System.Drawing.Size(400, 113);
+            this.RemarksControl.TabIndex = 32;
+            this.RemarksControl.TabStop = false;
+            this.RemarksControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.RemarksControl.UseSystemPasswordChar = false;
+            // 
             // ProcurementReceiveMaterialsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -845,8 +843,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.CloseSnackbarControl)).EndInit();
             this.MaterialProcurementSection.ResumeLayout(false);
             this.MaterialProcurementSection.PerformLayout();
-            this.RemarksSection.ResumeLayout(false);
-            this.RemarksSection.PerformLayout();
+            this.AfterSampleResultsSection.ResumeLayout(false);
+            this.AfterSampleResultsSection.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -892,17 +890,17 @@
         private MaterialSkin.Controls.MaterialComboBox ViewSampleRequestedControl;
         private PictureBox SyncControl;
         private MaterialSkin.Controls.MaterialButton DoneControl;
-        private MaterialSkin.Controls.MaterialTextBox NetWeightControl;
-        private MaterialSkin.Controls.MaterialTextBox GrossWeightControl;
         private Panel LocationSection;
         private MaterialSkin.Controls.MaterialTextBox CountryControl;
         private MaterialSkin.Controls.MaterialTextBox CityControl;
-        private MaterialSkin.Controls.MaterialLabel RemarksCaptionControl;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 RemarksControl;
         private Label NetWeightErrorControl;
         private Label GrossWeightErrorControl;
         private Label CountryErrorControl;
         private Label CityErrorControl;
-        private Panel RemarksSection;
+        private Panel AfterSampleResultsSection;
+        private MaterialSkin.Controls.MaterialLabel RemarksCaptionControl;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 RemarksControl;
+        private MaterialSkin.Controls.MaterialTextBox NetWeightControl;
+        private MaterialSkin.Controls.MaterialTextBox GrossWeightControl;
     }
 }
