@@ -487,7 +487,6 @@
             this.NoteControl.Name = "NoteControl";
             this.NoteControl.Size = new System.Drawing.Size(402, 109);
             this.NoteControl.TabIndex = 29;
-            this.NoteControl.Text = "asasas\r\nasas\r\nasasa\r\nasa\r\nsas";
             this.NoteControl.UseAccent = true;
             // 
             // materialLabel2
