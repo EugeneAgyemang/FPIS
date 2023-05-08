@@ -25,15 +25,12 @@ namespace FPIS.Views
             InitializeComponent();
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
-            labelDepartmentName.Text = "";
-            labelDesignation.Text = "";
-       
+            ClearErrorLabels();
         }
         private void ClearErrorLabels()
         {
             labelDepartmentName.Text = "";
             labelDesignation.Text = "";
-
         }
         private void ValidateDesignationName()
         {
@@ -77,7 +74,7 @@ namespace FPIS.Views
         private void ValidateInputs()
         {
             ValidateDesignationName();
-
+            ValidateDepartment();
         }
         private void LoadDeparments()
         {
@@ -177,5 +174,14 @@ namespace FPIS.Views
             ConfirmNewDesignation();
         }
       
+        private void ValidateDepartment()
+        {
+            _isDataValid = true;
+            string departmentName = materialComboBoxDepartmentName.Text.Trim();
+            if (departmentName.Length == 0)
+            {
+                _isDataValid = false;
+            }
+        }
     }
 }
