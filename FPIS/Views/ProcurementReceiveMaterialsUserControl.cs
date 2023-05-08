@@ -382,8 +382,7 @@ namespace FPIS.Views
                 Date = DateOnly.FromDateTime(PickDateControl.Value),
                 Remarks = RemarksControl.Text.Trim(),
                 Type = "Receiving",
-                UserId = Guid.Parse(Main.LOGGED_USER_ID),
-                Lot = LotControl.Text.Trim(),
+                UserId = Guid.Parse(Main.LOGGED_USER_ID)
             };
         }
         private Receiving GetMaterialToBeReceived(Guid materialBeingProcured)
@@ -678,7 +677,6 @@ namespace FPIS.Views
             WarehouseControl.Text = materialProcurement.Location;
             PickDateControl.Value = materialProcurement.Date.ToDateTime(TimeOnly.MinValue);
             RemarksControl.Text = materialProcurement.Remarks;
-            LotControl.Text = materialProcurement.Lot;
             SupplierControl.Text = receiving.Supplier;
             QuantityControl.Text = $"{receiving.Quantity}";
             UnitsControl.Text = receiving.Units;

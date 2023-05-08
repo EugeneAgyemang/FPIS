@@ -46,7 +46,6 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AnalysisStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
@@ -72,8 +71,7 @@
             this.NetWeight,
             this.Remarks,
             this.selectedDataGridViewCheckBoxColumn,
-            this.AnalysisStatus,
-            this.Lot});
+            this.AnalysisStatus});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(30, 86);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
@@ -207,14 +205,6 @@
             this.AnalysisStatus.ReadOnly = true;
             this.AnalysisStatus.Width = 113;
             // 
-            // Lot
-            // 
-            this.Lot.DataPropertyName = "Lot";
-            this.Lot.HeaderText = "Lot";
-            this.Lot.Name = "Lot";
-            this.Lot.ReadOnly = true;
-            this.Lot.Width = 114;
-            // 
             // AddRawMaterialsAnalysisSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -252,6 +242,5 @@
         private DataGridViewTextBoxColumn Remarks;
         private DataGridViewCheckBoxColumn selectedDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn AnalysisStatus;
-        private DataGridViewTextBoxColumn Lot;
     }
 }

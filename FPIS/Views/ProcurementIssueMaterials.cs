@@ -146,7 +146,6 @@ namespace FPIS.Views
                     materialProcuredToBeReleased.ProductId = materialReceivedToBeReleased.ProductId;
                     materialProcuredToBeReleased.Remarks = materialReceivedToBeReleased.Remarks;
                     materialProcuredToBeReleased.UserId = Guid.Parse(Main.LOGGED_USER_ID);
-                    materialProcuredToBeReleased.Lot = materialReceivedToBeReleased.Lot;
                     materialProcuredToBeReleased.Id = materialReceivedToBeReleased.Id;
                     materialReceived.MaterialProcurementId = materialReceivedToBeReleased.Id;
                     materialReceived.MaterialProcurement = materialProcuredToBeReleased;
@@ -264,7 +263,7 @@ namespace FPIS.Views
                                         .ToString();
             SampleRequestedDetailsControl.Text = $"{((materialIssueSchema.Status == ProcurementIssueMaterials.DONE) ? "Viewing r" : "R")}equest for" +
                 //$"***delete this whole line - {materialIssueSchema.MaterialToBeIssued.MaterialProcurementId}" +
-                $" {productIssued} from {materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Location} lot {materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Lot}" +
+                $" {productIssued} from {materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Location}" +
                 $" with request #️{materialIssueSchema.SchemaId}" +
                 $" made on {materialIssueSchema.SampleDetail.Sample.Date.ToLongDateString()}" +
                 $" at {materialIssueSchema.SampleDetail.Sample.Time.ToShortTimeString()}" +
@@ -398,8 +397,6 @@ namespace FPIS.Views
                 UserId = Guid.Parse(Main.LOGGED_USER_ID)
                 ,
                 Location = materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Location
-                ,
-                Lot = materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Lot
                 ,
                 ProductId = materialIssueSchema.MaterialToBeIssued.MaterialProcurement.ProductId
                 ,

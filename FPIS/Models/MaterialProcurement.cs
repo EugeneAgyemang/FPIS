@@ -18,7 +18,6 @@ namespace FPIS.Models
         public string Location { get; set; }
         public string Remarks { get; set; }
         public string Type { get; set; }
-        public string Lot { get; set; }
 
         // Navigation Properties
 
