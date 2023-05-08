@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FPIS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230508203813_RemoveLotFieldFromMaterialProcurementModel")]
-    partial class RemoveLotFieldFromMaterialProcurementModel
+    [Migration("20230508230847_RemoveLocationAndLotFieldsFromMaterialProcurementModel")]
+    partial class RemoveLocationAndLotFieldsFromMaterialProcurementModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -283,10 +283,6 @@ namespace FPIS.Migrations
 
                     b.Property<DateOnly>("Date")
                         .HasColumnType("date");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
