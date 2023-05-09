@@ -93,4 +93,14 @@ public class Utils
     {
         return new Regex("^[0-9]").IsMatch(quantity);
     }
+
+    public static float GetParameterValue(float? currentValue)
+    {
+        if (currentValue == null)
+        {
+            return 0;
+        }
+
+        return (float)currentValue;
+    }
 }

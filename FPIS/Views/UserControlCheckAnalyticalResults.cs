@@ -209,8 +209,8 @@ namespace FPIS.Views
                                          parameter = ProductParameter.ParameterName,
                                          specification = ProductParameter.Specification,
                                          result = SampleResultsDetailsWithParameter.Value,
-                                         variance = (float)Math.Round(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value,2),
-                                         indicator = (float)Math.Round(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value,2)
+                                         variance = (float)Math.Round(ProductParameter.Specification - Utils.Utils.GetParameterValue(SampleResultsDetailsWithParameter.Value), 2),
+                                         indicator = (float)Math.Round(ProductParameter.Specification - Utils.Utils.GetParameterValue(SampleResultsDetailsWithParameter.Value), 2)
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult)
@@ -266,8 +266,8 @@ namespace FPIS.Views
                                          parameter = WaterParameter.ParameterName,
                                          specification = WaterParameter.ControlLimit,
                                          result = SampleResultsDetailsWithParameter.Value,
-                                         variance = (float)Math.Round(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value, 2),
-                                         indicator = (float)Math.Round(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value, 2)
+                                         variance = (float)Math.Round(WaterParameter.ControlLimit - Utils.Utils.GetParameterValue(SampleResultsDetailsWithParameter.Value), 2),
+                                         indicator = (float)Math.Round(WaterParameter.ControlLimit - Utils.Utils.GetParameterValue(SampleResultsDetailsWithParameter.Value), 2)
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult)

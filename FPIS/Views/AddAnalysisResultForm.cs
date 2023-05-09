@@ -382,21 +382,31 @@ namespace FPIS.Views
                             sampleResultsDetailsWithParameters = sampleResultsDetailsWithParameters.Concat(
                                 sampleItem.parametersWithValues
                                 .Where(paramWithValue => !string.IsNullOrEmpty(paramWithValue.AnalysisResultWithParameterId))
-                                .Select(paramWithValue => new SampleResultsDetailsWithParameter()
+                                .Select(paramWithValue =>
                                 {
-                                    Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
-                                    Value = float.Parse(paramWithValue.ParameterValue)
+                                    float? value = float.Parse(paramWithValue.ParameterValue ?? "0.00");
+
+                                    return new SampleResultsDetailsWithParameter()
+                                    {
+                                        Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
+                                        Value = value > 0 ? value : null
+                                    };
                                 })
                             );
 
                             filteredParameterWithValues = sampleItem.parametersWithValues
                                 .Where(pmw => string.IsNullOrEmpty(pmw.AnalysisResultWithParameterId))
-                                .Select(pmw => new SampleResultsDetailsWithParameter()
+                                .Select(pmw =>
                                 {
-                                    Value = float.Parse(pmw.ParameterValue),
-                                    SampleResultDetailId = sampleItem.Id,
-                                    AnalysisParameterId = new Guid(pmw.ParameterId),
-                                }).ToList();
+                                    float? value = float.Parse(pmw.ParameterValue ?? "0.00");
+                                    return new SampleResultsDetailsWithParameter()
+                                    {
+                                        Value = value > 0 ? value : null,
+                                        SampleResultDetailId = sampleItem.Id,
+                                        AnalysisParameterId = new Guid(pmw.ParameterId),
+                                    };
+                                }
+                                ).ToList();
                         }
                     });
 
