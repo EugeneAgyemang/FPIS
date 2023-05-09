@@ -11,7 +11,7 @@ namespace FPIS.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            /*
+            
              migrationBuilder.DropForeignKey(
                  name: "FK_SampleResultDetails_Users_UserId",
                  table: "SampleResultDetails");
@@ -65,7 +65,7 @@ namespace FPIS.Migrations
                 principalTable: "Users",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
-            */
+            
         }
 
         /// <inheritdoc />
