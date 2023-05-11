@@ -43,7 +43,6 @@
             this.labelAnalysisRequestTitle = new MaterialSkin.Controls.MaterialLabel();
             this.materialButtonAddSample = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1.SuspendLayout();
@@ -233,7 +232,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.materialLabel1);
             this.groupBox2.Location = new System.Drawing.Point(49, 325);
@@ -242,28 +240,17 @@
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(12, 88);
-            this.label3.MaximumSize = new System.Drawing.Size(0, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(282, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "You can uncheck a sample to remove it.";
-            // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 58);
-            this.label2.MaximumSize = new System.Drawing.Size(0, 29);
+            this.label2.MaximumSize = new System.Drawing.Size(932, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(932, 21);
+            this.label2.Size = new System.Drawing.Size(932, 60);
             this.label2.TabIndex = 2;
             this.label2.Text = "Add a label to the sample that repeats to distinguish between them in the result." +
-    " You may want to use the plant name or tank number.";
+    " You may want to use the product source or the tank number. You can uncheck a sa" +
+    "mple to remove it.";
             // 
             // materialLabel1
             // 
@@ -315,7 +302,6 @@
         private GroupBox groupBox2;
         private Label label2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private Label label3;
         private DataGridViewTextBoxColumn analysisRequestIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Label;

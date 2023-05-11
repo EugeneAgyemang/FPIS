@@ -54,5 +54,22 @@ namespace FPIS.Services
             appDbContext.SaveChanges();
             return waterParameter;
         }
+
+        public List<WaterParameter> GetWaterParameters(Guid waterId)
+        {
+            return appDbContext.WaterParameters
+                        .Where(waterParameter => waterParameter.WaterId == waterId)
+                        .ToList();
+        }
+
+        public WaterParameter UpdateParameterControlLimit(Guid parameterId, float newControlLimit)
+        {
+            WaterParameter waterParameter = appDbContext.WaterParameters
+                                                                .FirstOrDefault(waterParameter => waterParameter.Id == parameterId);
+            waterParameter.ControlLimit = newControlLimit;
+            appDbContext.Update(waterParameter);
+            appDbContext.SaveChanges();
+            return waterParameter;
+        }
     }
 }
