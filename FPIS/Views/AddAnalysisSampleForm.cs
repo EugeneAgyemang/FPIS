@@ -138,6 +138,9 @@ namespace FPIS.Views
             {
                 return;
             }
+            
+            string selectItemColumnValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            string itemId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 

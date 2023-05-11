@@ -216,8 +216,8 @@ namespace FPIS.Views
 
             if (e.ColumnIndex == activeRow.Cells.Count - 1) // the last cell
             {
-                string analysisParameterId = activeRow.Cells[0].Value.ToString();
-                string parameterName = activeRow.Cells[1].Value.ToString();
+                string analysisParameterId = activeRow.Cells[1].Value.ToString();
+                string parameterName = activeRow.Cells[0].Value.ToString();
                 string enteredValue = activeRow.Cells[activeRow.Cells.Count - 1].Value?.ToString();
 
                 if (string.IsNullOrEmpty(enteredValue))

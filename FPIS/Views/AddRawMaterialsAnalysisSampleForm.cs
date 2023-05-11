@@ -86,7 +86,7 @@ namespace FPIS.Views
             string selectItemColumnValue, itemId;
 
             selectItemColumnValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            itemId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            itemId = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
 
             // only react if the user clicked on the select item column
