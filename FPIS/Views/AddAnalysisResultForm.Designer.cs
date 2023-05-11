@@ -48,7 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sampleIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisItemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parameterValuesDataGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productOrWaterIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +78,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn1,
             this.Label,
-            this.idDataGridViewTextBoxColumn1,
+            this.sampleIdDataGridViewTextBoxColumn1,
             this.analysisItemIdDataGridViewTextBoxColumn,
             this.parameterValuesDataGridViewColumn,
             this.productOrWaterIdDataGridViewTextBoxColumn});
@@ -263,15 +263,15 @@
             this.Label.ReadOnly = true;
             this.Label.Width = 150;
             // 
-            // idDataGridViewTextBoxColumn1
+            // sampleIdDataGridViewTextBoxColumn1
             // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            this.idDataGridViewTextBoxColumn1.Width = 150;
+            this.sampleIdDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.sampleIdDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.sampleIdDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.sampleIdDataGridViewTextBoxColumn1.Name = "sampleIdDataGridViewTextBoxColumn1";
+            this.sampleIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.sampleIdDataGridViewTextBoxColumn1.Visible = false;
+            this.sampleIdDataGridViewTextBoxColumn1.Width = 150;
             // 
             // analysisItemIdDataGridViewTextBoxColumn
             // 
@@ -355,5 +355,6 @@
         private DataGridViewTextBoxColumn analysisItemIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn parameterValuesDataGridViewColumn;
         private DataGridViewTextBoxColumn productOrWaterIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn sampleIdDataGridViewTextBoxColumn1;
     }
 }
