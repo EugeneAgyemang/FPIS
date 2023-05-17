@@ -20,6 +20,7 @@ namespace FPIS.Views
 
             FetchAnalysisResults();
             DisableTimeFilter();
+            
         }
         void FetchAnalysisResults()
         {
@@ -137,11 +138,21 @@ namespace FPIS.Views
             }
         }
 
+        TimeOnly _initialToTime, _finalToTime;
+        void setToTime()
+        {
+            _initialToTime = TimeOnly.Parse(dateTimePickerToTime.Text);
+            int initSeconds = _initialToTime.Second;
+            int finalSeconds = 59 - initSeconds;
+            _finalToTime = _initialToTime.Add(TimeSpan.FromSeconds(finalSeconds));
+        }
+
         void FetchAnalysisResultsByTime()
         {
+            setToTime();
             if (materialRadioButtonProductAnalysis.Checked)
             {
-                _sampleResults = _analysisService.FetchProductSampleResultsByTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), TimeOnly.Parse(dateTimePickerToTime.Text))
+                _sampleResults = _analysisService.FetchProductSampleResultsByTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), _finalToTime)
                 .Select(sr =>
                 {
                     User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
@@ -168,7 +179,7 @@ namespace FPIS.Views
             }
             else
             {
-                _sampleResults = _analysisService.FetchWaterSampleResultsByTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), TimeOnly.Parse(dateTimePickerToTime.Text))
+                _sampleResults = _analysisService.FetchWaterSampleResultsByTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), _finalToTime)
                 .Select(sr =>
                 {
                     User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
