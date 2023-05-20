@@ -16,6 +16,7 @@ namespace FPIS.Views
 {
     public partial class UpdateWaterParameter : MaterialForm
     {
+        public bool _isDataValid = true;
         string parameterHint;
         public UpdateWaterParameter()
         {
@@ -25,8 +26,7 @@ namespace FPIS.Views
             LoadWater();
             parameterHint = WaterParameterControl.Hint;
             WaterErrorCaption.ForeColor =
-                ParameterErrorControl.ForeColor =
-                NewControlLimitErrorControl.ForeColor = Color.Red;
+                ParameterErrorControl.ForeColor = Color.Red;
         }
 
         private void LoadWater()
@@ -66,6 +66,9 @@ namespace FPIS.Views
             LoadSelectedParameterSpecification(selectedParameter);
         }
 
+        string _unit;
+        float? _minimumControlLimit;
+        float _maximumControlLimit;
         private void LoadSelectedParameterSpecification(WaterParameter waterParameter)
         {
             if (waterParameter == null)
@@ -73,7 +76,78 @@ namespace FPIS.Views
                 WaterParameterControl.Hint = parameterHint;
                 return;
             }
-            PreviousControlLimitControl.Text = $"{waterParameter.ControlLimit}";
+            unitControl.Hint = $"Unit - {waterParameter.Unit}";
+            minimumControlLimitControl.Hint = $"{(waterParameter.MinimumControlLimit == null ? "Minimum Control Limit not set" : minimumControlLimitControl.Hint = "Minimum Control Limit - " + waterParameter.MinimumControlLimit)}";
+            maximumControlLimitControl.Hint = $"Maximum Control Limit - {waterParameter.ControlLimit}";
+            _unit = waterParameter.Unit;
+            _minimumControlLimit = waterParameter.MinimumControlLimit;
+            _maximumControlLimit = waterParameter.ControlLimit;
+        }
+
+        float newMinControlLimit;
+        public void CompareControlLimitValues()
+        {
+            if (minimumControlLimitControl.Text.Length != 0 && maximumControlLimitControl.Text.Length != 0)
+            {
+                newMinControlLimit = float.Parse(minimumControlLimitControl.Text);
+                if (float.Parse(maximumControlLimitControl.Text) == newMinControlLimit)
+                {
+                    MessageBox.Show("Minimum and Maximum Control Limit Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (newMinControlLimit > float.Parse(maximumControlLimitControl.Text))
+                {
+                    MessageBox.Show("Minimum Control Limit cannot be greater than Maximum Control Limit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+            else if (minimumControlLimitControl.Text.Length != 0 && maximumControlLimitControl.Text.Length == 0)
+            {
+                newMinControlLimit = float.Parse(minimumControlLimitControl.Text);
+                if (newMinControlLimit == _maximumControlLimit)
+                {
+                    MessageBox.Show("Minimum and Maximum Control Limit Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (newMinControlLimit > _maximumControlLimit)
+                {
+                    MessageBox.Show("Minimum Control Limit cannot be greater than Maximum Control Limit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+            else if (maximumControlLimitControl.Text.Length != 0 && minimumControlLimitControl.Text.Length == 0)
+            {
+                if (float.Parse(maximumControlLimitControl.Text) == _minimumControlLimit)
+                {
+                    MessageBox.Show("Maximum and Minimum Control Limit Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (_minimumControlLimit > float.Parse(maximumControlLimitControl.Text))
+                {
+                    MessageBox.Show("Minimum Control Limit cannot be greater than Maximum Control Limit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+        }
+
+        public void ValidateUpdatedFields()
+        {
+            if ((maximumControlLimitControl.Text.Length == 0) && (minimumControlLimitControl.Text.Length == 0) && (unitControl.Text.Length == 0))
+            {
+                MessageBox.Show("Enter the parameter value to update for " + WaterParameterControl.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _isDataValid = false;
+                return;
+            }
+            else
+            {
+                CompareControlLimitValues();
+            }
         }
 
         private void SaveParameterControl_Click(object sender, EventArgs e)
@@ -81,7 +155,7 @@ namespace FPIS.Views
             ResetErrorCaptions();
             bool shouldSave = true;
             float newControlLimit;
-            float.TryParse(NewControlLimitControl.Text, out newControlLimit);
+            float.TryParse(maximumControlLimitControl.Text, out newControlLimit);
 
             ValidateFields(WaterControl.Text, WaterParameterControl.Text, newControlLimit, ref shouldSave);
 
@@ -89,49 +163,99 @@ namespace FPIS.Views
             {
                 return;
             }
-            bool userMadeChanges = UserUpdatedControlLimit();
-            DialogResult userReponseToProceed = DisplayStatus(userMadeChanges);
-            if (userReponseToProceed == DialogResult.Yes)
+            ValidateUpdatedFields();
+
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show(
+                    $"Do you want to update a parameter value for " + WaterParameterControl.Text + "?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                    );
+
+            if (dialogResult == DialogResult.Yes)
             {
                 WaterParameter waterParameter = WaterParameterControl.SelectedItem as WaterParameter;
                 Guid parameterId = waterParameter.Id;
-                new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, newControlLimit);
+                if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length != 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text ,newControlLimit, newMinControlLimit);
+                }
+                else if ((unitControl.Text.Length == 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length != 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit, newMinControlLimit);
+                }
+                else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length != 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, newControlLimit, _minimumControlLimit);
+                }
+                else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length == 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, _maximumControlLimit, newMinControlLimit);
+                }
+                else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length == 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, _maximumControlLimit, _minimumControlLimit);
+                }
+                else if ((unitControl.Text.Length == 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length == 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, _maximumControlLimit, newMinControlLimit);
+                }
+                else if ((unitControl.Text.Length == 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length != 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit, _minimumControlLimit);
+                }
+                else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length == 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, _maximumControlLimit, newMinControlLimit);
+                }
+                else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length != 0))
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, newControlLimit, _minimumControlLimit);
+                }
+                else
+                {
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit, newMinControlLimit);
+                }
                 Utils.Utils.ShowMessageBox($"The control limit for {waterParameter} was updated successfully!", "Update Control Limit", MessageBoxButtons.OK);
                 ResetFields();
             }
         }
 
-        private bool UserUpdatedControlLimit()
-        {
-            string previousControlLimit = PreviousControlLimitControl.Text;
-            string newControlLimit = NewControlLimitControl.Text;
-            return previousControlLimit != newControlLimit;
-        }
+        //private bool UserUpdatedControlLimit()
+        //{
+        //    string previousControlLimit = unitControl.Text;
+        //    string newControlLimit = minimumControlLimitControl.Text;
+        //    return previousControlLimit != newControlLimit;
+        //}
 
-        private DialogResult DisplayStatus(bool userMadeChanges)
-        {
-            if (userMadeChanges)
-            {
-                float newControlLimit;
-                float previousControlLimit;
-                float.TryParse(PreviousControlLimitControl.Text, out previousControlLimit);
-                float.TryParse(NewControlLimitControl.Text, out newControlLimit);
+        //private DialogResult DisplayStatus(bool userMadeChanges)
+        //{
+        //    if (userMadeChanges)
+        //    {
+        //        float newControlLimit;
+        //        float previousControlLimit;
+        //        float.TryParse(unitControl.Text, out previousControlLimit);
+        //        float.TryParse(minimumControlLimitControl.Text, out newControlLimit);
 
-                if (newControlLimit > previousControlLimit)
-                {
-                    return Utils.Utils.ShowMessageBox($"You are choosing to update the parameter {WaterParameterControl.Text} for {WaterControl.Text} with a higher control limit. Do you wish to proceed?", "Update Control Limit", MessageBoxButtons.YesNo);
-                }
-                return Utils.Utils.ShowMessageBox($"Careful! You are choosing to update the parameter {WaterParameterControl.Text} for {WaterControl.Text} with a lower control limit! Do you wish to proceed?", "Update Control Limit", MessageBoxButtons.YesNo);
-            }
-            return Utils.Utils.ShowMessageBox("No changes were applied!", "Update Control Limit", MessageBoxButtons.OK);
-        }
+        //        if (newControlLimit > previousControlLimit)
+        //        {
+        //            return Utils.Utils.ShowMessageBox($"You are choosing to update the parameter {WaterParameterControl.Text} for {WaterControl.Text} with a higher control limit. Do you wish to proceed?", "Update Control Limit", MessageBoxButtons.YesNo);
+        //        }
+        //        return Utils.Utils.ShowMessageBox($"Careful! You are choosing to update the parameter {WaterParameterControl.Text} for {WaterControl.Text} with a lower control limit! Do you wish to proceed?", "Update Control Limit", MessageBoxButtons.YesNo);
+        //    }
+        //    return Utils.Utils.ShowMessageBox("No changes were applied!", "Update Control Limit", MessageBoxButtons.OK);
+        //}
 
         public void ValidateFields(string water, string paramater, float newControlLimit, ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateSelectedWater(water, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateSelectedParameter(paramater, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateNewControlLimit(newControlLimit, ref shouldSave, ref isErrorMessageDisplayed);
         }
 
         public void ValidateSelectedWater(string water, ref bool shouldSave, ref bool isErrorMessageDisplayed)
@@ -150,13 +274,13 @@ namespace FPIS.Views
             }
         }
 
-        public void ValidateNewControlLimit(float newControlLimit, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (newControlLimit <= 0)
-            {
-                DisplayErrorMessage(NewControlLimitErrorControl, ref shouldSave, ref isErrorMessageDisplayed);
-            }
-        }
+        //public void ValidateNewControlLimit(float newControlLimit, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        //{
+        //    if (newControlLimit <= 0)
+        //    {
+        //        DisplayErrorMessage(NewControlLimitErrorControl, ref shouldSave, ref isErrorMessageDisplayed);
+        //    }
+        //}
 
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
@@ -173,7 +297,6 @@ namespace FPIS.Views
         {
             ParameterErrorControl.Text =
                 WaterErrorCaption.Text =
-                NewControlLimitErrorControl.Text =
                 string.Empty;
         }
 
@@ -181,14 +304,23 @@ namespace FPIS.Views
         {
             WaterControl.Text =
                 WaterParameterControl.Text =
-                PreviousControlLimitControl.Text =
-                NewControlLimitControl.Text = string.Empty;
+                unitControl.Text =
+                minimumControlLimitControl.Text = 
+                maximumControlLimitControl.Text = string.Empty;
             WaterControl.SelectedIndex =
                 WaterParameterControl.SelectedIndex = -1;
+            unitControl.Hint = "Unit";
+            minimumControlLimitControl.Hint = "Minimum Control Limit";
+            maximumControlLimitControl.Hint = "Maximum Control Limit";
             WaterParameterControl.Items.Clear();
         }
 
         private void NewSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+        }
+
+        private void maximumControlLimitControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
         }

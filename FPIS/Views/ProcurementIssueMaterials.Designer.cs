@@ -32,20 +32,6 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.RequestForAnalysisControl = new MaterialSkin.Controls.MaterialButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
-            this.SamplesRequestedControl = new MaterialSkin.Controls.MaterialComboBox();
-            this.SampleRequestedDetailsControl = new MaterialSkin.Controls.MaterialLabel();
-            this.IssueSectionControl = new System.Windows.Forms.Panel();
-            this.RemarksCaptionControl = new MaterialSkin.Controls.MaterialLabel();
-            this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
-            this.QuantityErrorCaption = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.NoteControl = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.IssueQuantityControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.IssueMaterialsControl = new MaterialSkin.Controls.MaterialButton();
             this.dateAddedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idAsStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialProcuredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,10 +42,30 @@
             this.truckNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityReceivedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityLeftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NetWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarksDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.analysisStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.OpenAddMaterialsControl = new MaterialSkin.Controls.MaterialFloatingActionButton();
+            this.SamplesRequestedControl = new MaterialSkin.Controls.MaterialComboBox();
+            this.SampleRequestedDetailsControl = new MaterialSkin.Controls.MaterialLabel();
+            this.IssueSectionControl = new System.Windows.Forms.Panel();
+            this.WeightErrorControl = new System.Windows.Forms.Label();
+            this.WeightRemarkControl = new MaterialSkin.Controls.MaterialLabel();
+            this.RemarksCaptionControl = new System.Windows.Forms.Label();
+            this.PreviousNetWeightControl = new MaterialSkin.Controls.MaterialTextBox();
+            this.WeightControl = new MaterialSkin.Controls.MaterialTextBox();
+            this.RemarksControl = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.QuantityErrorCaption = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.NoteControl = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.IssueQuantityControl = new MaterialSkin.Controls.MaterialTextBox();
+            this.IssueMaterialsControl = new MaterialSkin.Controls.MaterialButton();
+            this.helper = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             this.IssueSectionControl.SuspendLayout();
@@ -119,6 +125,7 @@
             this.truckNumberDataGridViewTextBoxColumn,
             this.quantityReceivedDataGridViewTextBoxColumn,
             this.quantityLeftDataGridViewTextBoxColumn,
+            this.NetWeight,
             this.remarksDataGridViewTextBoxColumn,
             this.selectedDataGridViewCheckBoxColumn,
             this.analysisStatusDataGridViewTextBoxColumn,
@@ -131,214 +138,6 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(914, 246);
             this.dataGridView1.TabIndex = 17;
-            // 
-            // analysisRawMaterialsSampleBindingItemBindingSource
-            // 
-            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(43, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 19);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Selected Samples";
-            // 
-            // OpenAddMaterialsControl
-            // 
-            this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OpenAddMaterialsControl.Depth = 0;
-            this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
-            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(917, 336);
-            this.OpenAddMaterialsControl.Mini = true;
-            this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
-            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(40, 40);
-            this.OpenAddMaterialsControl.TabIndex = 21;
-            this.OpenAddMaterialsControl.Text = "materialFloatingActionButton1";
-            this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
-            this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
-            // 
-            // SamplesRequestedControl
-            // 
-            this.SamplesRequestedControl.AutoResize = false;
-            this.SamplesRequestedControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SamplesRequestedControl.Depth = 0;
-            this.SamplesRequestedControl.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.SamplesRequestedControl.DropDownHeight = 174;
-            this.SamplesRequestedControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SamplesRequestedControl.DropDownWidth = 121;
-            this.SamplesRequestedControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.SamplesRequestedControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SamplesRequestedControl.FormattingEnabled = true;
-            this.SamplesRequestedControl.Hint = "Choose a sample you requested";
-            this.SamplesRequestedControl.IntegralHeight = false;
-            this.SamplesRequestedControl.ItemHeight = 43;
-            this.SamplesRequestedControl.Location = new System.Drawing.Point(43, 384);
-            this.SamplesRequestedControl.MaxDropDownItems = 4;
-            this.SamplesRequestedControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.SamplesRequestedControl.Name = "SamplesRequestedControl";
-            this.SamplesRequestedControl.Size = new System.Drawing.Size(300, 49);
-            this.SamplesRequestedControl.StartIndex = 0;
-            this.SamplesRequestedControl.TabIndex = 22;
-            this.SamplesRequestedControl.SelectedIndexChanged += new System.EventHandler(this.SamplesRequestedControl_SelectedIndexChanged);
-            // 
-            // SampleRequestedDetailsControl
-            // 
-            this.SampleRequestedDetailsControl.AutoSize = true;
-            this.SampleRequestedDetailsControl.Depth = 0;
-            this.SampleRequestedDetailsControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.SampleRequestedDetailsControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.SampleRequestedDetailsControl.HighEmphasis = true;
-            this.SampleRequestedDetailsControl.Location = new System.Drawing.Point(43, 462);
-            this.SampleRequestedDetailsControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SampleRequestedDetailsControl.Name = "SampleRequestedDetailsControl";
-            this.SampleRequestedDetailsControl.Size = new System.Drawing.Size(1, 0);
-            this.SampleRequestedDetailsControl.TabIndex = 23;
-            this.SampleRequestedDetailsControl.UseAccent = true;
-            // 
-            // IssueSectionControl
-            // 
-            this.IssueSectionControl.Controls.Add(this.RemarksCaptionControl);
-            this.IssueSectionControl.Controls.Add(this.RemarksControl);
-            this.IssueSectionControl.Controls.Add(this.QuantityErrorCaption);
-            this.IssueSectionControl.Controls.Add(this.panel1);
-            this.IssueSectionControl.Controls.Add(this.NoteControl);
-            this.IssueSectionControl.Controls.Add(this.materialLabel2);
-            this.IssueSectionControl.Controls.Add(this.IssueQuantityControl);
-            this.IssueSectionControl.Controls.Add(this.IssueMaterialsControl);
-            this.IssueSectionControl.Location = new System.Drawing.Point(43, 439);
-            this.IssueSectionControl.Name = "IssueSectionControl";
-            this.IssueSectionControl.Size = new System.Drawing.Size(914, 281);
-            this.IssueSectionControl.TabIndex = 27;
-            this.IssueSectionControl.Visible = false;
-            // 
-            // RemarksCaptionControl
-            // 
-            this.RemarksCaptionControl.AutoSize = true;
-            this.RemarksCaptionControl.Depth = 0;
-            this.RemarksCaptionControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.RemarksCaptionControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.RemarksCaptionControl.Location = new System.Drawing.Point(425, 17);
-            this.RemarksCaptionControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.RemarksCaptionControl.Name = "RemarksCaptionControl";
-            this.RemarksCaptionControl.Size = new System.Drawing.Size(165, 17);
-            this.RemarksCaptionControl.TabIndex = 31;
-            this.RemarksCaptionControl.Text = "Remarks (500 characters)";
-            // 
-            // RemarksControl
-            // 
-            this.RemarksControl.AnimateReadOnly = false;
-            this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.RemarksControl.Depth = 0;
-            this.RemarksControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RemarksControl.HideSelection = true;
-            this.RemarksControl.Location = new System.Drawing.Point(425, 37);
-            this.RemarksControl.MaxLength = 32767;
-            this.RemarksControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.RemarksControl.Name = "RemarksControl";
-            this.RemarksControl.PasswordChar = '\0';
-            this.RemarksControl.ReadOnly = false;
-            this.RemarksControl.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.RemarksControl.SelectedText = "";
-            this.RemarksControl.SelectionLength = 0;
-            this.RemarksControl.SelectionStart = 0;
-            this.RemarksControl.ShortcutsEnabled = true;
-            this.RemarksControl.Size = new System.Drawing.Size(400, 113);
-            this.RemarksControl.TabIndex = 30;
-            this.RemarksControl.TabStop = false;
-            this.RemarksControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.RemarksControl.UseSystemPasswordChar = false;
-            this.RemarksControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RemarksControl_KeyUp);
-            // 
-            // QuantityErrorCaption
-            // 
-            this.QuantityErrorCaption.AutoSize = true;
-            this.QuantityErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.QuantityErrorCaption.Location = new System.Drawing.Point(17, 70);
-            this.QuantityErrorCaption.Name = "QuantityErrorCaption";
-            this.QuantityErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.QuantityErrorCaption.TabIndex = 28;
-            this.QuantityErrorCaption.Tag = "";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
-            this.panel1.Location = new System.Drawing.Point(17, 158);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 2);
-            this.panel1.TabIndex = 28;
-            // 
-            // NoteControl
-            // 
-            this.NoteControl.Depth = 0;
-            this.NoteControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.NoteControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.NoteControl.Location = new System.Drawing.Point(17, 165);
-            this.NoteControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.NoteControl.Name = "NoteControl";
-            this.NoteControl.Size = new System.Drawing.Size(402, 109);
-            this.NoteControl.TabIndex = 29;
-            this.NoteControl.UseAccent = true;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.materialLabel2.Location = new System.Drawing.Point(17, 138);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(36, 17);
-            this.materialLabel2.TabIndex = 28;
-            this.materialLabel2.Text = "Note:";
-            this.materialLabel2.UseAccent = true;
-            // 
-            // IssueQuantityControl
-            // 
-            this.IssueQuantityControl.AnimateReadOnly = false;
-            this.IssueQuantityControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.IssueQuantityControl.Depth = 0;
-            this.IssueQuantityControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.IssueQuantityControl.Hint = "Quantity to issue";
-            this.IssueQuantityControl.LeadingIcon = null;
-            this.IssueQuantityControl.Location = new System.Drawing.Point(17, 17);
-            this.IssueQuantityControl.MaxLength = 50;
-            this.IssueQuantityControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.IssueQuantityControl.Multiline = false;
-            this.IssueQuantityControl.Name = "IssueQuantityControl";
-            this.IssueQuantityControl.Size = new System.Drawing.Size(358, 50);
-            this.IssueQuantityControl.TabIndex = 26;
-            this.IssueQuantityControl.Text = "";
-            this.IssueQuantityControl.TrailingIcon = null;
-            this.IssueQuantityControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IssueQuantityControl_KeyPress);
-            // 
-            // IssueMaterialsControl
-            // 
-            this.IssueMaterialsControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.IssueMaterialsControl.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.IssueMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IssueMaterialsControl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.IssueMaterialsControl.Depth = 0;
-            this.IssueMaterialsControl.HighEmphasis = true;
-            this.IssueMaterialsControl.Icon = null;
-            this.IssueMaterialsControl.Location = new System.Drawing.Point(17, 76);
-            this.IssueMaterialsControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.IssueMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.IssueMaterialsControl.Name = "IssueMaterialsControl";
-            this.IssueMaterialsControl.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.IssueMaterialsControl.Size = new System.Drawing.Size(65, 36);
-            this.IssueMaterialsControl.TabIndex = 27;
-            this.IssueMaterialsControl.Text = " Issue";
-            this.IssueMaterialsControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.IssueMaterialsControl.UseAccentColor = true;
-            this.IssueMaterialsControl.UseVisualStyleBackColor = true;
-            this.IssueMaterialsControl.Click += new System.EventHandler(this.IssueMaterialsControl_Click);
             // 
             // dateAddedDataGridViewTextBoxColumn
             // 
@@ -430,6 +229,13 @@
             this.quantityLeftDataGridViewTextBoxColumn.ReadOnly = true;
             this.quantityLeftDataGridViewTextBoxColumn.Width = 87;
             // 
+            // NetWeight
+            // 
+            this.NetWeight.DataPropertyName = "NetWeight";
+            this.NetWeight.HeaderText = "NetWeight";
+            this.NetWeight.Name = "NetWeight";
+            this.NetWeight.ReadOnly = true;
+            // 
             // remarksDataGridViewTextBoxColumn
             // 
             this.remarksDataGridViewTextBoxColumn.DataPropertyName = "Remarks";
@@ -465,6 +271,278 @@
             this.Lot.Name = "Lot";
             this.Lot.ReadOnly = true;
             this.Lot.Width = 86;
+            // 
+            // analysisRawMaterialsSampleBindingItemBindingSource
+            // 
+            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(43, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 19);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Selected Samples";
+            // 
+            // OpenAddMaterialsControl
+            // 
+            this.OpenAddMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenAddMaterialsControl.Depth = 0;
+            this.OpenAddMaterialsControl.Icon = global::FPIS.Properties.Resources.add_white;
+            this.OpenAddMaterialsControl.Location = new System.Drawing.Point(917, 336);
+            this.OpenAddMaterialsControl.Mini = true;
+            this.OpenAddMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.OpenAddMaterialsControl.Name = "OpenAddMaterialsControl";
+            this.OpenAddMaterialsControl.Size = new System.Drawing.Size(40, 40);
+            this.OpenAddMaterialsControl.TabIndex = 21;
+            this.OpenAddMaterialsControl.Text = "materialFloatingActionButton1";
+            this.OpenAddMaterialsControl.UseVisualStyleBackColor = true;
+            this.OpenAddMaterialsControl.Click += new System.EventHandler(this.OpenAddMaterialsControl_Click);
+            // 
+            // SamplesRequestedControl
+            // 
+            this.SamplesRequestedControl.AutoResize = false;
+            this.SamplesRequestedControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SamplesRequestedControl.Depth = 0;
+            this.SamplesRequestedControl.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.SamplesRequestedControl.DropDownHeight = 174;
+            this.SamplesRequestedControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SamplesRequestedControl.DropDownWidth = 121;
+            this.SamplesRequestedControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SamplesRequestedControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SamplesRequestedControl.FormattingEnabled = true;
+            this.SamplesRequestedControl.Hint = "Choose a sample you requested";
+            this.SamplesRequestedControl.IntegralHeight = false;
+            this.SamplesRequestedControl.ItemHeight = 43;
+            this.SamplesRequestedControl.Location = new System.Drawing.Point(43, 384);
+            this.SamplesRequestedControl.MaxDropDownItems = 4;
+            this.SamplesRequestedControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.SamplesRequestedControl.Name = "SamplesRequestedControl";
+            this.SamplesRequestedControl.Size = new System.Drawing.Size(300, 49);
+            this.SamplesRequestedControl.StartIndex = 0;
+            this.SamplesRequestedControl.TabIndex = 22;
+            this.SamplesRequestedControl.SelectedIndexChanged += new System.EventHandler(this.SamplesRequestedControl_SelectedIndexChanged);
+            // 
+            // SampleRequestedDetailsControl
+            // 
+            this.SampleRequestedDetailsControl.AutoSize = true;
+            this.SampleRequestedDetailsControl.Depth = 0;
+            this.SampleRequestedDetailsControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.SampleRequestedDetailsControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.SampleRequestedDetailsControl.HighEmphasis = true;
+            this.SampleRequestedDetailsControl.Location = new System.Drawing.Point(43, 462);
+            this.SampleRequestedDetailsControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SampleRequestedDetailsControl.Name = "SampleRequestedDetailsControl";
+            this.SampleRequestedDetailsControl.Size = new System.Drawing.Size(1, 0);
+            this.SampleRequestedDetailsControl.TabIndex = 23;
+            this.SampleRequestedDetailsControl.UseAccent = true;
+            // 
+            // IssueSectionControl
+            // 
+            this.IssueSectionControl.Controls.Add(this.WeightErrorControl);
+            this.IssueSectionControl.Controls.Add(this.WeightRemarkControl);
+            this.IssueSectionControl.Controls.Add(this.RemarksCaptionControl);
+            this.IssueSectionControl.Controls.Add(this.PreviousNetWeightControl);
+            this.IssueSectionControl.Controls.Add(this.WeightControl);
+            this.IssueSectionControl.Controls.Add(this.RemarksControl);
+            this.IssueSectionControl.Controls.Add(this.QuantityErrorCaption);
+            this.IssueSectionControl.Controls.Add(this.panel1);
+            this.IssueSectionControl.Controls.Add(this.NoteControl);
+            this.IssueSectionControl.Controls.Add(this.materialLabel2);
+            this.IssueSectionControl.Controls.Add(this.IssueQuantityControl);
+            this.IssueSectionControl.Controls.Add(this.IssueMaterialsControl);
+            this.IssueSectionControl.Location = new System.Drawing.Point(43, 439);
+            this.IssueSectionControl.Name = "IssueSectionControl";
+            this.IssueSectionControl.Size = new System.Drawing.Size(914, 281);
+            this.IssueSectionControl.TabIndex = 27;
+            this.IssueSectionControl.Visible = false;
+            // 
+            // WeightErrorControl
+            // 
+            this.WeightErrorControl.AutoSize = true;
+            this.WeightErrorControl.ForeColor = System.Drawing.Color.Red;
+            this.WeightErrorControl.Location = new System.Drawing.Point(425, 70);
+            this.WeightErrorControl.Name = "WeightErrorControl";
+            this.WeightErrorControl.Size = new System.Drawing.Size(0, 15);
+            this.WeightErrorControl.TabIndex = 35;
+            this.WeightErrorControl.Tag = "";
+            // 
+            // WeightRemarkControl
+            // 
+            this.WeightRemarkControl.Depth = 0;
+            this.WeightRemarkControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.WeightRemarkControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.WeightRemarkControl.Location = new System.Drawing.Point(425, 91);
+            this.WeightRemarkControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.WeightRemarkControl.Name = "WeightRemarkControl";
+            this.WeightRemarkControl.Size = new System.Drawing.Size(489, 23);
+            this.WeightRemarkControl.TabIndex = 34;
+            this.WeightRemarkControl.Text = "-----";
+            this.WeightRemarkControl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.helper.SetToolTip(this.WeightRemarkControl, "Remark on the wieght");
+            this.WeightRemarkControl.UseAccent = true;
+            // 
+            // RemarksCaptionControl
+            // 
+            this.RemarksCaptionControl.AutoSize = true;
+            this.RemarksCaptionControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemarksCaptionControl.Location = new System.Drawing.Point(425, 129);
+            this.RemarksCaptionControl.Name = "RemarksCaptionControl";
+            this.RemarksCaptionControl.Size = new System.Drawing.Size(173, 17);
+            this.RemarksCaptionControl.TabIndex = 28;
+            this.RemarksCaptionControl.Text = "Remarks (500 characters)";
+            // 
+            // PreviousNetWeightControl
+            // 
+            this.PreviousNetWeightControl.AnimateReadOnly = false;
+            this.PreviousNetWeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PreviousNetWeightControl.Depth = 0;
+            this.PreviousNetWeightControl.Enabled = false;
+            this.PreviousNetWeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.PreviousNetWeightControl.LeadingIcon = null;
+            this.PreviousNetWeightControl.Location = new System.Drawing.Point(631, 17);
+            this.PreviousNetWeightControl.MaxLength = 50;
+            this.PreviousNetWeightControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.PreviousNetWeightControl.Multiline = false;
+            this.PreviousNetWeightControl.Name = "PreviousNetWeightControl";
+            this.PreviousNetWeightControl.Size = new System.Drawing.Size(280, 50);
+            this.PreviousNetWeightControl.TabIndex = 33;
+            this.PreviousNetWeightControl.Text = "";
+            this.PreviousNetWeightControl.TrailingIcon = null;
+            // 
+            // WeightControl
+            // 
+            this.WeightControl.AnimateReadOnly = false;
+            this.WeightControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WeightControl.Depth = 0;
+            this.WeightControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.WeightControl.Hint = "Weight (kg)";
+            this.WeightControl.LeadingIcon = null;
+            this.WeightControl.Location = new System.Drawing.Point(425, 17);
+            this.WeightControl.MaxLength = 50;
+            this.WeightControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.WeightControl.Multiline = false;
+            this.WeightControl.Name = "WeightControl";
+            this.WeightControl.Size = new System.Drawing.Size(200, 50);
+            this.WeightControl.TabIndex = 32;
+            this.WeightControl.Text = "";
+            this.WeightControl.TrailingIcon = null;
+            this.WeightControl.TextChanged += new System.EventHandler(this.WeightControl_TextChanged);
+            this.WeightControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IssueQuantityControl_KeyPress);
+            // 
+            // RemarksControl
+            // 
+            this.RemarksControl.AnimateReadOnly = false;
+            this.RemarksControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RemarksControl.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.RemarksControl.Depth = 0;
+            this.RemarksControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.RemarksControl.HideSelection = true;
+            this.RemarksControl.Location = new System.Drawing.Point(425, 152);
+            this.RemarksControl.MaxLength = 32767;
+            this.RemarksControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.RemarksControl.Name = "RemarksControl";
+            this.RemarksControl.PasswordChar = '\0';
+            this.RemarksControl.ReadOnly = false;
+            this.RemarksControl.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.RemarksControl.SelectedText = "";
+            this.RemarksControl.SelectionLength = 0;
+            this.RemarksControl.SelectionStart = 0;
+            this.RemarksControl.ShortcutsEnabled = true;
+            this.RemarksControl.Size = new System.Drawing.Size(400, 113);
+            this.RemarksControl.TabIndex = 30;
+            this.RemarksControl.TabStop = false;
+            this.RemarksControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.RemarksControl.UseSystemPasswordChar = false;
+            this.RemarksControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RemarksControl_KeyUp);
+            // 
+            // QuantityErrorCaption
+            // 
+            this.QuantityErrorCaption.AutoSize = true;
+            this.QuantityErrorCaption.ForeColor = System.Drawing.Color.Red;
+            this.QuantityErrorCaption.Location = new System.Drawing.Point(17, 70);
+            this.QuantityErrorCaption.Name = "QuantityErrorCaption";
+            this.QuantityErrorCaption.Size = new System.Drawing.Size(0, 15);
+            this.QuantityErrorCaption.TabIndex = 28;
+            this.QuantityErrorCaption.Tag = "";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
+            this.panel1.Location = new System.Drawing.Point(17, 158);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(100, 2);
+            this.panel1.TabIndex = 28;
+            // 
+            // NoteControl
+            // 
+            this.NoteControl.Depth = 0;
+            this.NoteControl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.NoteControl.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.NoteControl.Location = new System.Drawing.Point(17, 165);
+            this.NoteControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.NoteControl.Name = "NoteControl";
+            this.NoteControl.Size = new System.Drawing.Size(402, 109);
+            this.NoteControl.TabIndex = 29;
+            this.NoteControl.UseAccent = true;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
+            this.materialLabel2.Location = new System.Drawing.Point(17, 138);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(36, 17);
+            this.materialLabel2.TabIndex = 28;
+            this.materialLabel2.Text = "Note:";
+            this.materialLabel2.UseAccent = true;
+            // 
+            // IssueQuantityControl
+            // 
+            this.IssueQuantityControl.AnimateReadOnly = false;
+            this.IssueQuantityControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.IssueQuantityControl.Depth = 0;
+            this.IssueQuantityControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.IssueQuantityControl.Hint = "Quantity to issue";
+            this.IssueQuantityControl.LeadingIcon = null;
+            this.IssueQuantityControl.Location = new System.Drawing.Point(17, 17);
+            this.IssueQuantityControl.MaxLength = 50;
+            this.IssueQuantityControl.MouseState = MaterialSkin.MouseState.OUT;
+            this.IssueQuantityControl.Multiline = false;
+            this.IssueQuantityControl.Name = "IssueQuantityControl";
+            this.IssueQuantityControl.Size = new System.Drawing.Size(358, 50);
+            this.IssueQuantityControl.TabIndex = 26;
+            this.IssueQuantityControl.Text = "";
+            this.IssueQuantityControl.TrailingIcon = null;
+            this.IssueQuantityControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IssueQuantityControl_KeyPress);
+            // 
+            // IssueMaterialsControl
+            // 
+            this.IssueMaterialsControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.IssueMaterialsControl.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.IssueMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IssueMaterialsControl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.IssueMaterialsControl.Depth = 0;
+            this.IssueMaterialsControl.HighEmphasis = true;
+            this.IssueMaterialsControl.Icon = null;
+            this.IssueMaterialsControl.Location = new System.Drawing.Point(17, 91);
+            this.IssueMaterialsControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.IssueMaterialsControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.IssueMaterialsControl.Name = "IssueMaterialsControl";
+            this.IssueMaterialsControl.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.IssueMaterialsControl.Size = new System.Drawing.Size(65, 36);
+            this.IssueMaterialsControl.TabIndex = 27;
+            this.IssueMaterialsControl.Text = " Issue";
+            this.IssueMaterialsControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.IssueMaterialsControl.UseAccentColor = true;
+            this.IssueMaterialsControl.UseVisualStyleBackColor = true;
+            this.IssueMaterialsControl.Click += new System.EventHandler(this.IssueMaterialsControl_Click);
             // 
             // ProcurementIssueMaterials
             // 
@@ -510,7 +588,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private Panel panel1;
         private Label QuantityErrorCaption;
-        private MaterialSkin.Controls.MaterialLabel RemarksCaptionControl;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 RemarksControl;
         private DataGridViewTextBoxColumn dateAddedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idAsStrDataGridViewTextBoxColumn;
@@ -522,9 +599,16 @@
         private DataGridViewTextBoxColumn truckNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn quantityReceivedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn quantityLeftDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn NetWeight;
         private DataGridViewTextBoxColumn remarksDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn selectedDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn analysisStatusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Lot;
+        private MaterialSkin.Controls.MaterialTextBox PreviousNetWeightControl;
+        private MaterialSkin.Controls.MaterialTextBox WeightControl;
+        private ToolTip helper;
+        private MaterialSkin.Controls.MaterialLabel WeightRemarkControl;
+        private Label RemarksCaptionControl;
+        private Label WeightErrorControl;
     }
 }

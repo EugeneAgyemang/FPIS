@@ -7,6 +7,7 @@ namespace FPIS.Views
 {
     public partial class CreateProductParameter : MaterialForm
     {
+        public bool _isDataValid = true;
         public CreateProductParameter()
         {
             InitializeComponent();
@@ -28,11 +29,18 @@ namespace FPIS.Views
             float.TryParse(ParameterSpecificationControl.Text, out parameterSpecification);
 
             ValidateFields(ParameterNameControl.Text, ParameterMethodControl.Text, ParameterUnitControl.Text, parameterSpecification, ParameterProductControl.Text, ref shouldSave);
-
+            
             if (!shouldSave)
             {
                 return;
             }
+            CompareSpecificationValues();
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
+                return;
+            }
+
             DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox("Do you wish to proceed?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (userReponseToProceed != DialogResult.Yes)
             {
@@ -52,7 +60,9 @@ namespace FPIS.Views
                 ParameterUnitControl.Text,
                 ParameterMethodControl.Text,
                 parameterSpecification,
-                product.Id);
+                product.Id,
+                minSpecification
+                );
             if (productParameter != null)
             {
                 ResetFields();
@@ -103,6 +113,31 @@ namespace FPIS.Views
                 DisplayErrorMessage(ParameterProductErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
             }
         }
+
+        float? minSpecification;
+        public void CompareSpecificationValues()
+        {
+            if(materialTextBoxMinimumSpecification.Text.Length != 0)
+            {
+                minSpecification = float.Parse(materialTextBoxMinimumSpecification.Text);
+                if (float.Parse(ParameterSpecificationControl.Text) == minSpecification)
+                {
+                    MessageBox.Show("Minimum and Maximum Spaecification Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (minSpecification > float.Parse(ParameterSpecificationControl.Text))
+                {
+                    MessageBox.Show("Minimum Spaecification cannot be greater than Maximum Specification", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+            else
+            {
+                minSpecification = null;
+            }
+        }
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
             shouldSave = false;
@@ -129,6 +164,7 @@ namespace FPIS.Views
                 ParameterUnitControl.Text =
                 ParameterSpecificationControl.Text =
                 ParameterUnitControl.Text =
+                materialTextBoxMinimumSpecification.Text =
                 string.Empty;
             ParameterProductControl.StartIndex = -1;
         }
@@ -138,6 +174,11 @@ namespace FPIS.Views
             ParameterProductControl.Items.AddRange(products.ToArray());
         }
         private void ParameterSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+        }
+
+        private void materialTextBoxMinimumSpecification_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
         }

@@ -10,7 +10,8 @@
         public string Supplier { get; set; }
         public string TruckNumber { get; set; }
         public int QuantityReceived { get; set; }
-        public int QuantityLeft { get; set; }   
+        public int QuantityLeft { get; set; }  
+        public string NetWeight { get; set; }
         public string Remarks { get; set; }
         public bool Selected { get; set; }
         public string AnalysisStatus { get; set; }

@@ -21,6 +21,7 @@ namespace FPIS.Services
             releasing.ReceivingId = materialReceivedId;
             releasing.MaterialProcurementId = materialToBeReleased.MaterialProcurementId;
             releasing.Quantity = materialToBeReleased.Quantity;
+            releasing.Weight = materialToBeReleased.Weight;
             appDbContext.Releasings.Add(releasing);
             appDbContext.SaveChanges();
             return releasing;

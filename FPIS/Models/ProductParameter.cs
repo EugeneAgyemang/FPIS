@@ -12,6 +12,7 @@ namespace FPIS.Models
         public string Unit { get; set; }
         public string Method { get; set; }
         public float Specification { get; set; }
+        public float? MinimumSpecification { get; set; } 
 
         // Navigation Properties
         public Guid ProductId { get; set; }

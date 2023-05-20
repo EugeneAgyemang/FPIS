@@ -1,6 +1,7 @@
 ﻿using FPIS.Data;
 using FPIS.Models;
 using FPIS.Services;
+using MaterialSkin.Controls;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using System;
 using System.Collections.Generic;
@@ -124,7 +125,7 @@ namespace FPIS.Views
                                                         .Product
                                                         .MaterialProcurements
                                                         .FirstOrDefault
-                                                            (materialProcurement => 
+                                                            (materialProcurement =>
                                                                 materialProcurement.Id == analysisItemList[analysisItemCount]
                                                                                             .MaterialProcuredId);
                     materialReceived = sampleDetail
@@ -134,7 +135,7 @@ namespace FPIS.Views
                                             .Product
                                             .MaterialProcurements
                                             .FirstOrDefault
-                                                (materialProcurement => 
+                                                (materialProcurement =>
                                                 materialProcurement.Id == analysisItemList[analysisItemCount]
                                                                             .MaterialProcuredId)
                                                 .Receivings.FirstOrDefault();
@@ -270,8 +271,11 @@ namespace FPIS.Views
                 $" - Status: ({materialIssueSchema.Status.ToUpper().Trim()})";
             NoteControl.Text = $"You can only issue up to {(new AppDbContext().Receivings.FirstOrDefault(receiving => receiving.Id == materialIssueSchema.MaterialToBeIssued.Id).Quantity) - 1} " +
                 $"{materialIssueSchema.MaterialToBeIssued.Units} of {productIssued}!\n\n" +
-                $"{((materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks != string.Empty)? $"Here's some feedback the last time {productIssued} was received:\n{materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks} - " : "No remarks given by ")}" +
+                $"{((materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks != string.Empty) ? $"Here's some feedback the last time {productIssued} was received:\n{materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks} - " : "No remarks given by ")}" +
                 $"{new UserService(new()).GetFullName(materialIssueSchema.SampleDetail.Sample.UserId)}";
+            PreviousNetWeightControl.Hint = $"Net weight when {Utils.Utils.TruncateLengthyText(productIssued, 10)} was received";
+            helper.SetToolTip(PreviousNetWeightControl, PreviousNetWeightControl.Hint);
+            PreviousNetWeightControl.Text = $"{materialIssueSchema.MaterialToBeIssued.NetWeight}kg";
         }
         private List<FileInfo> GetSampleFilesForCurrentUser()
         {
@@ -316,6 +320,9 @@ namespace FPIS.Views
                 IssueQuantityControl.Text =
                 SamplesRequestedControl.Text =
                 RemarksCaptionControl.Text =
+                WeightRemarkControl.Text =
+                PreviousNetWeightControl.Text =
+                WeightControl.Text =
                 NoteControl.Text = string.Empty;
             SamplesRequestedControl.SelectedIndex = -1;
             SamplesRequestedControl.Items.Clear();
@@ -409,7 +416,8 @@ namespace FPIS.Views
             {
                 MaterialProcurementId = materialProcurementId
                 ,
-                Quantity = quantity
+                Quantity = quantity,
+                Weight = WeightControl.Text
             };
         }
         private Receiving UpdateMaterialQuantity(int quantityToIssue)
@@ -448,14 +456,15 @@ namespace FPIS.Views
         {
             ResetErrorCaptions();
             bool shouldSave = true;
-            ValidateFields(IssueQuantityControl.Text.Trim(), ref shouldSave);
+            ValidateFields(IssueQuantityControl.Text.Trim(), WeightControl.Text.Trim(), ref shouldSave);
 
             return shouldSave;
         }
-        public void ValidateFields(string quantity, ref bool shouldSave)
+        public void ValidateFields(string quantity, string weight, ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateQuantity(quantity, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateWeight(weight, ref shouldSave, ref isErrorMessageDisplayed);
         }
         public void ValidateQuantity(string quantity, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
@@ -465,6 +474,16 @@ namespace FPIS.Views
                 return;
             }
         }
+
+        public void ValidateWeight(string weight, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (weight.Length == 0)
+            {
+                DisplayErrorMessage(WeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the weight of the raw material to be issued");
+                return;
+            }
+        }
+
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed, string message)
         {
             shouldSave = false;
@@ -477,7 +496,8 @@ namespace FPIS.Views
         }
         public void ResetErrorCaptions()
         {
-            QuantityErrorCaption.Text = string.Empty;
+            QuantityErrorCaption.Text =
+            WeightErrorControl.Text = string.Empty;
         }
 
         private void IssueQuantityControl_KeyPress(object sender, KeyPressEventArgs e)
@@ -518,6 +538,55 @@ namespace FPIS.Views
                     ResetFields();
                     ResetErrorCaptions();
                     return;
+                }
+            }
+        }
+
+        private void WeightControl_TextChanged(object sender, EventArgs e)
+        {
+            if (WeightControl.Text.Trim().Length == 0)
+            {
+                WeightRemarkControl.Text = string.Empty;
+                return;
+            }
+            float newWeight;
+            float previousWeight;
+
+            float.TryParse(((MaterialTextBox)sender).Text, out newWeight);
+            float.TryParse(PreviousNetWeightControl.Text.Split("kg")[0], out previousWeight);
+
+            if (newWeight == previousWeight)
+            {
+                WeightRemarkControl.Text = "The weight remains the same!";
+            }
+            else if (newWeight > previousWeight)
+            {
+                if ((previousWeight + 50) >= newWeight)
+                {
+                    WeightRemarkControl.Text = "The current weight is slighly higher than when it was received";
+                }
+                else if ((previousWeight + 300) >= newWeight)
+                {
+                    WeightRemarkControl.Text = "The current weight is mildly higher than when it was received";
+                }
+                else
+                {
+                    WeightRemarkControl.Text = "The current weight is drastically higher than when it was received";
+                }
+            }
+            else
+            {
+                if ((previousWeight - 50) <= newWeight)
+                {
+                    WeightRemarkControl.Text = "The current weight is slighly lower than when it was received";
+                }
+                else if ((previousWeight - 300) <= newWeight)
+                {
+                    WeightRemarkControl.Text = "The current weight is mildly lower than when it was received";
+                }
+                else
+                {
+                    WeightRemarkControl.Text = "The current weight is drastically lower than when it was received";
                 }
             }
         }

@@ -160,7 +160,7 @@ namespace FPIS.Views
                                                     , "Continue"
                                                     , MessageBoxButtons.YesNo
                                                     , MessageBoxIcon.Question);
-            if(userReponseToProceed == DialogResult.No)
+            if (userReponseToProceed == DialogResult.No)
             {
                 return;
             }
@@ -187,7 +187,18 @@ namespace FPIS.Views
             ReceivingService receivingService = new ReceivingService(new());
             receivingService.SaveMaterialReceivedRecord(materialReceivedRecord);
         }
-        public void ValidateFields(string supplier, string truck, string quantity, string unit, string materialProcured, string warehouse, string lot, ref bool shouldSave)
+        public void ValidateFields(string supplier
+                                    , string truck
+                                    , string quantity
+                                    , string unit
+                                    , string materialProcured
+                                    , string warehouse
+                                    , string lot
+                                    , string grossWeight
+                                    , string netWeight
+                                    , string country
+                                    , string city
+                                    , ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateSupplier(supplier, ref shouldSave, ref isErrorMessageDisplayed);
@@ -197,6 +208,10 @@ namespace FPIS.Views
             ValidateProduct(materialProcured, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateWarehouse(warehouse, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateLot(lot, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateGrossWeight(grossWeight, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateNetWeight(netWeight, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateCountry(country, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateCity(city, ref shouldSave, ref isErrorMessageDisplayed);
 
         }
         public void ValidateSupplier(string supplier, ref bool shouldSave, ref bool isErrorMessageDisplayed)
@@ -255,6 +270,43 @@ namespace FPIS.Views
                 return;
             }
         }
+
+        public void ValidateGrossWeight(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (lot.Length == 0)
+            {
+                DisplayErrorMessage(GrossWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the gross weight for the raw-material received");
+                return;
+            }
+        }
+
+        public void ValidateNetWeight(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (lot.Length == 0)
+            {
+                DisplayErrorMessage(NetWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the net weight for the raw-material received");
+                return;
+            }
+        }
+
+        public void ValidateCity(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (lot.Length == 0)
+            {
+                DisplayErrorMessage(CityErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the city the raw-material received came from");
+                return;
+            }
+        }
+
+        public void ValidateCountry(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
+        {
+            if (lot.Length == 0)
+            {
+                DisplayErrorMessage(CountryErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the country the raw-material received came from");
+                return;
+            }
+        }
+
         private void DisplayErrorMessage(Label errorCaption, ref bool shouldSave, ref bool isErrorMessageDisplayed, string message)
         {
             shouldSave = false;
@@ -273,8 +325,12 @@ namespace FPIS.Views
                 UnitsErrorCaption.Text =
                 TruckNumberErrorCaption.Text =
                 ProductErrorCaption.Text =
-                LotErrorCaption.Text = string.Empty;
-            ProductErrorCaption.ForeColor = Color.Red;
+                LotErrorCaption.Text =
+                GrossWeightErrorControl.Text =
+                NetWeightErrorControl.Text =
+                CountryErrorControl.Text =
+                CityErrorControl.Text = string.Empty;
+            //ProductErrorCaption.ForeColor = Color.Red;
         }
         public void ResetFields()
         {
@@ -286,6 +342,10 @@ namespace FPIS.Views
                 WarehouseControl.Text =
                 UnitsControl.Text =
                 LotControl.Text =
+                NetWeightControl.Text =
+                GrossWeightControl.Text =
+                CountryControl.Text =
+                CityControl.Text =
                 string.Empty;
             DoneControl.Text = READY;
             DoneControl.Image = Properties.Resources.not_done_light;
@@ -321,7 +381,11 @@ namespace FPIS.Views
                 TruckNumber = TruckNumberControl.Text.Trim(),
                 Quantity = quantity,
                 Units = UnitsControl.Text,
-                MaterialProcurementId = materialBeingProcured
+                MaterialProcurementId = materialBeingProcured,
+                GrossWeight = GrossWeightControl.Text.Trim(),
+                NetWeight = NetWeightControl.Text.Trim(),
+                Country = CountryControl.Text.Trim(),
+                City = CityControl.Text.Trim()
             };
         }
         private bool PerformValidations()
@@ -335,6 +399,10 @@ namespace FPIS.Views
                 ProductControl.Text,
                 WarehouseControl.Text,
                 LotControl.Text,
+                GrossWeightControl.Text,
+                NetWeightControl.Text,
+                CountryControl.Text,
+                CityControl.Text,
                 ref shouldSave);
 
             return shouldSave;
@@ -362,11 +430,14 @@ namespace FPIS.Views
                 $"Truck #: {materialToBeReceived.TruckNumber}\n" +
                 $"Quantity Received: {materialToBeReceived.Quantity}\n" +
                 $"Unit : {materialToBeReceived.Units}\n" +
-                $"{((materialToBeProcured.Remarks == string.Empty) ? "" : $"Remarks: {materialToBeProcured.Remarks}")}"
+                $"----------\n" +
+                $"Gross weight: {materialToBeReceived.GrossWeight}kg\n" +
+                $"Net weight: {materialToBeReceived.NetWeight}kg\n" +
+                $"Source: {materialToBeReceived.City}, {materialToBeReceived.Country}"
                 , "Confirm Request"
                 , MessageBoxButtons.YesNo
                 , MessageBoxIcon.Question);
-            if(userOption == DialogResult.No)
+            if (userOption == DialogResult.No)
             {
                 return;
             }
@@ -392,7 +463,7 @@ namespace FPIS.Views
                         }
                     }
                 );
-            if(sampleCreated == null)
+            if (sampleCreated == null)
             {
                 Utils.Utils.ShowMessageBox(
                     "We could not create the sample you requested. Kindly try again later 🙂"
@@ -445,7 +516,7 @@ namespace FPIS.Views
                     control is MaterialMultiLineTextBox2 ||
                     control is DateTimePicker)
                 {
-                    if(control.Name == "RemarksControl")
+                    if (control.Name == "RemarksSection")
                     {
                         continue;
                     }
@@ -472,7 +543,7 @@ namespace FPIS.Views
             DoneControl.Text = DONE;
             DoneControl.Image = Properties.Resources.done_light;
             ShowSnackBar($"{product} analysis completed successfully! 👍");
-            RemarksControl.Enabled = true;
+            RemarksSection.Enabled = true;
             RemarksControl.Focus();
             EnableKeyboardShourtcut();
         }
@@ -601,6 +672,10 @@ namespace FPIS.Views
             QuantityControl.Text = $"{receiving.Quantity}";
             UnitsControl.Text = receiving.Units;
             TruckNumberControl.Text = receiving.TruckNumber;
+            GrossWeightControl.Text = receiving.GrossWeight;
+            NetWeightControl.Text = receiving.NetWeight;
+            CityControl.Text = receiving.City;
+            CountryControl.Text = receiving.Country;
             SwitchDateControl.Checked = false;
             // Use the error caption hidden field to store the Sample Id
             ProductErrorCaption.ForeColor = Color.White;

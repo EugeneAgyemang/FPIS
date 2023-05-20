@@ -26,7 +26,7 @@ namespace FPIS.Services
             }
             return itExists;
         }
-        public WaterParameter Save(string parameterName, string unit, float controlLimit, Guid waterId)
+        public WaterParameter Save(string parameterName, string unit, float controlLimit, Guid waterId, float? minControlLimit)
         {
             AnalysisParameter analysisParameter = appDbContext.AnalysisParameters.Add(
                 new AnalysisParameter() { Id = new Guid(), ItemType = "Water" }
@@ -38,7 +38,8 @@ namespace FPIS.Services
                     ParameterName = parameterName,
                     Unit = unit,
                     ControlLimit = controlLimit,
-                    WaterId = waterId
+                    WaterId = waterId,
+                    MinimumControlLimit= minControlLimit
                 }
             ).Entity;
 
@@ -62,11 +63,13 @@ namespace FPIS.Services
                         .ToList();
         }
 
-        public WaterParameter UpdateParameterControlLimit(Guid parameterId, float newControlLimit)
+        public WaterParameter UpdateParameterControlLimit(Guid parameterId,string newUnit, float newControlLimit, float? newMinControlLimit)
         {
             WaterParameter waterParameter = appDbContext.WaterParameters
                                                                 .FirstOrDefault(waterParameter => waterParameter.Id == parameterId);
+            waterParameter.Unit= newUnit;
             waterParameter.ControlLimit = newControlLimit;
+            waterParameter.MinimumControlLimit= newMinControlLimit;
             appDbContext.Update(waterParameter);
             appDbContext.SaveChanges();
             return waterParameter;

@@ -93,4 +93,29 @@ public class Utils
     {
         return new Regex("^[0-9]").IsMatch(quantity);
     }
+
+    /// <summary>
+    /// Truncate the given text if it exceeds <paramref name="expectedLength"/> characters.
+    /// </summary>
+    /// <param name="text">The original text to be checked</param>
+    /// <param name="expectedLength">The number of characters to be
+    /// used as the threshold</param>
+    /// <returns>The new text. Would only be the same as the original
+    /// text provided the original text has less than
+    /// <paramref name="expectedLength"/> characters. Otherwise the truncated version of
+    /// text is returned</returns>
+    public static string TruncateLengthyText(string text, int expectedLength)
+    {
+        StringBuilder newText = new StringBuilder();
+        if (text.Length > expectedLength)
+        {
+            newText.Append(text.Substring(0, expectedLength));
+            newText.Append("...");
+        }
+        else
+        {
+            newText.Append(text);
+        }
+        return newText.ToString();
+    }
 }

@@ -3,6 +3,7 @@ using System;
 using FPIS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FPIS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230507155119_AddWeightAndLocationFieldsToReceivingModel")]
+    partial class AddWeightAndLocationFieldsToReceivingModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -411,9 +414,6 @@ namespace FPIS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<float?>("MinimumSpecification")
-                        .HasColumnType("real");
-
                     b.Property<string>("ParameterName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -557,10 +557,6 @@ namespace FPIS.Migrations
 
                     b.Property<Guid>("ReceivingId")
                         .HasColumnType("uuid");
-
-                    b.Property<string>("Weight")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -810,9 +806,6 @@ namespace FPIS.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<float>("ControlLimit")
-                        .HasColumnType("real");
-
-                    b.Property<float?>("MinimumControlLimit")
                         .HasColumnType("real");
 
                     b.Property<string>("ParameterName")

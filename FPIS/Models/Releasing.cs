@@ -14,7 +14,7 @@ namespace FPIS.Models
         [Key]
         public Guid Id { get; set; }
         public int Quantity { get; set; }
-        //public int FatContent { get; set; }
+        public string Weight { get; set; }
 
         // Navigation Properties
         public Guid MaterialProcurementId { get; set; }
