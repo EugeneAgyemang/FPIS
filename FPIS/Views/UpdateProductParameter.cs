@@ -16,6 +16,7 @@ namespace FPIS.Views
 {
     public partial class UpdateProductParameter : MaterialForm
     {
+        public bool _isDataValid = true;
         string parameterHint;
         public UpdateProductParameter()
         {
@@ -66,6 +67,9 @@ namespace FPIS.Views
             LoadSelectedParameterSpecification(selectedParameter);
         }
 
+        string _method, _unit;
+        float? _minimumSpecification;
+        float _maximumSpecification;
         private void LoadSelectedParameterSpecification(ProductParameter productParameter)
         {
             if(productParameter == null)
@@ -73,7 +77,80 @@ namespace FPIS.Views
                 ProductParameterControl.Hint = parameterHint;
                 return;
             }
-            PreviousSpecificationControl.Text = $"{productParameter.Specification}";
+            methodControl.Hint = $"Method - {productParameter.Method}";
+            unitControl.Hint = $"Unit - {productParameter.Unit}";
+            minimumSpecificationControl.Hint = $"{(productParameter.MinimumSpecification == null ? "Minimum Specification not set": minimumSpecificationControl.Hint= "Minimum Specification - "+productParameter.MinimumSpecification)}";
+            maximumSpecificationControl.Hint = $"Maximum Specification - {productParameter.Specification}";
+            _method = productParameter.Method;
+            _unit = productParameter.Unit;
+            _minimumSpecification= productParameter.MinimumSpecification;
+            _maximumSpecification = productParameter.Specification;
+        }
+
+        float newMinSpecification;
+        public void CompareSpecificationValues()
+        {
+            if (minimumSpecificationControl.Text.Length != 0 && maximumSpecificationControl.Text.Length != 0)
+            {
+                newMinSpecification = float.Parse(minimumSpecificationControl.Text);
+                if (float.Parse(maximumSpecificationControl.Text) == newMinSpecification)
+                {
+                    MessageBox.Show("Minimum and Maximum Spaecification Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (newMinSpecification > float.Parse(maximumSpecificationControl.Text))
+                {
+                    MessageBox.Show("Minimum Spaecification cannot be greater than Maximum Specification", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+            else if(minimumSpecificationControl.Text.Length != 0 && maximumSpecificationControl.Text.Length == 0)
+            {
+                newMinSpecification = float.Parse(minimumSpecificationControl.Text);
+                if (newMinSpecification == _maximumSpecification)
+                {
+                    MessageBox.Show("Minimum and Maximum Spaecification Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (newMinSpecification > _maximumSpecification)
+                {
+                    MessageBox.Show("Minimum Spaecification cannot be greater than Maximum Specification", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+            else if (maximumSpecificationControl.Text.Length != 0 && minimumSpecificationControl.Text.Length == 0)
+            {
+                if (float.Parse(maximumSpecificationControl.Text) == _minimumSpecification)
+                {
+                    MessageBox.Show("Maximum and Minimum Spaecification Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (_minimumSpecification > float.Parse(maximumSpecificationControl.Text))
+                {
+                    MessageBox.Show("Minimum Spaecification cannot be greater than Maximum Specification", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+        }
+
+        public void ValidateUpdatedFields()
+        {
+            if ((maximumSpecificationControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (methodControl.Text.Length == 0) && (unitControl.Text.Length == 0))
+            {
+                MessageBox.Show("Enter the parameter value to update for " + ProductParameterControl.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _isDataValid = false;
+                return;
+            }
+            else
+            {
+                CompareSpecificationValues();
+            }
         }
 
         private void SaveParameterControl_Click(object sender, EventArgs e)
@@ -81,7 +158,7 @@ namespace FPIS.Views
             ResetErrorCaptions();
             bool shouldSave = true;
             float newSpecification;
-            float.TryParse(NewSpecificationControl.Text, out newSpecification);
+            float.TryParse(maximumSpecificationControl.Text, out newSpecification);
 
             ValidateFields(ProductControl.Text, ProductParameterControl.Text, newSpecification, ref shouldSave);
 
@@ -89,49 +166,123 @@ namespace FPIS.Views
             {
                 return;
             }
-            bool userMadeChanges = UserUpdatedSpecification();
-            DialogResult userReponseToProceed = DisplayStatus(userMadeChanges);
-            if (userReponseToProceed == DialogResult.Yes)
+            ValidateUpdatedFields();
+            
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show(
+                    $"Do you want to update a parameter value for "+ProductParameterControl.Text+"?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                    );
+
+            if (dialogResult == DialogResult.Yes)
             {
                 ProductParameter productParameter = ProductParameterControl.SelectedItem as ProductParameter;
                 Guid parameterId = productParameter.Id;
-                new ProductParameterService(new()).UpdateParameterSpecification(parameterId, newSpecification);
-                Utils.Utils.ShowMessageBox($"The specification for {productParameter} was updated successfully!", "Update Specifiaction", MessageBoxButtons.OK);
+                if((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId,unitControl.Text, methodControl.Text ,newSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, newSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, newSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, newSpecification, _minimumSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, _maximumSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, _maximumSpecification, _minimumSpecification);
+                }
+                else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _unit, _maximumSpecification, _minimumSpecification);
+                }
+                else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, _maximumSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, newSpecification, _minimumSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, _maximumSpecification, _minimumSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, _maximumSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, newSpecification, _minimumSpecification);
+                }
+                else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, _maximumSpecification, newMinSpecification);
+                }
+                else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, newSpecification, _minimumSpecification);
+                }
+                else
+                {
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, newSpecification, newMinSpecification);
+                }
+
+                Utils.Utils.ShowMessageBox($"The Parameter values for {productParameter} was updated successfully!", "Update Successful", MessageBoxButtons.OK);
                 ResetFields();
             }
         }
 
-        private bool UserUpdatedSpecification()
-        {
-            string previousSpecification = PreviousSpecificationControl.Text;
-            string newSpecification = NewSpecificationControl.Text;
-            return previousSpecification != newSpecification;
-        }
+        //private bool UserUpdatedSpecification()
+        //{
+        //    string previousSpecification = minimumSpecificationControl.Text;
+        //    string newSpecification = maximumSpecificationControl.Text;
+        //    return previousSpecification != newSpecification;
+        //}
 
-        private DialogResult DisplayStatus(bool userMadeChanges)
-        {
-            if (userMadeChanges)
-            {
-                float newSpecification;
-                float previousSpecification;
-                float.TryParse(PreviousSpecificationControl.Text, out previousSpecification);
-                float.TryParse(NewSpecificationControl.Text, out newSpecification);
+        //private DialogResult DisplayStatus(bool userMadeChanges)
+        //{
+        //    if (userMadeChanges)
+        //    {
+        //        float newSpecification, newMinSpecification;
+        //        float previousSpecification, previousMinSpecification;
+        //        float.TryParse(minimumSpecificationControl.Text, out previousSpecification);
+        //        float.TryParse(maximumSpecificationControl.Text, out newSpecification);
+        //        float.TryParse(methodControl.Text, out previousMinSpecification);
+        //        float.TryParse(unitControl.Text, out newMinSpecification);
 
-                if (newSpecification > previousSpecification)
-                {
-                    return Utils.Utils.ShowMessageBox($"You are choosing to update the parameter {ProductParameterControl.Text} for {ProductControl.Text} with a higher specification. Do you wish to proceed?", "Update Specification", MessageBoxButtons.YesNo);
-                }
-                return Utils.Utils.ShowMessageBox($"Careful! You are choosing to update the parameter {ProductParameterControl.Text} for {ProductControl.Text} with a lower specification! Do you wish to proceed?", "Update Specification", MessageBoxButtons.YesNo);
-            }
-            return Utils.Utils.ShowMessageBox("No changes were applied!", "Update Specification", MessageBoxButtons.OK);
-        }
+        //        if (newSpecification > previousSpecification)
+        //        {
+        //            return Utils.Utils.ShowMessageBox($"You are choosing to update the parameter {ProductParameterControl.Text} for {ProductControl.Text} with a higher specification. Do you wish to proceed?", "Update Specification", MessageBoxButtons.YesNo);
+        //        }
+        //        return Utils.Utils.ShowMessageBox($"Careful! You are choosing to update the parameter {ProductParameterControl.Text} for {ProductControl.Text} with a lower specification! Do you wish to proceed?", "Update Specification", MessageBoxButtons.YesNo);
+        //    }
+        //    return Utils.Utils.ShowMessageBox("No changes were applied!", "Update Specification", MessageBoxButtons.OK);
+        //}
 
         public void ValidateFields(string product, string paramater, float newSpecification, ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
             ValidateSelectedProduct(product, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateSelectedParameter(paramater, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateNewSpecification(newSpecification, ref shouldSave, ref isErrorMessageDisplayed);
+           // ValidateNewSpecification(newSpecification, ref shouldSave, ref isErrorMessageDisplayed);
         }
 
         public void ValidateSelectedProduct(string product, ref bool shouldSave, ref bool isErrorMessageDisplayed)
@@ -181,11 +332,22 @@ namespace FPIS.Views
         {
             ProductControl.Text =
                 ProductParameterControl.Text =
-                PreviousSpecificationControl.Text =
-                NewSpecificationControl.Text = string.Empty;
+                minimumSpecificationControl.Text =
+                unitControl.Text =
+                methodControl.Text =
+                maximumSpecificationControl.Text = string.Empty;
             ProductControl.SelectedIndex =
                 ProductParameterControl.SelectedIndex = -1;
+            methodControl.Hint = "Method";
+            unitControl.Hint = "Unit";
+            minimumSpecificationControl.Hint = "Minimum Specification";
+            maximumSpecificationControl.Hint = "Maximum Specification";
             ProductParameterControl.Items.Clear();
+        }
+
+        private void minimumSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
         }
 
         private void NewSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)

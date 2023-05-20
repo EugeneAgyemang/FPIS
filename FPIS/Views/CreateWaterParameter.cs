@@ -16,6 +16,7 @@ namespace FPIS.Views
 {
     public partial class CreateWaterParameter : MaterialForm
     {
+        public bool _isDataValid = true;
         public CreateWaterParameter()
         {
             InitializeComponent();
@@ -26,6 +27,31 @@ namespace FPIS.Views
                 ParameterControlLimitErrorCaption.ForeColor =
                 ParameterWaterErrorCaption.ForeColor = Color.Red;
             LoadWater();
+        }
+
+        float? minControlLimit;
+        public void CompareControlLimitValues()
+        {
+            if (materialTextBoxMinimumControlLimit.Text.Length != 0)
+            {
+                minControlLimit = float.Parse(materialTextBoxMinimumControlLimit.Text);
+                if (float.Parse(ParameterControlLimitControl.Text) == minControlLimit)
+                {
+                    MessageBox.Show("Minimum and Maximum Control Limit Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+                else if (minControlLimit > float.Parse(ParameterControlLimitControl.Text))
+                {
+                    MessageBox.Show("Minimum Control limit cannot be greater than Maximum Control limit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _isDataValid = false;
+                    return;
+                }
+            }
+            else
+            {
+                minControlLimit = null;
+            }
         }
 
         private void SaveParameterControl_Click(object sender, EventArgs e)
@@ -39,6 +65,12 @@ namespace FPIS.Views
 
             if (!shouldSave)
             {
+                return;
+            }
+            CompareControlLimitValues();
+            if (!_isDataValid)
+            {
+                _isDataValid = true;
                 return;
             }
             DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox("Do you wish to proceed?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -59,7 +91,8 @@ namespace FPIS.Views
                 (ParameterNameControl.Text,
                 ParameterUnitControl.Text,
                 parameterControlLimit,
-                water.Id);
+                water.Id,
+                minControlLimit);
             if (productParameter != null)
             {
                 ResetFields();
@@ -125,6 +158,7 @@ namespace FPIS.Views
             ParameterNameControl.Text =
                 ParameterUnitControl.Text =
                 ParameterControlLimitControl.Text =
+                materialTextBoxMinimumControlLimit.Text =
                 string.Empty;
             ParameterWaterControl.StartIndex = -1;
         }
@@ -137,6 +171,11 @@ namespace FPIS.Views
         {
             List<Water> water = new WaterService(new()).GetAllWater();
             ParameterWaterControl.Items.AddRange(water.ToArray());
+        }
+
+        private void materialTextBoxMinimumControlLimit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
         }
     }
 }

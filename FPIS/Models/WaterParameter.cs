@@ -16,6 +16,7 @@ namespace FPIS.Models
         public string ParameterName { get; set; }
         public string Unit { get; set; }
         public float ControlLimit { get; set; }
+        public float? MinimumControlLimit { get; set; }
 
         // Navigation Properties
         public Guid WaterId { get; set; }
