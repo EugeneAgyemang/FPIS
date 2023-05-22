@@ -205,6 +205,7 @@ namespace FPIS.Views
                         Name = itemName,
                         Label = srd.Label,
                         ProductOrWaterId = itemId,
+                        isRejected = srd.IsRejected,
                         Reject = srd.IsRejected ? "Rejected" : "Active",
                         AnalysisItemId = srd.AnalysisItemId.ToString(),
                         parametersWithValues = _analysisService
@@ -338,11 +339,23 @@ namespace FPIS.Views
                 string itemName = activeRow.Cells["nameDataGridViewTextBoxColumn1"].Value.ToString();
                 string analysisItemId = activeRow.Cells["analysisItemIdDataGridViewTextBoxColumn"].Value.ToString();
                 string productOrWaterId = activeRow.Cells["productOrWaterIdDataGridViewTextBoxColumn"].Value.ToString();
+                string isRejectedValue = row.Cells["rejectSampleResultDetail"].Value.ToString();
 
                 if (row.Cells["parameterValuesDataGridViewColumn"].Selected)
                 {
                     AnalysisResultSampleDetailBindingItem sdbi =
                         _sampleItems.FirstOrDefault(sd => sd.Id.ToString() == itemId);
+
+                    if (_shouldUpdate && sdbi.isRejected)
+                    {
+                        Utils.Utils.ShowMessageBox(
+                            "You cannot change a rejected sample",
+                            "Rejected Sample",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
 
                     new AddAnalysisParameterValues(
                         itemId,
@@ -354,12 +367,11 @@ namespace FPIS.Views
                         _shouldUpdate
                     ).ShowDialog();
                 }
-                else if (row.Cells["rejectSampleResultDetail"].Selected)
+                else if (row.Cells["rejectSampleResultDetail"].Selected && !_shouldUpdate)
                 {
-                    string value = row.Cells["rejectSampleResultDetail"].Value.ToString();
                     AnalysisResultSampleDetailBindingItem item = _sampleItems.First(it => it.Id.ToString().Equals(itemId));
 
-                    if (value.Equals("Allow Sample")) {
+                    if (isRejectedValue.Equals("Allow Sample")) {
                         item.isRejected = false;
                         row.Cells["rejectSampleResultDetail"].Value = "Reject Sample";
                     } else
