@@ -2,6 +2,7 @@ using FPIS.Models;
 using FPIS.Services;
 using MaterialSkin.Controls;
 using System.ComponentModel;
+using System.Windows.Forms;
 using static MaterialSkin.MaterialSkinManager;
 
 namespace FPIS.Views
@@ -204,6 +205,7 @@ namespace FPIS.Views
                         Name = itemName,
                         Label = srd.Label,
                         ProductOrWaterId = itemId,
+                        Reject = srd.IsRejected ? "Rejected" : "Active",
                         AnalysisItemId = srd.AnalysisItemId.ToString(),
                         parametersWithValues = _analysisService
                             .FetchSampleResultWithParameters(
@@ -329,27 +331,43 @@ namespace FPIS.Views
 
             DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-            if (row != null && row.Cells["parameterValuesDataGridViewColumn"].Selected)
+            if (row != null)
             {
                 DataGridViewRow activeRow = dataGridView1.Rows[e.RowIndex];
                 string itemId = row.Cells["sampleIdDataGridViewTextBoxColumn1"].Value.ToString();
-                string itemName = activeRow.Cells[0].Value.ToString();
-                string analysisItemId = activeRow.Cells[2].Value.ToString();
-                string productOrWaterId = activeRow.Cells[activeRow.Cells.Count - 1].Value.ToString();
-               
+                string itemName = activeRow.Cells["nameDataGridViewTextBoxColumn1"].Value.ToString();
+                string analysisItemId = activeRow.Cells["analysisItemIdDataGridViewTextBoxColumn"].Value.ToString();
+                string productOrWaterId = activeRow.Cells["productOrWaterIdDataGridViewTextBoxColumn"].Value.ToString();
 
-                AnalysisResultSampleDetailBindingItem sdbi =
-                    _sampleItems.FirstOrDefault(sd => sd.Id.ToString() == itemId);
+                if (row.Cells["parameterValuesDataGridViewColumn"].Selected)
+                {
+                    AnalysisResultSampleDetailBindingItem sdbi =
+                        _sampleItems.FirstOrDefault(sd => sd.Id.ToString() == itemId);
 
-                new AddAnalysisParameterValues(
-                    itemId,
-                    itemName,
-                    analysisItemId,
-                    _sampleType,
-                    sdbi,
-                    productOrWaterId,
-                    _shouldUpdate
-                ).ShowDialog();
+                    new AddAnalysisParameterValues(
+                        itemId,
+                        itemName,
+                        analysisItemId,
+                        _sampleType,
+                        sdbi,
+                        productOrWaterId,
+                        _shouldUpdate
+                    ).ShowDialog();
+                }
+                else if (row.Cells["rejectSampleResultDetail"].Selected)
+                {
+                    string value = row.Cells["rejectSampleResultDetail"].Value.ToString();
+                    AnalysisResultSampleDetailBindingItem item = _sampleItems.First(it => it.Id.ToString().Equals(itemId));
+
+                    if (value.Equals("Allow Sample")) {
+                        item.isRejected = false;
+                        row.Cells["rejectSampleResultDetail"].Value = "Reject Sample";
+                    } else
+                    {
+                        item.isRejected = true;
+                        row.Cells["rejectSampleResultDetail"].Value = "Allow Sample";
+                    }
+                }
             }
         }
 
@@ -415,7 +433,17 @@ namespace FPIS.Views
                 else
                 {
                     _analysisService.CreateSampleResult(analysisId, Main.LOGGED_USER_ID, _sampleItems.ToList());
-                    _analysisService.SetSampleAsComplete(analysisId);
+
+                    if (_sampleItems.All(it => it.isRejected))
+                    {
+                        _analysisService.SetSampleAsComplete(analysisId, "Rejected");
+                    } else if (_sampleItems.Any(it => it.isRejected))
+                    {
+                        _analysisService.SetSampleAsComplete(analysisId, "Completed with Rejections");
+                    } else
+                    {
+                        _analysisService.SetSampleAsComplete(analysisId, "Completed");
+                    }
 
                     Utils.Utils.ShowMessageBox(
                         "Analysis Result is successfully generated.",

@@ -148,7 +148,7 @@ namespace FPIS.Services
             return sample;
         }
 
-        public Sample? SetSampleAsComplete(string sampleId)
+        public Sample? SetSampleAsComplete(string sampleId, string status)
         {
             Sample? sample = _dbContext.Samples.FirstOrDefault(s => s.Id.ToString().Equals(sampleId));
 
@@ -157,7 +157,7 @@ namespace FPIS.Services
                 return null;
             }
 
-            sample.Status = "Completed";
+            sample.Status = status;
             _dbContext.Samples.Update(sample);
 
             _dbContext.SaveChanges();
@@ -190,6 +190,7 @@ namespace FPIS.Services
                         Id = new Guid(),
                         SampleResultId = sampleResult.Id,
                         Label = sampleDetailsIdsWithParameter.Label,
+                        IsRejected = sampleDetailsIdsWithParameter.isRejected,
                         AnalysisItemId = new Guid(sampleDetailsIdsWithParameter.AnalysisItemId)
                     }
                 ).Entity;

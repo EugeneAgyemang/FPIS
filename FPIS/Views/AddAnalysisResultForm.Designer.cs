@@ -52,6 +52,7 @@
             this.analysisItemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parameterValuesDataGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productOrWaterIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rejectSampleResultDetail = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisResultSampleDetailBindingItemBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -81,7 +82,8 @@
             this.sampleIdDataGridViewTextBoxColumn1,
             this.analysisItemIdDataGridViewTextBoxColumn,
             this.parameterValuesDataGridViewColumn,
-            this.productOrWaterIdDataGridViewTextBoxColumn});
+            this.productOrWaterIdDataGridViewTextBoxColumn,
+            this.rejectSampleResultDetail});
             this.dataGridView1.DataSource = this.analysisResultSampleDetailBindingItemBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(47, 338);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
@@ -302,6 +304,15 @@
             this.productOrWaterIdDataGridViewTextBoxColumn.Visible = false;
             this.productOrWaterIdDataGridViewTextBoxColumn.Width = 150;
             // 
+            // rejectSampleResultDetail
+            // 
+            this.rejectSampleResultDetail.DataPropertyName = "Reject";
+            this.rejectSampleResultDetail.HeaderText = "Reject";
+            this.rejectSampleResultDetail.MinimumWidth = 8;
+            this.rejectSampleResultDetail.Name = "rejectSampleResultDetail";
+            this.rejectSampleResultDetail.ReadOnly = true;
+            this.rejectSampleResultDetail.Width = 150;
+            // 
             // AddAnalysisResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -349,12 +360,13 @@
         private Label label4;
         private Label ProductionEngineerTwoCaptionControl;
         private Label ProductionEngineerOneCaptionControl;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn Label;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn sampleIdDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn analysisItemIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn parameterValuesDataGridViewColumn;
         private DataGridViewTextBoxColumn productOrWaterIdDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn sampleIdDataGridViewTextBoxColumn1;
+        private DataGridViewLinkColumn rejectSampleResultDetail;
     }
 }
