@@ -10,6 +10,8 @@ namespace FPIS.Models
 
         public string? Label { get; set; }
 
+        public bool IsRejected { get; set; }
+
         // Navigation Properties
 
         public Guid SampleResultId { get; set; }

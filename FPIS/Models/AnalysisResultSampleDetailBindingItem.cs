@@ -9,6 +9,10 @@ namespace FPIS.Models
 
         public string Label { get; set; }
 
+        public bool isRejected { get; set; }
+
+        public string Reject { get; set; } = "Reject Sample";
+
         public string AnalysisItemId { get; set; }
 
         public string? ParameterValues { get; set; }
