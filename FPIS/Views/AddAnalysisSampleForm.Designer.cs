@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAnalysisSampleForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addAnalysisSamplesQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -49,16 +50,20 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn,
-            this.selectedDataGridViewCheckBoxColumn});
+            this.selectedDataGridViewCheckBoxColumn,
+            this.addAnalysisSamplesQuantity});
             this.dataGridView1.DataSource = this.analysisSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 86);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 143);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(515, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(736, 383);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            // 
+            // analysisSampleBindingItemBindingSource
+            // 
+            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -75,8 +80,8 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 150;
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
@@ -84,24 +89,27 @@
             this.selectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
             this.selectedDataGridViewCheckBoxColumn.MinimumWidth = 8;
             this.selectedDataGridViewCheckBoxColumn.Name = "selectedDataGridViewCheckBoxColumn";
-            this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.selectedDataGridViewCheckBoxColumn.Width = 226;
             // 
-            // analysisSampleBindingItemBindingSource
+            // addAnalysisSamplesQuantity
             // 
-            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
+            this.addAnalysisSamplesQuantity.DataPropertyName = "Quantity";
+            this.addAnalysisSamplesQuantity.HeaderText = "Quantity";
+            this.addAnalysisSamplesQuantity.MinimumWidth = 8;
+            this.addAnalysisSamplesQuantity.Name = "addAnalysisSamplesQuantity";
+            this.addAnalysisSamplesQuantity.ReadOnly = true;
+            this.addAnalysisSamplesQuantity.Width = 150;
             // 
             // AddAnalysisSampleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 320);
+            this.ClientSize = new System.Drawing.Size(786, 533);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "AddAnalysisSampleForm";
-            this.Padding = new System.Windows.Forms.Padding(2, 38, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(3, 63, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Analysis Samples";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -116,5 +124,6 @@
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn selectedDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn addAnalysisSamplesQuantity;
     }
 }

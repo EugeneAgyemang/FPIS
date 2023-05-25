@@ -1,5 +1,6 @@
 ﻿using FPIS.Models;
 using FPIS.Services;
+using Moq;
 using System.ComponentModel;
 using System.Data;
 
@@ -81,6 +82,19 @@ namespace FPIS.Views
             addAnalysisSampleForm.ShowDialog();
         }
 
+        private bool AreLabelsValid()
+        {
+            foreach(AnalysisSampleBindingItem item in analysisItemList)
+            {
+                if (analysisItemList?.Where(itx => itx.Id == item.Id).Count() > 1 &&
+                    analysisItemList.Any(it => it.Id == item.Id && string.IsNullOrEmpty(it?.Label?.Trim()))) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         private void materialButtonRequestAnalysis_Click(object sender, EventArgs e)
         {
             try
@@ -117,6 +131,18 @@ namespace FPIS.Views
                     Utils.Utils.ShowMessageBox(
                         $"Please add a sample for the analysis.",
                         "Invalid Data",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+
+                    return;
+                }
+
+                if (!AreLabelsValid())
+                {
+                    Utils.Utils.ShowMessageBox(
+                        $"Please add labels to all repeating samples to distinguish between them.",
+                        "Invalid Labels",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                         );
@@ -170,6 +196,44 @@ namespace FPIS.Views
                     MessageBoxIcon.Error
                 );
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            if (row != null && !row.Cells["analysisRequestSelectedDataGridViewCheckBoxColumn"].Selected)
+            {
+                return;
+            }
+
+            string itemId = row.Cells["analysisRequestIdDataGridViewTextBoxColumn"].Value.ToString();
+            string selectItemColumnValue = row.Cells["analysisRequestSelectedDataGridViewCheckBoxColumn"].Value.ToString();
+
+            var item = analysisItemList.FirstOrDefault(it => it.Id.ToString() == itemId);
+
+            if (item != null)
+            {
+                analysisItemList.RemoveAt(e.RowIndex);
+            }
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+            row.Cells["createAnalysisRequestLabel"].ReadOnly = false;
         }
     }
 }

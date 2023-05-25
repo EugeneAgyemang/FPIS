@@ -181,6 +181,7 @@ namespace FPIS.Views
                     {
                         Id = sd.Id,
                         Name = itemName,
+                        Label = sd.Label,
                         ProductOrWaterId = itemId,
                         AnalysisItemId = sd.AnalysisItemId.ToString()
                     }
@@ -201,6 +202,7 @@ namespace FPIS.Views
                     {
                         Id = srd.Id,
                         Name = itemName,
+                        Label = srd.Label,
                         ProductOrWaterId = itemId,
                         AnalysisItemId = srd.AnalysisItemId.ToString(),
                         parametersWithValues = _analysisService
@@ -330,7 +332,7 @@ namespace FPIS.Views
             if (row != null && row.Cells["parameterValuesDataGridViewColumn"].Selected)
             {
                 DataGridViewRow activeRow = dataGridView1.Rows[e.RowIndex];
-                string itemId = activeRow.Cells[1].Value.ToString();
+                string itemId = row.Cells["sampleIdDataGridViewTextBoxColumn1"].Value.ToString();
                 string itemName = activeRow.Cells[0].Value.ToString();
                 string analysisItemId = activeRow.Cells[2].Value.ToString();
                 string productOrWaterId = activeRow.Cells[activeRow.Cells.Count - 1].Value.ToString();

@@ -8,6 +8,8 @@ namespace FPIS.Models
         [Key]
         public Guid Id { get; set; }
 
+        public string? Label { get; set; }
+
         // Navigation Properties
 
         public Guid SampleResultId { get; set; }
