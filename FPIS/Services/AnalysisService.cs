@@ -196,12 +196,13 @@ namespace FPIS.Services
 
                 foreach(ParametersWithValues parameterWithValue in sampleDetailsIdsWithParameter.parametersWithValues)
                 {
+                    float? value = float.Parse(parameterWithValue.ParameterValue ?? "0.00");
                     _dbContext.SampleResultsDetailsWithParameters.Add(
                         new SampleResultsDetailsWithParameter()
                         {
                             Id = new Guid(),
                             SampleResultDetailId = sampleResultDetail.Id,
-                            Value = float.Parse(parameterWithValue.ParameterValue ?? "0.00"),
+                            Value = value > 0 ? value : null,
                             AnalysisParameterId = new Guid(parameterWithValue.ParameterId)
                         }
                     );
