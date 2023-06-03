@@ -64,12 +64,12 @@
             this.specificationColumn,
             this.valueDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.analysisSampleParameterBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 173);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(1);
+            this.dataGridView1.Location = new System.Drawing.Point(36, 288);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 181);
+            this.dataGridView1.Size = new System.Drawing.Size(1229, 302);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
@@ -88,6 +88,7 @@
             this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 150;
             // 
             // unitDataGridViewTextBoxColumn
             // 
@@ -137,11 +138,11 @@
             // 
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.materialButtonSaveAndClose);
-            this.groupBox1.Location = new System.Drawing.Point(25, 81);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.groupBox1.Location = new System.Drawing.Point(36, 135);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Size = new System.Drawing.Size(860, 53);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1229, 88);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
@@ -149,10 +150,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 23);
+            this.label1.Location = new System.Drawing.Point(6, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 15);
+            this.label1.Size = new System.Drawing.Size(618, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Double click any cell in the \"Value\" column to add or edit a parameter\'s value";
             // 
@@ -165,8 +166,8 @@
             this.materialButtonSaveAndClose.Depth = 0;
             this.materialButtonSaveAndClose.HighEmphasis = true;
             this.materialButtonSaveAndClose.Icon = null;
-            this.materialButtonSaveAndClose.Location = new System.Drawing.Point(716, 12);
-            this.materialButtonSaveAndClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.materialButtonSaveAndClose.Location = new System.Drawing.Point(1023, 20);
+            this.materialButtonSaveAndClose.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.materialButtonSaveAndClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonSaveAndClose.Name = "materialButtonSaveAndClose";
             this.materialButtonSaveAndClose.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -182,7 +183,7 @@
             // 
             this.materialCheckboxShowNewParameters.AutoSize = true;
             this.materialCheckboxShowNewParameters.Depth = 0;
-            this.materialCheckboxShowNewParameters.Location = new System.Drawing.Point(693, 135);
+            this.materialCheckboxShowNewParameters.Location = new System.Drawing.Point(990, 225);
             this.materialCheckboxShowNewParameters.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckboxShowNewParameters.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckboxShowNewParameters.MouseState = MaterialSkin.MouseState.HOVER;
@@ -198,15 +199,16 @@
             // 
             // AddAnalysisParameterValues
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 370);
+            this.ClientSize = new System.Drawing.Size(1300, 617);
             this.Controls.Add(this.materialCheckboxShowNewParameters);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.Name = "AddAnalysisParameterValues";
+            this.Padding = new System.Windows.Forms.Padding(4, 107, 4, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Enter Parameter Values";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

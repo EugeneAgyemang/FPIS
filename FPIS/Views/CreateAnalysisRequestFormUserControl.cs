@@ -95,6 +95,28 @@ namespace FPIS.Views
             return true;
         }
 
+        private bool DoesMultipleItemsHasSameLabel()
+        {
+            foreach (AnalysisSampleBindingItem item in analysisItemList)
+            {
+                List<String>? itemLabels = analysisItemList?.Where(itx => itx.Name == item.Name)
+                    ?.Select(it => it.Label)
+                    ?.ToList();
+
+                var duplicateList = itemLabels?.GroupBy(it => it.Trim())
+                    .Where(grp => grp.Count() > 1)
+                    .Select(it => it.Key)
+                    .ToList();
+
+                if (duplicateList != null && duplicateList.Count > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void materialButtonRequestAnalysis_Click(object sender, EventArgs e)
         {
             try
@@ -142,6 +164,18 @@ namespace FPIS.Views
                 {
                     Utils.Utils.ShowMessageBox(
                         $"Please add labels to all repeating samples to distinguish between them.",
+                        "Invalid Labels",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+
+                    return;
+                }
+
+                if (DoesMultipleItemsHasSameLabel())
+                {
+                    Utils.Utils.ShowMessageBox(
+                        $"Labels of the same sample cannot be the same, please make them unique.",
                         "Invalid Labels",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error

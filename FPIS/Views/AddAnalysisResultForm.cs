@@ -337,6 +337,7 @@ namespace FPIS.Views
                 DataGridViewRow activeRow = dataGridView1.Rows[e.RowIndex];
                 string itemId = row.Cells["sampleIdDataGridViewTextBoxColumn1"].Value.ToString();
                 string itemName = activeRow.Cells["nameDataGridViewTextBoxColumn1"].Value.ToString();
+                string itemLabel = activeRow.Cells["labelDataGridViewTextBoxColumn1"]?.Value?.ToString();
                 string analysisItemId = activeRow.Cells["analysisItemIdDataGridViewTextBoxColumn"].Value.ToString();
                 string productOrWaterId = activeRow.Cells["productOrWaterIdDataGridViewTextBoxColumn"].Value.ToString();
                 string isRejectedValue = row.Cells["rejectSampleResultDetail"].Value.ToString();
@@ -360,6 +361,7 @@ namespace FPIS.Views
                     new AddAnalysisParameterValues(
                         itemId,
                         itemName,
+                        itemLabel,
                         analysisItemId,
                         _sampleType,
                         sdbi,
