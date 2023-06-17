@@ -258,7 +258,7 @@ namespace FPIS.Views
 
         private void ProcurementSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
         {
-            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl(), (Button)sender);
+            AddUserControlToMainContainerControl(new UserControlProcurementReceiveMaterials(), (Button)sender);
         }
         /// <summary>
         /// Add the given user control to the MainContainerControl
@@ -585,6 +585,11 @@ namespace FPIS.Views
         private void QualityControl_UpdateWaterParameterControl_Click(object sender, EventArgs e)
         {
             OpenModal(new UpdateWaterParameter(), (Button)sender);
+        }
+
+        private void ProductionSection_ReceiveMaterialsControl_Click(object sender, EventArgs e)
+        {
+            AddUserControlToMainContainerControl(new ProcurementReceiveMaterialsUserControl(), (Button)sender);
         }
     }
 }

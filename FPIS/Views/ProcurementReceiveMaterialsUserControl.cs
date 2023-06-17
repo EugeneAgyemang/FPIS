@@ -14,265 +14,258 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Text.Json;
 using FPIS.Data;
+using System.Drawing.Text;
 
 namespace FPIS.Views
 {
     public partial class ProcurementReceiveMaterialsUserControl : UserControl
     {
         private static ProcurementReceiveMaterialsUserControl instance;
-        public const string DIRECTORY_NAME = "Material Procured";
 
-        public static List<MaterialProcurementSchema> samplesRequested = new List<MaterialProcurementSchema>();
-        public const string EN_ROUTE = "  En Route";
-        public const string ANALYZED = "  Analyzed";
-        public const string DONE = "  Done";
-        public const string READY = "  Ready";
+        private int levelsPassed = 0;
+        private bool userTriedToSave = false;
 
-        bool allowKeyboardShortcut = false;
+        public static List<string> acceptedWarehouses = new List<string>();
+        public static List<string> acceptedLotsForWarehouses = new List<string>();
+        public static List<Models.ProcurementLocation> procurementLocations = new List<Models.ProcurementLocation>();
+        public static string unit;
+        public static string productName;
+        public static int numberOfWarehouse;
+
         public ProcurementReceiveMaterialsUserControl()
         {
             InitializeComponent();
-            SelectedDateControl.Text = GetDate(DateFormat.DATE_ONLY, DateTime.Now);
-            LoadProductNames();
-            LimitDateUserCanPick();
-            LoadCachedData();
-            EnableKeyboardShourtcut();
+            LoadMaterialsReceived();
         }
 
-        public static int LiveCharacterCount(int maxLength, string contents)
+        private void LoadMaterialsReceived()
         {
-            int length = contents.Length;
-            int charactersTyped = maxLength - length;
-            return charactersTyped;
-        }
-
-        private void RemarksControl_KeyUp(object sender, KeyEventArgs e)
-        {
-            string remarks = RemarksControl.Text;
-            int charactersTyped = LiveCharacterCount(500, remarks);
-            RemarksCaptionControl.Text = $"Remarks ({charactersTyped} characters)";
-        }
-        private static string GetDate(DateFormat dateFormat, DateTime date)
-        {
-            DateTime currentDate = date;
-            string currentDateAsString = "";
-            switch (dateFormat)
+            ViewPendingMaterials.DataSource = new ReceivingService(new()).FetchReceivedMaterialsPending();
+            int newRequests = ViewPendingMaterials.Items.Count;
+            if (newRequests == 0)
             {
-                case DateFormat.DATE_ONLY:
-                    currentDateAsString = $"{currentDate.DayOfWeek}, " +
-                        $"{GetMonthName(currentDate.Month)} " +
-                        $"{currentDate.Day} " +
-                        $"{currentDate.Year}";
-                    break;
-                case DateFormat.TIME_ONLY:
-                    currentDateAsString = currentDate.ToLongTimeString();
-                    break;
-                case DateFormat.DATE_AND_TIME:
-                    currentDateAsString = $"{currentDate.DayOfWeek}, " +
-                        $"{GetMonthName(currentDate.Month)} " +
-                        $"{currentDate.Day} " +
-                        $"{currentDate.Year} " +
-                        $"{currentDate.ToLongTimeString()}";
-                    break;
-            }
-            return currentDateAsString;
-        }
-        public static string GetMonthName(int month)
-        {
-            switch (month)
-            {
-                case 1:
-                    return "January";
-                case 2:
-                    return "February";
-                case 3:
-                    return "March";
-                case 4:
-                    return "April";
-                case 5:
-                    return "May";
-                case 6:
-                    return "June";
-                case 7:
-                    return "July";
-                case 8:
-                    return "August";
-                case 9:
-                    return "September";
-                case 10:
-                    return "October";
-                case 11:
-                    return "November";
-                default:
-                    return "December";
-            }
-        }
-
-        private void SwitchDateControl_CheckedChanged(object sender, EventArgs e)
-        {
-            ToggleSwitchDate();
-        }
-        private void ToggleSwitchDate()
-        {
-            string[] captions = { "Use a new date", "Use today's date" };
-            string[] switchDateCaptions = { "I'm using the current date", "I'm using the new date you pick" };
-            string captionOfSwitchDateControl = SwitchDateControl.Text;
-            if (captionOfSwitchDateControl == captions[1])
-            {
-                SwitchDateControl.Text = captions[0];
-                SwitchDateCaptionControl.Text = switchDateCaptions[0];
-                PickDateControl.Enabled = false;
-                PickDateControl.Value = DateTime.Now.Date;
+                IncomingDetailsControl.Text = "No items at the moment";
                 return;
             }
-            SwitchDateControl.Text = captions[1];
-            SwitchDateCaptionControl.Text = switchDateCaptions[1];
-            PickDateControl.Enabled = true;
+            IncomingDetailsControl.Text = ($"There {(newRequests == 1 ? "is" : "are")} {newRequests} new item{(newRequests == 1 ? "" : "s")} received");
         }
-        private void PickDateControl_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime datePicked = PickDateControl.Value;
-            SelectedDateControl.Text = GetDate(DateFormat.DATE_ONLY, datePicked);
-        }
-        private void LimitDateUserCanPick()
-        {
-            PickDateControl.MaxDate = DateTime.Now;
-        }
+
         private void QuantityControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool isHandled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
             e.Handled = isHandled;
         }
-        private void LoadProductNames()
-        {
-            ProductControl.Items.Clear();
-            var products = new ProductService(new()).GetProductsByType("raw materials");
-            foreach (Product product in products)
-            {
-                ProductControl.Items.Add(product);
-            }
-        }
+
         private void SaveProcurementRecords_Click(object sender, EventArgs e)
         {
-            GrossWeightErrorControl.Text =
-                NetWeightErrorControl.Text = string.Empty;
             bool shouldSave = true;
-            bool isErrorMessageDisplayed = false;
-            ValidateGrossWeight(GrossWeightControl.Text, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateNetWeight(NetWeightControl.Text, ref shouldSave, ref isErrorMessageDisplayed);
+            shouldSave = PerformValidations();
+
             if (!shouldSave)
             {
                 return;
             }
-            DialogResult userReponseToProceed = Utils.Utils.ShowMessageBox($"{((RemarksControl.Text == string.Empty) ? "Looks like you forgot to provide a remark 😟\n\n" : string.Empty)}" +
-                                                    $"Do you wish to proceed{((RemarksControl.Text == string.Empty) ? " anyways" : string.Empty)}" +
-                                                    $"{((RemarksControl.Text == string.Empty) ? " without adding any remarks?" : "?")}"
-                                                    , "Continue"
+            DialogResult userReponseToProceed = Utils.Utils
+                                                    .ShowMessageBox("Do you wish to save the details provided?" 
+                                                    , "Confirm Save"
                                                     , MessageBoxButtons.YesNo
                                                     , MessageBoxIcon.Question);
             if (userReponseToProceed == DialogResult.No)
             {
                 return;
             }
-
-            MaterialProcurement materialProcured = SaveMaterialProcuredRecord();
-            if (materialProcured != null)
+            productName = ViewPendingMaterials.Text;
+            bool shouldContinue = GetLocationDetails();
+            userTriedToSave = true;
+            if (!shouldContinue)
             {
-                DeleteCachedFile();
+                return;
+            }
+
+            Receiving receivingRecord = UpdateMaterialReceivedRecord();
+            if (receivingRecord == null)
+            {
+                return;
+            }
+            Models.ProcurementLocation firstLocation = SaveProcurementLocations(receivingRecord.Id);
+            if (firstLocation != null)
+            {
                 ResetFields();
-                Utils.Utils.ShowMessageBox("Raw material procured has been saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetLotDetails();
+                Utils.Utils.ShowMessageBox("Raw material received records has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private MaterialProcurement SaveMaterialProcuredRecord()
+
+        private bool GetLocationDetails()
         {
-            Models.MaterialProcurement materialProcurement = GetMaterialToBeProcured();
-            MaterialProcurementService materialProcurementService = new MaterialProcurementService(new());
-            var materialProcured = materialProcurementService.SaveMaterialProcuredRecord(materialProcurement);
-            SaveMaterialReceivedRecord(materialProcured.Id);
-            return materialProcured;
+            if (userTriedToSave)
+            {
+                CheckLevelsPassed(levelsPassed);
+            }
+            if (numberOfWarehouse == 0)
+            {
+                levelsPassed++;
+                new WareHouseRequest().ShowDialog();
+            }
+            if (numberOfWarehouse == 0)
+            {
+                levelsPassed--;
+                return false;
+            }
+            if (acceptedWarehouses.Count == 0)
+            {
+                levelsPassed++;
+                for (int wareHousesAccepted = 1; wareHousesAccepted <= numberOfWarehouse; wareHousesAccepted++)
+                {
+                    new AcceptWarehouse().ShowDialog();
+                    if (acceptedWarehouses.Count != wareHousesAccepted)
+                    {
+                        acceptedWarehouses.Clear();
+                        levelsPassed--;
+                        return false;
+                    }
+                }
+            }
+            if (acceptedLotsForWarehouses.Count == 0)
+            {
+                levelsPassed++;
+                new LotRequest().ShowDialog();
+            }
+            if (acceptedLotsForWarehouses.Count == 0)
+            {
+                levelsPassed--;
+                acceptedLotsForWarehouses.Clear();
+                return false;
+            }
+            // Another way could be to check whether acceptedLotsForWarehouses was more than 0 which would mean
+            // there would still be some lots to be provided. There isn't the need to clear procurement locations
+            if (procurementLocations.Count < (procurementLocations.Count + GetNumberOfLotsRequiredToProceed()))
+            {
+                levelsPassed++;
+                new AcceptLot().ShowDialog();
+            }
+            if (procurementLocations.Count < (procurementLocations.Count + GetNumberOfLotsRequiredToProceed()))
+            {
+                levelsPassed--;
+                return false;
+            }
+            return true;
         }
-        private void SaveMaterialReceivedRecord(Guid materialBeingProcured)
+
+        int GetNumberOfLotsRequiredToProceed()
         {
-            Receiving materialReceivedRecord = GetMaterialToBeReceived(materialBeingProcured);
-            ReceivingService receivingService = new ReceivingService(new());
-            receivingService.SaveMaterialReceivedRecord(materialReceivedRecord);
+            int totalLotsRequired = 0;
+
+            acceptedLotsForWarehouses.ForEach(acceptedLot =>
+                        totalLotsRequired += ((int.Parse(acceptedLot.Split(">>")[1]) - int.Parse(acceptedLot.Split(">>")[2])) + 1)
+                        );
+            return totalLotsRequired;
         }
-        public void ValidateFields(string supplier
-                                    , string truck
-                                    , string quantity
-                                    , string unit
-                                    , string materialProcured
-                                    , string warehouse
-                                    , string lot
-                                    , string country
-                                    , string city
+
+        private void CheckLevelsPassed(int levelsPassed)
+        {
+            string message = "Continue where you left off by providing";
+            string[] instructions = {   "* The number of warehouses the materials would be kept",
+                                        "* The names for the various warehouses the materials would be kept",
+                                        "* The number of lots in each warehouse you'll keep the materails",
+                                        "* The names of the various lots in the various warehouses the materials would be kept"};
+            switch (levelsPassed)
+            {
+                case 0:
+                    Utils.Utils.ShowMessageBox($"{message} the following details I'll be asking you:\n\n{instructions[0]}\n{instructions[1]}\n{instructions[2]}\n{instructions[3]}",
+                                                "Note",
+                                                MessageBoxButtons.OK);
+                    break;
+                case 1:
+                    Utils.Utils.ShowMessageBox($"{message} the following details I'll be asking you:\n\n{instructions[1]}\n{instructions[2]}\n{instructions[3]}",
+                                                "Note",
+                                                MessageBoxButtons.OK);
+                    break;
+                case 2:
+                    Utils.Utils.ShowMessageBox($"{message} the following details I'll be asking you:\n\n{instructions[2]}\n{instructions[3]}",
+                                                "Note",
+                                                MessageBoxButtons.OK);
+                    break;
+                case 3:
+                    Utils.Utils.ShowMessageBox($"{message} the following details I'll be asking you:\n\n{instructions[3]}",
+                                                "Note",
+                                                MessageBoxButtons.OK);
+                    break;
+            }
+        }
+
+        private Receiving UpdateMaterialReceivedRecord()
+        {
+            Receiving receivedRecord = new ReceivingService(new()).FetchFirstPendingReceivedMaterial();
+            if (receivedRecord == null)
+            {
+                return null;
+            }
+            receivedRecord.GrossWeight = GrossWeightControl.Text.Trim();
+            receivedRecord.NetWeight = NetWeightControl.Text.Trim();
+            receivedRecord.Units = UnitsControl.Text.Trim();
+            receivedRecord.Quantity = CalculateOverallQuantity();
+            receivedRecord = new ReceivingService(new()).UpdateRecord(receivedRecord);
+            return receivedRecord;
+        }
+
+        private int CalculateOverallQuantity()
+        {
+            int quantity = 0;
+            procurementLocations.ForEach(record => quantity += record.Quantity);
+            return quantity;
+        }
+
+        private Models.ProcurementLocation SaveProcurementLocations(Guid materialReceivedId)
+        {
+            ApproxWeightsCalculator();
+            Models.ProcurementLocation procurementLocation = null;
+            procurementLocations.ForEach(record => record.ReceivingId = materialReceivedId);
+            procurementLocation = new ProcurementLocationService(new()).SaveRecords(procurementLocations);
+            return procurementLocation;
+        }
+
+        private void ApproxWeightsCalculator()
+        {
+            float approxWeightPerUnit = 0;
+
+            approxWeightPerUnit = ApproxWeightPerUnitCalculator();
+            procurementLocations.ForEach(record =>
+                record.ApproxWeight = $"{approxWeightPerUnit * record.Quantity}"
+            );
+        }
+
+        private float ApproxWeightPerUnitCalculator()
+        {
+            float approxWeights = 0;
+            float netWeight = 0;
+            int overallQuantity = 0;
+
+            float.TryParse(NetWeightControl.Text, out netWeight);
+            procurementLocations.ForEach(record =>
+                overallQuantity += record.Quantity
+            );
+            approxWeights = netWeight / overallQuantity;
+
+            return approxWeights;
+        }
+
+        public void ValidateFields(string unit
+                                    , string gross
+                                    , string net
                                     , ref bool shouldSave)
         {
             bool isErrorMessageDisplayed = false;
-            ValidateSupplier(supplier, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateTruckNumber(truck, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateQuantity(quantity, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateUnit(unit, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateProduct(materialProcured, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateWarehouse(warehouse, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateLot(lot, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateCountry(country, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateCity(city, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateGrossWeight(gross, ref shouldSave, ref isErrorMessageDisplayed);
+            ValidateNetWeight(net, ref shouldSave, ref isErrorMessageDisplayed);
+        }
 
-        }
-        public void ValidateSupplier(string supplier, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (supplier.Length == 0)
-            {
-                DisplayErrorMessage(SupplierErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the supplier");
-                return;
-            }
-        }
-        public void ValidateTruckNumber(string truckNumber, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (truckNumber.Length == 0)
-            {
-                DisplayErrorMessage(TruckNumberErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the truck number");
-                return;
-            }
-        }
-        public void ValidateQuantity(string quantity, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (quantity.Length == 0)
-            {
-                DisplayErrorMessage(QuantityErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the quantity received");
-                return;
-            }
-        }
         public void ValidateUnit(string unit, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
             if (unit.Length == 0)
             {
                 DisplayErrorMessage(UnitsErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the unit of measurement");
-                return;
-            }
-        }
-        public void ValidateProduct(string product, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (product.Length == 0)
-            {
-                DisplayErrorMessage(ProductErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the product being procured");
-                return;
-            }
-        }
-        public void ValidateWarehouse(string warehouse, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (warehouse.Length == 0)
-            {
-                DisplayErrorMessage(WarehouseErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the warehouse you'll be storing the raw-material received");
-                return;
-            }
-        }
-        public void ValidateLot(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (lot.Length == 0)
-            {
-                DisplayErrorMessage(LotErrorCaption, ref shouldSave, ref isErrorMessageDisplayed, "I need the lot you'll be storing the raw-material received");
                 return;
             }
         }
@@ -294,29 +287,11 @@ namespace FPIS.Views
                 return;
             }
             float net, gross;
-            float.TryParse(NetWeightControl.Text, out net);
-            float.TryParse(GrossWeightControl.Text, out gross);
+            float.TryParse(NetWeightControl.Text.Trim(), out net);
+            float.TryParse(GrossWeightControl.Text.Trim(), out gross);
             if (net >= gross)
             {
                 DisplayErrorMessage(NetWeightErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "Kindly provide the correct net weight");
-                return;
-            }
-        }
-
-        public void ValidateCity(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (lot.Length == 0)
-            {
-                DisplayErrorMessage(CityErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the city the raw-material received came from");
-                return;
-            }
-        }
-
-        public void ValidateCountry(string lot, ref bool shouldSave, ref bool isErrorMessageDisplayed)
-        {
-            if (lot.Length == 0)
-            {
-                DisplayErrorMessage(CountryErrorControl, ref shouldSave, ref isErrorMessageDisplayed, "I need the country the raw-material received came from");
                 return;
             }
         }
@@ -333,548 +308,79 @@ namespace FPIS.Views
         }
         public void ResetErrorCaptions()
         {
-            SupplierErrorCaption.Text =
-                WarehouseErrorCaption.Text =
-                QuantityErrorCaption.Text =
-                UnitsErrorCaption.Text =
-                TruckNumberErrorCaption.Text =
-                ProductErrorCaption.Text =
-                LotErrorCaption.Text =
-                GrossWeightErrorControl.Text =
-                NetWeightErrorControl.Text =
-                CountryErrorControl.Text =
-                CityErrorControl.Text = string.Empty;
-            //ProductErrorCaption.ForeColor = Color.Red;
+            UnitsErrorCaption.Text =
+            GrossWeightErrorControl.Text =
+            NetWeightErrorControl.Text = string.Empty;
         }
         public void ResetFields()
         {
-            SupplierControl.Text =
-                TruckNumberControl.Text =
-                QuantityControl.Text =
-                ProductControl.Text =
-                RemarksControl.Text =
-                WarehouseControl.Text =
-                UnitsControl.Text =
-                LotControl.Text =
-                NetWeightControl.Text =
-                GrossWeightControl.Text =
-                CountryControl.Text =
-                CityControl.Text =
-                string.Empty;
-            DoneControl.Text = READY;
-            DoneControl.Image = Properties.Resources.not_done_light;
-            AbortProcurementRecords.Enabled = false;
-            StartSampleRequest.Enabled = true;
-            SwitchDateControl.Checked = true;
-            PickDateControl.Enabled = false;
-            ProductControl.StartIndex = -1;
-            AfterSampleResultsSection.Enabled = false;
-            RemarksCaptionControl.Text = $"Remarks ({500} characters)";
-            ViewSampleRequestedControl.StartIndex = -1;
+            UnitsControl.Text =
+            NetWeightControl.Text =
+            GrossWeightControl.Text = string.Empty;
+            ReceivingSectionControl.Enabled =
+                MaterialProcurementLastSection.Enabled = false;
+            ViewPendingMaterials.DataSource = null;
+            ViewPendingMaterials.Items.Remove(ViewPendingMaterials.SelectedItem);
+            LoadMaterialsReceived();
+            ViewPendingMaterials.StartIndex = -1;
         }
-        private MaterialProcurement GetMaterialToBeProcured()
+
+        private void ResetLotDetails()
         {
-            Product selected = (Product)ProductControl.SelectedItem;
-            return new MaterialProcurement()
-            {
-                ProductId = selected.Id,
-                Location = WarehouseControl.Text.Trim(),
-                Date = DateOnly.FromDateTime(PickDateControl.Value),
-                Remarks = RemarksControl.Text.Trim(),
-                Type = "Receiving",
-                UserId = Guid.Parse(Main.LOGGED_USER_ID)
-            };
+            acceptedWarehouses.Clear();
+            acceptedLotsForWarehouses.Clear();
+            procurementLocations.Clear();
+            numberOfWarehouse = 0;
+            unit = UnitsControl.Text.Trim();
+            levelsPassed = 0;
         }
-        private Receiving GetMaterialToBeReceived(Guid materialBeingProcured)
-        {
-            int quantity;
-            int.TryParse(QuantityControl.Text, out quantity);
-            return new Receiving()
-            {
-                Supplier = SupplierControl.Text.Trim(),
-                TruckNumber = TruckNumberControl.Text.Trim(),
-                Quantity = quantity,
-                Units = UnitsControl.Text,
-                MaterialProcurementId = materialBeingProcured,
-                GrossWeight = GrossWeightControl.Text.Trim(),
-                NetWeight = NetWeightControl.Text.Trim(),
-                Country = CountryControl.Text.Trim(),
-                City = CityControl.Text.Trim()
-            };
-        }
+
         private bool PerformValidations()
         {
             ResetErrorCaptions();
             bool shouldSave = true;
-            ValidateFields(SupplierControl.Text.Trim(),
-                TruckNumberControl.Text.Trim(),
-                QuantityControl.Text.Trim(),
-                UnitsControl.Text,
-                ProductControl.Text,
-                WarehouseControl.Text,
-                LotControl.Text,
-                CountryControl.Text,
-                CityControl.Text,
+            bool isErrorMessageDisplayed = false;
+
+            ValidateFields(UnitsControl.Text.Trim(),
+                GrossWeightControl.Text.Trim(),
+                NetWeightControl.Text.Trim(),
                 ref shouldSave);
 
             return shouldSave;
         }
-        private void StartSampleRequest_Click(object sender, EventArgs e)
-        {
-            bool shouldSave = true;
-            shouldSave = PerformValidations();
 
-            if (!shouldSave)
-            {
-                return;
-            }
-
-            MaterialProcurement materialToBeProcured = GetMaterialToBeProcured();
-            Receiving materialToBeReceived = GetMaterialToBeReceived(materialToBeProcured.Id);
-            materialToBeReceived.MaterialProcurement = materialToBeProcured;
-            DialogResult userOption = Utils.Utils.ShowMessageBox("Do you want to send a request to Quality Control with the following details:\n\n" +
-                $"Product: {ProductControl.Text}\n" +
-                $"Warehouse: {materialToBeProcured.Location}\n" +
-                $"Lot : {materialToBeProcured.Location}\n" +
-                $"Date: {materialToBeProcured.Date.ToLongDateString()}\n" +
-                $"----------\n" +
-                $"Supplier: {materialToBeReceived.Supplier}\n" +
-                $"Truck #: {materialToBeReceived.TruckNumber}\n" +
-                $"Quantity Received: {materialToBeReceived.Quantity}\n" +
-                $"Unit : {materialToBeReceived.Units}\n" +
-                $"----------\n" +
-                $"Source: {materialToBeReceived.City}, {materialToBeReceived.Country}"
-                , "Confirm Request"
-                , MessageBoxButtons.YesNo
-                , MessageBoxIcon.Question);
-            if (userOption == DialogResult.No)
-            {
-                return;
-            }
-            AnalysisService analysis = new AnalysisService(new());
-            string empId = new UserService(new()).GetEmployeeIdByGuid(Guid.Parse(Main.LOGGED_USER_ID));
-            Sample sampleCreated = analysis.CreateSample(
-                Guid.Parse(Main.LOGGED_USER_ID)
-                , empId
-                , empId
-                , DateOnly.FromDateTime(DateTime.Now)
-                , TimeOnly.FromDateTime(DateTime.Now)
-                , "Production"
-                , new List<AnalysisSampleBindingItem>()
-                    {
-                        new AnalysisSampleBindingItem()
-                        {
-                            Id = new AnalysisProductService(new())
-                                .GetAnalysisProductByProductId(
-                                    new ProductService(new())
-                                    .GetProductByName(ProductControl.Text)
-                                    .Id)
-                            .AnalysisItemId
-                        }
-                    }
-                );
-            if (sampleCreated == null)
-            {
-                Utils.Utils.ShowMessageBox(
-                    "We could not create the sample you requested. Kindly try again later 🙂"
-                    , "Error Occured"
-                    , MessageBoxButtons.OK
-                    , MessageBoxIcon.Error);
-                return;
-            }
-            int totalNumberOfSamplesRequested = GetLastSchemaId();
-            MaterialProcurementSchema materialProcurementSchema = new MaterialProcurementSchema()
-            {
-                SampleDetail = sampleCreated.SampleDetails.FirstOrDefault()
-                ,
-                Receiving = materialToBeReceived
-                ,
-                SchemaId = $"{totalNumberOfSamplesRequested}"
-                ,
-                Status = EN_ROUTE
-            };
-            sampleCreated.SampleDetails.Clear();
-
-
-            string json = JsonParser.Stringify<MaterialProcurementSchema>(materialProcurementSchema);
-            JsonParser.Write(json, Path.Combine(DIRECTORY_NAME
-                                    , $"material-procured" +
-                                    $"-{sampleCreated.Date.Month}" +
-                                    $"-{sampleCreated.Date.Day}" +
-                                    $"-{sampleCreated.Time.Hour}" +
-                                    $"-{sampleCreated.Time.Minute}" +
-                                    $"-{sampleCreated.Time.Second}" +
-                                    $"-{materialProcurementSchema.SchemaId}" +
-                                    $".json"));
-            FreezeFields();
-            UpdateUIAfterRequestingSample(ProductControl.Text);
-            LoadCachedData();
-        }
         private void FreezeFields()
         {
-            IterateThroughPanel(ReceivingSectionControl, false);
-            IterateThroughPanel(DateProcuredSection, false);
-            IterateThroughPanel(MaterialProcurementSection, false);
+            MaterialProcurementLastSection.Enabled =
+                ReceivingSectionControl.Enabled = false;
         }
-        private void IterateThroughPanel(Panel panel, bool state)
-        {
-            foreach (Control control in panel.Controls)
-            {
-                if (control is MaterialTextBox ||
-                    control is MaterialComboBox ||
-                    control is MaterialSwitch ||
-                    control is MaterialMultiLineTextBox2 ||
-                    control is DateTimePicker)
-                {
-                    if (control.Name == "AfterSampleResultsSection")
-                    {
-                        continue;
-                    }
-                    control.Enabled = state;
-                }
-            }
-        }
-        private void UpdateUIAfterRequestingSample(string product)
-        {
-            StartSampleRequest.Enabled = false;
-            AbortProcurementRecords.Enabled = true;
-            SaveProcurementRecords.Enabled = false;
-            DoneControl.Text = EN_ROUTE;
-            DoneControl.Image = Properties.Resources.not_done_light;
-            ShowSnackBar($"{product} analysis requested successfully! 👍");
-            AfterSampleResultsSection.Enabled = false;
-            EnableKeyboardShourtcut();
-        }
-        public void UpdateUIAfterProcessingSample(string product)
-        {
-            StartSampleRequest.Enabled = false;
-            AbortProcurementRecords.Enabled = false;
-            SaveProcurementRecords.Enabled = true;
-            DoneControl.Text = DONE;
-            DoneControl.Image = Properties.Resources.done_light;
-            ShowSnackBar($"{product} analysis completed successfully! 👍");
-            AfterSampleResultsSection.Enabled = true;
-            GrossWeightControl.Focus();
-            EnableKeyboardShourtcut();
-        }
-        public void UpdateUIWhenProcessingStarts(string product)
-        {
-            StartSampleRequest.Enabled = false;
-            SaveProcurementRecords.Enabled = false;
-            AbortProcurementRecords.Enabled = false;
-            DoneControl.Text = ANALYZED;
-            DoneControl.Image = Properties.Resources.not_done_light;
-            //ShowSnackBar("Sample is analyzed at the lab ATM! 👍");
-            ShowSnackBar($"{product} is analyzed at the lab ATM! 👍");
-            AfterSampleResultsSection.Enabled = false;
-            EnableKeyboardShourtcut();
-        }
-        private void EnableKeyboardShourtcut()
-        {
-            allowKeyboardShortcut = true;
-            DoneControl.Focus();
-        }
-        private void CloseSnackbarControl_Click(object sender, EventArgs e)
-        {
-            EnableKeyboardShourtcut();
-            HideSnackBar();
-        }
-        private void LoadCachedData()
-        {
-            string json;
-            ViewSampleRequestedControl.Items.Clear();
-            FileInfo[] files = GetSampleFilesForCurrentUser();
-            int cachedRequests = files.Length;
-            if (cachedRequests == 0)
-            {
-                return;
-            }
-            if (cachedRequests == 1)
-            {
-                ListOfRequestedSamplesControl.Visible = false;
-                ReceivingSectionControl.Location = new Point(25, 40);
-                json = JsonParser.Read(files[0].FullName);
-                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
-                                                        .Parse<MaterialProcurementSchema>
-                                                        (json);
-                PopulateFields(cachedData);
-                return;
-            }
-            ListOfRequestedSamplesControl.Visible = true;
-            ReceivingSectionControl.Location = new Point(25, 89);
-        }
+
         private void UnfreezeFields()
         {
-            IterateThroughPanel(ReceivingSectionControl, true);
-            IterateThroughPanel(DateProcuredSection, true);
-            IterateThroughPanel(MaterialProcurementSection, true);
-            StartSampleRequest.Enabled = true;
-        }
-        private void AddNewRequest_Click(object sender, EventArgs e)
-        {
-            StartNewSampleRequest();
-        }
-        private void StartNewSampleRequest()
-        {
-            allowKeyboardShortcut = false;
-            SaveProcurementRecords.Enabled = false;
-            HideSnackBar();
-            UnfreezeFields();
-            ResetFields();
-            ResetErrorCaptions();
-        }
-
-        private void OpenHelper_Click(object sender, EventArgs e)
-        {
-            Utils.Utils.ShowMessageBox("If you wish to send some more samples to Quality" +
-                " Control click the plus (+) icon to the left.\n\nFeel free to send as " +
-                "many samples to Quality Control 👍\n\nYou can always access this command" +
-                " using the keyboard shortcuts Ctrl + N", "Info", MessageBoxButtons.OK);
-        }
-
-        private void ImageActionControl_MouseEnter(object sender, EventArgs e)
-        {
-            ((PictureBox)sender).SizeMode = PictureBoxSizeMode.Zoom;
-        }
-
-        private void ImageActionControl_MouseLeave(object sender, EventArgs e)
-        {
-            ((PictureBox)sender).SizeMode = PictureBoxSizeMode.Normal;
-        }
-
-        private void ProcurementReceiveMaterialsUserControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (!allowKeyboardShortcut)
-            {
-                return;
-            }
-            if (e.Modifiers == Keys.Control)
-            {
-                if (e.KeyCode == Keys.N)
-                {
-                    StartNewSampleRequest();
-                }
-            }
-        }
-        private void HideSnackBar()
-        {
-            Snackbar.Visible = false;
-        }
-        private void ShowSnackBar(string message)
-        {
-            Snackbar.Visible = true;
-            SnackbarCaptionControl.Text = message;
-        }
-        private void PopulateFields(MaterialProcurementSchema cachedData)
-        {
-            Receiving receiving = cachedData.Receiving;
-            MaterialProcurement materialProcurement = receiving.MaterialProcurement;
-
-            ProductControl.Text = new ProductService(new())
-                                        .GetProductById
-                                        (materialProcurement.ProductId)
-                                        .ToString();
-            WarehouseControl.Text = materialProcurement.Location;
-            PickDateControl.Value = materialProcurement.Date.ToDateTime(TimeOnly.MinValue);
-            RemarksControl.Text = materialProcurement.Remarks;
-            SupplierControl.Text = receiving.Supplier;
-            QuantityControl.Text = $"{receiving.Quantity}";
-            UnitsControl.Text = receiving.Units;
-            TruckNumberControl.Text = receiving.TruckNumber;
-            GrossWeightControl.Text = receiving.GrossWeight;
-            NetWeightControl.Text = receiving.NetWeight;
-            CityControl.Text = receiving.City;
-            CountryControl.Text = receiving.Country;
-            SwitchDateControl.Checked = false;
-            // Use the error caption hidden field to store the Sample Id
-            ProductErrorCaption.ForeColor = Color.White;
-            ProductErrorCaption.Text = $"{cachedData.SampleDetail.SampleId}";
-            switch (cachedData.Status.ToLower().Trim())
-            {
-                case "en route":
-                    UpdateUIAfterRequestingSample(ProductControl.Text);
-                    break;
-                case "analyzed":
-                    UpdateUIWhenProcessingStarts(ProductControl.Text);
-                    break;
-                case "done":
-                    UpdateUIAfterProcessingSample(ProductControl.Text);
-                    break;
-            }
-            FreezeFields();
-        }
-
-        private void ListOfRequestedSamplesControl_LoadClick(object sender, EventArgs e)
-        {
-            string json;
-            string sampleRequestSelected = ViewSampleRequestedControl.Text;
-            if (sampleRequestSelected == string.Empty)
-            {
-                Utils.Utils.ShowMessageBox("Kindly select any of the sample's you requested earlier"
-                                            , "Info"
-                                            , MessageBoxButtons.OK);
-                return;
-            }
-
-            foreach (FileInfo file in GetSampleFilesForCurrentUser())
-            {
-                if (file.Name.StartsWith("schema"))
-                {
-                    continue;
-                }
-                json = JsonParser.Read(file.FullName);
-                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser
-                                                        .Parse<MaterialProcurementSchema>
-                                                        (json);
-                string schemaId = sampleRequestSelected.Split("#")[1].Split(" ")[0];
-                if (schemaId == cachedData.SchemaId)
-                {
-                    PopulateFields(cachedData);
-                    break;
-                }
-            }
-        }
-        private FileInfo[] GetSampleFilesForCurrentUser()
-        {
-            string json;
-            string selectedItem = ViewSampleRequestedControl.Text;
-            samplesRequested.Clear();
-            ViewSampleRequestedControl.Items.Clear();
-            FileInfo[] allFiles = JsonParser.GetFiles(Path.Combine(DIRECTORY_NAME));
-            List<FileInfo> files = new List<FileInfo>();
-            foreach (FileInfo file in allFiles)
-            {
-                if (file.Name.StartsWith("schema"))
-                {
-                    continue;
-                }
-                json = JsonParser.Read(file.FullName);
-                MaterialProcurementSchema cachedData = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
-                if (cachedData.SampleDetail.Sample.UserId == Guid.Parse(Main.LOGGED_USER_ID))
-                {
-                    files.Add(file);
-                    samplesRequested.Add(cachedData);
-                }
-            }
-            ViewSampleRequestedControl.Items.AddRange(samplesRequested.ToArray());
-            ViewSampleRequestedControl.Text = selectedItem;
-            return files.ToArray();
+            MaterialProcurementLastSection.Enabled =
+                ReceivingSectionControl.Enabled = true;
         }
 
         private void SyncControl_Click(object sender, EventArgs e)
         {
-            string guidDelimeter = "-";
-            string json;
-            if (ProductErrorCaption.Text.Contains(guidDelimeter))
-            {
-                ResetFields();
-                foreach (FileInfo file in GetSampleFilesForCurrentUser())
-                {
-                    json = JsonParser.Read(file.FullName);
-                    MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
-                    if (materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
-                    {
-                        PopulateFields(materialProcurementSchema);
-                    }
-                }
-                return;
-            }
-            LoadCachedData();
+            ResetLotDetails();
+            ResetErrorCaptions();
+            LoadMaterialsReceived();
         }
 
-        private void AbortProcurementRecords_Click(object sender, EventArgs e)
+        private void ViewPendingMaterials_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string json;
-            DialogResult userOption = Utils.Utils.ShowMessageBox("Do you truly want to cancel this request?\n\n" +
-                                                                    "This action cannot be undone should you choose yes!"
-                                                                    , "Confirm Abort"
-                                                                    , MessageBoxButtons.YesNo
-                                                                    , MessageBoxIcon.Question);
-            if (userOption == DialogResult.No)
-            {
-                return;
-            }
-            FileInfo[] files = GetSampleFilesForCurrentUser();
-            foreach (FileInfo file in files)
-            {
-                json = JsonParser.Read(file.FullName);
-                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
-                if (materialProcurementSchema.Status.ToLower().Trim() == "en route"
-                    && materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
-                {
-                    JsonParser.DeleteFile(Path.Combine(DIRECTORY_NAME, file.Name));
-                    Sample sample = new AnalysisService(new())
-                                        .DeleteSample
-                                        (materialProcurementSchema
-                                            .SampleDetail
-                                            .Sample);
-                    Utils.Utils.ShowMessageBox($"The sample you requested on {sample.Date.ToLongDateString()} at {sample.Time.ToShortTimeString()} is cancelled successfully!"
-                                                , "Info", MessageBoxButtons.OK);
-                    ResetErrorCaptions();
-                    ResetFields();
-                    LoadCachedData();
-                    UpdateUIAfterAbortingRequest();
-                    return;
-                }
-            }
-            MessageBox.Show("Test");
-        }
-        private void UpdateUIAfterAbortingRequest()
-        {
-            StartSampleRequest.Enabled = false;
-            AbortProcurementRecords.Enabled = false;
-            SaveProcurementRecords.Enabled = false;
-            DoneControl.Text = READY;
-            AfterSampleResultsSection.Enabled = false;
-            DoneControl.Image = Properties.Resources.not_done_light;
-            ShowSnackBar("Request was aborted successfully! 👍");
-            EnableKeyboardShourtcut();
-        }
-        private int GetLastSchemaId()
-        {
-            string json;
-            string schemaFileName = "schema-received-id.json";
-            if (!(JsonParser.DoesFileExists(Path.Combine(DIRECTORY_NAME, schemaFileName))))
-            {
-                json = JsonParser.Stringify<string>("{schema-id:1}");
-                JsonParser.Write(json, Path.Combine(DIRECTORY_NAME, schemaFileName));
+            string selectedItem = ViewPendingMaterials.Text;
 
-            }
-            json = JsonParser.Read(Path.Combine(DIRECTORY_NAME, schemaFileName));
-            string schemaIdAsStr = (string)JsonParser.Parse<string>(json);
-            int lastSchemaId = int.Parse(schemaIdAsStr.Split(":")[1].Split("}")[0]);
-            json = JsonParser.Stringify<string>($"{{schema-id:{lastSchemaId + 1}}}");
-            JsonParser.Write(json, Path.Combine(DIRECTORY_NAME, schemaFileName));
-
-            return lastSchemaId;
-
-        }
-        private void UpdateUIAfterSavingProcurement()
-        {
-            StartSampleRequest.Enabled = false;
-            AbortProcurementRecords.Enabled = false;
-            SaveProcurementRecords.Enabled = false;
-            DoneControl.Text = READY;
-            DoneControl.Image = Properties.Resources.not_done_light;
-            ShowSnackBar("Material procured successfully! 👍");
-            EnableKeyboardShourtcut();
-        }
-        private void DeleteCachedFile()
-        {
-            string json;
-            FileInfo[] files = GetSampleFilesForCurrentUser();
-            foreach (FileInfo file in files)
+            if (selectedItem == string.Empty)
             {
-                json = JsonParser.Read(file.FullName);
-                MaterialProcurementSchema materialProcurementSchema = (MaterialProcurementSchema)JsonParser.Parse<MaterialProcurementSchema>(json);
-                if (materialProcurementSchema.Status.ToLower().Trim() == "done"
-                    && materialProcurementSchema.SampleDetail.SampleId == Guid.Parse(ProductErrorCaption.Text))
-                {
-                    JsonParser.DeleteFile(Path.Combine(DIRECTORY_NAME, file.Name));
-                    LoadCachedData();
-                    UpdateUIAfterSavingProcurement();
-                    return;
-                }
+                SaveProcurementRecords.Enabled = false;
+                FreezeFields();
+            }
+            else
+            {
+                SaveProcurementRecords.Enabled = true;
+                UnfreezeFields();
             }
         }
     }

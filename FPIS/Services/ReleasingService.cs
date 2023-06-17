@@ -15,28 +15,12 @@ namespace FPIS.Services
         {
             this.appDbContext = appDbContext;
         }
-        public Releasing SaveMaterialToBeReleased(Releasing materialToBeReleased, Guid materialReceivedId)
+        public Releasing SaveMaterialToBeReleased(Releasing materialToBeReleased)
         {
             Releasing releasing = new Releasing();
-            releasing.ReceivingId = materialReceivedId;
-            releasing.MaterialProcurementId = materialToBeReleased.MaterialProcurementId;
-            releasing.Quantity = materialToBeReleased.Quantity;
-            releasing.Weight = materialToBeReleased.Weight;
-            appDbContext.Releasings.Add(releasing);
+            releasing = appDbContext.Releasings.Add(materialToBeReleased).Entity;
             appDbContext.SaveChanges();
             return releasing;
-        }
-        public int GetQuantityIssuedFromMaterialReceived(Guid materialReceivedId)
-        {
-            int quantityIssued = appDbContext
-                                    .Releasings
-                                        .Where(
-                                            releasing => releasing.ReceivingId 
-                                            == materialReceivedId)
-                                        .Sum(
-                                            releasing => 
-                                                releasing.Quantity);
-            return quantityIssued;
         }
     }
 }

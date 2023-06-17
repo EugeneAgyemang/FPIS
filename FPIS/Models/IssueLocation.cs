@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace FPIS.Models
 {
-    public class ProcurementLocation
+    public class IssueLocation
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
-        public string Location { get; set; }
-        public string Lot { get; set; }
         public int Quantity { get; set; }
         public string ApproxWeight { get; set; }
-        public Guid ReceivingId { get; set; }
-        [ForeignKey("ReceivingId")]
-        public Receiving Receiving { get; set; }
+        public Guid ProcurementLocationId { get; set; }
+        [ForeignKey("ProcurementLocationId")]
+        public ProcurementLocation ProcurementLocation { get; set; }
+        public Guid ReleasingId { get; set; }
+        [ForeignKey("ReleasingId")]
+        public Releasing Releasing { get; set; }
     }
 }

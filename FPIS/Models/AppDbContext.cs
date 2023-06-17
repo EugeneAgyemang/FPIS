@@ -121,5 +121,6 @@ namespace FPIS.Models
         public DbSet<ProcurementAttribute> ProcurementAttributes { get; set; }
         public DbSet<CalculatorVariable> CalculatorVariables { get; set; }
         public DbSet<ProcurementLocation> ProcurementLocations { get; set; }
+        public DbSet<IssueLocation> IssueLocations { get; set; }
     }
 }

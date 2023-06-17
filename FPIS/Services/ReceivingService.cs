@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,37 @@ namespace FPIS.Services
             appDbContext.Update(receiving);
             appDbContext.SaveChanges();
             return receiving;
+        }
+
+        public Receiving UpdateRecord(Receiving receivingRecord)
+        {
+            Receiving receiving = appDbContext.Update(receivingRecord).Entity;
+            appDbContext.SaveChanges();
+            return receiving;
+        }
+
+        public List<Receiving> FetchReceivedMaterialsPending()
+        {
+            List<Receiving> receivings = appDbContext.Receivings
+                                            .Include(record => record.MaterialProcurement)
+                                            .Where(record => record.Units == string.Empty)
+                                            .ToList();
+            return receivings;
+        }
+
+        public Receiving FetchFirstPendingReceivedMaterial()
+        {
+            Receiving receiving = appDbContext.Receivings
+                                        .Where(record => record.Units == string.Empty)
+                                        .OrderBy(record => record.MaterialProcurement.Date)
+                                        .FirstOrDefault();
+            return receiving;
+        }
+
+        public Receiving FetchRecordById(Guid id)
+        {
+            return appDbContext.Receivings
+                .FirstOrDefault(record => record.Id == id);
         }
     }
 }

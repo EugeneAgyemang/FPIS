@@ -31,21 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddRawMaterialsAnalysisSampleForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdAsStr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialProcuredId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TruckNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProcurementLocationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityReceived = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NetWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.AnalysisStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisRawMaterialsSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.analysisSampleBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisRawMaterialsSampleBindingItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).BeginInit();
@@ -60,98 +54,38 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DateAdded,
-            this.IdAsStr,
-            this.MaterialProcuredId,
-            this.Id,
-            this.Warehouse,
-            this.Supplier,
-            this.TruckNumber,
+            this.ProcurementLocationId,
             this.QuantityReceived,
             this.QuantityLeft,
-            this.NetWeight,
-            this.Remarks,
-            this.selectedDataGridViewCheckBoxColumn,
-            this.AnalysisStatus});
+            this.Location,
+            this.Lot,
+            this.selectedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.analysisRawMaterialsSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 86);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 86);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(1200, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(850, 260);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // analysisRawMaterialsSampleBindingItemBindingSource
-            // 
-            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
-            // 
-            // analysisSampleBindingItemBindingSource
-            // 
-            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // DateAdded
             // 
             this.DateAdded.DataPropertyName = "DateAdded";
-            this.DateAdded.HeaderText = "DateAdded";
+            this.DateAdded.HeaderText = "Date Received";
             this.DateAdded.MinimumWidth = 6;
             this.DateAdded.Name = "DateAdded";
             this.DateAdded.ReadOnly = true;
             this.DateAdded.Width = 114;
             // 
-            // IdAsStr
+            // ProcurementLocationId
             // 
-            this.IdAsStr.DataPropertyName = "IdAsStr";
-            this.IdAsStr.HeaderText = "Id";
-            this.IdAsStr.MinimumWidth = 6;
-            this.IdAsStr.Name = "IdAsStr";
-            this.IdAsStr.ReadOnly = true;
-            this.IdAsStr.Visible = false;
-            // 
-            // MaterialProcuredId
-            // 
-            this.MaterialProcuredId.DataPropertyName = "MaterialProcuredId";
-            this.MaterialProcuredId.HeaderText = "Material Procured Id";
-            this.MaterialProcuredId.MinimumWidth = 6;
-            this.MaterialProcuredId.Name = "MaterialProcuredId";
-            this.MaterialProcuredId.ReadOnly = true;
-            this.MaterialProcuredId.Visible = false;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Warehouse
-            // 
-            this.Warehouse.DataPropertyName = "Warehouse";
-            this.Warehouse.HeaderText = "Warehouse Stored";
-            this.Warehouse.MinimumWidth = 6;
-            this.Warehouse.Name = "Warehouse";
-            this.Warehouse.ReadOnly = true;
-            this.Warehouse.Width = 113;
-            // 
-            // Supplier
-            // 
-            this.Supplier.DataPropertyName = "Supplier";
-            this.Supplier.HeaderText = "Supplier";
-            this.Supplier.MinimumWidth = 6;
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
-            this.Supplier.Width = 114;
-            // 
-            // TruckNumber
-            // 
-            this.TruckNumber.DataPropertyName = "TruckNumber";
-            this.TruckNumber.HeaderText = "Truck Number";
-            this.TruckNumber.MinimumWidth = 6;
-            this.TruckNumber.Name = "TruckNumber";
-            this.TruckNumber.ReadOnly = true;
-            this.TruckNumber.Width = 113;
+            this.ProcurementLocationId.DataPropertyName = "ProcurementLocationId";
+            this.ProcurementLocationId.HeaderText = "ProcurementLocationId";
+            this.ProcurementLocationId.Name = "ProcurementLocationId";
+            this.ProcurementLocationId.ReadOnly = true;
+            this.ProcurementLocationId.Visible = false;
             // 
             // QuantityReceived
             // 
@@ -165,27 +99,25 @@
             // QuantityLeft
             // 
             this.QuantityLeft.DataPropertyName = "QuantityLeft";
-            this.QuantityLeft.HeaderText = "Quantity Left";
+            this.QuantityLeft.HeaderText = "Quantity Remaining";
             this.QuantityLeft.MinimumWidth = 6;
             this.QuantityLeft.Name = "QuantityLeft";
             this.QuantityLeft.ReadOnly = true;
             this.QuantityLeft.Width = 114;
             // 
-            // NetWeight
+            // Location
             // 
-            this.NetWeight.DataPropertyName = "NetWeight";
-            this.NetWeight.HeaderText = "NetWeight";
-            this.NetWeight.Name = "NetWeight";
-            this.NetWeight.ReadOnly = true;
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Warehouse";
+            this.Location.Name = "Location";
+            this.Location.ReadOnly = true;
             // 
-            // Remarks
+            // Lot
             // 
-            this.Remarks.DataPropertyName = "Remarks";
-            this.Remarks.HeaderText = "Remarks";
-            this.Remarks.MinimumWidth = 6;
-            this.Remarks.Name = "Remarks";
-            this.Remarks.ReadOnly = true;
-            this.Remarks.Width = 113;
+            this.Lot.DataPropertyName = "Lot";
+            this.Lot.HeaderText = "Lot";
+            this.Lot.Name = "Lot";
+            this.Lot.ReadOnly = true;
             // 
             // selectedDataGridViewCheckBoxColumn
             // 
@@ -196,20 +128,19 @@
             this.selectedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.selectedDataGridViewCheckBoxColumn.Width = 114;
             // 
-            // AnalysisStatus
+            // analysisRawMaterialsSampleBindingItemBindingSource
             // 
-            this.AnalysisStatus.DataPropertyName = "AnalysisStatus";
-            this.AnalysisStatus.HeaderText = "Analysis Status";
-            this.AnalysisStatus.MinimumWidth = 6;
-            this.AnalysisStatus.Name = "AnalysisStatus";
-            this.AnalysisStatus.ReadOnly = true;
-            this.AnalysisStatus.Width = 113;
+            this.analysisRawMaterialsSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisRawMaterialsSampleBindingItem);
+            // 
+            // analysisSampleBindingItemBindingSource
+            // 
+            this.analysisSampleBindingItemBindingSource.DataSource = typeof(FPIS.Models.AnalysisSampleBindingItem);
             // 
             // AddRawMaterialsAnalysisSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 350);
+            this.ClientSize = new System.Drawing.Size(900, 350);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -229,18 +160,18 @@
         private DataGridView dataGridView1;
         private BindingSource analysisSampleBindingItemBindingSource;
         private BindingSource analysisRawMaterialsSampleBindingItemBindingSource;
-        private DataGridViewTextBoxColumn DateAdded;
         private DataGridViewTextBoxColumn IdAsStr;
-        private DataGridViewTextBoxColumn MaterialProcuredId;
         private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Warehouse;
         private DataGridViewTextBoxColumn Supplier;
         private DataGridViewTextBoxColumn TruckNumber;
+        private DataGridViewTextBoxColumn Remarks;
+        private DataGridViewTextBoxColumn AnalysisStatus;
+        private DataGridViewTextBoxColumn DateAdded;
+        private DataGridViewTextBoxColumn ProcurementLocationId;
         private DataGridViewTextBoxColumn QuantityReceived;
         private DataGridViewTextBoxColumn QuantityLeft;
-        private DataGridViewTextBoxColumn NetWeight;
-        private DataGridViewTextBoxColumn Remarks;
+        private DataGridViewTextBoxColumn Location;
+        private DataGridViewTextBoxColumn Lot;
         private DataGridViewCheckBoxColumn selectedDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn AnalysisStatus;
     }
 }
