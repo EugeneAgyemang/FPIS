@@ -417,7 +417,7 @@ namespace FPIS.Views
                                 .Select(paramWithValue => new SampleResultsDetailsWithParameter()
                                 {
                                     Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
-                                    Value = float.Parse(paramWithValue.ParameterValue)
+                                    Value = paramWithValue.ParameterValue != null ? float.Parse(paramWithValue.ParameterValue) : null
                                 })
                             );
 
@@ -425,7 +425,7 @@ namespace FPIS.Views
                                 .Where(pmw => string.IsNullOrEmpty(pmw.AnalysisResultWithParameterId))
                                 .Select(pmw => new SampleResultsDetailsWithParameter()
                                 {
-                                    Value = float.Parse(pmw.ParameterValue),
+                                    Value = pmw.ParameterValue != null ? float.Parse(pmw.ParameterValue) : null,
                                     SampleResultDetailId = sampleItem.Id,
                                     AnalysisParameterId = new Guid(pmw.ParameterId),
                                 }).ToList();
