@@ -47,7 +47,7 @@
             this.materialButtonGenerateResult = new MaterialSkin.Controls.MaterialButton();
             this.label4 = new System.Windows.Forms.Label();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sampleIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisItemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parameterValuesDataGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +78,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn1,
-            this.Label,
+            this.labelDataGridViewTextBoxColumn1,
             this.sampleIdDataGridViewTextBoxColumn1,
             this.analysisItemIdDataGridViewTextBoxColumn,
             this.parameterValuesDataGridViewColumn,
@@ -256,14 +256,14 @@
             this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn1.Width = 325;
             // 
-            // Label
+            // labelDataGridViewTextBoxColumn1
             // 
-            this.Label.DataPropertyName = "Label";
-            this.Label.HeaderText = "Label";
-            this.Label.MinimumWidth = 8;
-            this.Label.Name = "Label";
-            this.Label.ReadOnly = true;
-            this.Label.Width = 150;
+            this.labelDataGridViewTextBoxColumn1.DataPropertyName = "Label";
+            this.labelDataGridViewTextBoxColumn1.HeaderText = "Label";
+            this.labelDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.labelDataGridViewTextBoxColumn1.Name = "labelDataGridViewTextBoxColumn1";
+            this.labelDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.labelDataGridViewTextBoxColumn1.Width = 150;
             // 
             // sampleIdDataGridViewTextBoxColumn1
             // 
@@ -362,7 +362,7 @@
         private Label ProductionEngineerOneCaptionControl;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn Label;
+        private DataGridViewTextBoxColumn labelDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn sampleIdDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn analysisItemIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn parameterValuesDataGridViewColumn;

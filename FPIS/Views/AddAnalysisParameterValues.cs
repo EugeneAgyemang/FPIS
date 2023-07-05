@@ -26,6 +26,7 @@ namespace FPIS.Views
         public AddAnalysisParameterValues(
             string sampleDetailId,
             string itemName,
+            string itemLabel,
             string analysisItemId,
             string analysisType,
             AnalysisResultSampleDetailBindingItem selectedBindingItem,
@@ -37,7 +38,7 @@ namespace FPIS.Views
             Theme.FormInstance = this;
             Theme.Set(Themes.LIGHT);
             _selectedBindingItem = selectedBindingItem;
-            _itemName = itemName;
+            _itemName = itemLabel != null ? $"{itemName} - {itemLabel}" : itemName;
             _analysisType = analysisType;
             _sampleDetailId = sampleDetailId;
             _analysisItemId = analysisItemId;
