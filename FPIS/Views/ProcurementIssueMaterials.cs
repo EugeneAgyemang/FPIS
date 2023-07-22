@@ -223,7 +223,7 @@ namespace FPIS.Views
                 OpenAddMaterialsControl.Enabled = true;
                 RequestForAnalysisControl.Enabled = true;
                 Utils.Utils.ShowMessageBox(
-                    "Successfully sent analysis request. You can send a new request if you want?",
+                    "Successfully sent analysis request. You can send a new request if you want",
                     "Success",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
