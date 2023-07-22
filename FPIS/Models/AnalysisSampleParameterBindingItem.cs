@@ -9,9 +9,9 @@
 
         public string? Method { get; set; }
 
-        public float? ControlLimit { get; set; }
+        public string? ControlLimit { get; set; }
 
-        public float Specification { get; set; }
+        public string Specification { get; set; }
 
         public string? Value { get; set; }
 

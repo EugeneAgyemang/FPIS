@@ -15,6 +15,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace FPIS.Views
 {
@@ -27,14 +29,14 @@ namespace FPIS.Views
         {
             InitializeComponent();
             dataGridView_Finished_Products_With_Results.DataSource = sampleDetailsList;
-           // dataGridView1.DataSource = parameterResultList;
+            // dataGridView1.DataSource = parameterResultList;
             LoadAnalyticalResults();
 
             labelAnalysisRemarkError.ForeColor = System.Drawing.Color.Red;
 
-            materialButtonSaveAnalysisRemark.Enabled= false;
-            materialButtonPrintAnalyticalResult.Enabled= false; 
-            textBoxAnalyticalRemark.Enabled= false;
+            materialButtonSaveAnalysisRemark.Enabled = false;
+            materialButtonPrintAnalyticalResult.Enabled = false;
+            textBoxAnalyticalRemark.Enabled = false;
             labelAnalysisRemarkError.Text = "";
         }
 
@@ -69,31 +71,42 @@ namespace FPIS.Views
                 sampleDetailsList.Clear();
                 foreach (SampleDetail sampleDetail in samplesDetails)
                 {
+
                     CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.AnalysisItem = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
+                    sampleDetailItem.SampleDetailId = sampleDetail.Id;
+                    sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName} {sampleDetail.Label}";
                     sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
                     sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
                     sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
                     //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
-                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault()?.Date.ToLongDateString();
                     //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
-                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault()?.Time.ToLongTimeString();
                     //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
                     //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
                     sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
                     sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
-                   sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString();
+                    sampleDetailItem.SampleResultDetailsId =
+                    sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString();
+                    //sampleDetail.Sample.SampleResults.FirstOrDefault().SampleResultDetails.FirstOrDefault().Id.ToString();
+
                     totalNumberOfRequests++;
                     sampleDetailsList.Add(sampleDetailItem);
                 }
             }
-            else {
+            else
+            {
                 List<SampleDetail> samplesDetails = new WaterService(new()).GetWatersWithAnalysisResults(null);
                 sampleDetailsList.Clear();
                 foreach (SampleDetail sampleDetail in samplesDetails)
                 {
                     CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.AnalysisItem = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
+                    sampleDetailItem.SampleDetailId = sampleDetail.Id;
+                    sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName} {sampleDetail.Label}";
                     sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
                     sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
                     sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
@@ -110,7 +123,7 @@ namespace FPIS.Views
                     sampleDetailsList.Add(sampleDetailItem);
                 }
             }
-            
+
             CountAnalysisRequests(totalNumberOfRequests);
         }
 
@@ -125,7 +138,10 @@ namespace FPIS.Views
                 foreach (SampleDetail sampleDetail in samplesDetails)
                 {
                     CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.AnalysisItem = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
+                    sampleDetailItem.SampleDetailId = sampleDetail.Id;
+                    sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName} {sampleDetail.Label}";
                     sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
                     sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
                     sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
@@ -149,7 +165,10 @@ namespace FPIS.Views
                 foreach (SampleDetail sampleDetail in samplesDetails)
                 {
                     CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
-                    sampleDetailItem.ProductName = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.AnalysisItem = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
+                    sampleDetailItem.SampleDetailId = sampleDetail.Id;
+                    sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName} {sampleDetail.Label}";
                     sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
                     sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
                     sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
@@ -175,47 +194,113 @@ namespace FPIS.Views
             {
                 AppDbContext dbContext = new();
                 var analysisResult = from Product in dbContext.Products
-                                     where Product.ProductName == _analysisItemName
+                                     where Product.ProductName == _analysisItem
                                      from AnalysisProduct in dbContext.AnalysisProducts
                                      where AnalysisProduct.ProductId == Product.Id
                                      from SampleDetail in dbContext.SampleDetails
-                                     where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId
+                                         //where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId && SampleDetail.Label == _sampleDetailLabel
+                                     where SampleDetail.Id == _sampleDetailID
                                      from Sample in dbContext.Samples
                                      where Sample.Id == SampleDetail.SampleId
 
                                      from SampleResult in dbContext.SampleResults
-                                     where SampleResult.SampleId == SampleDetail.SampleId
+                                     where SampleResult.SampleId == Sample.Id
                                      where SampleResult.Id == _sampleResultID
-                                     // from SampleResultDetail in dbContext.SampleResultDetails
-                                     // where SampleResultDetail.SampleResultId == SampleResult.Id
+                                     //from SampleResultDetail in dbContext.SampleResultDetails
+                                     //where SampleResultDetail.SampleResultId == _sampleResultID
+
+                                     from SampleResultDetail in dbContext.SampleResultDetails
+                                     where SampleResultDetail.SampleResultId == _sampleResultID
+                                     // where SampleResultDetail.Id == _sampleResultDetailsId && SampleDetail.Id == _sampleDetailID
+                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
+                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == SampleResultDetail.Id
 
                                      from ProductParameter in dbContext.ProductParameters
                                      where ProductParameter.ProductId == Product.Id
+
                                      from ProductAnalysisParameter in dbContext.ProductAnalysisParameters
                                      where ProductAnalysisParameter.ProductParameterId == ProductParameter.Id
-                                     from AnalysisParameter in dbContext.AnalysisParameters
-                                     where ProductAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
+                                     //from AnalysisParameter in dbContext.AnalysisParameters
+                                     //where ProductAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
 
+                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == ProductAnalysisParameter.AnalysisParameterId
 
-                                     from SampleResultDetail in dbContext.SampleResultDetails
-                                     where SampleResultDetail.SampleResultId == SampleResult.Id
-                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
-                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == SampleResultDetail.Id
-                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == AnalysisParameter.Id
-
-                                     //where SampleResultsDetailsWithParameter.SampleDetailId == SampleDetail.Id
                                      select new
                                      {
                                          parameter = ProductParameter.ParameterName,
+                                         specification_range = $"{(ProductParameter.MinimumSpecification == null ? "<= " + ProductParameter.Specification : ProductParameter.MinimumSpecification + " - " + ProductParameter.Specification)}",
                                          specification = ProductParameter.Specification,
-                                         result = SampleResultsDetailsWithParameter.Value,
-                                         variance = (float)Math.Round(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value,2),
-                                         indicator = (float)Math.Round(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value,2)
+                                         result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
+                                         variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}"
+
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult)
                 {
-                    dataGridView1.Rows.Add(items.parameter, items.specification, items.result, items.variance, items.indicator);
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Product Analytical Results: {ex}");
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
+            }
+        }
+
+        private void LoadMultipleProductAnalyticalResult()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+
+                var analysisResult = from Product in dbContext.Products
+                                     where Product.ProductName == _analysisItem
+                                     from AnalysisProduct in dbContext.AnalysisProducts
+                                     where AnalysisProduct.ProductId == Product.Id
+                                     from SampleDetail in dbContext.SampleDetails
+                                         //where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId && SampleDetail.Label == _sampleDetailLabel
+                                     where SampleDetail.Id == _sampleDetailID
+                                     from Sample in dbContext.Samples
+                                     where Sample.Id == SampleDetail.SampleId
+
+                                     from SampleResult in dbContext.SampleResults
+                                     where SampleResult.SampleId == Sample.Id
+                                     where SampleResult.Id == _sampleResultID
+                                     //from SampleResultDetail in dbContext.SampleResultDetails
+                                     //where SampleResultDetail.SampleResultId == _sampleResultID
+
+                                     from SampleResultDetail in dbContext.SampleResultDetails
+                                     where SampleResultDetail.SampleResultId == _sampleResultID
+                                     // where SampleResultDetail.Id == _sampleResultDetailsId && SampleDetail.Id == _sampleDetailID
+                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
+                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == _sampleResultDetailsId
+
+                                     from ProductParameter in dbContext.ProductParameters
+                                     where ProductParameter.ProductId == Product.Id
+
+                                     from ProductAnalysisParameter in dbContext.ProductAnalysisParameters
+                                     where ProductAnalysisParameter.ProductParameterId == ProductParameter.Id
+                                     //from AnalysisParameter in dbContext.AnalysisParameters
+                                     //where ProductAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
+
+                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == ProductAnalysisParameter.AnalysisParameterId
+
+                                     select new
+                                     {
+                                         parameter = ProductParameter.ParameterName,
+                                         specification_range = $"{(ProductParameter.MinimumSpecification == null ? "<= " + ProductParameter.Specification : ProductParameter.MinimumSpecification + " - " + ProductParameter.Specification)}",
+                                         specification = ProductParameter.Specification,
+                                         result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
+                                         variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}"
+
+                                     };
+                dataGridView1.Rows.Clear();
+                foreach (var items in analysisResult.Distinct())
+                {
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
                 }
                 dbContext.Dispose();
             }
@@ -232,47 +317,51 @@ namespace FPIS.Views
             {
                 AppDbContext dbContext = new();
                 var analysisResult = from Water in dbContext.Waters
-                                     where Water.WaterName == _analysisItemName
+                                     where Water.WaterName == _analysisItem
                                      from AnalysisWater in dbContext.AnalysisWaters
                                      where AnalysisWater.WaterId == Water.Id
                                      from SampleDetail in dbContext.SampleDetails
-                                     where SampleDetail.AnalysisItemId == AnalysisWater.AnalysisItemId
+                                         //where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId && SampleDetail.Label == _sampleDetailLabel
+                                     where SampleDetail.Id == _sampleDetailID
                                      from Sample in dbContext.Samples
                                      where Sample.Id == SampleDetail.SampleId
 
                                      from SampleResult in dbContext.SampleResults
-                                     where SampleResult.SampleId == SampleDetail.SampleId
+                                     where SampleResult.SampleId == Sample.Id
                                      where SampleResult.Id == _sampleResultID
-                                     // from SampleResultDetail in dbContext.SampleResultDetails
-                                     // where SampleResultDetail.SampleResultId == SampleResult.Id
+                                     //from SampleResultDetail in dbContext.SampleResultDetails
+                                     //where SampleResultDetail.SampleResultId == _sampleResultID
+
+                                     from SampleResultDetail in dbContext.SampleResultDetails
+                                     where SampleResultDetail.SampleResultId == _sampleResultID
+                                     // where SampleResultDetail.Id == _sampleResultDetailsId && SampleDetail.Id == _sampleDetailID
+                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
+                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == SampleResultDetail.Id
 
                                      from WaterParameter in dbContext.WaterParameters
                                      where WaterParameter.WaterId == Water.Id
+
                                      from WaterAnalysisParameter in dbContext.WaterAnalysisParameters
                                      where WaterAnalysisParameter.WaterParameterId == WaterParameter.Id
-                                     from AnalysisParameter in dbContext.AnalysisParameters
-                                     where WaterAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
+                                     //from AnalysisParameter in dbContext.AnalysisParameters
+                                     //where ProductAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
 
+                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == WaterAnalysisParameter.AnalysisParameterId
 
-                                     from SampleResultDetail in dbContext.SampleResultDetails
-                                     where SampleResultDetail.SampleResultId == SampleResult.Id
-                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
-                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == SampleResultDetail.Id
-                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == AnalysisParameter.Id
-
-                                     //where SampleResultsDetailsWithParameter.SampleDetailId == SampleDetail.Id
                                      select new
                                      {
                                          parameter = WaterParameter.ParameterName,
+                                         specification_range = $"{(WaterParameter.MinimumControlLimit == null ? "<= " + WaterParameter.ControlLimit : WaterParameter.MinimumControlLimit + " - " + WaterParameter.ControlLimit)}",
                                          specification = WaterParameter.ControlLimit,
-                                         result = SampleResultsDetailsWithParameter.Value,
-                                         variance = (float)Math.Round(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value, 2),
-                                         indicator = (float)Math.Round(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value, 2)
+                                         result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
+                                         variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}"
+
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult)
                 {
-                    dataGridView1.Rows.Add(items.parameter, items.specification, items.result, items.variance, items.indicator);
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
                 }
                 dbContext.Dispose();
             }
@@ -283,40 +372,127 @@ namespace FPIS.Views
             }
         }
 
+
+        private void LoadMultipleWaterAnalyticalResult()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var analysisResult = from Water in dbContext.Waters
+                                     where Water.WaterName == _analysisItem
+                                     from AnalysisWater in dbContext.AnalysisWaters
+                                     where AnalysisWater.WaterId == Water.Id
+                                     from SampleDetail in dbContext.SampleDetails
+                                         //where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId && SampleDetail.Label == _sampleDetailLabel
+                                     where SampleDetail.Id == _sampleDetailID
+                                     from Sample in dbContext.Samples
+                                     where Sample.Id == SampleDetail.SampleId
+
+                                     from SampleResult in dbContext.SampleResults
+                                     where SampleResult.SampleId == Sample.Id
+                                     where SampleResult.Id == _sampleResultID
+                                     //from SampleResultDetail in dbContext.SampleResultDetails
+                                     //where SampleResultDetail.SampleResultId == _sampleResultID
+
+                                     from SampleResultDetail in dbContext.SampleResultDetails
+                                     where SampleResultDetail.SampleResultId == _sampleResultID
+                                     // where SampleResultDetail.Id == _sampleResultDetailsId && SampleDetail.Id == _sampleDetailID
+                                     from SampleResultsDetailsWithParameter in dbContext.SampleResultsDetailsWithParameters
+                                     where SampleResultsDetailsWithParameter.SampleResultDetailId == _sampleResultDetailsId
+
+                                     from WaterParameter in dbContext.WaterParameters
+                                     where WaterParameter.WaterId == Water.Id
+
+                                     from WaterAnalysisParameter in dbContext.WaterAnalysisParameters
+                                     where WaterAnalysisParameter.WaterParameterId == WaterParameter.Id
+                                     //from AnalysisParameter in dbContext.AnalysisParameters
+                                     //where ProductAnalysisParameter.AnalysisParameterId == AnalysisParameter.Id
+
+                                     where SampleResultsDetailsWithParameter.AnalysisParameterId == WaterAnalysisParameter.AnalysisParameterId
+                                     select new
+                                     {
+                                         parameter = WaterParameter.ParameterName,
+                                         specification_range = $"{(WaterParameter.MinimumControlLimit == null ? "<= " + WaterParameter.ControlLimit : WaterParameter.MinimumControlLimit + " - " + WaterParameter.ControlLimit)}",
+                                         specification = WaterParameter.ControlLimit,
+                                         result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
+                                         variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}"
+
+                                     };
+                dataGridView1.Rows.Clear();
+                foreach (var items in analysisResult.Distinct())
+                {
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Product Analytical Results: {ex}");
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
+            }
+        }
+
+        private void getSampleResultDetailsID()
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var sampleResiltDeatilsID = from SampleResultDetail in dbContext.SampleResultDetails
+                                            where SampleResultDetail.SampleResultId == _sampleResultID && SampleResultDetail.Label == _sampleDetailLabel
+                                            select new
+                                            {
+                                                sampleResultsDetailsID = SampleResultDetail.Id
+                                            };
+                foreach (var items in sampleResiltDeatilsID)
+                {
+                    _sampleResultDetailsId = items.sampleResultsDetailsID;
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Sample Results Details ID: {ex}");
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
+            }
+        }
+
         string _analysisItemName;
         string _analysisRequestDate;
         string _analysisRequestTime;
         string _analysisResultDate;
         string _analysisResultTime;
-        string _sampleDetailID;
+        Guid _sampleDetailID;
         Guid _sampleResultID = new Guid();
-        string _sampleResultDetailsId;
+        Guid _sampleResultDetailsId;
         string _analysisType;
+        string _analysisItem;
+        string _sampleDetailLabel;
         private void dataGridView_Finished_Products_With_Results_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-          /*  parameterResultList.Clear();
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
-            //string sampleResultId;
-            Guid sampleResultId = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleDetailsId"].Value.ToString());
-            List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResults(sampleResultId);
-            foreach (SampleDetail sampleDetail in samplesDetails)
-            {
-                foreach (ProductParameter param in sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters)
-                {
-                    CheckAnalyticalParameterResultsBindingItem parameterResult = new CheckAnalyticalParameterResultsBindingItem();
-                    parameterResult.ParameterName = param.ParameterName;
-                    parameterResult.Expected = param.Specification;
-                    parameterResult.Actual = param.ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().Value;
-                    parameterResult.Variance = (float)Math.Round((parameterResult.Expected - parameterResult.Actual), 2);
-                    parameterResult.Indicator = (float)Math.Round((parameterResult.Expected - parameterResult.Actual), 2);
+            /*  parameterResultList.Clear();
+              if (e.RowIndex < 0 || e.ColumnIndex < 0)
+              {
+                  return;
+              }
+              //string sampleResultId;
+              Guid sampleResultId = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleDetailsId"].Value.ToString());
+              List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResults(sampleResultId);
+              foreach (SampleDetail sampleDetail in samplesDetails)
+              {
+                  foreach (ProductParameter param in sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters)
+                  {
+                      CheckAnalyticalParameterResultsBindingItem parameterResult = new CheckAnalyticalParameterResultsBindingItem();
+                      parameterResult.ParameterName = param.ParameterName;
+                      parameterResult.Expected = param.Specification;
+                      parameterResult.Actual = param.ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().Value;
+                      parameterResult.Variance = (float)Math.Round((parameterResult.Expected - parameterResult.Actual), 2);
+                      parameterResult.Indicator = (float)Math.Round((parameterResult.Expected - parameterResult.Actual), 2);
 
-                    parameterResultList.Add(parameterResult);
-                }
-            }
-          */
+                      parameterResultList.Add(parameterResult);
+                  }
+              }
+            */
             try
             {
                 dataGridView_Finished_Products_With_Results.CurrentRow.Selected = true;
@@ -325,10 +501,14 @@ namespace FPIS.Views
                 _analysisRequestTime = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn4"].FormattedValue.ToString();
                 _analysisResultDate = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn5"].FormattedValue.ToString();
                 _analysisResultTime = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn6"].FormattedValue.ToString();
-                _sampleDetailID = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn7"].FormattedValue.ToString();
+                _sampleDetailID = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn7"].FormattedValue.ToString());
                 _sampleResultID = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleResultDetailsId"].FormattedValue.ToString());
-                _sampleResultDetailsId = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleResultsDetailsId"].FormattedValue.ToString();
+                // _sampleResultDetailsId = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleResultsDetailsId"].FormattedValue.ToString());
                 _analysisType = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn2"].FormattedValue.ToString();
+                _analysisItem = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["AnalysisItem"].FormattedValue.ToString();
+                _sampleDetailLabel = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleDetailLabel"].FormattedValue.ToString();
+
+                // MessageBox.Show("SD ID : " + _sampleDetailLabel);
             }
             catch (Exception ex)
             {
@@ -336,15 +516,34 @@ namespace FPIS.Views
             }
             if (_analysisType == "Production")
             {
-                LoadProductAnalyticalResult();
+                if (_sampleDetailLabel != "")
+                {
+                    getSampleResultDetailsID();
+                    LoadMultipleProductAnalyticalResult();
+                }
+                else
+                {
+                    LoadProductAnalyticalResult();
+                }
+
             }
             else
             {
-                LoadWaterAnalyticalResult();
+                //MessageBox.Show("Label: " + _sampleDetailLabel + " SRID: " + _sampleResultID);
+                if (_sampleDetailLabel != "")
+                {
+                    getSampleResultDetailsID();
+                    LoadMultipleWaterAnalyticalResult();
+                }
+                else
+                {
+                    LoadWaterAnalyticalResult();
+                }
             }
             materialButtonSaveAnalysisRemark.Enabled = true;
             materialButtonPrintAnalyticalResult.Enabled = true;
             textBoxAnalyticalRemark.Enabled = true;
+            //MessageBox.Show("Sample results details ID " + _sampleResultDetailsId);
         }
 
         private void AddAnalysisRemark()
@@ -373,13 +572,13 @@ namespace FPIS.Views
                 if (dialogResult == DialogResult.Yes)
                 {
                     AnalysisRemarkService analysisRemarkService = new(dbContext);
-                     analysisRemarkService.AddAnalysisRemark(analysisRemark, remarkDate, new Guid(_sampleDetailID), new Guid(_sampleResultDetailsId), new Guid(Main.LOGGED_USER_ID), remarkTime, _analysisItemName);
-                     MessageBox.Show(
-                       $"Analysis Remark added successfully for \"{_analysisItemName}\"",
-                      "Success",
-                      MessageBoxButtons.OK,
-                      MessageBoxIcon.Information
-                      );
+                    analysisRemarkService.AddAnalysisRemark(analysisRemark, remarkDate, _sampleDetailID, _sampleResultDetailsId, new Guid(Main.LOGGED_USER_ID), remarkTime, _analysisItemName);
+                    MessageBox.Show(
+                      $"Analysis Remark added successfully for \"{_analysisItemName}\"",
+                     "Success",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Information
+                     );
                     ClearFormFields();
                 }
             }
@@ -408,15 +607,22 @@ namespace FPIS.Views
             if (value < 0)
             {
                 args.CellStyle.BackColor = Color.Red;
-                args.CellStyle.ForeColor = Color.White;
+                args.CellStyle.ForeColor = Color.Red;
+                args.FormattingApplied = true;
+            }
+            else if (args.Value.ToString() == "-")
+            {
+                args.CellStyle.BackColor = Color.White;
+                args.CellStyle.ForeColor = Color.Black;
                 args.FormattingApplied = true;
             }
             else
             {
                 args.CellStyle.BackColor = Color.Green;
-                args.CellStyle.ForeColor = Color.White;
+                args.CellStyle.ForeColor = Color.Green;
                 args.FormattingApplied = true;
             }
+
         }
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs args)
@@ -457,9 +663,9 @@ namespace FPIS.Views
                 Analytical_Results analyticalRes = new Analytical_Results
                 {
                     ParameterName = dataGridView1.Rows[i].Cells[0].Value.ToString(),
-                    Specification = float.Parse(dataGridView1.Rows[i].Cells[1].Value.ToString()),
-                    Actual = float.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString()),
-                    Variance = float.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString())
+                    Specification = dataGridView1.Rows[i].Cells[1].Value.ToString(),
+                    Actual = dataGridView1.Rows[i].Cells[2].Value.ToString(),
+                    Variance = dataGridView1.Rows[i].Cells[3].Value.ToString()
 
                 };
                 analytical_Result.Add(analyticalRes);
@@ -476,7 +682,7 @@ namespace FPIS.Views
 
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
         {
-                LoadAnalyticalResultsPerDate();
+            LoadAnalyticalResultsPerDate();
         }
 
         private void materialButtonShowAll_Click(object sender, EventArgs e)

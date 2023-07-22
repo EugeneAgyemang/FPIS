@@ -98,11 +98,11 @@ namespace FPIS.Services
         {
             IQueryable<SampleDetail> samplesRequestedQuery = _dbContext.SampleDetails.
                 Include(sd => sd.Sample).
-                Where(sample => sample.Sample.Status.ToLower() == "completed").
+                Where(sample => sample.Sample.Status.ToLower() == "completed" || sample.Sample.Status.ToLower() == "completed with rejections").
                 Include(sample => sample.Sample.SampleResults).
                 Where(a => a.AnalysisItem.ItemType == "Product").
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
-                
+
                 ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
                 ThenInclude(a => a.ProductAnalysisParameters).
                 ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
@@ -125,6 +125,7 @@ namespace FPIS.Services
             IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
                 Include(sd => sd.Sample).
                 Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Where(a => a.Sample.Status != "Pending").
                 Where(a => a.AnalysisItem.ItemType == "Product").
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
                 ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).

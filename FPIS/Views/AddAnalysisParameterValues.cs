@@ -99,7 +99,7 @@ namespace FPIS.Views
                             Unit = waterAnalysisParameter.WaterParameter.Unit,
                             Value = item?.ParameterValue ?? "0.00",
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                            ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                            ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = true,
                         });
                     }
@@ -111,7 +111,7 @@ namespace FPIS.Views
                             Unit = waterAnalysisParameter.WaterParameter.Unit,
                             Value = item?.ParameterValue ?? "0.00",
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                            ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                            ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = false,
                         });
                     }
@@ -131,7 +131,7 @@ namespace FPIS.Views
                         Unit = waterAnalysisParameter.WaterParameter.Unit,
                         Value = item?.ParameterValue ?? "0.00",
                         Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                        ControlLimit = waterAnalysisParameter.WaterParameter.ControlLimit,
+                        ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                         shouldUpdate = false,
                     });
 
@@ -162,7 +162,7 @@ namespace FPIS.Views
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
                             Name = productAnalysisParameter.ProductParameter.ParameterName,
-                            Specification = productAnalysisParameter.ProductParameter.Specification,
+                            Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                             shouldUpdate = true,
                         });
                     }
@@ -175,7 +175,7 @@ namespace FPIS.Views
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
                             Name = productAnalysisParameter.ProductParameter.ParameterName,
-                            Specification = productAnalysisParameter.ProductParameter.Specification,
+                            Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                             shouldUpdate = false,
                         });
                     }
@@ -195,7 +195,7 @@ namespace FPIS.Views
                         Unit = productAnalysisParameter.ProductParameter.Unit,
                         Method = productAnalysisParameter.ProductParameter.Method,
                         Name = productAnalysisParameter.ProductParameter.ParameterName,
-                        Specification = productAnalysisParameter.ProductParameter.Specification,
+                        Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                         shouldUpdate = false,
                     });
 

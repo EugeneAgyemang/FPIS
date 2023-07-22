@@ -19,7 +19,7 @@ namespace FPIS.Views
         public UserControlAddFinishedProduct()
         {
             InitializeComponent();
-  
+
             labelCosigneeError.ForeColor = System.Drawing.Color.Red;
             labelBatchNumberError.ForeColor = System.Drawing.Color.Red;
             labelContainerNumberError.ForeColor = System.Drawing.Color.Red;
@@ -121,7 +121,7 @@ namespace FPIS.Views
                 var requestType = from Product in dbContext.Products
                                   where Product.Type == "Finished Products"
                                   select Product.ProductName;
-               materialComboBoxFinishedProduct.DataSource = requestType.Distinct().ToList();
+                materialComboBoxFinishedProduct.DataSource = requestType.Distinct().ToList();
                 materialComboBoxFinishedProduct.DisplayMember = "TypeForFiltering";
                 dbContext.Dispose();
             }
@@ -151,17 +151,19 @@ namespace FPIS.Views
                                       select new
                                       {
                                           sampleDetailsID = SampleDetail.Id,
-                                          finishedProduct = Product.ProductName,
+                                          finishedProduct = Product.ProductName + " " + SampleDetail.Label,
+                                          productType = Product.ProductName,
+                                          label = SampleDetail.Label,
                                           analysisRequestDate = Sample.Date,
                                           analysisRequestTime = Sample.Time,
                                           analysisResultDate = SampleResult.Date,
                                           analysisResultTime = SampleResult.Time
-                                          
+
                                       };
                 dataGridView_Finished_Products_With_Results.Rows.Clear();
                 foreach (var items in finishedProduct)
                 {
-                    dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID,items.finishedProduct,items.analysisRequestDate,items.analysisRequestTime,items.analysisResultDate,items.analysisResultTime);
+                    dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID, items.finishedProduct, items.productType, items.label, items.analysisRequestDate, items.analysisRequestTime, items.analysisResultDate, items.analysisResultTime);
                 }
                 dbContext.Dispose();
             }
@@ -192,7 +194,9 @@ namespace FPIS.Views
                                       select new
                                       {
                                           sampleDetailsID = SampleDetail.Id,
-                                          finishedProduct = Product.ProductName,
+                                          finishedProduct = Product.ProductName + " " + SampleDetail.Label,
+                                          productType = Product.ProductName,
+                                          label = SampleDetail.Label,
                                           analysisRequestDate = Sample.Date,
                                           analysisRequestTime = Sample.Time,
                                           analysisResultDate = SampleResult.Date,
@@ -202,7 +206,7 @@ namespace FPIS.Views
                 dataGridView_Finished_Products_With_Results.Rows.Clear();
                 foreach (var items in finishedProduct)
                 {
-                    dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID, items.finishedProduct, items.analysisRequestDate, items.analysisRequestTime, items.analysisResultDate, items.analysisResultTime);
+                    dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID, items.finishedProduct, items.productType, items.label, items.analysisRequestDate, items.analysisRequestTime, items.analysisResultDate, items.analysisResultTime);
                 }
                 dbContext.Dispose();
             }
@@ -249,11 +253,11 @@ namespace FPIS.Views
                                       where SampleDetail.Id == _sampleDetailsID
                                       from SampleResult in dbContext.SampleResults
                                       where SampleResult.SampleId == SampleDetail.SampleId
-                                      
+
                                       select new
-                                   {
-                                      sampleResultID = SampleResult.Id           
-                                   };
+                                      {
+                                          sampleResultID = SampleResult.Id
+                                      };
                 Guid Id = Guid.NewGuid();
                 foreach (var sampleResultID in finishedProduct)
                 {
@@ -262,7 +266,7 @@ namespace FPIS.Views
                 try
                 {
                     FinishedProductService finishedProductService = new(dbContext);
-                    finishedProductService.AddFinishedProduct(date, cosignee, productType,batchNumber,containerNumber,sealNumber,quantity,Id);
+                    finishedProductService.AddFinishedProduct(date, cosignee, productType, batchNumber, containerNumber, sealNumber, quantity, Id, _Label);
                     MessageBox.Show(
                         $"Finished Product \"{materialTextBoxProductType.Text}\" is successfully added.",
                         "Success",
@@ -309,20 +313,22 @@ namespace FPIS.Views
         }
 
         Guid _sampleDetailsID = new Guid();
+        string _Label;
         private void dataGridView_Finished_Products_With_Results_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 dataGridView_Finished_Products_With_Results.CurrentRow.Selected = true;
-                materialTextBoxProductType.Text = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["ProductName"].FormattedValue.ToString();
+                materialTextBoxProductType.Text = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["ProductType"].FormattedValue.ToString();
                 _sampleDetailsID = Guid.Parse(dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleDetailsID"].FormattedValue.ToString());
+                _Label = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["Label"].FormattedValue.ToString();
                 materialButtonAddFinishedProduct.Enabled = true;
             }
             catch (Exception ex)
             {
 
             }
-            
+
         }
 
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)

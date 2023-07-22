@@ -9,8 +9,8 @@ namespace Reporting.Datasets
     public class Analytical_Results
     {
         public string ParameterName { get; set; }
-        public float Specification { get; set; }
-        public float Actual { get; set; }
-        public float Variance { get; set; }
+        public string Specification { get; set; }
+        public string Actual { get; set; }
+        public string Variance { get; set; }
     }
 }
