@@ -16,6 +16,7 @@ namespace FPIS.Models
         public DateOnly Date { get; set; }
         public string Consignee { get; set; }
         public string ProductType { get; set; }
+        public string? Label { get; set; }
         public string BatchNumber { get; set; }
         public string ContainerNumber { get; set; }
         public string SealNumber { get; set; }

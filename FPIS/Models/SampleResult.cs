@@ -23,7 +23,7 @@ namespace FPIS.Models
         [ForeignKey("UserId")]
 
         public User User { get; set; }
-        
+
 
         public List<FinishedProduct> FinishedProducts { get; set; }
         public List<SampleResultDetail> SampleResultDetails { get; set; }

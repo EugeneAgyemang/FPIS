@@ -27,7 +27,7 @@ namespace FPIS.Services
         }
 
         /// <summary>
-        /// Adds a new `Finished Product` with a Date, Cosignee, Product Type, Batch Number, Container Number
+        /// Adds a new `Finished Product` with a Date, Cosignee, Product Type, Batch Number, Container Number,label
         /// Seal Number, Quantity
         /// </summary>
         /// <param name="date"></param>
@@ -38,7 +38,8 @@ namespace FPIS.Services
         ///<param name="sealNumber"></param>
         ///<param name="quantity"></param>
         ///<param name="sampleResultID"></param>
-        public FinishedProduct AddFinishedProduct(DateOnly date, string cosignee, string productType, string batchNumber, string containerNumber, string sealNumber, string quantity, Guid sampleResultID)
+        ///<param name="label"></param>
+        public FinishedProduct AddFinishedProduct(DateOnly date, string cosignee, string productType, string batchNumber, string containerNumber, string sealNumber, string quantity, Guid sampleResultID, string? label)
         {
             var finishedProduct = _dbContext.FinishedProducts.Add(
                     new()
@@ -50,7 +51,8 @@ namespace FPIS.Services
                         ContainerNumber = containerNumber,
                         SealNumber = sealNumber,
                         Quantity= quantity,
-                        SampleResultId= sampleResultID
+                        SampleResultId= sampleResultID,
+                        Label = label
                     }
                 ).Entity;
 
