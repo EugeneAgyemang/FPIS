@@ -60,6 +60,7 @@ namespace FPIS.Views
         {
             bool shouldSave = true;
             shouldSave = PerformValidations();
+            unit = UnitsControl.Text.Trim();
 
             if (!shouldSave)
             {
