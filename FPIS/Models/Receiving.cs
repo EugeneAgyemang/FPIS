@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FPIS.Services;
 
 namespace FPIS.Models
 {
@@ -27,6 +28,12 @@ namespace FPIS.Models
         public Guid MaterialProcurementId { get; set; }
         [ForeignKey("MaterialProcurementId")]
         public MaterialProcurement MaterialProcurement { get; set; }
-        public List<Releasing> Releasings { get; set; }
+        public List<ProcurementLocation> ProcurementLocations { get; set; }
+
+        public override string ToString()
+        {
+            Product product = new ProductService(new()).GetProductById(MaterialProcurement.ProductId);
+            return $"{product}";
+        }
     }
 }

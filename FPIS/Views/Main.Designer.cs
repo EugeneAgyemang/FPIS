@@ -46,7 +46,6 @@ namespace FPIS.Views
             this.AdminPanelSectionCaptionControl = new System.Windows.Forms.Button();
             this.ProcurementSectionControl = new System.Windows.Forms.Panel();
             this.ProcurementSection_ViewRequestsControl = new System.Windows.Forms.Button();
-            this.ProcurementSection_IssueMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSection_ReceiveMaterialsControl = new System.Windows.Forms.Button();
             this.ProcurementSectionCaptionControl = new System.Windows.Forms.Button();
             this.SettingsSectionControl = new System.Windows.Forms.Panel();
@@ -85,7 +84,9 @@ namespace FPIS.Views
             this.ConsumbalesSection_AddStockItemControl = new System.Windows.Forms.Button();
             this.ConsumbalesSectionCaptionControl = new System.Windows.Forms.Button();
             this.ProductionSectionControl = new System.Windows.Forms.Panel();
+            this.ProductionSection_ReceiveMaterialsControl = new System.Windows.Forms.Button();
             this.ProductionSection_UpdateProductParameterControl = new System.Windows.Forms.Button();
+            this.ProductionSection_IssueMaterialsControl = new System.Windows.Forms.Button();
             this.ProductionSection_CreateAnalysisProductControl = new System.Windows.Forms.Button();
             this.ProductionSection_ViewProductionRemarkControl = new System.Windows.Forms.Button();
             this.ProductionSection_CreateProductParameterControl = new System.Windows.Forms.Button();
@@ -251,7 +252,7 @@ namespace FPIS.Views
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddDepartment);
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddUsers);
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSectionCaptionControl);
-            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2208);
+            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2258);
             this.AdminPanelSectionControl.Name = "AdminPanelSectionControl";
             this.AdminPanelSectionControl.Size = new System.Drawing.Size(190, 200);
             this.AdminPanelSectionControl.TabIndex = 9;
@@ -327,12 +328,11 @@ namespace FPIS.Views
             // ProcurementSectionControl
             // 
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ViewRequestsControl);
-            this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_IssueMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
-            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 2007);
+            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 2107);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
-            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 200);
+            this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 150);
             this.ProcurementSectionControl.TabIndex = 8;
             this.ProcurementSectionControl.Tag = "6";
             // 
@@ -344,29 +344,13 @@ namespace FPIS.Views
             this.ProcurementSection_ViewRequestsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProcurementSection_ViewRequestsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProcurementSection_ViewRequestsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 150);
+            this.ProcurementSection_ViewRequestsControl.Location = new System.Drawing.Point(5, 100);
             this.ProcurementSection_ViewRequestsControl.Name = "ProcurementSection_ViewRequestsControl";
             this.ProcurementSection_ViewRequestsControl.Size = new System.Drawing.Size(180, 50);
             this.ProcurementSection_ViewRequestsControl.TabIndex = 3;
             this.ProcurementSection_ViewRequestsControl.Text = "View Requests";
             this.ProcurementSection_ViewRequestsControl.UseVisualStyleBackColor = false;
             this.ProcurementSection_ViewRequestsControl.Click += new System.EventHandler(this.ProcurementSection_ViewRequestsControl_Click);
-            // 
-            // ProcurementSection_IssueMaterialsControl
-            // 
-            this.ProcurementSection_IssueMaterialsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ProcurementSection_IssueMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ProcurementSection_IssueMaterialsControl.FlatAppearance.BorderSize = 0;
-            this.ProcurementSection_IssueMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProcurementSection_IssueMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ProcurementSection_IssueMaterialsControl.ForeColor = System.Drawing.Color.White;
-            this.ProcurementSection_IssueMaterialsControl.Location = new System.Drawing.Point(5, 100);
-            this.ProcurementSection_IssueMaterialsControl.Name = "ProcurementSection_IssueMaterialsControl";
-            this.ProcurementSection_IssueMaterialsControl.Size = new System.Drawing.Size(180, 50);
-            this.ProcurementSection_IssueMaterialsControl.TabIndex = 2;
-            this.ProcurementSection_IssueMaterialsControl.Text = "Issue Materials";
-            this.ProcurementSection_IssueMaterialsControl.UseVisualStyleBackColor = false;
-            this.ProcurementSection_IssueMaterialsControl.Click += new System.EventHandler(this.ProcurementSection_IssueMaterialsControl_Click);
             // 
             // ProcurementSection_ReceiveMaterialsControl
             // 
@@ -407,7 +391,7 @@ namespace FPIS.Views
             // 
             this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2409);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2459);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 169);
             this.SettingsSectionControl.TabIndex = 7;
@@ -465,7 +449,7 @@ namespace FPIS.Views
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_ViewSampleResultsControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControl_AddSampleResultControl);
             this.QualityControlSectionControl.Controls.Add(this.QualityControlCaptionControl);
-            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 604);
+            this.QualityControlSectionControl.Location = new System.Drawing.Point(6, 704);
             this.QualityControlSectionControl.Name = "QualityControlSectionControl";
             this.QualityControlSectionControl.Size = new System.Drawing.Size(190, 601);
             this.QualityControlSectionControl.TabIndex = 3;
@@ -674,7 +658,7 @@ namespace FPIS.Views
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
-            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1707);
+            this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1807);
             this.ReportsSectionControl.Name = "ReportsSectionControl";
             this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
             this.ReportsSectionControl.TabIndex = 6;
@@ -784,7 +768,7 @@ namespace FPIS.Views
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_ViewCertificateOfAnalysisControl);
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProducts_AddFinishedProductControl);
             this.FinishedProductsSectionControl.Controls.Add(this.FinishedProductsCaptionControl);
-            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 1204);
+            this.FinishedProductsSectionControl.Location = new System.Drawing.Point(6, 1304);
             this.FinishedProductsSectionControl.Name = "FinishedProductsSectionControl";
             this.FinishedProductsSectionControl.Size = new System.Drawing.Size(190, 150);
             this.FinishedProductsSectionControl.TabIndex = 4;
@@ -850,7 +834,7 @@ namespace FPIS.Views
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_ViewStockItemControl);
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSection_AddStockItemControl);
             this.ConsumablesSectionControl.Controls.Add(this.ConsumbalesSectionCaptionControl);
-            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 1355);
+            this.ConsumablesSectionControl.Location = new System.Drawing.Point(6, 1455);
             this.ConsumablesSectionControl.Name = "ConsumablesSectionControl";
             this.ConsumablesSectionControl.Size = new System.Drawing.Size(190, 351);
             this.ConsumablesSectionControl.TabIndex = 5;
@@ -973,7 +957,9 @@ namespace FPIS.Views
             // 
             // ProductionSectionControl
             // 
+            this.ProductionSectionControl.Controls.Add(this.ProductionSection_ReceiveMaterialsControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_UpdateProductParameterControl);
+            this.ProductionSectionControl.Controls.Add(this.ProductionSection_IssueMaterialsControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_CreateAnalysisProductControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_ViewProductionRemarkControl);
             this.ProductionSectionControl.Controls.Add(this.ProductionSection_CreateProductParameterControl);
@@ -986,9 +972,25 @@ namespace FPIS.Views
             this.ProductionSectionControl.Controls.Add(this.ProductionSectionCaptionControl);
             this.ProductionSectionControl.Location = new System.Drawing.Point(6, 52);
             this.ProductionSectionControl.Name = "ProductionSectionControl";
-            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 552);
+            this.ProductionSectionControl.Size = new System.Drawing.Size(190, 652);
             this.ProductionSectionControl.TabIndex = 2;
             this.ProductionSectionControl.Tag = "1";
+            // 
+            // ProductionSection_ReceiveMaterialsControl
+            // 
+            this.ProductionSection_ReceiveMaterialsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProductionSection_ReceiveMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProductionSection_ReceiveMaterialsControl.FlatAppearance.BorderSize = 0;
+            this.ProductionSection_ReceiveMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductionSection_ReceiveMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_ReceiveMaterialsControl.ForeColor = System.Drawing.Color.White;
+            this.ProductionSection_ReceiveMaterialsControl.Location = new System.Drawing.Point(5, 400);
+            this.ProductionSection_ReceiveMaterialsControl.Name = "ProductionSection_ReceiveMaterialsControl";
+            this.ProductionSection_ReceiveMaterialsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_ReceiveMaterialsControl.TabIndex = 5;
+            this.ProductionSection_ReceiveMaterialsControl.Text = "Receive Materials";
+            this.ProductionSection_ReceiveMaterialsControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_ReceiveMaterialsControl.Click += new System.EventHandler(this.ProductionSection_ReceiveMaterialsControl_Click);
             // 
             // ProductionSection_UpdateProductParameterControl
             // 
@@ -1005,6 +1007,22 @@ namespace FPIS.Views
             this.ProductionSection_UpdateProductParameterControl.Text = "Update Product Parameter";
             this.ProductionSection_UpdateProductParameterControl.UseVisualStyleBackColor = false;
             this.ProductionSection_UpdateProductParameterControl.Click += new System.EventHandler(this.ProductionSection_UpdateProductParameterControl_Click);
+            // 
+            // ProductionSection_IssueMaterialsControl
+            // 
+            this.ProductionSection_IssueMaterialsControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
+            this.ProductionSection_IssueMaterialsControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProductionSection_IssueMaterialsControl.FlatAppearance.BorderSize = 0;
+            this.ProductionSection_IssueMaterialsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductionSection_IssueMaterialsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductionSection_IssueMaterialsControl.ForeColor = System.Drawing.Color.White;
+            this.ProductionSection_IssueMaterialsControl.Location = new System.Drawing.Point(5, 450);
+            this.ProductionSection_IssueMaterialsControl.Name = "ProductionSection_IssueMaterialsControl";
+            this.ProductionSection_IssueMaterialsControl.Size = new System.Drawing.Size(180, 50);
+            this.ProductionSection_IssueMaterialsControl.TabIndex = 2;
+            this.ProductionSection_IssueMaterialsControl.Text = "Issue Materials";
+            this.ProductionSection_IssueMaterialsControl.UseVisualStyleBackColor = false;
+            this.ProductionSection_IssueMaterialsControl.Click += new System.EventHandler(this.ProcurementSection_IssueMaterialsControl_Click);
             // 
             // ProductionSection_CreateAnalysisProductControl
             // 
@@ -1030,7 +1048,7 @@ namespace FPIS.Views
             this.ProductionSection_ViewProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_ViewProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_ViewProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 500);
+            this.ProductionSection_ViewProductionRemarkControl.Location = new System.Drawing.Point(5, 600);
             this.ProductionSection_ViewProductionRemarkControl.Name = "ProductionSection_ViewProductionRemarkControl";
             this.ProductionSection_ViewProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_ViewProductionRemarkControl.TabIndex = 7;
@@ -1062,7 +1080,7 @@ namespace FPIS.Views
             this.ProductionSection_AddProductionRemarkControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_AddProductionRemarkControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_AddProductionRemarkControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 450);
+            this.ProductionSection_AddProductionRemarkControl.Location = new System.Drawing.Point(5, 550);
             this.ProductionSection_AddProductionRemarkControl.Name = "ProductionSection_AddProductionRemarkControl";
             this.ProductionSection_AddProductionRemarkControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_AddProductionRemarkControl.TabIndex = 6;
@@ -1078,7 +1096,7 @@ namespace FPIS.Views
             this.ProductionSection_CheckAnalyticalResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProductionSection_CheckAnalyticalResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductionSection_CheckAnalyticalResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 400);
+            this.ProductionSection_CheckAnalyticalResultsControl.Location = new System.Drawing.Point(5, 500);
             this.ProductionSection_CheckAnalyticalResultsControl.Name = "ProductionSection_CheckAnalyticalResultsControl";
             this.ProductionSection_CheckAnalyticalResultsControl.Size = new System.Drawing.Size(180, 50);
             this.ProductionSection_CheckAnalyticalResultsControl.TabIndex = 5;
@@ -1323,7 +1341,7 @@ namespace FPIS.Views
         private Panel DividerControl;
         private Panel NavigationIndicatorControl;
         private Panel ProcurementSectionControl;
-        private Button ProcurementSection_IssueMaterialsControl;
+        private Button ProductionSection_IssueMaterialsControl;
         private Button ProcurementSection_ReceiveMaterialsControl;
         private Button ProcurementSectionCaptionControl;
         private Button ReportsSectionCaptionControl;
@@ -1338,5 +1356,6 @@ namespace FPIS.Views
         private Button ReportsSection_ViewSampleResultsControl;
         private Button ProductionSection_UpdateProductParameterControl;
         private Button QualityControl_UpdateWaterParameterControl;
+        private Button ProductionSection_ReceiveMaterialsControl;
     }
 }

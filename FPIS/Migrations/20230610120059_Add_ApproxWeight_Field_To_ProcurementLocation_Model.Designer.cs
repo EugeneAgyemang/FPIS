@@ -3,6 +3,7 @@ using System;
 using FPIS.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FPIS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230610120059_Add_ApproxWeight_Field_To_ProcurementLocation_Model")]
+    partial class AddApproxWeightFieldToProcurementLocationModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,34 +233,6 @@ namespace FPIS.Migrations
                     b.ToTable("FinishedProducts");
                 });
 
-            modelBuilder.Entity("FPIS.Models.IssueLocation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ApproxWeight")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("ProcurementLocationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("ReleasingId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProcurementLocationId");
-
-                    b.HasIndex("ReleasingId");
-
-                    b.ToTable("IssueLocations");
-                });
-
             modelBuilder.Entity("FPIS.Models.IssuedStock", b =>
                 {
                     b.Property<Guid>("Id")
@@ -462,9 +437,6 @@ namespace FPIS.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<float?>("MinimumSpecification")
-                        .HasColumnType("real");
-
                     b.Property<string>("ParameterName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -606,6 +578,9 @@ namespace FPIS.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("ReceivingId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Weight")
                         .IsRequired()
                         .HasColumnType("text");
@@ -613,6 +588,8 @@ namespace FPIS.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MaterialProcurementId");
+
+                    b.HasIndex("ReceivingId");
 
                     b.ToTable("Releasings");
                 });
@@ -858,9 +835,6 @@ namespace FPIS.Migrations
                     b.Property<float>("ControlLimit")
                         .HasColumnType("real");
 
-                    b.Property<float?>("MinimumControlLimit")
-                        .HasColumnType("real");
-
                     b.Property<string>("ParameterName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -964,25 +938,6 @@ namespace FPIS.Migrations
                         .IsRequired();
 
                     b.Navigation("SampleResult");
-                });
-
-            modelBuilder.Entity("FPIS.Models.IssueLocation", b =>
-                {
-                    b.HasOne("FPIS.Models.ProcurementLocation", "ProcurementLocation")
-                        .WithMany()
-                        .HasForeignKey("ProcurementLocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FPIS.Models.Releasing", "Releasing")
-                        .WithMany("IssueLocations")
-                        .HasForeignKey("ReleasingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProcurementLocation");
-
-                    b.Navigation("Releasing");
                 });
 
             modelBuilder.Entity("FPIS.Models.IssuedStock", b =>
@@ -1151,7 +1106,15 @@ namespace FPIS.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FPIS.Models.Receiving", "Receiving")
+                        .WithMany("Releasings")
+                        .HasForeignKey("ReceivingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("MaterialProcurement");
+
+                    b.Navigation("Receiving");
                 });
 
             modelBuilder.Entity("FPIS.Models.Sample", b =>
@@ -1345,11 +1308,8 @@ namespace FPIS.Migrations
             modelBuilder.Entity("FPIS.Models.Receiving", b =>
                 {
                     b.Navigation("ProcurementLocations");
-                });
 
-            modelBuilder.Entity("FPIS.Models.Releasing", b =>
-                {
-                    b.Navigation("IssueLocations");
+                    b.Navigation("Releasings");
                 });
 
             modelBuilder.Entity("FPIS.Models.Sample", b =>

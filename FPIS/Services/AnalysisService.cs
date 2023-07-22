@@ -315,7 +315,7 @@ namespace FPIS.Services
             return sampleDeleted;
         }
 
-        public Sample? FetchRawMaterialsAnalysis(string sampleId)
+        public Sample? FetchRawMaterialsReceivedAnalysis(string sampleId)
         {
             return _dbContext.Samples
                 .Include(s => s.SampleDetails)
@@ -323,7 +323,7 @@ namespace FPIS.Services
                 .ThenInclude(ai => ai.AnalysisProducts)
                 .ThenInclude(ap => ap.Product.MaterialProcurements)
                 .ThenInclude(materialProcurement => materialProcurement.Receivings)
-                .ThenInclude(m => m.Releasings)
+                .ThenInclude(receiving => receiving.ProcurementLocations)
                 .FirstOrDefault(s => s.Id.ToString() == sampleId);
         }
 

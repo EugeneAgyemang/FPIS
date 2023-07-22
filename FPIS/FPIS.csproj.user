@@ -2,6 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\AcceptLot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\AcceptWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\AddAnalysisParameterValues.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -50,8 +56,14 @@
     <Compile Update="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\LotRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\ProcurementIssueMaterials.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\ProcurementLocation.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\ProcurementReceiveMaterialsUserControl.cs">
       <SubType>UserControl</SubType>
@@ -84,6 +96,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControlProcurementReceiveMaterials.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControlProductReport.cs">
@@ -121,6 +136,9 @@
     </Compile>
     <Compile Update="Views\UserControlViewSampleResults.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\WareHouseRequest.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

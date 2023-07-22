@@ -33,11 +33,11 @@ namespace FPIS.Views
             UpdateDataGridColumns();
             LoadSampleRequestsMade(form);
         }
-        void UpdateSamplesRequestedOverview(int totalSamplesRequested)
+        private void UpdateSamplesRequestedOverview(int totalSamplesRequested)
         {
             if (totalSamplesRequested == 0)
             {
-                SamplesRequestedOverviewControl.Text = "No requests made yet";
+                SamplesRequestedOverviewControl.Text = "No pending requests ";
             }
             else
             {
@@ -52,11 +52,24 @@ namespace FPIS.Views
             {
                 case Utils.Form.PROCUREMENT_ISSUE:
                 case Utils.Form.PRODUCTION:
-                    samplesRequested.AddRange(new AnalysisService(new()).GetProductSamplesRequestedByAUser(source, Guid.Parse(Main.LOGGED_USER_ID), "pending"));
+                    samplesRequested.AddRange
+                        (new AnalysisService
+                            (new())
+                        .GetProductSamplesRequestedByAUser
+                        (source, Guid.Parse(Main.LOGGED_USER_ID)
+                        , "pending"));
                     break;
                 case Utils.Form.QUALITY_CONTROL:
-                    samplesRequested.AddRange(new AnalysisService(new()).GetProductSamplesRequestedByAllUsers("pending"));
-                    samplesRequested.AddRange(new AnalysisService(new()).GetWaterSamplesRequestedByAllUsers("pending"));
+                    samplesRequested.AddRange
+                        (new AnalysisService
+                            (new())
+                            .GetProductSamplesRequestedByAllUsers
+                            ("pending"));
+                    samplesRequested.AddRange
+                        (new AnalysisService
+                            (new())
+                        .GetWaterSamplesRequestedByAllUsers
+                        ("pending"));
                     break;
             }
             int totalSamplesRequested = samplesRequested.Count;
@@ -65,30 +78,25 @@ namespace FPIS.Views
             {
                 ViewSampleRequestsMadeBindingItem sampleRequestMade = new ViewSampleRequestsMadeBindingItem();
 
-                sampleRequestMade.SampleIdAsString = Utils.Utils.GetLastCharacters(sampleRequested.Id.ToString(), 4);
+                sampleRequestMade.SampleIdAsString = Utils.Utils
+                                                .GetLastCharacters
+                                                    (sampleRequested
+                                                    .Id
+                                                    .ToString()
+                                                 , 4);
                 sampleRequestMade.SampleId = sampleRequested.Id;
                 sampleRequestMade.Date = sampleRequested.Date;
                 sampleRequestMade.Time = sampleRequested.Time;
                 sampleRequestMade.TypeForFiltering = sampleRequested.TypeForFiltering;
                 sampleRequestMade.Status = "Pending";
-                //sampleRequestMade.EngineerOne = LoadUser(sampleRequested.Employee1).Id;
-                //sampleRequestMade.EngineerTwo = LoadUser(sampleRequested.Employee2).Id;
-
-
-                //sampleRequestMade.EngineerOneEmpId = sampleRequested.Employee1;
-                //sampleRequestMade.EngineerTwoEmpId = sampleRequested.Employee2;
-
                 sampleRequestMade.EngineerOneFullName = LoadUserFullName(sampleRequested.Employee1);
                 sampleRequestMade.EngineerTwoFullName = LoadUserFullName(sampleRequested.Employee2);
                 if (sampleRequested.TypeForFiltering.ToLower() == "production" &&
                     sampleRequested.Employee1 == sampleRequested.Employee2)
                 {
-                    //sampleRequestMade.Engineer = sampleRequestMade.EngineerOneFullName;
                     sampleRequestMade.EngineerTwoFullName = string.Empty;
                 }
-
                 listOfRequests.Add(sampleRequestMade);
-
             }
         }
         public void UpdateDataGridColumns()
@@ -135,7 +143,7 @@ namespace FPIS.Views
             }
             string sampleId = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             string typeForFiltering = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString().ToLower();
-            UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.ANALYZED);
+            UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), UserControlProcurementReceiveMaterials.ANALYZED);
             if (source == Source.PRODUCTION)
             {
 
@@ -148,66 +156,19 @@ namespace FPIS.Views
             {
                 listOfRequests.RemoveAt(e.RowIndex);
                 UpdateSamplesRequestedOverview(listOfRequests.Count);
-                UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.DONE);
+                UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), UserControlProcurementReceiveMaterials.DONE);
             }
             else
             {
-                UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), ProcurementReceiveMaterialsUserControl.EN_ROUTE);
-            }
-        }
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs args)
-        {
-            if (args.RowIndex == 0)
-            {
-                return;
-            }
-            if (IsRepeatedCellValue(args.RowIndex, args.ColumnIndex))
-            {
-                args.Value = string.Empty;
-                args.FormattingApplied = true;
-            }
-        }
-        private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs args)
-        {
-            args.AdvancedBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
-            args.CellStyle.Alignment = DataGridViewContentAlignment.TopRight;
-
-            if (args.RowIndex < 1 || args.ColumnIndex < 0)
-            {
-                return;
-            }
-            if (IsRepeatedCellValue(args.RowIndex, args.ColumnIndex))
-            {
-                args.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
-            }
-            else
-            {
-                args.AdvancedBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.Single;
-            }
-        }
-        private bool IsRepeatedCellValue(int rowIndex, int colIndex)
-
-        {
-
-            DataGridViewCell currCell = dataGridView1.Rows[rowIndex].Cells[colIndex];
-            DataGridViewCell prevCell = dataGridView1.Rows[rowIndex - 1].Cells[colIndex];
-            if ((currCell.Value == prevCell.Value) || (currCell.Value != null && prevCell.Value != null && currCell.Value.ToString() == prevCell.Value.ToString()))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), UserControlProcurementReceiveMaterials.EN_ROUTE);
             }
         }
         private void UpdateRawMaterialSampleRequestStatus(Guid sampleUserClicked, string status)
         {
-            FileInfo[] receivedFiles = LoadRawMaterialsRequestedFiles(ProcurementReceiveMaterialsUserControl.DIRECTORY_NAME);
+            FileInfo[] receivedFiles = LoadRawMaterialsRequestedFiles(UserControlProcurementReceiveMaterials.DIRECTORY_NAME);
             UpdateFilesForSample(receivedFiles, sampleUserClicked, status, Utils.Form.PROCUREMENT_RECEIVE);
-
             FileInfo[] issuedFiles = LoadRawMaterialsRequestedFiles(ProcurementIssueMaterials.DIRECTORY_NAME);
             UpdateFilesForSample(issuedFiles, sampleUserClicked, status, Utils.Form.PROCUREMENT_ISSUE);
-
         }
         private FileInfo[] LoadRawMaterialsRequestedFiles(string directory)
         {

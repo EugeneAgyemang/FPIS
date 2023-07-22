@@ -42,35 +42,37 @@ namespace FPIS.Views
                     {
                         continue;
                     }
-                    var existingItem = selectedSamples.FirstOrDefault(it => it.MaterialProcuredId == materialProcured.Id);
-                    if (materialReceived.Quantity <= 1)
+                    Models.ProcurementLocation[] procurementLocations = new ProcurementLocationService(new()).GetProcurmentLocation(materialReceived.Id).ToArray();
+                    foreach (Models.ProcurementLocation procurementLocation in procurementLocations)
                     {
-                        continue;
-                    }
-                    AnalysisRawMaterialsSampleBindingItem newItem = new()
-                    {
-                        Id = analysisProduct.AnalysisItemId,
-                        MaterialProcuredId = materialProcured.Id,
-                        IdAsStr = Utils.Utils.GetLastCharacters(materialProcured.Id.ToString(), 4),
-                        AnalysisStatus = "Pending",
-                        NetWeight = materialReceived.NetWeight,
-                        Remarks = materialProcured.Remarks,
-                        DateAdded = materialProcured.Date,
-                        QuantityLeft = materialReceived.Quantity,
-                        QuantityReceived = materialReceived.Quantity + new ReleasingService(new()).GetQuantityIssuedFromMaterialReceived(materialReceived.Id),
-                        Supplier = materialReceived.Supplier,
-                        TruckNumber = materialReceived.TruckNumber,
-                        Warehouse = materialProcured.Location,
-                        Selected = existingItem != null,
-                        Lot = materialProcured.Lot
-                    };
+                        var existingItem = selectedSamples.FirstOrDefault(it => it.ProcurementLocationId == procurementLocation.Id);
+                        if (procurementLocation.Quantity <= 0)
+                        {
+                            continue;
+                        }
+                        AnalysisRawMaterialsSampleBindingItem newItem = new()
+                        {
+                            Id = analysisProduct.AnalysisItemId,
+                            ProcurementLocationId = procurementLocation.Id,
+                            Remarks = materialProcured.Remarks,
+                            DateAdded = materialProcured.Date,
+                            QuantityLeft = procurementLocation.Quantity,
+                            QuantityReceived = procurementLocation.Quantity,
+                            Location = procurementLocation.Location,
+                            Lot = procurementLocation.Lot,
+                            Supplier = materialReceived.Supplier,
+                            TruckNumber = materialReceived.TruckNumber,
+                            Selected = existingItem != null
+                        };
 
-                    itemList.Add(newItem);
+                        itemList.Add(newItem);
 
-                    if (existingItem != null)
-                    {
-                        ProcurementIssueMaterials.analysisItemList.Add(newItem);
+                        if (existingItem != null)
+                        {
+                            ProcurementIssueMaterials.analysisItemList.Add(newItem);
+                        }
                     }
+                    
 
                 }
 
@@ -86,17 +88,21 @@ namespace FPIS.Views
             }
             string selectItemColumnValue, itemId;
 
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+            {
+                return;
+            }
             selectItemColumnValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            itemId = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            itemId = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
 
             // only react if the user clicked on the select item column
-            if (e.ColumnIndex != 11)
+            if (e.ColumnIndex != 6)
             {
                 return;
             }
 
-            var item = itemList.FirstOrDefault(it => it.MaterialProcuredId.ToString() == itemId);
+            var item = itemList.FirstOrDefault(it => it.ProcurementLocationId.ToString() == itemId);
 
             if (item == null)
             {
@@ -108,26 +114,14 @@ namespace FPIS.Views
             if (selectItemColumnValue.Equals("True"))
             {
                 item.Selected = false;
-                AnalysisRawMaterialsSampleBindingItem it = itemList.First(it => it.MaterialProcuredId == item.MaterialProcuredId);
+                AnalysisRawMaterialsSampleBindingItem it = itemList.First(it => it.ProcurementLocationId == item.ProcurementLocationId);
                 ProcurementIssueMaterials.analysisItemList.Remove(it);
             }
             else
             {
-                ClearSelectedItems();
-                dataGridView1.Refresh();
                 item.Selected = true;
-                AnalysisRawMaterialsSampleBindingItem it = itemList.First(aI => aI.MaterialProcuredId.ToString() == itemId);
-                ProcurementIssueMaterials.analysisItemList.Clear();
+                AnalysisRawMaterialsSampleBindingItem it = itemList.First(aI => aI.ProcurementLocationId.ToString() == itemId);
                 ProcurementIssueMaterials.analysisItemList.Add(it);
-            }
-        }
-
-        private void ClearSelectedItems()
-        {
-            foreach (var item in itemList)
-            {
-                item.Selected = false;
-                
             }
         }
     }

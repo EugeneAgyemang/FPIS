@@ -1,4 +1,5 @@
 ﻿using FPIS.Models;
+using FPIS.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,7 @@ namespace FPIS.Data
                 $"@ {sample.Time.ToShortTimeString()} " +
                 $"on " +
                 $"{sample.Date.ToShortDateString()} " +
-                $"from {MaterialToBeIssued.MaterialProcurement.Location} "; //+
-                //$"Lot {MaterialToBeIssued.MaterialProcurement.Lot}";
+                $"for {new ProductService(new()).GetProductById(MaterialToBeIssued.MaterialProcurement.ProductId).ProductName} ";
         }
     }
 }

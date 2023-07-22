@@ -20,12 +20,10 @@ namespace FPIS.Services
             MaterialProcurement materialToBeProcured = new MaterialProcurement()
             {
                 ProductId = materialProcured.ProductId,
-                Location = materialProcured.Location,
                 Date = materialProcured.Date,
                 Remarks = materialProcured.Remarks,
                 Type = materialProcured.Type,
-                UserId = materialProcured.UserId,
-                Lot = materialProcured.Lot
+                UserId = materialProcured.UserId
             };
             appDbContext.Add(materialToBeProcured);
             appDbContext.SaveChanges();
@@ -52,14 +50,9 @@ namespace FPIS.Services
                                                                                                 .AnalysisProducts
                                                                                                 .FirstOrDefault()
                                                                                                 .AnalysisItemId == analysisItemId)
+                                                                .OrderByDescending(materialProcurement => materialProcurement.Date)
                                                                 .ToList();
             return materialProcurements;
-        }
-        // DELETE THIS FUNCTION
-        public Product GetProductForRawMaterial(Guid materialProcurementId)
-        {
-            Product product = appDbContext.Products.FirstOrDefault(product => product.MaterialProcurements.FirstOrDefault().Id == materialProcurementId);
-            return product;
         }
     }
 }
