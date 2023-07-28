@@ -49,13 +49,12 @@
             this.maximumSpecificationControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.maximumSpecificationControl.Hint = "Maximum Specification";
             this.maximumSpecificationControl.LeadingIcon = null;
-            this.maximumSpecificationControl.Location = new System.Drawing.Point(29, 746);
-            this.maximumSpecificationControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.maximumSpecificationControl.Location = new System.Drawing.Point(25, 531);
             this.maximumSpecificationControl.MaxLength = 50;
             this.maximumSpecificationControl.MouseState = MaterialSkin.MouseState.OUT;
             this.maximumSpecificationControl.Multiline = false;
             this.maximumSpecificationControl.Name = "maximumSpecificationControl";
-            this.maximumSpecificationControl.Size = new System.Drawing.Size(457, 50);
+            this.maximumSpecificationControl.Size = new System.Drawing.Size(400, 50);
             this.maximumSpecificationControl.TabIndex = 8;
             this.maximumSpecificationControl.Text = "";
             this.maximumSpecificationControl.TrailingIcon = null;
@@ -76,12 +75,11 @@
             this.ProductControl.Hint = "Product";
             this.ProductControl.IntegralHeight = false;
             this.ProductControl.ItemHeight = 43;
-            this.ProductControl.Location = new System.Drawing.Point(29, 167);
-            this.ProductControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ProductControl.Location = new System.Drawing.Point(25, 96);
             this.ProductControl.MaxDropDownItems = 4;
             this.ProductControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ProductControl.Name = "ProductControl";
-            this.ProductControl.Size = new System.Drawing.Size(457, 49);
+            this.ProductControl.Size = new System.Drawing.Size(400, 49);
             this.ProductControl.StartIndex = -1;
             this.ProductControl.TabIndex = 10;
             this.ProductControl.SelectedIndexChanged += new System.EventHandler(this.ProductControl_SelectedIndexChanged);
@@ -95,8 +93,8 @@
             this.SaveParameterControl.Depth = 0;
             this.SaveParameterControl.HighEmphasis = true;
             this.SaveParameterControl.Icon = null;
-            this.SaveParameterControl.Location = new System.Drawing.Point(221, 873);
-            this.SaveParameterControl.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.SaveParameterControl.Location = new System.Drawing.Point(193, 592);
+            this.SaveParameterControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveParameterControl.Name = "SaveParameterControl";
             this.SaveParameterControl.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -116,13 +114,12 @@
             this.minimumSpecificationControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.minimumSpecificationControl.Hint = "Minimum Specification";
             this.minimumSpecificationControl.LeadingIcon = null;
-            this.minimumSpecificationControl.Location = new System.Drawing.Point(29, 627);
-            this.minimumSpecificationControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.minimumSpecificationControl.Location = new System.Drawing.Point(25, 441);
             this.minimumSpecificationControl.MaxLength = 50;
             this.minimumSpecificationControl.MouseState = MaterialSkin.MouseState.OUT;
             this.minimumSpecificationControl.Multiline = false;
             this.minimumSpecificationControl.Name = "minimumSpecificationControl";
-            this.minimumSpecificationControl.Size = new System.Drawing.Size(457, 50);
+            this.minimumSpecificationControl.Size = new System.Drawing.Size(400, 50);
             this.minimumSpecificationControl.TabIndex = 7;
             this.minimumSpecificationControl.Text = "";
             this.minimumSpecificationControl.TrailingIcon = null;
@@ -143,12 +140,11 @@
             this.ProductParameterControl.Hint = "Parameter";
             this.ProductParameterControl.IntegralHeight = false;
             this.ProductParameterControl.ItemHeight = 43;
-            this.ProductParameterControl.Location = new System.Drawing.Point(29, 284);
-            this.ProductParameterControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ProductParameterControl.Location = new System.Drawing.Point(25, 184);
             this.ProductParameterControl.MaxDropDownItems = 4;
             this.ProductParameterControl.MouseState = MaterialSkin.MouseState.OUT;
             this.ProductParameterControl.Name = "ProductParameterControl";
-            this.ProductParameterControl.Size = new System.Drawing.Size(457, 49);
+            this.ProductParameterControl.Size = new System.Drawing.Size(400, 49);
             this.ProductParameterControl.StartIndex = -1;
             this.ProductParameterControl.TabIndex = 14;
             this.ProductParameterControl.SelectedIndexChanged += new System.EventHandler(this.ProductParameterControl_SelectedIndexChanged);
@@ -158,9 +154,9 @@
             this.ProductErrorCaption.AutoSize = true;
             this.ProductErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ProductErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ProductErrorCaption.Location = new System.Drawing.Point(29, 223);
+            this.ProductErrorCaption.Location = new System.Drawing.Point(25, 148);
             this.ProductErrorCaption.Name = "ProductErrorCaption";
-            this.ProductErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.ProductErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.ProductErrorCaption.TabIndex = 20;
             // 
             // ParameterErrorControl
@@ -168,9 +164,9 @@
             this.ParameterErrorControl.AutoSize = true;
             this.ParameterErrorControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.ParameterErrorControl.Location = new System.Drawing.Point(29, 339);
+            this.ParameterErrorControl.Location = new System.Drawing.Point(25, 236);
             this.ParameterErrorControl.Name = "ParameterErrorControl";
-            this.ParameterErrorControl.Size = new System.Drawing.Size(0, 16);
+            this.ParameterErrorControl.Size = new System.Drawing.Size(0, 15);
             this.ParameterErrorControl.TabIndex = 21;
             // 
             // PreviousSpecificationErrorControl
@@ -178,9 +174,9 @@
             this.PreviousSpecificationErrorControl.AutoSize = true;
             this.PreviousSpecificationErrorControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.PreviousSpecificationErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.PreviousSpecificationErrorControl.Location = new System.Drawing.Point(32, 683);
+            this.PreviousSpecificationErrorControl.Location = new System.Drawing.Point(25, 494);
             this.PreviousSpecificationErrorControl.Name = "PreviousSpecificationErrorControl";
-            this.PreviousSpecificationErrorControl.Size = new System.Drawing.Size(0, 16);
+            this.PreviousSpecificationErrorControl.Size = new System.Drawing.Size(0, 15);
             this.PreviousSpecificationErrorControl.TabIndex = 22;
             // 
             // NewSpecificationErrorControl
@@ -188,9 +184,9 @@
             this.NewSpecificationErrorControl.AutoSize = true;
             this.NewSpecificationErrorControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.NewSpecificationErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.NewSpecificationErrorControl.Location = new System.Drawing.Point(29, 802);
+            this.NewSpecificationErrorControl.Location = new System.Drawing.Point(25, 584);
             this.NewSpecificationErrorControl.Name = "NewSpecificationErrorControl";
-            this.NewSpecificationErrorControl.Size = new System.Drawing.Size(0, 16);
+            this.NewSpecificationErrorControl.Size = new System.Drawing.Size(0, 15);
             this.NewSpecificationErrorControl.TabIndex = 23;
             // 
             // unitControl
@@ -201,13 +197,12 @@
             this.unitControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.unitControl.Hint = "Unit";
             this.unitControl.LeadingIcon = null;
-            this.unitControl.Location = new System.Drawing.Point(29, 510);
-            this.unitControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.unitControl.Location = new System.Drawing.Point(25, 353);
             this.unitControl.MaxLength = 50;
             this.unitControl.MouseState = MaterialSkin.MouseState.OUT;
             this.unitControl.Multiline = false;
             this.unitControl.Name = "unitControl";
-            this.unitControl.Size = new System.Drawing.Size(457, 50);
+            this.unitControl.Size = new System.Drawing.Size(400, 50);
             this.unitControl.TabIndex = 25;
             this.unitControl.Text = "";
             this.unitControl.TrailingIcon = null;
@@ -220,22 +215,21 @@
             this.methodControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.methodControl.Hint = "Method";
             this.methodControl.LeadingIcon = null;
-            this.methodControl.Location = new System.Drawing.Point(29, 396);
-            this.methodControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.methodControl.Location = new System.Drawing.Point(25, 268);
             this.methodControl.MaxLength = 50;
             this.methodControl.MouseState = MaterialSkin.MouseState.OUT;
             this.methodControl.Multiline = false;
             this.methodControl.Name = "methodControl";
-            this.methodControl.Size = new System.Drawing.Size(457, 50);
+            this.methodControl.Size = new System.Drawing.Size(400, 50);
             this.methodControl.TabIndex = 24;
             this.methodControl.Text = "";
             this.methodControl.TrailingIcon = null;
             // 
             // UpdateProductParameter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 960);
+            this.ClientSize = new System.Drawing.Size(450, 670);
             this.Controls.Add(this.unitControl);
             this.Controls.Add(this.methodControl);
             this.Controls.Add(this.NewSpecificationErrorControl);
@@ -247,9 +241,7 @@
             this.Controls.Add(this.ProductControl);
             this.Controls.Add(this.SaveParameterControl);
             this.Controls.Add(this.minimumSpecificationControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UpdateProductParameter";
-            this.Padding = new System.Windows.Forms.Padding(3, 85, 3, 4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Product Parameter";
             this.ResumeLayout(false);
