@@ -357,7 +357,7 @@ namespace FPIS.Views
             {
 
             }
-            if(labelConcentrationOfNaOH.Text == "" &&  labelNormalityOfNaSO.Text == "")
+            if (labelConcentrationOfNaOH.Text == "" && labelNormalityOfNaSO.Text == "")
             {
                 labelConcentrationOfNaOH.Text = 0.ToString();
                 labelNormalityOfNaSO.Text = 0.ToString();
@@ -387,7 +387,7 @@ namespace FPIS.Views
                 return;
             }
             double FFAResult = (float.Parse(titreValue) * valueOfConcentrationOfNaOH * 28.2) / float.Parse(massOfSample);
-            textBoxFFAResult.Text = Math.Round(FFAResult,2).ToString();
+            textBoxFFAResult.Text = Math.Round(FFAResult, 2).ToString();
         }
 
         private void materialTextBoxTitreValueForFFA_KeyPress(object sender, KeyPressEventArgs e)
@@ -496,9 +496,9 @@ namespace FPIS.Views
                 _isDataValid = true;
                 return;
             }
-            double AcetoneContentResult = ((float.Parse(massOfEvaporatedSample)-float.Parse(massOfUnevaporatedSample)) / 
-                (float.Parse(massOfUnevaporatedSample) - float.Parse(massOfglasswareUsed)))*100;
-            textBoxAcetoneContentResult.Text = Math.Round(AcetoneContentResult, 2).ToString()+"%";
+            double AcetoneContentResult = ((float.Parse(massOfEvaporatedSample) - float.Parse(massOfUnevaporatedSample)) /
+                (float.Parse(massOfUnevaporatedSample) - float.Parse(massOfglasswareUsed))) * 100;
+            textBoxAcetoneContentResult.Text = Math.Round(AcetoneContentResult, 2).ToString() + "%";
         }
 
         private void materialButtonClearAcetoneContent_Click(object sender, EventArgs e)
@@ -522,7 +522,7 @@ namespace FPIS.Views
                 _isDataValid = true;
                 return;
             }
-            double iodineValue = ((float.Parse(blankValue)-float.Parse(titreValueIV))*valueOfNormalityOfNaSO*12.69)/float.Parse(massOfTestSample);
+            double iodineValue = ((float.Parse(blankValue) - float.Parse(titreValueIV)) * valueOfNormalityOfNaSO * 12.69) / float.Parse(massOfTestSample);
             textBoxIodineValueResult.Text = Math.Round(iodineValue, 2).ToString();
         }
 
@@ -550,7 +550,7 @@ namespace FPIS.Views
             }
             double moistureContent = ((float.Parse(massOfDriedSample) - float.Parse(massOfUndriedSample)) /
                 (float.Parse(massOfUndriedSample) - float.Parse(massOfEmptyPan))) * 100;
-            textBoxMoistureContentResult.Text = Math.Round(moistureContent, 2).ToString()+"%";
+            textBoxMoistureContentResult.Text = Math.Round(moistureContent, 2).ToString() + "%";
         }
 
         private void materialButtonClearMoistureContent_Click(object sender, EventArgs e)
@@ -563,7 +563,7 @@ namespace FPIS.Views
             string massOfExtractedOil = materialTextBoxMassOfExtractedOil.Text.Trim();
             string massOfGlasswareUsed = materialTextBoxMassOfGlasswareFatContent.Text.Trim();
             string massOfTestSample = materialTextBoxMassOfTestSampleFatContent.Text.Trim();
-            
+
             ClearFatContentErrorLabels();
 
             ValidateFatContent_MassOfExtractedOil(massOfExtractedOil);
@@ -590,7 +590,7 @@ namespace FPIS.Views
             string volumeOfTitrantOfSample = materialTextBoxVolumeOfTitrantSample.Text.Trim();
             string volumeOfTitrantOfBlank = materialTextBoxVolumeOfTitrantOfBlank.Text.Trim();
             string massOfTestSample = materialTextBoxMassOfTestSamplePV.Text.Trim();
-            
+
             ClearPVErrorLabels();
 
             ValidatePV_VolumeOfTitrantOfSample(volumeOfTitrantOfSample);
@@ -602,7 +602,7 @@ namespace FPIS.Views
                 _isDataValid = true;
                 return;
             }
-            double peroxideValue = ((float.Parse(volumeOfTitrantOfSample)-float.Parse(volumeOfTitrantOfBlank))*valueOfNormalityOfNaSO*1000)/float.Parse(massOfTestSample);
+            double peroxideValue = ((float.Parse(volumeOfTitrantOfSample) - float.Parse(volumeOfTitrantOfBlank)) * valueOfNormalityOfNaSO * 1000) / float.Parse(massOfTestSample);
             textBoxPeroxideValueResult.Text = Math.Round(peroxideValue, 2).ToString();
         }
 

@@ -35,6 +35,7 @@ namespace FPIS.Views
             ParameterName = new DataGridViewTextBoxColumn();
             ExpectedResult = new DataGridViewTextBoxColumn();
             ActualResult = new DataGridViewTextBoxColumn();
+            Variance2 = new DataGridViewTextBoxColumn();
             Variance = new DataGridViewTextBoxColumn();
             Indicator = new DataGridViewTextBoxColumn();
             checkAnalyticalParameterResultsBindingItemBindingSource1 = new BindingSource(components);
@@ -65,6 +66,7 @@ namespace FPIS.Views
             SampleDetailsId = new DataGridViewTextBoxColumn();
             dataGridView_Finished_Products_With_Results = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            ProductType = new DataGridViewTextBoxColumn();
             SampleDetailLabel = new DataGridViewTextBoxColumn();
             AnalysisItem = new DataGridViewTextBoxColumn();
             SampleResultsDetailsId = new DataGridViewTextBoxColumn();
@@ -111,7 +113,7 @@ namespace FPIS.Views
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = SystemColors.Window;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ParameterName, ExpectedResult, ActualResult, Variance, Indicator });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ParameterName, ExpectedResult, ActualResult, Variance2, Variance, Indicator });
             dataGridView1.Location = new Point(25, 496);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
@@ -133,21 +135,28 @@ namespace FPIS.Views
             ExpectedResult.HeaderText = "Expected Result";
             ExpectedResult.MinimumWidth = 6;
             ExpectedResult.Name = "ExpectedResult";
-            ExpectedResult.Width = 133;
+            ExpectedResult.Width = 75;
             // 
             // ActualResult
             // 
             ActualResult.HeaderText = "Actual Result";
             ActualResult.MinimumWidth = 6;
             ActualResult.Name = "ActualResult";
-            ActualResult.Width = 133;
+            ActualResult.Width = 70;
+            // 
+            // Variance2
+            // 
+            Variance2.HeaderText = "Min Variance";
+            Variance2.MinimumWidth = 6;
+            Variance2.Name = "Variance2";
+            Variance2.Width = 125;
             // 
             // Variance
             // 
-            Variance.HeaderText = "Variance";
+            Variance.HeaderText = "Max Variance ";
             Variance.MinimumWidth = 6;
             Variance.Name = "Variance";
-            Variance.Width = 133;
+            Variance.Width = 120;
             // 
             // Indicator
             // 
@@ -464,7 +473,7 @@ namespace FPIS.Views
             dataGridView_Finished_Products_With_Results.AutoGenerateColumns = false;
             dataGridView_Finished_Products_With_Results.BackgroundColor = SystemColors.Window;
             dataGridView_Finished_Products_With_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_Finished_Products_With_Results.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, SampleDetailLabel, AnalysisItem, SampleResultsDetailsId, SampleDetailId, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, SampleResultDetailsId });
+            dataGridView_Finished_Products_With_Results.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ProductType, SampleDetailLabel, AnalysisItem, SampleResultsDetailsId, SampleDetailId, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, SampleResultDetailsId });
             dataGridView_Finished_Products_With_Results.DataSource = checkAnalyticalResultsBindingItemBindingSource;
             dataGridView_Finished_Products_With_Results.Location = new Point(25, 250);
             dataGridView_Finished_Products_With_Results.Margin = new Padding(3, 2, 3, 2);
@@ -485,6 +494,16 @@ namespace FPIS.Views
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             dataGridViewTextBoxColumn1.ReadOnly = true;
             dataGridViewTextBoxColumn1.Width = 224;
+            // 
+            // ProductType
+            // 
+            ProductType.DataPropertyName = "ProductType";
+            ProductType.HeaderText = "ProductType";
+            ProductType.MinimumWidth = 6;
+            ProductType.Name = "ProductType";
+            ProductType.ReadOnly = true;
+            ProductType.Visible = false;
+            ProductType.Width = 125;
             // 
             // SampleDetailLabel
             // 
@@ -644,11 +663,6 @@ namespace FPIS.Views
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButtonProductAnalysis;
         private GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButtonWaterAnalysis;
-        private DataGridViewTextBoxColumn ParameterName;
-        private DataGridViewTextBoxColumn ExpectedResult;
-        private DataGridViewTextBoxColumn ActualResult;
-        private DataGridViewTextBoxColumn Variance;
-        private DataGridViewTextBoxColumn Indicator;
         private DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn AnalysisType;
         private DataGridViewTextBoxColumn analysisRequestDateDataGridViewTextBoxColumn;
@@ -657,7 +671,14 @@ namespace FPIS.Views
         private DataGridViewTextBoxColumn analysisResultTimeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn SampleDetailsId;
         private DataGridView dataGridView_Finished_Products_With_Results;
+        private DataGridViewTextBoxColumn ParameterName;
+        private DataGridViewTextBoxColumn ExpectedResult;
+        private DataGridViewTextBoxColumn ActualResult;
+        private DataGridViewTextBoxColumn Variance2;
+        private DataGridViewTextBoxColumn Variance;
+        private DataGridViewTextBoxColumn Indicator;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn ProductType;
         private DataGridViewTextBoxColumn SampleDetailLabel;
         private DataGridViewTextBoxColumn AnalysisItem;
         private DataGridViewTextBoxColumn SampleResultsDetailsId;

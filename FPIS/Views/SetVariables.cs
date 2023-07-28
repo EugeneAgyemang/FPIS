@@ -95,7 +95,7 @@ namespace FPIS.Views
             }
             catch (Exception ex)
             {
-                
+
             }
 
         }
@@ -127,9 +127,9 @@ namespace FPIS.Views
                     if (_ValueOfConcentrationOfNaOH == "" && _ValueOfNormalityOfNaOS == "")
                     {
                         SetVariableService _setVariableService = new(dbContext);
-                        _setVariableService.SetNewVariable(Concentration,float.Parse(materialTextBoxConcentrationOFNaOH.Text));
+                        _setVariableService.SetNewVariable(Concentration, float.Parse(materialTextBoxConcentrationOFNaOH.Text));
                         _setVariableService.SetNewVariable(Normality, float.Parse(materialTextBoxNormalityOfNaSO.Text));
-                         
+
                     }
                     else
                     {
@@ -137,7 +137,7 @@ namespace FPIS.Views
                         setVariablesforConcentration.Value = float.Parse(materialTextBoxConcentrationOFNaOH.Text);
                         var setVariablesforNormality = dbContext.CalculatorVariables.Where(cv => cv.VariableName == Normality).Single();
                         setVariablesforNormality.Value = float.Parse(materialTextBoxNormalityOfNaSO.Text);
-                       
+
                     }
                     dbContext.SaveChanges();
                     MessageBox.Show(
@@ -169,8 +169,8 @@ namespace FPIS.Views
             SetNewVariables();
 
             this.Close();
-            
-            
+
+
         }
     }
 }
