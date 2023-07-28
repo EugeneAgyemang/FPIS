@@ -53,12 +53,11 @@
             this.WaterParameterControl.Hint = "Parameter";
             this.WaterParameterControl.IntegralHeight = false;
             this.WaterParameterControl.ItemHeight = 43;
-            this.WaterParameterControl.Location = new System.Drawing.Point(29, 284);
-            this.WaterParameterControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.WaterParameterControl.Location = new System.Drawing.Point(25, 188);
             this.WaterParameterControl.MaxDropDownItems = 4;
             this.WaterParameterControl.MouseState = MaterialSkin.MouseState.OUT;
             this.WaterParameterControl.Name = "WaterParameterControl";
-            this.WaterParameterControl.Size = new System.Drawing.Size(457, 49);
+            this.WaterParameterControl.Size = new System.Drawing.Size(400, 49);
             this.WaterParameterControl.StartIndex = -1;
             this.WaterParameterControl.TabIndex = 19;
             this.WaterParameterControl.SelectedIndexChanged += new System.EventHandler(this.WaterParameterControl_SelectedIndexChanged);
@@ -71,13 +70,12 @@
             this.minimumControlLimitControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.minimumControlLimitControl.Hint = "Minimum Control Limit";
             this.minimumControlLimitControl.LeadingIcon = null;
-            this.minimumControlLimitControl.Location = new System.Drawing.Point(29, 520);
-            this.minimumControlLimitControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.minimumControlLimitControl.Location = new System.Drawing.Point(25, 365);
             this.minimumControlLimitControl.MaxLength = 50;
             this.minimumControlLimitControl.MouseState = MaterialSkin.MouseState.OUT;
             this.minimumControlLimitControl.Multiline = false;
             this.minimumControlLimitControl.Name = "minimumControlLimitControl";
-            this.minimumControlLimitControl.Size = new System.Drawing.Size(457, 50);
+            this.minimumControlLimitControl.Size = new System.Drawing.Size(400, 50);
             this.minimumControlLimitControl.TabIndex = 16;
             this.minimumControlLimitControl.Text = "";
             this.minimumControlLimitControl.TrailingIcon = null;
@@ -98,12 +96,11 @@
             this.WaterControl.Hint = "Water";
             this.WaterControl.IntegralHeight = false;
             this.WaterControl.ItemHeight = 43;
-            this.WaterControl.Location = new System.Drawing.Point(29, 167);
-            this.WaterControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.WaterControl.Location = new System.Drawing.Point(25, 100);
             this.WaterControl.MaxDropDownItems = 4;
             this.WaterControl.MouseState = MaterialSkin.MouseState.OUT;
             this.WaterControl.Name = "WaterControl";
-            this.WaterControl.Size = new System.Drawing.Size(457, 49);
+            this.WaterControl.Size = new System.Drawing.Size(400, 49);
             this.WaterControl.StartIndex = -1;
             this.WaterControl.TabIndex = 17;
             this.WaterControl.SelectedIndexChanged += new System.EventHandler(this.WaterControl_SelectedIndexChanged);
@@ -117,8 +114,8 @@
             this.UpdateParameterControl.Depth = 0;
             this.UpdateParameterControl.HighEmphasis = true;
             this.UpdateParameterControl.Icon = null;
-            this.UpdateParameterControl.Location = new System.Drawing.Point(221, 742);
-            this.UpdateParameterControl.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
+            this.UpdateParameterControl.Location = new System.Drawing.Point(193, 519);
+            this.UpdateParameterControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UpdateParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.UpdateParameterControl.Name = "UpdateParameterControl";
             this.UpdateParameterControl.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -138,13 +135,12 @@
             this.unitControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.unitControl.Hint = "Unit";
             this.unitControl.LeadingIcon = null;
-            this.unitControl.Location = new System.Drawing.Point(29, 401);
-            this.unitControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.unitControl.Location = new System.Drawing.Point(25, 276);
             this.unitControl.MaxLength = 50;
             this.unitControl.MouseState = MaterialSkin.MouseState.OUT;
             this.unitControl.Multiline = false;
             this.unitControl.Name = "unitControl";
-            this.unitControl.Size = new System.Drawing.Size(457, 50);
+            this.unitControl.Size = new System.Drawing.Size(400, 50);
             this.unitControl.TabIndex = 15;
             this.unitControl.Text = "";
             this.unitControl.TrailingIcon = null;
@@ -154,9 +150,9 @@
             this.WaterErrorCaption.AutoSize = true;
             this.WaterErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.WaterErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.WaterErrorCaption.Location = new System.Drawing.Point(29, 236);
+            this.WaterErrorCaption.Location = new System.Drawing.Point(25, 152);
             this.WaterErrorCaption.Name = "WaterErrorCaption";
-            this.WaterErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.WaterErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.WaterErrorCaption.TabIndex = 21;
             // 
             // ParameterErrorControl
@@ -164,9 +160,9 @@
             this.ParameterErrorControl.AutoSize = true;
             this.ParameterErrorControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.ParameterErrorControl.ForeColor = System.Drawing.Color.Red;
-            this.ParameterErrorControl.Location = new System.Drawing.Point(29, 353);
+            this.ParameterErrorControl.Location = new System.Drawing.Point(25, 240);
             this.ParameterErrorControl.Name = "ParameterErrorControl";
-            this.ParameterErrorControl.Size = new System.Drawing.Size(0, 16);
+            this.ParameterErrorControl.Size = new System.Drawing.Size(0, 15);
             this.ParameterErrorControl.TabIndex = 22;
             // 
             // maximumControlLimitControl
@@ -177,13 +173,12 @@
             this.maximumControlLimitControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.maximumControlLimitControl.Hint = "Maximum Control Limit";
             this.maximumControlLimitControl.LeadingIcon = null;
-            this.maximumControlLimitControl.Location = new System.Drawing.Point(29, 638);
-            this.maximumControlLimitControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.maximumControlLimitControl.Location = new System.Drawing.Point(25, 453);
             this.maximumControlLimitControl.MaxLength = 50;
             this.maximumControlLimitControl.MouseState = MaterialSkin.MouseState.OUT;
             this.maximumControlLimitControl.Multiline = false;
             this.maximumControlLimitControl.Name = "maximumControlLimitControl";
-            this.maximumControlLimitControl.Size = new System.Drawing.Size(457, 50);
+            this.maximumControlLimitControl.Size = new System.Drawing.Size(400, 50);
             this.maximumControlLimitControl.TabIndex = 25;
             this.maximumControlLimitControl.Text = "";
             this.maximumControlLimitControl.TrailingIcon = null;
@@ -191,9 +186,9 @@
             // 
             // UpdateWaterParameter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 820);
+            this.ClientSize = new System.Drawing.Size(450, 580);
             this.Controls.Add(this.maximumControlLimitControl);
             this.Controls.Add(this.ParameterErrorControl);
             this.Controls.Add(this.WaterErrorCaption);
@@ -202,9 +197,7 @@
             this.Controls.Add(this.WaterControl);
             this.Controls.Add(this.UpdateParameterControl);
             this.Controls.Add(this.unitControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UpdateWaterParameter";
-            this.Padding = new System.Windows.Forms.Padding(3, 85, 3, 4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Water Parameter";
             this.ResumeLayout(false);
