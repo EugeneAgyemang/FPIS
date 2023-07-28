@@ -17,6 +17,7 @@ namespace FPIS.Views
         private readonly AnalysisParameterService _analysisParameterService;
         private readonly AnalysisResultSampleDetailBindingItem _selectedBindingItem;
         private BindingList<AnalysisSampleParameterBindingItem> _parameterList = new();
+        private bool shouldProceed = false;
 
         // this will contain new parameters that were not created when the analysis result
         // was created.
@@ -208,6 +209,7 @@ namespace FPIS.Views
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            shouldProceed = true;
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
                 return;
@@ -225,6 +227,16 @@ namespace FPIS.Views
                 {
                     return;
                 }
+                foreach (char letter in enteredValue)
+                {
+                    if (Char.IsLetter(letter))
+                    {
+                        Utils.Utils.ShowMessageBox("Kindly enter a valid value", "Invalid Value");
+                        activeRow.Cells[activeRow.Cells.Count - 1].Value = string.Empty;
+                        shouldProceed = false;
+                        return;
+                    }
+                }
 
                 AnalysisSampleParameterBindingItem? selectedItem =
                     _parameterList.FirstOrDefault(item => item?.Id.ToString() == analysisParameterId);
@@ -238,6 +250,10 @@ namespace FPIS.Views
 
         private void materialButtonSaveAndClose_Click(object sender, EventArgs e)
         {
+            if (!shouldProceed)
+            {
+                return;
+            }
             DialogResult userOption = Utils.Utils.ShowMessageBox("Do you wish to proceed?"
                 , "Confirm Proceed"
                 , MessageBoxButtons.YesNo
