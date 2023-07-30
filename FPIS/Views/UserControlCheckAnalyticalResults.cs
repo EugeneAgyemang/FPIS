@@ -77,6 +77,7 @@ namespace FPIS.Views
                     sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
                     sampleDetailItem.SampleDetailId = sampleDetail.Id;
                     sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName} {sampleDetail.Label}";
+                    sampleDetailItem.ProductType = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.Type;
                     sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
                     sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
                     sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
@@ -142,6 +143,7 @@ namespace FPIS.Views
                     sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
                     sampleDetailItem.SampleDetailId = sampleDetail.Id;
                     sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName} {sampleDetail.Label}";
+                    sampleDetailItem.ProductType = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.Type;
                     sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
                     sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
                     sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
@@ -232,13 +234,14 @@ namespace FPIS.Views
                                          specification = ProductParameter.Specification,
                                          result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
                                          variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         variance2 = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(SampleResultsDetailsWithParameter.Value - ProductParameter.MinimumSpecification), 2))}",
                                          indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}"
 
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult)
                 {
-                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance2, items.variance, items.indicator);
                 }
                 dbContext.Dispose();
             }
@@ -294,13 +297,14 @@ namespace FPIS.Views
                                          specification = ProductParameter.Specification,
                                          result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
                                          variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         variance2 = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(SampleResultsDetailsWithParameter.Value - ProductParameter.MinimumSpecification), 2))}",
                                          indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(ProductParameter.Specification - SampleResultsDetailsWithParameter.Value), 2))}"
 
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult.Distinct())
                 {
-                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance2, items.variance, items.indicator);
                 }
                 dbContext.Dispose();
             }
@@ -355,13 +359,14 @@ namespace FPIS.Views
                                          specification = WaterParameter.ControlLimit,
                                          result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
                                          variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         variance2 = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(SampleResultsDetailsWithParameter.Value - WaterParameter.MinimumControlLimit), 2))}",
                                          indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}"
 
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult)
                 {
-                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance2, items.variance, items.indicator);
                 }
                 dbContext.Dispose();
             }
@@ -416,13 +421,14 @@ namespace FPIS.Views
                                          specification = WaterParameter.ControlLimit,
                                          result = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : SampleResultsDetailsWithParameter.Value)}",
                                          variance = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}",
+                                         variance2 = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(SampleResultsDetailsWithParameter.Value - WaterParameter.MinimumControlLimit), 2))}",
                                          indicator = $"{(SampleResultsDetailsWithParameter.Value == null ? "-" : (float)Math.Round(Convert.ToDecimal(WaterParameter.ControlLimit - SampleResultsDetailsWithParameter.Value), 2))}"
 
                                      };
                 dataGridView1.Rows.Clear();
                 foreach (var items in analysisResult.Distinct())
                 {
-                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance, items.indicator);
+                    dataGridView1.Rows.Add(items.parameter, items.specification_range, items.result, items.variance2, items.variance, items.indicator);
                 }
                 dbContext.Dispose();
             }
@@ -468,6 +474,7 @@ namespace FPIS.Views
         string _analysisType;
         string _analysisItem;
         string _sampleDetailLabel;
+        string _productType;
         private void dataGridView_Finished_Products_With_Results_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             /*  parameterResultList.Clear();
@@ -507,7 +514,7 @@ namespace FPIS.Views
                 _analysisType = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn2"].FormattedValue.ToString();
                 _analysisItem = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["AnalysisItem"].FormattedValue.ToString();
                 _sampleDetailLabel = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["SampleDetailLabel"].FormattedValue.ToString();
-
+                _productType = dataGridView_Finished_Products_With_Results.Rows[e.RowIndex].Cells["ProductType"].FormattedValue.ToString();
                 // MessageBox.Show("SD ID : " + _sampleDetailLabel);
             }
             catch (Exception ex)
@@ -540,10 +547,24 @@ namespace FPIS.Views
                     LoadWaterAnalyticalResult();
                 }
             }
-            materialButtonSaveAnalysisRemark.Enabled = true;
             materialButtonPrintAnalyticalResult.Enabled = true;
-            textBoxAnalyticalRemark.Enabled = true;
-            //MessageBox.Show("Sample results details ID " + _sampleResultDetailsId);
+            if (_productType == "Raw Materials")
+            {
+                materialButtonSaveAnalysisRemark.Enabled = false;
+                textBoxAnalyticalRemark.Enabled = false;
+            }
+            else if (materialRadioButtonWaterAnalysis.Checked)
+            {
+                materialButtonSaveAnalysisRemark.Enabled = false;
+                textBoxAnalyticalRemark.Enabled = false;
+            }
+            else
+            {
+                materialButtonSaveAnalysisRemark.Enabled = true;
+                textBoxAnalyticalRemark.Enabled = true;
+            }
+
+            //MessageBox.Show("Max Variance: " + value + "\nMin Variance: "+ minValue);
         }
 
         private void AddAnalysisRemark()
@@ -596,32 +617,119 @@ namespace FPIS.Views
                 dbContext.Dispose();
             }
         }
+
+        
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs args)
         {
-            int value;
-            if (args.ColumnIndex != 4)
+            int value, minValue;
+            if (args.ColumnIndex == 4)
             {
-                return;
+                int.TryParse(args.Value.ToString(), out value);
+
+                if (value >= 0)
+                {
+                    return;
+                }
+                else if (args.Value.ToString() == "-")
+                {
+                    //args.CellStyle.BackColor = Color.White;
+                    //args.CellStyle.ForeColor = Color.Black;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.BackColor = Color.White;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.ForeColor = Color.Black;
+                    args.FormattingApplied = true;
+                }
+                else
+                {
+                    //args.CellStyle.BackColor = Color.Red;
+                    //args.CellStyle.ForeColor = Color.Red;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.BackColor = Color.Red;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.ForeColor = Color.Red;
+                    args.FormattingApplied = true;
+                    
+                }
             }
-            int.TryParse(args.Value.ToString(), out value);
-            if (value < 0)
+            if (args.ColumnIndex == 3)
             {
-                args.CellStyle.BackColor = Color.Red;
-                args.CellStyle.ForeColor = Color.Red;
-                args.FormattingApplied = true;
-            }
-            else if (args.Value.ToString() == "-")
-            {
-                args.CellStyle.BackColor = Color.White;
-                args.CellStyle.ForeColor = Color.Black;
-                args.FormattingApplied = true;
+                int.TryParse(args.Value.ToString(), out minValue);
+                if (minValue < 0)
+                {
+                    //args.CellStyle.BackColor = Color.Red;
+                    //args.CellStyle.ForeColor = Color.Red;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.BackColor = Color.Red;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.ForeColor = Color.Red;
+                    args.FormattingApplied = true;
+                }
+                else if (args.Value.ToString() == "-")
+                {
+                    //args.CellStyle.BackColor = Color.White;
+                    //args.CellStyle.ForeColor = Color.Black;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.BackColor = Color.White;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.ForeColor = Color.Black;
+                    args.FormattingApplied = true;
+                }
+                else
+                {
+                    //args.CellStyle.BackColor = Color.Green;
+                    //args.CellStyle.ForeColor = Color.Green;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.BackColor = Color.Green;
+                    dataGridView1.Rows[args.RowIndex].Cells[5].Style.ForeColor = Color.Green;
+                    args.FormattingApplied = true;
+
+                }
             }
             else
             {
-                args.CellStyle.BackColor = Color.Green;
-                args.CellStyle.ForeColor = Color.Green;
-                args.FormattingApplied = true;
+                return;
             }
+            
+            
+            
+
+
+
+            //if(args.ColumnIndex == 5)
+            //{
+            //    int.TryParse(args.Value.ToString(), out minValue);
+            //    if (minValue < 0)
+            //    {
+            //        //args.CellStyle.BackColor = Color.Red;
+            //        //args.CellStyle.ForeColor = Color.Red;
+            //        dataGridView1.Rows[args.RowIndex].Cells[4].Style.BackColor = Color.Red;
+            //        dataGridView1.Rows[args.RowIndex].Cells[4].Style.ForeColor = Color.Red;
+            //        args.FormattingApplied = true;
+            //    }
+            //    else if (args.Value.ToString() == "-")
+            //    {
+            //        //args.CellStyle.BackColor = Color.White;
+            //        //args.CellStyle.ForeColor = Color.Black;
+            //        dataGridView1.Rows[args.RowIndex].Cells[4].Style.BackColor = Color.White;
+            //        dataGridView1.Rows[args.RowIndex].Cells[4].Style.ForeColor = Color.Black;
+            //        args.FormattingApplied = true;
+            //    }
+            //    else
+            //    {
+            //        //args.CellStyle.BackColor = Color.Green;
+            //        //args.CellStyle.ForeColor = Color.Green;
+            //        dataGridView1.Rows[args.RowIndex].Cells[4].Style.BackColor = Color.Green;
+            //        dataGridView1.Rows[args.RowIndex].Cells[4].Style.ForeColor = Color.Green;
+            //        args.FormattingApplied = true;
+            //    }
+            //}
+
+
+            //int minValue;
+            //if (args.ColumnIndex != 5)
+            //{
+            //    return;
+            //}
+            //int.TryParse(args.Value.ToString(), out minValue);
+            //if (minValue < 0)
+            //{
+            //    args.CellStyle.BackColor = Color.Red;
+            //    args.CellStyle.ForeColor = Color.Red;
+            //    args.FormattingApplied = true;
+            //}
+
 
         }
 
@@ -683,11 +791,17 @@ namespace FPIS.Views
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
         {
             LoadAnalyticalResultsPerDate();
+            materialButtonSaveAnalysisRemark.Enabled = false;
+            materialButtonPrintAnalyticalResult.Enabled = false;
+            textBoxAnalyticalRemark.Enabled = false;
         }
 
         private void materialButtonShowAll_Click(object sender, EventArgs e)
         {
             LoadAnalyticalResults();
+            materialButtonSaveAnalysisRemark.Enabled = false;
+            materialButtonPrintAnalyticalResult.Enabled = false;
+            textBoxAnalyticalRemark.Enabled = false;
         }
 
         private void materialButtonSaveAnalysisRemark_Click(object sender, EventArgs e)
@@ -699,12 +813,18 @@ namespace FPIS.Views
         {
             LoadAnalyticalResults();
             dataGridView1.Rows.Clear();
+            materialButtonSaveAnalysisRemark.Enabled = false;
+            materialButtonPrintAnalyticalResult.Enabled = false;
+            textBoxAnalyticalRemark.Enabled = false;
         }
 
         private void materialRadioButtonWaterAnalysis_CheckedChanged(object sender, EventArgs e)
         {
             LoadAnalyticalResults();
             dataGridView1.Rows.Clear();
+            materialButtonSaveAnalysisRemark.Enabled = false;
+            materialButtonPrintAnalyticalResult.Enabled = false;
+            textBoxAnalyticalRemark.Enabled = false;
         }
     }
 }

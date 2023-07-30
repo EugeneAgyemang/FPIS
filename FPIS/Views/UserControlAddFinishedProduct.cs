@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -110,7 +111,15 @@ namespace FPIS.Views
                 _isDataValid = false;
                 return;
             }
-
+            if (!Regex.IsMatch(quantity, @"^[0-9]{1,20}(kg|KG|Kg|ltrs|Ltrs|LTRS|tons|Tons|TONS|ltr|Ltr|LTR|tns|Tns|TNS|lts|Lts|LTS)$"))
+            {
+                MessageBox.Show("Quanty must be in this format [Quantity][Unit]. \nExample: 200kg, 500ltrs, 300tons, etc ",
+                    "Error",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error);
+                _isDataValid = false;
+                return;
+            }
         }
 
         private void LoadFinishedProducts()

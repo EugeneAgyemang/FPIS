@@ -20,6 +20,7 @@ namespace FPIS.Models
         public string SampleResultId { get; set; }
         public string SampleResultDetailsId { get; set;}
         public string AnalysisItem { get; set;}
+        public string ProductType { get; set;}
 
     }
 }
