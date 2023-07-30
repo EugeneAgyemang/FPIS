@@ -38,15 +38,28 @@ namespace FPIS.Views
                 foreach (MaterialProcurement materialProcured in materialsProcured)
                 {
                     Receiving materialReceived = materialProcured.Receivings.FirstOrDefault();
+                    
                     if(materialReceived == null)
                     {
                         continue;
                     }
-                    Models.ProcurementLocation[] procurementLocations = new ProcurementLocationService(new()).GetProcurmentLocation(materialReceived.Id).ToArray();
+                    Models.ProcurementLocation[] procurementLocations = new ProcurementLocationService(new()).GetProcurmentLocation().ToArray();
                     foreach (Models.ProcurementLocation procurementLocation in procurementLocations)
                     {
                         var existingItem = selectedSamples.FirstOrDefault(it => it.ProcurementLocationId == procurementLocation.Id);
-                        if (procurementLocation.Quantity <= 0)
+                        int quantityIssued = 0;
+                        List<IssueLocation> issueLocations = new AppDbContext().IssueLocations.ToList();
+                        if (issueLocations != null)
+                        {
+                            issueLocations.ForEach(item =>
+                            {
+                                if (item.ProcurementLocationId == procurementLocation.Id)
+                                {
+                                    quantityIssued += item.Quantity;
+                                }
+                            });
+                        }
+                        if (procurementLocation.Quantity <= quantityIssued || procurementLocation.ReceivingId != materialReceived.Id)
                         {
                             continue;
                         }
@@ -56,7 +69,7 @@ namespace FPIS.Views
                             ProcurementLocationId = procurementLocation.Id,
                             Remarks = materialProcured.Remarks,
                             DateAdded = materialProcured.Date,
-                            QuantityLeft = procurementLocation.Quantity,
+                            QuantityLeft = procurementLocation.Quantity - quantityIssued,
                             QuantityReceived = procurementLocation.Quantity,
                             Location = procurementLocation.Location,
                             Lot = procurementLocation.Lot,

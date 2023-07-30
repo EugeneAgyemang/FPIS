@@ -345,7 +345,19 @@ namespace FPIS.Views
                 return;
             }
             Models.ProcurementLocation procurementLocation = materialIssueSchema.MaterialToBeIssued.ProcurementLocations.FirstOrDefault();
-            NoteControl.Text = $"You can only issue up to {procurementLocation.Quantity} " +
+            List<Releasing> releasings = new AppDbContext().Releasings.ToList();
+            int quantityIssued = 0;
+            if (releasings != null)
+            {
+                releasings.ForEach(item =>
+                {
+                    if (item.ProcurementLocationId == procurementLocation.Id)
+                    {
+                        quantityIssued += item.Quantity;
+                    }
+                });
+            }
+            NoteControl.Text = $"You can only issue up to {procurementLocation.Quantity - quantityIssued} " +
                 $"{materialIssueSchema.MaterialToBeIssued.Units} of {productIssued}!\n\n" +
                 $"Source: Warehouse {procurementLocation.Location}, lot {procurementLocation.Lot}\n\n" +
                 $"{((materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks != string.Empty) ? $"Here's some feedback the last time {productIssued} was received:\n{materialIssueSchema.MaterialToBeIssued.MaterialProcurement.Remarks} - " : "No remarks given by ")}" +
@@ -589,6 +601,10 @@ namespace FPIS.Views
                     SamplesRequestedControl.Items.Remove(SamplesRequestedControl.SelectedItem);
                 }
             }
+            else
+            {
+                Utils.Utils.ShowMessageBox($"You still have {issueLocations.Count} material{(issueLocations.Count == 1 ? "" : "s")} left to be issued in this batch?", "Note");
+            }
             return issueLocation;
         }
 
@@ -641,6 +657,19 @@ namespace FPIS.Views
                                                         .ProcurementLocations
                                                         .FirstOrDefault()
                                                         .Lot).Quantity;
+            List<Releasing> releasings = new AppDbContext().Releasings.ToList();
+            int quantityIssued = 0;
+            if (releasings != null)
+            {
+                releasings.ForEach(item =>
+                {
+                    if (item.ProcurementLocationId == materialIssueSchema.MaterialToBeIssued.ProcurementLocations.FirstOrDefault().Id)
+                    {
+                        quantityIssued += item.Quantity;
+                    }
+                });
+            }
+            actualQuantity -= quantityIssued;
             if (issueQuantity > actualQuantity)
             {
                 Utils.Utils.ShowMessageBox("There isn't enough stock available to be issued!", "Issue Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -654,13 +683,14 @@ namespace FPIS.Views
             MaterialProcurement materialProcurement = GetMaterialToBeProcured();
             MaterialProcurementService materialProcurementService = new MaterialProcurementService(new());
             MaterialProcurement materialProcured = materialProcurementService.SaveMaterialProcuredRecord(materialProcurement);
-            SaveMaterialReleasedRecord(materialProcured.Id, GetMaterialIssuedSchema().MaterialToBeIssued.Id);
+            MaterialIssueSchema scheme = GetMaterialIssuedSchema();
+            SaveMaterialReleasedRecord(materialProcured.Id, scheme.MaterialToBeIssued.Id, scheme.MaterialToBeIssued.ProcurementLocations.FirstOrDefault().Id);
             return materialProcured;
         }
 
-        private void SaveMaterialReleasedRecord(Guid materialProcurementId, Guid materialReceivedId)
+        private void SaveMaterialReleasedRecord(Guid materialProcurementId, Guid materialReceivedId, Guid procurementLocationId)
         {
-            Releasing materialReleaseRecord = GetMaterialToBeReleased(materialProcurementId);
+            Releasing materialReleaseRecord = GetMaterialToBeReleased(materialProcurementId, procurementLocationId);
             ReleasingService releasingService = new ReleasingService(new());
             materialReleaseRecord = releasingService.SaveMaterialToBeReleased(materialReleaseRecord);
             SaveIssueLocations(materialReleaseRecord.Id);
@@ -685,7 +715,7 @@ namespace FPIS.Views
             {
                 recordsAdded = records.Count;
             }
-            UpdateProcurementLocations();
+            //UpdateProcurementLocations();
             return recordsAdded;
         }
 
@@ -719,7 +749,7 @@ namespace FPIS.Views
             };
         }
 
-        private Releasing GetMaterialToBeReleased(Guid materialProcurementId)
+        private Releasing GetMaterialToBeReleased(Guid materialProcurementId, Guid procurementLocationId)
         {
             int quantity;
 
@@ -728,7 +758,8 @@ namespace FPIS.Views
             {
                 MaterialProcurementId = materialProcurementId,
                 Quantity = quantity,
-                Weight = WeightControl.Text
+                Weight = WeightControl.Text,
+                ProcurementLocationId = procurementLocationId
             };
         }
 
@@ -758,7 +789,7 @@ namespace FPIS.Views
                                                             .Parse<MaterialIssueSchema>
                                                                 (json);
                 if (schemaId == materialIssueSchema.SchemaId &&
-                    materialIssueSchema.Status.ToLower().Trim() == "issue")
+                    (materialIssueSchema.Status.ToLower().Trim() == "issue" || materialIssueSchema.Status.ToLower().Trim() == "done"))
                 {
                     break;
                 }
