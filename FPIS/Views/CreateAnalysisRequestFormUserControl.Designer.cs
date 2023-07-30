@@ -56,9 +56,11 @@
             this.groupBox1.Controls.Add(this.materialComboBoxEmployee2);
             this.groupBox1.Controls.Add(this.materialComboBoxEmployee1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(49, 103);
+            this.groupBox1.Location = new System.Drawing.Point(34, 62);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(963, 147);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(674, 88);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Production Engineer 1 and 2";
@@ -77,11 +79,12 @@
             this.materialComboBoxEmployee2.FormattingEnabled = true;
             this.materialComboBoxEmployee2.IntegralHeight = false;
             this.materialComboBoxEmployee2.ItemHeight = 43;
-            this.materialComboBoxEmployee2.Location = new System.Drawing.Point(516, 38);
+            this.materialComboBoxEmployee2.Location = new System.Drawing.Point(361, 23);
+            this.materialComboBoxEmployee2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.materialComboBoxEmployee2.MaxDropDownItems = 4;
             this.materialComboBoxEmployee2.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxEmployee2.Name = "materialComboBoxEmployee2";
-            this.materialComboBoxEmployee2.Size = new System.Drawing.Size(419, 49);
+            this.materialComboBoxEmployee2.Size = new System.Drawing.Size(294, 49);
             this.materialComboBoxEmployee2.StartIndex = 0;
             this.materialComboBoxEmployee2.TabIndex = 9;
             // 
@@ -100,11 +103,12 @@
             this.materialComboBoxEmployee1.FormattingEnabled = true;
             this.materialComboBoxEmployee1.IntegralHeight = false;
             this.materialComboBoxEmployee1.ItemHeight = 43;
-            this.materialComboBoxEmployee1.Location = new System.Drawing.Point(19, 38);
+            this.materialComboBoxEmployee1.Location = new System.Drawing.Point(13, 23);
+            this.materialComboBoxEmployee1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.materialComboBoxEmployee1.MaxDropDownItems = 4;
             this.materialComboBoxEmployee1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBoxEmployee1.Name = "materialComboBoxEmployee1";
-            this.materialComboBoxEmployee1.Size = new System.Drawing.Size(470, 49);
+            this.materialComboBoxEmployee1.Size = new System.Drawing.Size(330, 49);
             this.materialComboBoxEmployee1.StartIndex = 0;
             this.materialComboBoxEmployee1.TabIndex = 8;
             // 
@@ -112,9 +116,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(49, 288);
+            this.label1.Location = new System.Drawing.Point(34, 173);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 28);
+            this.label1.Size = new System.Drawing.Size(113, 19);
             this.label1.TabIndex = 15;
             this.label1.Text = "Selected Samples";
             // 
@@ -127,8 +132,8 @@
             this.materialButtonRequestAnalysis.Depth = 0;
             this.materialButtonRequestAnalysis.HighEmphasis = true;
             this.materialButtonRequestAnalysis.Icon = null;
-            this.materialButtonRequestAnalysis.Location = new System.Drawing.Point(824, 803);
-            this.materialButtonRequestAnalysis.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.materialButtonRequestAnalysis.Location = new System.Drawing.Point(520, 482);
+            this.materialButtonRequestAnalysis.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.materialButtonRequestAnalysis.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonRequestAnalysis.Name = "materialButtonRequestAnalysis";
             this.materialButtonRequestAnalysis.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -153,11 +158,12 @@
             this.createAnalysisRequestLabel,
             this.analysisRequestSelectedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.analysisSampleBindingItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(49, 476);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 286);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(963, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(674, 190);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -206,8 +212,7 @@
             this.labelAnalysisRequestTitle.Depth = 0;
             this.labelAnalysisRequestTitle.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelAnalysisRequestTitle.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelAnalysisRequestTitle.Location = new System.Drawing.Point(36, 22);
-            this.labelAnalysisRequestTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelAnalysisRequestTitle.Location = new System.Drawing.Point(25, 13);
             this.labelAnalysisRequestTitle.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelAnalysisRequestTitle.Name = "labelAnalysisRequestTitle";
             this.labelAnalysisRequestTitle.Size = new System.Drawing.Size(199, 24);
@@ -219,12 +224,11 @@
             this.materialButtonAddSample.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialButtonAddSample.Depth = 0;
             this.materialButtonAddSample.Icon = global::FPIS.Properties.Resources.add_white;
-            this.materialButtonAddSample.Location = new System.Drawing.Point(976, 279);
-            this.materialButtonAddSample.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.materialButtonAddSample.Location = new System.Drawing.Point(666, 150);
             this.materialButtonAddSample.Mini = true;
             this.materialButtonAddSample.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButtonAddSample.Name = "materialButtonAddSample";
-            this.materialButtonAddSample.Size = new System.Drawing.Size(47, 48);
+            this.materialButtonAddSample.Size = new System.Drawing.Size(42, 42);
             this.materialButtonAddSample.TabIndex = 22;
             this.materialButtonAddSample.Text = "materialFloatingActionButton1";
             this.materialButtonAddSample.UseVisualStyleBackColor = true;
@@ -234,19 +238,22 @@
             // 
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.materialLabel1);
-            this.groupBox2.Location = new System.Drawing.Point(49, 325);
+            this.groupBox2.Location = new System.Drawing.Point(34, 195);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(963, 125);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(674, 75);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 58);
-            this.label2.MaximumSize = new System.Drawing.Size(932, 60);
+            this.label2.Location = new System.Drawing.Point(8, 35);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.MaximumSize = new System.Drawing.Size(652, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(932, 60);
+            this.label2.Size = new System.Drawing.Size(652, 36);
             this.label2.TabIndex = 2;
             this.label2.Text = "Add a label to the sample that repeats to distinguish between them in the result." +
     " You may want to use the product source or the tank number. You can uncheck a sa" +
@@ -257,7 +264,8 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(14, 27);
+            this.materialLabel1.Location = new System.Drawing.Point(10, 16);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(34, 19);
@@ -266,7 +274,7 @@
             // 
             // CreateAnalysisRequestFormUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.materialButtonAddSample);
@@ -275,8 +283,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialButtonRequestAnalysis);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CreateAnalysisRequestFormUserControl";
-            this.Size = new System.Drawing.Size(1056, 885);
+            this.Size = new System.Drawing.Size(739, 531);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleBindingItemBindingSource)).EndInit();

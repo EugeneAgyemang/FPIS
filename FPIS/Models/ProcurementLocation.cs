@@ -20,5 +20,6 @@ namespace FPIS.Models
         public Guid ReceivingId { get; set; }
         [ForeignKey("ReceivingId")]
         public Receiving Receiving { get; set; }
+        public Releasing Releasing { get; set; }
     }
 }

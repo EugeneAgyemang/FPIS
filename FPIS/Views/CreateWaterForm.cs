@@ -131,7 +131,6 @@ namespace FPIS.Views
             }
             finally
             {
-                materialButtonCreateWater.Enabled = false;
                 dbContext?.Dispose();
             }
         }

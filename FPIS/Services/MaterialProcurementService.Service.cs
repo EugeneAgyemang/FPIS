@@ -42,6 +42,7 @@ namespace FPIS.Services
         {
             List<MaterialProcurement> materialProcurements = appDbContext.MaterialProcurements
                                                                 .Include(materialProcurement => materialProcurement.Receivings)
+                                                                .Include(materialProcurement => materialProcurement.Releasings)
                                                                 .Include(materialProcurement => materialProcurement.Product)
                                                                 .ThenInclude(product => product.AnalysisProducts)
                                                                 .ThenInclude(analysisProduct => analysisProduct.AnalysisItem)

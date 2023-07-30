@@ -107,7 +107,7 @@
             this.SaveParameterControl.Depth = 0;
             this.SaveParameterControl.HighEmphasis = true;
             this.SaveParameterControl.Icon = null;
-            this.SaveParameterControl.Location = new System.Drawing.Point(193, 684);
+            this.SaveParameterControl.Location = new System.Drawing.Point(193, 643);
             this.SaveParameterControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.SaveParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveParameterControl.Name = "SaveParameterControl";
@@ -127,7 +127,7 @@
             this.ParameterNameErrorCaption.ForeColor = System.Drawing.Color.Red;
             this.ParameterNameErrorCaption.Location = new System.Drawing.Point(25, 178);
             this.ParameterNameErrorCaption.Name = "ParameterNameErrorCaption";
-            this.ParameterNameErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.ParameterNameErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.ParameterNameErrorCaption.TabIndex = 19;
             // 
             // ParameterMethodErrorCaption
@@ -137,7 +137,7 @@
             this.ParameterMethodErrorCaption.ForeColor = System.Drawing.Color.Red;
             this.ParameterMethodErrorCaption.Location = new System.Drawing.Point(25, 267);
             this.ParameterMethodErrorCaption.Name = "ParameterMethodErrorCaption";
-            this.ParameterMethodErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.ParameterMethodErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.ParameterMethodErrorCaption.TabIndex = 20;
             // 
             // ParameterUnitErrorCaption
@@ -147,7 +147,7 @@
             this.ParameterUnitErrorCaption.ForeColor = System.Drawing.Color.Red;
             this.ParameterUnitErrorCaption.Location = new System.Drawing.Point(25, 355);
             this.ParameterUnitErrorCaption.Name = "ParameterUnitErrorCaption";
-            this.ParameterUnitErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.ParameterUnitErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.ParameterUnitErrorCaption.TabIndex = 21;
             // 
             // ParameterSpecificationErrorCaption
@@ -157,7 +157,7 @@
             this.ParameterSpecificationErrorCaption.ForeColor = System.Drawing.Color.Red;
             this.ParameterSpecificationErrorCaption.Location = new System.Drawing.Point(25, 532);
             this.ParameterSpecificationErrorCaption.Name = "ParameterSpecificationErrorCaption";
-            this.ParameterSpecificationErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.ParameterSpecificationErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.ParameterSpecificationErrorCaption.TabIndex = 22;
             // 
             // ParameterProductControl
@@ -190,7 +190,7 @@
             this.ParameterProductErrorCaption.ForeColor = System.Drawing.Color.Red;
             this.ParameterProductErrorCaption.Location = new System.Drawing.Point(25, 622);
             this.ParameterProductErrorCaption.Name = "ParameterProductErrorCaption";
-            this.ParameterProductErrorCaption.Size = new System.Drawing.Size(0, 16);
+            this.ParameterProductErrorCaption.Size = new System.Drawing.Size(0, 15);
             this.ParameterProductErrorCaption.TabIndex = 25;
             // 
             // ParameterUnitControl
@@ -233,7 +233,7 @@
             // CreateProductParameter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(450, 775);
+            this.ClientSize = new System.Drawing.Size(450, 700);
             this.Controls.Add(this.materialTextBoxMinimumSpecification);
             this.Controls.Add(this.ParameterUnitControl);
             this.Controls.Add(this.ParameterProductErrorCaption);

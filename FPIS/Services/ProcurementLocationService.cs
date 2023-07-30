@@ -25,11 +25,9 @@ namespace FPIS.Services
             return procurementLocations.FirstOrDefault();
         }
 
-        public List<Models.ProcurementLocation> GetProcurmentLocation(Guid receivingId)
+        public List<Models.ProcurementLocation> GetProcurmentLocation()
         {
             List<Models.ProcurementLocation> procurementLocations = appDbContext.ProcurementLocations
-                                                                .Include(procurementLocation => procurementLocation.Receiving)
-                                                                .Where(procurementLocation => procurementLocation.ReceivingId == receivingId)
                                                                 .ToList();
             return procurementLocations;
         }

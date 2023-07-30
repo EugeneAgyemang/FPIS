@@ -67,7 +67,6 @@ namespace FPIS.Views
             this.ReportsSectionControl = new System.Windows.Forms.Panel();
             this.ReportsSection_ViewSampleResultsControl = new System.Windows.Forms.Button();
             this.ReportsSection_OpenProductsControl = new System.Windows.Forms.Button();
-            this.ReportsSection_OpenStockReportControl = new System.Windows.Forms.Button();
             this.ReportsSection_OpenAnalyticalResultsControl = new System.Windows.Forms.Button();
             this.ReportsSection_OpenSampleReportControl = new System.Windows.Forms.Button();
             this.ReportsSectionCaptionControl = new System.Windows.Forms.Button();
@@ -252,7 +251,7 @@ namespace FPIS.Views
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddDepartment);
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSection_AddUsers);
             this.AdminPanelSectionControl.Controls.Add(this.AdminPanelSectionCaptionControl);
-            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2258);
+            this.AdminPanelSectionControl.Location = new System.Drawing.Point(6, 2208);
             this.AdminPanelSectionControl.Name = "AdminPanelSectionControl";
             this.AdminPanelSectionControl.Size = new System.Drawing.Size(190, 200);
             this.AdminPanelSectionControl.TabIndex = 9;
@@ -330,7 +329,7 @@ namespace FPIS.Views
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ViewRequestsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSection_ReceiveMaterialsControl);
             this.ProcurementSectionControl.Controls.Add(this.ProcurementSectionCaptionControl);
-            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 2107);
+            this.ProcurementSectionControl.Location = new System.Drawing.Point(6, 2057);
             this.ProcurementSectionControl.Name = "ProcurementSectionControl";
             this.ProcurementSectionControl.Size = new System.Drawing.Size(190, 150);
             this.ProcurementSectionControl.TabIndex = 8;
@@ -391,7 +390,7 @@ namespace FPIS.Views
             // 
             this.SettingsSectionControl.Controls.Add(this.LogoutControl);
             this.SettingsSectionControl.Controls.Add(this.OpenSettingsControl);
-            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2459);
+            this.SettingsSectionControl.Location = new System.Drawing.Point(6, 2409);
             this.SettingsSectionControl.Name = "SettingsSectionControl";
             this.SettingsSectionControl.Size = new System.Drawing.Size(190, 169);
             this.SettingsSectionControl.TabIndex = 7;
@@ -654,13 +653,12 @@ namespace FPIS.Views
             // 
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_ViewSampleResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenProductsControl);
-            this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenStockReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenAnalyticalResultsControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSection_OpenSampleReportControl);
             this.ReportsSectionControl.Controls.Add(this.ReportsSectionCaptionControl);
             this.ReportsSectionControl.Location = new System.Drawing.Point(6, 1807);
             this.ReportsSectionControl.Name = "ReportsSectionControl";
-            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 299);
+            this.ReportsSectionControl.Size = new System.Drawing.Size(190, 249);
             this.ReportsSectionControl.TabIndex = 6;
             this.ReportsSectionControl.Tag = "5";
             // 
@@ -672,7 +670,7 @@ namespace FPIS.Views
             this.ReportsSection_ViewSampleResultsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReportsSection_ViewSampleResultsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_ViewSampleResultsControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_ViewSampleResultsControl.Location = new System.Drawing.Point(5, 250);
+            this.ReportsSection_ViewSampleResultsControl.Location = new System.Drawing.Point(5, 200);
             this.ReportsSection_ViewSampleResultsControl.Name = "ReportsSection_ViewSampleResultsControl";
             this.ReportsSection_ViewSampleResultsControl.Size = new System.Drawing.Size(180, 50);
             this.ReportsSection_ViewSampleResultsControl.TabIndex = 6;
@@ -688,29 +686,13 @@ namespace FPIS.Views
             this.ReportsSection_OpenProductsControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReportsSection_OpenProductsControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ReportsSection_OpenProductsControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenProductsControl.Location = new System.Drawing.Point(5, 200);
+            this.ReportsSection_OpenProductsControl.Location = new System.Drawing.Point(5, 150);
             this.ReportsSection_OpenProductsControl.Name = "ReportsSection_OpenProductsControl";
             this.ReportsSection_OpenProductsControl.Size = new System.Drawing.Size(180, 50);
             this.ReportsSection_OpenProductsControl.TabIndex = 5;
             this.ReportsSection_OpenProductsControl.Text = "Products";
             this.ReportsSection_OpenProductsControl.UseVisualStyleBackColor = false;
             this.ReportsSection_OpenProductsControl.Click += new System.EventHandler(this.ReportsSection_OpenProductsControl_Click);
-            // 
-            // ReportsSection_OpenStockReportControl
-            // 
-            this.ReportsSection_OpenStockReportControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(178)))), ((int)(((byte)(57)))));
-            this.ReportsSection_OpenStockReportControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportsSection_OpenStockReportControl.FlatAppearance.BorderSize = 0;
-            this.ReportsSection_OpenStockReportControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsSection_OpenStockReportControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReportsSection_OpenStockReportControl.ForeColor = System.Drawing.Color.White;
-            this.ReportsSection_OpenStockReportControl.Location = new System.Drawing.Point(5, 150);
-            this.ReportsSection_OpenStockReportControl.Name = "ReportsSection_OpenStockReportControl";
-            this.ReportsSection_OpenStockReportControl.Size = new System.Drawing.Size(180, 50);
-            this.ReportsSection_OpenStockReportControl.TabIndex = 3;
-            this.ReportsSection_OpenStockReportControl.Text = "Stock Report";
-            this.ReportsSection_OpenStockReportControl.UseVisualStyleBackColor = false;
-            this.ReportsSection_OpenStockReportControl.Click += new System.EventHandler(this.ReportsSection_OpenStockReportControl_Click);
             // 
             // ReportsSection_OpenAnalyticalResultsControl
             // 
@@ -1289,7 +1271,6 @@ namespace FPIS.Views
         private Panel NavigationDrawerControl;
         private Panel ReportsSectionControl;
         private Button ReportsSection_OpenProductsControl;
-        private Button ReportsSection_OpenStockReportControl;
         private Button ReportsSection_OpenAnalyticalResultsControl;
         private Button ReportsSection_OpenSampleReportControl;
         private Panel ConsumablesSectionControl;

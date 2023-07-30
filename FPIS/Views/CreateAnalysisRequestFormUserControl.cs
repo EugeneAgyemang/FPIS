@@ -103,7 +103,7 @@ namespace FPIS.Views
                     ?.Select(it => it.Label)
                     ?.ToList();
 
-                var duplicateList = itemLabels?.GroupBy(it => it.Trim())
+                var duplicateList = itemLabels?.GroupBy(it => it?.Trim())
                     .Where(grp => grp.Count() > 1)
                     .Select(it => it.Key)
                     .ToList();
