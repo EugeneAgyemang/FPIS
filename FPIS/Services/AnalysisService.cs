@@ -263,7 +263,7 @@ namespace FPIS.Services
                         {
                             Id = new Guid(),
                             SampleResultDetailId = sampleResultDetail.Id,
-                            Value = float.Parse(parameterWithValue.ParameterValue ?? "0.00"),
+                            Value = string.IsNullOrEmpty(parameterWithValue.ParameterValue) == true ? null : float.Parse(parameterWithValue.ParameterValue),
                             AnalysisParameterId = new Guid(parameterWithValue.ParameterId)
                         }
                     );
