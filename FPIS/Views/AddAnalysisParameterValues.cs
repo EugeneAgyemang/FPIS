@@ -99,7 +99,7 @@ namespace FPIS.Views
                         {
                             Id = waterAnalysisParameter.AnalysisParameterId,
                             Unit = waterAnalysisParameter.WaterParameter.Unit,
-                            Value = item?.ParameterValue ?? "0.00",
+                            Value = item?.ParameterValue,
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
                             ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = true,
@@ -111,7 +111,7 @@ namespace FPIS.Views
                         {
                             Id = waterAnalysisParameter.AnalysisParameterId,
                             Unit = waterAnalysisParameter.WaterParameter.Unit,
-                            Value = item?.ParameterValue ?? "0.00",
+                            Value = item?.ParameterValue,
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
                             ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = false,
@@ -131,7 +131,7 @@ namespace FPIS.Views
                     {
                         Id = waterAnalysisParameter.AnalysisParameterId,
                         Unit = waterAnalysisParameter.WaterParameter.Unit,
-                        Value = item?.ParameterValue ?? "0.00",
+                        Value = item?.ParameterValue,
                         Name = waterAnalysisParameter.WaterParameter.ParameterName,
                         ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                         shouldUpdate = false,
@@ -159,7 +159,7 @@ namespace FPIS.Views
                     {
                         _oldParameterList.Add(new()
                         {
-                            Value = item?.ParameterValue ?? "0.00",
+                            Value = item?.ParameterValue,
                             Id = productAnalysisParameter.AnalysisParameterId,
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
@@ -172,7 +172,7 @@ namespace FPIS.Views
                     {
                         _newParameterList.Add(new()
                         {
-                            Value = item?.ParameterValue ?? "0.00",
+                            Value = item?.ParameterValue,
                             Id = productAnalysisParameter.AnalysisParameterId,
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
@@ -192,7 +192,7 @@ namespace FPIS.Views
                 {
                     _parameterList.Add(new()
                     {
-                        Value = item?.ParameterValue ?? "0.00",
+                        Value = item?.ParameterValue,
                         Id = productAnalysisParameter.AnalysisParameterId,
                         Unit = productAnalysisParameter.ProductParameter.Unit,
                         Method = productAnalysisParameter.ProductParameter.Method,
@@ -275,7 +275,7 @@ namespace FPIS.Views
                 }
 
                 if (item != null) {
-                    item.ParameterValue = parameterBinding.Value ?? "0.00";
+                    item.ParameterValue = parameterBinding.Value;
                     item.ParameterId = parameterBinding.Id.ToString();
                     item.ParameterName = parameterBinding.Name;
                 }
@@ -286,7 +286,7 @@ namespace FPIS.Views
                         {
                             ParameterId = parameterBinding.Id.ToString(),
                             ParameterName = parameterBinding.Name,
-                            ParameterValue = parameterBinding.Value ?? "0.00"
+                            ParameterValue = parameterBinding.Value
                         }
                     );
                 }
