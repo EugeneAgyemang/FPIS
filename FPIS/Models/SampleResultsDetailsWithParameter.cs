@@ -14,6 +14,7 @@ namespace FPIS.Models
         [Key]
         public Guid Id { get; set; }
         public float? Value { get; set; }
+        public string? Remarks { get; set; }
 
         // Navigation Properties
 
