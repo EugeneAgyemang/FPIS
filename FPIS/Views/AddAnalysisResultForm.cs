@@ -367,7 +367,7 @@ namespace FPIS.Views
                         sdbi,
                         productOrWaterId,
                         _shouldUpdate
-                    ).ShowDialog();
+                    ).Show();
                 }
                 else if (row.Cells["rejectSampleResultDetail"].Selected && !_shouldUpdate)
                 {
@@ -465,7 +465,7 @@ namespace FPIS.Views
                     );
                     ViewSamplesRequestedUserControl.isRequestCompleted = true;
                 }
-
+                
                 Close();
             }
             catch (Exception ex)

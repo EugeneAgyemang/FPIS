@@ -150,7 +150,7 @@ namespace FPIS.Views
             }
             else if (source == Source.ALL)
             {
-                new AddAnalysisResultForm(sampleId, typeForFiltering).ShowDialog();
+                new AddAnalysisResultForm(sampleId, typeForFiltering).Show();
             }
             if (isRequestCompleted)
             {
