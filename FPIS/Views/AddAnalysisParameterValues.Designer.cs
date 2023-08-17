@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.materialButtonSaveAndClose = new MaterialSkin.Controls.MaterialButton();
             this.materialCheckboxShowNewParameters = new MaterialSkin.Controls.MaterialCheckbox();
+            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleParameterBindingItemBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,7 +63,8 @@
             this.methodColumn,
             this.ControlLimitColumn,
             this.specificationColumn,
-            this.valueDataGridViewTextBoxColumn});
+            this.valueDataGridViewTextBoxColumn,
+            this.Remarks});
             this.dataGridView1.DataSource = this.analysisSampleParameterBindingItemBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(36, 288);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
@@ -197,6 +199,14 @@
             this.materialCheckboxShowNewParameters.Visible = false;
             this.materialCheckboxShowNewParameters.CheckedChanged += new System.EventHandler(this.materialCheckboxShowNewParameters_CheckedChanged);
             // 
+            // Remarks
+            // 
+            this.Remarks.DataPropertyName = "Remarks";
+            this.Remarks.HeaderText = "Remarks";
+            this.Remarks.MinimumWidth = 8;
+            this.Remarks.Name = "Remarks";
+            this.Remarks.Width = 150;
+            // 
             // AddAnalysisParameterValues
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -237,5 +247,6 @@
         private DataGridViewTextBoxColumn specificationColumn;
         private DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
         private MaterialSkin.Controls.MaterialCheckbox materialCheckboxShowNewParameters;
+        private DataGridViewTextBoxColumn Remarks;
     }
 }

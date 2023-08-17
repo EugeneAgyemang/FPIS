@@ -40,5 +40,6 @@ namespace FPIS.Models
         public string ParameterId { get; set; }
         public string ParameterValue { get; set; } = "0.00";
         public string ParameterName { get; set; }
+        public string Remarks { get; set; }
     }
 }

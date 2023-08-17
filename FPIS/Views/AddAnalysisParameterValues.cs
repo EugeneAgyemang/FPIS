@@ -100,6 +100,7 @@ namespace FPIS.Views
                             Id = waterAnalysisParameter.AnalysisParameterId,
                             Unit = waterAnalysisParameter.WaterParameter.Unit,
                             Value = item?.ParameterValue,
+                            Remarks = item?.Remarks,
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
                             ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = true,
@@ -112,6 +113,7 @@ namespace FPIS.Views
                             Id = waterAnalysisParameter.AnalysisParameterId,
                             Unit = waterAnalysisParameter.WaterParameter.Unit,
                             Value = item?.ParameterValue,
+                            Remarks = item?.Remarks,
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
                             ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = false,
@@ -132,6 +134,7 @@ namespace FPIS.Views
                         Id = waterAnalysisParameter.AnalysisParameterId,
                         Unit = waterAnalysisParameter.WaterParameter.Unit,
                         Value = item?.ParameterValue,
+                        Remarks = item?.Remarks,
                         Name = waterAnalysisParameter.WaterParameter.ParameterName,
                         ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                         shouldUpdate = false,
@@ -164,6 +167,7 @@ namespace FPIS.Views
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
                             Name = productAnalysisParameter.ProductParameter.ParameterName,
+                            Remarks = item?.Remarks,
                             Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                             shouldUpdate = true,
                         });
@@ -173,6 +177,7 @@ namespace FPIS.Views
                         _newParameterList.Add(new()
                         {
                             Value = item?.ParameterValue,
+                            Remarks = item?.Remarks,
                             Id = productAnalysisParameter.AnalysisParameterId,
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
@@ -192,6 +197,7 @@ namespace FPIS.Views
                 {
                     _parameterList.Add(new()
                     {
+                        Remarks = item?.Remarks,
                         Value = item?.ParameterValue,
                         Id = productAnalysisParameter.AnalysisParameterId,
                         Unit = productAnalysisParameter.ProductParameter.Unit,
@@ -275,6 +281,7 @@ namespace FPIS.Views
                 }
 
                 if (item != null) {
+                    item.Remarks = parameterBinding.Remarks;
                     item.ParameterValue = parameterBinding.Value;
                     item.ParameterId = parameterBinding.Id.ToString();
                     item.ParameterName = parameterBinding.Name;
@@ -284,6 +291,7 @@ namespace FPIS.Views
                     _selectedBindingItem.parametersWithValues.Add(
                         new ParametersWithValues()
                         {
+                            Remarks = parameterBinding.Remarks,
                             ParameterId = parameterBinding.Id.ToString(),
                             ParameterName = parameterBinding.Name,
                             ParameterValue = parameterBinding.Value
