@@ -195,7 +195,7 @@
             this.parameterValueRemarks.HeaderText = "Remarks";
             this.parameterValueRemarks.MinimumWidth = 8;
             this.parameterValueRemarks.Name = "parameterValueRemarks";
-            this.parameterValueRemarks.Width = 150;
+            this.parameterValueRemarks.Width = 350;
             // 
             // AddAnalysisParameterValues
             // 
