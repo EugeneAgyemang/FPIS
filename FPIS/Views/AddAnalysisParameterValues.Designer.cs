@@ -31,19 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAnalysisParameterValues));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.methodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ControlLimitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specificationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisSampleParameterBindingItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.materialButtonSaveAndClose = new MaterialSkin.Controls.MaterialButton();
             this.materialCheckboxShowNewParameters = new MaterialSkin.Controls.MaterialCheckbox();
-            this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parameterValueId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.methodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ControlLimitColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specificationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parameterValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.parameterValueRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisSampleParameterBindingItemBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -57,14 +56,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.idDataGridViewTextBoxColumn,
+            this.parameterValueId,
             this.unitDataGridViewTextBoxColumn,
             this.methodColumn,
             this.ControlLimitColumn,
             this.specificationColumn,
-            this.valueDataGridViewTextBoxColumn,
-            this.Remarks});
+            this.parameterValue,
+            this.parameterValueRemarks});
             this.dataGridView1.DataSource = this.analysisSampleParameterBindingItemBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(36, 288);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
@@ -74,63 +72,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1229, 302);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 134;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.Width = 133;
-            // 
-            // methodColumn
-            // 
-            this.methodColumn.DataPropertyName = "Method";
-            this.methodColumn.HeaderText = "Method";
-            this.methodColumn.MinimumWidth = 8;
-            this.methodColumn.Name = "methodColumn";
-            this.methodColumn.Width = 134;
-            // 
-            // ControlLimitColumn
-            // 
-            this.ControlLimitColumn.DataPropertyName = "ControlLimit";
-            this.ControlLimitColumn.HeaderText = "ControlLimit";
-            this.ControlLimitColumn.MinimumWidth = 8;
-            this.ControlLimitColumn.Name = "ControlLimitColumn";
-            this.ControlLimitColumn.Width = 134;
-            // 
-            // specificationColumn
-            // 
-            this.specificationColumn.DataPropertyName = "Specification";
-            this.specificationColumn.HeaderText = "Specification";
-            this.specificationColumn.MinimumWidth = 8;
-            this.specificationColumn.Name = "specificationColumn";
-            this.specificationColumn.Width = 133;
-            // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Result";
-            this.valueDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.Width = 128;
             // 
             // analysisSampleParameterBindingItemBindingSource
             // 
@@ -199,13 +140,62 @@
             this.materialCheckboxShowNewParameters.Visible = false;
             this.materialCheckboxShowNewParameters.CheckedChanged += new System.EventHandler(this.materialCheckboxShowNewParameters_CheckedChanged);
             // 
-            // Remarks
+            // parameterValueId
             // 
-            this.Remarks.DataPropertyName = "Remarks";
-            this.Remarks.HeaderText = "Remarks";
-            this.Remarks.MinimumWidth = 8;
-            this.Remarks.Name = "Remarks";
-            this.Remarks.Width = 150;
+            this.parameterValueId.DataPropertyName = "Id";
+            this.parameterValueId.HeaderText = "Id";
+            this.parameterValueId.MinimumWidth = 8;
+            this.parameterValueId.Name = "parameterValueId";
+            this.parameterValueId.Visible = false;
+            this.parameterValueId.Width = 150;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.Width = 133;
+            // 
+            // methodColumn
+            // 
+            this.methodColumn.DataPropertyName = "Method";
+            this.methodColumn.HeaderText = "Method";
+            this.methodColumn.MinimumWidth = 8;
+            this.methodColumn.Name = "methodColumn";
+            this.methodColumn.Width = 134;
+            // 
+            // ControlLimitColumn
+            // 
+            this.ControlLimitColumn.DataPropertyName = "ControlLimit";
+            this.ControlLimitColumn.HeaderText = "ControlLimit";
+            this.ControlLimitColumn.MinimumWidth = 8;
+            this.ControlLimitColumn.Name = "ControlLimitColumn";
+            this.ControlLimitColumn.Width = 134;
+            // 
+            // specificationColumn
+            // 
+            this.specificationColumn.DataPropertyName = "Specification";
+            this.specificationColumn.HeaderText = "Specification";
+            this.specificationColumn.MinimumWidth = 8;
+            this.specificationColumn.Name = "specificationColumn";
+            this.specificationColumn.Width = 133;
+            // 
+            // parameterValue
+            // 
+            this.parameterValue.DataPropertyName = "Value";
+            this.parameterValue.HeaderText = "Result";
+            this.parameterValue.MinimumWidth = 8;
+            this.parameterValue.Name = "parameterValue";
+            this.parameterValue.Width = 128;
+            // 
+            // parameterValueRemarks
+            // 
+            this.parameterValueRemarks.DataPropertyName = "Remarks";
+            this.parameterValueRemarks.HeaderText = "Remarks";
+            this.parameterValueRemarks.MinimumWidth = 8;
+            this.parameterValueRemarks.Name = "parameterValueRemarks";
+            this.parameterValueRemarks.Width = 150;
             // 
             // AddAnalysisParameterValues
             // 
@@ -239,14 +229,14 @@
         private GroupBox groupBox1;
         private Label label1;
         private MaterialSkin.Controls.MaterialButton materialButtonSaveAndClose;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckboxShowNewParameters;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn parameterValueId;
         private DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn methodColumn;
         private DataGridViewTextBoxColumn ControlLimitColumn;
         private DataGridViewTextBoxColumn specificationColumn;
-        private DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
-        private MaterialSkin.Controls.MaterialCheckbox materialCheckboxShowNewParameters;
-        private DataGridViewTextBoxColumn Remarks;
+        private DataGridViewTextBoxColumn parameterValue;
+        private DataGridViewTextBoxColumn parameterValueRemarks;
     }
 }

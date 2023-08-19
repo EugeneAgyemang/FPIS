@@ -223,11 +223,11 @@ namespace FPIS.Views
 
             DataGridViewRow activeRow = dataGridView1.Rows[e.RowIndex];
 
-            if (e.ColumnIndex == activeRow.Cells.Count - 1) // the last cell
+            if (activeRow.Cells["parameterValue"].Selected) // the last cell
             {
-                string analysisParameterId = activeRow.Cells[1].Value.ToString();
-                string parameterName = activeRow.Cells[0].Value.ToString();
-                string enteredValue = activeRow.Cells[activeRow.Cells.Count - 1].Value?.ToString();
+                string analysisParameterId = activeRow.Cells["parameterValueId"].Value.ToString();
+                string enteredValue = activeRow.Cells["parameterValue"].Value?.ToString();
+                string remarks = activeRow.Cells["parameterValueRemarks"]?.Value?.ToString();
 
                 if (string.IsNullOrEmpty(enteredValue))
                 {
@@ -238,7 +238,7 @@ namespace FPIS.Views
                     if (Char.IsLetter(letter))
                     {
                         Utils.Utils.ShowMessageBox("Kindly enter a valid value", "Invalid Value");
-                        activeRow.Cells[activeRow.Cells.Count - 1].Value = string.Empty;
+                        activeRow.Cells["parameterValue"].Value = string.Empty;
                         shouldProceed = false;
                         return;
                     }
