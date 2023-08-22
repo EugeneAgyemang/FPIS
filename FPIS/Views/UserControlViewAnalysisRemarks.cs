@@ -76,12 +76,12 @@ namespace FPIS.Views
         {
             if (totalAnalysisType == 0)
             {
-                labelStockItemCount.Text = "No Production Remark yet";
+                labelStockItemCount.Text = "No Analysis Remark yet";
             }
             else
             {
                 labelStockItemCount.Text =
-                    $"{totalAnalysisType} Production Remark{((totalAnalysisType > 1) ? "s" : "")}";
+                    $"{totalAnalysisType} Analysis Remark{((totalAnalysisType > 1) ? "s" : "")}";
             }
         }
 
@@ -97,19 +97,19 @@ namespace FPIS.Views
             {
                 AppDbContext dbContext = new();
                 var analysisRemarks = from AnalysisRemark in dbContext.AnalysisRemarks
-                                   orderby AnalysisRemark.Time descending
-                                   select new
-                                   {
-                                       analysisItem = AnalysisRemark.AnalysisItem,
-                                       remark = AnalysisRemark.Remark,
-                                       remarkDate = AnalysisRemark.Date,
-                                       remarkTime = AnalysisRemark.Time,
-                                       userId = AnalysisRemark.UserId
-                                   };
+                                      orderby AnalysisRemark.Time descending
+                                      select new
+                                      {
+                                          analysisItem = AnalysisRemark.AnalysisItem,
+                                          remark = AnalysisRemark.Remark,
+                                          remarkDate = AnalysisRemark.Date,
+                                          remarkTime = AnalysisRemark.Time,
+                                          userId = AnalysisRemark.UserId
+                                      };
                 dataGridViewAnalysisRemarks.Rows.Clear();
                 foreach (var items in analysisRemarks)
                 {
-                    dataGridViewAnalysisRemarks.Rows.Add(items.analysisItem,items.remark,items.remarkDate,items.remarkTime,LoadUserFullName(items.userId));
+                    dataGridViewAnalysisRemarks.Rows.Add(items.analysisItem, items.remark, items.remarkDate, items.remarkTime, LoadUserFullName(items.userId));
                 }
                 dbContext.Dispose();
                 remarks = dataGridViewAnalysisRemarks.Rows.Count;
@@ -293,6 +293,7 @@ namespace FPIS.Views
         private void materialButtonShowAll_Click(object sender, EventArgs e)
         {
             LoadAnalysisRemark();
+            analysisRemarkCount(remarks);
         }
 
         private void SwitchFilterControl_CheckedChanged(object sender, EventArgs e)

@@ -78,6 +78,13 @@ namespace FPIS.Views
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             SampleResultDetailsId = new DataGridViewTextBoxColumn();
+            groupBox4 = new GroupBox();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            label2 = new Label();
+            dateTimePickerToTime = new DateTimePicker();
+            label5 = new Label();
+            dateTimePickerFromTime = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalResultsBindingItemBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalParameterResultsBindingItemBindingSource1).BeginInit();
@@ -86,6 +93,7 @@ namespace FPIS.Views
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Finished_Products_With_Results).BeginInit();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // SamplesRequestedOverviewControl
@@ -114,7 +122,7 @@ namespace FPIS.Views
             dataGridView1.BackgroundColor = SystemColors.Window;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ParameterName, ExpectedResult, ActualResult, Variance2, Variance, Indicator });
-            dataGridView1.Location = new Point(25, 496);
+            dataGridView1.Location = new Point(25, 653);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
@@ -183,7 +191,7 @@ namespace FPIS.Views
             materialButtonPrintAnalyticalResult.Depth = 0;
             materialButtonPrintAnalyticalResult.HighEmphasis = true;
             materialButtonPrintAnalyticalResult.Icon = null;
-            materialButtonPrintAnalyticalResult.Location = new Point(349, 846);
+            materialButtonPrintAnalyticalResult.Location = new Point(349, 1003);
             materialButtonPrintAnalyticalResult.Margin = new Padding(4, 6, 4, 6);
             materialButtonPrintAnalyticalResult.MouseState = MaterialSkin.MouseState.HOVER;
             materialButtonPrintAnalyticalResult.Name = "materialButtonPrintAnalyticalResult";
@@ -306,7 +314,7 @@ namespace FPIS.Views
             groupBox2.Controls.Add(textBoxAnalyticalRemark);
             groupBox2.Controls.Add(materialButtonSaveAnalysisRemark);
             groupBox2.Controls.Add(label1);
-            groupBox2.Location = new Point(749, 496);
+            groupBox2.Location = new Point(749, 653);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(479, 345);
             groupBox2.TabIndex = 59;
@@ -475,14 +483,14 @@ namespace FPIS.Views
             dataGridView_Finished_Products_With_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Finished_Products_With_Results.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, ProductType, SampleDetailLabel, AnalysisItem, SampleResultsDetailsId, SampleDetailId, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, SampleResultDetailsId });
             dataGridView_Finished_Products_With_Results.DataSource = checkAnalyticalResultsBindingItemBindingSource;
-            dataGridView_Finished_Products_With_Results.Location = new Point(25, 250);
+            dataGridView_Finished_Products_With_Results.Location = new Point(25, 359);
             dataGridView_Finished_Products_With_Results.Margin = new Padding(3, 2, 3, 2);
             dataGridView_Finished_Products_With_Results.MultiSelect = false;
             dataGridView_Finished_Products_With_Results.Name = "dataGridView_Finished_Products_With_Results";
             dataGridView_Finished_Products_With_Results.ReadOnly = true;
             dataGridView_Finished_Products_With_Results.RowHeadersWidth = 51;
             dataGridView_Finished_Products_With_Results.RowTemplate.Height = 29;
-            dataGridView_Finished_Products_With_Results.Size = new Size(1203, 241);
+            dataGridView_Finished_Products_With_Results.Size = new Size(1203, 278);
             dataGridView_Finished_Products_With_Results.TabIndex = 62;
             dataGridView_Finished_Products_With_Results.CellContentClick += dataGridView_Finished_Products_With_Results_CellClick;
             // 
@@ -610,10 +618,108 @@ namespace FPIS.Views
             SampleResultDetailsId.Visible = false;
             SampleResultDetailsId.Width = 125;
             // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(materialButton1);
+            groupBox4.Controls.Add(materialButton2);
+            groupBox4.Controls.Add(label2);
+            groupBox4.Controls.Add(dateTimePickerToTime);
+            groupBox4.Controls.Add(label5);
+            groupBox4.Controls.Add(dateTimePickerFromTime);
+            groupBox4.Location = new Point(26, 252);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(1202, 83);
+            groupBox4.TabIndex = 65;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Then by Sample Request Time";
+            // 
+            // materialButton1
+            // 
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            materialButton1.Cursor = Cursors.Hand;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(766, 32);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(155, 36);
+            materialButton1.TabIndex = 44;
+            materialButton1.Text = "Clear Time Filter";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = true;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
+            // 
+            // materialButton2
+            // 
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            materialButton2.Cursor = Cursors.Hand;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new Point(671, 32);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(78, 36);
+            materialButton2.TabIndex = 41;
+            materialButton2.Text = "Search";
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = true;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(363, 40);
+            label2.Name = "label2";
+            label2.Size = new Size(32, 20);
+            label2.TabIndex = 43;
+            label2.Text = "To :";
+            // 
+            // dateTimePickerToTime
+            // 
+            dateTimePickerToTime.CustomFormat = "hh:mm tt";
+            dateTimePickerToTime.Format = DateTimePickerFormat.Custom;
+            dateTimePickerToTime.Location = new Point(401, 37);
+            dateTimePickerToTime.Name = "dateTimePickerToTime";
+            dateTimePickerToTime.ShowUpDown = true;
+            dateTimePickerToTime.Size = new Size(125, 27);
+            dateTimePickerToTime.TabIndex = 42;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(36, 37);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 40;
+            label5.Text = "From :";
+            // 
+            // dateTimePickerFromTime
+            // 
+            dateTimePickerFromTime.CustomFormat = "hh:mm tt";
+            dateTimePickerFromTime.Format = DateTimePickerFormat.Custom;
+            dateTimePickerFromTime.Location = new Point(92, 33);
+            dateTimePickerFromTime.Name = "dateTimePickerFromTime";
+            dateTimePickerFromTime.ShowUpDown = true;
+            dateTimePickerFromTime.Size = new Size(125, 27);
+            dateTimePickerFromTime.TabIndex = 39;
+            // 
             // UserControlCheckAnalyticalResults
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoScroll = true;
+            Controls.Add(groupBox4);
             Controls.Add(materialButtonPrintAnalyticalResult);
             Controls.Add(dataGridView_Finished_Products_With_Results);
             Controls.Add(groupBox3);
@@ -623,7 +729,7 @@ namespace FPIS.Views
             Controls.Add(SamplesRequestedOverviewControl);
             Controls.Add(materialLabel1);
             Name = "UserControlCheckAnalyticalResults";
-            Size = new Size(1365, 912);
+            Size = new Size(1365, 1100);
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalResultsBindingItemBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalParameterResultsBindingItemBindingSource1).EndInit();
@@ -635,6 +741,8 @@ namespace FPIS.Views
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Finished_Products_With_Results).EndInit();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -671,12 +779,6 @@ namespace FPIS.Views
         private DataGridViewTextBoxColumn analysisResultTimeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn SampleDetailsId;
         private DataGridView dataGridView_Finished_Products_With_Results;
-        private DataGridViewTextBoxColumn ParameterName;
-        private DataGridViewTextBoxColumn ExpectedResult;
-        private DataGridViewTextBoxColumn ActualResult;
-        private DataGridViewTextBoxColumn Variance2;
-        private DataGridViewTextBoxColumn Variance;
-        private DataGridViewTextBoxColumn Indicator;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn ProductType;
         private DataGridViewTextBoxColumn SampleDetailLabel;
@@ -690,5 +792,18 @@ namespace FPIS.Views
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn SampleResultDetailsId;
+        private DataGridViewTextBoxColumn ParameterName;
+        private DataGridViewTextBoxColumn ExpectedResult;
+        private DataGridViewTextBoxColumn ActualResult;
+        private DataGridViewTextBoxColumn Variance2;
+        private DataGridViewTextBoxColumn Variance;
+        private DataGridViewTextBoxColumn Indicator;
+        private GroupBox groupBox4;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private Label label2;
+        private DateTimePicker dateTimePickerToTime;
+        private Label label5;
+        private DateTimePicker dateTimePickerFromTime;
     }
 }

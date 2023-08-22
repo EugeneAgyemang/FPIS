@@ -128,5 +128,32 @@ namespace FPIS.Services
             return waterSamplesRequestedQuery.ToList();
 
         }
+
+        public List<SampleDetail> GetWatersWithAnalysisResultsPerTime(DateOnly fromDate, DateOnly toDate, TimeOnly fromTime, TimeOnly toTime, string waterName = "")
+        {
+            IQueryable<SampleDetail> waterSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Where(sr => sr.Sample.Time >= fromTime && sr.Sample.Time <= toTime).
+                Where(a => a.Sample.Status != "Pending").
+                Where(a => a.AnalysisItem.ItemType == "Water").
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisWaters).
+                ThenInclude(analysisWater => analysisWater.Water.WaterParameters).
+                ThenInclude(a => a.WaterAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (waterName != string.Empty)
+            {
+                waterSamplesRequestedQuery = waterSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == waterName);
+
+            }
+
+
+            return waterSamplesRequestedQuery.ToList();
+
+        }
     }
 }
