@@ -30,6 +30,11 @@ namespace FPIS.Models
                 stringBuilder.Append($"{it.ParameterName} = {it.ParameterValue}, ");
             });
 
+            if (stringBuilder.Length == 0)
+            {
+                return "";
+            }
+
             return "{ " + stringBuilder.Replace(",", "", stringBuilder.ToString().LastIndexOf(","), 1) + " }";
         }
     }
@@ -40,5 +45,6 @@ namespace FPIS.Models
         public string ParameterId { get; set; }
         public string ParameterValue { get; set; } = "0.00";
         public string ParameterName { get; set; }
+        public string Remarks { get; set; }
     }
 }

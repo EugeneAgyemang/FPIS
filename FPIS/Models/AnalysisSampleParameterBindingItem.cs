@@ -14,6 +14,7 @@
         public string Specification { get; set; }
 
         public string? Value { get; set; }
+        public string? Remarks { get; set; }
 
         public bool shouldUpdate = false;
     }

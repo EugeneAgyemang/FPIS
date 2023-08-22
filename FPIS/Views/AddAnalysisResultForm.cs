@@ -217,6 +217,7 @@ namespace FPIS.Views
                             ParameterId = param.AnalysisParameterId.ToString(),
                             ParameterValue = param.Value.ToString(),
                             AnalysisResultWithParameterId = param.Id.ToString(),
+                            Remarks = param.Remarks,
                             ParameterName = GetItemParameterName(srd.SampleResult.Sample.TypeForFiltering, param.AnalysisParameter)
                         }).ToList()
                     }
