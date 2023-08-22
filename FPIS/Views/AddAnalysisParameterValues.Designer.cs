@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.materialButtonSaveAndClose = new MaterialSkin.Controls.MaterialButton();
             this.materialCheckboxShowNewParameters = new MaterialSkin.Controls.MaterialCheckbox();
+            this.parameterValueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parameterValueId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.methodColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +57,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.parameterValueName,
             this.parameterValueId,
             this.unitDataGridViewTextBoxColumn,
             this.methodColumn,
@@ -139,6 +141,14 @@
             this.materialCheckboxShowNewParameters.UseVisualStyleBackColor = true;
             this.materialCheckboxShowNewParameters.Visible = false;
             this.materialCheckboxShowNewParameters.CheckedChanged += new System.EventHandler(this.materialCheckboxShowNewParameters_CheckedChanged);
+            // 
+            // parameterValueName
+            // 
+            this.parameterValueName.DataPropertyName = "Name";
+            this.parameterValueName.HeaderText = "Name";
+            this.parameterValueName.MinimumWidth = 8;
+            this.parameterValueName.Name = "parameterValueName";
+            this.parameterValueName.Width = 150;
             // 
             // parameterValueId
             // 
@@ -232,6 +242,7 @@
         private MaterialSkin.Controls.MaterialCheckbox materialCheckboxShowNewParameters;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn parameterValueId;
+        private DataGridViewTextBoxColumn parameterValueName;
         private DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn methodColumn;
         private DataGridViewTextBoxColumn ControlLimitColumn;
