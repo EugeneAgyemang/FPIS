@@ -217,6 +217,7 @@ namespace FPIS.Views
                             ParameterId = param.AnalysisParameterId.ToString(),
                             ParameterValue = param.Value.ToString(),
                             AnalysisResultWithParameterId = param.Id.ToString(),
+                            Remarks = param.Remarks,
                             ParameterName = GetItemParameterName(srd.SampleResult.Sample.TypeForFiltering, param.AnalysisParameter)
                         }).ToList()
                     }
@@ -367,7 +368,7 @@ namespace FPIS.Views
                         sdbi,
                         productOrWaterId,
                         _shouldUpdate
-                    ).ShowDialog();
+                    ).Show();
                 }
                 else if (row.Cells["rejectSampleResultDetail"].Selected && !_shouldUpdate)
                 {
@@ -417,6 +418,7 @@ namespace FPIS.Views
                                 .Select(paramWithValue => new SampleResultsDetailsWithParameter()
                                 {
                                     Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
+                                    Remarks = paramWithValue.Remarks,
                                     Value = string.IsNullOrEmpty(paramWithValue.ParameterValue) != true ? paramWithValue.ParameterValue : null
                                 })
                             );
@@ -428,6 +430,7 @@ namespace FPIS.Views
                                     Value = string.IsNullOrEmpty(pmw.ParameterValue) != true ? pmw.ParameterValue : null,
                                     SampleResultDetailId = sampleItem.Id,
                                     AnalysisParameterId = new Guid(pmw.ParameterId),
+                                    Remarks = pmw.Remarks
                                 }).ToList();
                         }
                     });
@@ -465,7 +468,7 @@ namespace FPIS.Views
                     );
                     ViewSamplesRequestedUserControl.isRequestCompleted = true;
                 }
-
+                
                 Close();
             }
             catch (Exception ex)

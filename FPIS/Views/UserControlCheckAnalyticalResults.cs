@@ -38,6 +38,27 @@ namespace FPIS.Views
             materialButtonPrintAnalyticalResult.Enabled = false;
             textBoxAnalyticalRemark.Enabled = false;
             labelAnalysisRemarkError.Text = "";
+
+            DisableTimeFilter();
+        }
+
+
+        void DisableTimeFilter()
+        {
+            dateTimePickerFromTime.Enabled = false;
+            dateTimePickerToTime.Enabled = false;
+            materialButton1.Enabled = false;
+            materialButton2.Enabled = false;
+            groupBox4.Enabled = false;
+        }
+
+        void EnableTimeFilter()
+        {
+            dateTimePickerFromTime.Enabled = true;
+            dateTimePickerToTime.Enabled = true;
+            materialButton1.Enabled = true;
+            materialButton2.Enabled = true;
+            groupBox4.Enabled = true;
         }
 
         public void ValidateAnalysisRemark(string analysisRemark)
@@ -188,7 +209,82 @@ namespace FPIS.Views
                 }
             }
             CountAnalysisRequests(totalNumberOfRequests);
+            EnableTimeFilter();
         }
+
+        TimeOnly _initialToTime, _finalToTime;
+        void setToTime()
+        {
+            _initialToTime = TimeOnly.Parse(dateTimePickerToTime.Text);
+            int initSeconds = _initialToTime.Second;
+            int finalSeconds = 59 - initSeconds;
+            _finalToTime = _initialToTime.Add(TimeSpan.FromSeconds(finalSeconds));
+        }
+        private void LoadAnalyticalResultsPerTime()
+        {
+            setToTime();
+            ClearErrorLabels();
+            int totalNumberOfRequests = 0;
+            if (materialRadioButtonProductAnalysis.Checked)
+            {
+                List<SampleDetail> samplesDetails = new ProductService(new()).GetProductsWithAnalysisResultsPerTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), _finalToTime);
+                sampleDetailsList.Clear();
+                foreach (SampleDetail sampleDetail in samplesDetails)
+                {
+                    CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
+                    sampleDetailItem.AnalysisItem = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName;
+                    sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
+                    sampleDetailItem.SampleDetailId = sampleDetail.Id;
+                    sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName} {sampleDetail.Label}";
+                    sampleDetailItem.ProductType = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.Type;
+                    sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
+                    sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
+                    //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
+                    sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString(); ;
+                    totalNumberOfRequests++;
+                    sampleDetailsList.Add(sampleDetailItem);
+                }
+            }
+            else
+            {
+                List<SampleDetail> samplesDetails = new WaterService(new()).GetWatersWithAnalysisResultsPerTime(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text), TimeOnly.Parse(dateTimePickerFromTime.Text), _finalToTime);
+                sampleDetailsList.Clear();
+                foreach (SampleDetail sampleDetail in samplesDetails)
+                {
+                    CheckAnalyticalResultsBindingItem sampleDetailItem = new CheckAnalyticalResultsBindingItem();
+                    sampleDetailItem.AnalysisItem = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName;
+                    sampleDetailItem.SampleDetailLabel = sampleDetail.Label;
+                    sampleDetailItem.SampleDetailId = sampleDetail.Id;
+                    sampleDetailItem.ProductName = $"{sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterName} {sampleDetail.Label}";
+                    sampleDetailItem.AnalysisType = sampleDetail.Sample.TypeForFiltering;
+                    sampleDetailItem.AnalysisRequestDate = sampleDetail.Sample.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisRequestTime = sampleDetail.Sample.Time.ToLongTimeString();
+                    //sampleDetailItem.AnalysisResultDate = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Date.ToLongDateString();
+                    sampleDetailItem.AnalysisResultDate = sampleDetail.Sample.SampleResults.FirstOrDefault().Date.ToLongDateString();
+                    //sampleDetailItem.AnalysisResultTime = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Time.ToLongTimeString();
+                    sampleDetailItem.AnalysisResultTime = sampleDetail.Sample.SampleResults.FirstOrDefault().Time.ToLongTimeString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductParameters.FirstOrDefault().ProductAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.SampleResult.Id.ToString();
+                    //sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleDetailsId = sampleDetail.Id.ToString();
+                    sampleDetailItem.SampleResultId = sampleDetail.Sample.SampleResults.FirstOrDefault().Id.ToString();
+                    sampleDetailItem.SampleResultDetailsId = sampleDetail.AnalysisItem.AnalysisWaters.FirstOrDefault().Water.WaterParameters.FirstOrDefault().WaterAnalysisParameters.FirstOrDefault().AnalysisParameter.sampleResultsDetailsWithParameters.FirstOrDefault().SampleResultDetail.Id.ToString(); ;
+                    totalNumberOfRequests++;
+                    sampleDetailsList.Add(sampleDetailItem);
+                }
+            }
+            CountAnalysisRequests(totalNumberOfRequests);
+            EnableTimeFilter();
+        }
+
+
 
         private void LoadProductAnalyticalResult()
         {
@@ -553,11 +649,11 @@ namespace FPIS.Views
                 materialButtonSaveAnalysisRemark.Enabled = false;
                 textBoxAnalyticalRemark.Enabled = false;
             }
-            else if (materialRadioButtonWaterAnalysis.Checked)
-            {
-                materialButtonSaveAnalysisRemark.Enabled = false;
-                textBoxAnalyticalRemark.Enabled = false;
-            }
+            //else if (materialRadioButtonWaterAnalysis.Checked)
+            //{
+            //    materialButtonSaveAnalysisRemark.Enabled = false;
+            //    textBoxAnalyticalRemark.Enabled = false;
+            //}
             else
             {
                 materialButtonSaveAnalysisRemark.Enabled = true;
@@ -618,13 +714,13 @@ namespace FPIS.Views
             }
         }
 
-        
+
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs args)
         {
-            int value, minValue;
+            float value, minValue;
             if (args.ColumnIndex == 4)
             {
-                int.TryParse(args.Value.ToString(), out value);
+                float.TryParse(args.Value.ToString(), out value);
 
                 if (value >= 0)
                 {
@@ -645,12 +741,12 @@ namespace FPIS.Views
                     dataGridView1.Rows[args.RowIndex].Cells[5].Style.BackColor = Color.Red;
                     dataGridView1.Rows[args.RowIndex].Cells[5].Style.ForeColor = Color.Red;
                     args.FormattingApplied = true;
-                    
+
                 }
             }
             if (args.ColumnIndex == 3)
             {
-                int.TryParse(args.Value.ToString(), out minValue);
+                float.TryParse(args.Value.ToString(), out minValue);
                 if (minValue < 0)
                 {
                     //args.CellStyle.BackColor = Color.Red;
@@ -681,9 +777,9 @@ namespace FPIS.Views
             {
                 return;
             }
-            
-            
-            
+
+
+
 
 
 
@@ -802,6 +898,7 @@ namespace FPIS.Views
             materialButtonSaveAnalysisRemark.Enabled = false;
             materialButtonPrintAnalyticalResult.Enabled = false;
             textBoxAnalyticalRemark.Enabled = false;
+            DisableTimeFilter();
         }
 
         private void materialButtonSaveAnalysisRemark_Click(object sender, EventArgs e)
@@ -816,12 +913,27 @@ namespace FPIS.Views
             materialButtonSaveAnalysisRemark.Enabled = false;
             materialButtonPrintAnalyticalResult.Enabled = false;
             textBoxAnalyticalRemark.Enabled = false;
+            DisableTimeFilter();
         }
 
         private void materialRadioButtonWaterAnalysis_CheckedChanged(object sender, EventArgs e)
         {
             LoadAnalyticalResults();
             dataGridView1.Rows.Clear();
+            materialButtonSaveAnalysisRemark.Enabled = false;
+            materialButtonPrintAnalyticalResult.Enabled = false;
+            textBoxAnalyticalRemark.Enabled = false;
+            DisableTimeFilter();
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            LoadAnalyticalResultsPerTime();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            LoadAnalyticalResultsPerDate();
             materialButtonSaveAnalysisRemark.Enabled = false;
             materialButtonPrintAnalyticalResult.Enabled = false;
             textBoxAnalyticalRemark.Enabled = false;
