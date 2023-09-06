@@ -65,6 +65,16 @@ public class Utils
         }
         return isKeyHandled;
     }
+
+    public static bool IsCharacterPressedHandledForSpecifications(char characterPressed)
+    {
+        bool isKeyHandled = true;
+        if (characterPressed >= '0' && characterPressed <= '9' || characterPressed == '\b' || characterPressed == '.' || characterPressed == '-')
+        {
+            isKeyHandled = false;
+        }
+        return isKeyHandled;
+    }
     /// <summary>
     /// Retrieve the last characters from the right of the given string
     /// </summary>

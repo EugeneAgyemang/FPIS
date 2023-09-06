@@ -84,7 +84,7 @@ namespace FPIS.Views
             _method = productParameter.Method;
             _unit = productParameter.Unit;
             _minimumSpecification= productParameter.MinimumSpecification;
-            _maximumSpecification = productParameter.Specification;
+            _maximumSpecification = float.Parse(productParameter.Specification);
         }
 
         float newMinSpecification;
@@ -149,7 +149,11 @@ namespace FPIS.Views
             }
             else
             {
-                CompareSpecificationValues();
+                if (maximumSpecificationControl.Text != "-")
+                {
+                    CompareSpecificationValues();
+                }
+                
             }
         }
 
@@ -186,63 +190,63 @@ namespace FPIS.Views
                 Guid parameterId = productParameter.Id;
                 if((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId,unitControl.Text, methodControl.Text ,newSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId,unitControl.Text, methodControl.Text ,newSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, newSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, newSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, newSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, newSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, newSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, newSpecification.ToString(), _minimumSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, _maximumSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, _maximumSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, _maximumSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, _maximumSpecification.ToString(), _minimumSpecification);
                 }
                 else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _unit, _maximumSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _unit, _maximumSpecification.ToString(), _minimumSpecification);
                 }
                 else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, _maximumSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, _maximumSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, newSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, newSpecification.ToString(), _minimumSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, _maximumSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, methodControl.Text, _maximumSpecification.ToString(), _minimumSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, _maximumSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, _maximumSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length != 0) && (unitControl.Text.Length == 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, newSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, methodControl.Text, newSpecification.ToString(), _minimumSpecification);
                 }
                 else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length != 0) && (maximumSpecificationControl.Text.Length == 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, _maximumSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, _maximumSpecification.ToString(), newMinSpecification);
                 }
                 else if ((methodControl.Text.Length == 0) && (unitControl.Text.Length != 0) && (minimumSpecificationControl.Text.Length == 0) && (maximumSpecificationControl.Text.Length != 0))
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, newSpecification, _minimumSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, unitControl.Text, _method, newSpecification.ToString(), _minimumSpecification);
                 }
                 else
                 {
-                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, newSpecification, newMinSpecification);
+                    new ProductParameterService(new()).UpdateParameterSpecification(parameterId, _unit, _method, newSpecification.ToString(), newMinSpecification);
                 }
 
                 Utils.Utils.ShowMessageBox($"The Parameter values for {productParameter} was updated successfully!", "Update Successful", MessageBoxButtons.OK);
@@ -352,7 +356,7 @@ namespace FPIS.Views
 
         private void NewSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+            e.Handled = Utils.Utils.IsCharacterPressedHandledForSpecifications(e.KeyChar);
         }
     }
 }

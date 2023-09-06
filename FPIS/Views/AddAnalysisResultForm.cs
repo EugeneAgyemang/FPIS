@@ -418,6 +418,7 @@ namespace FPIS.Views
                                 .Select(paramWithValue => new SampleResultsDetailsWithParameter()
                                 {
                                     Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
+
                                     Remarks = paramWithValue.Remarks,
                                     Value = string.IsNullOrEmpty(paramWithValue.ParameterValue) != true ? paramWithValue.ParameterValue : null
                                 })

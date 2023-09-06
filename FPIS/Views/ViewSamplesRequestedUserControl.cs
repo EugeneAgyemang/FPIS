@@ -150,13 +150,16 @@ namespace FPIS.Views
             }
             else if (source == Source.ALL)
             {
-                new AddAnalysisResultForm(sampleId, typeForFiltering).Show();
+                new AddAnalysisResultForm(sampleId, typeForFiltering).ShowDialog();
+                
             }
             if (isRequestCompleted)
             {
+               // LoadSampleRequestsMade(form);
                 listOfRequests.RemoveAt(e.RowIndex);
                 UpdateSamplesRequestedOverview(listOfRequests.Count);
                 UpdateRawMaterialSampleRequestStatus(Guid.Parse(sampleId), UserControlProcurementReceiveMaterials.DONE);
+                
             }
             else
             {

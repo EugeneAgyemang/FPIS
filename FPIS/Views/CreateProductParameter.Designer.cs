@@ -29,231 +29,230 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateProductParameter));
-            this.ParameterNameControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.ParameterMethodControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.ParameterSpecificationControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.SaveParameterControl = new MaterialSkin.Controls.MaterialButton();
-            this.ParameterNameErrorCaption = new System.Windows.Forms.Label();
-            this.ParameterMethodErrorCaption = new System.Windows.Forms.Label();
-            this.ParameterUnitErrorCaption = new System.Windows.Forms.Label();
-            this.ParameterSpecificationErrorCaption = new System.Windows.Forms.Label();
-            this.ParameterProductControl = new MaterialSkin.Controls.MaterialComboBox();
-            this.ParameterProductErrorCaption = new System.Windows.Forms.Label();
-            this.ParameterUnitControl = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBoxMinimumSpecification = new MaterialSkin.Controls.MaterialTextBox();
-            this.SuspendLayout();
+            ParameterNameControl = new MaterialSkin.Controls.MaterialTextBox();
+            ParameterMethodControl = new MaterialSkin.Controls.MaterialTextBox();
+            ParameterSpecificationControl = new MaterialSkin.Controls.MaterialTextBox();
+            SaveParameterControl = new MaterialSkin.Controls.MaterialButton();
+            ParameterNameErrorCaption = new Label();
+            ParameterMethodErrorCaption = new Label();
+            ParameterUnitErrorCaption = new Label();
+            ParameterSpecificationErrorCaption = new Label();
+            ParameterProductControl = new MaterialSkin.Controls.MaterialComboBox();
+            ParameterProductErrorCaption = new Label();
+            ParameterUnitControl = new MaterialSkin.Controls.MaterialTextBox();
+            materialTextBoxMinimumSpecification = new MaterialSkin.Controls.MaterialTextBox();
+            SuspendLayout();
             // 
             // ParameterNameControl
             // 
-            this.ParameterNameControl.AnimateReadOnly = false;
-            this.ParameterNameControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ParameterNameControl.Depth = 0;
-            this.ParameterNameControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterNameControl.Hint = "Parameter name";
-            this.ParameterNameControl.LeadingIcon = null;
-            this.ParameterNameControl.Location = new System.Drawing.Point(25, 125);
-            this.ParameterNameControl.MaxLength = 50;
-            this.ParameterNameControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.ParameterNameControl.Multiline = false;
-            this.ParameterNameControl.Name = "ParameterNameControl";
-            this.ParameterNameControl.Size = new System.Drawing.Size(400, 50);
-            this.ParameterNameControl.TabIndex = 0;
-            this.ParameterNameControl.Text = "";
-            this.ParameterNameControl.TrailingIcon = null;
+            ParameterNameControl.AnimateReadOnly = false;
+            ParameterNameControl.BorderStyle = BorderStyle.None;
+            ParameterNameControl.Depth = 0;
+            ParameterNameControl.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterNameControl.Hint = "Parameter name";
+            ParameterNameControl.LeadingIcon = null;
+            ParameterNameControl.Location = new Point(25, 125);
+            ParameterNameControl.MaxLength = 50;
+            ParameterNameControl.MouseState = MaterialSkin.MouseState.OUT;
+            ParameterNameControl.Multiline = false;
+            ParameterNameControl.Name = "ParameterNameControl";
+            ParameterNameControl.Size = new Size(400, 50);
+            ParameterNameControl.TabIndex = 0;
+            ParameterNameControl.Text = "";
+            ParameterNameControl.TrailingIcon = null;
             // 
             // ParameterMethodControl
             // 
-            this.ParameterMethodControl.AnimateReadOnly = false;
-            this.ParameterMethodControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ParameterMethodControl.Depth = 0;
-            this.ParameterMethodControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterMethodControl.Hint = "Method";
-            this.ParameterMethodControl.LeadingIcon = null;
-            this.ParameterMethodControl.Location = new System.Drawing.Point(25, 214);
-            this.ParameterMethodControl.MaxLength = 50;
-            this.ParameterMethodControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.ParameterMethodControl.Multiline = false;
-            this.ParameterMethodControl.Name = "ParameterMethodControl";
-            this.ParameterMethodControl.Size = new System.Drawing.Size(400, 50);
-            this.ParameterMethodControl.TabIndex = 1;
-            this.ParameterMethodControl.Text = "";
-            this.ParameterMethodControl.TrailingIcon = null;
+            ParameterMethodControl.AnimateReadOnly = false;
+            ParameterMethodControl.BorderStyle = BorderStyle.None;
+            ParameterMethodControl.Depth = 0;
+            ParameterMethodControl.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterMethodControl.Hint = "Method";
+            ParameterMethodControl.LeadingIcon = null;
+            ParameterMethodControl.Location = new Point(25, 214);
+            ParameterMethodControl.MaxLength = 50;
+            ParameterMethodControl.MouseState = MaterialSkin.MouseState.OUT;
+            ParameterMethodControl.Multiline = false;
+            ParameterMethodControl.Name = "ParameterMethodControl";
+            ParameterMethodControl.Size = new Size(400, 50);
+            ParameterMethodControl.TabIndex = 1;
+            ParameterMethodControl.Text = "";
+            ParameterMethodControl.TrailingIcon = null;
             // 
             // ParameterSpecificationControl
             // 
-            this.ParameterSpecificationControl.AnimateReadOnly = false;
-            this.ParameterSpecificationControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ParameterSpecificationControl.Depth = 0;
-            this.ParameterSpecificationControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterSpecificationControl.Hint = "Maximum Specification";
-            this.ParameterSpecificationControl.LeadingIcon = null;
-            this.ParameterSpecificationControl.Location = new System.Drawing.Point(25, 478);
-            this.ParameterSpecificationControl.MaxLength = 50;
-            this.ParameterSpecificationControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.ParameterSpecificationControl.Multiline = false;
-            this.ParameterSpecificationControl.Name = "ParameterSpecificationControl";
-            this.ParameterSpecificationControl.Size = new System.Drawing.Size(400, 50);
-            this.ParameterSpecificationControl.TabIndex = 3;
-            this.ParameterSpecificationControl.Text = "";
-            this.ParameterSpecificationControl.TrailingIcon = null;
-            this.ParameterSpecificationControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ParameterSpecificationControl_KeyPress);
+            ParameterSpecificationControl.AnimateReadOnly = false;
+            ParameterSpecificationControl.BorderStyle = BorderStyle.None;
+            ParameterSpecificationControl.Depth = 0;
+            ParameterSpecificationControl.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterSpecificationControl.Hint = "Maximum Specification";
+            ParameterSpecificationControl.LeadingIcon = null;
+            ParameterSpecificationControl.Location = new Point(25, 478);
+            ParameterSpecificationControl.MaxLength = 50;
+            ParameterSpecificationControl.MouseState = MaterialSkin.MouseState.OUT;
+            ParameterSpecificationControl.Multiline = false;
+            ParameterSpecificationControl.Name = "ParameterSpecificationControl";
+            ParameterSpecificationControl.Size = new Size(400, 50);
+            ParameterSpecificationControl.TabIndex = 3;
+            ParameterSpecificationControl.Text = "";
+            ParameterSpecificationControl.TrailingIcon = null;
+            ParameterSpecificationControl.KeyPress += ParameterSpecificationControl_KeyPress;
             // 
             // SaveParameterControl
             // 
-            this.SaveParameterControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.SaveParameterControl.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            this.SaveParameterControl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveParameterControl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.SaveParameterControl.Depth = 0;
-            this.SaveParameterControl.HighEmphasis = true;
-            this.SaveParameterControl.Icon = null;
-            this.SaveParameterControl.Location = new System.Drawing.Point(193, 643);
-            this.SaveParameterControl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.SaveParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SaveParameterControl.Name = "SaveParameterControl";
-            this.SaveParameterControl.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.SaveParameterControl.Size = new System.Drawing.Size(64, 36);
-            this.SaveParameterControl.TabIndex = 5;
-            this.SaveParameterControl.Text = "Save";
-            this.SaveParameterControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.SaveParameterControl.UseAccentColor = true;
-            this.SaveParameterControl.UseVisualStyleBackColor = true;
-            this.SaveParameterControl.Click += new System.EventHandler(this.SaveParameterControl_Click);
+            SaveParameterControl.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            SaveParameterControl.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            SaveParameterControl.Cursor = Cursors.Hand;
+            SaveParameterControl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            SaveParameterControl.Depth = 0;
+            SaveParameterControl.HighEmphasis = true;
+            SaveParameterControl.Icon = null;
+            SaveParameterControl.Location = new Point(193, 643);
+            SaveParameterControl.Margin = new Padding(4, 6, 4, 6);
+            SaveParameterControl.MouseState = MaterialSkin.MouseState.HOVER;
+            SaveParameterControl.Name = "SaveParameterControl";
+            SaveParameterControl.NoAccentTextColor = Color.Empty;
+            SaveParameterControl.Size = new Size(64, 36);
+            SaveParameterControl.TabIndex = 5;
+            SaveParameterControl.Text = "Save";
+            SaveParameterControl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            SaveParameterControl.UseAccentColor = true;
+            SaveParameterControl.UseVisualStyleBackColor = true;
+            SaveParameterControl.Click += SaveParameterControl_Click;
             // 
             // ParameterNameErrorCaption
             // 
-            this.ParameterNameErrorCaption.AutoSize = true;
-            this.ParameterNameErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterNameErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterNameErrorCaption.Location = new System.Drawing.Point(25, 178);
-            this.ParameterNameErrorCaption.Name = "ParameterNameErrorCaption";
-            this.ParameterNameErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.ParameterNameErrorCaption.TabIndex = 19;
+            ParameterNameErrorCaption.AutoSize = true;
+            ParameterNameErrorCaption.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterNameErrorCaption.ForeColor = Color.Red;
+            ParameterNameErrorCaption.Location = new Point(25, 178);
+            ParameterNameErrorCaption.Name = "ParameterNameErrorCaption";
+            ParameterNameErrorCaption.Size = new Size(0, 16);
+            ParameterNameErrorCaption.TabIndex = 19;
             // 
             // ParameterMethodErrorCaption
             // 
-            this.ParameterMethodErrorCaption.AutoSize = true;
-            this.ParameterMethodErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterMethodErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterMethodErrorCaption.Location = new System.Drawing.Point(25, 267);
-            this.ParameterMethodErrorCaption.Name = "ParameterMethodErrorCaption";
-            this.ParameterMethodErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.ParameterMethodErrorCaption.TabIndex = 20;
+            ParameterMethodErrorCaption.AutoSize = true;
+            ParameterMethodErrorCaption.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterMethodErrorCaption.ForeColor = Color.Red;
+            ParameterMethodErrorCaption.Location = new Point(25, 267);
+            ParameterMethodErrorCaption.Name = "ParameterMethodErrorCaption";
+            ParameterMethodErrorCaption.Size = new Size(0, 16);
+            ParameterMethodErrorCaption.TabIndex = 20;
             // 
             // ParameterUnitErrorCaption
             // 
-            this.ParameterUnitErrorCaption.AutoSize = true;
-            this.ParameterUnitErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterUnitErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterUnitErrorCaption.Location = new System.Drawing.Point(25, 355);
-            this.ParameterUnitErrorCaption.Name = "ParameterUnitErrorCaption";
-            this.ParameterUnitErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.ParameterUnitErrorCaption.TabIndex = 21;
+            ParameterUnitErrorCaption.AutoSize = true;
+            ParameterUnitErrorCaption.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterUnitErrorCaption.ForeColor = Color.Red;
+            ParameterUnitErrorCaption.Location = new Point(25, 355);
+            ParameterUnitErrorCaption.Name = "ParameterUnitErrorCaption";
+            ParameterUnitErrorCaption.Size = new Size(0, 16);
+            ParameterUnitErrorCaption.TabIndex = 21;
             // 
             // ParameterSpecificationErrorCaption
             // 
-            this.ParameterSpecificationErrorCaption.AutoSize = true;
-            this.ParameterSpecificationErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterSpecificationErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterSpecificationErrorCaption.Location = new System.Drawing.Point(25, 532);
-            this.ParameterSpecificationErrorCaption.Name = "ParameterSpecificationErrorCaption";
-            this.ParameterSpecificationErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.ParameterSpecificationErrorCaption.TabIndex = 22;
+            ParameterSpecificationErrorCaption.AutoSize = true;
+            ParameterSpecificationErrorCaption.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterSpecificationErrorCaption.ForeColor = Color.Red;
+            ParameterSpecificationErrorCaption.Location = new Point(25, 532);
+            ParameterSpecificationErrorCaption.Name = "ParameterSpecificationErrorCaption";
+            ParameterSpecificationErrorCaption.Size = new Size(0, 16);
+            ParameterSpecificationErrorCaption.TabIndex = 22;
             // 
             // ParameterProductControl
             // 
-            this.ParameterProductControl.AutoResize = false;
-            this.ParameterProductControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ParameterProductControl.Depth = 0;
-            this.ParameterProductControl.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.ParameterProductControl.DropDownHeight = 174;
-            this.ParameterProductControl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ParameterProductControl.DropDownWidth = 121;
-            this.ParameterProductControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterProductControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ParameterProductControl.FormattingEnabled = true;
-            this.ParameterProductControl.Hint = "Product";
-            this.ParameterProductControl.IntegralHeight = false;
-            this.ParameterProductControl.ItemHeight = 43;
-            this.ParameterProductControl.Location = new System.Drawing.Point(25, 567);
-            this.ParameterProductControl.MaxDropDownItems = 4;
-            this.ParameterProductControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.ParameterProductControl.Name = "ParameterProductControl";
-            this.ParameterProductControl.Size = new System.Drawing.Size(400, 49);
-            this.ParameterProductControl.StartIndex = -1;
-            this.ParameterProductControl.TabIndex = 4;
+            ParameterProductControl.AutoResize = false;
+            ParameterProductControl.BackColor = Color.FromArgb(255, 255, 255);
+            ParameterProductControl.Depth = 0;
+            ParameterProductControl.DrawMode = DrawMode.OwnerDrawVariable;
+            ParameterProductControl.DropDownHeight = 174;
+            ParameterProductControl.DropDownStyle = ComboBoxStyle.DropDownList;
+            ParameterProductControl.DropDownWidth = 121;
+            ParameterProductControl.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            ParameterProductControl.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            ParameterProductControl.FormattingEnabled = true;
+            ParameterProductControl.Hint = "Product";
+            ParameterProductControl.IntegralHeight = false;
+            ParameterProductControl.ItemHeight = 43;
+            ParameterProductControl.Location = new Point(25, 567);
+            ParameterProductControl.MaxDropDownItems = 4;
+            ParameterProductControl.MouseState = MaterialSkin.MouseState.OUT;
+            ParameterProductControl.Name = "ParameterProductControl";
+            ParameterProductControl.Size = new Size(400, 49);
+            ParameterProductControl.StartIndex = -1;
+            ParameterProductControl.TabIndex = 4;
             // 
             // ParameterProductErrorCaption
             // 
-            this.ParameterProductErrorCaption.AutoSize = true;
-            this.ParameterProductErrorCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterProductErrorCaption.ForeColor = System.Drawing.Color.Red;
-            this.ParameterProductErrorCaption.Location = new System.Drawing.Point(25, 622);
-            this.ParameterProductErrorCaption.Name = "ParameterProductErrorCaption";
-            this.ParameterProductErrorCaption.Size = new System.Drawing.Size(0, 15);
-            this.ParameterProductErrorCaption.TabIndex = 25;
+            ParameterProductErrorCaption.AutoSize = true;
+            ParameterProductErrorCaption.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterProductErrorCaption.ForeColor = Color.Red;
+            ParameterProductErrorCaption.Location = new Point(25, 622);
+            ParameterProductErrorCaption.Name = "ParameterProductErrorCaption";
+            ParameterProductErrorCaption.Size = new Size(0, 16);
+            ParameterProductErrorCaption.TabIndex = 25;
             // 
             // ParameterUnitControl
             // 
-            this.ParameterUnitControl.AnimateReadOnly = false;
-            this.ParameterUnitControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ParameterUnitControl.Depth = 0;
-            this.ParameterUnitControl.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.ParameterUnitControl.Hint = "Unit";
-            this.ParameterUnitControl.LeadingIcon = null;
-            this.ParameterUnitControl.Location = new System.Drawing.Point(25, 303);
-            this.ParameterUnitControl.MaxLength = 50;
-            this.ParameterUnitControl.MouseState = MaterialSkin.MouseState.OUT;
-            this.ParameterUnitControl.Multiline = false;
-            this.ParameterUnitControl.Name = "ParameterUnitControl";
-            this.ParameterUnitControl.Size = new System.Drawing.Size(400, 50);
-            this.ParameterUnitControl.TabIndex = 2;
-            this.ParameterUnitControl.Text = "";
-            this.ParameterUnitControl.TrailingIcon = null;
+            ParameterUnitControl.AnimateReadOnly = false;
+            ParameterUnitControl.BorderStyle = BorderStyle.None;
+            ParameterUnitControl.Depth = 0;
+            ParameterUnitControl.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            ParameterUnitControl.Hint = "Unit";
+            ParameterUnitControl.LeadingIcon = null;
+            ParameterUnitControl.Location = new Point(25, 303);
+            ParameterUnitControl.MaxLength = 50;
+            ParameterUnitControl.MouseState = MaterialSkin.MouseState.OUT;
+            ParameterUnitControl.Multiline = false;
+            ParameterUnitControl.Name = "ParameterUnitControl";
+            ParameterUnitControl.Size = new Size(400, 50);
+            ParameterUnitControl.TabIndex = 2;
+            ParameterUnitControl.Text = "";
+            ParameterUnitControl.TrailingIcon = null;
             // 
             // materialTextBoxMinimumSpecification
             // 
-            this.materialTextBoxMinimumSpecification.AnimateReadOnly = false;
-            this.materialTextBoxMinimumSpecification.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBoxMinimumSpecification.Depth = 0;
-            this.materialTextBoxMinimumSpecification.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBoxMinimumSpecification.Hint = "Minimum Specification (Optional)";
-            this.materialTextBoxMinimumSpecification.LeadingIcon = null;
-            this.materialTextBoxMinimumSpecification.Location = new System.Drawing.Point(25, 390);
-            this.materialTextBoxMinimumSpecification.MaxLength = 50;
-            this.materialTextBoxMinimumSpecification.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBoxMinimumSpecification.Multiline = false;
-            this.materialTextBoxMinimumSpecification.Name = "materialTextBoxMinimumSpecification";
-            this.materialTextBoxMinimumSpecification.Size = new System.Drawing.Size(400, 50);
-            this.materialTextBoxMinimumSpecification.TabIndex = 26;
-            this.materialTextBoxMinimumSpecification.Text = "";
-            this.materialTextBoxMinimumSpecification.TrailingIcon = null;
-            this.materialTextBoxMinimumSpecification.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.materialTextBoxMinimumSpecification_KeyPress);
+            materialTextBoxMinimumSpecification.AnimateReadOnly = false;
+            materialTextBoxMinimumSpecification.BorderStyle = BorderStyle.None;
+            materialTextBoxMinimumSpecification.Depth = 0;
+            materialTextBoxMinimumSpecification.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBoxMinimumSpecification.Hint = "Minimum Specification (Optional)";
+            materialTextBoxMinimumSpecification.LeadingIcon = null;
+            materialTextBoxMinimumSpecification.Location = new Point(25, 390);
+            materialTextBoxMinimumSpecification.MaxLength = 50;
+            materialTextBoxMinimumSpecification.MouseState = MaterialSkin.MouseState.OUT;
+            materialTextBoxMinimumSpecification.Multiline = false;
+            materialTextBoxMinimumSpecification.Name = "materialTextBoxMinimumSpecification";
+            materialTextBoxMinimumSpecification.Size = new Size(400, 50);
+            materialTextBoxMinimumSpecification.TabIndex = 26;
+            materialTextBoxMinimumSpecification.Text = "";
+            materialTextBoxMinimumSpecification.TrailingIcon = null;
+            materialTextBoxMinimumSpecification.KeyPress += materialTextBoxMinimumSpecification_KeyPress;
             // 
             // CreateProductParameter
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(450, 700);
-            this.Controls.Add(this.materialTextBoxMinimumSpecification);
-            this.Controls.Add(this.ParameterUnitControl);
-            this.Controls.Add(this.ParameterProductErrorCaption);
-            this.Controls.Add(this.ParameterProductControl);
-            this.Controls.Add(this.ParameterSpecificationErrorCaption);
-            this.Controls.Add(this.ParameterUnitErrorCaption);
-            this.Controls.Add(this.ParameterMethodErrorCaption);
-            this.Controls.Add(this.ParameterNameErrorCaption);
-            this.Controls.Add(this.SaveParameterControl);
-            this.Controls.Add(this.ParameterSpecificationControl);
-            this.Controls.Add(this.ParameterMethodControl);
-            this.Controls.Add(this.ParameterNameControl);
-            this.ForeColor = System.Drawing.Color.Red;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CreateProductParameter";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Product Parameter";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(450, 700);
+            Controls.Add(materialTextBoxMinimumSpecification);
+            Controls.Add(ParameterUnitControl);
+            Controls.Add(ParameterProductErrorCaption);
+            Controls.Add(ParameterProductControl);
+            Controls.Add(ParameterSpecificationErrorCaption);
+            Controls.Add(ParameterUnitErrorCaption);
+            Controls.Add(ParameterMethodErrorCaption);
+            Controls.Add(ParameterNameErrorCaption);
+            Controls.Add(SaveParameterControl);
+            Controls.Add(ParameterSpecificationControl);
+            Controls.Add(ParameterMethodControl);
+            Controls.Add(ParameterNameControl);
+            ForeColor = Color.Red;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "CreateProductParameter";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Create Product Parameter";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

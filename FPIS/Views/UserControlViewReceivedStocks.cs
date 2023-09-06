@@ -111,7 +111,7 @@ namespace FPIS.Views
                 var itemsToIssue = from StockItem in dbContext.StockItems
                                    from ReceivedStock in dbContext.ReceivedStocks
                                    where StockItem.Id == ReceivedStock.StockItemId
-                                   orderby ReceivedStock.ReceivedDate
+                                   orderby ReceivedStock.ReceivedDate descending
                                    //where ReceivedStock.QuantityAvailable > 0
                                    select new
                                    {
@@ -158,7 +158,7 @@ namespace FPIS.Views
                                    from ReceivedStock in dbContext.ReceivedStocks
                                    where StockItem.Id == ReceivedStock.StockItemId
                                    where StockItem.StockItemType == itemCategory
-                                   orderby ReceivedStock.ReceivedDate
+                                   orderby ReceivedStock.ReceivedDate descending
                                    //where ReceivedStock.QuantityAvailable > 0
                                    select new
                                    {
@@ -199,7 +199,7 @@ namespace FPIS.Views
                                    from ReceivedStock in dbContext.ReceivedStocks
                                    where StockItem.Id == ReceivedStock.StockItemId
                                    where ReceivedStock.ReceivedDate >= fromDate && ReceivedStock.ReceivedDate <= toDate
-                                   orderby ReceivedStock.ReceivedDate
+                                   orderby ReceivedStock.ReceivedDate descending
                                    //where ReceivedStock.QuantityAvailable > 0
                                    select new
                                    {
@@ -240,7 +240,7 @@ namespace FPIS.Views
                                    from ReceivedStock in dbContext.ReceivedStocks
                                    where StockItem.Id == ReceivedStock.StockItemId
                                    where ReceivedStock.ReceivedDate >= fromDate && ReceivedStock.ReceivedDate <= toDate && StockItem.StockItemType == itemCategory   
-                                   orderby ReceivedStock.ReceivedDate
+                                   orderby ReceivedStock.ReceivedDate descending
                                    //where ReceivedStock.QuantityAvailable > 0
                                    select new
                                    {

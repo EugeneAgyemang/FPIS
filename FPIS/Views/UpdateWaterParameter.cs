@@ -68,7 +68,7 @@ namespace FPIS.Views
 
         string _unit;
         float? _minimumControlLimit;
-        float _maximumControlLimit;
+        string _maximumControlLimit;
         private void LoadSelectedParameterSpecification(WaterParameter waterParameter)
         {
             if (waterParameter == null)
@@ -106,13 +106,13 @@ namespace FPIS.Views
             else if (minimumControlLimitControl.Text.Length != 0 && maximumControlLimitControl.Text.Length == 0)
             {
                 newMinControlLimit = float.Parse(minimumControlLimitControl.Text);
-                if (newMinControlLimit == _maximumControlLimit)
+                if (newMinControlLimit == float.Parse(_maximumControlLimit))
                 {
                     MessageBox.Show("Minimum and Maximum Control Limit Values cannot be equal", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     _isDataValid = false;
                     return;
                 }
-                else if (newMinControlLimit > _maximumControlLimit)
+                else if (newMinControlLimit > float.Parse(_maximumControlLimit))
                 {
                     MessageBox.Show("Minimum Control Limit cannot be greater than Maximum Control Limit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     _isDataValid = false;
@@ -146,7 +146,11 @@ namespace FPIS.Views
             }
             else
             {
-                CompareControlLimitValues();
+                if(maximumControlLimitControl.Text != "-")
+                {
+                    CompareControlLimitValues();
+                }
+                
             }
         }
 
@@ -183,15 +187,15 @@ namespace FPIS.Views
                 Guid parameterId = waterParameter.Id;
                 if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length != 0))
                 {
-                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text ,newControlLimit, newMinControlLimit);
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text ,newControlLimit.ToString(), newMinControlLimit);
                 }
                 else if ((unitControl.Text.Length == 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length != 0))
                 {
-                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit, newMinControlLimit);
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit.ToString(), newMinControlLimit);
                 }
                 else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length != 0))
                 {
-                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, newControlLimit, _minimumControlLimit);
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, newControlLimit.ToString(), _minimumControlLimit);
                 }
                 else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length == 0))
                 {
@@ -207,7 +211,7 @@ namespace FPIS.Views
                 }
                 else if ((unitControl.Text.Length == 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length != 0))
                 {
-                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit, _minimumControlLimit);
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit.ToString(), _minimumControlLimit);
                 }
                 else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length != 0) && (maximumControlLimitControl.Text.Length == 0))
                 {
@@ -215,11 +219,11 @@ namespace FPIS.Views
                 }
                 else if ((unitControl.Text.Length != 0) && (minimumControlLimitControl.Text.Length == 0) && (maximumControlLimitControl.Text.Length != 0))
                 {
-                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, newControlLimit, _minimumControlLimit);
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, unitControl.Text, newControlLimit.ToString(), _minimumControlLimit);
                 }
                 else
                 {
-                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit, newMinControlLimit);
+                    new WaterParameterService(new()).UpdateParameterControlLimit(parameterId, _unit, newControlLimit.ToString(), newMinControlLimit);
                 }
                 Utils.Utils.ShowMessageBox($"The control limit for {waterParameter} was updated successfully!", "Update Control Limit", MessageBoxButtons.OK);
                 ResetFields();
@@ -322,7 +326,7 @@ namespace FPIS.Views
 
         private void maximumControlLimitControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+            e.Handled = Utils.Utils.IsCharacterPressedHandledForSpecifications(e.KeyChar);
         }
     }
 }

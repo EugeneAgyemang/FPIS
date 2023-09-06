@@ -147,7 +147,7 @@
             // 
             labelFFAMassOfSampleTakenError.AutoSize = true;
             labelFFAMassOfSampleTakenError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFFAMassOfSampleTakenError.Location = new Point(54, 276);
+            labelFFAMassOfSampleTakenError.Location = new Point(54, 185);
             labelFFAMassOfSampleTakenError.Name = "labelFFAMassOfSampleTakenError";
             labelFFAMassOfSampleTakenError.Size = new Size(73, 20);
             labelFFAMassOfSampleTakenError.TabIndex = 35;
@@ -157,7 +157,7 @@
             // 
             labelFFATitreValueError.AutoSize = true;
             labelFFATitreValueError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFFATitreValueError.Location = new Point(54, 184);
+            labelFFATitreValueError.Location = new Point(54, 279);
             labelFFATitreValueError.Name = "labelFFATitreValueError";
             labelFFATitreValueError.Size = new Size(73, 20);
             labelFFATitreValueError.TabIndex = 34;
@@ -228,7 +228,7 @@
             materialTextBoxMassOfSampleTaken.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfSampleTaken.Hint = "Mass of Sample Taken";
             materialTextBoxMassOfSampleTaken.LeadingIcon = null;
-            materialTextBoxMassOfSampleTaken.Location = new Point(54, 207);
+            materialTextBoxMassOfSampleTaken.Location = new Point(54, 129);
             materialTextBoxMassOfSampleTaken.MaxLength = 50;
             materialTextBoxMassOfSampleTaken.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfSampleTaken.Multiline = false;
@@ -247,7 +247,7 @@
             materialTextBoxTitreValueForFFA.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxTitreValueForFFA.Hint = "Titre Value";
             materialTextBoxTitreValueForFFA.LeadingIcon = null;
-            materialTextBoxTitreValueForFFA.Location = new Point(54, 115);
+            materialTextBoxTitreValueForFFA.Location = new Point(54, 225);
             materialTextBoxTitreValueForFFA.MaxLength = 50;
             materialTextBoxTitreValueForFFA.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxTitreValueForFFA.Multiline = false;
@@ -283,7 +283,7 @@
             // 
             labelAcetoneContentMassOfGlasswareUsedError.AutoSize = true;
             labelAcetoneContentMassOfGlasswareUsedError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelAcetoneContentMassOfGlasswareUsedError.Location = new Point(42, 365);
+            labelAcetoneContentMassOfGlasswareUsedError.Location = new Point(42, 174);
             labelAcetoneContentMassOfGlasswareUsedError.Name = "labelAcetoneContentMassOfGlasswareUsedError";
             labelAcetoneContentMassOfGlasswareUsedError.Size = new Size(73, 20);
             labelAcetoneContentMassOfGlasswareUsedError.TabIndex = 39;
@@ -293,7 +293,7 @@
             // 
             labelAcetoneContentMassOfUnevaporatedSampleError.AutoSize = true;
             labelAcetoneContentMassOfUnevaporatedSampleError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelAcetoneContentMassOfUnevaporatedSampleError.Location = new Point(42, 276);
+            labelAcetoneContentMassOfUnevaporatedSampleError.Location = new Point(42, 267);
             labelAcetoneContentMassOfUnevaporatedSampleError.Name = "labelAcetoneContentMassOfUnevaporatedSampleError";
             labelAcetoneContentMassOfUnevaporatedSampleError.Size = new Size(73, 20);
             labelAcetoneContentMassOfUnevaporatedSampleError.TabIndex = 38;
@@ -303,7 +303,7 @@
             // 
             labelAcetoneContentMassOfEvaporatedSampleError.AutoSize = true;
             labelAcetoneContentMassOfEvaporatedSampleError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelAcetoneContentMassOfEvaporatedSampleError.Location = new Point(42, 184);
+            labelAcetoneContentMassOfEvaporatedSampleError.Location = new Point(42, 366);
             labelAcetoneContentMassOfEvaporatedSampleError.Name = "labelAcetoneContentMassOfEvaporatedSampleError";
             labelAcetoneContentMassOfEvaporatedSampleError.Size = new Size(73, 20);
             labelAcetoneContentMassOfEvaporatedSampleError.TabIndex = 37;
@@ -339,7 +339,7 @@
             materialTextBoxMassOfGlasswareUsed.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfGlasswareUsed.Hint = "Mass of Glassware Used";
             materialTextBoxMassOfGlasswareUsed.LeadingIcon = null;
-            materialTextBoxMassOfGlasswareUsed.Location = new Point(42, 299);
+            materialTextBoxMassOfGlasswareUsed.Location = new Point(42, 112);
             materialTextBoxMassOfGlasswareUsed.MaxLength = 50;
             materialTextBoxMassOfGlasswareUsed.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfGlasswareUsed.Multiline = false;
@@ -412,7 +412,7 @@
             materialTextBoxMassOfEvaporatedSample.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfEvaporatedSample.Hint = "Mass of Evaporated Sample";
             materialTextBoxMassOfEvaporatedSample.LeadingIcon = null;
-            materialTextBoxMassOfEvaporatedSample.Location = new Point(42, 115);
+            materialTextBoxMassOfEvaporatedSample.Location = new Point(42, 300);
             materialTextBoxMassOfEvaporatedSample.MaxLength = 50;
             materialTextBoxMassOfEvaporatedSample.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfEvaporatedSample.Multiline = false;
@@ -448,7 +448,7 @@
             // 
             labelIVMassOfTestSampleError.AutoSize = true;
             labelIVMassOfTestSampleError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIVMassOfTestSampleError.Location = new Point(42, 368);
+            labelIVMassOfTestSampleError.Location = new Point(42, 174);
             labelIVMassOfTestSampleError.Name = "labelIVMassOfTestSampleError";
             labelIVMassOfTestSampleError.Size = new Size(73, 20);
             labelIVMassOfTestSampleError.TabIndex = 43;
@@ -458,7 +458,7 @@
             // 
             labelIVTitreValueError.AutoSize = true;
             labelIVTitreValueError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIVTitreValueError.Location = new Point(45, 276);
+            labelIVTitreValueError.Location = new Point(45, 369);
             labelIVTitreValueError.Name = "labelIVTitreValueError";
             labelIVTitreValueError.Size = new Size(73, 20);
             labelIVTitreValueError.TabIndex = 42;
@@ -468,7 +468,7 @@
             // 
             labelIVBlankValueError.AutoSize = true;
             labelIVBlankValueError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIVBlankValueError.Location = new Point(42, 184);
+            labelIVBlankValueError.Location = new Point(42, 271);
             labelIVBlankValueError.Name = "labelIVBlankValueError";
             labelIVBlankValueError.Size = new Size(73, 20);
             labelIVBlankValueError.TabIndex = 41;
@@ -504,7 +504,7 @@
             materialTextBoxMassOfTestSampleIV.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfTestSampleIV.Hint = "Mass of Test Sample";
             materialTextBoxMassOfTestSampleIV.LeadingIcon = null;
-            materialTextBoxMassOfTestSampleIV.Location = new Point(42, 299);
+            materialTextBoxMassOfTestSampleIV.Location = new Point(42, 108);
             materialTextBoxMassOfTestSampleIV.MaxLength = 50;
             materialTextBoxMassOfTestSampleIV.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfTestSampleIV.Multiline = false;
@@ -558,7 +558,7 @@
             materialTextBoxTitreValueForIV.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxTitreValueForIV.Hint = "Titre Value";
             materialTextBoxTitreValueForIV.LeadingIcon = null;
-            materialTextBoxTitreValueForIV.Location = new Point(42, 207);
+            materialTextBoxTitreValueForIV.Location = new Point(42, 300);
             materialTextBoxTitreValueForIV.MaxLength = 50;
             materialTextBoxTitreValueForIV.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxTitreValueForIV.Multiline = false;
@@ -577,7 +577,7 @@
             materialTextBoxBlankValue.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxBlankValue.Hint = "Blank Value";
             materialTextBoxBlankValue.LeadingIcon = null;
-            materialTextBoxBlankValue.Location = new Point(42, 115);
+            materialTextBoxBlankValue.Location = new Point(42, 202);
             materialTextBoxBlankValue.MaxLength = 50;
             materialTextBoxBlankValue.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxBlankValue.Multiline = false;
@@ -613,7 +613,7 @@
             // 
             labelMassOfEmptyPanError.AutoSize = true;
             labelMassOfEmptyPanError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelMassOfEmptyPanError.Location = new Point(45, 365);
+            labelMassOfEmptyPanError.Location = new Point(45, 178);
             labelMassOfEmptyPanError.Name = "labelMassOfEmptyPanError";
             labelMassOfEmptyPanError.Size = new Size(73, 20);
             labelMassOfEmptyPanError.TabIndex = 44;
@@ -633,7 +633,7 @@
             // 
             labelMassofDriedSampleError.AutoSize = true;
             labelMassofDriedSampleError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelMassofDriedSampleError.Location = new Point(45, 184);
+            labelMassofDriedSampleError.Location = new Point(45, 369);
             labelMassofDriedSampleError.Name = "labelMassofDriedSampleError";
             labelMassofDriedSampleError.Size = new Size(73, 20);
             labelMassofDriedSampleError.TabIndex = 42;
@@ -669,7 +669,7 @@
             materialTextBoxMassOfEmptyPan.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfEmptyPan.Hint = "Mass of Empty Pan";
             materialTextBoxMassOfEmptyPan.LeadingIcon = null;
-            materialTextBoxMassOfEmptyPan.Location = new Point(45, 299);
+            materialTextBoxMassOfEmptyPan.Location = new Point(45, 112);
             materialTextBoxMassOfEmptyPan.MaxLength = 50;
             materialTextBoxMassOfEmptyPan.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfEmptyPan.Multiline = false;
@@ -742,7 +742,7 @@
             materialTextBoxMassOfDriedSample.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfDriedSample.Hint = "Mass of Dried Sample";
             materialTextBoxMassOfDriedSample.LeadingIcon = null;
-            materialTextBoxMassOfDriedSample.Location = new Point(42, 115);
+            materialTextBoxMassOfDriedSample.Location = new Point(42, 300);
             materialTextBoxMassOfDriedSample.MaxLength = 50;
             materialTextBoxMassOfDriedSample.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfDriedSample.Multiline = false;
@@ -788,7 +788,7 @@
             // 
             labelFatContentMassOfGlasswareUsedError.AutoSize = true;
             labelFatContentMassOfGlasswareUsedError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFatContentMassOfGlasswareUsedError.Location = new Point(42, 276);
+            labelFatContentMassOfGlasswareUsedError.Location = new Point(42, 175);
             labelFatContentMassOfGlasswareUsedError.Name = "labelFatContentMassOfGlasswareUsedError";
             labelFatContentMassOfGlasswareUsedError.Size = new Size(73, 20);
             labelFatContentMassOfGlasswareUsedError.TabIndex = 44;
@@ -798,7 +798,7 @@
             // 
             labelFatContentMassOfExtractedOilError.AutoSize = true;
             labelFatContentMassOfExtractedOilError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFatContentMassOfExtractedOilError.Location = new Point(42, 184);
+            labelFatContentMassOfExtractedOilError.Location = new Point(42, 271);
             labelFatContentMassOfExtractedOilError.Name = "labelFatContentMassOfExtractedOilError";
             labelFatContentMassOfExtractedOilError.Size = new Size(73, 20);
             labelFatContentMassOfExtractedOilError.TabIndex = 43;
@@ -886,9 +886,9 @@
             materialTextBoxMassOfGlasswareFatContent.BorderStyle = BorderStyle.None;
             materialTextBoxMassOfGlasswareFatContent.Depth = 0;
             materialTextBoxMassOfGlasswareFatContent.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBoxMassOfGlasswareFatContent.Hint = "Mass of Glassware Used";
+            materialTextBoxMassOfGlasswareFatContent.Hint = "Mass of Glassware with Oil";
             materialTextBoxMassOfGlasswareFatContent.LeadingIcon = null;
-            materialTextBoxMassOfGlasswareFatContent.Location = new Point(42, 207);
+            materialTextBoxMassOfGlasswareFatContent.Location = new Point(42, 106);
             materialTextBoxMassOfGlasswareFatContent.MaxLength = 50;
             materialTextBoxMassOfGlasswareFatContent.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfGlasswareFatContent.Multiline = false;
@@ -907,7 +907,7 @@
             materialTextBoxMassOfExtractedOil.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfExtractedOil.Hint = "Mass of Extracted Oil";
             materialTextBoxMassOfExtractedOil.LeadingIcon = null;
-            materialTextBoxMassOfExtractedOil.Location = new Point(42, 115);
+            materialTextBoxMassOfExtractedOil.Location = new Point(42, 202);
             materialTextBoxMassOfExtractedOil.MaxLength = 50;
             materialTextBoxMassOfExtractedOil.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfExtractedOil.Multiline = false;
@@ -943,7 +943,7 @@
             // 
             labelPVMassOfTestSampleError.AutoSize = true;
             labelPVMassOfTestSampleError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPVMassOfTestSampleError.Location = new Point(42, 365);
+            labelPVMassOfTestSampleError.Location = new Point(42, 177);
             labelPVMassOfTestSampleError.Name = "labelPVMassOfTestSampleError";
             labelPVMassOfTestSampleError.Size = new Size(73, 20);
             labelPVMassOfTestSampleError.TabIndex = 46;
@@ -953,7 +953,7 @@
             // 
             labelPVVolumeOFTitrantOFBlankError.AutoSize = true;
             labelPVVolumeOFTitrantOFBlankError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPVVolumeOFTitrantOFBlankError.Location = new Point(42, 276);
+            labelPVVolumeOFTitrantOFBlankError.Location = new Point(42, 370);
             labelPVVolumeOFTitrantOFBlankError.Name = "labelPVVolumeOFTitrantOFBlankError";
             labelPVVolumeOFTitrantOFBlankError.Size = new Size(73, 20);
             labelPVVolumeOFTitrantOFBlankError.TabIndex = 45;
@@ -963,7 +963,7 @@
             // 
             labelPVVolumeOfTitrantOfSampleError.AutoSize = true;
             labelPVVolumeOfTitrantOfSampleError.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            labelPVVolumeOfTitrantOfSampleError.Location = new Point(42, 184);
+            labelPVVolumeOfTitrantOfSampleError.Location = new Point(42, 273);
             labelPVVolumeOfTitrantOfSampleError.Name = "labelPVVolumeOfTitrantOfSampleError";
             labelPVVolumeOfTitrantOfSampleError.Size = new Size(73, 20);
             labelPVVolumeOfTitrantOfSampleError.TabIndex = 44;
@@ -999,7 +999,7 @@
             materialTextBoxMassOfTestSamplePV.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxMassOfTestSamplePV.Hint = "Mass of Test Sample";
             materialTextBoxMassOfTestSamplePV.LeadingIcon = null;
-            materialTextBoxMassOfTestSamplePV.Location = new Point(42, 299);
+            materialTextBoxMassOfTestSamplePV.Location = new Point(42, 111);
             materialTextBoxMassOfTestSamplePV.MaxLength = 50;
             materialTextBoxMassOfTestSamplePV.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxMassOfTestSamplePV.Multiline = false;
@@ -1053,7 +1053,7 @@
             materialTextBoxVolumeOfTitrantOfBlank.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxVolumeOfTitrantOfBlank.Hint = "Volume of Titrant of Blank";
             materialTextBoxVolumeOfTitrantOfBlank.LeadingIcon = null;
-            materialTextBoxVolumeOfTitrantOfBlank.Location = new Point(42, 207);
+            materialTextBoxVolumeOfTitrantOfBlank.Location = new Point(42, 301);
             materialTextBoxVolumeOfTitrantOfBlank.MaxLength = 50;
             materialTextBoxVolumeOfTitrantOfBlank.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxVolumeOfTitrantOfBlank.Multiline = false;
@@ -1072,7 +1072,7 @@
             materialTextBoxVolumeOfTitrantSample.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxVolumeOfTitrantSample.Hint = "Volume of Titrant of Sample";
             materialTextBoxVolumeOfTitrantSample.LeadingIcon = null;
-            materialTextBoxVolumeOfTitrantSample.Location = new Point(42, 115);
+            materialTextBoxVolumeOfTitrantSample.Location = new Point(42, 204);
             materialTextBoxVolumeOfTitrantSample.MaxLength = 50;
             materialTextBoxVolumeOfTitrantSample.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBoxVolumeOfTitrantSample.Multiline = false;
@@ -1143,7 +1143,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoScrollMinSize = new Size(0, 1096);
-            ClientSize = new Size(1341, 1102);
+            ClientSize = new Size(1370, 1102);
             Controls.Add(groupBox7);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
@@ -1156,6 +1156,7 @@
             MaximizeBox = false;
             Name = "AnalysisCalculatorForm";
             Padding = new Padding(3, 85, 3, 4);
+            Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Analysis Calculator";
             groupBox1.ResumeLayout(false);

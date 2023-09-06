@@ -475,8 +475,9 @@ namespace FPIS.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
-                    b.Property<float>("Specification")
-                        .HasColumnType("real");
+                    b.Property<string>("Specification")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Unit")
                         .IsRequired()
@@ -760,8 +761,8 @@ namespace FPIS.Migrations
                     b.Property<Guid>("SampleResultDetailId")
                         .HasColumnType("uuid");
 
-                    b.Property<float?>("Value")
-                        .HasColumnType("real");
+                    b.Property<string>("Value")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -876,8 +877,9 @@ namespace FPIS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<float>("ControlLimit")
-                        .HasColumnType("real");
+                    b.Property<string>("ControlLimit")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<float?>("MinimumControlLimit")
                         .HasColumnType("real");

@@ -102,7 +102,7 @@ namespace FPIS.Views
                             Value = item?.ParameterValue,
                             Remarks = item?.Remarks,
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                            ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
+                            ControlLimit = $"{(waterAnalysisParameter.WaterParameter.ControlLimit == "0" ? "-": waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = true,
                         });
                     }
@@ -115,7 +115,7 @@ namespace FPIS.Views
                             Value = item?.ParameterValue,
                             Remarks = item?.Remarks,
                             Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                            ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
+                            ControlLimit = $"{(waterAnalysisParameter.WaterParameter.ControlLimit == "0" ? "-" : waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                             shouldUpdate = false,
                         });
                     }
@@ -136,7 +136,7 @@ namespace FPIS.Views
                         Value = item?.ParameterValue,
                         Remarks = item?.Remarks,
                         Name = waterAnalysisParameter.WaterParameter.ParameterName,
-                        ControlLimit = $"{(waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
+                        ControlLimit = $"{(waterAnalysisParameter.WaterParameter.ControlLimit == "0" ? "-" : waterAnalysisParameter.WaterParameter.MinimumControlLimit == null ? "<= " + waterAnalysisParameter.WaterParameter.ControlLimit : waterAnalysisParameter.WaterParameter.MinimumControlLimit + " - " + waterAnalysisParameter.WaterParameter.ControlLimit)}",
                         shouldUpdate = false,
                     });
 
@@ -168,7 +168,7 @@ namespace FPIS.Views
                             Method = productAnalysisParameter.ProductParameter.Method,
                             Name = productAnalysisParameter.ProductParameter.ParameterName,
                             Remarks = item?.Remarks,
-                            Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
+                            Specification = $"{(productAnalysisParameter.ProductParameter.Specification == "0" ? "-": productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                             shouldUpdate = true,
                         });
                     }
@@ -182,7 +182,7 @@ namespace FPIS.Views
                             Unit = productAnalysisParameter.ProductParameter.Unit,
                             Method = productAnalysisParameter.ProductParameter.Method,
                             Name = productAnalysisParameter.ProductParameter.ParameterName,
-                            Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
+                            Specification = $"{(productAnalysisParameter.ProductParameter.Specification == "0" ? "-" : productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                             shouldUpdate = false,
                         });
                     }
@@ -203,7 +203,7 @@ namespace FPIS.Views
                         Unit = productAnalysisParameter.ProductParameter.Unit,
                         Method = productAnalysisParameter.ProductParameter.Method,
                         Name = productAnalysisParameter.ProductParameter.ParameterName,
-                        Specification = $"{(productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
+                        Specification = $"{(productAnalysisParameter.ProductParameter.Specification == "0" ? "-" : productAnalysisParameter.ProductParameter.MinimumSpecification == null ? "<= " + productAnalysisParameter.ProductParameter.Specification : productAnalysisParameter.ProductParameter.MinimumSpecification + " - " + productAnalysisParameter.ProductParameter.Specification)}",
                         shouldUpdate = false,
                     });
 
@@ -235,13 +235,13 @@ namespace FPIS.Views
                 }
                 foreach (char letter in enteredValue)
                 {
-                    if (Char.IsLetter(letter))
-                    {
-                        Utils.Utils.ShowMessageBox("Kindly enter a valid value", "Invalid Value");
-                        activeRow.Cells["parameterValue"].Value = string.Empty;
-                        shouldProceed = false;
-                        return;
-                    }
+                    //if (Char.IsLetter(letter))
+                    //{
+                    //    Utils.Utils.ShowMessageBox("Kindly enter a valid value", "Invalid Value");
+                    //    activeRow.Cells["parameterValue"].Value = string.Empty;
+                    //    shouldProceed = false;
+                    //    return;
+                    //}
                 }
 
                 AnalysisSampleParameterBindingItem? selectedItem =
