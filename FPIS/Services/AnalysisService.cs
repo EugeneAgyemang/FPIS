@@ -287,7 +287,10 @@ namespace FPIS.Services
                 {
                     _dbContext.SampleResultsDetailsWithParameters
                     .Where(it => it.Id == sr.Id)
-                    .ExecuteUpdate(it => it.SetProperty(resultWithParam => resultWithParam.Value, sr.Value));
+                    .ExecuteUpdate(it =>
+                            it.SetProperty(resultWithParam => resultWithParam.Value, sr.Value)
+                            .SetProperty(resultWithParam => resultWithParam.Remarks, sr.Remarks)
+                    );
                 });
 
                 if (itemsToInsert.Count > 0)

@@ -418,6 +418,8 @@ namespace FPIS.Views
                                 .Select(paramWithValue => new SampleResultsDetailsWithParameter()
                                 {
                                     Id = new Guid(paramWithValue.AnalysisResultWithParameterId),
+
+                                    Remarks = paramWithValue.Remarks,
                                     Value = string.IsNullOrEmpty(paramWithValue.ParameterValue) != true ? paramWithValue.ParameterValue : null
                                 })
                             );
@@ -429,6 +431,7 @@ namespace FPIS.Views
                                     Value = string.IsNullOrEmpty(pmw.ParameterValue) != true ? pmw.ParameterValue : null,
                                     SampleResultDetailId = sampleItem.Id,
                                     AnalysisParameterId = new Guid(pmw.ParameterId),
+                                    Remarks = pmw.Remarks
                                 }).ToList();
                         }
                     });
