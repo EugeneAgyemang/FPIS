@@ -8,10 +8,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>FPIS.Program</StartupObject>
     <ApplicationIcon>fpis_icon.ico</ApplicationIcon>
+    <Version>1.0.1</Version>
+    <PackageIcon>fpis logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="fpis_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Downloads\fpis logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
