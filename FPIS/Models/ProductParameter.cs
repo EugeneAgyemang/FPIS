@@ -11,7 +11,7 @@ namespace FPIS.Models
         public string ParameterName { get; set; }
         public string Unit { get; set; }
         public string Method { get; set; }
-        public float Specification { get; set; }
+        public string Specification { get; set; }
         public float? MinimumSpecification { get; set; } 
 
         // Navigation Properties

@@ -496,7 +496,7 @@ namespace FPIS.Views
                 _isDataValid = true;
                 return;
             }
-            double AcetoneContentResult = ((float.Parse(massOfEvaporatedSample) - float.Parse(massOfUnevaporatedSample)) /
+            double AcetoneContentResult = ((float.Parse(massOfUnevaporatedSample) - float.Parse(massOfEvaporatedSample)) /
                 (float.Parse(massOfUnevaporatedSample) - float.Parse(massOfglasswareUsed))) * 100;
             textBoxAcetoneContentResult.Text = Math.Round(AcetoneContentResult, 2).ToString() + "%";
         }
@@ -548,7 +548,7 @@ namespace FPIS.Views
                 _isDataValid = true;
                 return;
             }
-            double moistureContent = ((float.Parse(massOfDriedSample) - float.Parse(massOfUndriedSample)) /
+            double moistureContent = ((float.Parse(massOfUndriedSample) - float.Parse(massOfDriedSample)) /
                 (float.Parse(massOfUndriedSample) - float.Parse(massOfEmptyPan))) * 100;
             textBoxMoistureContentResult.Text = Math.Round(moistureContent, 2).ToString() + "%";
         }
@@ -575,7 +575,7 @@ namespace FPIS.Views
                 _isDataValid = true;
                 return;
             }
-            double fatContent = ((float.Parse(massOfExtractedOil) - float.Parse(massOfGlasswareUsed)) /
+            double fatContent = ((float.Parse(massOfGlasswareUsed) - float.Parse(massOfExtractedOil)) /
                 float.Parse(massOfTestSample)) * 100;
             textBoxFatContentResult.Text = Math.Round(fatContent, 2).ToString() + "%";
         }

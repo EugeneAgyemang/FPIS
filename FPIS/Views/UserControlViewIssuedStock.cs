@@ -109,7 +109,7 @@ namespace FPIS.Views
             {
                 AppDbContext dbContext = new();
                 var issuedStocks = from IssuedStock in dbContext.IssuedStocks
-                                   orderby IssuedStock.IssuedDate
+                                   orderby IssuedStock.IssuedDate descending
                                  select new
                                  {
                                      stockItemId = IssuedStock.StockItemId,
@@ -150,7 +150,7 @@ namespace FPIS.Views
                                    from IssuedStock in dbContext.IssuedStocks
                                    where StockItem.Id == IssuedStock.StockItemId
                                    where StockItem.StockItemType == itemCategory
-                                   orderby IssuedStock.IssuedDate
+                                   orderby IssuedStock.IssuedDate descending
                                    select new
                                    {
                                        stockItemId = IssuedStock.StockItemId,
@@ -183,7 +183,7 @@ namespace FPIS.Views
                 AppDbContext dbContext = new();
                 var issuedStocks = from IssuedStock in dbContext.IssuedStocks
                                    where IssuedStock.IssuedDate >= fromDate && IssuedStock.IssuedDate <= toDate
-                                   orderby IssuedStock.IssuedDate
+                                   orderby IssuedStock.IssuedDate descending
                                    select new
                                    {
                                        stockItemId = IssuedStock.StockItemId,
@@ -218,7 +218,7 @@ namespace FPIS.Views
                                    from IssuedStock in dbContext.IssuedStocks
                                    where StockItem.Id == IssuedStock.StockItemId
                                    where IssuedStock.IssuedDate >= fromDate && IssuedStock.IssuedDate <= toDate && StockItem.StockItemType == itemCategory
-                                   orderby IssuedStock.IssuedDate
+                                   orderby IssuedStock.IssuedDate descending
                                    select new
                                    {
                                        stockItemId = IssuedStock.StockItemId,

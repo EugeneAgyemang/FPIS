@@ -29,7 +29,7 @@ namespace FPIS.Views
             float.TryParse(ParameterSpecificationControl.Text, out parameterSpecification);
 
             ValidateFields(ParameterNameControl.Text, ParameterMethodControl.Text, ParameterUnitControl.Text, parameterSpecification, ParameterProductControl.Text, ref shouldSave);
-            
+
             if (!shouldSave)
             {
                 return;
@@ -59,7 +59,7 @@ namespace FPIS.Views
                 (ParameterNameControl.Text,
                 ParameterUnitControl.Text,
                 ParameterMethodControl.Text,
-                parameterSpecification,
+                parameterSpecification.ToString(),
                 product.Id,
                 minSpecification
                 );
@@ -75,7 +75,9 @@ namespace FPIS.Views
             ValidateParameterName(parameterName, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterMethod(parameterMethod, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterUnit(parameterUnit, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateParameterSpecification(parameterSpecification, ref shouldSave, ref isErrorMessageDisplayed);
+            if (ParameterSpecificationControl.Text != "-") {
+                ValidateParameterSpecification(parameterSpecification, ref shouldSave, ref isErrorMessageDisplayed);
+            }
             ValidateParameterProduct(parameterProduct, ref shouldSave, ref isErrorMessageDisplayed);
         }
         public void ValidateParameterName(string parameterName, ref bool shouldSave, ref bool isErrorMessageDisplayed)
@@ -105,10 +107,11 @@ namespace FPIS.Views
             {
                 DisplayErrorMessage(ParameterSpecificationErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
             }
+            
         }
         public void ValidateParameterProduct(string parameterProduct, ref bool shouldSave, ref bool isErrorMessageDisplayed)
         {
-            if(parameterProduct.Length== 0)
+            if (parameterProduct.Length == 0)
             {
                 DisplayErrorMessage(ParameterProductErrorCaption, ref shouldSave, ref isErrorMessageDisplayed);
             }
@@ -117,7 +120,7 @@ namespace FPIS.Views
         float? minSpecification;
         public void CompareSpecificationValues()
         {
-            if(materialTextBoxMinimumSpecification.Text.Length != 0)
+            if (materialTextBoxMinimumSpecification.Text.Length != 0)
             {
                 minSpecification = float.Parse(materialTextBoxMinimumSpecification.Text);
                 if (float.Parse(ParameterSpecificationControl.Text) == minSpecification)
@@ -175,7 +178,7 @@ namespace FPIS.Views
         }
         private void ParameterSpecificationControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+            e.Handled = Utils.Utils.IsCharacterPressedHandledForSpecifications(e.KeyChar);
         }
 
         private void materialTextBoxMinimumSpecification_KeyPress(object sender, KeyPressEventArgs e)

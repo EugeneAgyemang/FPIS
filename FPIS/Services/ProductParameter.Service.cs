@@ -26,7 +26,7 @@ namespace FPIS.Services
             }
             return itExists;
         }
-        public ProductParameter Save(string parameterName, string unit, string method, float specification, Guid productId,float? minSpecification)
+        public ProductParameter Save(string parameterName, string unit, string method, string specification, Guid productId,float? minSpecification)
         {
             AnalysisParameter analysisParameter = appDbContext.AnalysisParameters.Add(
                 new AnalysisParameter(){ Id = new Guid(), ItemType = "Product"  }
@@ -63,7 +63,7 @@ namespace FPIS.Services
                         .ToList();
         }
 
-        public ProductParameter UpdateParameterSpecification(Guid parameterId, string newUnit, string newMethod, float newSpecification, float? newMinSpecification)
+        public ProductParameter UpdateParameterSpecification(Guid parameterId, string newUnit, string newMethod, string newSpecification, float? newMinSpecification)
         {
             ProductParameter productParameter = appDbContext.ProductParameters
                                                                 .FirstOrDefault(productParameter => productParameter.Id == parameterId);

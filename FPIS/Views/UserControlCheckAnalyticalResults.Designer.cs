@@ -35,9 +35,10 @@ namespace FPIS.Views
             ParameterName = new DataGridViewTextBoxColumn();
             ExpectedResult = new DataGridViewTextBoxColumn();
             ActualResult = new DataGridViewTextBoxColumn();
+            Indicator = new DataGridViewTextBoxColumn();
+            Remarks = new DataGridViewTextBoxColumn();
             Variance2 = new DataGridViewTextBoxColumn();
             Variance = new DataGridViewTextBoxColumn();
-            Indicator = new DataGridViewTextBoxColumn();
             checkAnalyticalParameterResultsBindingItemBindingSource1 = new BindingSource(components);
             checkAnalyticalParameterResultsBindingItemBindingSource = new BindingSource(components);
             materialButtonPrintAnalyticalResult = new MaterialSkin.Controls.MaterialButton();
@@ -49,11 +50,6 @@ namespace FPIS.Views
             label4 = new Label();
             dateTimePickerFromDate = new DateTimePicker();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            labelAnalysisRemarkError = new Label();
-            textBoxAnalyticalRemark = new TextBox();
-            materialButtonSaveAnalysisRemark = new MaterialSkin.Controls.MaterialButton();
-            label1 = new Label();
             materialRadioButtonProductAnalysis = new MaterialSkin.Controls.MaterialRadioButton();
             groupBox3 = new GroupBox();
             materialRadioButtonWaterAnalysis = new MaterialSkin.Controls.MaterialRadioButton();
@@ -90,7 +86,6 @@ namespace FPIS.Views
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalParameterResultsBindingItemBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalParameterResultsBindingItemBindingSource).BeginInit();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Finished_Products_With_Results).BeginInit();
             groupBox4.SuspendLayout();
@@ -121,12 +116,13 @@ namespace FPIS.Views
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = SystemColors.Window;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ParameterName, ExpectedResult, ActualResult, Variance2, Variance, Indicator });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ParameterName, ExpectedResult, ActualResult, Indicator, Remarks, Variance2, Variance });
             dataGridView1.Location = new Point(25, 653);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(718, 345);
+            dataGridView1.Size = new Size(1203, 345);
             dataGridView1.TabIndex = 29;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             dataGridView1.DataError += dataGridView1_DataError;
@@ -136,35 +132,24 @@ namespace FPIS.Views
             ParameterName.HeaderText = "Parameter Name";
             ParameterName.MinimumWidth = 6;
             ParameterName.Name = "ParameterName";
-            ParameterName.Width = 133;
+            ParameterName.ReadOnly = true;
+            ParameterName.Width = 260;
             // 
             // ExpectedResult
             // 
             ExpectedResult.HeaderText = "Expected Result";
             ExpectedResult.MinimumWidth = 6;
             ExpectedResult.Name = "ExpectedResult";
-            ExpectedResult.Width = 75;
+            ExpectedResult.ReadOnly = true;
+            ExpectedResult.Width = 150;
             // 
             // ActualResult
             // 
             ActualResult.HeaderText = "Actual Result";
             ActualResult.MinimumWidth = 6;
             ActualResult.Name = "ActualResult";
-            ActualResult.Width = 70;
-            // 
-            // Variance2
-            // 
-            Variance2.HeaderText = "Min Variance";
-            Variance2.MinimumWidth = 6;
-            Variance2.Name = "Variance2";
-            Variance2.Width = 125;
-            // 
-            // Variance
-            // 
-            Variance.HeaderText = "Max Variance ";
-            Variance.MinimumWidth = 6;
-            Variance.Name = "Variance";
-            Variance.Width = 120;
+            ActualResult.ReadOnly = true;
+            ActualResult.Width = 150;
             // 
             // Indicator
             // 
@@ -172,7 +157,32 @@ namespace FPIS.Views
             Indicator.HeaderText = "Indicator";
             Indicator.MinimumWidth = 6;
             Indicator.Name = "Indicator";
-            Indicator.Width = 133;
+            Indicator.ReadOnly = true;
+            Indicator.Width = 150;
+            // 
+            // Remarks
+            // 
+            Remarks.HeaderText = "Remarks";
+            Remarks.MinimumWidth = 6;
+            Remarks.Name = "Remarks";
+            Remarks.ReadOnly = true;
+            Remarks.Width = 426;
+            // 
+            // Variance2
+            // 
+            Variance2.HeaderText = "Min Variance";
+            Variance2.MinimumWidth = 6;
+            Variance2.Name = "Variance2";
+            Variance2.ReadOnly = true;
+            Variance2.Width = 6;
+            // 
+            // Variance
+            // 
+            Variance.HeaderText = "Max Variance ";
+            Variance.MinimumWidth = 6;
+            Variance.Name = "Variance";
+            Variance.ReadOnly = true;
+            Variance.Width = 6;
             // 
             // checkAnalyticalParameterResultsBindingItemBindingSource1
             // 
@@ -191,7 +201,7 @@ namespace FPIS.Views
             materialButtonPrintAnalyticalResult.Depth = 0;
             materialButtonPrintAnalyticalResult.HighEmphasis = true;
             materialButtonPrintAnalyticalResult.Icon = null;
-            materialButtonPrintAnalyticalResult.Location = new Point(349, 1003);
+            materialButtonPrintAnalyticalResult.Location = new Point(612, 1007);
             materialButtonPrintAnalyticalResult.Margin = new Padding(4, 6, 4, 6);
             materialButtonPrintAnalyticalResult.MouseState = MaterialSkin.MouseState.HOVER;
             materialButtonPrintAnalyticalResult.Name = "materialButtonPrintAnalyticalResult";
@@ -307,68 +317,6 @@ namespace FPIS.Views
             groupBox1.TabIndex = 58;
             groupBox1.TabStop = false;
             groupBox1.Text = "Search Filters";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(labelAnalysisRemarkError);
-            groupBox2.Controls.Add(textBoxAnalyticalRemark);
-            groupBox2.Controls.Add(materialButtonSaveAnalysisRemark);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Location = new Point(749, 653);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(479, 345);
-            groupBox2.TabIndex = 59;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Add Analytical Remark";
-            // 
-            // labelAnalysisRemarkError
-            // 
-            labelAnalysisRemarkError.AutoSize = true;
-            labelAnalysisRemarkError.BackColor = SystemColors.Control;
-            labelAnalysisRemarkError.Location = new Point(27, 232);
-            labelAnalysisRemarkError.Name = "labelAnalysisRemarkError";
-            labelAnalysisRemarkError.Size = new Size(177, 20);
-            labelAnalysisRemarkError.TabIndex = 13;
-            labelAnalysisRemarkError.Text = "labelAnalysisRemarkError";
-            // 
-            // textBoxAnalyticalRemark
-            // 
-            textBoxAnalyticalRemark.Location = new Point(30, 109);
-            textBoxAnalyticalRemark.Multiline = true;
-            textBoxAnalyticalRemark.Name = "textBoxAnalyticalRemark";
-            textBoxAnalyticalRemark.Size = new Size(419, 108);
-            textBoxAnalyticalRemark.TabIndex = 60;
-            // 
-            // materialButtonSaveAnalysisRemark
-            // 
-            materialButtonSaveAnalysisRemark.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButtonSaveAnalysisRemark.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
-            materialButtonSaveAnalysisRemark.Cursor = Cursors.Hand;
-            materialButtonSaveAnalysisRemark.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButtonSaveAnalysisRemark.Depth = 0;
-            materialButtonSaveAnalysisRemark.HighEmphasis = true;
-            materialButtonSaveAnalysisRemark.Icon = null;
-            materialButtonSaveAnalysisRemark.Location = new Point(217, 279);
-            materialButtonSaveAnalysisRemark.Margin = new Padding(4, 6, 4, 6);
-            materialButtonSaveAnalysisRemark.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButtonSaveAnalysisRemark.Name = "materialButtonSaveAnalysisRemark";
-            materialButtonSaveAnalysisRemark.NoAccentTextColor = Color.Empty;
-            materialButtonSaveAnalysisRemark.Size = new Size(64, 36);
-            materialButtonSaveAnalysisRemark.TabIndex = 12;
-            materialButtonSaveAnalysisRemark.Text = "Save";
-            materialButtonSaveAnalysisRemark.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButtonSaveAnalysisRemark.UseAccentColor = true;
-            materialButtonSaveAnalysisRemark.UseVisualStyleBackColor = true;
-            materialButtonSaveAnalysisRemark.Click += materialButtonSaveAnalysisRemark_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(29, 76);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 20);
-            label1.TabIndex = 11;
-            label1.Text = "Enter your Remark";
             // 
             // materialRadioButtonProductAnalysis
             // 
@@ -723,7 +671,6 @@ namespace FPIS.Views
             Controls.Add(materialButtonPrintAnalyticalResult);
             Controls.Add(dataGridView_Finished_Products_With_Results);
             Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(dataGridView1);
             Controls.Add(SamplesRequestedOverviewControl);
@@ -736,8 +683,6 @@ namespace FPIS.Views
             ((System.ComponentModel.ISupportInitialize)checkAnalyticalParameterResultsBindingItemBindingSource).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Finished_Products_With_Results).EndInit();
@@ -763,11 +708,6 @@ namespace FPIS.Views
         private DateTimePicker dateTimePickerFromDate;
         private DataGridViewTextBoxColumn SampleResultId;
         private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private Label labelAnalysisRemarkError;
-        private MaterialSkin.Controls.MaterialButton materialButtonSaveAnalysisRemark;
-        private Label label1;
-        private TextBox textBoxAnalyticalRemark;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButtonProductAnalysis;
         private GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialRadioButton materialRadioButtonWaterAnalysis;
@@ -792,12 +732,6 @@ namespace FPIS.Views
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn SampleResultDetailsId;
-        private DataGridViewTextBoxColumn ParameterName;
-        private DataGridViewTextBoxColumn ExpectedResult;
-        private DataGridViewTextBoxColumn ActualResult;
-        private DataGridViewTextBoxColumn Variance2;
-        private DataGridViewTextBoxColumn Variance;
-        private DataGridViewTextBoxColumn Indicator;
         private GroupBox groupBox4;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
@@ -805,5 +739,12 @@ namespace FPIS.Views
         private DateTimePicker dateTimePickerToTime;
         private Label label5;
         private DateTimePicker dateTimePickerFromTime;
+        private DataGridViewTextBoxColumn ParameterName;
+        private DataGridViewTextBoxColumn ExpectedResult;
+        private DataGridViewTextBoxColumn ActualResult;
+        private DataGridViewTextBoxColumn Indicator;
+        private DataGridViewTextBoxColumn Remarks;
+        private DataGridViewTextBoxColumn Variance2;
+        private DataGridViewTextBoxColumn Variance;
     }
 }

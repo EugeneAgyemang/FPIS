@@ -90,7 +90,7 @@ namespace FPIS.Views
             WaterParameter productParameter = waterParameterService.Save
                 (ParameterNameControl.Text,
                 ParameterUnitControl.Text,
-                parameterControlLimit,
+                parameterControlLimit.ToString(),
                 water.Id,
                 minControlLimit);
             if (productParameter != null)
@@ -104,7 +104,11 @@ namespace FPIS.Views
             bool isErrorMessageDisplayed = false;
             ValidateParameterName(parameterName, ref shouldSave, ref isErrorMessageDisplayed);
             ValidateParameterUnit(parameterUnit, ref shouldSave, ref isErrorMessageDisplayed);
-            ValidateParameterControlLimit(parameterControlLimit, ref shouldSave, ref isErrorMessageDisplayed);
+            if (ParameterControlLimitControl.Text != "-")
+            {
+                ValidateParameterControlLimit(parameterControlLimit, ref shouldSave, ref isErrorMessageDisplayed);
+            }
+            
             ValidateParameterWater(parameterWater, ref shouldSave, ref isErrorMessageDisplayed);
         }
         public void ValidateParameterName(string parameterName, ref bool shouldSave, ref bool isErrorMessageDisplayed)
@@ -165,7 +169,7 @@ namespace FPIS.Views
 
         private void ParameterControlLimitControl_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = Utils.Utils.IsCharacterPressedHandled(e.KeyChar);
+            e.Handled = Utils.Utils.IsCharacterPressedHandledForSpecifications(e.KeyChar);
         }
         public void LoadWater()
         {

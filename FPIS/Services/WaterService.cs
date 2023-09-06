@@ -82,6 +82,8 @@ namespace FPIS.Services
             IQueryable<SampleDetail> samplesRequestedQuery = _dbContext.SampleDetails.
                 Include(sd => sd.Sample).
                 Where(sample => sample.Sample.Status.ToLower() == "completed" || sample.Sample.Status.ToLower() == "completed with rejections").
+                OrderByDescending(sample => sample.Sample.Date).
+                ThenByDescending(sample => sample.Sample.Time).
                 Include(sample => sample.Sample.SampleResults).
                 Where(a => a.AnalysisItem.ItemType == "Water").
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisWaters).
@@ -110,6 +112,8 @@ namespace FPIS.Services
                 Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
                 Where(a => a.Sample.Status != "Pending").
                 Where(a => a.AnalysisItem.ItemType == "Water").
+                OrderByDescending(sample => sample.Sample.Date).
+                ThenByDescending(sample => sample.Sample.Time).
                 Include(analysisItem => analysisItem.AnalysisItem.AnalysisWaters).
                 ThenInclude(analysisWater => analysisWater.Water.WaterParameters).
                 ThenInclude(a => a.WaterAnalysisParameters).

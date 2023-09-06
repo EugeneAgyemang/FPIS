@@ -13,7 +13,7 @@ namespace FPIS.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public Guid Id { get; set; }
-        public float? Value { get; set; }
+        public string? Value { get; set; }
         public string? Remarks { get; set; }
 
         // Navigation Properties
