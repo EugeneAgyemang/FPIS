@@ -264,7 +264,7 @@ namespace FPIS.Services
                             Id = new Guid(),
                             Remarks = parameterWithValue.Remarks,
                             SampleResultDetailId = sampleResultDetail.Id,
-                            Value = string.IsNullOrEmpty(parameterWithValue.ParameterValue) == true ? null : parameterWithValue.ParameterValue,
+                            Value = string.IsNullOrEmpty(parameterWithValue.ParameterValue) ? "-" : parameterWithValue.ParameterValue,
                             AnalysisParameterId = new Guid(parameterWithValue.ParameterId)
                         }
                     );
