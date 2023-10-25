@@ -17,5 +17,6 @@
         public string Location { get; set; }
         public string Lot { get; set; }
         public string AnalysisStatus { get; set; }
+        public string ProductName { get; set; }
     }
 }
