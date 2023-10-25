@@ -17,8 +17,8 @@ namespace FPIS.Views
         public AddRawMaterialsAnalysisSampleForm()
         {
             InitializeComponent();
-            Theme.FormInstance = this;
-            Theme.Set(Themes.LIGHT);
+            //Theme.FormInstance = this;
+            //Theme.Set(Themes.LIGHT);
             dataGridView1.DataSource = itemList;
 
             selectedSamples = ProcurementIssueMaterials.analysisItemList.ToArray();
@@ -75,7 +75,8 @@ namespace FPIS.Views
                             Lot = procurementLocation.Lot,
                             Supplier = materialReceived.Supplier,
                             TruckNumber = materialReceived.TruckNumber,
-                            Selected = existingItem != null
+                            Selected = existingItem != null,
+                            ProductName = analysisProduct.Product.ProductName
                         };
 
                         itemList.Add(newItem);
@@ -110,7 +111,7 @@ namespace FPIS.Views
 
 
             // only react if the user clicked on the select item column
-            if (e.ColumnIndex != 6)
+            if (e.ColumnIndex != 7)
             {
                 return;
             }
