@@ -17,8 +17,8 @@ namespace FPIS.Views
         public AddRawMaterialsAnalysisSampleForm()
         {
             InitializeComponent();
-            //Theme.FormInstance = this;
-            //Theme.Set(Themes.LIGHT);
+            Theme.FormInstance = this;
+            Theme.Set(Themes.LIGHT);
             dataGridView1.DataSource = itemList;
 
             selectedSamples = ProcurementIssueMaterials.analysisItemList.ToArray();
