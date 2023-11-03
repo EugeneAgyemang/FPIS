@@ -104,7 +104,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.68556in</Top>
+            <Top>1.43556in</Top>
             <Left>2.30416in</Left>
             <Height>0.45in</Height>
             <Width>3.39167in</Width>
@@ -135,7 +135,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.09667in</Top>
+            <Top>1.84667in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -167,7 +167,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.40222in</Top>
+            <Top>2.15222in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -199,7 +199,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.72167in</Top>
+            <Top>2.47167in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -231,7 +231,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.04111in</Top>
+            <Top>2.79111in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -263,7 +263,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.36056in</Top>
+            <Top>3.11056in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1.24167in</Width>
@@ -295,7 +295,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.68in</Top>
+            <Top>3.43in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -327,7 +327,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.99944in</Top>
+            <Top>3.74944in</Top>
             <Left>0.805in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -359,7 +359,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.09667in</Top>
+            <Top>1.84667in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -391,7 +391,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.41611in</Top>
+            <Top>2.16611in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -423,7 +423,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.73556in</Top>
+            <Top>2.48556in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -455,7 +455,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.04111in</Top>
+            <Top>2.79111in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -487,7 +487,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.36056in</Top>
+            <Top>3.11056in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -519,7 +519,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.68in</Top>
+            <Top>3.43in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -551,7 +551,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>2.99944in</Top>
+            <Top>3.74944in</Top>
             <Left>2.25in</Left>
             <Height>0.25in</Height>
             <Width>2.71333in</Width>
@@ -973,7 +973,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>Analysis_Result_Dataset</DataSetName>
-            <Top>3.405in</Top>
+            <Top>4.155in</Top>
             <Left>0.75708in</Left>
             <Height>0.5in</Height>
             <Width>6.48583in</Width>
@@ -986,21 +986,6 @@
               <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Tablix>
-          <Image Name="Image1">
-            <Source>Embedded</Source>
-            <Value>FujiOilLogo</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>0.13556in</Top>
-            <Left>2.83in</Left>
-            <Height>0.34722in</Height>
-            <Width>3.18333in</Width>
-            <ZIndex>16</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
           <Textbox Name="Textbox54">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1018,11 +1003,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox54</rd:DefaultName>
-            <Top>4.18in</Top>
+            <Top>8.18in</Top>
             <Left>0.73833in</Left>
             <Height>0.25in</Height>
             <Width>3.06667in</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1050,11 +1035,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>4.43in</Top>
+            <Top>8.43in</Top>
             <Left>0.75708in</Left>
             <Height>0.25in</Height>
             <Width>1.69167in</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1066,7 +1051,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>5.43in</Height>
+        <Height>9.31333in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1079,42 +1064,6 @@
           <Height>1in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Textbox Name="Textbox3">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Fractionation Process Integration System (FPIS) - Fuji Oil Ghana Ltd.</Value>
-                      <Style>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>0.75in</Top>
-              <Left>0.11208in</Left>
-              <Height>0.25in</Height>
-              <Width>4.37584in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>

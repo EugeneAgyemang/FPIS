@@ -33,6 +33,18 @@ namespace FPIS.Services
                 .ToList();
         }
 
+        public List<SampleResult> FetchProductSampleResultsForToday(DateOnly fromDate, DateOnly toDate)
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Production")
+                .Where(sr => sr.Sample.Date >= fromDate && sr.Sample.Date <= toDate)
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
         public List<SampleResult> FetchProductSampleResultsByDate(DateOnly fromDate, DateOnly toDate)
         {
             return _dbContext.SampleResults
@@ -64,6 +76,19 @@ namespace FPIS.Services
                 .OrderByDescending(s => s.Time)
                 .Include(sr => sr.Sample)
                 .Where(sr => sr.Sample.TypeForFiltering == "Water")
+                .Include(sr => sr.User)
+                .ToList();
+        }
+
+
+        public List<SampleResult> FetchWaterSampleResultsForToday(DateOnly fromDate, DateOnly toDate)
+        {
+            return _dbContext.SampleResults
+                .OrderByDescending(s => s.Date)
+                .OrderByDescending(s => s.Time)
+                .Include(sr => sr.Sample)
+                .Where(sr => sr.Sample.TypeForFiltering == "Water")
+                .Where(sr => sr.Sample.Date >= fromDate && sr.Sample.Date <= toDate)
                 .Include(sr => sr.User)
                 .ToList();
         }

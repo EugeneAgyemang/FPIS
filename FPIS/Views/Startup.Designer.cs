@@ -28,101 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Startup));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Caption = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            label3 = new Label();
+            label2 = new Label();
+            Caption = new Label();
+            pictureBox1 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.Caption);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(53, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(544, 266);
-            this.panel1.TabIndex = 5;
+            panel1.BackColor = Color.FromArgb(63, 97, 46);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(Caption);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(53, 67);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(544, 266);
+            panel1.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.label3.Font = new System.Drawing.Font("Roboto", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(514, 27);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "FRACTIONATION PROCESS INTEGRATION SYSTEM";
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(63, 97, 46);
+            label3.Font = new Font("Microsoft Sans Serif", 22F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(18, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(610, 29);
+            label3.TabIndex = 6;
+            label3.Text = "FRACTIONATION PROCESS INTEGRATION SYSTEM";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(202, 248);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 14);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Powered by ITS Gh. v1.0.1";
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(63, 97, 46);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(199, 248);
+            label2.Name = "label2";
+            label2.Size = new Size(163, 16);
+            label2.TabIndex = 4;
+            label2.Text = "Powered by ITS Gh. v1.0.9";
             // 
             // Caption
             // 
-            this.Caption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.Caption.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.Caption.ForeColor = System.Drawing.Color.White;
-            this.Caption.Location = new System.Drawing.Point(241, 39);
-            this.Caption.Name = "Caption";
-            this.Caption.Size = new System.Drawing.Size(300, 26);
-            this.Caption.TabIndex = 3;
-            this.Caption.Text = "Loading";
-            this.Caption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Caption.BackColor = Color.FromArgb(63, 97, 46);
+            Caption.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            Caption.ForeColor = Color.White;
+            Caption.Location = new Point(241, 39);
+            Caption.Name = "Caption";
+            Caption.Size = new Size(300, 26);
+            Caption.TabIndex = 3;
+            Caption.Text = "Loading";
+            Caption.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::FPIS.Properties.Resources.I_T_S_GH_Logo_White;
-            this.pictureBox1.Location = new System.Drawing.Point(113, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(314, 286);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.I_T_S_GH_Logo_White;
+            pictureBox1.Location = new Point(113, 20);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(314, 286);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            timer1.Enabled = true;
+            timer1.Interval = 500;
+            timer1.Tick += timer1_Tick;
             // 
             // Startup
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(97)))), ((int)(((byte)(46)))));
-            this.ClientSize = new System.Drawing.Size(650, 400);
-            this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Startup";
-            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.FromArgb(63, 97, 46);
+            ClientSize = new Size(650, 400);
+            Controls.Add(panel1);
+            ForeColor = Color.Black;
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "Startup";
+            Padding = new Padding(3, 0, 3, 3);
+            StartPosition = FormStartPosition.CenterScreen;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

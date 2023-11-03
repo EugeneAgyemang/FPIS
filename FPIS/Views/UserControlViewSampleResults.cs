@@ -18,7 +18,7 @@ namespace FPIS.Views
             _analysisService = new(dbContext);
             _userService = new(dbContext);
 
-            FetchAnalysisResults();
+            FetchAnalysisResultsForToday();
             DisableTimeFilter();
             
         }
@@ -54,6 +54,65 @@ namespace FPIS.Views
             else
             {
                 _sampleResults = _analysisService.FetchWaterSampleResults()
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+        }
+
+
+        void FetchAnalysisResultsForToday()
+        {
+            if (materialRadioButtonProductAnalysis.Checked)
+            {
+                _sampleResults = _analysisService.FetchProductSampleResultsForToday(DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")), DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")))
+                .Select(sr =>
+                {
+                    User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
+                    User prodEngineer2 = _userService.GetUserByEmployeeId(sr.Sample.Employee2);
+                    AnalysisResultDataBindingItem u = new()
+                    {
+                        ProductionEngineerOne = $"{prodEngineer2?.FirstName} {prodEngineer2?.LastName}",
+                        ProductionEngineerTwo = $"{prodEngineer1?.FirstName} {prodEngineer1?.LastName}",
+                        SampleResultId = sr.Id.ToString(),
+                        Name = $"{sr.User.FirstName} {sr.User.MiddleName} {sr.User.LastName}",
+                        AnalysisType = sr.Sample.TypeForFiltering,
+                        ResultDate = $"{sr.Date.ToLongDateString()} @ {sr.Time.ToShortTimeString()}",
+                        Sample = $"{sr.Sample.Date.ToLongDateString()} @ {sr.Sample.Time.ToShortTimeString()}"
+                    };
+
+                    return u;
+                })
+                .ToList();
+
+                dataGridView1.DataSource = _sampleResults;
+
+                //labelSampleResultsTotal.Text = _sampleResults?.Count().ToString() ?? "No results available";
+                labelSampleResultsTotal.Text = _sampleResults?.Count() == 0 ? "No results available" : ($"{_sampleResults?.Count()} result{((_sampleResults?.Count() > 1) ? "s" : "")} available");
+            }
+            else
+            {
+                _sampleResults = _analysisService.FetchWaterSampleResultsForToday(DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")), DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")))
                 .Select(sr =>
                 {
                     User prodEngineer1 = _userService.GetUserByEmployeeId(sr.Sample.Employee1);
@@ -231,13 +290,13 @@ namespace FPIS.Views
         private void materialRadioButtonProductAnalysis_CheckedChanged(object sender, EventArgs e)
         {
             DisableTimeFilter();
-            FetchAnalysisResults();
+            FetchAnalysisResultsForToday();
         }
 
         private void materialRadioButtonWaterAnalysis_CheckedChanged(object sender, EventArgs e)
         {
             DisableTimeFilter();
-            FetchAnalysisResults();
+            FetchAnalysisResultsForToday();
         }
 
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)

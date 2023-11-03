@@ -24,7 +24,7 @@ namespace FPIS.Views
         public UserControlViewCertificateOfAnalysis()
         {
             InitializeComponent();
-            LoadFinishedProducts();
+            LoadFinishedProductsForToday(DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")), DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")));
             LoadProductType();
             Align_Some_DataGridView_Content_ToCenter();
             materialButtonGenerateCertificateOfAnalysis.Enabled = false;
@@ -147,6 +147,48 @@ namespace FPIS.Views
                 AppDbContext dbContext = new();
                 var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
                                        where FinishedProduct.ProductType == productType
+                                       orderby FinishedProduct.Date
+                                       from Designation in dbContext.Designations
+                                       where Designation.DesignationName.ToLower().Trim() == "quality control manager"
+                                       from User in dbContext.Users
+                                       where User.DesignationId == Designation.Id
+                                       select new
+                                       {
+                                           consignee = FinishedProduct.Consignee,
+                                           productName = FinishedProduct.ProductType,
+                                           label = FinishedProduct.Label,
+                                           productType = FinishedProduct.ProductType + " " + FinishedProduct.Label,
+                                           batchNumber = FinishedProduct.BatchNumber,
+                                           containerNumber = FinishedProduct.ContainerNumber,
+                                           sealNumber = FinishedProduct.SealNumber,
+                                           quantity = FinishedProduct.Quantity,
+                                           date = FinishedProduct.Date,
+                                           sampleResultID = FinishedProduct.SampleResultId,
+                                           managerName = User.FirstName + " " + User.MiddleName + " " + User.LastName,
+                                       };
+                dataGridViewFinishedProducts.Rows.Clear();
+                foreach (var items in finishedProducts)
+                {
+                    dataGridViewFinishedProducts.Rows.Add(items.consignee, items.productName, items.label, items.productType, items.batchNumber, items.containerNumber, items.sealNumber, items.quantity, items.date, items.managerName, items.sampleResultID);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Finished Products: {ex}");
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
+            }
+        }
+
+
+        private void LoadFinishedProductsForToday(DateOnly fromDate, DateOnly toDate)
+        {
+            ClearErrorLabels();
+            try
+            {
+                AppDbContext dbContext = new();
+                var finishedProducts = from FinishedProduct in dbContext.FinishedProducts
+                                       where FinishedProduct.Date >= fromDate && FinishedProduct.Date <= toDate
                                        orderby FinishedProduct.Date
                                        from Designation in dbContext.Designations
                                        where Designation.DesignationName.ToLower().Trim() == "quality control manager"
