@@ -905,7 +905,7 @@
             materialTextBoxMassOfExtractedOil.BorderStyle = BorderStyle.None;
             materialTextBoxMassOfExtractedOil.Depth = 0;
             materialTextBoxMassOfExtractedOil.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBoxMassOfExtractedOil.Hint = "Mass of Extracted Oil";
+            materialTextBoxMassOfExtractedOil.Hint = "Mass of Empty Glassware";
             materialTextBoxMassOfExtractedOil.LeadingIcon = null;
             materialTextBoxMassOfExtractedOil.Location = new Point(42, 202);
             materialTextBoxMassOfExtractedOil.MaxLength = 50;
@@ -1143,7 +1143,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoScrollMinSize = new Size(0, 1096);
-            ClientSize = new Size(1370, 1102);
+            ClientSize = new Size(1388, 1102);
             Controls.Add(groupBox7);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);

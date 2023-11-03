@@ -122,6 +122,34 @@ namespace FPIS.Services
 
         }
 
+        public List<SampleDetail> GetProductsWithAnalysisResultsForToday(DateOnly fromDate, DateOnly toDate, string productName = "")
+        {
+            IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Where(a => a.Sample.Status != "Pending").
+                Where(a => a.AnalysisItem.ItemType == "Product").
+                OrderByDescending(sample => sample.Sample.Date).
+                ThenByDescending(sample => sample.Sample.Time).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisProducts).
+                ThenInclude(analysisProduct => analysisProduct.Product.ProductParameters).
+                ThenInclude(a => a.ProductAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (productName != string.Empty)
+            {
+                productSamplesRequestedQuery = productSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == productName);
+
+            }
+
+
+            return productSamplesRequestedQuery.ToList();
+
+        }
+
         public List<SampleDetail> GetProductsWithAnalysisResultsPerDate(DateOnly fromDate, DateOnly toDate, string productName = "")
         {
             IQueryable<SampleDetail> productSamplesRequestedQuery = _dbContext.SampleDetails.

@@ -42,17 +42,6 @@
             materialTextBoxBatchNumber = new MaterialSkin.Controls.MaterialTextBox();
             materialTextBoxCosignee = new MaterialSkin.Controls.MaterialTextBox();
             dataGridView_Finished_Products_With_Results = new DataGridView();
-            groupBox2 = new GroupBox();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            materialComboBoxFinishedProduct = new MaterialSkin.Controls.MaterialComboBox();
-            label2 = new Label();
-            groupBox3 = new GroupBox();
-            materialButtonSearchAnalyticalResults = new MaterialSkin.Controls.MaterialButton();
-            label3 = new Label();
-            dateTimePickerToDate = new DateTimePicker();
-            label4 = new Label();
-            dateTimePickerFromDate = new DateTimePicker();
-            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             SampleDetailsID = new DataGridViewTextBoxColumn();
             ProductName = new DataGridViewTextBoxColumn();
             ProductType = new DataGridViewTextBoxColumn();
@@ -61,6 +50,18 @@
             AnalysisRequestTime = new DataGridViewTextBoxColumn();
             AnalysisResultDate = new DataGridViewTextBoxColumn();
             AnalysisResultTime = new DataGridViewTextBoxColumn();
+            groupBox2 = new GroupBox();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            materialComboBoxFinishedProduct = new MaterialSkin.Controls.MaterialComboBox();
+            label2 = new Label();
+            groupBox3 = new GroupBox();
+            materialButtonShowAll = new MaterialSkin.Controls.MaterialButton();
+            materialButtonSearchAnalyticalResults = new MaterialSkin.Controls.MaterialButton();
+            label3 = new Label();
+            dateTimePickerToDate = new DateTimePicker();
+            label4 = new Label();
+            dateTimePickerFromDate = new DateTimePicker();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Finished_Products_With_Results).BeginInit();
             groupBox2.SuspendLayout();
@@ -283,6 +284,73 @@
             dataGridView_Finished_Products_With_Results.TabIndex = 11;
             dataGridView_Finished_Products_With_Results.CellClick += dataGridView_Finished_Products_With_Results_CellClick;
             // 
+            // SampleDetailsID
+            // 
+            SampleDetailsID.HeaderText = "Sample Details ID";
+            SampleDetailsID.MinimumWidth = 6;
+            SampleDetailsID.Name = "SampleDetailsID";
+            SampleDetailsID.ReadOnly = true;
+            SampleDetailsID.Visible = false;
+            SampleDetailsID.Width = 125;
+            // 
+            // ProductName
+            // 
+            ProductName.HeaderText = "Product Name";
+            ProductName.MinimumWidth = 6;
+            ProductName.Name = "ProductName";
+            ProductName.ReadOnly = true;
+            ProductName.Width = 200;
+            // 
+            // ProductType
+            // 
+            ProductType.HeaderText = "Product Type";
+            ProductType.MinimumWidth = 6;
+            ProductType.Name = "ProductType";
+            ProductType.ReadOnly = true;
+            ProductType.Visible = false;
+            ProductType.Width = 125;
+            // 
+            // Label
+            // 
+            Label.HeaderText = "Label";
+            Label.MinimumWidth = 6;
+            Label.Name = "Label";
+            Label.ReadOnly = true;
+            Label.Visible = false;
+            Label.Width = 125;
+            // 
+            // AnalysisRequestDate
+            // 
+            AnalysisRequestDate.HeaderText = "Analysis Request Date";
+            AnalysisRequestDate.MinimumWidth = 6;
+            AnalysisRequestDate.Name = "AnalysisRequestDate";
+            AnalysisRequestDate.ReadOnly = true;
+            AnalysisRequestDate.Width = 163;
+            // 
+            // AnalysisRequestTime
+            // 
+            AnalysisRequestTime.HeaderText = "Analysis Request Time";
+            AnalysisRequestTime.MinimumWidth = 6;
+            AnalysisRequestTime.Name = "AnalysisRequestTime";
+            AnalysisRequestTime.ReadOnly = true;
+            AnalysisRequestTime.Width = 164;
+            // 
+            // AnalysisResultDate
+            // 
+            AnalysisResultDate.HeaderText = "Analysis Result Date";
+            AnalysisResultDate.MinimumWidth = 6;
+            AnalysisResultDate.Name = "AnalysisResultDate";
+            AnalysisResultDate.ReadOnly = true;
+            AnalysisResultDate.Width = 163;
+            // 
+            // AnalysisResultTime
+            // 
+            AnalysisResultTime.HeaderText = "Analysis Result Time";
+            AnalysisResultTime.MinimumWidth = 6;
+            AnalysisResultTime.Name = "AnalysisResultTime";
+            AnalysisResultTime.ReadOnly = true;
+            AnalysisResultTime.Width = 162;
+            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(materialButton1);
@@ -353,6 +421,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(materialButtonShowAll);
             groupBox3.Controls.Add(materialButtonSearchAnalyticalResults);
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(dateTimePickerToDate);
@@ -365,6 +434,28 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Search by Analysis Result Date";
             // 
+            // materialButtonShowAll
+            // 
+            materialButtonShowAll.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButtonShowAll.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            materialButtonShowAll.Cursor = Cursors.Hand;
+            materialButtonShowAll.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButtonShowAll.Depth = 0;
+            materialButtonShowAll.HighEmphasis = true;
+            materialButtonShowAll.Icon = null;
+            materialButtonShowAll.Location = new Point(762, 36);
+            materialButtonShowAll.Margin = new Padding(5);
+            materialButtonShowAll.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButtonShowAll.Name = "materialButtonShowAll";
+            materialButtonShowAll.NoAccentTextColor = Color.Empty;
+            materialButtonShowAll.Size = new Size(93, 36);
+            materialButtonShowAll.TabIndex = 49;
+            materialButtonShowAll.Text = "Show All";
+            materialButtonShowAll.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButtonShowAll.UseAccentColor = true;
+            materialButtonShowAll.UseVisualStyleBackColor = true;
+            materialButtonShowAll.Click += materialButtonShowAll_Click;
+            // 
             // materialButtonSearchAnalyticalResults
             // 
             materialButtonSearchAnalyticalResults.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -374,7 +465,7 @@
             materialButtonSearchAnalyticalResults.Depth = 0;
             materialButtonSearchAnalyticalResults.HighEmphasis = true;
             materialButtonSearchAnalyticalResults.Icon = null;
-            materialButtonSearchAnalyticalResults.Location = new Point(698, 36);
+            materialButtonSearchAnalyticalResults.Location = new Point(665, 36);
             materialButtonSearchAnalyticalResults.Margin = new Padding(5);
             materialButtonSearchAnalyticalResults.MouseState = MaterialSkin.MouseState.HOVER;
             materialButtonSearchAnalyticalResults.Name = "materialButtonSearchAnalyticalResults";
@@ -390,7 +481,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(378, 51);
+            label3.Location = new Point(350, 51);
             label3.Name = "label3";
             label3.Size = new Size(32, 20);
             label3.TabIndex = 48;
@@ -398,7 +489,7 @@
             // 
             // dateTimePickerToDate
             // 
-            dateTimePickerToDate.Location = new Point(417, 47);
+            dateTimePickerToDate.Location = new Point(389, 47);
             dateTimePickerToDate.Name = "dateTimePickerToDate";
             dateTimePickerToDate.Size = new Size(250, 27);
             dateTimePickerToDate.TabIndex = 47;
@@ -406,7 +497,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(45, 51);
+            label4.Location = new Point(17, 51);
             label4.Name = "label4";
             label4.Size = new Size(50, 20);
             label4.TabIndex = 45;
@@ -414,7 +505,7 @@
             // 
             // dateTimePickerFromDate
             // 
-            dateTimePickerFromDate.Location = new Point(101, 47);
+            dateTimePickerFromDate.Location = new Point(73, 47);
             dateTimePickerFromDate.Name = "dateTimePickerFromDate";
             dateTimePickerFromDate.Size = new Size(250, 27);
             dateTimePickerFromDate.TabIndex = 44;
@@ -431,73 +522,6 @@
             materialLabel1.Size = new Size(191, 24);
             materialLabel1.TabIndex = 15;
             materialLabel1.Text = "Add Finished Product";
-            // 
-            // SampleDetailsID
-            // 
-            SampleDetailsID.HeaderText = "Sample Details ID";
-            SampleDetailsID.MinimumWidth = 6;
-            SampleDetailsID.Name = "SampleDetailsID";
-            SampleDetailsID.ReadOnly = true;
-            SampleDetailsID.Visible = false;
-            SampleDetailsID.Width = 125;
-            // 
-            // ProductName
-            // 
-            ProductName.HeaderText = "Product Name";
-            ProductName.MinimumWidth = 6;
-            ProductName.Name = "ProductName";
-            ProductName.ReadOnly = true;
-            ProductName.Width = 200;
-            // 
-            // ProductType
-            // 
-            ProductType.HeaderText = "Product Type";
-            ProductType.MinimumWidth = 6;
-            ProductType.Name = "ProductType";
-            ProductType.ReadOnly = true;
-            ProductType.Visible = false;
-            ProductType.Width = 125;
-            // 
-            // Label
-            // 
-            Label.HeaderText = "Label";
-            Label.MinimumWidth = 6;
-            Label.Name = "Label";
-            Label.ReadOnly = true;
-            Label.Visible = false;
-            Label.Width = 125;
-            // 
-            // AnalysisRequestDate
-            // 
-            AnalysisRequestDate.HeaderText = "Analysis Request Date";
-            AnalysisRequestDate.MinimumWidth = 6;
-            AnalysisRequestDate.Name = "AnalysisRequestDate";
-            AnalysisRequestDate.ReadOnly = true;
-            AnalysisRequestDate.Width = 163;
-            // 
-            // AnalysisRequestTime
-            // 
-            AnalysisRequestTime.HeaderText = "Analysis Request Time";
-            AnalysisRequestTime.MinimumWidth = 6;
-            AnalysisRequestTime.Name = "AnalysisRequestTime";
-            AnalysisRequestTime.ReadOnly = true;
-            AnalysisRequestTime.Width = 164;
-            // 
-            // AnalysisResultDate
-            // 
-            AnalysisResultDate.HeaderText = "Analysis Result Date";
-            AnalysisResultDate.MinimumWidth = 6;
-            AnalysisResultDate.Name = "AnalysisResultDate";
-            AnalysisResultDate.ReadOnly = true;
-            AnalysisResultDate.Width = 163;
-            // 
-            // AnalysisResultTime
-            // 
-            AnalysisResultTime.HeaderText = "Analysis Result Time";
-            AnalysisResultTime.MinimumWidth = 6;
-            AnalysisResultTime.Name = "AnalysisResultTime";
-            AnalysisResultTime.ReadOnly = true;
-            AnalysisResultTime.Width = 162;
             // 
             // UserControlAddFinishedProduct
             // 
@@ -557,5 +581,6 @@
         private DataGridViewTextBoxColumn AnalysisRequestTime;
         private DataGridViewTextBoxColumn AnalysisResultDate;
         private DataGridViewTextBoxColumn AnalysisResultTime;
+        private MaterialSkin.Controls.MaterialButton materialButtonShowAll;
     }
 }

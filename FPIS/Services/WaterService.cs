@@ -105,6 +105,34 @@ namespace FPIS.Services
 
         }
 
+        public List<SampleDetail> GetWatersWithAnalysisResultsForToday(DateOnly fromDate, DateOnly toDate, string waterName = "")
+        {
+            IQueryable<SampleDetail> waterSamplesRequestedQuery = _dbContext.SampleDetails.
+                Include(sd => sd.Sample).
+                Where(a => a.Sample.Date >= fromDate && a.Sample.Date <= toDate).
+                Where(a => a.Sample.Status != "Pending").
+                Where(a => a.AnalysisItem.ItemType == "Water").
+                OrderByDescending(sample => sample.Sample.Date).
+                ThenByDescending(sample => sample.Sample.Time).
+                Include(analysisItem => analysisItem.AnalysisItem.AnalysisWaters).
+                ThenInclude(analysisWater => analysisWater.Water.WaterParameters).
+                ThenInclude(a => a.WaterAnalysisParameters).
+                ThenInclude(a => a.AnalysisParameter.sampleResultsDetailsWithParameters).
+                ThenInclude(a => a.SampleResultDetail.SampleResult);
+
+
+            if (waterName != string.Empty)
+            {
+                waterSamplesRequestedQuery = waterSamplesRequestedQuery.
+                Where(a => a.AnalysisItem.AnalysisProducts.FirstOrDefault().Product.ProductName == waterName);
+
+            }
+
+
+            return waterSamplesRequestedQuery.ToList();
+
+        }
+
         public List<SampleDetail> GetWatersWithAnalysisResultsPerDate(DateOnly fromDate, DateOnly toDate, string waterName = "")
         {
             IQueryable<SampleDetail> waterSamplesRequestedQuery = _dbContext.SampleDetails.

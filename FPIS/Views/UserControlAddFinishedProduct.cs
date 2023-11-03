@@ -183,6 +183,50 @@ namespace FPIS.Views
             }
         }
 
+
+        private void LoadFinishedProductsWithAnalysisResultsForToday(DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                AppDbContext dbContext = new();
+                var finishedProduct = from Product in dbContext.Products
+                                      where Product.ProductName == materialComboBoxFinishedProduct.Text.Trim()
+                                      from AnalysisProduct in dbContext.AnalysisProducts
+                                      where AnalysisProduct.ProductId == Product.Id
+                                      from SampleDetail in dbContext.SampleDetails
+                                      where SampleDetail.AnalysisItemId == AnalysisProduct.AnalysisItemId
+                                      from Sample in dbContext.Samples
+                                      where Sample.Id == SampleDetail.SampleId
+                                      from SampleResult in dbContext.SampleResults
+                                      where SampleResult.SampleId == SampleDetail.SampleId
+                                      where SampleResult.Date >= fromDate && SampleResult.Date <= toDate
+                                      orderby SampleResult.Date descending
+                                      select new
+                                      {
+                                          sampleDetailsID = SampleDetail.Id,
+                                          finishedProduct = Product.ProductName + " " + SampleDetail.Label,
+                                          productType = Product.ProductName,
+                                          label = SampleDetail.Label,
+                                          analysisRequestDate = Sample.Date,
+                                          analysisRequestTime = Sample.Time,
+                                          analysisResultDate = SampleResult.Date,
+                                          analysisResultTime = SampleResult.Time
+
+                                      };
+                dataGridView_Finished_Products_With_Results.Rows.Clear();
+                foreach (var items in finishedProduct)
+                {
+                    dataGridView_Finished_Products_With_Results.Rows.Add(items.sampleDetailsID, items.finishedProduct, items.productType, items.label, items.analysisRequestDate, items.analysisRequestTime, items.analysisResultDate, items.analysisResultTime);
+                }
+                dbContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error Loading Departments: {ex}");
+                Utils.Utils.ShowMessageBox(ex.ToString(), "Error Occured");
+            }
+        }
+
         private void LoadFinishedProductsWithAnalysisResultsByDate(DateOnly fromDate, DateOnly toDate)
         {
             try
@@ -316,7 +360,7 @@ namespace FPIS.Views
             }
             else
             {
-                LoadFinishedProductsWithAnalysisResults();
+                LoadFinishedProductsWithAnalysisResultsForToday(DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")), DateOnly.Parse(DateTime.Now.ToString("MM/dd/yyyy")));
                 ClearFormFields();
             }
         }
@@ -343,6 +387,27 @@ namespace FPIS.Views
         private void materialButtonSearchAnalyticalResults_Click(object sender, EventArgs e)
         {
             LoadFinishedProductsWithAnalysisResultsByDate(DateOnly.Parse(dateTimePickerFromDate.Text), DateOnly.Parse(dateTimePickerToDate.Text));
+        }
+
+        private void materialButtonShowAll_Click(object sender, EventArgs e)
+        {
+            ClearErrorLabels();
+            materialButtonAddFinishedProduct.Enabled = false;
+            if (materialComboBoxFinishedProduct.Text.Length == 0)
+            {
+                MessageBox.Show(
+                     "Select a Finished Product to Add",
+                     "Invalid Input",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                 );
+            }
+            else
+            {
+                LoadFinishedProductsWithAnalysisResults();
+                ClearFormFields();
+            }
+
         }
     }
 }
